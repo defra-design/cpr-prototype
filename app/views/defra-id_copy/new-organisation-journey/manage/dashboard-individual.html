@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="account">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% set orgName = data['orgName'] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      Account for
+    </span>
+    <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
+      Ann Cooper
+    </h1>
+
+    <!--
+    <details class="govuk-details {{ orgSwitch }}">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Change account
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list ">
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org&numUsers=12&numAgents=1&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Acme Org</a></li>
+            <ul class="govuk-list govuk-list--indent">
+              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Acme Org India</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org Costa Rica&numUsers=6&numAgents=0&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Acme Org Costa Rica</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org Bali&numUsers=5&numAgents=3&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Acme Org Bali</a></li>
+            </ul>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=FarmerRUS&numUsers=2&numAgents=14&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">FarmerRUS</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Importers RUS</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Client2.com&numUsers=5&numAgents=3&numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager">Client2.com</a></li>
+        </ul>
+      </div>
+    </details>
+  -->
+  </div>
+</div>
+
+ {% set addUserURL = "/manage/team-members/invite-user/add-user-details" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="{{ teamMemberURL }}"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Share access</a></h3>
+        </div>
+      </div>
+
+    </div>
+
+  <!--  <div class="govuk-grid-column-one-third">
+
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="{{ agentURL }}"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m"><a href="{{ agentURL }}" class="govuk-link--no-visited-state">Manage intermediary access
+        </a></h3>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numAgents'] }}</p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="/manage/agent/invite-user/add-user-details" class="govuk-link--no-visited-state">Add an intermediary</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  -->
+
+    <div class="govuk-grid-column-one-third">
+
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="{{locationURL}}"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Update your address</a></h3>
+          <!--
+          <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numLocations'] }}</p>
+        -->
+        </div>
+        <!--<div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="{{addLocationURL}}" class="govuk-link--no-visited-state">Add a location</a></li>
+          </ul>
+        </div>
+      -->
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-card__content">
+        <h2 class="govuk-heading-l">Your registered services</h2>
+
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-one-third">
+            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+                <div class="govuk-card__content">
+                  <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+                  <p class="govuk-body">{{ data['service'] }}
+                  <!--
+                  <p class="govuk-body">Report unfavourable or unintended events that occur after use of veterinary medicine.
+                  -->
+                  </p>
+                </div>
+              </div>
+          </div>
+
+
+
+        </div>
+
+      <!--  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            {{ govukButton({
+              text: "Register for another service",
+              href: "#"
+            }) }}
+          </div>
+        </div>
+
+      -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}

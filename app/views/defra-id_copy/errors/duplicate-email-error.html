@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set title = "This email address is already in use" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">There is an existing Defra account that is associated with this email address.</p>
+
+    <p class="govuk-body">You can either sign in with the Government Gateway credentials originally associated with this email address or you can register again using a different email address.</p>
+
+    <p class="govuk-body">Please sign out below and return to the service.</p>
+
+    {{ govukButton({
+      text: "Sign out",
+      href: "/signed-out"
+    }) }}
+
+    <p class="govuk-body-s">Error code: xxxxxxxx</p>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

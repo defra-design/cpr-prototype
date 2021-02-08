@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="#" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{title}}
+            </h1>
+          </legend>
+          <p class="govuk-body">To help keep your accont safe, we've introduced security words. Your security word helps us to verify your identity if you need to contact us.
+            <h2 class="govuk-heading-l">Create your security word</h2>
+
+            <p class="govuk-body">The word must:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>be alphanumeric</li>
+              <li>contain between 6 and 12 characters (not case sensitive)</li>
+              <li>contain no spaces or special characters</li>
+            </ul>
+
+
+            {{ govukInput({
+              id: "securityNum",
+              name: "securityNum",
+              value: data['securityNum'],
+              type: "text",
+              classes: "govuk-!-width-one-third",
+              label: {
+                text: "Your security word"
+              }
+            }) }}
+
+            {{ govukCharacterCount({
+              id: "securityHint",
+              name: "securityHint",
+              value: data['securityHint'],
+              classes: "govuk-!-width-two-thirds",
+              maxlength: 100,
+              rows: 2,
+              label: {
+                text: "Your hint question"
+              },
+              hint: {
+                text: "Provide a hint question that will help you remember your security word."
+              }
+            }) }}
+
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

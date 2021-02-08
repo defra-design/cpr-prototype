@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% set title = "Where is your charity registered and what is the registered charity number?" %}
+
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="charity-address-manual" method="post">
+
+
+  {% set britishNumber %}
+    {{ govukInput({
+      id: "british-number",
+      name: "british-number",
+      type: "text",
+      classes: "govuk-!-width-one-third",
+      hint: {
+        text: "For example, 1004005."
+      },
+      label: {
+        text: "Registered charity number"
+      }
+    }) }}
+  {% endset -%}
+
+  {% set niNumber %}
+    {{ govukInput({
+      id: "ni-number",
+      name: "ni-number",
+      type: "text",
+      classes: "govuk-!-width-one-third",
+      hint: {
+        text: "For example, NIC100002 or 100002."
+      },
+      label: {
+        text: "Registered charity number"
+      }
+    }) }}
+  {% endset -%}
+
+  {% set scotlandNumber %}
+    {{ govukInput({
+      id: "scotland-number",
+      name: "scotland-number",
+      type: "text",
+      classes: "govuk-!-width-one-third",
+      hint: {
+        text: "For example, SC000022."
+      },
+      label: {
+        text: "Registered charity number"
+      }
+    }) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    idPrefix: "registered-charity",
+    name: "registered-charity",
+    fieldset: {
+      legend: {
+        text: title,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Select one option."
+    },
+    items: [
+      {
+        value: "british",
+        text: "England and Wales",
+        conditional: {
+          html: britishNumber
+        }
+      },
+      {
+        value: "scotland",
+        text: "Scotland",
+        conditional: {
+          html: scotlandNumber
+        }
+      },
+      {
+        value: "NI",
+        text: "Northern Island",
+        conditional: {
+          html: niNumber
+        }
+      }
+    ]
+  }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

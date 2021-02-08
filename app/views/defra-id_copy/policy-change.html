@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="#" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{title}}
+            </h1>
+          </legend>
+          <p class="govuk-body">Please read the updated service information for Your Defra account.
+
+          {% if data['policyChange'] == "Both" %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="privacy-notice">Privacy notice</a></li>
+            </ul>
+          {% endif %}
+
+          {% if data['policyChange'] == "Privacy" %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="privacy-notice">Privacy notice</a></li>
+            </ul>
+          {% endif %}
+
+          {% if (data['policyChange'] == "Terms") or (data['policyChange'] == "Both") %}
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+                <label class="govuk-label govuk-checkboxes__label" for="terms">
+                  I have read and agree to the <a href="/terms">Terms and conditions</a>.
+                </label>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if (data['policyChange'] == "Cookies") or (data['policyChange'] == "Both") %}
+            <br>
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+                <label class="govuk-label govuk-checkboxes__label" for="terms">
+                  I accept the <a href="/cookie-policy">cookie settings</a>.
+                </label>
+              </div>
+            </div>
+          {% endif %}
+
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

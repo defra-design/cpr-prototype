@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% set title = "Service name" %}
+
+
+{% block header %}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
+  {% endif %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") or (data['userType'] == "new") %}
+          {% if (data['orgType'] == "Individual")%}
+              {% include "includes/account-nav-admin-individual.html" %}
+          {% else %}
+              {% include "includes/account-nav-admin-corp.html" %}
+          {% endif %}
+  {% endif %}
+
+  {% if (data['userType'] == "existing") and (data['systemRole'] == "Standard user") %}
+          {% include "includes/account-nav-standard-account.html" %}
+  {% endif %}
+
+  {% if data['userType'] == "existing-agent" %}
+        {% include "includes/account-nav-admin-agent-account.html" %}
+  {% endif %}
+
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data['serviceLine'] }} (Demo)
+      </h1>
+
+      {% from "inset-text/macro.njk" import govukInsetText %}
+
+        {{ govukInsetText({
+        text: "Demo Service page. This is a Service page and shows example content."
+      }) }}
+
+      <p class="govuk-body">Please select which account you wish to work on today:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org</a></li>
+          <ul class="govuk-list govuk-list--indent">
+          {% if (data['addAccount'] == "related") %}
+            <li><a href="/manage/dashboard-child?childName=Acme Org China&multiOrg=yes&parentChild=child&numServices=0" class="govuk-link--no-visited-state">Acme Org China</a></li>
+          {% endif %}
+            <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org India</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org Thailand</a></li>
+          </ul>
+        {% if data['addAccount'] == "account" %}
+          <li><a class="govuk-link govuk-link--no-visited-state" href="">Chemcial R US</a></li>
+        {% endif %}
+      </ul>
+
+    </div>
+
+
+  </div>
+
+{% endblock %}

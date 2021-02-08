@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter the mobile phone number" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govk-body">We will send an access code to this mobile phone by text message.</p>
+
+      <form action="mfa-code" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Mobile phone number",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-10  govuk-!-display-inline",
+          id: "mobile-UK",
+          name: "mobile-UK",
+          value: mobile-UK
+        }) }}
+
+        {% if data['mfa-type'] == "text" %}
+          {{ govukButton({
+            text: "Send access code"
+          }) }}
+        {% endif %}
+
+        {% if data['mfa-type'] == "voice" %}
+          {{ govukButton({
+            text: "Call me"
+          }) }}
+        {% endif %}
+
+      </form>
+      <p><a href="#">Choose a different way to get access codes</a></p>
+      <p class="govuk-body"><a href="#">Get help with this page</a></p>
+  </div>
+</div>
+
+{% endblock %}

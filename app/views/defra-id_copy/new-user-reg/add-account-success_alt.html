@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% set title = "Account added" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "The account has been added"
+    })
+    }}
+
+    <p class="govuk-body">The account <b>[account name]</b> has been added and will now be shown on Your Defra account page.</p>
+
+    <h3 class="govuk-heading-m">Available Services</h3>
+
+    <p class="govuk-body">The following services are available for you to register this account with. To register click the links below.</p>
+
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          VMD Secure Messaging
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing&serviceLine=VMD Secure Messaging">Register</a>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Notification service
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/service-start-logged-out-imports?userType=existing&serviceLine=Notification service">Register</a>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Comply with REACH IT
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT">Register</a>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+<!--
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">VMD Secure Messaging</th>
+            <td class="govuk-table__cell"><a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing&serviceLine=VMD Secure Messaging">Register</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Notification service</th>
+            <td class="govuk-table__cell"><a class="govuk-link" href="/service-start-logged-out-imports?userType=existing&serviceLine=Notification service">Register</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Comply with REACH IT</th>
+            <td class="govuk-table__cell"><a class="govuk-link" href="/service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT">Register</a></td>
+          </tr>
+        </tbody>
+      </table>
+-->
+{% if data['orgType'] == "Individual" %}
+    <p><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)" class="govuk-link" href="#">Continue without registering the account [account name] in a service</a></p>
+{% else %}
+    {% if data['addAccount'] == "account" %}
+        <p><a href="/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=0&numLocations=1&multiOrg=no&parentChild=parent" class="govuk-link" href="#">Continue to account</a></p>
+    {% endif %}
+    {% if data['addAccount'] == "related" %}
+      <p><a href="/manage/dashboard-child?childName=Acme Org China &numUsers=1&numAgents=0&numServices=1&multiOrg=yes&parentChild=child#rel-org" class="govuk-link">Continue without registering the account [account name] in a service</a></p>
+    {% endif %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

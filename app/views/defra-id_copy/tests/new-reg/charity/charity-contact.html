@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% set title = "What are the main contact details for the charity?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{% if data['userType'] == "existing" %}
+    <form action="check-your-answers-add-account" method="post">
+{% else %}
+
+      {% if data['flowType'] == "check" %}
+        <form method="post" action="check-your-answers">
+      {% endif %}
+      {% if data['flowType'] == "task" %}
+        <form method="post" action="task-list-page-company-contact">
+      {% endif %}
+{% endif %}
+
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+      <span class="govuk-hint">
+      These could be details included on the website, or contact details for the head office or management team.
+These could be the details you include on the website, or contact details for the head office or management team.
+      </span>
+      </br>
+
+      {{ govukInput({
+        label: {
+          text: "Telephone number"
+        },
+        classes: "govuk-input--width-10",
+        id: "businessTelephone",
+        name: "businessTelephone",
+        value: data['businessTelephone'],
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-input--width-20",
+        id: "businessEmail",
+        name: "businessEmail",
+        value: data['businessEmail'],
+        type: "email"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

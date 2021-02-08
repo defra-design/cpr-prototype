@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% set title = "You already have an individual account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">You have already created an individual account and cannot create another one. You can use your existing individual account to register for Defra services.</p>
+    <p class="govuk-body">Select 'Back' to change the account type, select "Continue" to return to Your Defra account.</p>
+  </div>
+</div>
+{{ govukButton({
+  text: "Continue",
+  href: "/manage/team-members/services-on-team-member-admin-account_onlyrep"
+}) }}
+
+
+{% endblock %}

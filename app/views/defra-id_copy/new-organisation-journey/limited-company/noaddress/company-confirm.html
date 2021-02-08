@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% set title = "Are these the correct registered company details?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds app-column-minimum">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <form action="company-postcode" method="post">
+        <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
+
+        <h2 class="govuk-heading-m">Acme Org Ltd</h2>
+
+        <p class="govuk-body"><b>Limited Company</b></p>
+
+        <p class="govuk-body">Company number {{ data['companyRegNum'] }}.  <a href="company-lookup?flowType=task" class="govuk-link">Enter a different number</a>.</p>
+
+      
+
+        <input type="hidden" name="companyNumber" value="{{company.company_number}}">
+        <input type="hidden" name="companyName" value="{{company.title}}">
+        <input type="hidden" name="companyAddress" value="{{company.address_snippet}}">
+
+        {{
+ govukButton({
+        text: "Confirm"
+      })
+        }}
+
+    </form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

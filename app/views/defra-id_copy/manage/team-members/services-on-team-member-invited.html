@@ -1,0 +1,232 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block pageTitle %}
+    Team member - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-team.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{ data['name'] }}
+    </h1>
+
+  </div>
+</div>
+
+<!-- Determines what messages are shown at the top of page according to user state -->
+
+
+  <!-- Show this section if the user is invited but does not have an account or service role -->
+  {% if (data['userType'] == "invited") %}
+
+    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+    <!-- Show nothing -->
+    {% else %}
+
+    <!-- Show this section if the admin has no services because the admin is in a state of pending -->
+      {% if (data['parentService'] == "no") %}
+
+          {% if (data['accountAccess'] == "no") %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them account access. Once your service registration has been agreed you will be able give them service access.</p>
+                {{ govukButton({
+                  text: "Give account access",
+                  href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
+                }) }}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if (data['accountAccess'] == "yes") %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. Once your service registration has been agreed you will be able give them service access.</p>
+              </div>
+            </div>
+          {% endif %}
+
+      {% else %}
+
+          <!-- Show this section if the user has no account -->
+          {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them account access.</p>
+                {{ govukButton({
+                  text: "Give account access",
+                  href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
+                }) }}
+              </div>
+            </div>
+          {% endif %}
+
+            <!-- Show this section if the user has an account role but does not have a service role -->
+          {% if (data['accountAccess'] == "yes") and (data['subscribeService'] == "no") %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+              <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them service access.</p>
+              </div>
+            </div>
+          {% endif %}
+
+      {% endif %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break--s">
+            <br>
+          </div>
+        </div>
+
+    {% endif %}
+
+  {% endif %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> name@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07846959366
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+      <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Remove user</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> {{data['orgName']}}<br>
+      {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
+      <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
+      {% else %}
+      {% endif %}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
+    <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
+    {% else %}
+    {% endif %}
+  </div>
+</div>
+
+<br>
+
+{% if (data['userType'] == "invited") and (data['parentService'] == "no") %}
+{% else %}
+  {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
+
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/add-user-service"
+    }) }}
+  {% endif %}
+{% endif %}
+
+<!-- Show table if the user has subscribed to one service -->
+{% if (data['userType'] == "invited") and (data['subscribeService'] == "no") %}
+{% else %}
+
+ {% if (data['userType'] == "invited") and (data['subscribeService'] == "yes") %}
+
+
+    {% set setServiceNameHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set setOrgHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
+    {% endset %}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
+    {% endset %}
+
+
+    {{ govukTable({
+      caption: "Service access for Acme Org",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: setServiceNameHtml
+        },
+        {
+          html: setServiceRoleHtml
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-service-roles-chems" class="govuk-link--no-visited-state">Change service role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+      ]
+    }) }}
+
+
+  <div class="govuk-card__content">
+    <h2 class="govuk-heading-l">Link to services</h2>
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?serviceLine=Comply with REACH IT"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+              <!--
+              <p class="govuk-body">A short summary of the tasks you can complete with this service.
+              </p>
+            -->
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% endif %}
+{% endif %}
+
+
+{% endblock %}

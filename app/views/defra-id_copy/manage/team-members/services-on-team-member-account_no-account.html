@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    Your Defra account - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-standard-account.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Contact Support ID
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+         If you need to contact us for support you will need your Contact Support ID: CID-000000002109
+        </div>
+      </details>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="personal-security" class="govuk-link--no-visited-state">Reset security word</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+      <h2 class="govuk-heading-l">
+        Your accounts
+      </h2>
+
+      <p class="govuk-body">You are not yet associated with an orgnaisation or registered as an individual.</p>
+
+      <p class="govuk-body"><a class="govuk-link--no-visited-state" href="/new-user-reg/organisation-type-add-account?userType=existing&addAccount=account&parentService=no">Add new account</a></p>
+
+
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-l">Your services</h2>
+      <p class="govuk-body">You are not enrolled in to any services.</p>
+</div>
+
+
+
+{% endblock %}

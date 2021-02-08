@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set title = "What tasks do you want this person to do in the service?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if (data['name'] == "Adam Mastly") %}
+      <form method="post" class="admin-role" action="services-on-team-member-standard?name=Adam Mastly&subscribeService=yes">
+    {% endif %}
+
+    {% if (data['name'] == "Sara Chippers") %}
+      <form method="post" class="admin-role" action="services-on-team-member-invited?name=Sara Chippers&subscribeService=yes">
+    {% endif %}
+
+
+
+        {{ govukRadios ({
+          idPrefix: "serviceRole",
+          name: "serviceRole",
+          fieldset: {
+            legend: {
+              html: "What tasks do you want this person to do in the service?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            html: setServiceTypeHtml
+          },
+          items: [
+            {
+              value: "REACH Manager",
+              html: 'REACH Manager - this person can view, add and edit information within the service.',
+              checked:  checked('serviceRole','REACH Manager')
+            },
+            {
+              value: "REACH Reader",
+              html: 'REACH Reader - this person can view all information held by the service.',
+              checked:  checked('serviceRole','REACH Reader')
+            },
+            {
+              value: "No service access",
+              html: 'None - this person cannot access the service.',
+              checked:  checked('serviceRole','No service access')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

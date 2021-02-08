@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set title = "Service name" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/account-nav-admin-reg.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data['serviceLine'] }}
+      </h1>
+      {{ govukWarningText({
+        text: "You need to complete your registration before you can use this service."
+      }) }}
+
+      <p class="govuk-body">Complete your registration by selecting 'Continue' below.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "new-user-reg/limited-company/task-list-page-company-details"
+      }) }}
+
+    </div>
+
+
+  </div>
+
+{% endblock %}

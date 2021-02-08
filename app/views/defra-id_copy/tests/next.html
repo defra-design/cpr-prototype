@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirmation page example" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+				<h1 class="govuk-panel__title">Your user ID</h1>
+				<br>
+				<h2 class="govuk-panel__title">
+					<!--Your user ID for signing in is<br>-->
+					49&nbsp;&nbsp;21&nbsp;&nbsp;78&nbsp;&nbsp;79&nbsp;&nbsp;24&nbsp;&nbsp;95
+				</h2>
+			</div>
+        <p>Your user ID has been sent to <span class="bold">{{ data['email-address'] }}</span>.</p>
+				<p>You will need this ID and your password every time you sign in to Government Gateway.</p>
+
+        <!--Conditional continue buttons according to businessType choosen  -->
+
+
+        {% if data['businessType'] == "Sole trader" %}
+        {{ govukButton({
+          text: "Continue",
+          href: "/tests/ac1"
+        }) }}
+        {% endif %}
+
+
+        {% if data['businessType'] == "Limited company" %}
+        {{ govukButton({
+          text: "Continue",
+          href: "/tests/ac2"
+        }) }}
+        {% endif %}
+
+
+</div>
+
+{% endblock %}

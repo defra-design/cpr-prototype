@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the main telephone number for this registered company?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form method="post" action="update-details">
+
+{% call govukFieldset({
+    describedBy: "contactHint",
+legend: {
+  text: title,
+  classes: "govuk-fieldset__legend--xl",
+  isPageHeading: true
+}
+}) %}
+
+<span class="govuk-hint" id="contactHint">
+These could be details included on the website, or contact details for the head office or management team.
+</span>
+
+
+        {{ govukInput({
+          label: {
+            text: "Telephone number"
+          },
+          classes: "govuk-input--width-10",
+          id: "businessTelephone",
+          name: "businessTelephone",
+          value: data['businessTelephone'],
+          type: "tel"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+{% endcall %}
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

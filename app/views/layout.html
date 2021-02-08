@@ -35,21 +35,31 @@
 {% endblock %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Packaging producer responsibility
 {% endblock %}
 
 {% block header %}
-  {% include "includes/cookie-banner.html" %}
+
   {# Set serviceName in config.js. #}
+
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
     containerClasses: "govuk-width-container"
   }) }}
+ 
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
-{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+{% set mainClasses = mainClasses | default("govuk-!-padding-top-4") %}
 
 {% if useAutoStoreData %}
   {% block footer %}
@@ -61,7 +71,7 @@
             text: "GOV.UK Prototype Kit " + releaseVersion
           },
           {
-            href: "/prototype-admin/clear-data",
+            href: "/clear",
             text: "Clear data"
           }
         ]

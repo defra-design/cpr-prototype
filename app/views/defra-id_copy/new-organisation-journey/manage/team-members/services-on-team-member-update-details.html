@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set title = "Update your details" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "services-on-team-member-admin-account_onlyrep"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra account personal information.</caption>
+
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Personal information
+        </th>
+        <td class="govuk-table__cell">
+          {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
+          {{ data['personalTelephone'] }}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="personal-information" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal information</span></a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Personal address
+        </th>
+        <td class="govuk-table__cell">{{ data['sub-building-name'] }}
+
+          {{ data['building-number'] }}, {{data['street-name']}}, {{data['address-town']}}, {{data['address-postcode']}}, {{data['address-country']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="personal-address-manual" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
+        </td>
+      </tr>
+    </table>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Update your Government Gateway details (email and password)</span>
+      </summary>
+      <div class="govuk-details__text">
+        To access Your Defra account and related services you use Government Gateway credentials to login. You can change your password or update your email address through your <a href="#">Government Gateway profile</a>.
+      </div>
+    </details>
+
+    <p class=govuk-body>Information about call charges is available <a href="https://www.gov.uk/call-charges"target="_blank">on the GOV.UK website</a> (opens in a new tab).</p>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

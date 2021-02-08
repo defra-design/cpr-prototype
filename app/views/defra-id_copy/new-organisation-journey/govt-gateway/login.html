@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% set title = "Sign in using Government Gateway" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <!--<form method="post" action="{{ signinButton }}">-->
+        <form method="post" action="../../new-organisation-journey/about-data">
+            <input type="hidden" value="yourname@email.com" name="scpEmail">
+
+
+            {{
+ govukInput({
+        label: {
+          text: "Government Gateway user ID"
+        },
+        hint: {
+          text: "This could be up to 12 characters."
+        },
+        classes: "govuk-input--width-10",
+        id: "userId",
+        name: "userId",
+        value: userId
+      })
+            }}
+
+            {{
+ govukInput({
+        label: {
+          text: "Password"
+        },
+        classes: "govuk-input--width-10",
+        id: "password",
+        name: "password",
+        value: password
+      })
+            }}
+
+            {{
+ govukButton({
+        text: "Sign in"
+      })
+            }}
+
+            <p class="govuk-body"><a href="email-address" class="govuk-link">Create sign in details</a></p>
+            <br>
+            <br>
+            <h2 class="govuk-heading-m">Problems signing in</h2>
+
+
+            <ul class="govuk-list">
+                <li><a href="#" class="govuk-link">I have forgotten my password</a></li>
+                <li><a href="credential-recovery-enter-csid" class="govuk-link">I have forgotten my Government Gateway user ID</a></li>
+                <li><a href="credential-recovery-enter-csid" class="govuk-link">I have forgotten my Government Gateway user ID and password</a></li>
+                <br>
+            </ul>
+
+            <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
+
+
+
+
+        </form>
+</div>
+</div>
+
+{% endblock %}

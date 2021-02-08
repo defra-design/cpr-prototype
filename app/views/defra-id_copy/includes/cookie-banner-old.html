@@ -1,0 +1,20 @@
+{% if data['shouldShowCookieMessage'] == "yes" %}
+<div class="cookie_overlay">
+ <div class="cookie_dialog">
+   <div class="govuk-grid-row">
+     <div class="govuk-grid-column-three-quarters">
+       <h1 class="govuk-heading-m">Cookies on defra.gov.uk</h1>
+       </div>
+       <div class="govuk-grid-column-three-quarters">
+         <p class="govuk-body">We use cookies to help this service run effectively and to track how it is used. By using this service, you accept our use of cookies. You can change your <a href="cookie-policy?shouldShowCookieMessage=no">cookie settings</a> at any time.</p>
+     </div>
+     <div class="govuk-grid-column-one-quarter center">
+       {{ govukButton({
+         text: "Accept",
+         href: "?shouldShowCookieMessage=no"
+       }) }}
+     </div>
+   </div>
+ </div>
+</div>
+{% endif %}

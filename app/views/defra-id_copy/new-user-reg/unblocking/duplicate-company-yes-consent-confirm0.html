@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set title = "You agreed for your details to be sent to the account administrator" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">We’ll tell the account administrator about your request to use Defra online services on behalf of {{data['orgName']}}.</p>
+    <p class="govuk-body">You can now continue to complete your registration.</p>
+  </div>
+</div>
+
+{% if data['businessType'] == "Charity" %}
+{{ govukButton({
+  text: "Continue",
+  href: "/new-user-reg/charity/unblocking/task-list-page-company-details"
+}) }}
+{% endif %}
+
+{% if data['businessType'] == "Limited company" %}
+{{ govukButton({
+  text: "Continue",
+  href: "/new-user-reg/limited-company/unblocking/task-list-page-company-details"
+}) }}
+{% endif %}
+
+
+
+
+
+
+
+{% endblock %}

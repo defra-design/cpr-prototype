@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set title = "You need to set up 2-Step Verification" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" id="mfa" action="mfa-choose-type">
+        <h1 class="govuk-heading-xl">{{title}}</h1>
+				<p class="govuk-body">Each time you sign in you will need your user ID, password and a unique access code.</p>
+        <p class="govuk-body">You need to use access codes to stop unauthorised people from using your user ID and password to sign in.</p>
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+		</form>
+    <p class="govuk-body"><a href="#">Get help with this page</a></p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% set title = "Are the contact details the same as for the parent organisation?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form class="contact-dets" onsubmit="return myFunction()" method="post">
+
+        <script>
+          const form = document.querySelector('.contact-dets')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="contactDets"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'yes':
+              form.action = 'check-your-answers'
+
+              break;
+              case 'no':
+              form.action = 'company-contact-no'
+
+            }
+            return true
+          }
+        </script>
+
+        {{ govukRadios({
+          idPrefix: "contactDets",
+          name: "contactDets",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

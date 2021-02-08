@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your address?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukErrorSummary({
+          titleText: "We cannot find that postcode",
+          errorList: [
+            {
+              text: "Re-enter your postcode",
+              href: "#postcode"
+            },
+            { text: "Enter the address manually",
+              href: "personal-address-non-uk"}
+          ]
+        }) }}
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      <form action="personal-address" method="post">
+
+
+        {{ govukInput({
+          label: {
+            text: "Enter your postcode",
+            classes: "govuk-label--s"
+          },
+          errorMessage: {
+            text: "Please re-enter your postcode"
+          },
+
+          classes: "govuk-input--width-10",
+          id: "postcode",
+          name: "postcode",
+          value: postcode
+        }) }}
+
+
+        {{ govukButton({
+          text: "Find address"
+        }) }}
+
+        <p class="govuk-body"><a class="govuk-link" href="personal-address-non-uk">Enter the address manually</a></p>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

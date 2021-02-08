@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- For invited users-->
+    {% if (data['userType'] == "invited") or  (data['userType'] == "invitedAgent") %}
+      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "new" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+    <form action="{{ tcButton }}" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{title}}
+            </h1>
+          </legend>
+
+          <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+              JavaScript is required
+            </h2>
+            <div class="govuk-error-summary__body">
+
+                <p>For security reasons, you must enable JavaScript to register for Defra online services. Check your browser settings, enable JavaScript and refresh the page.</p>
+                <p>Alternatively, you can <a href="/help#contacting-defra-services">contact the service</a> for more ways to complete your task.</p>
+            </div>
+          </div>
+
+
+          <p class="govuk-body">Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
+
+
+          <h2 class="govuk-heading-l">What we need from you</h2>
+
+          <p class="govuk-body">To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
+
+
+          <p class="govuk-body">To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p>
+
+
+          <div class="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+             <label class="govuk-label govuk-checkboxes__label" for="terms">
+               I have read and agree to the <a href="/terms">Terms and conditions</a>.
+             </label>
+           </div>
+         </div>
+         <br>
+
+
+
+          <div class="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+             <label class="govuk-label govuk-checkboxes__label" for="terms">
+               I accept the <a href="/cookie-policy">cookie settings</a>.
+             </label>
+           </div>
+         </div>
+
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

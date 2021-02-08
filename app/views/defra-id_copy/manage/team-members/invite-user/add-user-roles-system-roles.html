@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% set title = "Do you want to give this person any admin responsibilities for your organisation?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Decides where Continue button goes according to the service and number of services-->
+
+
+    {% if (data['userType'] == "invited") and (data['subscribeService'] == "no") %}
+      {% set continueURL = "/manage/team-members/invite-user/account-access-confirm" %}
+    {% else %}
+
+          {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
+            {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation?" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
+            {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-roles-service-roles" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 1) and (data['service'] == "VMD") %}
+            {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 1) and (data['service'] == "Exports") %}
+            {% set continueURL = "/manage/team-members/invite-user/exports/add-user-roles-service-roles" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 3) %}
+            {% set continueURL = "/manage/team-members/invite-user/add-user-service" %}
+          {% endif %}
+    {% endif %}
+
+
+      <form action="{{ continueURL }}" method="post">
+        <input type="hidden" name="accountAccess" value="yes">
+        <input type="hidden" name="subscribeService" value="yes">
+        <input type="hidden" name="serviceRole" value="Standard">
+
+          {{ govukRadios ({
+            idPrefix: "systemRole",
+            name: "systemRole",
+            fieldset: {
+              legend: {
+                text: title,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "Admin",
+                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
+                checked:  checked('systemRole','Admin')
+              },
+              {
+                value: "Standard user",
+                html: 'Standard user - this person has no account responsibilities, they can only perform the tasks you choose within a specific service.',
+                checked:  checked('systemRole','Standard user')
+              }
+            ]
+          }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

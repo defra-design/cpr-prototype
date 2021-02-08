@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your name?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    {% if data['flowType'] == "check" %}
+      <form method="post" action="check-your-answers">
+    {% else %}
+      <form method="post" action="personal-contact">
+    {% endif %}
+
+        {{ govukInput({
+          label: {
+            text: "First or given name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalFirstName",
+          name: "personalFirstName",
+          value: data['personalFirstName']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Surname or family name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalSurname",
+          name: "personalSurname",
+          value: data['personalSurname']
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

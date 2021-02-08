@@ -1,0 +1,229 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    Your Defra account - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-corp.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Marcy Ponds<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Contact Support ID
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+         If you need to contact us for support you will need your Contact Support ID: CID-000000002109
+        </div>
+      </details>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+      <h2 class="govuk-heading-l">
+        Your accounts
+      </h2>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceLinePendingName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> {{ data['serviceLine'] }}</span>
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
+    {% set systemRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
+    {% endset %}
+
+    {{ govukTable({
+      caption: "This is a list of one or more accounts and the related services that you have access to.",
+      captionClasses: "govuk-body govuk-!-font-weight-regular",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Account',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Account role',
+          format: 'column-full'
+        },
+        {
+          html: 'Service',
+          format: 'column-full'
+
+        },
+        {
+          html: 'Service role',
+          format: column-full'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action</span>',
+          format: 'column-full'
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Acme Org Ltd'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Chemicals R Us'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Chems Ltd'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Waste Services'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Bleach Times'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span> Pool Cleaners UK'
+        },
+        {
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manger'
+        },
+        {
+          html: ''
+        }
+      ]
+    ]
+    }) }}
+
+
+  </div>
+</div>
+
+
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-l">Your services</h2>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/Comply-with-REACH-IT"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

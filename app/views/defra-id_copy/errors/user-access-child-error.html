@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% set title = "You do not have admin access to this organisation" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/account-nav-admin-corp.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">You do not have admin access to [org name].</p>
+
+    <p class="govuk-body">Please contact an admin for this organisation if you wish to be granted access:</p>
+    <p class="govuk-body">[First name] [Last name]<br>
+      <a href="mailto:someone@example.com">[email address]</a>
+      <br>[telephone number]
+    </p>
+    <p class="govuk-body">[First name] [Last name]<br>
+      <a href="mailto:someone@example.com">[email address]</a>
+      <br>[telephone number]
+    </p>
+    <p class="govuk-body-s">Error code: xxxxxxxx</p>
+
+  </div>
+</div>
+
+
+{% endblock %}

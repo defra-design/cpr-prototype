@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- For invited users-->
+    {% if (data['userType'] == "invited") or  (data['userType'] == "invitedAgent") %}
+      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "new" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+    <form action="{{ tcButton }}" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{title}}
+            </h1>
+          </legend>
+          <p class="govuk-body">Your Government Gateway credentials are used to sign in to Your Defra account.</p>
+
+          <p class="govuk-body">Your Defra account allows you to access and manage Defra services on behalf of the organsiations you represent or for yourself.</p>
+
+          <p class="govuk-body">To complete registration for this service we need to ask for some personal details and for information about who wants to use this service.</p>
+
+          <p>The two pages listed below explain your responsibilities and how we will store and use the information you give us.</p>
+
+
+
+          <!--
+
+          <p class="govuk-body">Your Government Gateway account has given us some basic information about you.</p>
+          <p> Next, we need to ask for some more information before you can use our online services.</p>
+          <p>The two pages listed below explain your responsibilities and how we will store and use the information you give us.</p>
+          -->
+
+          <ul class="govuk-list govuk-list--bullet">
+             <li><a href="privacy-notice">Privacy notice</a></li>
+             <li><a href="terms">Terms and conditions</a></li>
+           </ul>
+
+           <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I have read and accept the terms and conditions.
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+      <br>
+      <br>
+      <br>
+      <br>
+      <p class="govuk-body-s">User type: {{ data['userType']}}</p>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

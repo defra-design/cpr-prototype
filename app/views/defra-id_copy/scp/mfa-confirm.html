@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set title = "You've set up additional security" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govk-body">Whenever you sign in we'll request an access code.</p>
+
+    <p class="govk-body">If you've set up more than one security preference you'll be able to choose how you get the access code.</p>
+
+      <form action="/about-data" method="post">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
+      </form>
+  </div>
+</div>
+
+{% endblock %}

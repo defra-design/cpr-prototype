@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the address?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--{{data|dump}}-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="organisation-details-add-c-address" method="post">
+
+          {% call govukFieldset({
+          legend: {
+          text: title,
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+          }
+          }) %}
+          <p class="govuk-body">
+Edit address or select new postcode.          </p>
+          {{
+ govukButton({
+        text: "Look up postcode",
+          href: "company-postcode"
+      })
+          }}
+          {{
+ govukInput({
+        label: {
+          html: 'Sub-building name'
+        },
+        hint: {
+          text: "For example the unit, room or apartment number"
+        },
+        classes: "govuk-input--width-10",
+        id: "sub-building-name",
+        name: "sub-building-name",
+          value: ""
+      })
+          }}
+
+          {{
+ govukInput({
+        label: {
+          html: 'Building number'
+        },
+        classes: "govuk-input--width-10",
+        id: "building-number",
+        name: "building-number",value: "22"
+      })
+          }}
+
+          {{
+ govukInput({
+        label: {
+          html: 'Building name'
+        },
+        classes: "govuk-input--width-10",
+        id: "building-name",
+        name: "building-name"
+      })
+          }}
+
+          {{
+ govukInput({
+        label: {
+          html: 'Street name'
+        },
+        classes: "govuk-!-width-two-thirds",
+        name: "street-name",
+        id: "street-name",value: "Existing Road"
+      })
+          }}
+
+          {{
+ govukInput({
+        label: {
+          text: "Town or city"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "address-town",
+        name: "address-town", value: "Bristol"
+      })
+          }}
+
+
+
+          {% if data['accountType'] == "nonuk" %}
+
+          {{
+ govukInput({
+        label: {
+          text: "Zip or postal code"
+        },
+        classes: "govuk-input--width-10",
+        id: "address-postcode",
+        name: "address-postcode",value: "BS1 4NT"
+      })
+          }}
+
+          {{
+ govukSelect({
+        id: "address-country",
+        name: "address-country",
+        label: {
+          text: "Country"
+        },
+        items: [
+          {
+            value: "Default",
+            text: "Select a country"
+          },
+          {
+            value: "UK",
+            text: "United Kingdom"
+          },
+          {
+            value: "France",
+            text: "France"
+          },
+          {
+            value: "Spain",
+            text: "Spain"
+          },
+          {
+            value: "Other",
+            text: "AnOther Country"
+          },
+          {
+            value: "Other",
+            text: "AnOther Country"
+          }
+        ]
+      })
+          }}
+          {% else %}
+          {{
+ govukInput({
+        label: {
+          text: "Post code"
+        },
+        classes: "govuk-input--width-10",
+        id: "address-postcode",
+        name: "address-postcode"
+      })
+          }}
+          {% endif %}
+
+
+          {% endcall %}
+
+          {{
+ govukButton({
+        text: "Save"
+      })
+          }}
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

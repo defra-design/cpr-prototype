@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% set title = "Are you sure you want to remove this user from this account?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" class="remove" onsubmit="return myFunction()">
+
+        <script>
+          const form = document.querySelector('.remove')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="removeUser"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Yes':
+              form.action = '/manage/team-members/team-members?removeUser=yes&numUsers=4'
+
+              break;
+              default:
+              form.action = '/manage/team-members/services-on-team-member-standard?removeUser=no'
+            }
+            return true
+          }
+        </script>
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "removeUser",
+          name: "removeUser",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "They will no longer be able to access the account for [org name] or any of its associated services. You can invite them again at any time."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

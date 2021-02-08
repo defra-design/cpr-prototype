@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% set title = "Choose an option to use this service" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="create-signin" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.create-signin')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="createSignin"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'create':
+            form.action = '{{ createURL }}'
+
+            break;
+            case 'signin':
+            form.action = '{{ signinURL }}'
+
+            break;
+            default:
+            form.action = '#'
+          }
+          return true
+        }
+      </script>
+
+      
+
+      {{ govukRadios({
+        idPrefix: "createSignin",
+        name: "createSignin",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "signin",
+            html: ' <h2 class="govuk-heading-m">Sign in</h2>
+                    Choose this option if you have already created a Government Gateway account for your company or organisation.',
+            checked:  checked('createSignin','signin')
+
+          },
+          {
+            value: "create",
+            html: ' <h2 class="govuk-heading-m">Create an account</h2>
+                    Choose this option if you have not created a Government Gateway account for your company or organisation before.',
+            checked:  checked('createSignin','create')
+          }
+
+        ]
+
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

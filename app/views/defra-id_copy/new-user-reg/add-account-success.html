@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set title = "Account added" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "The account has been added"
+    })
+    }}
+
+    <p class="govuk-body">The account [account name] has been added and will now be shown on Your Defra account page.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">The following services are available for you to register this account with. To register click the links below.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing&serviceLine=VMD Secure Messaging">VMD Secure Messaging</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out-imports?userType=existing&serviceLine=Notification service">Notification service</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT">Comply with REACH IT</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">An Other Service</a>
+      </li>
+    </ul>
+
+
+{% if data['orgType'] == "Individual" %}
+    {{ govukButton({
+        text: "Continue",
+        href: "/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)"
+    }) }}
+{% else %}
+
+
+
+    {% if data['addAccount'] == "account" %}
+        {{ govukButton({
+            text: "Continue to account",
+            href: "/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=0&numLocations=1&multiOrg=no&parentChild=parent"
+        }) }}
+    {% endif %}
+    {% if data['addAccount'] == "related" %}
+        {{ govukButton({
+            text: "Continue to account",
+            href: "/manage/dashboard-child?childName=Acme Org China &numUsers=1&numAgents=0&numServices=1&multiOrg=yes&parentChild=child#rel-org"
+        }) }}
+
+    {% endif %}
+
+{% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

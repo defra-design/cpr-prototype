@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block pageTitle %}
+    Team member - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/account-nav-admin-corp.html" %}
+    {% include "includes/breadcrumb-four-level-team.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Ann Cooper (You)
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
+    </p>
+  </div>
+
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
+      <span class="govuk-!-font-weight-bold">Account role:</span> Admin
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body"><a href="edit-user-own-admin-role-warning" class="govuk-link--no-visited-state">Change account role</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role:</span>REACH Manager
+    {% endset %}
+
+
+    {{ govukTable({
+      caption: "Service access for Acme Org",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: serviceLineName
+        },
+        {
+          html: serviceRoleName
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change service role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+        },
+        {
+          html: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-l">Link to services</h2>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?serviceLine=Comply with REACH IT"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">Comply with REACH IT</h3>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?serviceLine=Notification Service"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">Notification Service</h3>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

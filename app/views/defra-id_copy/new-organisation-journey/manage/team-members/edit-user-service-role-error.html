@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set title = "You cannot change this user's service role" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="javascript:history.back()">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <p class="govuk-body">You do not have permission to change [service name] service roles for [organisation name].</p>
+
+        <p class="govuk-body">Contact the service for other ways to complete your task:</p>
+
+        <p class="govuk-body">[consuming service name] - [consuming service phone number]</p>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

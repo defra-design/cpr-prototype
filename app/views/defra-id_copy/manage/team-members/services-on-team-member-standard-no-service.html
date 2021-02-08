@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block pageTitle %}
+    Team member - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-team.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ data['name'] }}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> email@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+      <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Remove user</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
+      <span class="govuk-!-font-weight-bold">Account role:</span> Standard user
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
+    {{ govukButton({
+      text: "Give service access",
+      href: "#"
+    }) }}
+
+
+    {{ govukTable({
+      caption: "Service access for Acme Org Ltd",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service</span>'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>'
+      },
+        {
+          html: ''
+        },
+        {
+          html: ''
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

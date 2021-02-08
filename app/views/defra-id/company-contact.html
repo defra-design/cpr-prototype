@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Your Defra Account | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <h1 class="govuk-heading-xl">What are the main contact details for this registered company?</h1>
+    <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>
+
+    <form action="task-list-page-company-details" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Telephone number"
+        },
+        classes: "govuk-!-width-one-half",
+        id: "defraIdCompanyPhone",
+        name: "defraIdCompanyPhone",
+        value: data['defraIdCompanyPhone'],
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-!-width-three-quarters",
+        id: "defraIdCompanyEmail",
+        name: "defraIdCompanyEmail",
+        value: data['defraIdCompanyEmail'],
+        type: "email"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

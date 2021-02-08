@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% set title = "What type of business or organisation do you own or represent?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="org-type" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.org-type')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="businessType"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'Sole trader':
+            form.action = 'next'
+
+            break;
+            case 'Limited company':
+            form.action = 'next'
+
+            break;
+            case 'Public limited company':
+            form.action = '../../limited-company/task-list-page-account'
+
+            break;
+            default:
+            form.action = '/new-user-reg/organisation-business-coming-soon'
+          }
+          return true
+        }
+      </script>
+
+      {{ govukRadios({
+        idPrefix: "businessType",
+        name: "businessType",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "Sole trader",
+            text: "Sole trader",
+            checked:  checked('businessType','Sole trader')
+
+          },
+          {
+            value: "Limited company",
+            text: "Limited company",
+            checked:  checked('businessType', 'Limited company')
+
+          },
+          {
+            value: "Public limited company",
+            text: "Public limited company",
+            checked:  checked('businessType','Public limited company')
+
+          },
+          {
+            value: "Limited liability partnership",
+            text: "Limited liability partnership",
+            checked:  checked('businessType','Limited liability partnership')
+
+          },
+          {
+            value: "Partnership",
+            text: "Partnership",
+            checked:  checked('businessType','Partnership')
+
+          },
+          {
+            value: "Competent authority",
+            text: "Competent authority",
+            checked:  checked('businessType','Competent authority')
+
+          },
+          {
+            value: "Non-commercial organisation",
+            text: "Non-commercial organisation, for example a charity",
+            checked:  checked('businessType','Non-commercial organisation')
+
+          },
+          {
+            value: "Government",
+            text: "Government",
+            checked:  checked('businessType','Government')
+
+          }
+
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

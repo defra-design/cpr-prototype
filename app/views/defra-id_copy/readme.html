@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% set title = "Instructions for prototype" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <h2 class="govuk-heading-m" id="variables">Prototype variables</h2>
+    <p class="govuk-body">This prototype uses variables to enable the scenarios to work. If in doubt, re-set the prototype using the 'Clear data' button at the bottom this page.  </p>
+    <p class="govuk-body">For example a url for first time registration. Sets the service to be Comply with REACH, the userType to be a new user, no extra service questions and registration ends with the user approved <br>
+      <a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&serviceQuestions=no">https://identity-management-app.herokuapp.com/service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&serviceQuestions=no</a></p>
+
+    <h3 class="govuk-heading-s">Registration/ Enrolment/ Add account</h3>
+    <p class="govuk-body">userType= new / existing / invited / invitedAgent<br>
+      What is the type of user?</p>
+    <p class="govuk-body">regSuccess= pending / success / incomplete<br>
+      What is the enrolment status at the end of registration (success = 'approved' in dynamics)</p>
+    <p class="govuk-body">serviceQuestions= yes / no<br>
+      Are there any service questions once the IDM questions are complete?</p>
+    <p class="govuk-body">businessType= Limited company / Sole trader / Public limited company / Limited liability partnership / Charity<br>
+      What is the business type being registered?</p>
+    <p class="govuk-body">flowType= task / check<br>
+      What stage of the reg flow are they in: tasklist or check answers?</p>
+    <p class="govuk-body">systemRole= Admin / Standard user <br>
+      What is the users IDM account role?</p>
+    <p class="govuk-body">serviceRole=  REACH Manager / REACH Reader / Manager / Standard etc<br>
+      Or: <br>
+      serviceRole= No service access / Pending / Rejected / Incomplete</p>
+    <p class="govuk-body">What is the status of the users enrolment to a service? If the user is 'approved' then show the specific servie role, else show the service status</p>
+
+    <h3 class="govuk-heading-s">General</h3>
+    <p class="govuk-body">userType= new / existing / invited / invitedAgent<br>
+      What is the type of user?</p>
+    <p class="govuk-body">numUsers= 1 - 6 <br>
+      The number of team members in an account </p>
+    <p class="govuk-body">numServices= 1 - 3<br>
+      The number of services on the 'Your Defra account' or the account dashboard</p>
+    <p class="govuk-body">numAgents= 0 - 3<br>
+      The number of intermediaries in an account)</p>
+    <p class="govuk-body">numLocations= 1 - 3 <br>
+      How many orgs on a multi-org dashboard</p>
+    <p class="govuk-body">serviceLine= Comply with REACH IT<br>
+      What is the specific service name, can use any example</p>
+    <p class="govuk-body">orgName= Acme Org Ltd <br>
+      What is the parent org called</p>
+    <p class="govuk-body">childName= Chemicals R US<br>
+      What is the child org called</p>
+    <p class="govuk-body">orgType= Business / Individual / onlyRep<br>
+      What is the type of organisation? - use for determining the Your Defra account page and top navigation</p>
+
+    <h3 class="govuk-heading-s">Invite / n+1</h3>
+    <p class="govuk-body">verifiedUser= yes / no / pending<br>
+      Has the n+1 been verified by the admin?</p>
+    <p class="govuk-body">accountAccess= yes / no<br>
+      Does the invited user have an account role?</p>
+    <p class="govuk-body">subscribeService= yes / no<br>
+      Does the invited user have an service role?</p>
+    <p class="govuk-body">addAccount= account / related<br>
+      When adding a new account is it a new parent or a child</p>
+    <p class="govuk-body">childService= yes / no<br>
+      Is the child account enrolled into a service?</p>
+    <p class="govuk-body">parentService= yes / no<br>
+      Is the parent account enrolled into a service?</p>
+
+    <h3 class="govuk-heading-s">Multi-org/ parent & child / add account</h3>
+    <p class="govuk-body">multiOrg= yes / no<br>
+      Is the parent account a 'multi-org' account e.g. does it have children?</p>
+    <p class="govuk-body">parentChild= parent / child<br>
+      Is the account a parent or child</p>
+    <p class="govuk-body">addAccount= account / related<br>
+      When adding a new account is it a new parent or a child</p>
+    <p class="govuk-body">childService= yes / no<br>
+      Is the child account enrolled into a service?</p>
+    <p class="govuk-body">parentService= yes / no<br>
+      Is the parent account enrolled into a service?</p>
+
+    <h3 class="govuk-heading-m" id="routes">routes.js</h3>
+    <p class="govuk-body">The routes.js files determines different versions of a template according to a specific journey / ser type. Rather than have 4 versions of a page, there is one template that has different variables according to the journey. This has been applied to the following templates:</p>
+    <ul class="govuk-list">
+      <li>SCP login page</li>
+      <li>Account dashboard</li>
+    </ul>
+    <h3 class="govuk-heading-m" id="css">Non-GDS css</h3>
+    <p class="govuk-body">Certain elements of the app use non-GDS approved CSS. The can be fond in the following folder: /assets/sass/patterns</p>
+
+    <h3 class="govuk-heading-m" id="breadcrumb">Breadcrumb / navigation</h3>
+    <p class="govuk-body">These patterns can be found in the folder /views/includes</p>
+
+    <h3 class="govuk-heading-m" id="tables">Sortable tables</h3>
+    <p class="govuk-body">A proto for sortable tables can be found <a href="/tests/table-test">Sortable tables</a>. The javacript for these tables can be found in the folder: /assets/javascripts</p>
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-body-s">
+          <li><a href="#variables">Proto variables</a></li>
+          <li><a href="#routes">Routes.js</a></li>
+          <li><a href="#css">Non-GDS css</a></li>
+          <li><a href="#breadcrumb">Breadcrumb / navigation</a></li>
+          <li><a href="#tables">Sortable tables</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+  <div class="govuk-visually-hidden">
+    Exports Certifier: certifier / crewe32
+    Exporter:
+  </div>
+</div>
+</div>
+
+{% endblock %}

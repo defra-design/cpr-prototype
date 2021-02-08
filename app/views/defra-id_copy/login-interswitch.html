@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set title = "Which account do you want to register with this service?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="service-start-complete" method="post">
+        <input type="hidden" name="subscribeService" value="yes">
+        <input type="hidden" name="serviceRole" value="Standard">
+
+          {{ govukRadios ({
+            idPrefix: "accountName",
+            name: "accountName",
+            fieldset: {
+              legend: {
+                text: title,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "Acme Org Ltd",
+                html: 'Acme Org Ltd',
+                checked:  checked('accountName','Acme Org Ltd')
+              },
+              {
+                value: "Acme Org India",
+                html: 'Acme Org India',
+                checked:  checked('accountName','Acme Org India')
+              },
+              {
+                value: "Acme Org Thailand",
+                html: 'Acme Org Thailand',
+                checked:  checked('accountName','Acme Org Thailand')
+              },
+              {
+                value: "Imports R Us",
+                html: 'Imports R Us',
+                checked:  checked('accountName','Imports R Us')
+              }            ]
+          }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

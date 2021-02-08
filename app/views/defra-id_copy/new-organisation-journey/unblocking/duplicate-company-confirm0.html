@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set title = "Your registration is complete" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "Your registration is complete"
+    })
+    }}
+
+    <p class="govuk-body">We have sent a confirmation email to [SCP email address].</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">If the Admin accepts your request they’ll choose which information you can see and which tasks you can perform in [Organisation name]. We’ll email you to let you know when you can sign in.</p>
+
+    <p class="govuk-body">If they decline your request, we’ll email you to let you know.</p>
+
+
+
+    <!--
+
+      {{ govukButton({
+        text: "Go to Your Defra account",
+        href: "/manage/team-members/services-on-team-member-me-nothing"
+    }) }}
+
+    -->
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

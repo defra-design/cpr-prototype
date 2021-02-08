@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% set title = "What type of business or organisation do you represent?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="org-type" onsubmit="return myFunction()" method="post">
+
+{% if data['userType'] == "existing" %}
+<script>
+  const form = document.querySelector('.org-type')
+
+  function myFunction() {
+    const checked = document.querySelector('[name="businessType"]:checked')
+    const checkedValue = checked.value
+
+    switch(checkedValue){
+      case 'Sole trader':
+      form.action = '/new-user-reg/sole-trader/sole-trader-name'
+
+      break;
+      case 'Limited company':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+
+      break;
+      case 'Public limited company':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+      break;
+
+      break;
+      case 'Limited liability partnership':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+      break;
+
+      case 'Non-UK organisation':
+      form.action = '/new-user-reg/non-uk-org/org-name'
+
+      break;
+      default:
+      form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
+    }
+    return true
+  }
+</script>
+
+{% else %}
+      <script>
+        const form = document.querySelector('.org-type')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="businessType"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'Sole trader':
+            form.action = '/new-user-reg/sole-trader/task-list-page-account?flowType=task'
+
+            break;
+            case 'Limited company':
+            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
+
+            break;
+            case 'Public limited company':
+            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
+            break;
+
+            break;
+            case 'Limited liability partnership':
+            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
+            break;
+
+            case 'Non-UK organisation':
+            form.action = '/new-user-reg/non-uk-org/task-list-page-account?flowType=task'
+
+            break;
+            case 'Charity':
+            form.action = '/new-reg/charity/charity-details'
+            break;
+
+            break;
+            default:
+            form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
+          }
+          return true
+        }
+      </script>
+
+{% endif %}
+
+      {{ govukRadios({
+        idPrefix: "businessType",
+        name: "businessType",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "Sole trader",
+            text: "Sole trader",
+            checked:  checked('businessType','Sole trader')
+
+          },
+          {
+            value: "Limited company",
+            text: "Limited company",
+            checked:  checked('businessType', 'Limited company')
+
+          },
+          {
+            value: "Public limited company",
+            text: "Public limited company",
+            checked:  checked('businessType','Public limited company')
+
+          },
+          {
+            value: "Limited liability partnership",
+            text: "Limited liability partnership",
+            checked:  checked('businessType','Limited liability partnership')
+
+          },
+          {
+            value: "Non-UK organisation",
+            text: "Organisation that is not registered in the UK",
+            checked:  checked('businessType','Non-UK organisation')
+
+          }
+          ,
+          {
+            value: "Charity",
+            text: "Charity",
+            checked:  checked('businessType','Charity')
+
+          }
+
+
+        ]
+      }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Can't see your business or organisation type?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          If you can't see your business or organisation type please contact the service for more information.
+        </div>
+        <div class="govuk-details__text">
+          {{data ['serviceLine'] }} - [telephone number]
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% set title = "What are the main contact details for this company?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form class="contact-dets" onsubmit="return myFunction()" method="post">
+
+        <script>
+          const form = document.querySelector('.contact-dets')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="contactDets"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'yes':
+              form.action = 'company-contact-yes'
+
+              break;
+              case 'no':
+              form.action = 'company-contact-no'
+
+            }
+            return true
+          }
+        </script>
+
+        {{ govukRadios({
+          idPrefix: "contactDets",
+          name: "contactDets",
+          fieldset: {
+            legend: {
+              text: "Are the contact details for your business the same as your personal details?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

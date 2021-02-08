@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% set title = "This email address is already in use" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">There's an existing Defra account associated with this email address.</p>
+
+    <p class="govuk-body">You'll need to return to Government Gateway and change the email address to one that's not already in use on a Defra account.</p>
+
+    <p class="govuk-body">If you have any issues, you can <a href="/help#contacting-defra-services" target="_blank">contact the service</a> (link opens in a new window) for help on how to complete your task.</p>
+
+    {{ govukButton({
+      text: "Return to Government Gateway",
+      href: "#"
+    }) }}
+
+    <p class="govuk-body-s">Error code: xxxxxxxx</p>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

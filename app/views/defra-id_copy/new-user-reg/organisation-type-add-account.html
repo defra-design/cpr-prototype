@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% set title = "Which type of account do you want to add?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" class="acc-type" onsubmit="return myFunction()">
+
+        <script>
+          const form = document.querySelector('.acc-type')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="orgType"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Business':
+              form.action = 'organisation-business-type'
+
+              break;
+              case 'Individual':
+              form.action = '/new-user-reg/individual/personal-postcode'
+
+              break;
+              default:
+              form.action = 'organisation-business-type'
+            }
+            return true
+          }
+        </script>
+
+
+
+        {{ govukRadios({
+          idPrefix: "orgType",
+          name: "orgType",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "Business",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">A business or organisation</span><br>
+                      You represent a business or organisation (including sole traders and charities) and have permission to create an account for them',
+              checked:  checked('orgType','Business')
+            },
+            {
+              value: "Individual",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">An individual</span><br>
+                      You want to create an account for yourself',
+              checked:  checked('orgType','Individual')
+            }
+          ]
+
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

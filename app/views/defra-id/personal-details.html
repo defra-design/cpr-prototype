@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Your Defra Account | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <h1 class="govuk-heading-xl">What is your name?</h1>
+
+    <form method="POST" action="task-list-page-company-details?personal-details-completed=y">
+
+      {{ govukInput({
+        label: {
+          text: "First or given name"
+        },
+        classes: "govuk-!-width-three-quarters",
+        id: "defraIdCompanyFirstName",
+        name: "defraIdCompanyFirstName",
+        value: data['defraIdCompanyFirstName']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Surname or family name"
+        },
+        classes: "govuk-!-width-three-quarters",
+        id: "defraIdCompanySurname",
+        name: "defraIdCompanySurname",
+        value: data['defraIdCompanySurname']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the correct business name to use with this address?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="company-postcode" method="post">
+
+        {% set orgNameHTML %}
+          Is {{data['orgName']}} the correct business name to use with this address?
+        {% endset %}
+
+
+        {% set companyNameHTML %}
+          {{ govukInput({
+            id: "neworgName",
+            name: "neworgName",
+            type: "text",
+            classes: "govuk-!-width-full",
+            label: {
+              text: "What name should we use instead?"
+            }
+          }) }}
+        {% endset %}
+
+          {{ govukRadios({
+            idPrefix: "companyNameSame",
+            name: "companyNameSame",
+            fieldset: {
+              legend: {
+                text: orgNameHTML,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              html: orgNameHint
+            },
+            items: [
+
+              {
+                value: "yes",
+                text: "Yes"
+              },
+
+              {
+                value: "no",
+                text: "No",
+                conditional: {
+                  html: companyNameHTML
+                }
+              }
+            ]
+          }) }}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

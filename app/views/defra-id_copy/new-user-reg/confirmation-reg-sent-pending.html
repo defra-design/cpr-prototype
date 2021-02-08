@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set title = "Your reference" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Export Health Certificates" %}
+    {{ govukHeader({ serviceName: "Export Health Certificates", serviceUrl: "/" }) }}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "Your registration request is complete and will now be reviewed.",
+          html: ""
+        })
+    }}
+
+    <p class="govuk-body">We have sent a confirmation email to {{data['scpEmail']}}.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">We will contact you by [email/telephone/letter] within [SLA timeframe] about your request to use this service.</p>
+
+    {{ govukButton({
+        text: "Sign out",
+        href: "/service-start-logged-out"
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}

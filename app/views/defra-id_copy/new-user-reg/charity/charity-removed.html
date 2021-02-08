@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set title = "This charity has been removed so cannot be registered" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds app-column-minimum">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <form action="/signed-out" method="post">
+      <p class="govuk-body">Acccording to Charity Commission records the following charity has been removed. We only allow existing charities to be registered.</p>
+
+      <h2 class="govuk-heading-m">Acme Charity</h2>
+
+      <p class="govuk-body">12 Giving Avenue, Cambridge, United Kingdom, CB2 0AA</p>
+
+      <p class="govuk-body">Charity number 050403. <strong><a href="charity-name" class="govuk-link">Enter a different number</a></strong></p>
+
+      {{ govukDetails({
+        summaryText: "That information is incorrect",
+        html: '<p class="govuk-body">If you believe that this information is incorrect please refer to  <a href="https://www.gov.uk/change-your-charitys-details" target="_blank">the Charity Commission (opens in a new tab)</a>.</p>
+        '
+      }) }}
+
+      {{ govukButton({
+        text: "End registration"
+      }) }}
+
+    </form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

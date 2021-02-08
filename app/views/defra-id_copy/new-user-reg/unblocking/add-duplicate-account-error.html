@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% set title = "You have already been added to this account" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <p class="govuk-body">You're already a member of the [organisation name] account.</p>
+
+        <p class="govuk-body">Your account role is [role].</p>
+
+        <p class="govuk-body">Check your account page for more details.</p>
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/manage/team-members/services-on-team-member-admin-account_company"
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

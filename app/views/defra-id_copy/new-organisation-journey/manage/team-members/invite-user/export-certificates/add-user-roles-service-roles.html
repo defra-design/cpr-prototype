@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set title = "Select a service role" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="/manage/team-members/invite-user/enrollment-confirmation" method="post">
+
+        {{ govukRadios ({
+          idPrefix: "serviceRole",
+          name: "serviceRole",
+          fieldset: {
+            legend: {
+              html: "Which role do you want to give this person?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "Certifier",
+              html: 'Certifier',
+              checked:  checked('serviceRole','Certifier')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

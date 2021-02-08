@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% set title = "This organisation has already been registered" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      <form method="post" class="change" onsubmit="return myFunction()">
+
+  {% if data['userType'] == "existing" %}
+
+        <script>
+          const form = document.querySelector('.change')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="changeAccount"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Yes':
+              form.action = 'duplicate-company-add-account-confirm'
+
+              break;
+              default:
+              form.action = 'duplicate-company-end-reg-confirm'
+            }
+            return true
+          }
+        </script>
+
+  {% endif %}
+  {% if data['userType'] == "new" %}
+
+        <script>
+          const form = document.querySelector('.change')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="changeAccount"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Yes':
+              form.action = 'duplicate-company-yes-consent-confirm'
+
+              break;
+              default:
+              form.action = 'duplicate-company-end-reg-confirm'
+            }
+            return true
+          }
+        </script>
+
+  {% endif %}
+
+
+
+
+        {{ govukRadios({
+          idPrefix: "changeAccount",
+          name: "changeAccount",
+          fieldset: {
+            legend: {
+              text: "Can we pass your contact details to the account administrator for this organisation?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+
+          items: [
+            {
+              value: "Yes",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span>, tell the administrator that I want to use Defra online services on behalf of [organisation name]'
+            },
+            {
+              value: "No",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>, I do not want to continue registration'
+            }
+          ]
+        }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Has your organisation been registered without consent?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            If you're an authorised representative of the organisation and suspect that it's been registered fraudulently <a href="/help#contacting-defra-services">call the service</a> to resolve this issue.
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

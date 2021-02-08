@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter a country for this mobile phone number" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      <form action="mfa-mobile-UK" method="post">
+
+
+        {{ govukSelect({
+
+          id: "address-country",
+          name: "address-country",
+          label: {
+            text: "Country",
+            classes: "govuk-input--width-10"
+          },
+          items: [
+            {
+              value: "Default",
+              text: ""
+            },
+            {
+              value: "France",
+              text: "France (+33)"
+            },
+            {
+              value: "Spain",
+              text: "Spain (+34)"
+            },
+            {
+              value: "UK",
+              text: "United Kingdom (+44)"
+            },
+            {
+              value: "Other",
+              text: "AnOther Country (+12)"
+            },
+            {
+              value: "Other",
+              text: "AnOther Country (+21)"
+            }
+          ]
+
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      <p class="govuk-body"><a href="#">Get help with this page</a></p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set title = "Select the address" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">
+      Postcode:
+      <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span>&nbsp;&nbsp;
+      <a href="company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
+      </a>
+    </p>
+
+    <!-- modified for updates page -->
+    {% if data['userType'] != "new"  %}
+      {% if data['accountType'] == "Sole Trader"  %}
+        <form action="/manage/organisations/update-details?accountType=soletrader" method="post">
+      {% endif %}
+    {% endif %}
+
+    {% if data['addAddress'] == "rel-org" %}
+      <form action="company-contact-radio" method="post">
+    {% endif %}
+
+    {% if data['addAddress'] == "reg-address" %}
+      <form action="organisation-details#reg-address" method="post">
+    {% endif %}
+
+      {{ govukSelect({
+        id: "addressList",
+        name: "addressList",
+        label: {
+        },
+        items: [
+          {
+            value: "",
+            text: "15 addresses found",
+            selected: true
+          },
+          {
+            value: "1,3",
+            text: "Flat 1, 3, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "2,3",
+            text: "Flat 2, 3, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "5",
+            text: "Flat 5, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "7",
+            text: "7, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "9",
+            text: "9, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "11",
+            text: "11, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "15",
+            text: "15, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "17",
+            text: "17, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "19",
+            text: "19, Grange Road, Bristol, BS1 5AH"
+          },
+          {
+            value: "21",
+            text: "21, Grange Road, Bristol, BS1 5AH"
+          }
+
+        ]
+      }) }}
+
+      <p class="govuk-body">
+        <a href="company-address-manual">
+          I cannot find the address in the list
+        </a>
+      </p>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

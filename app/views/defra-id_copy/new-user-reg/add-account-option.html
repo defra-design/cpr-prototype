@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set title = "Do you want to add a new account or add an organisation that is related to an existing account?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" class="change" onsubmit="return myFunction()">
+
+     <script>
+          const form = document.querySelector('.change')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="addAccount"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Add a new account':
+              form.action = 'organisation-type?addAccount=account'
+
+              break;
+              default:
+              form.action = 'add-account-choose-parent-org?addAccount=related'
+            }
+            return true
+          }
+        </script>
+
+
+        {{ govukRadios({
+          idPrefix: "addAccount",
+          name: "addAccount",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "Add a new account",
+              html: 'Add a new account'
+            },
+            {
+              value: "Add a related organisation",
+              html: 'Add a related organisation'
+            }
+          ]
+        }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What is the differene between a new account and a related organisation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <strong>Add new account</strong> <br>
+            Typcally you add a new account when you have an organisation that is unrelated to any other organisation in Your Defra account.
+          </div>
+          <div class="govuk-details__text">
+            <strong>Add related organisation</strong><br>
+            If you have a number of related organisations, you can create parent / child relationships between them. This option will allow you to add a child organisation to an existing parent. The parent must be created before the child.
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

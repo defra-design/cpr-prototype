@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    Your Defra account - [First name] [Surname] - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-standard-account.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01279267473</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Contact Support ID
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+         If you contact us for support, you'll need your Contact Support ID: CID-000000002109
+        </div>
+      </details>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="personal-security" class="govuk-link--no-visited-state">Reset security word</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+      <h2 class="govuk-heading-l">
+        Your accounts
+      </h2>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceLinePendingName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> {{ data['serviceLine'] }}</span>
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
+    {% set systemRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
+    {% endset %}
+
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">You have access to the following accounts and related services.</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header column-full" scope="col">
+          Account
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Account role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          <span class="govuk-visually-hidden--desktop td-header">Action</span>
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+          Acme Org Ltd
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span><span class="govuk-body--grey"> None</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body--grey"> No registered service</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
+        </td>
+        <td class="govuk-table__cell">
+
+        </td>
+      </tr>
+
+
+
+      {% if data['addAccount'] == "account" %}
+
+        {% if data['parentService'] == "no" %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+                Chemicals R Us
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
+              </td>
+              <td class="govuk-table__cell">
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+              </td>
+            </tr>
+        {% else %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+                Chemicals R Us
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+              </td>
+              <td class="govuk-table__cell">
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+              </td>
+            </tr>
+        {% endif %}
+      {% endif %}
+
+          </table>
+
+          <p class="govuk-body"><a class="govuk-link--no-visited-state" href="/new-user-reg/organisation-type-add-account?userType=existing&addAccount=account&parentService=no">Add new account</a></p>
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}
