@@ -18,6 +18,7 @@ router.use('/', (req, res, next) => {
 
 // Start folder specific routes
 router.use('/defra-id', require('./views/defra-id/_routes'));
+router.use('/epr', require('./views/epr/_routes'));
 
 // Clear all session data
 router.get('/clear', (req, res) => {

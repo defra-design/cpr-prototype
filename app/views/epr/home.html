@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Packaging producer responsibilty task list | Prototype
+    Home | Packaging producer responsibilty prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
 {% endblock %}
 
 {% block content %}
@@ -13,26 +19,36 @@
             Packaging producer responsibility
         </h1>
 
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Complete your obligation for 2023</h2>
+        <!--<h2 class="govuk-heading-m govuk-!-margin-bottom-7">Complete your obligation for 2023</h2>-->
 
         {{ govukWarningText({
-            text: "You must complete your registration and reporting (steps 1 and 2) before 15th April 2023",
+            text: "A warning that some of these steps might need to be completed by certain dates.",
             iconFallbackText: "Warning"
         }) }}
 
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Register
+                    <span class="app-task-list__section-number">1. </span> Register or renew for 2023
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="#">
-                                Choose whether to register for 2023
-                            </a>
+                            {% if data['obligated'] %}
+                                <a href="registration-choice-done">
+                                    Obligation declaration
+                                </a>
+                            {% else %}
+                                <a href="registration-choice">
+                                    Obligation declaration
+                                </a>
+                            {% endif %}
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% if data['obligated'] %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
@@ -51,7 +67,7 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">2. </span> Report packaging data
+                    <span class="app-task-list__section-number">2. </span> Report 2022 packaging data
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
