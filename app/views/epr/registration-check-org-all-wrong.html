@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Obligation declaration | Packaging producer responsibilty prototype
+    Check your contact details | Packaging producer responsibilty prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,43 +20,33 @@
             href: "javascript:history.back()"
         }) }}
 
-        <h1 class="govuk-heading-xl">
-            Obligation declaration
-        </h1>
-
-        <!-- Radio button routing in /epr/_routes.js -->
-        <form method="POST" action="registration-choice-choice">
+        <form method="POST" action="">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                     <h1 class="govuk-fieldset__heading">
-                        Will your organisation exceed the packaging obligation threshold during the year 2023?
+                        Select the correct organisation
                     </h1>
                 </legend>
 
-                {{ govukDetails({
-                    summaryText: "How do I know if I'm obligated?",
-                    html: '<p>Some helpful info and perhaps a link to the <a href="#" target="_blank">obligation checking tool</a>.</p>'
-                }) }}
-
                 <div class="govuk-radios">
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field1" name="regChoice" type="radio" value="yes" {% if data['obligated'] == 'yes' %}checked{% endif %}>
+                        <input class="govuk-radios__input" id="field1" name="orgChoice" type="radio" value="Another Org Ltd">
                         <label class="govuk-label govuk-radios__label" for="field1">
-                            Yes
+                            Another Org Ltd
                         </label>
                     </div>
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field2" name="regChoice" type="radio" value="no" {% if data['obligated'] == 'no' %}checked{% endif %}>
+                        <input class="govuk-radios__input" id="field2" name="orgChoice" type="radio" value="Fake Company Limited">
                         <label class="govuk-label govuk-radios__label" for="field2">
-                            No
+                            My Company Limited
                         </label>
                     </div>
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field3" name="regChoice" type="radio" value="unsure">
+                        <input class="govuk-radios__input" id="field3" name="orgChoice" type="radio" value="Smiths & Sons LLP">
                         <label class="govuk-label govuk-radios__label" for="field3">
-                            I don't know
+                            Smiths & Sons LLP
                         </label>
                     </div>
                 </div>
@@ -69,7 +59,7 @@
 
         </form>
 
-
+        <p>Or if the correct organisation is not listed, go to <a href="#">your Defra account</a> to add it.</p>
         
     </div>
 </div>

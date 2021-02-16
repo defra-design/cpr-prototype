@@ -29,7 +29,7 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Register or renew for 2023
+                    <span class="app-task-list__section-number">1. </span> Register for 2023
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
@@ -52,15 +52,76 @@
                     </li>
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            Enter your registration details
+
+                            {% if data['obligated'] %}
+                                {% if data['obligated'] == 'no' %}
+                                    <s>Register your organisation &amp; subsidiaries</s>
+                                {% endif %}
+                                {% if data['obligated'] == 'yes' %}
+                                    <a href="registration-start">
+                                        Register your organisation &amp; subsidiaries
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                            Register your organisation &amp; subsidiaries
+                            {% endif %}
+
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+
+                        {% if data['obligated'] %}
+                            {% if data['obligated'] == 'no' %}
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not required</strong>
+                            {% endif %}
+                            {% if data['obligated'] == 'yes' and data['registered'] == 'no' %}
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                            {% endif %}
+                            {% if data['obligated'] == 'yes' and data['registered'] == 'yes' %}
+                                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                            {% endif %}
+                        {% else %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+
                     </li>
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            Pay your registration fees
+
+                            {% if data['obligated'] %}
+                                {% if data['obligated'] == 'no' %}
+                                    <s>Pay your registration fees</s>
+                                {% endif %}
+                                {% if data['obligated'] == 'yes' and data['registered'] == 'no' %}
+                                    Pay your registration fees
+                                {% endif %}
+                                {% if data['obligated'] == 'yes' and data['registered'] == 'yes' %}
+                                    <a href="home?paid=yes">
+                                        Pay your registration fees
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                Pay your registration fees
+                            {% endif %}
+
+
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+
+                        {% if data['obligated'] %}
+                            {% if data['obligated'] == 'no' %}
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not required</strong>
+                            {% endif %}
+                            {% if data['obligated'] == 'yes' and data['registered'] == 'no' and data['paid'] == 'no' %}
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                            {% endif %}
+                            {% if data['obligated'] == 'yes' and data['registered'] == 'yes' and data['paid'] == 'no' %}
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                            {% endif %}
+                            {% if data['obligated'] == 'yes' and data['registered'] == 'yes' and data['paid'] == 'yes' %}
+                                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                            {% endif %}
+                        {% else %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+
                     </li>
                 </ul>
             </li>

@@ -24,40 +24,34 @@
       Sign in using Government Gateway
     </h1>
 
-    <form method="POST" action="">
+    <form method="POST" action="/epr/home">
 
-        {{
-            govukInput({
-                label: {
-                    text: "Government Gateway user ID"
+        {{ govukInput({
+            label: {
+                text: "Government Gateway user ID"
             },
-                hint: {
-                    text: "This could be up to 12 characters."
+            hint: {
+                text: "This could be up to 12 characters."
             },
-                classes: "govuk-!-width-one-half",
-                id: "userId",
-                name: "userId",
-                value: userId
-            })
-        }}
+            classes: "govuk-!-width-one-half",
+            id: "userId",
+            name: "userId",
+            value: userId
+        })  }}
 
-        {{
-            govukInput({
-                label: {
-                    text: "Password"
+        {{ govukInput({
+            label: {
+                text: "Password"
             },
-                classes: "govuk-!-width-three-quarters",
-                id: "password",
-                name: "password",
-                value: password
-            })
-        }}
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            value: password
+        }) }}
 
-        {{
-            govukButton({
-                text: "Sign in"
-            })
-        }}
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
 
     </form>
 
