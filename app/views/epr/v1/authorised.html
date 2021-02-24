@@ -23,13 +23,19 @@
             <h2 class="govuk-heading-m">
                 To register for this service you must be an authorised person for Acme Org Ltd
             </h2>
-            <p>An authorised person can be a company director, secretary, sole trader or partner.</p>
+            <p>An authorised person can be a:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>company director</li>
+                <li>secretary</li>
+                <li>sole trader</li>
+                <li>partner</li>
+            </ul>
             <p>If you do not hold one of these positions, you must <a href="#">invite an authorised person to create a Defra Account</a> so they can register Acme Org Ltd for this service.</p>
         </div>
 
         <form method="POST" action="terms">
             
-            {% call govukFieldset({
+            <!--{% call govukFieldset({
                 classes: "govuk-!-margin-top-8",
                 legend: {
                     text: "What is your position at Acme Org Ltd?",
@@ -82,7 +88,22 @@
                 text: "Continue"
             })}}
 
-            {% endcall %}
+            {% endcall %}-->
+
+            <div class="govuk-form-group">
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="serviceTerms" name="serviceTerms" type="checkbox" value="I agree">
+                        <label class="govuk-label govuk-checkboxes__label" for="serviceTerms">
+                            I confirm that I am authorised to act on behalf of Acme Org Ltd.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
 
         </form>
 

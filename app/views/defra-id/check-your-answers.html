@@ -44,7 +44,7 @@
                     Your organisation's details
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Acme Org ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
+                    Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
                     1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
                 </dd>
                 <dd class="govuk-summary-list__actions">
@@ -161,7 +161,7 @@
             <!-- End of Mary's beautiful capture hack -->
         </div>
 
-        <form method="POST" action="/epr/authorised">
+        <form method="POST" action="/epr/{{data['protoVer']}}/authorised">
             <button class="govuk-button" id="myButton" disabled>Continue</button>
         </form>
 

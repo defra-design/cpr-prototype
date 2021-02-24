@@ -19,6 +19,7 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
+  // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
+  "protoVer": "v1"
 
 }

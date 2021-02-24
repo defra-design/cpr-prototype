@@ -38,7 +38,7 @@
                     Registered details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                    Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] }})<br />
+                    Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
                     11 Long Lane, Leeds, West Yorkshire, LS1 2AB
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -52,8 +52,8 @@
                     Contact details
                     </dt>
                     <dd class="govuk-summary-list__value">
-                    {{ data['sub1CompanyPhone'] }}<br />
-                    {{ data['sub1CompanyEmail'] }}
+                    {{ data['sub1CompanyPhone'] or '0113 0948 333' }}<br />
+                    {{ data['sub1CompanyEmail'] or 'enquiries@subsidiary.com' }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">
