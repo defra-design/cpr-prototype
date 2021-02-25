@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Government Gateway | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set html %}
+        <p>Do not share your Government Gateway user ID and password with anyone else.</p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+        titleText: 'Keep your information secure',
+        html: html
+    }) }}
+
+    <h1 class="govuk-heading-xl">
+      Sign in using Government Gateway
+    </h1>
+
+    <form method="POST" action="../epr/home">
+
+        {{ govukInput({
+            label: {
+                text: "Government Gateway user ID"
+            },
+            hint: {
+                text: "This could be up to 12 characters."
+            },
+            classes: "govuk-!-width-one-half",
+            id: "userId",
+            name: "userId",
+            value: userId
+        })  }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            value: password
+        }) }}
+
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
+
+    </form>
+
+    <p><a href="email-address">Create sign in details</a></p>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <ul class="govuk-list">
+        <li><a href="#">I have forgotten my password</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID and password</a></li>
+        <br>
+    </ul>
+
+    {% include "includes/get-help.html" %}
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your contact details | Packaging producer responsibilty prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">
+            Check your contact details
+        </h1>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Your contact details</caption>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Name</th>
+                <td class="govuk-table__cell">{{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Phone number</th>
+                <td class="govuk-table__cell">{{ data['defraIdPersonalPhone'] or '07711223344' }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Email address</th>
+                <td class="govuk-table__cell">{{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Radio button routing in /epr/vN/_routes.js -->
+        <form method="POST" action="registration-check-contact-choice">
+
+            <div class="govuk-form-group govuk-!-margin-top-8">
+                <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                        Are these details correct?
+                    </h1>
+                </legend>
+
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field1" name="contactChoice" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="field1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field2" name="contactChoice" type="radio" value="some">
+                        <label class="govuk-label govuk-radios__label" for="field2">
+                            No, some details are wrong
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field3" name="contactChoice" type="radio" value="all">
+                        <label class="govuk-label govuk-radios__label" for="field3">
+                            No, all details are wrong
+                        </label>
+                    </div>
+                </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+        
+    </div>
+</div>
+
+{% endblock %}

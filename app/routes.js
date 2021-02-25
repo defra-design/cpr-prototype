@@ -16,9 +16,13 @@ router.use('/', (req, res, next) => {
     next();
 });
 
-// Start folder specific routes
-router.use('/defra-id', require('./views/defra-id/_routes'));
-router.use('/epr/v1', require('./views/epr/v1/_routes'));
+// Folder specific routes
+router.use('/v1/epr', require('./views/v1/epr/_routes'));
+router.use('/v1/defra-id', require('./views/v1/defra-id/_routes'));
+
+router.use('/v2/epr', require('./views/v2/epr/_routes'));
+router.use('/v2/defra-id', require('./views/v2/defra-id/_routes'));
+
 
 // Clear all session data
 router.get('/clear', (req, res) => {

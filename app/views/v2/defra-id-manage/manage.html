@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+{% set serviceName = "Your Defra account" %}
+
+{% block pageTitle %}
+    Your Defra account
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> John Smith<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> johnsmith@company.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07711223344
+    </p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Contact Support ID
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+       If you contact us for support, you'll need your Contact Support ID: CID-000000002109
+      </div>
+    </details>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="personal-security" class="govuk-link--no-visited-state">Reset security word</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+      <h2 class="govuk-heading-l">
+        Your accounts
+      </h2>
+
+      <table class="govuk-table {{ tableCSS }}">
+        <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">You have access to the following accounts and related services.</caption>
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header column-full" scope="col">
+            Account
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Account role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            <span class="govuk-visually-hidden td-header">Action</span>
+          </th>
+        </tr>
+        </thead>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden td-header">Account:</span>
+            Acme Org Ltd
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden td-header">Service:</span> Packaging producer responsibility
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden td-header">Service role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden td-header">Action:</span><a href="#" class="govuk-link--no-visited-state"> Manage<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
+
+          </td>
+        </tr>
+
+      </table>
+
+      <p class="govuk-body"><a class="govuk-link--no-visited-state" href="#">Add new account</a></p>
+
+
+
+  </div>
+</div>
+
+
+
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-l">Your services</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="../epr/home"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">Packaging producer responsibility</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Government Gateway | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <h1 class="govuk-heading-xl">Enter your email address</h1>
+    <p>This will only be used to send you security updates or if you need to recover your sign in details.</p>
+    <p>To confirm it is your email address we will send you a code.</p>
+
+    <form method="POST" action="check-email">
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-!-width-three-quarters",
+        id: "govGateEmail",
+        name: "govGateEmail"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+
+{% endblock %}

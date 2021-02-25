@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add subsidiaries | Packaging producer responsibilty prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">Add obligated subsidiaries</h1>
+        <p>You only need to add each subsidiary which will be obligated during 2023.</p>
+        {{ govukDetails({
+            summaryText: "Some helpful info",
+            html: '<p>Some helpful info.</p>'
+        }) }}
+
+        {% if data['sub1'] %}
+        <div class="govuk-!-padding-6 govuk-!-margin-bottom-6 govuk-background-light-grey">
+
+            <h2 class="govuk-heading-m">Subsidiary 1</h2>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Registered details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
+                    11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Contact details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{ data['sub1CompanyPhone'] or '0113 0948 333' }}<br />
+                    {{ data['sub1CompanyEmail'] or 'enquiries@subsidiary.com' }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> date of birth</span>
+                    </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <p class="govuk-!-margin-bottom-0"><a href="registration-subsidiaries-remove">Remove this subsidiary</a></p>
+
+        </div>
+        {% endif %}
+
+
+        {% if data['sub2'] %}
+        <div class="govuk-!-padding-6 govuk-!-margin-bottom-6 govuk-background-light-grey">
+
+            <h2 class="govuk-heading-m">Subsidiary 2</h2>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    Sarah Philips
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    5 January 1978
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> date of birth</span>
+                    </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Contact information
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    72 Guild Street<br>London<br>SE23 6FH
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> contact information</span>
+                    </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Contact details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">07700 900457</p>
+                    <p class="govuk-body">sarah.phillips@example.com</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <p class="govuk-!-margin-bottom-0"><a href="registration-subsidiaries-remove">Remove this subsidiary</a></p>
+
+        </div>
+        {% endif %}
+
+
+            <div class="govuk-button-group">
+
+                <form method="POST" action="registration-subsidiaries-add-companies-house">
+                    <button class="govuk-button govuk-button--secondary">
+                        {% if data['sub1'] %}
+                            Add another subsidiary
+                        {% else %}
+                            Add a subsidiary
+                        {% endif %}
+                    </button>
+                </form>
+
+                {% if data['sub1'] %}
+                <form method="POST" action="registration-subsidiaries-add-check">
+                    <button class="govuk-button">
+                        Continue
+                    </button>
+                </form>
+                {% endif %}
+                
+            </div>
+
+    </div>
+</div>
+
+{% endblock %}

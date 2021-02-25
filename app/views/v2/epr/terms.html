@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Terms & Conditions | Packaging producer responsibilty prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Packaging producer responsibility service
+        </h1>
+
+        <h2 class="govuk-heading-m">Terms &amp; Conditions</h2>
+        <p>Before using the packaging producer responsibility service you must read, understand and agree to the:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="#" target="_blank">Service terms &amp; conditions (opens in a new tab)</a></li>
+            <li><a href="#" target="_blank">Service privacy policy (opens in a new tab)</a></li>
+        </ul>
+
+        <form method="POST" action="pending">
+
+            <div class="govuk-form-group govuk-!-margin-top-8">
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="serviceTerms" name="serviceTerms" type="checkbox" value="I agree">
+                        <label class="govuk-label govuk-checkboxes__label" for="serviceTerms">
+                            I have read and agree to the service terms &amp; conditions and privacy policy.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

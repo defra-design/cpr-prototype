@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your contact details | Packaging producer responsibilty prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">
+            Incorrect contact details
+        </h1>
+        
+        <p>You must be signed in as the wrong person.</p>
+        <p>Information to direct the user to invite the correct user to create a Defra Account, log in and access this service instead.</p>
+        
+    </div>
+</div>
+
+{% endblock %}
