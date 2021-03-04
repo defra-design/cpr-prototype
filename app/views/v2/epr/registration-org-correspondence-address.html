@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Correspondence details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-org-correspondence-contact">
+
+            {% call govukFieldset({
+                legend: {
+                text: "Enter your organisation's correspondence address",
+                classes: "govuk-fieldset__legend--xl",
+                isPageHeading: true
+                }
+            }) %}
+            
+                {{ govukInput({
+                label: {
+                    html: 'Address line 1'
+                },
+                id: "correspondenceAddress1",
+                name: "correspondenceAddress1"
+                }) }}
+            
+                {{ govukInput({
+                label: {
+                    html: 'Address line 2'
+                },
+                id: "correspondenceAddress2",
+                name: "correspondenceAddress2"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                    html: 'Address line 3'
+                    },
+                    id: "correspondenceAddress3",
+                    name: "correspondenceAddress3"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                    html: 'Address line 4'
+                    },
+                    id: "correspondenceAddress4",
+                    name: "correspondenceAddress4"
+                }) }}
+            
+                {{ govukInput({
+                label: {
+                    text: "Town or city"
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "correspondenceTown",
+                name: "correspondenceTown"
+                }) }}
+            
+                {{ govukInput({
+                label: {
+                    text: "County"
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "correspondenceCounty",
+                name: "correspondenceCounty"
+                }) }}
+            
+                {{ govukInput({
+                label: {
+                    text: "Postcode"
+                },
+                classes: "govuk-input--width-10",
+                id: "correspondencePostcode",
+                name: "correspondencePostcode"
+                }) }}
+            
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Turnover | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-org-type">
+
+            <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">What was your organisation's turnover during your last full financial year?</h1>
+
+            <p class="govuk-hint">Use your organisation's financial year rather than the national tax year.</p>
+            
+            {{ govukInput({
+                id: "orgTurnover",
+                name: "orgTurnover",
+                label: {
+                  text: "Turnover"
+                },
+                prefix: {
+                  text: "£"
+                },
+                formGroup: {
+                    classes : "govuk-!-margin-top-6"
+                },
+                classes: "govuk-!-width-one-third",
+                spellcheck: false
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

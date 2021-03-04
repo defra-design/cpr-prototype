@@ -21,19 +21,7 @@ router.post('*/registration-choice-choice', function (req, res) {
 })
 
 
-// Routing for registration-check-contact.html
-router.post('*/registration-check-contact-choice', function (req, res) {
-    var contactChoice = req.session.data['contactChoice']
-    if (contactChoice == "some"){
-        res.redirect('registration-check-contact-some-wrong')
-    }
-    if (contactChoice == "all"){
-        res.redirect('registration-check-contact-all-wrong')
-    }
-    else {
-        res.redirect('registration-check-org')
-    }
-})
+
 
 
 // Routing for registration-check-org.html
@@ -46,22 +34,40 @@ router.post('*/registration-check-org-choice', function (req, res) {
         res.redirect('registration-check-org-all-wrong')
     }
     else {
-        res.redirect('registration-subsidiaries')
+        res.redirect('registration-check-org-correspondence')
     }
 })
+
+
+
+
+
+// Routing for registration-check-org-correspondence.html
+router.post('*/registration-check-org-correspondence-choice', function (req, res) {
+    var choice = req.session.data['choice']
+    if (choice == "yes"){
+        res.redirect('registration-org-correspondence-address')
+    }
+    else {
+        res.redirect('registration-check-contact')
+    }
+})
+
+
+
 
 
 // Routing for registration-subsidiaries.html
 router.post('*/registration-subsidiaries-choice', function (req, res) {
     var subChoice = req.session.data['subChoice']
-    if (subChoice == "no"){
-        res.redirect('')
+    if (subChoice == "yes"){
+        res.redirect('registration-subsidiaries-add')
     }
     if (subChoice == "unsure"){
         res.redirect('registration-subsidiaries-guidance')
     }
     else {
-        res.redirect('registration-subsidiaries-add')
+        res.redirect('registration-check-details')
     }
 })
 
@@ -85,7 +91,7 @@ router.post('*/registration-subsidiaries-add-check-choice', function (req, res) 
         res.redirect('registration-subsidiaries-add')
     }
     else {
-        res.redirect('')
+        res.redirect('registration-check-details')
     }
 })
 

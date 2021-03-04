@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-subsidiaries">
+            
+            {{ govukCheckboxes({
+              idPrefix: "orgActivity",
+              name: "orgActivity",
+              fieldset: {
+                legend: {
+                  text: "Choose the packaging activities that apply to your organisation",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              hint: {
+                text: "Select all that apply."
+              },
+              items: [
+                {
+                  value: "brandowner",
+                  text: "Brand owner",
+                  hint: { text: "Some hint text" }
+                },
+                {
+                  value: "importer",
+                  text: "Importer",
+                  hint: { text: "Some hint text" }
+                },
+                {
+                  value: "distributor",
+                  text: "Distributor",
+                  hint: { text: "Some hint text" }
+                },
+                {
+                  value: "onlinemarketplace",
+                  text: "Online marketplace",
+                  hint: { text: "Some hint text" }
+                },
+                {
+                  value: "seller",
+                  text: "Seller",
+                  hint: { text: "Some hint text" }
+                },
+                {
+                  value: "serviceprovider",
+                  text: "Service provider",
+                  hint: { text: "Some hint text" }
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

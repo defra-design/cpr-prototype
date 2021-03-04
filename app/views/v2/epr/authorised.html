@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Authorised person | Packaging producer responsibilty prototype
+    Authorised person | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,94 +15,44 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <div>
-            <h1 class="govuk-heading-xl">
-                Packaging producer responsibility service
-            </h1>
+        <h1 class="govuk-heading-xl">
+            Register as an obligated packaging producer
+        </h1>
 
-            <h2 class="govuk-heading-m">
-                To register for this service you must be an authorised person for Acme Org Ltd
-            </h2>
-            <p>An authorised person can be a:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>company director</li>
-                <li>secretary</li>
-                <li>sole trader</li>
-                <li>partner</li>
-            </ul>
-            <p>If you do not hold one of these positions, you must <a href="#">invite an authorised person to create a Defra Account</a> so they can register Acme Org Ltd for this service.</p>
-        </div>
+        <h2 class="govuk-heading-m">
+            Privacy policy
+        </h2>
+        <p>Key points of the privacy policy:</p>
+        
 
-        <form method="POST" action="terms">
-            
-            <!--{% call govukFieldset({
-                classes: "govuk-!-margin-top-8",
-                legend: {
-                    text: "What is your position at Acme Org Ltd?",
-                    classes: "govuk-fieldset__legend--m",
-                    isPageHeading: true
-                }
-            }) %}
+        <ul class="govuk-list govuk-list--bullet">
+            <li>The information you provide in this service will be shared with the scheme regulators and scheme administrator</li>
+            <li>Another summarised term</li>
+            <li>Another summarised term</li>
+        </ul>
+        
+        <p><a href="#" target="_blank">Read the full privacy policy (opens in a new tab).</a></p>
+        
+        <h2 class="govuk-heading-m">
+            Declaration
+        </h2>
 
-            <div class="govuk-form-group">
-                <div class="govuk-radios">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field1" name="authType" type="radio" value="director">
-                        <label class="govuk-label govuk-radios__label" for="field1">
-                            Company director
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field2" name="authType" type="radio" value="secretary">
-                        <label class="govuk-label govuk-radios__label" for="field2">
-                            Company secretary
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field3" name="authType" type="radio" value="sole trader">
-                        <label class="govuk-label govuk-radios__label" for="field3">
-                            Sole trader
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field4" name="authType" type="radio" value="partner">
-                        <label class="govuk-label govuk-radios__label" for="field4">
-                            Partner
-                        </label>
-                    </div>
-                </div>
-            </div>
+        <p>By continuing, I confirm that:</p>
 
-            <div class="govuk-form-group">
-                <div class="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="serviceTerms" name="serviceTerms" type="checkbox" value="I agree">
-                        <label class="govuk-label govuk-checkboxes__label" for="serviceTerms">
-                            I confirm that I am authorised to act on behalf of Acme Org Ltd.
-                        </label>
-                    </div>
-                </div>
-            </div>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>I, {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}, am authorised to act on behalf of Acme Org Ltd</li>
+            <li>I understand and agree to the privacy policy</li>
+        </ul>
+        
+        {{ govukWarningText({
+            text: "You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of Acme Org Ltd.",
+            iconFallbackText: "Warning"
+        }) }}
+
+        <form method="POST" action="home">
 
             {{ govukButton({
-                text: "Continue"
-            })}}
-
-            {% endcall %}-->
-
-            <div class="govuk-form-group">
-                <div class="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="serviceTerms" name="serviceTerms" type="checkbox" value="I agree">
-                        <label class="govuk-label govuk-checkboxes__label" for="serviceTerms">
-                            I confirm that I am authorised to act on behalf of Acme Org Ltd.
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            {{ govukButton({
-                text: "Continue"
+                text: "Confirm and continue"
             })}}
 
         </form>

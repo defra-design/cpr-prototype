@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Correspondence details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-check-contact">
+
+            {% call govukFieldset({
+                legend: {
+                text: "Enter your organisation's correspondence contact details",
+                classes: "govuk-fieldset__legend--xl",
+                isPageHeading: true
+                }
+            }) %}
+            
+                {{ govukInput({
+                label: {
+                    html: 'Phone number'
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "correspondencePhone",
+                name: "correspondencePhone"
+                }) }}
+            
+                {{ govukInput({
+                label: {
+                    html: 'Email address'
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "correspondenceEmail",
+                name: "correspondenceEmail"
+                }) }}
+            
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,286 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your application details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">
+            Check your application details
+        </h1>
+
+        <p>Check the details you have provided before you submit your application.</p>
+
+        <h2 class="govuk-heading-m">Organisation details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row govuk-summary-list--no-border">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Acme Org Ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row govuk-summary-list--no-border">
+            <dt class="govuk-summary-list__key">
+              Registered address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list--no-border">
+            <dt class="govuk-summary-list__key">
+              Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              SIC code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10612: Manufacture of breakfast cereals and cereals-based foods
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdCompanyPhone'] or '01234 567899' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Turnover (&pound;)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgTurnover'] or '£3,500,000' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging activities
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgActivity'] or 'brandowner,importer' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-m">Organisation correspondence details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondenceAddress1'] or 'Unit 24' }}, {{ data['correspondenceAddress2'] or 'Industrial Estate' }}, {{ data['correspondenceAddress3'] or 'Windy Road' }}, {{ data['correspondenceAddressTown'] or 'Sheffield' }}, {{ data['correspondenceAddressCounty'] or 'South Yorkshire' }}, {{ data['correspondenceAddressPostcode'] or 'S12 3RP' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondencePhone'] or '0114 5567 890' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondenceEmail'] or 'enquiries@company.co.uk' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdPersonalPhone'] or '07711223344' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Subsidiary details</h2>
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subsidiary 1
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
+              11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subsidiary 2
+            </dt>
+            <dd class="govuk-summary-list__value">
+                Subsidiary Two Ltd ({{ data['sub2CompaniesHouseNumber'] or '00876544' }})<br />
+                Unit 12, Smith Street, Newcastle, N23 4RE
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subsidiary 3
+            </dt>
+            <dd class="govuk-summary-list__value">
+                Subsidiary Three Ltd ({{ data['sub3CompaniesHouseNumber'] or '00876545' }})<br />
+                77 Victoria Avenue, Liverpool, Merseyside, L11 3RF
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            </dd>
+          </div>
+
+        </dl>
+        
+        <form method="POST" action="registration-complete">
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+        
+    </div>
+</div>
+
+{% endblock %}
