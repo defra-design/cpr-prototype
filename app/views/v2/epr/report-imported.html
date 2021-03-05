@@ -26,458 +26,480 @@
 
         <form method="POST" action="">
 
-            {% call govukFieldset({
-            legend: {
-                text: "Paper",
-                classes: "govuk-fieldset__legend--l"
-            }
-            }) %}
-
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "paper1",
-                name: "paper1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "paper2",
-                name: "paper2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "paper3",
-                name: "paper3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "paper4",
-                name: "paper4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {% endcall %}
-
-
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-            {% call govukFieldset({
+            {% if 'paper' in data['reportImported'] %}
+            
+                {% call govukFieldset({
                 legend: {
-                    text: "Glass",
+                    text: "Paper",
                     classes: "govuk-fieldset__legend--l"
                 }
-            }) %}
+                }) %}
 
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "glass1",
-                name: "glass1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "paper1",
+                    name: "paper1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "glass2",
-                name: "glass2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "paper2",
+                    name: "paper2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "glass3",
-                name: "glass3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "paper3",
+                    name: "paper3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "glass4",
-                name: "glass4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "paper4",
+                    name: "paper4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {% endcall %}
+                {% endcall %}
 
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            {% endif %}
+            
 
+            {% if 'glass' in data['reportImported'] %}
 
-            {% call govukFieldset({
-                legend: {
-                    text: "Aluminium",
-                    classes: "govuk-fieldset__legend--l"
-                }
-            }) %}
+                {% call govukFieldset({
+                    legend: {
+                        text: "Glass",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
 
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "aluminium1",
-                name: "aluminium1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "glass1",
+                    name: "glass1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "aluminium2",
-                name: "aluminium2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "glass2",
+                    name: "glass2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "aluminium3",
-                name: "aluminium3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "glass3",
+                    name: "glass3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "aluminium4",
-                name: "aluminium4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "glass4",
+                    name: "glass4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {% endcall %}
+                {% endcall %}
 
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-            {% call govukFieldset({
-                legend: {
-                    text: "Steel",
-                    classes: "govuk-fieldset__legend--l"
-                }
-            }) %}
-
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "steel1",
-                name: "steel1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "steel2",
-                name: "steel2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "steel3",
-                name: "steel3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "steel4",
-                name: "steel4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {% endcall %}
+            {% endif %}
 
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            {% if 'aluminium' in data['reportImported'] %}
+
+                {% call govukFieldset({
+                    legend: {
+                        text: "Aluminium",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "aluminium1",
+                    name: "aluminium1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "aluminium2",
+                    name: "aluminium2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "aluminium3",
+                    name: "aluminium3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "aluminium4",
+                    name: "aluminium4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {% endcall %}
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {% endif %}
 
 
-            {% call govukFieldset({
-                legend: {
-                    text: "Plastic",
-                    classes: "govuk-fieldset__legend--l"
-                }
-            }) %}
+            {% if 'steel' in data['reportImported'] %}
 
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "plastic1",
-                name: "plastic1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {% call govukFieldset({
+                    legend: {
+                        text: "Steel",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
 
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "plastic2",
-                name: "plastic2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "steel1",
+                    name: "steel1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "plastic3",
-                name: "plastic3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "steel2",
+                    name: "steel2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "plastic4",
-                name: "plastic4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "steel3",
+                    name: "steel3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {% endcall %}
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "steel4",
+                    name: "steel4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
+                {% endcall %}
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-
-            {% call govukFieldset({
-                legend: {
-                    text: "Wood",
-                    classes: "govuk-fieldset__legend--l"
-                }
-            }) %}
-
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "wood1",
-                name: "wood1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "wood2",
-                name: "wood2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "wood3",
-                name: "wood3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "wood4",
-                name: "wood4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
-
-            {% endcall %}
+            {% endif %}
 
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            {% if 'plastic' in data['reportImported'] %}
+
+                {% call govukFieldset({
+                    legend: {
+                        text: "Plastic",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "plastic1",
+                    name: "plastic1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "plastic2",
+                    name: "plastic2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "plastic3",
+                    name: "plastic3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "plastic4",
+                    name: "plastic4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {% endcall %}
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {% endif %}
 
 
-            {% call govukFieldset({
-                legend: {
-                    text: "Other",
-                    classes: "govuk-fieldset__legend--l"
-                }
-            }) %}
+            {% if 'wood' in data['reportImported'] %}
 
-            {{ govukInput({
-                label: {
-                    text: "Raw material manufacturing"
-                },
-                classes: "govuk-input--width-5",
-                id: "other1",
-                name: "other1",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {% call govukFieldset({
+                    legend: {
+                        text: "Wood",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
 
-            {{ govukInput({
-                label: {
-                    text: "Conversion"
-                },
-                classes: "govuk-input--width-5",
-                id: "other2",
-                name: "other2",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "wood1",
+                    name: "wood1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Pack/filling"
-                },
-                classes: "govuk-input--width-5",
-                id: "other3",
-                name: "other3",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "wood2",
+                    name: "wood2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {{ govukInput({
-                label: {
-                    text: "Selling"
-                },
-                classes: "govuk-input--width-5",
-                id: "other4",
-                name: "other4",
-                suffix: {
-                    text: "tons"
-                },
-                spellcheck: false
-            }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "wood3",
+                    name: "wood3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            {% endcall %}
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "wood4",
+                    name: "wood4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                {% endcall %}
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {% endif %}
+
+
+            {% if 'other' in data['reportImported'] %}
+
+                {% call govukFieldset({
+                    legend: {
+                        text: "Other",
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Raw material manufacturing"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "other1",
+                    name: "other1",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Conversion"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "other2",
+                    name: "other2",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Pack/filling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "other3",
+                    name: "other3",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Selling"
+                    },
+                    classes: "govuk-input--width-5",
+                    id: "other4",
+                    name: "other4",
+                    suffix: {
+                        text: "tons"
+                    },
+                    spellcheck: false
+                }) }}
+
+                {% endcall %}
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {% endif %}
 
             {{govukButton({
                 text: "Continue"
