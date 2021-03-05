@@ -21,10 +21,10 @@
         }) }}
 
         <h1 class="govuk-heading-xl">
-            Check your application details
+            Check your organisation details
         </h1>
 
-        <p>Check the details you have provided before you submit your application.</p>
+        <p>Check the details you have provided before you save them for your application.</p>
 
         <h2 class="govuk-heading-m">Organisation details</h2>
 
@@ -38,7 +38,7 @@
               Acme Org Ltd
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">Change</a>
+
             </dd>
           </div>
           
@@ -128,6 +128,8 @@
 
         </dl>
 
+        {% if data['correspondenceChoice'] == 'yes' %}
+
         <h2 class="govuk-heading-m">Organisation correspondence details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -175,6 +177,8 @@
           </div>
 
         </dl>
+
+        {% endif %}
 
         <h2 class="govuk-heading-m">Contact details</h2>
 
@@ -224,12 +228,13 @@
 
         </dl>
 
+        {% if data['subChoice'] == 'yes' %}
 
         <h2 class="govuk-heading-m">Subsidiary details</h2>
 
-        <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-9">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-          <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row govuk-summary-list--no-border">
             <dt class="govuk-summary-list__key">
               Subsidiary 1
             </dt>
@@ -244,7 +249,7 @@
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row govuk-summary-list--no-border">
             <dt class="govuk-summary-list__key">
               Subsidiary 2
             </dt>
@@ -270,11 +275,13 @@
           </div>
 
         </dl>
+
+        {% endif %}
         
         <form method="POST" action="registration-complete">
 
             {{govukButton({
-                text: "Continue"
+                text: "Save"
             })}}
 
         </form>

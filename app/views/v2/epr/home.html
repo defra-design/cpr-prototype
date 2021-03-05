@@ -134,9 +134,7 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['applied'] == 'yes' %}
-                                <a href="#">
-                                    Submit your organisation information
-                                </a>
+                                Submit your organisation information
                             {% else %}
                                 <a href="registration-start">
                                     Submit your organisation information
@@ -153,29 +151,89 @@
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['applied'] == 'yes' %}
-                                <a href="#">
-                                    Pay your registration fees
-                                </a>
-                            {% else %}
-                                Pay your registration fees
+
+                            {% if data['applied'] == 'no' and data['paid'] == 'no' %}
+                                Pay your registration fee
                             {% endif %}
+
+                            {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
+                                <a href="payment-information">
+                                    Pay your registration fee
+                                </a>
+                            {% endif %}
+                                
+                            {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
+                                Pay your registration fee
+                            {% endif %}
+
                         </span>
 
-                        {% if data['applied'] == 'yes' %}
-                            {% if data['paid'] == 'yes' %}
-                                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                            {% else %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                            {% endif %}
-                        {% else %}
+                        {% if data['applied'] == 'no' and data['paid'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
                         {% endif %}
+
+                        {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
+                            
+                        {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% endif %}
+                            
                     </li>
+
+                    <!--<li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+
+                            {% if data['paid'] == 'no' %}
+                                Submit your application
+                            {% endif %}
+
+                            {% if 
+                                data['applied'] == 'yes' and 
+                                data['paid'] == 'yes' and 
+                                data['submitted'] == 'no' 
+                            %}
+                                <a href="application-submit">
+                                    Submit your application
+                                </a>
+                            {% endif %}
+
+                            {% if 
+                                data['applied'] == 'yes' and 
+                                data['paid'] == 'yes' and 
+                                data['submitted'] == 'yes' 
+                            %}
+                                Submit your application
+                            {% endif %}
+
+                        </span>
+
+                        {% if data['paid'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+
+                        {% if 
+                            data['applied'] == 'yes' and 
+                            data['paid'] == 'yes' and 
+                            data['submitted'] == 'no' 
+                        %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
+
+                        {% if 
+                            data['applied'] == 'yes' and 
+                            data['paid'] == 'yes' and 
+                            data['submitted'] == 'yes' 
+                        %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% endif %}
+
+                    </li>-->
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
+                            {% if data['submitted'] == 'yes' %}
                                 <a href="#">
                                     Your application status
                                 </a>
@@ -184,15 +242,36 @@
                             {% endif %}
                         </span>
 
-                        {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                            {% if data['applied'] == 'yes' and data['paid'] == 'yes' and data['registered'] == 'yes' %}
-                                <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="eligibility-status">Approved</strong>
-                            {% else %}
-                                <strong class="govuk-tag govuk-tag--blue app-task-list__tag">Being reviewed</strong>
-                            {% endif %}
-                        {% else %}
+                        {% if 
+                            data['applied'] == 'no' 
+                        %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not submitted</strong>
                         {% endif %}
+
+                        {% if 
+                            data['applied'] == 'yes' and 
+                            data['paid'] == 'no' and 
+                            data['registered'] == 'no' 
+                        %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Awaiting payment</strong>
+                        {% endif %}
+
+                        {% if 
+                            data['applied'] == 'yes' and 
+                            data['paid'] == 'yes' and 
+                            data['registered'] == 'no' 
+                        %}
+                            <strong class="govuk-tag govuk-tag--blue app-task-list__tag">Being reviewed</strong>
+                        {% endif %}
+
+                        {% if 
+                            data['applied'] == 'yes' and 
+                            data['paid'] == 'yes' and 
+                            data['registered'] == 'yes' 
+                        %}
+                            <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="eligibility-status">Approved</strong>
+                        {% endif %}
+                        
                     </li>
 
                 </ul>

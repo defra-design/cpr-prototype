@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your contact details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Your organisation information has been submitted"
+      }) }}
+
+      <p>Next you must pay your organisation's registration fees.</p>
+
+      <form method="POST" action="home?applied=yes">
+
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}
