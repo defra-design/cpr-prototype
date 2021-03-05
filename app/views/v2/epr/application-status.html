@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Your application status | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <div class="govuk-!-margin-top-4">
+
+          {% if 
+              data['applied'] == 'yes' and 
+              data['paid'] == 'no' and 
+              data['registered'] == 'no' 
+          %}
+              <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-2">Awaiting payment</strong>
+              <h1 class="govuk-heading-xl">
+                  Your application is awaiting payment
+              </h1>
+              <p>You need to <a href="payment-information">pay your registration fee</a> before your application is reviewed and approved.</p>
+          {% endif %}
+
+          {% if 
+              data['applied'] == 'yes' and 
+              data['paid'] == 'yes' and 
+              data['registered'] == 'no' 
+          %}
+              <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">Being reviewed</strong>
+              <h1 class="govuk-heading-xl">
+                  Your application is being reviewed
+              </h1>
+              <p>The Environment Agency will review and determine your application.</p>
+              <p>They may contact you if there are any issues.</p>
+              <p>What if the producer needs to change something or needs help?</p>
+          {% endif %}
+
+          {% if 
+              data['applied'] == 'yes' and 
+              data['paid'] == 'yes' and 
+              data['registered'] == 'yes' 
+          %}
+              <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2">Approved</strong>
+              <h1 class="govuk-heading-xl">
+                  Your application has been approved
+              </h1>
+              <p>Your organisation is registered as an obligated producer.</p>
+          {% endif %}
+
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

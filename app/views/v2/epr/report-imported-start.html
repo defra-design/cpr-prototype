@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="report-imported">
+
+            {{ govukCheckboxes({
+                idPrefix: "reportImported",
+                name: "reportImported",
+                fieldset: {
+                    legend: {
+                    text: "Which types of packaging did you import during 2022? (optional)",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    text: "Some helpful info."
+                },
+                items: [
+                    {
+                    value: "paper",
+                    text: "Paper"
+                    },
+                    {
+                    value: "glass",
+                    text: "Glass"
+                    },
+                    {
+                    value: "aluminium",
+                    text: "Aluminium"
+                    },
+                    {
+                    value: "steel",
+                    text: "Steel"
+                    },
+                    {
+                    value: "plastic",
+                    text: "Plastic"
+                    },
+                    {
+                    value: "wood",
+                    text: "Wood"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
+            }) }}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
