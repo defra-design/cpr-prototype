@@ -19,15 +19,22 @@
             Register as an obligated packaging producer
         </h1>
 
+        {% if data['registered'] == 'yes' %}
+            <p class="govuk-!-margin-bottom-8">Your scheme identification number (EPRIN): <strong>0038173</strong></p>
+        {% endif %}
+        
+
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">1. </span> Register for 2023
                 </h2>
-                {{ govukWarningText({
-                    text: "Your organisation must be registered before [date].",
-                    iconFallbackText: "Warning"
-                }) }}
+                {% if data['registered'] != 'yes' %}
+                    {{ govukWarningText({
+                        text: "Your organisation must be registered before [date].",
+                        iconFallbackText: "Warning"
+                    }) }}
+                {% endif %}
 
 
                 {% if data['year'] == '2' %}
@@ -182,55 +189,6 @@
                             
                     </li>
 
-                    <!--<li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-
-                            {% if data['paid'] == 'no' %}
-                                Submit your application
-                            {% endif %}
-
-                            {% if 
-                                data['applied'] == 'yes' and 
-                                data['paid'] == 'yes' and 
-                                data['submitted'] == 'no' 
-                            %}
-                                <a href="application-submit">
-                                    Submit your application
-                                </a>
-                            {% endif %}
-
-                            {% if 
-                                data['applied'] == 'yes' and 
-                                data['paid'] == 'yes' and 
-                                data['submitted'] == 'yes' 
-                            %}
-                                Submit your application
-                            {% endif %}
-
-                        </span>
-
-                        {% if data['paid'] == 'no' %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                        {% endif %}
-
-                        {% if 
-                            data['applied'] == 'yes' and 
-                            data['paid'] == 'yes' and 
-                            data['submitted'] == 'no' 
-                        %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                        {% endif %}
-
-                        {% if 
-                            data['applied'] == 'yes' and 
-                            data['paid'] == 'yes' and 
-                            data['submitted'] == 'yes' 
-                        %}
-                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                        {% endif %}
-
-                    </li>-->
-
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['applied'] == 'yes' %}
@@ -278,17 +236,20 @@
 
                 {% endif %}
 
-
             </li>
 
             <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">2. </span> Report 2022 packaging data
                 </h2>
-                {{ govukWarningText({
-                    text: "Your organisation must report 2022 data before [date].",
-                    iconFallbackText: "Warning"
-                }) }}
+
+                {% if data['reported'] != 'yes' %}
+                    {{ govukWarningText({
+                        text: "Your organisation must report 2022 data before [date].",
+                        iconFallbackText: "Warning"
+                    }) }}
+                {% endif %}
+
                 <ul class="app-task-list__items">
                     <!-- Not required for Producer to complete in year 1
                     <li class="app-task-list__item">
@@ -308,7 +269,7 @@
                                         Report your data
                                     </a>
                                 {% else %}
-                                    <a href="report-start">
+                                    <a href="report-method">
                                         Report your data
                                     </a>
                                 {% endif %}

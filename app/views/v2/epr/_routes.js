@@ -96,6 +96,18 @@ router.post('*/registration-subsidiaries-add-check-choice', function (req, res) 
 })
 
 
+// Routing for report-method.html
+router.post('*/route-report-method', function (req, res) {
+    var reportMethodChoice = req.session.data['reportMethodChoice']
+    if (reportMethodChoice == "spreadsheet"){
+        res.redirect('report-spreadsheet')
+    }
+    else {
+        res.redirect('report-start')
+    }
+})
+
+
 
 // Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
 router.post('*/route-reporting', function (req, res) {

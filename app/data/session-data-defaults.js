@@ -25,11 +25,13 @@ module.exports = {
   "paid": "no",
   "submitted": "no",
   "registered": "no",
+  "reported": "no",
   "reportBrandowner": "null",
   "reportImporter": "null",
   "reportDistributor": "null",
   "reportOnlinemarketplace": "null",
   "reportSeller": "null",
-  "reportServiceprovider": "null"
+  "reportServiceprovider": "null",
+  "orgActivity": "brandowner,importer,seller"
 
 }
