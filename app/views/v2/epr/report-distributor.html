@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-reporting-distributor">
+            
+            {% call govukFieldset({
+            legend: {
+                text: "Packaging materials placed on the market as a distributor",
+                classes: "govuk-fieldset__legend--xl"
+            }
+            }) %}
+
+            {{ govukDetails({
+                summaryText: "How to complete these fields",
+                html: '
+                    <p>What to include:</p>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <p>What not to include:</p>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                '
+            }) }}
+
+                {% if 'paper' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Paper"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "paperDistributor",
+                        name: "paperDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'glass' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Glass"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "glassDistributor",
+                        name: "glassDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'aluminium' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Aluminium"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "aluminiumDistributor",
+                        name: "aluminiumDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'steel' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Steel"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "steelDistributor",
+                        name: "steelDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'plastic' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Plastic"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "plasticDistributor",
+                        name: "plasticDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'wood' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Wood"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "woodDistributor",
+                        name: "woodDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'other' in data['reportDistributor'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Other"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "otherDistributor",
+                        name: "otherDistributor",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

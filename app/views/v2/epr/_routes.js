@@ -44,8 +44,8 @@ router.post('*/registration-check-org-choice', function (req, res) {
 
 // Routing for registration-check-org-correspondence.html
 router.post('*/registration-check-org-correspondence-choice', function (req, res) {
-    var choice = req.session.data['choice']
-    if (choice == "yes"){
+    var correspondenceChoice = req.session.data['correspondenceChoice']
+    if (correspondenceChoice == "yes"){
         res.redirect('registration-org-correspondence-address')
     }
     else {
@@ -94,5 +94,115 @@ router.post('*/registration-subsidiaries-add-check-choice', function (req, res) 
         res.redirect('registration-check-details')
     }
 })
+
+
+
+// Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
+router.post('*/route-reporting', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('brandowner')){
+        res.redirect('report-brandowner-start')
+    }
+    else if (orgActivity.includes('importer')){
+        res.redirect('report-importer-start')
+    }
+    else if (orgActivity.includes('distributor')){
+        res.redirect('report-distributor-start')
+    }
+    else if (orgActivity.includes('onlinemarketplace')){
+        res.redirect('report-onlinemarketplace-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
+    }
+    else if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+router.post('*/route-reporting-brandowner', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('importer')){
+        res.redirect('report-importer-start')
+    }
+    else if (orgActivity.includes('distributor')){
+        res.redirect('report-distributor-start')
+    }
+    else if (orgActivity.includes('onlinemarketplace')){
+        res.redirect('report-onlinemarketplace-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
+    }
+    else if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+router.post('*/route-reporting-importer', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('distributor')){
+        res.redirect('report-distributor-start')
+    }
+    else if (orgActivity.includes('onlinemarketplace')){
+        res.redirect('report-onlinemarketplace-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
+    }
+    else if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+router.post('*/route-reporting-distributor', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('onlinemarketplace')){
+        res.redirect('report-onlinemarketplace-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
+    }
+    else if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+router.post('*/route-reporting-onlinemarketplace', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
+    }
+    else if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+router.post('*/route-reporting-seller', function (req, res) {
+    var orgActivity = req.session.data['orgActivity']
+    if (orgActivity.includes('serviceprovider')){
+        res.redirect('report-serviceprovider-start')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+// end of POM data reporting pages
+
 
 module.exports = router

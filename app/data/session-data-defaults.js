@@ -20,10 +20,16 @@ Example usage:
 module.exports = {
 
   // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
-  "protoVer": "v1",
+  "protoVer": "v2",
   "applied": "no",
   "paid": "no",
   "submitted": "no",
-  "registered": "no"
+  "registered": "no",
+  "reportBrandowner": "null",
+  "reportImporter": "null",
+  "reportDistributor": "null",
+  "reportOnlinemarketplace": "null",
+  "reportSeller": "null",
+  "reportServiceprovider": "null"
 
 }

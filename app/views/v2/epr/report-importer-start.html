@@ -20,20 +20,31 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="report-imported">
+        <form method="POST" action="report-importer">
 
             {{ govukCheckboxes({
-                idPrefix: "reportImported",
-                name: "reportImported",
+                idPrefix: "reportImporter",
+                name: "reportImporter",
                 fieldset: {
                     legend: {
-                    text: "Which types of packaging did you import during 2022? (optional)",
+                    text: "Which types of packaging did you place on the market as an importer?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--xl"
                     }
                 },
                 hint: {
-                    text: "Some helpful info."
+                    html: '
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Importer activities explained
+                            </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                            Some helpful info.
+                            </div>
+                        </details>
+                    '
                 },
                 items: [
                     {

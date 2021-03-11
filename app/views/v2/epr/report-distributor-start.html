@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="report-distributor">
+
+            {{ govukCheckboxes({
+                idPrefix: "reportDistributor",
+                name: "reportDistributor",
+                fieldset: {
+                    legend: {
+                    text: "Which types of packaging did you place on the market as a distributor?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    html: '
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Distributor activities explained
+                            </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                            Some helpful info.
+                            </div>
+                        </details>
+                    '
+                },
+                items: [
+                    {
+                    value: "paper",
+                    text: "Paper"
+                    },
+                    {
+                    value: "glass",
+                    text: "Glass"
+                    },
+                    {
+                    value: "aluminium",
+                    text: "Aluminium"
+                    },
+                    {
+                    value: "steel",
+                    text: "Steel"
+                    },
+                    {
+                    value: "plastic",
+                    text: "Plastic"
+                    },
+                    {
+                    value: "wood",
+                    text: "Wood"
+                    },
+                    {
+                    value: "other",
+                    text: "Other"
+                    }
+                ]
+            }) }}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

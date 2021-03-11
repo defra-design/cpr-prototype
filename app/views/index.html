@@ -50,8 +50,22 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               <strong>Version 2</strong><br />
-              <a href="/v2/epr/service-start">Service start page</a><br />
-              <a href="/v2/epr/home">Service task list</a><br />
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  <a href="/v1/epr/service-start">Service start page</a>
+                  <span class="govuk-hint">(User needs to sign in or create an account)</span>
+                </li>
+                <li>
+                  Service task list:
+                  <span class="govuk-hint">(User is signed in)</span>
+                  <ul>
+                    <li><a href="/v2/epr/home?applied=no&paid=no&registered=no">Submit organisation information</a></li>
+                    <li><a href="/v2/epr/home?applied=yes&paid=no&registered=no">Pay registration fees</a></li>
+                    <li><a href="/v2/epr/home?applied=yes&paid=yes&registered=no">Application being reviewed</a></li>
+                    <li><a href="/v2/epr/home?applied=yes&paid=yes&registered=yes">Application approved &amp; report POM data</a></li>
+                  </ul>
+                </li>
+              </ul>
             </td>
             <td class="govuk-table__cell">
               Awaiting testing
