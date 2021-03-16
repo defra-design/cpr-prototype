@@ -21,13 +21,14 @@
         }) }}
 
         <h1 class="govuk-heading-xl">
-            Pay your registration fee
+          Pay the registration fee
         </h1>
 
-        <h2 class="govuk-heading-m">Your organisation's registration fee</h2>
+        <h2 class="govuk-heading-m">Acme Org Ltd’s registration fee</h2>
+        <p class="govuk-body-l">&pound;1134</p>
 
         {{ govukDetails({
-          summaryText: "See how your fee is calculated",
+          summaryText: "View a breakdown of the registration fee",
           html: '
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
@@ -54,27 +55,21 @@
                 £348
               </dd>
             </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Total
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £1134
+              </dd>
+            </div>
           </dl>
           '
         }) }}
 
-        {{ govukSummaryList({
-          classes : "govuk-!-margin-bottom-9",
-          rows: [
-            {
-              key: {
-                text: "Total amount due"
-              },
-              value: {
-                text: "£1134"
-              }
-            }
-          ]
-        }) }}
-
-        <h2 class="govuk-heading-m">How to pay</h2>
+        <h2 class="govuk-heading-m">Bank details for BACS payments</h2>
         
-        <p>&pound;1134 should be paid to the Environment Agency by BACS.</p>
+        <p>You should pay the Environment Agency by BACS. It usually takes 3 working days to process.</p>
 
         {{ govukSummaryList({
           rows: [
@@ -121,31 +116,39 @@
           ]
         }) }}
 
-        <p><a href="payment-information-send">Send this as an invoice to your accounts person or department</a></p>
+        <p><a href="payment-information-send">Send these payment details to someone else</a></p>
 
         <div class="govuk-!-margin-top-8">
 
-          <form method="POST" action="payment-complete">
+          <form method="POST" action="route-payment">
 
-            {{ govukCheckboxes({
-              idPrefix: "paid",
-              name: "paid",
-              fieldset: {
-                legend: {
-                  text: "Confirm payment and complete your application",
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "I confirm payment has been made."
-                }
-              ]
-            }) }}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Has the registration fee been paid? 
+                  </h1>
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="field2" name="paymentChoice" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="field2">
+                      Yes, submit my application 
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="field1" name="paymentChoice" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="field1">
+                    No, I’ll complete my application later
+                  </label>
+                </div>
+              </div>
+              </fieldset>
+            </div>
           
             {{govukButton({
-                text: "Confirm and complete"
+                text: "Confirm and submit"
             })}}
 
           </form>

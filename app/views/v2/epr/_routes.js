@@ -96,6 +96,18 @@ router.post('*/registration-subsidiaries-add-check-choice', function (req, res) 
 })
 
 
+// Routing for payment-information.html
+router.post('*/route-payment', function (req, res) {
+    var paymentChoice = req.session.data['paymentChoice']
+    if (paymentChoice == "no"){
+        res.redirect('home')
+    }
+    else {
+        res.redirect('payment-complete?paid=yes')
+    }
+})
+
+
 // Routing for report-method.html
 router.post('*/route-report-method', function (req, res) {
     var reportMethodChoice = req.session.data['reportMethodChoice']

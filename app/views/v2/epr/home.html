@@ -27,11 +27,11 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Register for 2023
+                    <span class="app-task-list__section-number">1. </span> Apply to register your organisation for 2023
                 </h2>
                 {% if data['registered'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "Your organisation must be registered before [date].",
+                        text: "The registration deadline is [date].",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
@@ -141,10 +141,10 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['applied'] == 'yes' %}
-                                Submit your organisation information
+                                Add information about your organisation
                             {% else %}
                                 <a href="registration-start">
-                                    Submit your organisation information
+                                    Add information about your organisation
                                 </a>
                             {% endif %}
                         </span>
@@ -160,17 +160,17 @@
                         <span class="app-task-list__task-name">
 
                             {% if data['applied'] == 'no' and data['paid'] == 'no' %}
-                                Pay your registration fee
+                                Pay the fee and submit your application
                             {% endif %}
 
                             {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
                                 <a href="payment-information">
-                                    Pay your registration fee
+                                    Pay the fee and submit your application
                                 </a>
                             {% endif %}
                                 
                             {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                                Pay your registration fee
+                                Pay the fee and submit your application
                             {% endif %}
 
                         </span>
@@ -219,7 +219,7 @@
                             data['paid'] == 'yes' and 
                             data['registered'] == 'no' 
                         %}
-                            <strong class="govuk-tag govuk-tag--blue app-task-list__tag">Being reviewed</strong>
+                            <strong class="govuk-tag govuk-tag--blue app-task-list__tag">Under review</strong>
                         {% endif %}
 
                         {% if 
@@ -240,12 +240,12 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">2. </span> Report 2022 packaging data
+                    <span class="app-task-list__section-number">2. </span> Report your organisaiton's packaging data
                 </h2>
 
                 {% if data['reported'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "Your organisation must report 2022 data before [date].",
+                        text: "The reporting deadline is [date].",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
@@ -266,15 +266,15 @@
                             {% if data['applied'] == 'yes' and data['paid'] == 'yes' and data['registered'] == 'yes' %}
                                 {% if data['reported'] == 'yes' %}
                                     <a href="#">
-                                        Report your data
+                                        Submit your packaging data
                                     </a>
                                 {% else %}
                                     <a href="report-method">
-                                        Report your data
+                                        Submit your packaging data
                                     </a>
                                 {% endif %}
                             {% else %}
-                                Report your data
+                                Submit your packaging data
                             {% endif %}
 
                         </span>
