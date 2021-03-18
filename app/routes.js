@@ -23,6 +23,7 @@ router.use('/v1/defra-id', require('./views/v1/defra-id/_routes'));
 router.use('/v2/epr', require('./views/v2/epr/_routes'));
 router.use('/v2/defra-id', require('./views/v2/defra-id/_routes'));
 router.use('/v2/drs', require('./views/v2/drs/_routes'));
+router.use('/v2/epr-obligation-checker', require('./views/v2/epr-obligation-checker/_routes'));
 
 
 // Clear all session data
