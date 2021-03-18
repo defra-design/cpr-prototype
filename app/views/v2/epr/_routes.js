@@ -100,7 +100,7 @@ router.post('*/registration-subsidiaries-add-check-choice', function (req, res) 
 router.post('*/route-payment', function (req, res) {
     var paymentChoice = req.session.data['paymentChoice']
     if (paymentChoice == "no"){
-        res.redirect('home')
+        res.redirect('payment-incomplete')
     }
     else {
         res.redirect('payment-complete?paid=yes')
