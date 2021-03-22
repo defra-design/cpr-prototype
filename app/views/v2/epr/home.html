@@ -140,20 +140,41 @@
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['applied'] == 'yes' %}
-                                Add information about your organisation
-                            {% else %}
-                                <a href="registration-start">
+                            <a href="registration-start">
+                                Introduction and what you'll need
+                            </a>
+                        </span>
+
+                        {% if data['intro1'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                        {% endif %}
+                    </li>
+                    
+                    
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            {% if data['intro1'] == 'yes' and data['applied'] == 'no' %}
+                                <a href="registration-check-contact">
                                     Add information about your organisation
                                 </a>
+                            {% else %}
+                                Add information about your organisation
                             {% endif %}
                         </span>
 
-                        {% if data['applied'] == 'yes' %}
-                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                        {% else %}
+                        {% if data['intro1'] == 'no' and data['applied'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+
+                        {% if data['intro1'] == 'yes' and data['applied'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
                         {% endif %}
+                            
+                        {% if data['intro1'] == 'yes' and data['applied'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% endif %} 
+
                     </li>
 
                     <li class="app-task-list__item">
@@ -184,7 +205,7 @@
                         {% endif %}
                             
                         {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                            <strong class="govuk-tag app-task-list__tag">Completed</strong>
                         {% endif %}
                             
                     </li>
@@ -251,6 +272,26 @@
                 {% endif %}
 
                 <ul class="app-task-list__items">
+
+                    <li class="app-task-list__item">
+
+                        <span class="app-task-list__task-name">
+                            {% if data['registered'] == 'yes' %}
+                                <a href="report-start">
+                                    Introduction and what you'll need
+                                </a>
+                            {% else %}
+                                Introduction and what you'll need
+                            {% endif %}
+                        </span>
+
+                        {% if data['intro2'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag">Completed</strong>
+                        {% else %}
+                        {% endif %}
+
+                    </li>
+                    
                     <!-- Not required for Producer to complete in year 1
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
@@ -260,6 +301,7 @@
                         </span>
                         <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
                     </li>-->
+                    
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 

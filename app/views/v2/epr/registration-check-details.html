@@ -26,6 +26,58 @@
 
         <p>Check the details you have provided before you add them to your application.</p>
 
+
+
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdPersonalPhone'] or '07711223344' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
         <h2 class="govuk-heading-m">Organisation details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -128,6 +180,8 @@
 
         </dl>
 
+
+
         {% if data['correspondenceChoice'] == 'yes' %}
 
         <h2 class="govuk-heading-m">Organisation correspondence details</h2>
@@ -180,53 +234,7 @@
 
         {% endif %}
 
-        <h2 class="govuk-heading-m">Contact details</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Phone number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['defraIdPersonalPhone'] or '07711223344' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Email address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-
-        </dl>
+        
 
         {% if data['subChoice'] == 'yes' %}
 

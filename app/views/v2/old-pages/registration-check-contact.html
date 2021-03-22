@@ -21,8 +21,11 @@
         }) }}
 
         <h1 class="govuk-heading-xl">
-          Are these the contact details we should use for this application?
+            Check your contact details
         </h1>
+
+        <p class="govuk-hint">These should be the contact details for the person who will manage this application on behalf of your organisation.</p>
+        <p class="govuk-hint">Change any details that are not correct.</p>
 
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
@@ -32,6 +35,11 @@
             <dd class="govuk-summary-list__value">
               {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -39,6 +47,11 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['defraIdPersonalPhone'] or '07711223344' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -48,25 +61,15 @@
             <dd class="govuk-summary-list__value">
               {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
           </div>
         </dl>
         
-        <form method="POST" action="route-check-contact">
-
-            {{ govukRadios({
-              idPrefix: "",
-              name: "contactChoice",
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
-                },
-                {
-                  value: "no",
-                  text: "No, I need to enter different contact details"
-                }
-              ]
-            }) }}
+        <form method="POST" action="registration-check-org">
 
             {{govukButton({
                 text: "Continue"

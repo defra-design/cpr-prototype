@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Contact details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-check-org">
+
+            {% call govukFieldset({
+                legend: {
+                    text: "Enter the contact details we should use for this application",
+                    classes: "govuk-fieldset__legend--xl govuk-!-margin-bottom-6",
+                    isPageHeading: true
+                }
+            }) %}
+
+                <p class="govuk-hint">We will not update Acme Orgs Ltd’s contact details for anything else.</p>
+            
+                {{ govukInput({
+                    label: {
+                        html: 'Contact name'
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    name: "defraIdFirstName"
+                }) }}
+            
+                {{ govukInput({
+                    label: {
+                        html: 'Phone number'
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    name: "defraIdPersonalPhone"
+                }) }}
+            
+                {{ govukInput({
+                    label: {
+                        html: 'Email address'
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    name: "govGateEmail"
+                }) }}
+            
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -24,6 +24,18 @@ router.post('*/registration-choice-choice', function (req, res) {
 
 
 
+// Routing for registration-check-contact.html
+router.post('*/route-check-contact', function (req, res) {
+    var contactChoice = req.session.data['contactChoice']
+    if (contactChoice == "no"){
+        res.redirect('registration-contact-details')
+    }
+    else {
+        res.redirect('registration-check-org')
+    }
+})
+
+
 // Routing for registration-check-org.html
 router.post('*/registration-check-org-choice', function (req, res) {
     var orgChoice = req.session.data['orgChoice']
@@ -49,7 +61,7 @@ router.post('*/registration-check-org-correspondence-choice', function (req, res
         res.redirect('registration-org-correspondence-address')
     }
     else {
-        res.redirect('registration-check-contact')
+        res.redirect('registration-org-turnover')
     }
 })
 

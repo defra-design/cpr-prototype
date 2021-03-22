@@ -21,12 +21,15 @@
       }) }}
 
       <h1 class="govuk-heading-xl">
-          Check your organisation details
+        Check your organisation’s details
       </h1>
       
       <p class="govuk-hint">This should be the registered office and the contact details included on the website, or for the head office or management team.</p>
 
+      <h2 class="govuk-heading-m">Acme Ord Ltd’s registered company details</h2>
+
       <dl class="govuk-summary-list">
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Name
@@ -63,6 +66,18 @@
           </dd>
         </div>
 
+      </dl>
+
+      <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you must <a href="#" target="_blank">update Companies House</a>.</p>
+
+
+
+      <h2 class="govuk-heading-m">Acme Ord Ltd’s contact details</h2>
+
+      <p class="govuk-hint">These are the details you entered when you set up your Defra account, not your own contact details.</p>
+
+      <dl class="govuk-summary-list">
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Phone number
@@ -82,130 +97,18 @@
         </div>
 
       </dl>
+
+      <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you can <a href="#" target="_blank">change them in your Defra ID account</a>.</p>
+
+
       
-      <!-- Radio button routing in /epr/vN/_routes.js -->
       <form method="POST" action="registration-check-org-choice">
 
-          <div class="govuk-form-group govuk-!-margin-top-8">
-              <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                      Are these details correct?
-                  </h1>
-              </legend>
-
-              <div class="govuk-radios">
-                  <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="field1" name="orgChoice" type="radio" value="yes">
-                      <label class="govuk-label govuk-radios__label" for="field1">
-                          Yes
-                      </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="field2" name="orgChoice" type="radio" value="some">
-                      <label class="govuk-label govuk-radios__label" for="field2">
-                          No, some details are wrong
-                      </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="field3" name="orgChoice" type="radio" value="all">
-                      <label class="govuk-label govuk-radios__label" for="field3">
-                          No, it is the wrong organisation
-                      </label>
-                  </div>
-              </div>
-              </fieldset>
-          </div>
-
           {{govukButton({
-              text: "Continue"
+              text: "Confirm and continue"
           })}}
 
       </form>
-
-        <!--<dl class="govuk-summary-list govuk-!-margin-top-8">
-            <div class="govuk-summary-list__row">
-                <strong>Organisation</strong>
-            </div>
-            <div class="govuk-summary-list__row govuk-summary-list--no-border">
-              <dt class="govuk-summary-list__key">
-                Name
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Acme Org Ltd
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
-                  Change
-                </a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row govuk-summary-list--no-border">
-              <dt class="govuk-summary-list__key">
-                  Registered address
-              </dt>
-              <dd class="govuk-summary-list__value">
-                1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
-              </dd>
-              <dd class="govuk-summary-list__actions">
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row govuk-summary-list--no-border">
-              <dt class="govuk-summary-list__key">
-                Companies House number
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    SIC code(s)
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    10612: Manufacture of breakfast cereals and cereals-based foods
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Phone number
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['defraIdCompanyPhone'] or '01234 567899' }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Email address
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    Change
-                  </a>
-                </dd>
-              </div>
-        </dl>
-        
-        <form method="POST" action="registration-subsidiaries">
-
-            {{govukButton({
-                text: "Continue"
-            })}}
-
-        </form>-->
-
         
     </div>
 </div>

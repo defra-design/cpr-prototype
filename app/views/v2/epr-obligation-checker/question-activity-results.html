@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Check how the extended producer responsibility applies to your organisation" %}
+
+{% block pageTitle %}
+Check how the extended producer responsibility applies to your organisation | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Extended producer responsibility</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check how the extended producer responsibility applies to your organisation</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Your results </h1>
+        <p>Based on your answers, your organisation is the following type of packaging producer: </p>
+        <ul class="govuk-list govuk-list--bullet">
+            {% if data['obCheckBrandowner'] == 'yes' %}<li>Brand owner</li>{% endif %}
+            {% if data['obCheckImporter'] == 'yes' %}<li>Importer</li>{% endif %}
+            {% if data['obCheckDistributor'] == 'yes' %}<li>Distributor</li>{% endif %}
+            {% if data['obCheckOnlinemarketplace'] == 'yes' %}<li>Online marketplace</li>{% endif %}
+            {% if data['obCheckSeller'] == 'yes' %}<li>Seller</li>{% endif %}
+            {% if data['obCheckServiceprovider'] == 'yes' %}<li>Service provider</li>{% endif %}
+        </ul>
+
+        <p><a href="#">Read more about producer types and activities on GOV.UK </a></p>
+
+        <form method="POST" action="../epr/service-start">
+            {{ govukButton({
+                text: "Register as an obligated packaging producer"
+            })}}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
