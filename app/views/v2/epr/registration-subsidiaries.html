@@ -20,49 +20,34 @@
             href: "javascript:history.back()"
         }) }}
 
+        <h1 class="govuk-heading-xl">
+            Does your organisation have any subsidiaries that produce packaging?
+        </h1>
+
+        {{ govukDetails({
+            summaryText: "What’s a subsidiary?",
+            html: '
+            <p>A subsidiary is another company that your organisation either fully or partly owns.</p>
+            <p>You can <a href="https://www.legislation.gov.uk/ukpga/2006/46/section/1159" target="_blank">read more about subsidiaries (opens in new window or tab)</a>.</p>
+            '
+        }) }}
+
         <!-- Radio button routing in /epr/vN/_routes.js -->
-        <form method="POST" action="registration-subsidiaries-choice">
+        <form method="POST" action="route-subsidiaries-choice">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-6">
-                    <h1 class="govuk-fieldset__heading">
-                        Does your organisation have any subsidiaries that handle packaging?
-                    </h1>
-                </legend>
-
-                <!--{{ govukDetails({
-                    summaryText: "What is a subsidiary organisation?",
-                    html: '<p>Some helpful info.</p>'
-                }) }}
-                
-                {{ govukDetails({
-                    summaryText: "What makes a subsidiary obligated?",
-                    html: '<p>Some helpful info.</p>'
-                }) }}-->
-
-                <div class="govuk-radios">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field1" name="subChoice" type="radio" value="yes">
-                        <label class="govuk-label govuk-radios__label" for="field1">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field2" name="subChoice" type="radio" value="no">
-                        <label class="govuk-label govuk-radios__label" for="field2">
-                            No
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="field3" name="subChoice" type="radio" value="unsure">
-                        <label class="govuk-label govuk-radios__label" for="field3">
-                            I am not sure
-                        </label>
-                    </div>
-                </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "subChoice",
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
 
             {{govukButton({
                 text: "Continue"
@@ -70,8 +55,6 @@
 
         </form>
 
-
-        
     </div>
 </div>
 

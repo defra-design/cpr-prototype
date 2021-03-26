@@ -35,13 +35,25 @@
 
         <p>We’ll also give you payment details for the registration fee and ask you to confirm whether anyone has paid.</p>
 
-        <form method="POST" action="registration-check-contact?intro1=yes">
-            <button class="govuk-button">
-                Continue with this section
-            </button>
-        </form>
+        {% if data['applied'] == 'no' and data['paid'] == 'no' %}
+            <form method="POST" action="registration-check-contact?intro1=yes">
+                <button class="govuk-button">
+                    Continue with this section
+                </button>
+            </form>
 
-        <p><a href="home?intro1=yes">Come back to this section later</a></p>
+            <p><a href="home?intro1=yes">Come back to this section later</a></p>
+        {% endif %}
+        
+        {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
+            <form method="POST" action="payment-information">
+                <button class="govuk-button">
+                    Continue with this section
+                </button>
+            </form>
+
+            <p><a href="home">Come back to this section later</a></p>
+        {% endif %}
         
     </div>
 </div>

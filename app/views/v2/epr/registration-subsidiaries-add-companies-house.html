@@ -21,36 +21,39 @@
         }) }}
 
         <!-- Radio button routing in /epr/vN/_routes.js -->
-        <form method="POST" action="registration-subsidiaries-companies-house-choice">
+        <form method="POST" action="route-subsidiaries-companies-house">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-6">
-                        <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
-                        <h1 class="govuk-fieldset__heading">
-                            Is the subsidiary on Companies House?
-                        </h1>
-                    </legend>
-                    <div class="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="field1" name="subChoice" type="radio" value="yes">
-                            <label class="govuk-label govuk-radios__label" for="field1">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="field2" name="subChoice" type="radio" value="no">
-                            <label class="govuk-label govuk-radios__label" for="field2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
+            {{ govukRadios({
+                name: "subChoice",
+                fieldset: {
+                    legend: {
+                    html: '
+                    <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
+                    <h1 class="govuk-fieldset__heading">
+                        Is the subsidiary registered with Companies House?
+                    </h1>
+                    ',
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
 
             {{ govukDetails({
-                summaryText: "How can I find out?",
-                html: '<p>Some helpful info.</p>'
+                summaryText: "How to find out if the subsidiary is registered with Companies House",
+                html: '
+                <p>You can <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">search for the subsidiary on the Companies House register (opens in new window or tab)</a>.</p>
+                <p>If the subsidiary does not show in the search results, it’s not registered with Companies House. </p>
+                '
             }) }}
 
             {{govukButton({
@@ -59,8 +62,6 @@
 
         </form>
 
-
-        
     </div>
 </div>
 

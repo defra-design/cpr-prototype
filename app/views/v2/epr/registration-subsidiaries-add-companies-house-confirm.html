@@ -21,23 +21,51 @@
         }) }}
 
         <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
-        <h1 class="govuk-heading-xl">Confirm the subsidiary company details</h1>
+        <h1 class="govuk-heading-xl">Confirm the subsidiary’s registered company details</h1>
 
-        <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
+        <p>These details are usually for the company’s head office. We need them to help us verify the subsidiary.</p>
 
-        <h2 class="govuk-heading-m">Subsidiary One Ltd</h2>
-
-        <p><b>Limited Company</b></p>
-
-        <p>11 Long Lane, Leeds, West Yorkshire, LS1 2AB</p>
-
-        <p>Company number {{ data['sub1CompaniesHouseNumber'] or '01234567' }}.  <a href="registration-subsidiaries-add-companies-house-lookup">Enter a different number</a>.</p>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Subsidiary One Ltd
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of organisation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Limited company
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['sub1CompaniesHouseNumber'] or '01234567' }}
+            </dd>
+          </div>
+        </dl>
 
         {{ govukDetails({
-          summaryText: "This is not the correct registered office address",
-          html: '<p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a>.</p>
-          <p class="govuk-body">Once your details have been updated by Companies House you can return and continue your service registration providing it is within 3 days of your last login.</p>'
+          summaryText: "The registered address is not correct",
+          html: '<p>TBC</p>'
         }) }}
+
+        <p>If this is not the correct subsidiary, you can <a href="registration-subsidiaries-add-companies-house-lookup">enter a different company number</a>.</p>
 
         <form method="POST" action="registration-subsidiaries-add-contact">
           {{ govukButton({

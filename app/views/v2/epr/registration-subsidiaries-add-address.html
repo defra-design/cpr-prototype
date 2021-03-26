@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add subsidiaries | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
+        <h1 class="govuk-heading-xl">What’s the subsidiary company’s address?</h1>
+
+        <form method="POST" action="registration-subsidiaries-add-contact">
+
+        {% call govukFieldset({
+        }) %}
+        
+            {{ govukInput({
+            label: {
+                html: 'Address line 1'
+            },
+            name: "sub1CompanyAddress1"
+            }) }}
+        
+            {{ govukInput({
+            label: {
+                html: 'Address line 2'
+            },
+            name: "sub1CompanyAddress2"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                html: 'Address line 3'
+                },
+                name: "sub1CompanyAddress3"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                html: 'Address line 4'
+                },
+                name: "sub1CompanyAddress4"
+            }) }}
+        
+            {{ govukInput({
+            label: {
+                text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            name: "sub1CompanyTown"
+            }) }}
+        
+            {{ govukInput({
+            label: {
+                text: "County"
+            },
+            classes: "govuk-!-width-two-thirds",
+            name: "sub1CompanyCounty"
+            }) }}
+        
+            {{ govukInput({
+            label: {
+                text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            name: "sub1CompanyPostcode"
+            }) }}
+        
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

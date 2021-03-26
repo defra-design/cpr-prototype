@@ -20,48 +20,9 @@
             href: "javascript:history.back()"
         }) }}
 
-        <h1 class="govuk-heading-xl">Add subsidiaries</h1>
-        {{ govukDetails({
-            summaryText: "Some helpful info",
-            html: '<p>Some helpful info.</p>'
-        }) }}
+        <h1 class="govuk-heading-xl">Acme Org Ltd’s subsidiaries</h1>
 
         {% if data['sub1'] %}
-        <!--<div class="govuk-!-padding-6 govuk-!-margin-bottom-6 govuk-background-light-grey">
-
-            <h2 class="govuk-heading-m">Subsidiary 1</h2>
-
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                    Registered details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                    Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
-                    11 Long Lane, Leeds, West Yorkshire, LS1 2AB
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                    Contact details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                    {{ data['sub1CompanyPhone'] or '0113 0948 333' }}<br />
-                    {{ data['sub1CompanyEmail'] or 'enquiries@subsidiary.com' }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> date of birth</span>
-                    </a>
-                    </dd>
-                </div>
-            </dl>
-
-            <p class="govuk-!-margin-bottom-0"><a href="registration-subsidiaries-remove">Remove this subsidiary</a></p>
-
-        </div>-->
 
         <h2 class="govuk-heading-m">Subsidiary 1</h2>
 
@@ -72,8 +33,11 @@
                 Registered details
             </dt>
             <dd class="govuk-summary-list__value">
-                Subsidiary One Ltd ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
-                11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
+              {{ data['sub1CompanyAddress1'] or '11 Long Lane, ' }}
+              {{ data['sub1CompanyTown'] or 'Leeds, ' }}
+              {{ data['sub1CompanyCounty'] or 'West Yorkshire, ' }}
+              {{ data['sub1CompanyCounty'] or 'LS1 2AB' }}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -100,6 +64,9 @@
 
         </dl>
         {% endif %}
+
+
+
 
         {% if data['sub2'] %}
         <h2 class="govuk-heading-m">Subsidiary 2</h2>

@@ -70,10 +70,10 @@ router.post('*/registration-check-org-correspondence-choice', function (req, res
 
 
 // Routing for registration-subsidiaries.html
-router.post('*/registration-subsidiaries-choice', function (req, res) {
+router.post('*/route-subsidiaries-choice', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "yes"){
-        res.redirect('registration-subsidiaries-add')
+        res.redirect('registration-subsidiaries-add-companies-house')
     }
     if (subChoice == "unsure"){
         res.redirect('registration-subsidiaries-guidance')
@@ -85,10 +85,10 @@ router.post('*/registration-subsidiaries-choice', function (req, res) {
 
 
 // Routing for registration-subsidiaries-add-companies-house.html
-router.post('*/registration-subsidiaries-companies-house-choice', function (req, res) {
+router.post('*/route-subsidiaries-companies-house', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "no"){
-        res.redirect('')
+        res.redirect('registration-subsidiaries-add-name')
     }
     else {
         res.redirect('registration-subsidiaries-add-companies-house-lookup')
@@ -97,10 +97,10 @@ router.post('*/registration-subsidiaries-companies-house-choice', function (req,
 
 
 // Routing for registration-subsidiaries-add-check.html
-router.post('*/registration-subsidiaries-add-check-choice', function (req, res) {
+router.post('*/route-subsidiaries-add-check-choice', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "no"){
-        res.redirect('registration-subsidiaries-add')
+        res.redirect('registration-subsidiaries-add-companies-house')
     }
     else {
         res.redirect('registration-check-details')
@@ -127,7 +127,7 @@ router.post('*/route-report-method', function (req, res) {
         res.redirect('report-spreadsheet')
     }
     else {
-        res.redirect('report-start')
+        res.redirect('report-brandowner-start')
     }
 })
 

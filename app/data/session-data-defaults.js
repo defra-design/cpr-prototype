@@ -22,6 +22,7 @@ module.exports = {
   // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
   "protoVer": "v2",
   "intro1": "no",
+  "intro2": "no",
   "applied": "no",
   "paid": "no",
   "submitted": "no",

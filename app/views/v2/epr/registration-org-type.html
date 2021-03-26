@@ -27,7 +27,7 @@
               name: "orgActivity",
               fieldset: {
                 legend: {
-                  text: "Choose the packaging activities that apply to your organisation",
+                  text: "What type of packaging producer is your organisation?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend--xl"
                 }
@@ -40,34 +40,45 @@
                 {
                   value: "brandowner",
                   text: "Brand owner",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation sells goods under its own brand name in the UK." }
                 },
                 {
                   value: "importer",
                   text: "Importer",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation imports packaged goods to sell in the UK." }
                 },
                 {
                   value: "distributor",
                   text: "Distributor",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation sells unfilled packaging to non-obligated producers." }
                 },
                 {
                   value: "onlinemarketplace",
                   text: "Online marketplace",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation has an online platform that non-obligated or non-UK producers sell goods through." }
                 },
                 {
                   value: "seller",
                   text: "Seller",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation sells packaged goods directly to customers." }
                 },
                 {
                   value: "serviceprovider",
                   text: "Service provider",
-                  hint: { text: "Some hint text" }
+                  hint: { text: "Your organisation supplies reusable packaging." }
                 }
               ]
+            }) }}
+
+            {{ govukDetails({
+              summaryText: "What’s a non-obligated producer?",
+              html: '
+              <p>A non-obligated producer is an organisation that either:</p>
+              <ul>
+                <li>produces less than 25 tonnes of packaging waste a year  </li>
+                <li>has a turnover below £1 million</li>
+              </ul>
+              '
             }) }}
             
             {{govukButton({
