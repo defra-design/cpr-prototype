@@ -20,8 +20,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-xl">Introduction and what you’ll need</span>
-        <h1 class="govuk-heading-xl">Your organisation</h1>
+        <h1 class="govuk-heading-xl">Introduction and what you’ll need</h1>
 
         <p>For this section, you’ll need to know:</p>
 
@@ -38,21 +37,21 @@
         {% if data['applied'] == 'no' and data['paid'] == 'no' %}
             <form method="POST" action="registration-check-contact?intro1=yes">
                 <button class="govuk-button">
-                    Continue with this section
+                    Continue
                 </button>
             </form>
 
-            <p><a href="home?intro1=yes">Come back to this section later</a></p>
+            <p><a href="home?intro1=yes">Come back later</a></p>
         {% endif %}
         
         {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
             <form method="POST" action="payment-information">
                 <button class="govuk-button">
-                    Continue with this section
+                    Continue
                 </button>
             </form>
 
-            <p><a href="home">Come back to this section later</a></p>
+            <p><a href="home">Come back later</a></p>
         {% endif %}
         
     </div>
