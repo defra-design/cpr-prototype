@@ -22,7 +22,7 @@
 
         <h1 class="govuk-heading-xl">Acme Org Ltd’s subsidiaries</h1>
 
-        {% if data['sub1'] %}
+        {% if data['sub1'] == "1" %}
 
         <h2 class="govuk-heading-m">Subsidiary 1</h2>
 
@@ -59,7 +59,7 @@
           </div>
 
           <div class="govuk-summary-list__row">
-            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-remove">Remove this subsidiary</a></p>
+            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subName={{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }}">Remove this subsidiary</a></p>
           </div>
 
         </dl>
@@ -68,7 +68,7 @@
 
 
 
-        {% if data['sub2'] %}
+        {% if data['sub2'] == "1" %}
         <h2 class="govuk-heading-m">Subsidiary 2</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -101,34 +101,43 @@
           </div>
 
           <div class="govuk-summary-list__row">
-            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-remove">Remove this subsidiary</a></p>
+            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subName={{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }}">Remove this subsidiary</a></p>
           </div>
 
         </dl>
         {% endif %}
 
 
-            <div class="govuk-button-group">
+        {% if data['sub1'] == "null" and data['sub2'] == "null" %}
 
-                <form method="POST" action="registration-subsidiaries-add-companies-house">
-                    <button class="govuk-button govuk-button--secondary">
-                        {% if data['sub1'] %}
-                            Add another subsidiary
-                        {% else %}
-                            Add a subsidiary
-                        {% endif %}
-                    </button>
-                </form>
+          <p>You have not added any subsidiaries yet.</p>
+          <form method="POST" action="registration-subsidiaries-add-companies-house">
+              <button class="govuk-button govuk-button">
+                Add a subsidiary
+              </button>
+          </form>
 
-                {% if data['sub1'] %}
-                <form method="POST" action="registration-subsidiaries-add-check">
-                    <button class="govuk-button">
-                        Continue
-                    </button>
-                </form>
-                {% endif %}
-                
-            </div>
+        {% else %}
+
+          <form method="POST" action="registration-subsidiaries-add-companies-house">
+              <button class="govuk-button govuk-button--secondary">
+                  {% if data['sub1'] %}
+                      Add another subsidiary
+                  {% else %}
+                      Add a subsidiary
+                  {% endif %}
+              </button>
+          </form>
+
+          {% if data['sub1'] %}
+          <form method="POST" action="registration-subsidiaries-add-check">
+              <button class="govuk-button">
+                  Continue
+              </button>
+          </form>
+          {% endif %}
+
+        {% endif %}
 
     </div>
 </div>

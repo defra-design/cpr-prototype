@@ -108,6 +108,19 @@ router.post('*/route-subsidiaries-add-check-choice', function (req, res) {
 })
 
 
+
+// Routing for registration-subsidiaries-add-remove.html
+router.post('*/route-subsidiaries-add-remove', function (req, res) {
+    var subRemoveChoice = req.session.data['subRemoveChoice']
+    if (subRemoveChoice == "no"){
+        res.redirect('registration-subsidiaries-add')
+    }
+    else {
+        res.redirect('registration-subsidiaries-add?sub1=null')
+    }
+})
+
+
 // Routing for payment-information.html
 router.post('*/route-payment', function (req, res) {
     var paymentChoice = req.session.data['paymentChoice']

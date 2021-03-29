@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Companies House | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">
+          Information about Companies House
+        </h1>
+
+        <p>Some information to explain how to update companies house and then come back here.</p>
+
+        <p><a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">Go to the Companies House website (opens in a new tab or window)</a></p>
+        
+        <p><a href="home">Return to 'Register as an obligated packaging producer'</a></p>
+
+        
+    </div>
+</div>
+
+{% endblock %}

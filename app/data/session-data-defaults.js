@@ -28,6 +28,8 @@ module.exports = {
   "submitted": "no",
   "registered": "no",
   "reported": "no",
+  "sub1": "null",
+  "sub2": "null",
   "reportBrandowner": "null",
   "reportImporter": "null",
   "reportDistributor": "null",

@@ -21,18 +21,10 @@
         }) }}
 
         <h1 class="govuk-heading-xl">
-          Are these the contact details we should use for this application?
+          Are these the contact details we should use for {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}?
         </h1>
 
         <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
-            </dd>
-          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Phone number

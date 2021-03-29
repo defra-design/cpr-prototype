@@ -60,12 +60,15 @@
           </div>
         </dl>
 
-        {{ govukDetails({
-          summaryText: "The registered address is not correct",
-          html: '<p>TBC</p>'
-        }) }}
+        <p>If this is not the correct subsidiary, <a href="registration-subsidiaries-add-companies-house-lookup">enter a different company number</a>.</p>
 
-        <p>If this is not the correct subsidiary, you can <a href="registration-subsidiaries-add-companies-house-lookup">enter a different company number</a>.</p>
+        {{ govukDetails({
+          summaryText: "The company address is incorrect",
+          html: '
+          <p><a href="https://www.gov.uk/make-changes-to-your-limited-company/company-address" target="_blank">Find out how to update the company’s address (opens in new window or tab)</a>.</p>
+          <p>Once the address is up-to-date on the Companies House register, you should come back and <a href="registration-subsidiaries-add-companies-house-lookup">enter the company number again</a>.</p>
+          '
+        }) }}
 
         <form method="POST" action="registration-subsidiaries-add-contact">
           {{ govukButton({
