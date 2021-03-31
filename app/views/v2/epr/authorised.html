@@ -16,40 +16,17 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-            Register as an obligated packaging producer
+            Declaration
         </h1>
 
-        <h2 class="govuk-heading-m">
-            Privacy policy
-        </h2>
-        <p>Key points of the privacy policy:</p>
-        
-
-        <ul class="govuk-list govuk-list--bullet">
-            <li>The information you provide in this service will be shared with the scheme regulators and scheme administrator</li>
-            <li>Another summarised term</li>
-            <li>Another summarised term</li>
-        </ul>
-        
-        <p><a href="#" target="_blank">Read the full privacy policy (opens in a new tab).</a></p>
-        
-        <h2 class="govuk-heading-m">
-            Declaration
-        </h2>
-
-        <p>By continuing, I confirm that:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-            <li>I, {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}, am authorised to act on behalf of Acme Org Ltd</li>
-            <li>I understand and agree to the privacy policy</li>
-        </ul>
+        <p>By continuing, I confirm that I, {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }} am authorised to act on behalf of Acme Org Ltd. </p>
         
         {{ govukWarningText({
             text: "You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of Acme Org Ltd.",
             iconFallbackText: "Warning"
         }) }}
 
-        <form method="POST" action="home">
+        <form method="POST" action="home?declared=yes">
 
             {{ govukButton({
                 text: "Confirm and continue"

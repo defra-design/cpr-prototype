@@ -37,105 +37,6 @@
                 {% endif %}
 
 
-                {% if data['year'] == '2' %}
-
-                <ul class="app-task-list__items">
-                    <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                            {% if data['obligated'] %}
-                                <a href="registration-choice-done">
-                                    Obligation declaration
-                                </a>
-                            {% else %}
-                                <a href="registration-choice">
-                                    Obligation declaration
-                                </a>
-                            {% endif %}
-                        </span>
-                        {% if data['obligated'] %}
-                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                        {% else %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                        {% endif %}
-                    </li>
-                    <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-
-                            {% if data['obligated'] %}
-                                {% if data['obligated'] == 'no' %}
-                                    <s>Register your organisation</s>
-                                {% endif %}
-                                {% if data['obligated'] == 'yes' %}
-                                    <a href="registration-start">
-                                        Register your organisation
-                                    </a>
-                                {% endif %}
-                            {% else %}
-                            Register your organisation
-                            {% endif %}
-
-                        </span>
-
-                        {% if data['obligated'] %}
-                            {% if data['obligated'] == 'no' %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not required</strong>
-                            {% endif %}
-                            {% if data['obligated'] == 'yes' and data['applied'] == 'no' %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                            {% endif %}
-                            {% if data['obligated'] == 'yes' and data['applied'] == 'yes' %}
-                                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                            {% endif %}
-                        {% else %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                        {% endif %}
-
-                    </li>
-                    <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-
-                            {% if data['obligated'] %}
-                                {% if data['obligated'] == 'no' %}
-                                    <s>Pay your registration fees</s>
-                                {% endif %}
-                                {% if data['obligated'] == 'yes' and data['applied'] == 'no' %}
-                                    Pay your registration fees
-                                {% endif %}
-                                {% if data['obligated'] == 'yes' and data['applied'] == 'yes' %}
-                                    <a href="home?paid=yes">
-                                        Pay your registration fees
-                                    </a>
-                                {% endif %}
-                            {% else %}
-                                Pay your registration fees
-                            {% endif %}
-
-
-                        </span>
-
-                        {% if data['obligated'] %}
-                            {% if data['obligated'] == 'no' %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not required</strong>
-                            {% endif %}
-                            {% if data['obligated'] == 'yes' and data['applied'] == 'no' and data['paid'] == 'no' %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                            {% endif %}
-                            {% if data['obligated'] == 'yes' and data['applied'] == 'yes' and data['paid'] == 'no' %}
-                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                            {% endif %}
-                            {% if data['obligated'] == 'yes' and data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                            {% endif %}
-                        {% else %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                        {% endif %}
-
-                    </li>
-                </ul>
-
-                <!-- ##################  Year 1 below  ################## -->
-                {% else %}
-
                 <ul class="app-task-list__items">
 
                     <li class="app-task-list__item">
@@ -154,11 +55,36 @@
                         {% else %}
                         {% endif %}
                     </li>
+
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            {% if data['intro1'] == 'yes' and data['declared'] == 'no' %}
+                                <a href="privacy-policy">
+                                    Privacy policy and declaration   
+                                </a>
+                            {% else %}
+                                Privacy policy and declaration
+                            {% endif %}
+                        </span>
+
+                        {% if data['intro1'] == 'no' and data['declared'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+
+                        {% if data['intro1'] == 'yes' and data['declared'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
+                            
+                        {% if data['intro1'] == 'yes' and data['declared'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% endif %} 
+
+                    </li>
                     
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['intro1'] == 'yes' and data['applied'] == 'no' %}
+                            {% if data['declared'] == 'yes' and data['applied'] == 'no' %}
                                 <a href="registration-check-contact">
                                     Add information about your organisation
                                 </a>
@@ -167,15 +93,15 @@
                             {% endif %}
                         </span>
 
-                        {% if data['intro1'] == 'no' and data['applied'] == 'no' %}
+                        {% if data['declared'] == 'no' and data['applied'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
                         {% endif %}
 
-                        {% if data['intro1'] == 'yes' and data['applied'] == 'no' %}
+                        {% if data['declared'] == 'yes' and data['applied'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
                         {% endif %}
                             
-                        {% if data['intro1'] == 'yes' and data['applied'] == 'yes' %}
+                        {% if data['declared'] == 'yes' and data['applied'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% endif %} 
 
@@ -259,8 +185,6 @@
 
                 </ul>
 
-                {% endif %}
-
             </li>
 
             <li>
@@ -297,7 +221,6 @@
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-
 
                             {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported'] == 'no'  %}
                                 <a href="report-method">

@@ -55,13 +55,13 @@ router.post('*/registration-check-org-choice', function (req, res) {
 
 
 // Routing for registration-check-org-correspondence.html
-router.post('*/registration-check-org-correspondence-choice', function (req, res) {
+router.post('*/route-check-org-correspondence', function (req, res) {
     var correspondenceChoice = req.session.data['correspondenceChoice']
     if (correspondenceChoice == "yes"){
         res.redirect('registration-org-correspondence-address')
     }
     else {
-        res.redirect('registration-org-turnover')
+        res.redirect('registration-subsidiaries')
     }
 })
 
@@ -73,13 +73,10 @@ router.post('*/registration-check-org-correspondence-choice', function (req, res
 router.post('*/route-subsidiaries-choice', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "yes"){
-        res.redirect('registration-subsidiaries-add-companies-house')
-    }
-    if (subChoice == "unsure"){
-        res.redirect('registration-subsidiaries-guidance')
+        res.redirect('registration-subsidiaries-add-companies-house-search')
     }
     else {
-        res.redirect('registration-check-details')
+        res.redirect('registration-org-turnover')
     }
 })
 
@@ -97,13 +94,13 @@ router.post('*/route-subsidiaries-companies-house', function (req, res) {
 
 
 // Routing for registration-subsidiaries-add-check.html
-router.post('*/route-subsidiaries-add-check-choice', function (req, res) {
+router.post('*/route-subsidiaries-add-check', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "no"){
         res.redirect('registration-subsidiaries-add-companies-house')
     }
     else {
-        res.redirect('registration-check-details')
+        res.redirect('registration-org-turnover')
     }
 })
 

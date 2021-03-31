@@ -151,30 +151,6 @@
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Turnover (&pound;)
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['orgTurnover'] or '£3,500,000' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">Change</a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Packaging activities
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['orgActivity'] or 'brandowner,importer' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">Change</a>
-            </dd>
-          </div>
-
         </dl>
 
 
@@ -282,6 +258,45 @@
         </dl>
 
         {% endif %}
+
+
+
+
+        <h2 class="govuk-heading-m">Activity details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Turnover
+            </dt>
+            <dd class="govuk-summary-list__value">
+              &pound;{{ data['orgTurnover'] or '3,500,000' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Producer type(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!--{% if 'brandowner' in data['orgActivity'] %}
+                A brand owner because your organisation sells goods under its own brand name in the UK.
+              {% endif %}-->
+              {{ data['orgActivity'] or 'brandowner,importer' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
         
         <form method="POST" action="registration-complete">
 

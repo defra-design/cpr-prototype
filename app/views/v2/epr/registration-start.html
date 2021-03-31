@@ -22,37 +22,25 @@
 
         <h1 class="govuk-heading-xl">Introduction and what you’ll need</h1>
 
-        <p>For this section, you’ll need to know:</p>
+        <p>In this section, we'll ask you:</p>
 
         <ul class="govuk-list govuk-list--bullet">
-            <li>the contact details you want us to use for this application</li>
-            <li>your organisation’s registered office and contact details</li>
-            <li>your organisation’s turnover for its last financial year</li>
-            <li>which packaging activities your organisation carries out</li>
-            <li>details about any subsidiaries your organisation has</li>
+            <li>to read and agree to our privacy policy </li>
+            <li>whether you’re authorised to act on behalf of your organisation </li>
+            <li>which contact details you want us to use for this application </li>
+            <li>for your organisation’s registered office and contact details</li>
+            <li>for your organisation’s turnover in its last published accounts</li>
+            <li>about your organisation’s packaging activities </li>
+            <li>for details about any subsidiaries your organisation has </li>
         </ul>
 
         <p>We’ll also give you payment details for the registration fee and ask you to confirm whether anyone has paid.</p>
 
-        {% if data['applied'] == 'no' and data['paid'] == 'no' %}
-            <form method="POST" action="registration-check-contact?intro1=yes">
-                <button class="govuk-button">
-                    Continue
-                </button>
-            </form>
-
-            <p><a href="home?intro1=yes">Come back later</a></p>
-        {% endif %}
-        
-        {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
-            <form method="POST" action="payment-information">
-                <button class="govuk-button">
-                    Continue
-                </button>
-            </form>
-
-            <p><a href="home">Come back later</a></p>
-        {% endif %}
+        <form method="POST" action="home?intro1=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
         
     </div>
 </div>

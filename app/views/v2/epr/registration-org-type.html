@@ -20,18 +20,17 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-subsidiaries">
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-xl">Which types of packaging producer are in Acme Org Ltd’s group?</h1>
+        {% else %}
+          <h1 class="govuk-heading-xl">What type of packaging producer is Acme Org Ltd?</h1>
+        {% endif %}
+
+        <form method="POST" action="registration-check-details">
             
             {{ govukCheckboxes({
               idPrefix: "orgActivity",
               name: "orgActivity",
-              fieldset: {
-                legend: {
-                  text: "What type of packaging producer is your organisation?",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--xl"
-                }
-              },
               hint: {
                 text: "Select all that apply.",
                 classes: "govuk-!-margin-bottom-6"

@@ -23,6 +23,7 @@ module.exports = {
   "protoVer": "v2",
   "intro1": "no",
   "intro2": "no",
+  "declared": "no",
   "applied": "no",
   "paid": "no",
   "submitted": "no",

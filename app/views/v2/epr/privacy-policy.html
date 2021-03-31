@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Authorised person | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Agree to the privacy policy
+        </h1>
+
+        <p>Key points of the privacy policy:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>The information you provide in this service will be shared with the scheme regulators and scheme administrator</li>
+            <li>Another summarised term</li>
+            <li>Another summarised term</li>
+        </ul>
+        
+        <p><a href="#" target="_blank">Read the full privacy policy (opens in a new tab or window).</a></p>
+
+        <form method="POST" action="authorised">
+
+            {{ govukCheckboxes({
+                name: "privacyPolicy",
+                items: [
+                    {
+                    value: "accepted",
+                    text: "I confirm that I have read, understand and agree to the privacy policy. "
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
