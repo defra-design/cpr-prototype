@@ -27,7 +27,7 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Apply to register your organisation for 2023
+                    <span class="app-task-list__section-number">1. </span> Apply to register your organisation
                 </h2>
                 {% if data['registered'] != 'yes' %}
                     {{ govukWarningText({
@@ -218,6 +218,10 @@
                                 Introduction and what you'll need
                             {% endif %}
                         </span>
+
+                        {% if data['registered'] == 'yes' and data['intro2'] == 'no'  %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
 
                         {% if data['intro2'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag">Completed</strong>
