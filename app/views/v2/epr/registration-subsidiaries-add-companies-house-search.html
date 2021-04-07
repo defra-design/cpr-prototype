@@ -18,7 +18,7 @@
         {{ govukBackLink({
             text: "Back",
             href: "javascript:history.back()"
-        }) }}
+        }) }}        
 
         <!-- Radio button routing in /epr/vN/_routes.js -->
         <form method="POST" action="registration-subsidiaries-add-companies-house-confirm">
@@ -28,10 +28,7 @@
             <h2 class="govuk-heading-m">Start typing the subsidiary’s company name or company number</h2>
             <p>We’ll look up the subsidiary on Companies House and automatically add its details.</p>
 
-            {{ govukInput({
-              classes: "govuk-!-width-three-quarters",
-              name: "companiesHouseSearch"
-            }) }}
+            <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
       
             <p>If the subsidiary is not registered with Companies House, <a href="registration-subsidiaries-add-name">add its details manually</a>.</p>
       
@@ -43,5 +40,80 @@
         
     </div>
 </div>
+
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var companies = [
+      "Burns Industries (00123456)",
+      "Dunder Mifflin, Inc. (00123457)",
+      "E Corp (00123458)",
+      "Hooli (00123459)",
+      "Los Pollos Hermanos (00123460)",
+      "Stark Industries (00123461)",
+      "Wayne Enterprises, Inc. (00123462)",
+      "Axe Capital (00123463)",
+      "Delos Inc (00123464)",
+      "Iron Bank of Braavos (00123465)",
+      "Rearden Steel (00123466)",
+      "Aperture Science (001234567)",
+      "Aviato",
+      "Monsters, Inc.",
+      "Rainholm Industries",
+      "Umbrella Corp",
+      "Bailey Building and Loan Association",
+      "Bayside High School",
+      "Black Mesa",
+      "Blue Cat Hotel",
+      "Cyberdyne Systems Corp.",
+      "Duke & Duke",
+      "Entertainment 720",
+      "Genco Pura Olive Oil Company",
+      "Globex",
+      "Gregarious Simulation Systems",
+      "Hooper's Store",
+      "InGen",
+      "Fang and Bone",
+      "Macmillan Toys",
+      "MomCorp",
+      "NERV",
+      "Oceanic Airlines",
+      "Omni Consumer Products",
+      "Oscorp",
+      "Paper Street Soap Company",
+      "Parker Industries",
+      "Pearson Specter Litt",
+      "Pide Piper",
+      "PolyCon",
+      "Prestige Worldwide",
+      "Rekall",
+      "Relaxicab",
+      "Rent a Swag",
+      "Sirius Cybernetics Corp.",
+      "Springfield Nuclear Power Plant",
+      "Sterling Cooper",
+      "Stratton Oakmont",
+      "TelAmeriCorp",
+      "The Bluth Company",
+      "The Derek Zoolander Center for Kids Who Can't Read Good and Who Wanna Learn to Do Other Stuff Good Too",
+      "The Estelle Leonard Talent Agency",
+      "The Very Big Corporation of America",
+      "Tyrell Corp.",
+      "Veridian Dynamics",
+      "Yubaba",
+      "Weyland Yutani",
+      "Rand Enterprises"
+      ]
+    </script>
+
+    <script type="text/javascript">
+      var element = document.querySelector('#tt-default')
+      var id = 'companiesHouseSearch'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        name: 'companiesHouseSearch',
+        source: companies
+      })
+    </script>
 
 {% endblock %}
