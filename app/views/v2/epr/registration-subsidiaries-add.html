@@ -20,7 +20,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <h1 class="govuk-heading-xl">Acme Org Ltd’s subsidiaries</h1>
+        <h1 class="govuk-heading-l">Acme Org Ltd’s subsidiaries</h1>
 
         {% if data['sub1'] == "1" %}
 
@@ -111,7 +111,7 @@
         {% if data['sub1'] == "null" and data['sub2'] == "null" %}
 
           <p>You have not added any subsidiaries yet.</p>
-          <form method="POST" action="registration-subsidiaries-add-companies-house">
+          <form method="POST" action="registration-subsidiaries-add-companies-house-search">
               <button class="govuk-button govuk-button">
                 Add a subsidiary
               </button>
@@ -121,13 +121,9 @@
 
         {% else %}
 
-          <form method="POST" action="registration-subsidiaries-add-companies-house">
+          <form method="POST" action="registration-subsidiaries-add-companies-house-search">
               <button class="govuk-button govuk-button--secondary">
-                  {% if data['sub1'] %}
-                      Add another subsidiary
-                  {% else %}
-                      Add a subsidiary
-                  {% endif %}
+                Add another subsidiary
               </button>
           </form>
 
