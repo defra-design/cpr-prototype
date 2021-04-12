@@ -31,7 +31,11 @@
               Company name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} 
+              {% if data['subNumber'] == "1" %}
+                {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }}
+              {% else %}
+                {{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }}
+              {% endif %}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -47,7 +51,11 @@
               Registered office address
             </dt>
             <dd class="govuk-summary-list__value">
-              11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+              {% if data['subNumber'] == "1" %}
+                11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+              {% else %}
+                Unit 12, Smith Street, Newcastle, N23 4RE
+              {% endif %}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -55,7 +63,11 @@
               Company number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub1CompaniesHouseNumber'] or '01234567' }}
+              {% if data['subNumber'] == "1" %}
+                01234567
+              {% else %}
+                01234568
+              {% endif %}
             </dd>
           </div>
         </dl>

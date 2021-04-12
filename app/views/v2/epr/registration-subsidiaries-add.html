@@ -33,7 +33,7 @@
                 Registered details
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
+              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} (01234567)<br />
               {{ data['sub1CompanyAddress1'] or '11 Long Lane, ' }}
               {{ data['sub1CompanyTown'] or 'Leeds, ' }}
               {{ data['sub1CompanyCounty'] or 'West Yorkshire, ' }}
@@ -59,7 +59,7 @@
           </div>
 
           <div class="govuk-summary-list__row">
-            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subName={{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }}">Remove this subsidiary</a></p>
+            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subNumber=1&subName={{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }}">Remove this subsidiary</a></p>
           </div>
 
         </dl>
@@ -78,7 +78,7 @@
                 Registered details
             </dt>
             <dd class="govuk-summary-list__value">
-                Subsidiary Two Ltd ({{ data['sub2CompaniesHouseNumber'] or '00876544' }})<br />
+              {{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }} (01234568)<br />
                 Unit 12, Smith Street, Newcastle, N23 4RE
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -101,7 +101,7 @@
           </div>
 
           <div class="govuk-summary-list__row">
-            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subName={{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }}">Remove this subsidiary</a></p>
+            <p class="govuk-!-margin-top-2"><a href="registration-subsidiaries-add-remove?subNumber=2&subName={{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }}">Remove this subsidiary</a></p>
           </div>
 
         </dl>
@@ -111,7 +111,7 @@
         {% if data['sub1'] == "null" and data['sub2'] == "null" %}
 
           <p>You have not added any subsidiaries yet.</p>
-          <form method="POST" action="registration-subsidiaries-add-companies-house-search">
+          <form method="POST" action="registration-subsidiaries-add-companies-house-search?subNumber=1">
               <button class="govuk-button govuk-button">
                 Add a subsidiary
               </button>
@@ -121,7 +121,7 @@
 
         {% else %}
 
-          <form method="POST" action="registration-subsidiaries-add-companies-house-search">
+          <form method="POST" action="registration-subsidiaries-add-companies-house-search?subNumber=2">
               <button class="govuk-button govuk-button--secondary">
                 Add another subsidiary
               </button>

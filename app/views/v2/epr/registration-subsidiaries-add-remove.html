@@ -15,21 +15,13 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        <h1 class="govuk-heading-l">Are you sure you want to remove {{data['subName']}}?</h1>
+
         <!-- Radio button routing in /epr/vN/_routes.js -->
-        <form method="POST" action="route-subsidiaries-add-remove">
+        <form method="POST" action="route-subsidiaries-add-remove-{{data['subNumber']}}">
 
             {{ govukRadios({
                 name: "subRemoveChoice",
-                fieldset: {
-                    legend: {
-                    html: '
-                    <h1 class="govuk-fieldset__heading">
-                        Are you sure you want to remove Subsidiary One Ltd?
-                    </h1>
-                    ',
-                    classes: "govuk-fieldset__legend--l"
-                    }
-                },
                 items: [
                     {
                     value: "yes",

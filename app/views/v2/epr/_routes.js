@@ -73,7 +73,7 @@ router.post('*/route-check-org-correspondence', function (req, res) {
 router.post('*/route-subsidiaries-choice', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "yes"){
-        res.redirect('registration-subsidiaries-add-companies-house-search')
+        res.redirect('registration-subsidiaries-add-companies-house-search?subNumber=1')
     }
     else {
         res.redirect('registration-org-turnover')
@@ -97,7 +97,7 @@ router.post('*/route-subsidiaries-companies-house', function (req, res) {
 router.post('*/route-subsidiaries-add-check', function (req, res) {
     var subChoice = req.session.data['subChoice']
     if (subChoice == "no"){
-        res.redirect('registration-subsidiaries-add-companies-house')
+        res.redirect('registration-subsidiaries-add-companies-house-search?subNumber=2')
     }
     else {
         res.redirect('registration-org-turnover')
@@ -107,8 +107,9 @@ router.post('*/route-subsidiaries-add-check', function (req, res) {
 
 
 // Routing for registration-subsidiaries-add-remove.html
-router.post('*/route-subsidiaries-add-remove', function (req, res) {
+router.post('*/route-subsidiaries-add-remove-1', function (req, res) {
     var subRemoveChoice = req.session.data['subRemoveChoice']
+    var subNumber = req.session.data['subNumber']
     if (subRemoveChoice == "no"){
         res.redirect('registration-subsidiaries-add')
     }
@@ -116,6 +117,20 @@ router.post('*/route-subsidiaries-add-remove', function (req, res) {
         res.redirect('registration-subsidiaries-add?sub1=null')
     }
 })
+
+router.post('*/route-subsidiaries-add-remove-2', function (req, res) {
+    var subRemoveChoice = req.session.data['subRemoveChoice']
+    var subNumber = req.session.data['subNumber']
+    if (subRemoveChoice == "no"){
+        res.redirect('registration-subsidiaries-add')
+    }
+    else {
+        res.redirect('registration-subsidiaries-add?sub2=null')
+    }
+})
+
+
+
 
 
 // Routing for payment-information.html

@@ -19,15 +19,14 @@
             Declaration
         </h1>
 
-        {{ govukCheckboxes({
-            name: "declaration",
-            items: [
-                {
-                value: "accepted",
-                text: "By continuing, I confirm that I, John Smith am authorised to act on behalf of Acme Org Ltd."
-                }
-            ]
-        }) }}
+        <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" name="declaration" type="checkbox" value="accepted">
+                <label class="govuk-label govuk-checkboxes__label">
+                    By continuing, I confirm that I, {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }} am authorised to act on behalf of Acme Org Ltd.
+                </label>
+            </div>
+        </div>
         
         {{ govukWarningText({
             text: "You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of Acme Org Ltd.",

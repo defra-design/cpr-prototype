@@ -215,45 +215,43 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-          <div class="govuk-summary-list__row govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Subsidiary 1
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }}  ({{ data['sub1CompaniesHouseNumber'] or '00876543' }})<br />
-              11 Long Lane, Leeds, West Yorkshire, LS1 2AB
+              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} (01234567)<br />
+              11 Long Lane, Leeds, West Yorkshire, LS1 2AB<br />
+              {{ data['sub1CompanyPhone'] or '0113 0948 333' }}<br />
+              {{ data['sub1CompanyEmail'] or 'enquiries@subsidiary.com' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="registration-subsidiaries-add">
                 Change
               </a>
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row govuk-summary-list--no-border">
+          {% if data['sub2'] == '1' %}
+
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Subsidiary 2
             </dt>
             <dd class="govuk-summary-list__value">
-                Subsidiary Two Ltd ({{ data['sub2CompaniesHouseNumber'] or '00876544' }})<br />
-                Unit 12, Smith Street, Newcastle, N23 4RE
+              {{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }} (01234568)<br />
+                Unit 12, Smith Street, Newcastle, N23 4RE<br />
+                {{ data['sub2CompanyPhone'] or '01423 555 787' }}<br />
+                {{ data['sub2CompanyEmail'] or 'hello@subsidiary2.com' }}
             </dd>
             <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="registration-subsidiaries-add">
+                Change
+              </a>
             </dd>
           </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Subsidiary 3
-            </dt>
-            <dd class="govuk-summary-list__value">
-                Subsidiary Three Ltd ({{ data['sub3CompaniesHouseNumber'] or '00876545' }})<br />
-                77 Victoria Avenue, Liverpool, Merseyside, L11 3RF
-            </dd>
-            <dd class="govuk-summary-list__actions">
-
-            </dd>
-          </div>
+          
+          {% endif %}
 
         </dl>
 
@@ -262,7 +260,11 @@
 
 
 
-        <h2 class="govuk-heading-m">Activity details</h2>
+        {% if data['sub1'] == '1' %}
+          <h2 class="govuk-heading-m">Group activity details</h2>
+        {% else %}
+          <h2 class="govuk-heading-m">Activity details</h2>
+        {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 

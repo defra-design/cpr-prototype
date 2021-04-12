@@ -20,33 +20,25 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-check-org">
+        <h1 class="govuk-heading-l">Enter the contact details we should use for {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}</h1>
 
-            {% call govukFieldset({
-                legend: {
-                    text: "Enter the contact details we should use for John Smith",
-                    classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6",
-                    isPageHeading: true
-                }
-            }) %}
+        <form method="POST" action="registration-check-org">
             
-                {{ govukInput({
-                    label: {
-                        html: 'Phone number'
-                    },
-                    classes: "govuk-!-width-two-thirds",
-                    name: "defraIdPersonalPhone"
-                }) }}
-            
-                {{ govukInput({
-                    label: {
-                        html: 'Email address'
-                    },
-                    classes: "govuk-!-width-two-thirds",
-                    name: "govGateEmail"
-                }) }}
-            
-            {% endcall %}
+            {{ govukInput({
+                label: {
+                    html: 'Phone number'
+                },
+                classes: "govuk-!-width-two-thirds",
+                name: "defraIdPersonalPhone"
+            }) }}
+        
+            {{ govukInput({
+                label: {
+                    html: 'Email address'
+                },
+                classes: "govuk-!-width-two-thirds",
+                name: "govGateEmail"
+            }) }}
 
             {{govukButton({
                 text: "Continue"
