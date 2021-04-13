@@ -8,14 +8,6 @@
 
 {% block content %}
 
-<!-- If the user hasn't typed an email, make one up.
-{% if data['govGateEmail'] %}
-  {% set govGateEmail = data['govGateEmail'] %}
-{% else %}
-  {% set govGateEmail = 'johnsmith@company.co.uk' %}
-{% endif %}
--->
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -25,7 +17,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">Enter code to confirm your email address</h1>
-    <p>We have sent a code to: <strong>{{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}</strong></p>
+    <p>We have sent a code to: <strong>{{ data['govGateEmail'] or defaults['govGateEmail'] }}</strong></p>
 
     {{ govukWarningText({
       text: "If you use a browser to access your email, you may need to open a new window or tab to see the code.",

@@ -43,6 +43,34 @@ router.post('*/companieshouse-choice', function (req, res) {
 
 
 
+// Get the data values from session-data-defaults.js to use on the page
+router.get('*/check-email', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/defra-id/check-email')
+})
+
+router.get('*/company-confirm', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/defra-id/company-confirm')
+})
+
+router.get('*/personal-contact', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/defra-id/personal-contact')
+})
+
+router.get('*/confirmation', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/defra-id/confirmation')
+})
+
+router.get('*/check-your-answers', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/defra-id/check-your-answers')
+})
+
+
+
 
 
 module.exports = router

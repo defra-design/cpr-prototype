@@ -34,7 +34,7 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}
+              {{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -48,7 +48,7 @@
               Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdPersonalPhone'] or '07711223344' }}
+              {{ data['defraIdPersonalPhone'] or defaults['defraIdPersonalPhone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -62,7 +62,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
+              {{ data['govGateEmail'] or defaults['govGateEmail'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -108,7 +108,7 @@
               Companies House number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}
+              {{ data['defraIdCompaniesHouseNumber'] or defaults['defraIdCompaniesHouseNumber'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               
@@ -132,7 +132,7 @@
               Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdCompanyPhone'] or '01234 567899' }}
+              {{ data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">Change</a>
@@ -144,7 +144,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
+              {{ data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">Change</a>
@@ -166,7 +166,12 @@
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['correspondenceAddress1'] or 'Unit 24' }}, {{ data['correspondenceAddress2'] or 'Industrial Estate' }}, {{ data['correspondenceAddress3'] or 'Windy Road' }}, {{ data['correspondenceAddressTown'] or 'Sheffield' }}, {{ data['correspondenceAddressCounty'] or 'South Yorkshire' }}, {{ data['correspondenceAddressPostcode'] or 'S12 3RP' }}
+              {{ data['correspondenceAddress1'] or defaults['correspondenceAddress1'] }}, 
+              {{ data['correspondenceAddress2']  or defaults['correspondenceAddress2']}}, 
+              {{ data['correspondenceAddress3'] or defaults['correspondenceAddress3'] }}, 
+              {{ data['correspondenceAddressTown'] or defaults['correspondenceAddressTown'] }}, 
+              {{ data['correspondenceAddressCounty'] or defaults['correspondenceAddressCounty'] }}, 
+              {{ data['correspondenceAddressPostcode'] or defaults['correspondenceAddressPostcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -180,7 +185,7 @@
               Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['correspondencePhone'] or '0114 5567 890' }}
+              {{ data['correspondencePhone'] or defaults['correspondencePhone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -194,7 +199,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['correspondenceEmail'] or 'enquiries@company.co.uk' }}
+              {{ data['correspondenceEmail'] or defaults['correspondenceEmail'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -220,10 +225,10 @@
               Subsidiary 1
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub1CompanyName'] or 'Subsidiary One Ltd' }} (01234567)<br />
+              {{ data['sub1CompanyName'] or defaults['sub1CompanyName'] }} (01234567)<br />
               11 Long Lane, Leeds, West Yorkshire, LS1 2AB<br />
-              {{ data['sub1CompanyPhone'] or '0113 0948 333' }}<br />
-              {{ data['sub1CompanyEmail'] or 'enquiries@subsidiary.com' }}
+              {{ data['sub1CompanyPhone'] or defaults['sub1CompanyPhone'] }}<br />
+              {{ data['sub1CompanyEmail'] or defaults['sub1CompanyEmail'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="registration-subsidiaries-add">
@@ -239,10 +244,10 @@
               Subsidiary 2
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['sub2CompanyName'] or 'Subsidiary Two Ltd' }} (01234568)<br />
+              {{ data['sub2CompanyName'] or defaults['sub2CompanyName'] }} (01234568)<br />
                 Unit 12, Smith Street, Newcastle, N23 4RE<br />
-                {{ data['sub2CompanyPhone'] or '01423 555 787' }}<br />
-                {{ data['sub2CompanyEmail'] or 'hello@subsidiary2.com' }}
+                {{ data['sub2CompanyPhone'] or defaults['sub2CompanyPhone'] }}<br />
+                {{ data['sub2CompanyEmail'] or defaults['sub2CompanyEmail'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="registration-subsidiaries-add">
@@ -273,7 +278,7 @@
               Turnover
             </dt>
             <dd class="govuk-summary-list__value">
-              &pound;{{ data['orgTurnover'] or '3,500,000' }}
+              &pound;{{ data['orgTurnover'] or defaults['orgTurnover'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">Change</a>
@@ -285,10 +290,7 @@
               Producer type(s)
             </dt>
             <dd class="govuk-summary-list__value">
-              <!--{% if 'brandowner' in data['orgActivity'] %}
-                A brand owner because your organisation sells goods under its own brand name in the UK.
-              {% endif %}-->
-              {{ data['orgActivity'] or 'brandowner,importer' }}
+              {{ data['orgActivity'] or defaults['orgActivity'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">Change</a>

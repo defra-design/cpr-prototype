@@ -266,4 +266,58 @@ router.post('*/route-reporting-seller', function (req, res) {
 // end of POM data reporting pages
 
 
+
+
+// Get the data values from session-data-defaults.js to use on the page
+router.get('*/authorised', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/authorised')
+})
+
+router.get('*/pending', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/pending')
+})
+
+router.get('*/registration-check-contact', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-check-contact')
+})
+
+router.get('*/registration-check-details', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-check-details')
+})
+
+router.get('*/registration-check-org', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-check-org')
+})
+
+router.get('*/registration-contact-details', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-contact-details')
+})
+
+router.get('*/registration-check-org-correspondence', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-check-org-correspondence')
+})
+
+router.get('*/registration-subsidiaries-add-companies-house-confirm', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-subsidiaries-add-companies-house-confirm')
+})
+
+router.get('*/registration-subsidiaries-add', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-subsidiaries-add')
+})
+
+router.get('*/registration-check-contact', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v2/epr/registration-check-contact')
+})
+
+
 module.exports = router

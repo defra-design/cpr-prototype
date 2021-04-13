@@ -21,7 +21,7 @@
         }) }}
 
         <h1 class="govuk-heading-l">
-          Are these the contact details we should use for {{ data['defraIdFirstName'] or 'John' }} {{ data['defraIdSurname'] or 'Smith' }}?
+          Are these the contact details we should use for {{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }}?
         </h1>
 
         <dl class="govuk-summary-list">
@@ -30,7 +30,7 @@
               Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['defraIdPersonalPhone'] or '07711223344' }}
+              {{ data['defraIdPersonalPhone'] or defaults['defraIdPersonalPhone'] }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -38,7 +38,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}
+              {{ data['govGateEmail'] or defaults['govGateEmail'] }}
             </dd>
           </div>
         </dl>
