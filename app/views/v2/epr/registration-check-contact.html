@@ -21,8 +21,11 @@
         }) }}
 
         <h1 class="govuk-heading-l">
-          Are these the contact details we should use for {{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }}?
+          Check your contact details
+          <!--Are these the contact details we should use for {{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }}?-->
         </h1>
+
+        <p class="govuk-hint">These should be your contact details, because you're registering on behalf of Acme Org Ltd.</p>
 
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
@@ -42,27 +45,31 @@
             </dd>
           </div>
         </dl>
+
+        <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you can <a href="../defra-id-manage/index">change them in your Defra account</a>.</p>
         
         <form method="POST" action="route-check-contact">
 
-            {{ govukRadios({
-              idPrefix: "",
-              name: "contactChoice",
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
-                },
-                {
-                  value: "no",
-                  text: "No, I need to enter different contact details"
-                }
-              ]
-            }) }}
+          {#  
+          {{ govukRadios({
+            idPrefix: "",
+            name: "contactChoice",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No, I need to enter different contact details"
+              }
+            ]
+          }) }}
+          #}
 
-            {{govukButton({
-                text: "Continue"
-            })}}
+          {{govukButton({
+              text: "Confirm and continue"
+          })}}
 
         </form>
 
