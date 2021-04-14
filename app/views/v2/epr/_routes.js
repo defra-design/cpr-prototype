@@ -23,6 +23,20 @@ router.post('*/registration-choice-choice', function (req, res) {
 
 
 
+// Routing for service-start-gg.html
+router.post('*/route-check-gg', function (req, res) {
+    var ggChoice = req.session.data['ggChoice']
+    if (ggChoice == "yes"){
+        res.redirect('/v2/defra-id/login')
+    }
+    else {
+        res.redirect('service-start-gg-create')
+    }
+})
+
+
+
+
 
 // Routing for registration-check-contact.html
 router.post('*/route-check-contact', function (req, res) {
