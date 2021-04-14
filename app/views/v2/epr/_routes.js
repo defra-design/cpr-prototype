@@ -23,11 +23,25 @@ router.post('*/registration-choice-choice', function (req, res) {
 
 
 
+// Routing for service-start-defra.html
+router.post('*/route-check-defra', function (req, res) {
+    var daChoice = req.session.data['daChoice']
+    if (daChoice == "yes"){
+        res.redirect('/v2/defra-id/login')
+    }
+    else {
+        res.redirect('service-start-gg')
+    }
+})
+
+
+
+
 // Routing for service-start-gg.html
 router.post('*/route-check-gg', function (req, res) {
     var ggChoice = req.session.data['ggChoice']
     if (ggChoice == "yes"){
-        res.redirect('/v2/defra-id/login')
+        res.redirect('service-start-defra-create')
     }
     else {
         res.redirect('service-start-gg-create')

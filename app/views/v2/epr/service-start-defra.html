@@ -29,16 +29,16 @@
       }) }}
 
       <h1 class="govuk-heading-l">
-        Do you have a Government Gateway account that you use for work?
+        Do you have a Defra account?
       </h1>
 
-      <p>If you only have a personal Government Gateway account, select no.</p>
+      <p>You must have a Defra account to register as a packaging producer.</p>
 
       <!-- Radio button routing in /vN/epr/_routes.js -->
-      <form method="POST" action="route-check-gg">
+      <form method="POST" action="route-check-defra">
 
         {{ govukRadios({
-          name: "ggChoice",
+          name: "daChoice",
           items: [
             {
               value: "yes",
@@ -46,7 +46,7 @@
             },
             {
               value: "no",
-              text: "No"
+              text: "No, I’ll create one now"
             }
           ]
         }) }}
