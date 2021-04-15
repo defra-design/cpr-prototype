@@ -27,11 +27,11 @@
               data['paid'] == 'no' and 
               data['registered'] == 'no' 
           %}
-              <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-2">Awaiting payment</strong>
+              <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-2">Requires payment</strong>
               <h1 class="govuk-heading-l">
-                  Your application is awaiting payment
+                Your application requires payment
               </h1>
-              <p>You need to <a href="payment-information">pay your registration fee</a> before your application is reviewed and approved.</p>
+              <p>You cannot submit your application until you or someone else from Acme Org Ltd <a href="payment-information">pays the registration fee</a>.</p>
           {% endif %}
 
           {% if 
@@ -39,13 +39,13 @@
               data['paid'] == 'yes' and 
               data['registered'] == 'no' 
           %}
-              <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">Under review</strong>
+              <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">Being reviewed</strong>
               <h1 class="govuk-heading-l">
-                  Your application is being reviewed
+                Your application is being reviewed
               </h1>
-              <p>The Environment Agency will review and determine your application.</p>
-              <p>They may contact you if there are any issues.</p>
-              <p>What if the producer needs to change something or needs help?</p>
+              <p>The Environment Agency is reviewing your application. </p>
+              <p>They’ll email you the application outcome or to ask for more information by 20th January 2023. </p>
+              <p>You can view contact details for the Environment Agency at <a href="https://www.gov.uk/guidance/packaging-producer-responsibilities" target="_blank">https://www.gov.uk/guidance/packaging-producer-responsibilities</a>. You’ll need your reference number (9937261) if you contact them. </p>
           {% endif %}
 
           {% if 
@@ -53,12 +53,12 @@
               data['paid'] == 'yes' and 
               data['registered'] == 'yes' 
           %}
-              <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2">Approved</strong>
+              <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2">Successful</strong>
               <h1 class="govuk-heading-l">
-                  Your application has been approved
+                Your application was successful
               </h1>
-              <p>Your organisation is registered as an obligated producer.</p>
-              <p>Your scheme identification number (EPRIN): <strong>0038173</strong></p>
+              <p>Acme Org Ltd is registered as an obligated packaging producer. Your scheme identification number (EPRIN) is: <strong>0038173</strong>. </p>
+              <p>You can now <a href="report-start">report your packaging data for 2022</a>.</p>
           {% endif %}
 
         </div>
