@@ -24,28 +24,24 @@
             
             {% call govukFieldset({
             legend: {
-                text: "Packaging materials placed on the market as a online marketplace",
+                text: "How many tonnes of each material did you place on the market as an online marketplace in 2022?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "How to complete these fields",
+                summaryText: "What materials do I need to include?",
                 html: '
-                    <p>What to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                    <p>What not to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
+                <p>Include any:</p>
+                <ul>
+                    <li>filled packaging materials that were sold using your organisation’s online platform on behalf of non-UK producers</li>
+                    <li>unfilled packaging that your organisation sold to non-obligated UK producers</li>
+                </ul>
                 '
             }) }}
+
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
                 {% if 'paper' in data['reportOnlinemarketplace'] %}
 

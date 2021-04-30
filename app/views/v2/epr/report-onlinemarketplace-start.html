@@ -22,61 +22,77 @@
 
         <form method="POST" action="report-onlinemarketplace">
 
-            {{ govukCheckboxes({
-                idPrefix: "reportOnlinemarketplace",
-                name: "reportOnlinemarketplace",
-                fieldset: {
-                    legend: {
-                    text: "Which types of packaging did you place on the market as a online marketplace?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
-                    }
-                },
-                hint: {
-                    html: '
-                        <details class="govuk-details" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">
-                                Online marketplace activities explained
-                            </span>
-                            </summary>
-                            <div class="govuk-details__text">
-                            Some helpful info.
-                            </div>
-                        </details>
-                    '
-                },
-                items: [
-                    {
-                    value: "paper",
-                    text: "Paper"
-                    },
-                    {
-                    value: "glass",
-                    text: "Glass"
-                    },
-                    {
-                    value: "aluminium",
-                    text: "Aluminium"
-                    },
-                    {
-                    value: "steel",
-                    text: "Steel"
-                    },
-                    {
-                    value: "plastic",
-                    text: "Plastic"
-                    },
-                    {
-                    value: "wood",
-                    text: "Wood"
-                    },
-                    {
-                    value: "other",
-                    text: "Other"
-                    }
-                ]
-            }) }}
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Which packaging materials did you place on the market as an online marketplace in 2022?
+                        </h1>
+                    </legend>
+
+                    <p>Include any:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>filled packaging materials that were sold using your organisation’s online platform on behalf of non-UK producers</li>
+                        <li>unfilled packaging that your organisation sold to non-obligated UK producers</li>
+                    </ul>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input1" name="reportOnlinemarketplace" type="checkbox" value="paper">
+                            <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                Paper
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input2" name="reportOnlinemarketplace" type="checkbox" value="glass">
+                            <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                Glass
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input3" name="reportOnlinemarketplace" type="checkbox" value="aluminium">
+                            <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                Aluminium
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input4" name="reportOnlinemarketplace" type="checkbox" value="steel">
+                            <label class="govuk-label govuk-checkboxes__label" for="input4">
+                                Steel
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input5" name="reportOnlinemarketplace" type="checkbox" value="plastic">
+                            <label class="govuk-label govuk-checkboxes__label" for="input5">
+                                Plastic
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input6" name="reportOnlinemarketplace" type="checkbox" value="wood">
+                            <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                Wood
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input7" name="reportOnlinemarketplace" type="checkbox" value="fibre">
+                            <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                Fibre-based composite 
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input8" name="reportOnlinemarketplace" type="checkbox" value="other">
+                            <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
 
             {{govukButton({
                 text: "Continue"

@@ -136,6 +136,22 @@
                     </div>
                 {% endif %}
 
+                {% if 'fibre' in data['reportBrandowner'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibrerandowner'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
                 {% if 'other' in data['reportBrandowner'] %}
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__value">
@@ -262,6 +278,22 @@
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['woodImporter'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['reportImporter'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreImporter'] }}
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -563,139 +595,6 @@
 
 
 
-        {% if 'seller' in data['orgActivity'] %}
-
-            <h2 class="govuk-heading-m">Seller packaging</h2>
-
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Material
-                    </dt>
-                    <dt class="govuk-summary-list__key">
-                        Tonnes
-                    </dt>
-                    <dt class="govuk-summary-list__key">
-                    </dt>
-                </div>
-
-                {% if 'paper' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Paper
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['paperSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                </div>
-                {% endif %}
-
-                {% if 'glass' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Glass
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['glassSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                    </div>
-                {% endif %}
-
-                {% if 'aluminium' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Aluminium
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['aluminiumSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                    </div>
-                {% endif %}
-
-                {% if 'steel' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Steel
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['steelSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                    </div>
-                {% endif %}
-
-                {% if 'plastic' in data['reportSeller'] %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__value">
-                        Plastic
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['plasticSeller'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                            Change
-                        </a>
-                    </dd>
-                </div>
-                {% endif %}
-
-                {% if 'wood' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Wood
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['woodSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                    </div>
-                {% endif %}
-
-                {% if 'other' in data['reportSeller'] %}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__value">
-                            Other
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['otherSeller'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                                Change
-                            </a>
-                        </dd>
-                    </div>
-                {% endif %}
-
-            </dl>
-
-        {% endif %}
-
 
 
         {% if 'serviceprovider' in data['orgActivity'] %}
@@ -830,6 +729,145 @@
             </dl>
 
         {% endif %}
+
+
+
+
+        {% if 'seller' in data['orgActivity'] %}
+
+            <h2 class="govuk-heading-m">Seller packaging</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                {% if 'paper' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['paperSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                {% endif %}
+
+                {% if 'glass' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'aluminium' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['steelSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['reportSeller'] %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Plastic
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticSeller'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                {% endif %}
+
+                {% if 'wood' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['woodSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherSeller'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+            </dl>
+
+        {% endif %}
+
+
+        
 
         <form method="POST" action="report-complete">
             {{govukButton({

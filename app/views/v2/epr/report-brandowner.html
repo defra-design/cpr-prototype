@@ -24,28 +24,24 @@
             
             {% call govukFieldset({
             legend: {
-                text: "Packaging materials placed on the market as a brand owner",
+                text: "How many tonnes of each material did you place on the market as a brand owner in 2022?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "How to complete these fields",
+                summaryText: "What materials do I need to include?",
                 html: '
-                    <p>What to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                    <p>What not to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
+                <p>Include any packaging materials that: </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your organisation placed goods into to sell</li>
+                    <li>somebody else placed your organisation’s goods into for you to sell </li>
+                </ul>
                 '
             }) }}
+
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
                 {% if 'paper' in data['reportBrandowner'] %}
 
@@ -141,6 +137,23 @@
                         classes: "govuk-input--width-5",
                         id: "woodBrandowner",
                         name: "woodBrandowner",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'fibre' in data['reportBrandowner'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Fibre-based composite"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "fibreBrandowner",
+                        name: "fibreBrandowner",
                         suffix: {
                             text: "tonnes"
                         },

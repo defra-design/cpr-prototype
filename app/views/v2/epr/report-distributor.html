@@ -24,28 +24,20 @@
             
             {% call govukFieldset({
             legend: {
-                text: "Packaging materials placed on the market as a distributor",
+                text: "How many tonnes of each material did you place on the market as a distributor in 2022?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "How to complete these fields",
+                summaryText: "What materials do I need to include?",
                 html: '
-                    <p>What to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                    <p>What not to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
+                <p>Include any unfilled packaging materials that your organisation sold to non-obligated producers.</p>
                 '
             }) }}
+
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
                 {% if 'paper' in data['reportDistributor'] %}
 

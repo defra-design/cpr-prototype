@@ -24,28 +24,25 @@
             
             {% call govukFieldset({
             legend: {
-                text: "Packaging materials placed on the market as an importer",
+                text: "How many tonnes of each material did you place on the market as an importer in 2022?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "How to complete these fields",
+                summaryText: "What materials do I need to include?",
                 html: '
-                    <p>What to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                    <p>What not to include:</p>
-                    <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
+                <p>Include any: </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>filled packaging materials that your organisation imported into the UK to sell</li>
+                    <li>unfilled packaging materials that your organisation sold to non-obligated producers</li>
+                </ul>
+                <p>Do not include packaging materials that were exported before they were sold.</p>
                 '
             }) }}
+
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
                 {% if 'paper' in data['reportImporter'] %}
 
@@ -141,6 +138,23 @@
                         classes: "govuk-input--width-5",
                         id: "woodImporter",
                         name: "woodImporter",
+                        suffix: {
+                            text: "tonnes"
+                        },
+                        spellcheck: false
+                    }) }}
+
+                {% endif %}
+
+                {% if 'fibre' in data['reportImporter'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Fibre-based composite"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "fibreImporter",
+                        name: "fibreImporter",
                         suffix: {
                             text: "tonnes"
                         },

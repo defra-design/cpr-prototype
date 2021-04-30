@@ -201,11 +201,11 @@ router.post('*/route-reporting', function (req, res) {
     else if (orgActivity.includes('onlinemarketplace')){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('seller')){
-        res.redirect('report-seller-start')
-    }
     else if (orgActivity.includes('serviceprovider')){
         res.redirect('report-serviceprovider-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
@@ -223,11 +223,11 @@ router.post('*/route-reporting-brandowner', function (req, res) {
     else if (orgActivity.includes('onlinemarketplace')){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('seller')){
-        res.redirect('report-seller-start')
-    }
     else if (orgActivity.includes('serviceprovider')){
         res.redirect('report-serviceprovider-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
@@ -242,11 +242,11 @@ router.post('*/route-reporting-importer', function (req, res) {
     else if (orgActivity.includes('onlinemarketplace')){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('seller')){
-        res.redirect('report-seller-start')
-    }
     else if (orgActivity.includes('serviceprovider')){
         res.redirect('report-serviceprovider-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
@@ -258,11 +258,11 @@ router.post('*/route-reporting-distributor', function (req, res) {
     if (orgActivity.includes('onlinemarketplace')){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('seller')){
-        res.redirect('report-seller-start')
-    }
     else if (orgActivity.includes('serviceprovider')){
         res.redirect('report-serviceprovider-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
@@ -271,21 +271,21 @@ router.post('*/route-reporting-distributor', function (req, res) {
 
 router.post('*/route-reporting-onlinemarketplace', function (req, res) {
     var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('seller')){
-        res.redirect('report-seller-start')
-    }
-    else if (orgActivity.includes('serviceprovider')){
+    if (orgActivity.includes('serviceprovider')){
         res.redirect('report-serviceprovider-start')
+    }
+    else if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
 
-router.post('*/route-reporting-seller', function (req, res) {
+router.post('*/route-reporting-serviceprovider', function (req, res) {
     var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('serviceprovider')){
-        res.redirect('report-serviceprovider-start')
+    if (orgActivity.includes('seller')){
+        res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')

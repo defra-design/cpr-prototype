@@ -235,9 +235,11 @@
                         <span class="app-task-list__task-name">
 
                             {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported'] == 'no'  %}
-                                <a href="report-method">
+                            <form method="POST" action="route-reporting">    
+                                <a href="" onclick="this.closest('form').submit();return false;">
                                     Submit your packaging data
                                 </a>
+                            </form>
                             {% else %}
                                 Submit your packaging data
                             {% endif %}
