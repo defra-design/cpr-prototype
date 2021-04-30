@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Choose whether to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">Introduction and what you’ll need</h1>
+
+        <p>In this section, we'll ask you:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>to read and agree to our privacy policy </li>
+            <li>whether you’re authorised to act on behalf of your organisation </li>
+            <li>which contact details you want us to use for this application </li>
+            <li>for your organisation’s registered office and contact details</li>
+            <li>for your organisation’s turnover in its last published accounts</li>
+            <li>about your organisation’s packaging activities </li>
+            <li>for details about any subsidiaries your organisation has </li>
+        </ul>
+
+        <p>We’ll also give you payment details for the registration fee and ask you to confirm whether anyone has paid.</p>
+
+        <form method="POST" action="home?intro1=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

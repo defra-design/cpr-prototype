@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Pay your registration fees | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Pay the registration fee
+        </h1>
+
+        <h2 class="govuk-heading-m">Acme Org Ltd’s registration fee</h2>
+        <p class="govuk-body-l">&pound;1134</p>
+
+        {{ govukDetails({
+          summaryText: "View a breakdown of the registration fee",
+          html: '
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator registration fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £536
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator compliance fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £250
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator enforcement fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £348
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Total
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £1134
+              </dd>
+            </div>
+          </dl>
+          '
+        }) }}
+
+        <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
+        
+        <p>You should pay the Environment Agency by Bacs. It usually takes 3 working days to process.</p>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Your payment reference"
+              },
+              value: {
+                text: 'PROD123456'
+              }
+            },
+            {
+              key: {
+                text: "Account name"
+              },
+              value: {
+                text: "Environment Agency"
+              }
+            },
+            {
+              key: {
+                text: "Sort code"
+              },
+              value: {
+                text: "60 70 80"
+              }
+            },
+            {
+              key: {
+                text: "Account number"
+              },
+              value: {
+                text: "10010010"
+              }
+            },
+            {
+              key: {
+                text: "International bank account number (IBAN)"
+              },
+              value: {
+                text: 'GB12 NWBK 345678 10014411'
+              }
+            }
+            
+          ]
+        }) }}
+
+        <p><a href="/public/files/payment-information.pdf" target="_blank">Download these payment details</a> (PDF, 500MB)</p>
+
+        <div class="govuk-!-margin-top-8">
+
+          <form method="POST" action="route-payment">
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading">
+                    Has the registration fee been paid? 
+                  </h1>
+              </legend>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="field2" name="paymentChoice" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="field2">
+                      Yes, submit my application 
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="field1" name="paymentChoice" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="field1">
+                    No, I’ll complete my application later
+                  </label>
+                </div>
+              </div>
+              </fieldset>
+            </div>
+          
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+          </form>
+
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
