@@ -87,9 +87,17 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['declared'] == 'yes' and data['applied'] == 'no' %}
-                                <a href="registration-check-contact">
-                                    Add information about your organisation
-                                </a>
+
+                                {% if data['lastVisitedURL'] %}
+                                    <a href="{{ data['lastVisitedURL'] }}">
+                                        Add information about your organisation
+                                    </a>
+                                {% else %}
+                                    <a href="registration-check-contact">
+                                        Add information about your organisation
+                                    </a>
+                                {% endif %}
+
                             {% else %}
                                 Add information about your organisation
                             {% endif %}
