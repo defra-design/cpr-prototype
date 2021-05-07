@@ -30,7 +30,7 @@ router.post('*/route-check-defra', function (req, res) {
         res.redirect('/v3/defra-id/login')
     }
     else {
-        res.redirect('service-start-gg')
+        res.redirect('service-start-defra-check')
     }
 })
 
@@ -45,23 +45,6 @@ router.post('*/route-check-gg', function (req, res) {
     }
     else {
         res.redirect('service-start-gg-create')
-    }
-})
-
-
-
-
-// Routing for registration-check-org.html
-router.post('*/registration-check-org-choice', function (req, res) {
-    var orgChoice = req.session.data['orgChoice']
-    if (orgChoice == "some"){
-        res.redirect('registration-check-org-some-wrong')
-    }
-    if (orgChoice == "all"){
-        res.redirect('registration-check-org-all-wrong')
-    }
-    else {
-        res.redirect('registration-check-org-correspondence')
     }
 })
 
