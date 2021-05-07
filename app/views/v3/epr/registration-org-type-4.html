@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of it's subsidiaries a Type 4 producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a Type 4 producer?</h1>
+        {% endif %}
+
+        <p>A Type 4 producer is an organisation which has an online platform that non-obligated or non-UK producers sell goods through.</p>
+
+        {{ govukDetails({
+          summaryText: "Examples of a Type 4 producer",
+          html: '
+          <p><strong>Example 1:</strong> An overseas business, "X Ltd", advertises lamps for sale on an Online Marketplace. A private individual in the UK purchases a lamp via that marketplace. The lamp is imported into the UK and delivered direct to the private individual who 48 of 213 purchased it. The Online Marketplace adds some additional cardboard packaging for shipment in the UK.</p>
+          <p>The Online Marketplace, as the facilitator of this sale, would be obligated for any packaging of that imported lamp.</p>
+          <p>The Online Marketplace would be obligated as a Brand Owner for the cardboard packaging that they add to the product in the process of fulfilling the order on behalf of X Ltd.</p>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-5">
+            
+            {{ govukRadios({
+              name: "producerType4",
+              items: [
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "yes",
+                  text: "Yes"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -151,6 +151,18 @@
             </dd>
           </div>
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgNation'] or defaults['orgNation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
         </dl>
 
 
@@ -287,10 +299,15 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Producer type(s)
+              Organisation type(s)
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['orgActivity'] or defaults['orgActivity'] }}
+              {% if data['producerType1'] == 'yes' %}Type 1 producer<br />{% endif %}
+              {% if data['producerType2'] == 'yes' %}Type 2 producer<br />{% endif %}
+              {% if data['producerType3'] == 'yes' %}Type 3 producer<br />{% endif %}
+              {% if data['producerType4'] == 'yes' %}Type 4 producer<br />{% endif %}
+              {% if data['producerType5'] == 'yes' %}Type 5 producer<br />{% endif %}
+              {% if data['producerTypeSeller'] == 'yes' %}Seller<br />{% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">Change</a>

@@ -29,41 +29,58 @@
       }) }}
 
       <h1 class="govuk-heading-l">
-        Check if your organisation has been set up before
+        Check if your organisation has a Defra ID account
       </h1>
 
-      <p>Before you create your own Defra account, check whether your organisation has been set up.</p>      
+      <h2 class="govuk-heading-m">Start typing your organisation’s company number </h2>
 
-      <h2 class="govuk-heading-m">Check using the Companies House number for your organisation</h2>
+      <p>Your organisation must be registered with Companies House to use this checker.</p>
 
-      <form method="POST" action="service-start-defra-check-confirm">
-
-        {{ govukInput({
-          label: {
-            text: "Companies House number"
-          },
-          id: "defraCheckCompanyNumber",
-          name: "defraCheckCompanyNumber",
-          classes: "govuk-!-width-one-half"
-        }) }}
-
-        {{ govukDetails({
-          summaryText: "Where can I find the number?",
-          html: '<p class="govuk-body">You can find this on the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank">Companies House register (opens in a new tab).</a></p>
-          <p>If your organisation is not on Companies House then you can <a href="#">skip this step</a>.'
-        }) }}
+      <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
       
-        {{govukButton({
-            text: "Continue"
-        })}}
+      <form method="POST" action="service-start-defra-check-yes">
+        {{ govukButton({
+          text: "Confirm (yes)"
+        }) }}
+      </form>
 
+      <form method="POST" action="service-start-defra-check-no">
+        {{ govukButton({
+          text: "Confirm (no)"
+        }) }}
       </form>
       
-      <p><a href="service-start-gg">My organisation is not on Companies House, skip this step</a></p>
+      <p>If your organisation is not registered with Companies House, <a href="service-start-gg">skip this step</a>.</p>
 
       <p><a href="service-start">Return to GOV.UK</a></p>
 
     </div>
 </div>
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+  var companies = [
+  "(001234) Burns Industries",
+  "(001235) Dunder Mifflin, Inc.",
+  "(001236) E Corp",
+  "(001237) Hooli",
+  "(001238) Los Pollos Hermanos",
+  "(001239) Stark Industries",
+  "(001241) Wayne Enterprises, Inc.",
+  "(001242) Axe Capital",
+  "(001243) Delos Inc"
+  ]
+</script>
+
+<script type="text/javascript">
+  var element = document.querySelector('#tt-default')
+  var id = 'defraCheckCompanyNumber'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    name: 'defraCheckCompanyNumber',
+    source: companies
+  })
+</script>
 
 {% endblock %}
