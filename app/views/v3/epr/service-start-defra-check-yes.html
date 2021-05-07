@@ -29,30 +29,34 @@
       }) }}
 
       <h1 class="govuk-heading-l">
-        Do you have your own Defra account?
+        You organisation has already been set up
       </h1>
 
-      <p>You must have a Defra account to register your organisation as a packaging producer.</p>
+      <p>You need to request an invitation from the account administrator for your organisation.</p>
+      <p>We will pass your name and email address to the account administrator for your organisation.</p>
 
-      <!-- Radio button routing in /vN/epr/_routes.js -->
-      <form method="POST" action="route-check-defra">
+      <form method="POST" action="service-start-defra-check-requested">
 
-        {{ govukRadios({
-          name: "daChoice",
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No, I need to create one"
-            }
-          ]
+        {{ govukInput({
+          label: {
+            text: "Your full name"
+          },
+          id: "defraCheckName",
+          name: "defraCheckName",
+          classes: "govuk-!-width-two-thirds"
         }) }}
-
+        
+        {{ govukInput({
+          label: {
+            text: "Your work email address"
+          },
+          id: "defraCheckEmail",
+          name: "defraCheckEmail",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+      
         {{govukButton({
-            text: "Continue"
+            text: "Request an invitation"
         })}}
 
       </form>

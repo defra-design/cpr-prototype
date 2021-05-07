@@ -10,4 +10,19 @@ router.get('*/manage', function (request, response) {
     response.render('v3/defra-id-manage/manage')
 })
 
+router.get('*/manage-team', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v3/defra-id-manage/manage-team')
+})
+
+router.get('*/manage-org', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v3/defra-id-manage/manage-org')
+})
+
+router.get('*/manage-org-update', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v3/defra-id-manage/manage-org-update')
+})
+
 module.exports = router

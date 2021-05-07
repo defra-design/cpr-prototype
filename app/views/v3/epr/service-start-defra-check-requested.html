@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Packaging waste: producer responsibilities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Extended producer responsibility</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: "Your request has been sent"
+        }) }}
+
+        <p>We have sent a confirmation email to {{ data['defraCheckEmail'] }}</p>
+
+        <h2 class="govuk-heading-m">What happens next?</h2>
+
+        <p>If the Admin accepts your request they'll choose which information you can see and which tasks you can perform in Acme Org Ltd. We'll email you to let you know when you can sign in.</p>
+        <p>If they decline the request, we'll email you to let you know.</p>
+
+        <p><a href="service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

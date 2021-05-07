@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Turnover | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-check-org-correspondence">
+
+            <h1 class="govuk-heading-l">Which nation is Acme Org Ltd registered in? </h1>
+
+            {{ govukRadios({
+              name: "orgNation",
+              items: [
+                {
+                  value: "england",
+                  text: "England"
+                },
+                {
+                  value: "scotland",
+                  text: "Scotland"
+                },
+                {
+                  value: "wales",
+                  text: "Wales"
+                },
+                {
+                  value: "ni",
+                  text: "Northern Ireland"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
