@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+We’ve saved the details you entered | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">We’ve saved the details you entered</h2>
+
+      <p>Something about saving progress.</p>
+
+      <form method="POST" action="">
+          {{govukButton({
+              text: "Sign out"
+          })}}
+      </form>
+
+      <p><a href="home">Back to the EPR task list</a></p>
+        
+    </div>
+</div>
+
+{% endblock %}

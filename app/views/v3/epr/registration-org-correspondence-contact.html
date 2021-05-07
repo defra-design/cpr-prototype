@@ -35,8 +35,7 @@
                         text: 'Phone number'
                     },
                     classes: "govuk-!-width-two-thirds",
-                    name: "correspondencePhone",
-                    value: data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone']
+                    name: "correspondencePhone"
                 }) }}
             
                 {{ govukInput({
@@ -44,8 +43,7 @@
                         text: 'Email address'
                     },
                     classes: "govuk-!-width-two-thirds",
-                    name: "correspondenceEmail",
-                    value: data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail']
+                    name: "correspondenceEmail"
                 }) }}
             
             {% endcall %}
@@ -53,6 +51,8 @@
             {{govukButton({
                 text: "Continue"
             })}}
+
+            {% include "includes/save-and-exit.html" %}
 
         </form>
 
