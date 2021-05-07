@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of it's subsidiaries a Type 3 producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a Type 3 producer?</h1>
+        {% endif %}
+
+        <p>A Type 3 producer is an organisation which sells unfilled packaging to non-obligated producers.</p>
+
+        {{ govukDetails({
+          summaryText: "Examples of a Type 3 producer",
+          html: '
+          <p><strong>Example 1:</strong> a wholesaler buys empty disposable cups from a manufacturer. They sell those cups to a small, independent coffee shop who fills them with coffee. (This coffee shop is below the de-minimis threshold.)</p>
+          <p><strong>Example 2:</strong> a manufacturer who makes disposable cups and sells them direct to a small, independent coffee shop. This coffee shop is below the de-minimis threshold.</p>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-4">
+            
+            {{ govukRadios({
+              name: "producerType3",
+              items: [
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "yes",
+                  text: "Yes"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
