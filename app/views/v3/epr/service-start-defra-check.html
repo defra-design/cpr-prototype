@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Packaging waste: producer responsibilities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Extended producer responsibility</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        Find your organisation on Companies House
+      </h1>
+
+      <p>If your organisation is not registered with Companies House, <a href="service-start-gg">skip this step</a>.</p>
+
+      <label class="govuk-label" for="event-name">
+        Companies House number
+      </label>
+      <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
+      
+      {% if data['orgExists'] == 'yes' %}
+
+        <form method="POST" action="service-start-defra-check-yes">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </form>
+
+      {% else %}
+
+        <form method="POST" action="service-start-gg">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </form>
+      
+      {% endif %}
+
+      <p><a href="service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+  var companies = [
+  "(001234) Burns Industries",
+  "(001235) Dunder Mifflin, Inc.",
+  "(001236) E Corp",
+  "(001237) Hooli",
+  "(001238) Los Pollos Hermanos",
+  "(001239) Stark Industries",
+  "(001241) Wayne Enterprises, Inc.",
+  "(001242) Axe Capital",
+  "(001243) Delos Inc"
+  ]
+</script>
+
+<script type="text/javascript">
+  var element = document.querySelector('#tt-default')
+  var id = 'defraCheckCompanyNumber'
+  accessibleAutocomplete({
+    element: element,
+    id: id,
+    name: 'defraCheckCompanyNumber',
+    source: companies
+  })
+</script>
+
+{% endblock %}

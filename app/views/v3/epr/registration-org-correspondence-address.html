@@ -24,7 +24,7 @@
 
             {% call govukFieldset({
                 legend: {
-                text: "Review your organisation's correspondence address",
+                text: "Enter your organisation's correspondence address",
                 classes: "govuk-fieldset__legend--l",
                 isPageHeading: true
                 }
@@ -34,16 +34,14 @@
                     label: {
                         text: 'Address line 1'
                     },
-                    name: "correspondenceAddress1",
-                    value: "1 Francis Crick Avenue"
+                    name: "correspondenceAddress1"
                 }) }}
             
                 {{ govukInput({
                     label: {
                         text: 'Address line 2'
                     },
-                    name: "correspondenceAddress2",
-                    value: "Cambridge Biomedical Campus"
+                    name: "correspondenceAddress2"
                 }) }}
 
                 {{ govukInput({
@@ -65,8 +63,7 @@
                         text: "Town or city"
                     },
                     classes: "govuk-!-width-two-thirds",
-                    name: "correspondenceTown",
-                    value: "Cambridge"
+                    name: "correspondenceTown"
                 }) }}
             
                 {{ govukInput({
@@ -82,8 +79,7 @@
                         text: "Postcode"
                     },
                     classes: "govuk-input--width-10",
-                    name: "correspondencePostcode",
-                    value: "CB2 0AA"
+                    name: "correspondencePostcode"
                 }) }}
             
             {% endcall %}
@@ -91,6 +87,8 @@
             {{govukButton({
                 text: "Continue"
             })}}
+
+            {% include "includes/save-and-exit.html" %}
 
         </form>
 

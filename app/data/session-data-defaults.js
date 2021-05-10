@@ -17,10 +17,10 @@ Example usage:
 
 */
 
+
 module.exports = {
 
-  // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
-  "protoVer": "v3",
+  "protoVer": "v3", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
   "intro1": "no",
   "intro2": "no",
   "declared": "no",
@@ -37,8 +37,15 @@ module.exports = {
   "reportOnlinemarketplace": "null",
   "reportSeller": "null",
   "reportServiceprovider": "null",
+  "orgNation": "England",
   "orgActivity": "brandowner,importer",
   "orgTurnover": "5,500,000",
+  "producerType1": "no",
+  "producerType2": "no",
+  "producerType3": "no",
+  "producerType4": "no",
+  "producerType5": "no",
+  "producerTypeSeller": "no",
   "govGateEmail": "johnsmith@acmeorg.co.uk",
   "defraIdCompaniesHouseNumber": "01234567",
   "defraIdCompanyPhone": "01234 567899",

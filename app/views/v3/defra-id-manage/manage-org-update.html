@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% block pageTitle %}
+Update your organisation details
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div id="profile">
+    {% include "includes/account-nav-admin.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "manage-org"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Update your organisation details
+    </h1>
+
+    <p>Make updates to Your Defra registered Organisation information.</p>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="manage-org-update-phone">
+            Change
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="manage-org-update-email">
+            Change
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    {{ govukDetails({
+      summaryText: "Change your organisation address",
+      html: '<p>Organisation address must be updated with <a href="#">Companies House</a></p>'
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

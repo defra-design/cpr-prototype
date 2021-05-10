@@ -20,7 +20,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-org-type">
+        <form method="POST" action="registration-org-type-1">
 
             {% if data['sub1'] == '1' %}
               <h1 class="govuk-heading-l">What was Acme Org Ltd group's turnover in your last published accounts? </h1>
@@ -33,6 +33,9 @@
                 name: "orgTurnover",
                 label: {
                   text: "Turnover"
+                },
+                hint: {
+                  text: "For example, 3,000,000.00"
                 },
                 prefix: {
                   text: "£"
@@ -47,6 +50,8 @@
             {{govukButton({
                 text: "Continue"
             })}}
+
+            {% include "includes/save-and-exit.html" %}
 
         </form>
 

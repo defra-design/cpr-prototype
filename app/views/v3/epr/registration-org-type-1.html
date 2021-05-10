@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type 1' producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 1' producer?</h1>
+        {% endif %}
+
+        <p>A type 1 producer is an organisation which sells goods under its own brand name in the UK.</p>
+
+        {{ govukDetails({
+          summaryText: "Show me examples of a type 1 producer",
+          html: '
+          <p>
+            <strong>Example A</strong><br />
+            A manufacturer who makes soup and fills steel cans with that soup. They put their brand on the label and sell the soup to supermarkets. </p>
+          <p>
+            <strong>Example B</strong><br />
+            A supermarket, "A Ltd", has an own-brand range of coffee. They contract a manufacturer to make the coffee and put it in the packaging. The contractor also prints the label.
+          </p>
+          <p>The label mentions one of the following:</p>
+          <ul>
+            <li>the supermarket’s primary brand - "by A" </li>
+            <li>the supermarket’s secondary brand - "A Essentials" </li>
+            <li>a tertiary brand that does not include the supermarket’s name </li>
+          </ul>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-2">
+            
+            {{ govukRadios({
+              name: "producerType1",
+              items: [
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "yes",
+                  text: "Yes"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

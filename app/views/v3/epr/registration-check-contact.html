@@ -48,30 +48,13 @@
 
         <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you can <a href="../defra-id-manage/index">change them in your Defra account</a>.</p>
         
-        <form method="POST" action="route-check-contact">
-
-          {#  
-          {{ govukRadios({
-            idPrefix: "",
-            name: "contactChoice",
-            items: [
-              {
-                value: "yes",
-                text: "Yes"
-              },
-              {
-                value: "no",
-                text: "No, I need to enter different contact details"
-              }
-            ]
-          }) }}
-          #}
-
+        <form method="POST" action="registration-check-org">
           {{govukButton({
               text: "Confirm and continue"
           })}}
-
         </form>
+
+        {% include "includes/save-and-exit.html" %}
 
         
     </div>

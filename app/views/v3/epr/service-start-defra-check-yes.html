@@ -29,28 +29,31 @@
       }) }}
 
       <h1 class="govuk-heading-l">
-        Do you have a Defra account in your own name?
+        Your organisation already has a Defra account
       </h1>
 
-      <p>You must have a Defra account to register your organisation as a packaging producer.</p>
+      <p>We’ll send your contact details to your organisation’s account administrator and ask them to give you access.</p>
 
-      <!-- Radio button routing in /vN/epr/_routes.js -->
-      <form method="POST" action="route-check-defra">
+      <form method="POST" action="service-start-defra-check-requested">
 
-        {{ govukRadios({
-          name: "daChoice",
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No, create a new account"
-            }
-          ]
+        {{ govukInput({
+          label: {
+            text: "Your full name"
+          },
+          id: "defraCheckName",
+          name: "defraCheckName",
+          classes: "govuk-!-width-two-thirds"
         }) }}
-
+        
+        {{ govukInput({
+          label: {
+            text: "Your work email address"
+          },
+          id: "defraCheckEmail",
+          name: "defraCheckEmail",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+      
         {{govukButton({
             text: "Continue"
         })}}
