@@ -23,7 +23,7 @@
             <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" name="declaration" type="checkbox" value="accepted">
                 <label class="govuk-label govuk-checkboxes__label">
-                    By continuing, I confirm that I, {{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }} am authorised to act on behalf of Acme Org Ltd.
+                    By continuing, I confirm that I, <strong>{{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }}</strong> am authorised to act on behalf of Acme Org Ltd.
                 </label>
             </div>
         </div>
@@ -31,6 +31,17 @@
         {{ govukWarningText({
             text: "You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of Acme Org Ltd.",
             iconFallbackText: "Warning"
+        }) }}
+
+        {{ govukDetails({
+            summaryText: "How do I know if I'm authorised?",
+            html: "
+            <p>You’re authorised to act on behalf of your organisation if: </p>
+            <ul>
+                <li>you're a company director or secretary</li>
+                <li>a company director or secretary has given you permission</li>
+            </ul>
+            "
         }) }}
 
         <form method="POST" action="home?declared=yes">

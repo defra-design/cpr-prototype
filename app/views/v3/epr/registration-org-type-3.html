@@ -21,18 +21,29 @@
         }) }}
 
         {% if data['sub1'] == '1' %}
-          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of it's subsidiaries a Type 3 producer?</h1>
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type 3' producer?</h1>
         {% else %}
-          <h1 class="govuk-heading-l">Is Acme Org Ltd a Type 3 producer?</h1>
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 3' producer?</h1>
         {% endif %}
 
-        <p>A Type 3 producer is an organisation which sells unfilled packaging to non-obligated producers.</p>
+        <p>A type 3 producer is an organisation which sells unfilled packaging to non-obligated producers.</p>
+        <p>Non-obligated producers are organisations that either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>produce less than 25 tonnes of packaging waste a year</li>
+          <li>have a turnover below £1 million</li>
+        </ul>
 
         {{ govukDetails({
-          summaryText: "Examples of a Type 3 producer",
+          summaryText: "Show me examples of a type 3 producer",
           html: '
-          <p><strong>Example 1:</strong> a wholesaler buys empty disposable cups from a manufacturer. They sell those cups to a small, independent coffee shop who fills them with coffee. (This coffee shop is below the de-minimis threshold.)</p>
-          <p><strong>Example 2:</strong> a manufacturer who makes disposable cups and sells them direct to a small, independent coffee shop. This coffee shop is below the de-minimis threshold.</p>
+          <p>
+            <strong>Example A</strong><br />
+            A wholesaler who buys empty disposable cups from a manufacturer. The wholesaler sells these cups to a small, independent coffee shop that is not obligated under the Extended Producer Responsibility regulations.
+          </p>
+          <p>
+            <strong>Example B</strong><br />
+            A manufacturer who makes disposable cups and sells them directly to a small, independent coffee shop. The coffee shop they sell these cups to is not obligated under the Extended Producer Responsibility regulations.
+          </p>
           '
         }) }}
 

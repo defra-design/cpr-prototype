@@ -299,7 +299,11 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Organisation type(s)
+              {% if data['sub1'] == '1' %}
+                Type(s) in the group
+              {% else %}
+                Organisation type(s)
+              {% endif %}
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['producerType1'] == 'yes' %}Type 1 producer<br />{% endif %}

@@ -21,19 +21,24 @@
         }) }}
 
         {% if data['sub1'] == '1' %}
-          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of it's subsidiaries a Type 4 producer?</h1>
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type 4' producer?</h1>
         {% else %}
-          <h1 class="govuk-heading-l">Is Acme Org Ltd a Type 4 producer?</h1>
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 4' producer?</h1>
         {% endif %}
 
-        <p>A Type 4 producer is an organisation which has an online platform that non-obligated or non-UK producers sell goods through.</p>
+        <p>A type 4 producer is an organisation that has an online platform that non-obligated or non-UK based producers sell goods through.</p>
+        <p>Non-obligated producers are organisations that either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>produce less than 25 tonnes of packaging waste a year</li>
+          <li>have a turnover below £1 million</li>
+        </ul>
 
         {{ govukDetails({
-          summaryText: "Examples of a Type 4 producer",
+          summaryText: "Show me an example of a type 4 producer",
           html: '
-          <p><strong>Example 1:</strong> An overseas business, "X Ltd", advertises lamps for sale on an Online Marketplace. A private individual in the UK purchases a lamp via that marketplace. The lamp is imported into the UK and delivered direct to the private individual who 48 of 213 purchased it. The Online Marketplace adds some additional cardboard packaging for shipment in the UK.</p>
-          <p>The Online Marketplace, as the facilitator of this sale, would be obligated for any packaging of that imported lamp.</p>
-          <p>The Online Marketplace would be obligated as a Brand Owner for the cardboard packaging that they add to the product in the process of fulfilling the order on behalf of X Ltd.</p>
+          <p>
+            An overseas business advertises lamps through an online marketplace. Private individuals can buy one of these lamps. When bought, the lamps are imported into the UK and delivered directly to the person who bought it. The online marketplace adds some additional cardboard packaging.
+          </p>
           '
         }) }}
 
