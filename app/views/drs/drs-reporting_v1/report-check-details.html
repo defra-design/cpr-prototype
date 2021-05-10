@@ -1,0 +1,484 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Check and submit your data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+
+        {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
+        <h1 class="govuk-heading-l">Check and submit your producer and retailer data</h1>
+        {% elif 'producer' in data['orgDescription'] %}
+        <h1 class="govuk-heading-l">Check and submit your producer data</h1>
+        {% elif 'retailer' in data['orgDescription'] %}
+        <h1 class="govuk-heading-l">Check and submit your retailer data</h1>
+        {% endif %}
+
+<!-- Producer reporting -->        
+        {% if 'producer' in data['orgDescription'] %}
+
+            <h2 class="govuk-heading-m">Producer reporting</h2>
+
+            {% if 'plastic' in data['reportProducer'] %}
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Plastic bottles
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            750ml and under
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['plasticUnder750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Over 750ml
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Placed in multi-packs
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticMultipacks'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+
+            {% if 'glass' in data['reportProducer'] %}
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Glass bottles
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            750ml and under
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassUnder750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Over 750ml
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Placed in multi-packs
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassMultipacks'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+
+            {% if 'aluminium' in data['reportProducer'] %}
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Steel & aluminium cans
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Single cans
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumSingle'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Placed in multi-packs
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['aluminiumMultipacks'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+            
+        {% endif %}
+
+
+<!-- Retailer reporting --> 
+        {% if 'retailer' in data['orgDescription'] %}
+
+            <h2 class="govuk-heading-m">Retailer reporting</h2>
+
+            {% if 'plastic' in data['reportRetailer'] %}
+            <h3 class="govuk-heading-s">Plastic bottles</h3>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        750ml and under
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['plasticEnglandUnder750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticWalesUnder750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticIrelandUnder750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <br>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Over 750ml
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['plasticEnglandOver750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticWalesOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['plasticIrelandOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+
+            {% if 'glass' in data['reportRetailer'] %}
+            <h3 class="govuk-heading-s">Glass bottles</h3>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        750ml and under
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassEnglandUnder750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassWalesUnder750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassIrelandUnder750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <br>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Over 750ml
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassEnglandOver750'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassWalesOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['glassIrelandOver750'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+
+            {% if 'aluminium' in data['reportRetailer'] %}
+            <h3 class="govuk-heading-s">Steel &amp; aluminium cans</h3>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Single cans
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Units
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumEnglandSingle'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['aluminiumWalesSingle'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__value">
+                        Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['aluminiumIrelandSingle'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+            {% endif %}
+            
+        {% endif %}
+
+        
+
+        <form method="POST" action="report-complete">
+            {{govukButton({
+                text: "Submit"
+            })}}
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

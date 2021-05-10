@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Report drinks container data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-reporting-producer">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+                        <span class="govuk-caption-l">Producer reporting</span>
+
+                        <h1 class="govuk-fieldset__heading">
+                            Which types of drink containers did you produce between January and March 2023?
+                        </h1>
+                    </legend>
+
+                    <p>Include any drinks containers that: </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>were produced under your own brand name</li>
+                        <li>imported from outside of the UK and then sold</li>
+                    </ul>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input1" name="reportProducer" type="checkbox" value="plastic">
+                            <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                PET plastic bottles
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input2" name="reportProducer" type="checkbox" value="glass">
+                            <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                Glass bottles
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input3" name="reportProducer" type="checkbox" value="aluminium">
+                            <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                Steel & aluminium cans
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

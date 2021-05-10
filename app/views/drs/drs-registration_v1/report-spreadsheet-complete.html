@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    You have uploaded your packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "You have uploaded your organisation's packaging data"
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next?</h2>
+
+      <p>Your data will be reviewed by the Scheme Administrator/Regulator and they will contact you if there are any issues.</p>
+
+      <form method="POST" action="home?reported=yes">
+
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

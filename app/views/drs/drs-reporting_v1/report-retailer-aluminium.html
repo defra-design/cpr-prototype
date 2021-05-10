@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-l">Retailer reporting</span>
+        
+        <form method="POST" action="route-reporting-retailer-aluminium">
+            
+            {% call govukFieldset({
+            legend: {
+                text: "Steel or aluminium cans placed on the market between January and March 2023",
+                classes: "govuk-fieldset__legend--l"
+            }
+            }) %}
+
+            <!-- {{ govukDetails({
+                summaryText: "What steel or aluminium cans do I need to include?",
+                html: '
+                <p>Include any steel or aluminium cans that: </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your organisation produced under their own brand name</li>
+                    <li>imported from outside of the UK and then sold to consumers</li>
+                </ul>
+                '
+            }) }} -->
+
+            <!-- <p class="govuk-hint">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+
+
+            <h1 class="govuk-heading-m">Single cans</h1>
+
+            {{ govukInput({
+                label: {
+                    text: "England"
+                },
+                classes: "govuk-input--width-10",
+                id: "aluminiumEnglandSingle",
+                name: "aluminiumEnglandSingle",
+                suffix: {
+                    text: "Individual units"
+                },
+                spellcheck: false
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Wales"
+                },
+                classes: "govuk-input--width-10",
+                id: "aluminiumWalesSingle",
+                name: "aluminiumWalesSingle",
+                suffix: {
+                    text: "Individual units"
+                },
+                spellcheck: false
+            }) }}
+
+
+            {{ govukInput({
+                label: {
+                    text: "Northern Ireland"
+                },
+                classes: "govuk-input--width-10",
+                id: "aluminiumIrelandSingle",
+                name: "aluminiumIrelandSingle",
+                suffix: {
+                    text: "Individual units"
+                },
+                spellcheck: false
+            }) }}
+
+
+            {% endcall %}
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

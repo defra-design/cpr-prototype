@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your organisation details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        Check your organisation’s details
+      </h1>
+      
+      <p class="govuk-hint">This should be the registered office and the contact details included on the website, or for the head office or management team.</p>
+
+      <h2 class="govuk-heading-m">Acme Org Ltd’s registered company details</h2>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Acme Org Ltd
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registered office address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdCompaniesHouseNumber'] or defaults['defraIdCompaniesHouseNumber'] }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            SIC code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10612: Manufacture of breakfast cereals and cereals-based foods
+          </dd>
+        </div>
+
+      </dl>
+
+      <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you must <a href="registration-companies-house-info">update Companies House</a>.</p>
+
+
+
+      <h2 class="govuk-heading-m">Acme Org Ltd’s contact details</h2>
+
+      <p class="govuk-hint">These are the details you entered when you set up your Defra account, not your own contact details.</p>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone'] }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail'] }}
+          </dd>
+        </div>
+
+      </dl>
+
+      <p class="govuk-!-margin-bottom-8">If any of these details are incorrect, you can <a href="../defra-id-manage/index">change them in your Defra account</a>.</p>
+
+
+      
+      <form method="POST" action="registration-check-org-choice">
+
+          {{govukButton({
+              text: "Confirm and continue"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

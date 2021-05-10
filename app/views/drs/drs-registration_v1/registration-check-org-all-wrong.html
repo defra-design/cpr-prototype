@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your contact details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Select the correct organisation
+                    </h1>
+                </legend>
+
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field1" name="orgChoice" type="radio" value="Another Org Ltd">
+                        <label class="govuk-label govuk-radios__label" for="field1">
+                            Another Org Ltd
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field2" name="orgChoice" type="radio" value="Fake Company Limited">
+                        <label class="govuk-label govuk-radios__label" for="field2">
+                            My Company Limited
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="field3" name="orgChoice" type="radio" value="Smiths & Sons LLP">
+                        <label class="govuk-label govuk-radios__label" for="field3">
+                            Smiths & Sons LLP
+                        </label>
+                    </div>
+                </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+        <p>Or if the correct organisation is not listed, go to <a href="#">your Defra account</a> to add it.</p>
+        
+    </div>
+</div>
+
+{% endblock %}

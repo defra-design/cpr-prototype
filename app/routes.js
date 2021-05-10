@@ -32,6 +32,12 @@ router.use('/v3/defra-id-manage', require('./views/v3/defra-id-manage/_routes'))
 router.use('/v3/drs', require('./views/v3/drs/_routes'));
 router.use('/v3/epr-obligation-checker', require('./views/v3/epr-obligation-checker/_routes'));
 
+router.use('/drs/defra-id', require('./views/drs/defra-id/_routes'));
+router.use('/drs/defra-id-manage', require('./views/drs/defra-id-manage/_routes'));
+router.use('/drs/drs-obligation-checker_v1', require('./views/drs/drs-obligation-checker_v1/_routes'));
+router.use('/drs/drs-registration_v1', require('./views/drs/drs-registration_v1/_routes'));
+router.use('/drs/drs-reporting_v1', require('./views/drs/drs-reporting_v1/_routes'));
+
 
 // Clear all session data
 router.get('/clear', (req, res) => {
