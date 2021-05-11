@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
 {% block pageTitle %}
     Report packaging data | {{serviceName}} prototype
 {% endblock %}
@@ -24,12 +28,31 @@
             Introduction and what you’ll need 
         </h1>
 
-        <p>For each type of packaging producer your organisation is, you’ll need to tell us to develop:</p>
+
+        {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
+        <p>As a producer and retailer of drinks containers, you’ll need to tell us:</p>
         
         <ul class="govuk-list govuk-list--bullet">
-            <li>which packaging materials your organisation placed on the market in 2022</li>
-            <li>how many tonnes of each packaging material your organisation placed on the market in 2022</li>
+            <li>how many, and which types of container, you've produced under your own brand name</li>
+            <li>how many, and which types of container, you've imported from outside of the UK</li>
+            <li>how many, and which types of container, you've placed on the market with consumers in either England, Wales or Northern Ireland</li>
         </ul>
+        {% elif 'producer' in data['orgDescription'] %}
+        <p>As a producer of drinks containers, you’ll need to tell us:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>how many, and which types of container, you've produced under your own brand name</li>
+            <li>how many, and which types of container, you've imported from outside of the UK</li>
+        </ul>
+        {% elif 'retailer' in data['orgDescription'] %}
+        <p>As a retailer of drinks containers, you’ll need to tell us:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>how many, and which types of container, you've placed on the market with consumers in either England, Wales or Northern Ireland</li>
+        </ul>
+        {% endif %}
+        
+        
 
         <!--<h1 class="govuk-heading-l">
             Introduction and what you’ll need 
