@@ -21,13 +21,11 @@ router.use('/v1/defra-id', require('./views/v1/defra-id/_routes'));
 router.use('/v2/epr', require('./views/v2/epr/_routes'));
 router.use('/v2/defra-id', require('./views/v2/defra-id/_routes'));
 router.use('/v2/defra-id-manage', require('./views/v2/defra-id-manage/_routes'));
-router.use('/v2/drs', require('./views/v2/drs/_routes'));
 router.use('/v2/epr-obligation-checker', require('./views/v2/epr-obligation-checker/_routes'));
 
 router.use('/v3/epr', require('./views/v3/epr/_routes'));
 router.use('/v3/defra-id', require('./views/v3/defra-id/_routes'));
 router.use('/v3/defra-id-manage', require('./views/v3/defra-id-manage/_routes'));
-router.use('/v3/drs', require('./views/v3/drs/_routes'));
 router.use('/v3/epr-obligation-checker', require('./views/v3/epr-obligation-checker/_routes'));
 
 router.use('/drs/defra-id', require('./views/drs/defra-id/_routes'));
