@@ -37,6 +37,20 @@ router.post('*/route-check-defra', function (req, res) {
 
 
 
+// Routing for service-start-defra-check.html
+router.post('*/route-check-defra-company', function (req, res) {
+    var defraCheckCompanyNumber = req.session.data['defraCheckCompanyNumber']
+    if (defraCheckCompanyNumber == "(001234) Burns Industries"){
+        res.redirect('service-start-defra-check-yes')
+    }
+    else {
+        res.redirect('service-start-gg')
+    }
+})
+
+
+
+
 // Routing for service-start-gg.html
 router.post('*/route-check-gg', function (req, res) {
     var ggChoice = req.session.data['ggChoice']
@@ -266,7 +280,12 @@ router.post('*/route-reporting-serviceprovider', function (req, res) {
 
 
 
-// Get the data values from session-data-defaults.js to use on the page
+// Get the data values from session-data-defaults.js to use on any pages that use {{ defaults['VARIABLE_NAME'] }}
+router.get('*/service-start-defra-check-requested', function (request, response) {
+    response.locals.defaults = require('../../../data/session-data-defaults.js')
+    response.render('v3/epr/service-start-defra-check-requested')
+})
+
 router.get('*/authorised', function (request, response) {
     response.locals.defaults = require('../../../data/session-data-defaults.js')
     response.render('v3/epr/authorised')

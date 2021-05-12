@@ -34,28 +34,18 @@
 
       <p>If your organisation is not registered with Companies House, <a href="service-start-gg">skip this step</a>.</p>
 
-      <label class="govuk-label" for="defraCheckCompanyNumber">
-        Start typing your organisation’s company name or company number
-      </label>
-      <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
+      <form method="POST" action="route-check-defra-company">
       
-      {% if data['orgExists'] == 'yes' %}
-
-        <form method="POST" action="service-start-defra-check-yes">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </form>
-
-      {% else %}
-
-        <form method="POST" action="service-start-gg">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </form>
+        <label class="govuk-label" for="defraCheckCompanyNumber">
+          Start typing your organisation’s company name or company number
+        </label>
+        <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
       
-      {% endif %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
 
       <p><a href="service-start">Return to GOV.UK</a></p>
 

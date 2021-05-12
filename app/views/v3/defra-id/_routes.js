@@ -43,7 +43,7 @@ router.post('*/companieshouse-choice', function (req, res) {
 
 
 
-// Get the data values from session-data-defaults.js to use on the page
+// Get the data values from session-data-defaults.js to use on any pages that use {{ defaults['VARIABLE_NAME'] }}
 router.get('*/check-email', function (request, response) {
     response.locals.defaults = require('../../../data/session-data-defaults.js')
     response.render('v3/defra-id/check-email')
