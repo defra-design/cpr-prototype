@@ -26,7 +26,7 @@
           <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 3' producer?</h1>
         {% endif %}
 
-        <p>A type 3 producer is an organisation which sells unfilled packaging to non-obligated producers.</p>
+        <p>A type 3 producer is an organisation that sells unfilled packaging to non-obligated producers.</p>
         <p>Non-obligated producers are organisations that either:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>produce less than 25 tonnes of packaging waste a year</li>
@@ -47,7 +47,7 @@
           '
         }) }}
 
-        <form method="POST" action="registration-org-type-4">
+        <form method="POST" action="registration-org-type-4?lastVisitedURL={{currentURL}}">
             
             {{ govukRadios({
               name: "producerType3",
@@ -64,7 +64,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

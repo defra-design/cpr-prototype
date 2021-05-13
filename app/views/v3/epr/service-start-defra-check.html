@@ -29,33 +29,27 @@
       }) }}
 
       <h1 class="govuk-heading-l">
-        Find your organisation on Companies House
+        Search for your organisation
       </h1>
 
-      <p>If your organisation is not registered with Companies House, <a href="service-start-gg">skip this step</a>.</p>
+      <form method="POST" action="route-check-defra-company">
 
-      <label class="govuk-label" for="event-name">
-        Companies House number
-      </label>
-      <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
+        <div class="govuk-form-group">
       
-      {% if data['orgExists'] == 'yes' %}
+          <label class="govuk-label" for="defraCheckCompanyNumber">
+            Start typing your organisation’s company name or company number
+          </label>
+          <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6 govuk-!-width-two-thirds"></div>
 
-        <form method="POST" action="service-start-defra-check-yes">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </form>
+          <p>If your organisation is not registered with Companies House, <a href="service-start-gg">skip this step</a>.</p>
 
-      {% else %}
-
-        <form method="POST" action="service-start-gg">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </form>
+        </div>
       
-      {% endif %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
 
       <p><a href="service-start">Return to GOV.UK</a></p>
 

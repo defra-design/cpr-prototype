@@ -34,7 +34,7 @@
         }) }}
 
         <!-- Radio button routing in /epr/vN/_routes.js -->
-        <form method="POST" action="route-subsidiaries-choice">
+        <form method="POST" action="route-subsidiaries-choice?lastVisitedURL={{currentURL}}">
 
             {{ govukRadios({
                 name: "subChoice",
@@ -51,7 +51,7 @@
             }) }}
 
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

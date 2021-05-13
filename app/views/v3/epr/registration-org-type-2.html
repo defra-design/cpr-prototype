@@ -26,7 +26,7 @@
           <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 2' producer?</h1>
         {% endif %}
 
-        <p>A type 2 producer is an organisation which imports packaged goods to sell in the UK.</p>
+        <p>A type 2 producer is an organisation that imports packaged goods to sell in the UK.</p>
 
         {{ govukDetails({
           summaryText: "Show me an example of a type 2 producer",
@@ -37,7 +37,7 @@
           '
         }) }}
 
-        <form method="POST" action="registration-org-type-3">
+        <form method="POST" action="registration-org-type-3?lastVisitedURL={{currentURL}}">
             
             {{ govukRadios({
               name: "producerType2",
@@ -54,7 +54,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

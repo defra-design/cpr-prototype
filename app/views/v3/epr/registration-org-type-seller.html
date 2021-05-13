@@ -23,17 +23,17 @@
         {% if data['sub1'] == '1' %}
           <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a seller?</h1>
         {% else %}
-          <h1 class="govuk-heading-l">Is Acme Org Ltd a seller?</h1>
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'seller'?</h1>
         {% endif %}
 
-        <p>A Seller sells packaged goods directly to customers.</p>
+        <p>A seller is an organisation that sells packaged goods directly to customers.</p>
 
         {{ govukDetails({
           summaryText: "Show me examples of a seller",
           html: '
           <p>
             <strong>Example A</strong><br />
-            A manufacturer who sells their own branded biscuits to a supermarket in shelf ready packaging (an outer transit box containing packs of the biscuits ready for sale). The supermarket discards the shelf ready packaging.
+            A manufacturer who sells their own branded biscuits to a supermarket in shelf ready packaging (an outer transit box containing packs of the biscuits ready for sale). The supermarket discards the shelf ready packaging. 
           </p>
           <p>
             <strong>Example B</strong><br />
@@ -42,7 +42,7 @@
           '
         }) }}
 
-        <form method="POST" action="registration-check-details">
+        <form method="POST" action="registration-check-details?lastVisitedURL={{currentURL}}">
             
             {{ govukRadios({
               name: "producerTypeSeller",
@@ -59,7 +59,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

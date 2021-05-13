@@ -20,7 +20,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-org-correspondence-contact">
+        <form method="POST" action="registration-org-correspondence-contact?lastVisitedURL={{currentURL}}">
 
             {% call govukFieldset({
                 legend: {
@@ -85,7 +85,7 @@
             {% endcall %}
 
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}
