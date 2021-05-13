@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Authorised person | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="POST" action="route-epr-guard">
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "useEprDetails",
+            name: "useEprDetails",
+            fieldset: {
+                legend: {
+                text: "Would you like to use your organisations EPR details for your DRS registration?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

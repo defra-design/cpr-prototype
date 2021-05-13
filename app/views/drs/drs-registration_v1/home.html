@@ -104,7 +104,15 @@
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['declared'] == 'yes' and data['applied'] == 'no' %}
+                            {% if data['declared'] == 'yes' and data['applied'] == 'no' and data['existingEpr'] == 'yes'  %}
+                                <a href="epr-guard-question">
+                                    Add information about your organisation
+                                </a>
+                            {% elif data['declared'] == 'yes' and data['applied'] == 'no' and data['thresholdMet'] == 'yes'  %}
+                                <a href="registration-check-contact">
+                                    Add information about your organisation
+                                </a>
+                            {% elif data['declared'] == 'yes' and data['applied'] == 'no' %}
                                 <a href="registration-check-contact">
                                     Add information about your organisation
                                 </a>
@@ -431,5 +439,6 @@
         </ol>
     </div>
 </div>
+
 
 {% endblock %}

@@ -76,5 +76,7 @@ module.exports = {
   "reported3": "no",
   "reported4": "no",
   "reportProducer": "null",
-  "reportRetailer": "null"
+  "reportRetailer": "null",
+  "existingEpr": "no",
+  "thresholdMet": "no"
 }

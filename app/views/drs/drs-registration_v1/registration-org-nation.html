@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Turnover | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-check-org-correspondence">
+
+            <h1 class="govuk-heading-l">Where is Acme Org Ltd registered? </h1>
+
+            {{ govukRadios({
+              name: "orgNation",
+              items: [
+                {
+                  value: "England",
+                  text: "England"
+                },
+                {
+                  value: "Wales",
+                  text: "Wales"
+                },
+                {
+                  value: "Northern Ireland",
+                  text: "Northern Ireland"
+                }
+              ]
+            }) }}
+
+            
+            {{ govukDetails({
+              summaryText: "My organisation is registered in Scotland",
+              html: '
+              <p>There is a separate deposit return scheme for organisations registered in Scotland. If your organisation is obligated, you should register with this scheme instead.</p>
+              <p>For more details visit <a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Zero Waste Scotland (opens in new tab)</a>.</p>
+              '
+            }) }}
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

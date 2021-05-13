@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
 {% block pageTitle %}
     Turnover | {{serviceName}} prototype
 {% endblock %}
@@ -20,7 +24,11 @@
             href: "javascript:history.back()"
         }) }}
 
+        {% if data['thresholdMet'] == 'yes'  %}        
+        <form method="POST" action="epr-details-question">
+        {% else %}
         <form method="POST" action="registration-check-details">
+        {% endif %}
 
             {% if data['sub1'] == '1' %}
               <h1 class="govuk-heading-l">What was Acme Org Ltd group's turnover in your last published accounts? </h1>
@@ -34,6 +42,9 @@
                 label: {
                   text: "Turnover"
                 },
+                hint: {
+                  text: "For example, 3,000,000.00"
+                },
                 prefix: {
                   text: "£"
                 },
@@ -45,9 +56,11 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
+            {% include "includes/save-and-exit.html" %}
+            
         </form>
 
     </div>
