@@ -20,9 +20,9 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-check-org-correspondence">
+        <form method="POST" action="registration-check-org-correspondence?lastVisitedURL={{currentURL}}">
 
-            <h1 class="govuk-heading-l">Where is Acme Org Ltd registered? </h1>
+            <h1 class="govuk-heading-l">Where is Acme Org Ltd registered?</h1>
 
             {{ govukRadios({
               name: "orgNation",
@@ -47,7 +47,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

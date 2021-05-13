@@ -58,7 +58,7 @@
       </dl>
 
       <!-- Radio button routing in /vN/epr/_routes.js -->
-      <form method="POST" action="route-check-org-correspondence">
+      <form method="POST" action="route-check-org-correspondence?lastVisitedURL={{currentURL}}">
 
         {{ govukRadios({
           name: "correspondenceChoice",
@@ -75,7 +75,7 @@
         }) }}
 
         {{govukButton({
-            text: "Continue"
+            text: "Save and continue"
         })}}
 
         {% include "includes/save-and-exit.html" %}

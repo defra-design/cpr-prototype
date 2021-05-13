@@ -26,7 +26,7 @@
           <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 5' producer?</h1>
         {% endif %}
 
-        <p>A type 5 producer is an organisation which supplies reusable packaging.</p>
+        <p>A type 5 producer is an organisation that supplies reusable packaging.</p>
 
         {{ govukDetails({
           summaryText: "Show me an example of a type 5 producer",
@@ -35,7 +35,7 @@
           '
         }) }}
 
-        <form method="POST" action="registration-org-type-seller">
+        <form method="POST" action="registration-org-type-seller?lastVisitedURL={{currentURL}}">
             
             {{ govukRadios({
               name: "producerType5",
@@ -52,7 +52,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}

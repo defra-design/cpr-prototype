@@ -20,12 +20,12 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-org-type-1">
+        <form method="POST" action="registration-org-type-1?lastVisitedURL={{currentURL}}">
 
             {% if data['sub1'] == '1' %}
-              <h1 class="govuk-heading-l">What was Acme Org Ltd group's turnover in your last published accounts? </h1>
+              <h1 class="govuk-heading-l">What was Acme Org Ltd group's turnover in its last published accounts? </h1>
             {% else %}
-              <h1 class="govuk-heading-l">What was Acme Org Ltd’s turnover in your last published accounts? </h1>
+              <h1 class="govuk-heading-l">What was Acme Org Ltd’s turnover in its last published accounts? </h1>
             {% endif %}
             
             {{ govukInput({
@@ -48,7 +48,7 @@
             }) }}
             
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
             {% include "includes/save-and-exit.html" %}
