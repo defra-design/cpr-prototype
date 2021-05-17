@@ -38,7 +38,7 @@ module.exports = {
   "reportSeller": "null",
   "reportServiceprovider": "null",
   "orgNation": "England",
-  "orgActivity": "brandowner,importer",
+  "orgActivity": "brandowner,importer,seller",
   "orgTurnover": "5,500,000",
   "producerType1": "no",
   "producerType2": "no",
