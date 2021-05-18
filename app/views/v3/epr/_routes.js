@@ -170,95 +170,118 @@ router.post('*/route-report-method', function (req, res) {
 
 
 
-// Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
+// Routing for the POM data reporting pages depending on what type(s) of producer have been selected.
 router.post('*/route-reporting', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('brandowner')){
+    var producerType1 = req.session.data['producerType1']
+    var producerType2 = req.session.data['producerType2']
+    var producerType3 = req.session.data['producerType3']
+    var producerType4 = req.session.data['producerType4']
+    var producerType5 = req.session.data['producerType5']
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerType1 == "yes"){
         res.redirect('report-brandowner-start')
     }
-    else if (orgActivity.includes('importer')){
+    else if (producerType2 == "yes"){
         res.redirect('report-importer-start')
     }
-    else if (orgActivity.includes('distributor')){
+    else if (producerType3 == "yes"){
         res.redirect('report-distributor-start')
     }
-    else if (orgActivity.includes('onlinemarketplace')){
+    else if (producerType4 == "yes"){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('serviceprovider')){
+    else if (producerType5 == "yes"){
         res.redirect('report-serviceprovider-start')
     }
-    else if (orgActivity.includes('seller')){
+    else if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
+
+
 
 router.post('*/route-reporting-brandowner', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('importer')){
+    var producerType2 = req.session.data['producerType2']
+    var producerType3 = req.session.data['producerType3']
+    var producerType4 = req.session.data['producerType4']
+    var producerType5 = req.session.data['producerType5']
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerType2 == "yes"){
         res.redirect('report-importer-start')
     }
-    else if (orgActivity.includes('distributor')){
+    else if (producerType3 == "yes"){
         res.redirect('report-distributor-start')
     }
-    else if (orgActivity.includes('onlinemarketplace')){
+    else if (producerType4 == "yes"){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('serviceprovider')){
+    else if (producerType5 == "yes"){
         res.redirect('report-serviceprovider-start')
     }
-    else if (orgActivity.includes('seller')){
+    else if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
+
+
 
 router.post('*/route-reporting-importer', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('distributor')){
+    var producerType3 = req.session.data['producerType3']
+    var producerType4 = req.session.data['producerType4']
+    var producerType5 = req.session.data['producerType5']
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerType3 == "yes"){
         res.redirect('report-distributor-start')
     }
-    else if (orgActivity.includes('onlinemarketplace')){
+    else if (producerType4 == "yes"){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('serviceprovider')){
+    else if (producerType5 == "yes"){
         res.redirect('report-serviceprovider-start')
     }
-    else if (orgActivity.includes('seller')){
+    else if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
+
+
 
 router.post('*/route-reporting-distributor', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('onlinemarketplace')){
+    var producerType4 = req.session.data['producerType4']
+    var producerType5 = req.session.data['producerType5']
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerType4 == "yes"){
         res.redirect('report-onlinemarketplace-start')
     }
-    else if (orgActivity.includes('serviceprovider')){
+    else if (producerType5 == "yes"){
         res.redirect('report-serviceprovider-start')
     }
-    else if (orgActivity.includes('seller')){
+    else if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
+
+
 
 router.post('*/route-reporting-onlinemarketplace', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('serviceprovider')){
+    var producerType5 = req.session.data['producerType5']
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerType5 == "yes"){
         res.redirect('report-serviceprovider-start')
     }
-    else if (orgActivity.includes('seller')){
+    else if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
@@ -266,15 +289,124 @@ router.post('*/route-reporting-onlinemarketplace', function (req, res) {
     }
 })
 
+
+
 router.post('*/route-reporting-serviceprovider', function (req, res) {
-    var orgActivity = req.session.data['orgActivity']
-    if (orgActivity.includes('seller')){
+    var producerTypeSeller = req.session.data['producerTypeSeller']
+    if (producerTypeSeller == "yes"){
         res.redirect('report-seller-start')
     }
     else {
         res.redirect('report-check-details')
     }
 })
+
+
+// Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
+// router.post('*/route-reporting', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('brandowner')){
+//         res.redirect('report-brandowner-start')
+//     }
+//     else if (orgActivity.includes('importer')){
+//         res.redirect('report-importer-start')
+//     }
+//     else if (orgActivity.includes('distributor')){
+//         res.redirect('report-distributor-start')
+//     }
+//     else if (orgActivity.includes('onlinemarketplace')){
+//         res.redirect('report-onlinemarketplace-start')
+//     }
+//     else if (orgActivity.includes('serviceprovider')){
+//         res.redirect('report-serviceprovider-start')
+//     }
+//     else if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
+
+// router.post('*/route-reporting-brandowner', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('importer')){
+//         res.redirect('report-importer-start')
+//     }
+//     else if (orgActivity.includes('distributor')){
+//         res.redirect('report-distributor-start')
+//     }
+//     else if (orgActivity.includes('onlinemarketplace')){
+//         res.redirect('report-onlinemarketplace-start')
+//     }
+//     else if (orgActivity.includes('serviceprovider')){
+//         res.redirect('report-serviceprovider-start')
+//     }
+//     else if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
+
+// router.post('*/route-reporting-importer', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('distributor')){
+//         res.redirect('report-distributor-start')
+//     }
+//     else if (orgActivity.includes('onlinemarketplace')){
+//         res.redirect('report-onlinemarketplace-start')
+//     }
+//     else if (orgActivity.includes('serviceprovider')){
+//         res.redirect('report-serviceprovider-start')
+//     }
+//     else if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
+
+// router.post('*/route-reporting-distributor', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('onlinemarketplace')){
+//         res.redirect('report-onlinemarketplace-start')
+//     }
+//     else if (orgActivity.includes('serviceprovider')){
+//         res.redirect('report-serviceprovider-start')
+//     }
+//     else if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
+
+// router.post('*/route-reporting-onlinemarketplace', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('serviceprovider')){
+//         res.redirect('report-serviceprovider-start')
+//     }
+//     else if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
+
+// router.post('*/route-reporting-serviceprovider', function (req, res) {
+//     var orgActivity = req.session.data['orgActivity']
+//     if (orgActivity.includes('seller')){
+//         res.redirect('report-seller-start')
+//     }
+//     else {
+//         res.redirect('report-check-details')
+//     }
+// })
 // end of POM data reporting pages
 
 
