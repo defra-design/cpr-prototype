@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    What describes your organisation | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        
+        {% if data['sub1'] == '1' %}
+        <h1 class="govuk-heading-l">Acme Org Ltd's DRS obligations</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">Acme Org Ltd's DRS obligations</h1>
+      {% endif %}
+        <form method="POST" action="home">
+
+
+          {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
+          <p>Based on your answers, your organisation must register and report its drinks container data as a producer and retailer.</p>
+          {% elif 'producer' in data['orgDescription'] %}
+          <p>Based on your answers, your organisation must register and report its drinks container data as a producer.</p>
+          {% elif 'retailer' in data['orgDescription'] %}
+          <p>Based on your answers, your organisation must register and report its drinks container data as a retailer.</p>
+          {% endif %}
+
+
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

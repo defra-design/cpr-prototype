@@ -24,9 +24,10 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="registration-check-org-correspondence">
+        {% if data['drsNationV2'] == 'yes' %}
+        <form method="POST" action="registration-org-nation-scotland">
 
-            <h1 class="govuk-heading-l">Where is Acme Org Ltd registered? </h1>
+            <h1 class="govuk-heading-l">Where is Acme Org Ltd registered?</h1>
 
             {{ govukRadios({
               name: "orgNation",
@@ -34,6 +35,10 @@
                 {
                   value: "England",
                   text: "England"
+                },
+                {
+                  value: "Scotland",
+                  text: "Scotland"
                 },
                 {
                   value: "Wales",
@@ -46,15 +51,6 @@
               ]
             }) }}
 
-            
-            {{ govukDetails({
-              summaryText: "My organisation is registered in Scotland",
-              html: '
-              <p>There is a separate deposit return scheme for organisations registered in Scotland. If your organisation is obligated, you should register with this scheme instead.</p>
-              <p>For more details visit <a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Zero Waste Scotland (opens in new tab)</a>.</p>
-              '
-            }) }}
-
             {{govukButton({
                 text: "Save and continue"
             })}}
@@ -62,6 +58,47 @@
             {% include "includes/save-and-exit.html" %}
 
         </form>
+
+        {% else %}
+        <form method="POST" action="registration-check-org-correspondence">
+
+          <h1 class="govuk-heading-l">Where is Acme Org Ltd registered? V1</h1>
+
+          {{ govukRadios({
+            name: "orgNation",
+            items: [
+              {
+                value: "England",
+                text: "England"
+              },
+              {
+                value: "Wales",
+                text: "Wales"
+              },
+              {
+                value: "Northern Ireland",
+                text: "Northern Ireland"
+              }
+            ]
+          }) }}
+
+          
+          {{ govukDetails({
+            summaryText: "My organisation is registered in Scotland",
+            html: '
+            <p>Scotland operates its own deposit return scheme (DRS). If your organisation is registered in Scotland and obligated, you must register directly with Circulatory Scotland.</p>
+            <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about Scotland’s deposit return scheme (opens in new tab)</a>.</p>
+            '
+          }) }}
+
+          {{govukButton({
+              text: "Save and continue"
+          })}}
+
+          {% include "includes/save-and-exit.html" %}
+
+      </form>
+      {% endif %}
 
     </div>
 </div>

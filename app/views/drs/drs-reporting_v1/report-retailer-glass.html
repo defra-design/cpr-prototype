@@ -24,13 +24,13 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">Retailer reporting</span>
+        <span class="govuk-caption-l">Retailer data</span>
         
         <form method="POST" action="route-reporting-retailer-glass">
             
             {% call govukFieldset({
             legend: {
-                text: "Glass bottles placed on the market between January and March 2023",
+                text: "How many glass bottles did you sell per country between Jan and Mar 2023?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
@@ -48,7 +48,7 @@
 
             <!-- <p class="govuk-hint">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 
-            <h1 class="govuk-heading-m">750ml bottles and under</h1>
+            <h1 class="govuk-heading-m">Bottles 750ml and under</h1>
 
             {{ govukInput({
                 label: {
@@ -58,7 +58,7 @@
                 id: "glassEnglandUnder750",
                 name: "glassEnglandUnder750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -71,7 +71,7 @@
                 id: "glassWalesUnder750",
                 name: "glassWalesUnder750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -85,14 +85,14 @@
                 id: "glassIrelandUnder750",
                 name: "glassIrelandUnder750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
 
 
-
-            <h1 class="govuk-heading-m">Over 750ml bottles</h1>
+<br>
+            <h1 class="govuk-heading-m">Bottles above 750ml</h1>
 
             {{ govukInput({
                 label: {
@@ -102,7 +102,7 @@
                 id: "glassEnglandOver750",
                 name: "glassEnglandOver750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -115,7 +115,7 @@
                 id: "glassWalesOver750",
                 name: "glassWalesOver750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -129,16 +129,16 @@
                 id: "glassIrelandOver750",
                 name: "glassIrelandOver750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}  
 
             {{ govukDetails({
-                summaryText: "What if I sell drinks containers in Scotland?",
+                summaryText: "My organisation also sold glass bottles in Scotland",
                 html: '
-                <p>If you are a retailer selling drinks directly to consumers in Scotland you will need to report these numbers directly to the Scottish scheme administrator.</p>
-                <p>For more details visit <a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Zero Waste Scotland (opens in new tab)</a>.</p>
+                <p>Scotland operates its own deposit return scheme (DRS). You must report any drinks container data for Scotland directly to Circulatory Scotland.</p>
+                <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about how to report data for Scotland (opens in new tab)</a>.</p>
                 '
               }) }}
 

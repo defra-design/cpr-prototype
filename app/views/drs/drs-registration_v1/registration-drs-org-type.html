@@ -24,45 +24,47 @@
             href: "javascript:history.back()"
         }) }}
 
+        {% if data['drsOrgTypeV2'] == 'yes' %}
+        
         {% if data['sub1'] == '1' %}
-          <h1 class="govuk-heading-l">Which of these descriptions applies to Acme Org Ltd?</h1>
-        {% else %}
-          <h1 class="govuk-heading-l">Which of these descriptions applies to Acme Org Ltd?</h1>
-        {% endif %}
-
-        <form method="POST" action="home">
-
+        <h1 class="govuk-heading-l">Which activities does Acme Org Ltd carry out?</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">Which activities does Acme Org Ltd carry out?</h1>
+      {% endif %}
+        <form method="POST" action="registration-drs-obligation">
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
-
             
             {{ govukCheckboxes({
               idPrefix: "orgDescription",
               name: "orgDescription",
               hint: {
-                text: "You can choose more than one.",
+                text: "Select all that apply.",
                 classes: "govuk-!-margin-bottom-6"
               },
               items: [
                 {
                   value: "producer",
-                  text: "Producer",
-                  hint: { text: "Your organisation produces and sell drinks under its own brand name, or imports and sells drinks containers from outside of the UK." }
+                  text: "Produces and sells drinks under its own brand name"
+                },
+                {
+                  value: "producer",
+                  text: "Imports and sells drinks containers from outside the UK"
                 },
                 {
                   value: "retailer",
-                  text: "Retailer",
-                  hint: { text: "Your organisation sell drinks containers directly to consumers in England, Wales or Northern Ireland.", classes: "govuk-!-margin-bottom-6" }
+                  text: "Sells drinks containers in England, Wales or Northern Ireland"
                 }
               ]
             }) }}
 
+            <br><br>
             {{ govukDetails({
-              summaryText: "What if I sell drinks containers in Scotland?",
+              summaryText: "My organisation sells drinks containers in Scotland",
               html: '
-              <p>If you are a retailer selling drinks directly to consumers in Scotland you will need to report these numbers directly to the Scottish scheme administrator.</p>
-              <p>For more details visit <a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Zero Waste Scotland (opens in new tab)</a>.</p>
+              <p>Scotland operates its own deposit return scheme (DRS). You must report any drinks container data for Scotland directly to Circulatory Scotland.</p>
+              <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about how to report data for Scotland (opens in new tab)</a>.</p>
               '
             }) }}
             
@@ -71,6 +73,54 @@
             })}}
 
         </form>
+        {% else %}
+
+        {% if data['sub1'] == '1' %}
+        <h1 class="govuk-heading-l">What type of organisation is Acme Org Ltd?</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">What type of organisation is Acme Org Ltd?</h1>
+      {% endif %}
+        <form method="POST" action="home">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+            
+            {{ govukCheckboxes({
+              idPrefix: "orgDescription",
+              name: "orgDescription",
+              hint: {
+                text: "Select all that apply.",
+                classes: "govuk-!-margin-bottom-6"
+              },
+              items: [
+                {
+                  value: "producer",
+                  text: "Producer",
+                  hint: { text: "it produces and sells drinks under its own brand name or imports and sells drinks containers from outside the UK" }
+                },
+                {
+                  value: "retailer",
+                  text: "Retailer",
+                  hint: { text: "it sells drinks containers in England, Wales or Northern Ireland", classes: "govuk-!-margin-bottom-6" }
+                }
+              ]
+            }) }}
+
+            {{ govukDetails({
+              summaryText: "My organisation sells drinks containers in Scotland",
+              html: '
+              <p>Scotland operates its own deposit return scheme (DRS). You must report any drinks container data for Scotland directly to Circulatory Scotland.</p>
+              <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about how to report data for Scotland (opens in new tab)</a>.</p>
+              '
+            }) }}
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+        {% endif %}
 
     </div>
 </div>

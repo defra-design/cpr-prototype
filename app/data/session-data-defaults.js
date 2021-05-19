@@ -78,5 +78,7 @@ module.exports = {
   "reportProducer": "null",
   "reportRetailer": "null",
   "existingEpr": "no",
-  "thresholdMet": "no"
+  "thresholdMet": "no",
+  "drsOrgTypeV2": "no",  
+  "drsNationV2": "no"
 }

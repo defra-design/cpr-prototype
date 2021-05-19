@@ -174,7 +174,58 @@
 
         </dl>
 
+        <h2 class="govuk-heading-m">Acme Org Ltd's correspondence details</h2>
 
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondenceAddress1'] or defaults['correspondenceAddress1'] }}, 
+              {{ data['correspondenceAddress2']  or defaults['correspondenceAddress2']}}, 
+              {{ data['correspondenceAddress3'] }}, 
+              {{ data['correspondenceAddressTown'] or defaults['correspondenceAddressTown'] }}, 
+              {{ data['correspondenceAddressCounty'] }}, 
+              {{ data['correspondenceAddressPostcode'] or defaults['correspondenceAddressPostcode'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondencePhone'] or defaults['correspondencePhone'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['correspondenceEmail'] or defaults['correspondenceEmail'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+        </dl>
 
         {% if data['correspondenceChoice'] == 'yes' %}
 

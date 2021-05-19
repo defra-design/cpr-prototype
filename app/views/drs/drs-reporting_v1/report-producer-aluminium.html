@@ -24,24 +24,24 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">Producer reporting</span>
+        <span class="govuk-caption-l">Producer data</span>
         
         <form method="POST" action="route-reporting-producer-aluminium">
             
             {% call govukFieldset({
             legend: {
-                text: "Steel or aluminium cans produced between January and March 2023",
+                text: "How many steel and aluminium cans did you produce between Jan and Mar 2023?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "What steel or aluminium cans do I need to include?",
+                summaryText: "Which steel and aluminium cans do I need to include?",
                 html: '
-                <p>Include any steel or aluminium cans that: </p>
+                <p>Include any steel and aluminium cans that your organisation:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>your organisation produced under their own brand name</li>
-                    <li>imported from outside of the UK and then sold to consumers</li>
+                    <li>produced and sold under its own brand name</li>
+                    <li>imported from outside of the UK then sold</li>
                 </ul>
                 '
             }) }}
@@ -51,13 +51,13 @@
 
             {{ govukInput({
                 label: {
-                    text: "Single cans"
+                    text: "Individually sold cans"
                 },
                 classes: "govuk-input--width-10",
                 id: "aluminiumSingle",
                 name: "aluminiumSingle",
                 suffix: {
-                    text: "Individual units"
+                    text: "cans"
                 },
                 spellcheck: false
             }) }}
@@ -65,13 +65,13 @@
 
             {{ govukInput({
                 label: {
-                    text: "Placed in multi-packs"
+                    text: "Cans sold in multipacks"
                 },
                 classes: "govuk-input--width-10",
                 id: "aluminiumMultipacks",
                 name: "aluminiumMultipacks",
                 suffix: {
-                    text: "Individual units"
+                    text: "cans"
                 },
                 spellcheck: false
             }) }}
