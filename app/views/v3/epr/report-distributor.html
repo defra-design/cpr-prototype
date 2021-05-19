@@ -24,57 +24,22 @@
             
             {% call govukFieldset({
             legend: {
-                text: "How many tonnes of each material did you place on the market as a distributor in 2022?",
+                text: "How many tonnes of each material did you place on the market as a type 3 producer in 2022?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
-            {{ govukDetails({
-                summaryText: "What materials do I need to include?",
-                html: '
-                <p>Include any unfilled packaging materials that your organisation sold to non-obligated producers.</p>
-                '
-            }) }}
+                {{ govukDetails({
+                    summaryText: "What materials do I need to include?",
+                    html: '
+                    <p>Include any unfilled packaging materials that your organisation sold to non-obligated producers.</p>
+                    '
+                }) }}
 
-            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
-            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
-
-                {% if 'paper' in data['reportDistributor'] %}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Paper"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "paperDistributor",
-                        name: "paperDistributor",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                {% endif %}
-
-                {% if 'glass' in data['reportDistributor'] %}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Glass"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "glassDistributor",
-                        name: "glassDistributor",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                {% endif %}
+                <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+                <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
                 {% if 'aluminium' in data['reportDistributor'] %}
-
                     {{ govukInput({
                         label: {
                             text: "Aluminium"
@@ -82,33 +47,67 @@
                         classes: "govuk-input--width-5",
                         id: "aluminiumDistributor",
                         name: "aluminiumDistributor",
+                        type: "number",
+                        inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
-                        },
-                        spellcheck: false
+                        }
                     }) }}
-
                 {% endif %}
 
-                {% if 'steel' in data['reportDistributor'] %}
 
+                {% if 'fibre' in data['reportDistributor'] %}
                     {{ govukInput({
                         label: {
-                            text: "Steel"
+                            text: "Fibre-based composite"
                         },
                         classes: "govuk-input--width-5",
-                        id: "steelDistributor",
-                        name: "steelDistributor",
+                        id: "fibreDistributor",
+                        name: "fibreDistributor",
+                        type: "number",
+                        inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
-                        },
-                        spellcheck: false
+                        }
                     }) }}
-
                 {% endif %}
 
-                {% if 'plastic' in data['reportDistributor'] %}
 
+                {% if 'glass' in data['reportDistributor'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Glass"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "glassDistributor",
+                        name: "glassDistributor",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+            
+                {% if 'paper' in data['reportDistributor'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Paper"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "paperDistributor",
+                        name: "paperDistributor",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+                
+                {% if 'plastic' in data['reportDistributor'] %}
                     {{ govukInput({
                         label: {
                             text: "Plastic"
@@ -116,14 +115,32 @@
                         classes: "govuk-input--width-5",
                         id: "plasticDistributor",
                         name: "plasticDistributor",
+                        type: "number",
+                        inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
-                        },
-                        spellcheck: false
+                        }
                     }) }}
+                {% endif %}
+                
 
+                {% if 'steel' in data['reportDistributor'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Steel"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "steelDistributor",
+                        name: "steelDistributor",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
                 {% endif %}
 
+                
                 {% if 'wood' in data['reportDistributor'] %}
 
                     {{ govukInput({
@@ -133,14 +150,16 @@
                         classes: "govuk-input--width-5",
                         id: "woodDistributor",
                         name: "woodDistributor",
+                        type: "number",
+                        inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
-                        },
-                        spellcheck: false
+                        }
                     }) }}
 
                 {% endif %}
 
+                
                 {% if 'other' in data['reportDistributor'] %}
 
                     {{ govukInput({
@@ -150,10 +169,11 @@
                         classes: "govuk-input--width-5",
                         id: "otherDistributor",
                         name: "otherDistributor",
+                        type: "number",
+                        inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
-                        },
-                        spellcheck: false
+                        }
                     }) }}
 
                 {% endif %}

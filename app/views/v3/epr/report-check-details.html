@@ -23,9 +23,11 @@
         <h1 class="govuk-heading-l">Check and submit your packaging data</h1>
 
 
-        {% if 'brandowner' in data['orgActivity'] %}
+        {# {% if 'brandowner' in data['orgActivity'] %} #}
 
-            <h2 class="govuk-heading-m">Brand owner packaging</h2>
+        {% if data['producerType1'] == 'yes' %} 
+
+            <h2 class="govuk-heading-m">Type 1 packaging</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -174,9 +176,9 @@
 
 
 
-        {% if 'importer' in data['orgActivity'] %}
+        {% if data['producerType2'] == 'yes' %} 
 
-            <h2 class="govuk-heading-m">Importer packaging</h2>
+            <h2 class="govuk-heading-m">Type 2 packaging</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -325,9 +327,9 @@
 
 
 
-        {% if 'distributor' in data['orgActivity'] %}
+        {% if data['producerType3'] == 'yes' %} 
 
-            <h2 class="govuk-heading-m">Distributor packaging</h2>
+            <h2 class="govuk-heading-m">Type 3 packaging</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -438,6 +440,22 @@
                     </div>
                 {% endif %}
 
+                {% if 'fibre' in data['reportDistributor'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreDistributor'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
                 {% if 'other' in data['reportDistributor'] %}
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__value">
@@ -460,9 +478,9 @@
 
 
 
-        {% if 'onlinemarketplace' in data['orgActivity'] %}
+        {% if data['producerType4'] == 'yes' %} 
 
-            <h2 class="govuk-heading-m">Online marketplace packaging</h2>
+            <h2 class="govuk-heading-m">Type 4 packaging</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -573,6 +591,22 @@
                     </div>
                 {% endif %}
 
+                {% if 'fibre' in data['reportOnlinemarketplace'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreOnlinemarketplace'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
                 {% if 'other' in data['reportOnlinemarketplace'] %}
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__value">
@@ -597,9 +631,9 @@
 
 
 
-        {% if 'serviceprovider' in data['orgActivity'] %}
+        {% if data['producerType5'] == 'yes' %} 
 
-            <h2 class="govuk-heading-m">Service provider packaging</h2>
+            <h2 class="govuk-heading-m">Type 5 packaging</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -710,6 +744,22 @@
                     </div>
                 {% endif %}
 
+                {% if 'wood' in data['reportServiceprovider'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreServiceprovider'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
                 {% if 'other' in data['reportServiceprovider'] %}
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__value">
@@ -733,9 +783,9 @@
 
 
 
-        {% if 'seller' in data['orgActivity'] %}
+        {% if data['producerTypeSeller'] == 'yes' %} 
 
-            <h2 class="govuk-heading-m">Seller packaging</h2>
+            <h2 class="govuk-heading-m">Packaging sold</h2>
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -756,7 +806,18 @@
                             Paper
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['paperSeller'] }}
+                            {% if data['paperSellerEng'] %}
+                                {{ data['paperSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['paperSellerScot'] %}
+                                {{ data['paperSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['paperSellerWales'] %}
+                                {{ data['paperSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['paperSellerNI'] %}
+                                {{ data['paperSellerNI'] }} in Northern Ireland
+                            {% endif %}                            
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -772,7 +833,18 @@
                             Glass
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['glassSeller'] }}
+                            {% if data['glassSellerEng'] %}
+                                {{ data['glassSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['glassSellerScot'] %}
+                                {{ data['glassSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['glassSellerWales'] %}
+                                {{ data['glassSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['glassSellerNI'] %}
+                                {{ data['glassSellerNI'] }} in Northern Ireland
+                            {% endif %}     
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -788,7 +860,18 @@
                             Aluminium
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['aluminiumSeller'] }}
+                            {% if data['aluminiumSellerEng'] %}
+                                {{ data['aluminiumSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['aluminiumSellerScot'] %}
+                                {{ data['aluminiumSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['aluminiumSellerWales'] %}
+                                {{ data['aluminiumSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['aluminiumSellerNI'] %}
+                                {{ data['aluminiumSellerNI'] }} in Northern Ireland
+                            {% endif %}     
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -804,7 +887,18 @@
                             Steel
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['steelSeller'] }}
+                            {% if data['steelSellerEng'] %}
+                                {{ data['steelSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['steelSellerScot'] %}
+                                {{ data['steelSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['steelSellerWales'] %}
+                                {{ data['steelSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['steelSellerNI'] %}
+                                {{ data['steelSellerNI'] }} in Northern Ireland
+                            {% endif %}     
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -820,7 +914,18 @@
                         Plastic
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticSeller'] }}
+                        {% if data['plasticSellerEng'] %}
+                            {{ data['plasticSellerEng'] }} in England<br />
+                        {% endif %}
+                        {% if data['plasticSellerScot'] %}
+                            {{ data['plasticSellerScot'] }} in Scotland<br />
+                        {% endif %}
+                        {% if data['plasticSellerWales'] %}
+                            {{ data['plasticSellerWales'] }} in Wales<br />
+                        {% endif %}
+                        {% if data['plasticSellerNI'] %}
+                            {{ data['plasticSellerNI'] }} in Northern Ireland
+                        {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -836,7 +941,45 @@
                             Wood
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['woodSeller'] }}
+                            {% if data['woodSellerEng'] %}
+                                {{ data['woodSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['woodSellerScot'] %}
+                                {{ data['woodSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['woodSellerWales'] %}
+                                {{ data['woodSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['woodSellerNI'] %}
+                                {{ data['woodSellerNI'] }} in Northern Ireland
+                            {% endif %}     
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['reportSeller'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% if data['fibreSellerEng'] %}
+                                {{ data['fibreSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['fibreSellerScot'] %}
+                                {{ data['fibreSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['fibreSellerWales'] %}
+                                {{ data['fibreSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['fibreSellerNI'] %}
+                                {{ data['fibreSellerNI'] }} in Northern Ireland
+                            {% endif %}     
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -852,7 +995,18 @@
                             Other
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['otherSeller'] }}
+                            {% if data['otherSellerEng'] %}
+                                {{ data['otherSellerEng'] }} in England<br />
+                            {% endif %}
+                            {% if data['otherSellerScot'] %}
+                                {{ data['otherSellerScot'] }} in Scotland<br />
+                            {% endif %}
+                            {% if data['otherSellerWales'] %}
+                                {{ data['otherSellerWales'] }} in Wales<br />
+                            {% endif %}
+                            {% if data['otherSellerNI'] %}
+                                {{ data['otherSellerNI'] }} in Northern Ireland
+                            {% endif %}     
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">

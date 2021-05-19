@@ -29,173 +29,568 @@
             }
             }) %}
 
-            {{ govukDetails({
-                summaryText: "What materials do I need to include?",
-                html: '
-                
-                '
-            }) }}
+                {{ govukDetails({
+                    summaryText: "Which packaging do I need to include?",
+                    html: '
+                    <p>Include any packaging materials your organisation sold to end consumers or to businesses that will dispose of it.</p>
+                    '
+                }) }}
 
-            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
-            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
+                <div class="govuk-form-group">
+                    <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+                    <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
+                </div>
 
-                {% if 'paper' in data['reportSeller'] %}
-
-                    <h2 class="govuk-heading-m">Paper</h2>
-
-                    {{ govukInput({
-                        label: {
-                            text: "England"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "paperSeller",
-                        name: "paperSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Scotland"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "paperSeller",
-                        name: "paperSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Wales"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "paperSeller",
-                        name: "paperSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Northern Ireland"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "paperSeller",
-                        name: "paperSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                {% endif %}
-
-                {% if 'glass' in data['reportSeller'] %}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Glass"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "glassSeller",
-                        name: "glassSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
-
-                {% endif %}
 
                 {% if 'aluminium' in data['reportSeller'] %}
 
-                    {{ govukInput({
-                        label: {
-                            text: "Aluminium"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "aluminiumSeller",
-                        name: "aluminiumSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Aluminium</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "aluminiumSellerEng",
+                            name: "aluminiumSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "aluminiumSellerScot",
+                            name: "aluminiumSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "aluminiumSellerWales",
+                            name: "aluminiumSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "aluminiumSellerNI",
+                            name: "aluminiumSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
 
                 {% endif %}
 
-                {% if 'steel' in data['reportSeller'] %}
 
-                    {{ govukInput({
-                        label: {
-                            text: "Steel"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "steelSeller",
-                        name: "steelSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
+
+
+                {% if 'fibre' in data['reportSeller'] %}
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Fibre-based composite</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "fibreSellerEng",
+                            name: "fibreSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "fibreSellerScot",
+                            name: "fibreSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "fibreSellerWales",
+                            name: "fibreSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "fibreSellerNI",
+                            name: "fibreSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
 
                 {% endif %}
+
+
+
+
+                {% if 'glass' in data['reportSeller'] %}
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Glass</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "glassSellerEng",
+                            name: "glassSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "glassSellerScot",
+                            name: "glassSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "glassSellerWales",
+                            name: "glassSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "glassSellerNI",
+                            name: "glassSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
+
+                {% endif %}
+
+
+
+
+
+                {% if 'paper' in data['reportSeller'] %}
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Paper</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "paperSellerEng",
+                            name: "paperSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "paperSellerScot",
+                            name: "paperSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "paperSellerWales",
+                            name: "paperSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "paperSellerNI",
+                            name: "paperSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
+
+                {% endif %}
+
+
+
+
 
                 {% if 'plastic' in data['reportSeller'] %}
 
-                    {{ govukInput({
-                        label: {
-                            text: "Plastic"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "plasticSeller",
-                        name: "plasticSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Plastic</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "plasticSellerEng",
+                            name: "plasticSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "plasticSellerScot",
+                            name: "plasticSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "plasticSellerWales",
+                            name: "plasticSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "plasticSellerNI",
+                            name: "plasticSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
 
                 {% endif %}
+                    
+
+
+
+
+                {% if 'steel' in data['reportSeller'] %}
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Steel</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "steelSellerEng",
+                            name: "steelSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "steelSellerScot",
+                            name: "steelSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "steelSellerWales",
+                            name: "steelSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "steelSellerNI",
+                            name: "steelSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
+
+                {% endif %}
+
+
+
 
                 {% if 'wood' in data['reportSeller'] %}
 
-                    {{ govukInput({
-                        label: {
-                            text: "Wood"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "woodSeller",
-                        name: "woodSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Wood</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "woodSellerEng",
+                            name: "woodSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "woodSellerScot",
+                            name: "woodSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "woodSellerWales",
+                            name: "woodSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "woodSellerNI",
+                            name: "woodSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
 
                 {% endif %}
 
+
+
+
                 {% if 'other' in data['reportSeller'] %}
 
-                    {{ govukInput({
-                        label: {
-                            text: "Other"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "otherSeller",
-                        name: "otherSeller",
-                        suffix: {
-                            text: "tonnes"
-                        },
-                        spellcheck: false
-                    }) }}
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <h2 class="govuk-heading-m">Other</h2>
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in England"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "otherSellerEng",
+                            name: "otherSellerEng",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Scotland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "otherSellerScot",
+                            name: "otherSellerScot",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Wales"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "otherSellerWales",
+                            name: "otherSellerWales",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Amount sold in Northern Ireland"
+                            },
+                            classes: "govuk-input--width-5",
+                            id: "otherSellerNI",
+                            name: "otherSellerNI",
+                            type: "number",
+                            inputmode: "numeric",
+                            suffix: {
+                                text: "tonnes"
+                            }
+                        }) }}
+
+                    </div>
 
                 {% endif %}
 
