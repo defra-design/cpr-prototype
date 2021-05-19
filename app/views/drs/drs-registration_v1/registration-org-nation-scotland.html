@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Deposit return scheme
+{% endset%}
+
+{% block pageTitle %}
+    Turnover | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="https://depositreturnscheme.zerowastescotland.org.uk/">
+
+            <h1 class="govuk-heading-l">You must register for the DRS with Circulatory Scotland</h1>
+
+            <p>This is because your organisation is registered in Scotland.</p>
+            <p>You can only use this service to register for the DRS if your organisation is based in England, Wales or Northern Ireland.</p>
+
+
+            {{govukButton({
+                text: "Register with Circulatory Scotland"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

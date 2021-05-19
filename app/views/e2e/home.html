@@ -1,9 +1,5 @@
 {% extends "layout.html" %}
 
-{% set serviceName %}
-  Deposit return scheme
-{% endset%}
-
 {% block pageTitle %}
     Home | {{serviceName}} prototype
 {% endblock %}
@@ -19,29 +15,12 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-
         <h1 class="govuk-heading-xl">
-            Register for the deposit return scheme (DRS)
+            Register as an obligated packaging producer
         </h1>
-        <!-- {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
-        <h1 class="govuk-heading-xl">
-            Register as a producer and retailer for the deposit return scheme
-        </h1>
-        {% elif 'producer' in data['orgDescription'] %}
-        <h1 class="govuk-heading-xl">
-            Register as a producer for the deposit return scheme
-        </h1>
-        {% elif 'retailer' in data['orgDescription'] %}
-        <h1 class="govuk-heading-xl">
-            Register as a retailer for the deposit return scheme
-        </h1>
-        {% endif %} -->
-
-
-
 
         {% if data['registered'] == 'yes' %}
-            <p class="govuk-!-margin-bottom-8">Your scheme identification number (DRSIN): <strong>0038173</strong></p>
+            <p class="govuk-!-margin-bottom-8">Your scheme identification number (EPRIN): <strong>0038173</strong></p>
         {% endif %}
         
 
@@ -107,18 +86,18 @@
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['declared'] == 'yes' and data['applied'] == 'no' and data['existingEpr'] == 'yes'  %}
-                                <a href="epr-guard-question">
-                                    Add information about your organisation
-                                </a>
-                            {% elif data['declared'] == 'yes' and data['applied'] == 'no' and data['thresholdMet'] == 'yes'  %}
-                                <a href="registration-check-contact">
-                                    Add information about your organisation
-                                </a>
-                            {% elif data['declared'] == 'yes' and data['applied'] == 'no' %}
-                                <a href="registration-check-contact">
-                                    Add information about your organisation
-                                </a>
+                            {% if data['declared'] == 'yes' and data['applied'] == 'no' %}
+
+                                {% if data['lastVisitedURL'] %}
+                                    <a href="{{ data['lastVisitedURL'] }}">
+                                        Add information about your organisation
+                                    </a>
+                                {% else %}
+                                    <a href="registration-check-contact">
+                                        Add information about your organisation
+                                    </a>
+                                {% endif %}
+
                             {% else %}
                                 Add information about your organisation
                             {% endif %}
@@ -140,7 +119,6 @@
 
                     </li>
 
-                    {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
@@ -173,43 +151,8 @@
                         {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag">Completed</strong>
                         {% endif %}
-                    </li>
-                    {% elif 'producer' in data['orgDescription'] %}
-                    <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-
-                            {% if data['applied'] == 'no' and data['paid'] == 'no' %}
-                                Pay the fee and submit your application
-                            {% endif %}
-
-                            {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
-                                <a href="payment-information">
-                                    Pay the fee and submit your application
-                                </a>
-                            {% endif %}
-                                
-                            {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                                Pay the fee and submit your application
-                            {% endif %}
-
-                        </span>
-
-                        {#
-                        {% if data['applied'] == 'no' and data['paid'] == 'no' %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                        {% endif %}
-                        
-                        {% if data['applied'] == 'yes' and data['paid'] == 'no' %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                        {% endif %}
-                        #}
                             
-                        {% if data['applied'] == 'yes' and data['paid'] == 'yes' %}
-                            <strong class="govuk-tag app-task-list__tag">Completed</strong>
-                        {% endif %}
                     </li>
-                    {% endif %}
-
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
@@ -260,38 +203,22 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">2. </span> Report your drinks container data for 2023
+                    <span class="app-task-list__section-number">2. </span> Report your packaging data for 2024
                 </h2>
 
-                {% if data['reported1'] == 'no' %}
+                {% if data['reported'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "The reporting deadline for January to March data is 30th April 2023",
+                        text: "The reporting deadline for January to March data is 30th April 2024",
                         iconFallbackText: "Warning"
                     }) }}
-                {% elif data['reported1'] == 'yes' %}
-                {{ govukWarningText({
-                    text: "The reporting deadline for April to June data is 31st July 2023",
-                    iconFallbackText: "Warning"
-                }) }}
-                {% elif data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'no' %}
-                {{ govukWarningText({
-                    text: "The reporting deadline for July to September is 30th October 2023",
-                    iconFallbackText: "Warning"
-                }) }}
-                {% elif data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'yes' and data['reported4'] == 'no' %}
-                {{ govukWarningText({
-                    text: "The reporting deadline for October to December is 31st January 2024",
-                    iconFallbackText: "Warning"
-                }) }}
                 {% endif %}
-                
 
                 <ul class="app-task-list__items">
 
                     <li class="app-task-list__item">
 
                         <span class="app-task-list__task-name">
-                            {% if data['registered'] == 'yes' and data['reported1'] == 'no'  %}
+                            {% if data['registered'] == 'yes' and data['reported'] == 'no'  %}
                                 <a href="report-start">
                                     Introduction and what you'll need
                                 </a>
@@ -315,29 +242,29 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
-                            {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported1'] == 'no'  %}
+                            {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported'] == 'no'  %}
                             <form method="POST" action="route-reporting">    
                                 <a href="" onclick="this.closest('form').submit();return false;">
-                                    Submit your data for January to March 2023
+                                    Submit your packaging data
                                 </a>
                             </form>
                             {% else %}
-                                    Submit your data for January to March 2023
+                            Submit your data for January to March 2024
                             {% endif %}
 
                         </span>
 
                         {#
-                        {% if data['registered'] == 'no' and  data['reported1'] == 'no' %}
+                        {% if data['registered'] == 'no' and  data['reported'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
                         {% endif %}
                         
-                        {% if data['intro2'] == 'yes' and  data['reported1'] == 'no' %}
+                        {% if data['intro2'] == 'yes' and  data['reported'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
                         {% endif %}
                         #}
 
-                        {% if data['registered'] == 'yes' and data['reported1'] == 'yes' %}
+                        {% if data['registered'] == 'yes' and data['reported'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% endif %}
                         
@@ -345,103 +272,65 @@
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-
-                            {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'no'  %}
-                            <form method="POST" action="route-reporting">    
-                                <a href="" onclick="this.closest('form').submit();return false;">
-                                    Submit your data for April to June 2023
-                                </a>
-                            </form>
-                            {% else %}
-                                    Submit your data for April to June 2023
-                            {% endif %}
-
+                            Submit your data for April to June 2024
                         </span>
 
                         {#
-                        {% if data['registered'] == 'no' and data['reported1'] == 'no' %}
+                        {% if data['registered'] == 'no' and  data['reported'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
                         {% endif %}
                         
-                        {% if data['intro2'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'no' %}
+                        {% if data['intro2'] == 'yes' and  data['reported'] == 'no' %}
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
                         {% endif %}
                         #}
 
-                        {% if data['registered'] == 'yes' and data['reported2'] == 'yes' %}
+                        {% if data['registered'] == 'yes' and data['reported'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% endif %}
                         
                     </li>
 
-            <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            Submit your data for July to September 2024
+                        </span>
+                    </li>
 
-                    {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'no'  %}
-                    <form method="POST" action="route-reporting">    
-                        <a href="" onclick="this.closest('form').submit();return false;">
-                            Submit your data for July to September 2023
-                        </a>
-                    </form>
-                    {% else %}
-                            Submit your data for July to September 2023
-                    {% endif %}
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            Submit your data for October to December 2024
+                        </span>
+                    </li>
 
-                </span>
+                </ul>
+            </li>
+            <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">3. </span> Pay your fees to the Producer Responsibility Scheme Administration (PRSA)
+                </h2>
+                    {{ govukWarningText({
+                        text: "The payment deadline is 31st January 2025",
+                        iconFallbackText: "Warning"
+                    }) }}
 
-                {#
-                {% if data['registered'] == 'no' and data['reported2'] == 'no' %}
-                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                {% endif %}
-                
-                {% if data['intro2'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'no' %}
-                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                {% endif %}
-                #}
+                <ul class="app-task-list__items">
 
-                {% if data['registered'] == 'yes' and data['reported3'] == 'yes' %}
-                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                {% endif %}
-                
-            </li>       
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            View and pay your fees on the PRSA website
+                        </span>
 
-
-    <li class="app-task-list__item">
-        <span class="app-task-list__task-name">
-
-            {% if data['intro2'] == 'yes' and data['registered'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'yes' and data['reported4'] == 'no'  %}
-            <form method="POST" action="route-reporting">    
-                <a href="" onclick="this.closest('form').submit();return false;">
-                    Submit your data for October to December 2023
-                </a>
-            </form>
-            {% else %}
-                    Submit your data for October to December 2023
-            {% endif %}
-
-        </span>
-
-        {#
-        {% if data['registered'] == 'no' and  data['reported3'] == 'no' %}
-            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-        {% endif %}
-        
-        {% if data['intro2'] == 'yes' and data['reported1'] == 'yes' and data['reported2'] == 'yes' and data['reported3'] == 'yes'  data['reported4'] == 'no' %}
-            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-        {% endif %}
-        #}
-
-        {% if data['registered'] == 'yes' and data['reported4'] == 'yes' %}
-            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-        {% endif %}
-        
-    </li>                    
-</ul>
-</li>
+                        <!-- {% if data['intro1'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                        {% endif %} -->
+                    </li>
+                </ul>
+            </li>
             
         </ol>
     </div>
 </div>
-
 
 {% endblock %}

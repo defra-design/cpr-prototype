@@ -24,24 +24,24 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">Producer reporting</span>
+        <span class="govuk-caption-l">Producer data</span>
         
         <form method="POST" action="route-reporting-producer-glass">
             
             {% call govukFieldset({
             legend: {
-                text: "Glass bottles produced between January and March 2023",
+                text: "How many glass bottles did you produce between Jan and Mar 2023?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
             {{ govukDetails({
-                summaryText: "What glass bottles do I need to include?",
+                summaryText: "Which glass bottles do I need to include?",
                 html: '
-                <p>Include any glass bottles that: </p>
+                <p>Include any glass bottles that your organisation:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>your organisation produced under their own brand name</li>
-                    <li>imported from outside of the UK and then sold to consumers</li>
+                    <li>produced and sold under its own brand name</li>
+                    <li>imported from outside of the UK then sold</li>
                 </ul>
                 '
             }) }}
@@ -51,13 +51,13 @@
 
             {{ govukInput({
                 label: {
-                    text: "750ml and under"
+                    text: "Individually sold bottles 750ml and under"
                 },
                 classes: "govuk-input--width-10",
                 id: "glassUnder750",
                 name: "glassUnder750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -65,13 +65,13 @@
 
             {{ govukInput({
                 label: {
-                    text: "Over 750ml"
+                    text: "Individually sold bottles above 750ml"
                 },
                 classes: "govuk-input--width-10",
                 id: "glassOver750",
                 name: "glassOver750",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}
@@ -79,13 +79,13 @@
 
             {{ govukInput({
                 label: {
-                    text: "Placed in multi-packs"
+                    text: "Any sized bottles sold in multipacks"
                 },
                 classes: "govuk-input--width-10",
                 id: "glassMultipacks",
                 name: "glassMultipacks",
                 suffix: {
-                    text: "Individual units"
+                    text: "bottles"
                 },
                 spellcheck: false
             }) }}

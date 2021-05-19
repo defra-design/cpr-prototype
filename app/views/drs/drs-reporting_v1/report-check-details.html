@@ -25,27 +25,28 @@
         }) }}
 
 
-        {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
+        <h1 class="govuk-heading-l">Check and submit your drinks container data</h1>
+        <!-- {% if 'producer' in data['orgDescription'] and 'retailer' in data['orgDescription'] %}
         <h1 class="govuk-heading-l">Check and submit your producer and retailer data</h1>
         {% elif 'producer' in data['orgDescription'] %}
         <h1 class="govuk-heading-l">Check and submit your producer data</h1>
         {% elif 'retailer' in data['orgDescription'] %}
         <h1 class="govuk-heading-l">Check and submit your retailer data</h1>
-        {% endif %}
+        {% endif %} -->
 
 <!-- Producer reporting -->        
         {% if 'producer' in data['orgDescription'] %}
 
-            <h2 class="govuk-heading-m">Producer reporting</h2>
+            <h2 class="govuk-heading-m">Producer data</h2>
 
             {% if 'plastic' in data['reportProducer'] %}
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Plastic bottles
+                        PET plastic bottles
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -56,7 +57,7 @@
                             750ml and under
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['plasticUnder750'] }}
+                            {{ data['plasticUnder750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -66,10 +67,10 @@
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__value">
-                        Over 750ml
+                        Above 750ml
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticOver750'] }}
+                        {{ data['plasticOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -79,10 +80,10 @@
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__value">
-                        Placed in multi-packs
+                        In multipacks
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticMultipacks'] }}
+                        {{ data['plasticMultipacks'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -94,13 +95,13 @@
             {% endif %}
 
             {% if 'glass' in data['reportProducer'] %}
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Glass bottles
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -111,7 +112,7 @@
                             750ml and under
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['glassUnder750'] }}
+                            {{ data['glassUnder750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -121,10 +122,10 @@
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__value">
-                        Over 750ml
+                        Above 750ml
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassOver750'] }}
+                        {{ data['glassOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -137,7 +138,7 @@
                         Placed in multi-packs
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassMultipacks'] }}
+                        {{ data['glassMultipacks'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -152,10 +153,10 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Steel & aluminium cans
+                        Steel and aluminium cans
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -166,7 +167,7 @@
                             Single cans
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['aluminiumSingle'] }}
+                            {{ data['aluminiumSingle'] }} cans
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -179,7 +180,7 @@
                         Placed in multi-packs
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['aluminiumMultipacks'] }}
+                        {{ data['aluminiumMultipacks'] }} cans
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -196,17 +197,17 @@
 <!-- Retailer reporting --> 
         {% if 'retailer' in data['orgDescription'] %}
 
-            <h2 class="govuk-heading-m">Retailer reporting</h2>
+            <h2 class="govuk-heading-m">Retailer data</h2>
 
             {% if 'plastic' in data['reportRetailer'] %}
-            <h3 class="govuk-heading-s">Plastic bottles</h3>
+            <h3 class="govuk-heading-s">PET plastic bottles</h3>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         750ml and under
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -217,7 +218,7 @@
                             England
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['plasticEnglandUnder750'] }}
+                            {{ data['plasticEnglandUnder750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -230,7 +231,7 @@
                         Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticWalesUnder750'] }}
+                        {{ data['plasticWalesUnder750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -243,7 +244,7 @@
                         Ireland
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticIrelandUnder750'] }}
+                        {{ data['plasticIrelandUnder750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -254,10 +255,10 @@
                 <br>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Over 750ml
+                        Above 750ml
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -268,7 +269,7 @@
                             England
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['plasticEnglandOver750'] }}
+                            {{ data['plasticEnglandOver750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -281,7 +282,7 @@
                         Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticWalesOver750'] }}
+                        {{ data['plasticWalesOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -294,7 +295,7 @@
                         Ireland
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['plasticIrelandOver750'] }}
+                        {{ data['plasticIrelandOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -313,7 +314,7 @@
                         750ml and under
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -324,7 +325,7 @@
                             England
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['glassEnglandUnder750'] }}
+                            {{ data['glassEnglandUnder750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -337,7 +338,7 @@
                         Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassWalesUnder750'] }}
+                        {{ data['glassWalesUnder750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -350,7 +351,7 @@
                         Ireland
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassIrelandUnder750'] }}
+                        {{ data['glassIrelandUnder750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -361,10 +362,10 @@
                 <br>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Over 750ml
+                        Above 750ml
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -375,7 +376,7 @@
                             England
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['glassEnglandOver750'] }}
+                            {{ data['glassEnglandOver750'] }} bottles
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -388,7 +389,7 @@
                         Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassWalesOver750'] }}
+                        {{ data['glassWalesOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -401,7 +402,7 @@
                         Ireland
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['glassIrelandOver750'] }}
+                        {{ data['glassIrelandOver750'] }} bottles
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -413,14 +414,14 @@
             {% endif %}
 
             {% if 'aluminium' in data['reportRetailer'] %}
-            <h3 class="govuk-heading-s">Steel &amp; aluminium cans</h3>
+            <h3 class="govuk-heading-s">Steel and aluminium cans</h3>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Single cans
                     </dt>
                     <dt class="govuk-summary-list__key">
-                        Units
+                        
                     </dt>
                     <dt class="govuk-summary-list__key">
                     </dt>
@@ -431,7 +432,7 @@
                             England
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['aluminiumEnglandSingle'] }}
+                            {{ data['aluminiumEnglandSingle'] }} cans
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="#">
@@ -444,7 +445,7 @@
                         Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['aluminiumWalesSingle'] }}
+                        {{ data['aluminiumWalesSingle'] }} cans
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -457,7 +458,7 @@
                         Ireland
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['aluminiumIrelandSingle'] }}
+                        {{ data['aluminiumIrelandSingle'] }} cans
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
