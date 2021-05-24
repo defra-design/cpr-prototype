@@ -20,7 +20,7 @@ Example usage:
 
 module.exports = {
 
-  "protoVer": "v3", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
+  "protoVer": "v4", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
   "intro1": "no",
   "intro2": "no",
   "declared": "no",

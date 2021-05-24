@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-reporting-onlinemarketplace">
+            
+            {% call govukFieldset({
+            legend: {
+                text: "How many tonnes of each material did you place on the market as a type 4 producer in 2022?",
+                classes: "govuk-fieldset__legend--l"
+            }
+            }) %}
+
+                {{ govukDetails({
+                    summaryText: "What materials do I need to include?",
+                    html: '
+                    <p>Include any:</p>
+                    <ul>
+                        <li>filled packaging materials that were sold using your organisation’s online platform on behalf of non-UK producers</li>
+                        <li>unfilled packaging that your organisation sold to non-obligated UK producers</li>
+                    </ul>
+                    '
+                }) }}
+
+                <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+                <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
+
+                {% if 'aluminium' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Aluminium"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "aluminiumOnlinemarketplace",
+                        name: "aluminiumOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+                
+                
+                {% if 'fibre' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Fibre-based composite"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "fiberOnlinemarketplace",
+                        name: "fibreOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+
+                {% if 'glass' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Glass"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "glassOnlinemarketplace",
+                        name: "glassOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+            
+                {% if 'paper' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Paper"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "paperOnlinemarketplace",
+                        name: "paperOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+                
+                {% if 'plastic' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Plastic"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "plasticOnlinemarketplace",
+                        name: "plasticOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+                
+
+                {% if 'steel' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Steel"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "steelOnlinemarketplace",
+                        name: "steelOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+
+                {% if 'wood' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Wood"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "woodOnlinemarketplace",
+                        name: "woodOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+        
+                {% if 'other' in data['reportOnlinemarketplace'] %}
+                    {{ govukInput({
+                        label: {
+                            text: "Other"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "otherOnlinemarketplace",
+                        name: "otherOnlinemarketplace",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+                {% endif %}
+
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

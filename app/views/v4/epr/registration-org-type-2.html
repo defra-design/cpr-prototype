@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type 2' producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 2' producer?</h1>
+        {% endif %}
+
+        <p>A type 2 producer is an organisation that imports packaged goods to sell in the UK.</p>
+
+        {{ govukDetails({
+          summaryText: "Show me an example of a type 2 producer",
+          html: '
+          <p>
+            An organisation who imports pallets of pre-packaged, filled cereal boxes from Spain. The organisation sells this cereal in the UK.
+          </p>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-3?lastVisitedURL={{currentURL}}">
+            
+            {{ govukRadios({
+              name: "producerType2",
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

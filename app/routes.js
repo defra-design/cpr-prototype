@@ -28,6 +28,12 @@ router.use('/v3/defra-id', require('./views/v3/defra-id/_routes'));
 router.use('/v3/defra-id-manage', require('./views/v3/defra-id-manage/_routes'));
 router.use('/v3/epr-obligation-checker', require('./views/v3/epr-obligation-checker/_routes'));
 
+router.use('/v4/epr', require('./views/v4/epr/_routes'));
+router.use('/v4/defra-id', require('./views/v4/defra-id/_routes'));
+router.use('/v4/defra-id-manage', require('./views/v4/defra-id-manage/_routes'));
+router.use('/v4/epr-obligation-checker', require('./views/v4/epr-obligation-checker/_routes'));
+
+
 router.use('/drs/defra-id', require('./views/drs/defra-id/_routes'));
 router.use('/drs/defra-id-manage', require('./views/drs/defra-id-manage/_routes'));
 router.use('/drs/drs-obligation-checker_v1', require('./views/drs/drs-obligation-checker_v1/_routes'));

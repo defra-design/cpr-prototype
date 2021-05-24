@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Packaging waste: producer responsibilities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Extended producer responsibility</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+            You must create a Defra account to register as a packaging producer
+        </h1>
+
+        <p>You’re about to create a Defra account. You'll need to sign in with your Government Gateway user ID and password, then tell us:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>where your organisation is registered</li>
+            <li>your organisation’s company number</li>
+            <li>the main contact details for your organisation</li>
+            <li>your name</li>
+            <li>your telephone number </li>
+        </ul>
+
+        <!-- Radio button routing in /vN/epr/_routes.js -->
+        <form method="POST" action="../defra-id/login-2">
+            {{govukButton({
+                text: "Create account now"
+            })}}
+        </form>
+
+        <p><a href="service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+{% endblock %}
