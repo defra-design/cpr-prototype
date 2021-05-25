@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-0">
+        Previous versions
+      </h1>
+
+      <h2 class="govuk-heading-m">Alpha: functional prototypes</h2>      
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Version</th>
+            <th scope="col" class="govuk-table__header">Tested on</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Version 3</strong><br />
+              <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-margin-top-4">
+                  <a href="/v3/epr/service-start">Service start page</a>
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Obligation checker tool
+                  <ul>
+                    <li><a href="/v3/epr-obligation-checker">Am I obligated?</a></li>
+                    <li><a href="/v3/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  EPR registration and data reporting task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                  <ul>
+                    <li><a href="/v3/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                    <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Service emails
+                  <ul>
+                    <li><a href="/v3/epr/registration-email-submitted">Application submitted</a></li>
+                    <li><a href="/v3/epr/registration-email-complete">Registration approved and complete</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+              
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v2 to v3
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul>
+                    <li>Tweaked the content to make it clear the user should be using their own Defra and GG accounts.</li>
+                    <li>Added a route to find out if the organisation has already been registered in Defra Identity and deal with that scenario.</li>
+                    <li>Added a details component to help the user understand what makes someone 'authorised'.</li>
+                    <li>Added progress saving (save and exit, save and continue) to the longer journeys.</li>
+                    <li>Added a question to find out which nation the organisation is registered in.</li>
+                    <li>Split the 'producer types' question into multiple pages, one of each type.</li>
+                    <li>Renamed the producer type names to use numbers and added examples to the pages.</li>
+                    <li>Renamed the payment details PDF to 'invoice'.</li>
+                    <li>Other minor content changes.</li>
+                  </ul>
+                </div>
+              </details>
+
+            </td>
+          </tr>
+
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Version 2</strong><br />
+              <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-margin-top-4">
+                  <a href="/v2/epr/service-start">Service start page</a>
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Obligation checker tool
+                  <ul>
+                    <li><a href="/v2/epr-obligation-checker">Am I obligated?</a></li>
+                    <li><a href="/v2/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Service task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                  <ul>
+                    <li><a href="/v2/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                    <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Service emails
+                  <ul>
+                    <li><a href="/v2/epr/payment-email-information">Payment information</a></li>
+                    <li><a href="/v2/epr/registration-email-submitted">Application submitted</a></li>
+                    <li><a href="/v2/epr/registration-email-complete">Registration approved and complete</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Tested week commencing 19th April 2021<br />
+              <a href="https://defra.sharepoint.com/:p:/t/Team568/ERL2OzSUuoRGnxRvyFC6S_0ByVMQL7v334cPH8B7qarnvw?e=olNXu1" target="_blank">Research findings (on Sharepoint)</a>
+            </td>
+            <td class="govuk-table__cell">
+              
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v1 to v2
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul>
+                    <li>Removed the necessity for a director/secretary/partner to set up the Defra ID account and enrol onto the service.</li>
+                    <li>Removed the step where the regulator is required to approve the user's access to the service.</li>
+                    <li>Added a new <a href="/v2/epr/authorised">declaration and privacy policy page</a> before the user enters the service.</li>
+                    <li>Removed the 3rd 'certificate of compliance' step from the <a href="/v2/epr/home">producer task list</a>.</li>
+                    <li>Added the application, payment and status journeys leading off from the <a href="/v2/epr/home">producer task list</a>.</li>
+                    <li>Added the journey for reporting placed on the market (POM) data.</li>
+                  </ul>
+                  <a href="https://defra.sharepoint.com/:w:/t/Team568/ERb_QUDI3N9GkIL_yJXkzPABjdm24vShfuWR3wvqOUwqRw?e=WJoaAB" target="_blank">More info in the design decisions log (on Sharepoint)</a>
+                </div>
+              </details>
+
+            </td>
+          </tr>
+
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Version 1</strong><br />
+              <a href="/v1/epr/service-start">Service start page</a><br />
+              <a href="/v1/epr/home">Service task list</a><br />
+            </td>
+            <td class="govuk-table__cell">
+              Not tested
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          
+
+
+        </tbody>
+      </table>
+
+
+      
+      
+      
+
+
+    </div>
+  </div>
+
+{% endblock %}

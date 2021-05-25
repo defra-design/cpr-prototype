@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Turnover | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-org-type-1?lastVisitedURL={{currentURL}}">
+
+            {% if data['sub1'] == '1' %}
+              <h1 class="govuk-heading-l">What was Acme Org Ltd group's turnover in its last published accounts? </h1>
+            {% else %}
+              <h1 class="govuk-heading-l">What was Acme Org Ltd’s turnover in its last published accounts? </h1>
+            {% endif %}
+            
+            {{ govukInput({
+                id: "orgTurnover",
+                name: "orgTurnover",
+                label: {
+                  text: "Turnover"
+                },
+                hint: {
+                  text: "For example, 3,000,000.00"
+                },
+                prefix: {
+                  text: "£"
+                },
+                formGroup: {
+                    classes : "govuk-!-margin-top-6"
+                },
+                classes: "govuk-!-width-one-third",
+                spellcheck: false
+            }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
