@@ -80,5 +80,9 @@ module.exports = {
   "existingEpr": "no",
   "thresholdMet": "no",
   "drsOrgTypeV2": "no",  
-  "drsNationV2": "no"
+  "drsNationV2": "no",
+  "obProducerBrand": "yes",
+  "obProducerImporter": "yes",
+  "obProducerTurnover": "yes",
+  "obRetailer": "yes"
 }
