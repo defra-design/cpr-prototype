@@ -41,18 +41,18 @@ Check if your organisation needs to register for the deposit return scheme | {{s
 
         <ul class="govuk-list govuk-list--bullet">
 
-            {% if 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
-            <li><strong>producer</strong> because it produces drinks in containers under its own brand name and had a turnover above £85,000 in its last financial year</li>
+            {% if 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
+            <li><strong>producer</strong> because it puts own brand drinks into drinks containers, imports drinks in drinks containers and had a turnover above £85,000 in its last financial year</li>
+            {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
+            <li><strong>producer</strong> because it puts own brand drinks into drinks containers and had a turnover above £85,000 in its last financial year</li>
             {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>producer</strong> because it imports and sells drinks in containers from outside the UK and had a turnover above £85,000 in its last financial year</li>
-            {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>producer</strong> because it produces drinks in containers under its own brand name or imports and sells drinks in containers from outside the UK and had a turnover above £85,000 in its last financial year</li>
-            {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
-            <li><strong>small producer</strong> because it produces drinks in containers under its own brand name and had a turnover below £85,000 in its last financial year</li>
-            {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>small producer</strong> because it imports and sells drinks in containers from outside the UK and had a turnover below £85,000 in its last financial year</li>
+            <li><strong>producer</strong> because it imports drinks in drinks containers and had a turnover above £85,000 in its last financial year</li>
             {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>small producer</strong> because it produces drinks in containers under its own brand name or imports and sells drinks in containers from outside the UK and had a turnover below £85,000 in its last financial year</li>
+            <li><strong>small producer</strong> because it puts own brand drinks into drinks containers, imports drinks in drinks containers and had a turnover below £85,000 in its last financial year</li>
+            {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
+            <li><strong>small producer</strong> because it puts own brand drinks into drinks containers and had a turnover below £85,000 in its last financial year</li>
+            {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
+            <li><strong>small producer</strong> because it imports drinks in drinks containers and had a turnover below £85,000 in its last financial year</li>
             {% else %}
             {% endif %}
 
@@ -69,36 +69,49 @@ Check if your organisation needs to register for the deposit return scheme | {{s
 
         {% if 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
         {{ govukDetails({
-            summaryText: "What are my producer obligations?",
+            summaryText: "What are my obligations as a producer?",
             html: "
-            <p>As a producer you’ll have the following obligations:</p>
+            <p>As a producer, you’ll have the following obligations:</p>
             <ul>
                 <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                <li>to pay a producer registration fee</li>
+                <li>to pay an annual producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
             </ul>
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
             "
           }) }}
         {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
         {{ govukDetails({
             summaryText: "What are my producer obligations?",
             html: "
-            <p>As a producer you’ll have the following obligations:</p>
+            <p>As a producer, you’ll have the following obligations:</p>
             <ul>
                 <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                <li>to pay a producer registration fee</li>
+                <li>to pay an annual producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
             </ul>
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
             "
           }) }}
         {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
         {{ govukDetails({
             summaryText: "What are my producer obligations?",
             html: "
-            <p>As a producer you’ll have the following obligations:</p>
+            <p>As a producer, you’ll have the following obligations:</p>
             <ul>
                 <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                <li>to pay a producer registration fee</li>
+                <li>to pay an annual producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
             </ul>
-            "
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
+            ",
+            attributes: "<a href=sadasd>safadfa</a>"
           }) }}
         {% else %}
         {% endif %}
@@ -112,33 +125,45 @@ Check if your organisation needs to register for the deposit return scheme | {{s
         {{ govukDetails({
             summaryText: "What are my small producer obligations?",
             html: "
-            <p>As a small producer you’ll have the following obligations:</p>
+            <p>As a producer, you’ll have the following obligations:</p>
             <ul>
                 <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                <li>to pay a small producer registration fee</li>
+                <li>to pay an annual small producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
             </ul>
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
             "
           }) }}
         {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
           {{ govukDetails({
               summaryText: "What are my small producer obligations?",
               html: "
-              <p>As a small producer you’ll have the following obligations:</p>
-              <ul>
-                  <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                  <li>to pay a small producer registration fee</li>
-              </ul>
+              <p>As a producer, you’ll have the following obligations:</p>
+            <ul>
+                <li>to submit data about how many and which types of drinks containers you placed on the market</li>
+                <li>to pay an annual small producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
+            </ul>
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
               "
           }) }}
         {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
             {{ govukDetails({
                 summaryText: "What are my small producer obligations?",
                 html: "
-                <p>As a small producer you’ll have the following obligations:</p>
-                <ul>
-                    <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                    <li>to pay a small producer registration fee</li>
-                </ul>
+                <p>As a producer, you’ll have the following obligations:</p>
+            <ul>
+                <li>to submit data about how many and which types of drinks containers you placed on the market</li>
+                <li>to pay an annual small producer registration fee</li>
+                <li>to add a deposit to in-scope drinks containers</li>
+                <li>to pay the deposit to the scheme administrator</li>
+                <li>to add details about the deposit return scheme to the drinks container labels</li>
+            </ul>
+            <p><a href=https://gov.uk target=_blank>Find out more about registration fees (opens in new tab)</a>.</p>
                 "
             }) }}
         {% else %}
@@ -146,24 +171,31 @@ Check if your organisation needs to register for the deposit return scheme | {{s
 
 
 
-
         {% if 'yes' in data['obRetailer'] %}
         {{ govukDetails({
-            summaryText: "What are my retailer obligations?",
+            summaryText: "What are my obligations as a retailer?",
             html: "
-            <p>As a retailer you’ll have the following obligations:</p>
+            <p>As a retailer, you’ll have the following obligations:</p>
             <ul>
                 <li>to submit data about how many and which types of drinks containers you placed on the market</li>
-                <li>to accept in-scope drinks container returns to your store and to refund the deposit amount to customers</li>
+                <li>to accept any in-scope drinks container returns to your store and to refund the deposit amount to customers</li>
                 <li>to add the container’s deposit amount to the drink’s purchase price at the point of sale</li>
-                <li>to clearly show the price of the drink and the container’s deposit amount in any pricing information</li>
+                <li>to clearly show the price of the drink and the drink container’s deposit amount in any pricing information</li>
             </ul>
             "
           }) }}
         {% else %}
         {% endif %}
 
+
+        {% if 'yes' in data['obRetailer'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
         <p>You can register your organisation as a producer and a retailer at the same time.</p>
+        {% elif 'yes' in data['obRetailer'] and 'yes' in data['obProducerBrand'] %}
+        <p>You can register your organisation as a producer and a retailer at the same time.</p>
+        {% elif 'yes' in data['obRetailer'] and 'yes' in data['obProducerImporter'] %}
+        <p>You can register your organisation as a producer and a retailer at the same time.</p>
+        {% else %}
+        {% endif %}
 
         {{ govukButton({
             text: "Register for the deposit return scheme"
