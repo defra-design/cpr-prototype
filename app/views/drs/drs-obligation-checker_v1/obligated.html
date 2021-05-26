@@ -42,17 +42,17 @@ Check if your organisation needs to register for the deposit return scheme | {{s
         <ul class="govuk-list govuk-list--bullet">
 
             {% if 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>producer</strong> because it puts own brand drinks into drinks containers, imports drinks in drinks containers and had a turnover above £85,000 in its last financial year</li>
+            <li><strong>producer</strong> because it fills drinks containers with its own branded drinks, imports filled drinks containers from outside of the UK and had a turnover above £85,000 in its last financial year</li>
             {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
-            <li><strong>producer</strong> because it puts own brand drinks into drinks containers and had a turnover above £85,000 in its last financial year</li>
+            <li><strong>producer</strong> because it fills drinks containers with its own branded drinks and had a turnover above £85,000 in its last financial year</li>
             {% elif 'yes' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>producer</strong> because it imports drinks in drinks containers and had a turnover above £85,000 in its last financial year</li>
+            <li><strong>producer</strong> because it imports filled drinks containers from outside of the UK and had a turnover above £85,000 in its last financial year</li>
             {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>small producer</strong> because it puts own brand drinks into drinks containers, imports drinks in drinks containers and had a turnover below £85,000 in its last financial year</li>
+            <li><strong>small producer</strong> because it fills drinks containers with its own branded drinks, imports filled drinks containers from outside of the UK and had a turnover below £85,000 in its last financial year</li>
             {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerBrand'] %}
-            <li><strong>small producer</strong> because it puts own brand drinks into drinks containers and had a turnover below £85,000 in its last financial year</li>
+            <li><strong>small producer</strong> because it fills drinks containers with its own branded drinks and had a turnover below £85,000 in its last financial year</li>
             {% elif 'no' in data['obProducerTurnover'] and 'yes' in data['obProducerImporter'] %}
-            <li><strong>small producer</strong> because it imports drinks in drinks containers and had a turnover below £85,000 in its last financial year</li>
+            <li><strong>small producer</strong> because it imports filled drinks containers from outside of the UK and had a turnover below £85,000 in its last financial year</li>
             {% else %}
             {% endif %}
 

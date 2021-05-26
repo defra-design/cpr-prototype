@@ -24,6 +24,8 @@
             href: "javascript:history.back()"
         }) }}
 
+<!-- 2 page design option -->
+
         {% if data['drsOrgTypeV2'] == 'yes' %}
         
         {% if data['sub1'] == '1' %}
@@ -75,11 +77,10 @@
         </form>
         {% else %}
 
-        {% if data['sub1'] == '1' %}
+<!-- 1 page design option -->
+
         <h1 class="govuk-heading-l">What type of organisation is Acme Org Ltd?</h1>
-      {% else %}
-        <h1 class="govuk-heading-l">What type of organisation is Acme Org Ltd?</h1>
-      {% endif %}
+
         <form method="POST" action="home">
 
           <div class="govuk-form-group">
@@ -95,19 +96,24 @@
               items: [
                 {
                   value: "producer",
-                  text: "Producer",
-                  hint: { text: "it produces and sells drinks under its own brand name or imports and sells drinks containers from outside the UK" }
+                  text: "Producer (brand owner)",
+                  hint: { text: "it fills drinks containers with its own branded drinks to place on the market in England, Wales or Northern Ireland" }
+                },
+                {
+                  value: "producer",
+                  text: "Producer (importer)",
+                  hint: { text: "it imports drinks in drinks containers from outside of the UK to place on the market in England, Wales or Northern Ireland" }
                 },
                 {
                   value: "retailer",
                   text: "Retailer",
-                  hint: { text: "it sells drinks containers in England, Wales or Northern Ireland", classes: "govuk-!-margin-bottom-6" }
+                  hint: { text: "it sells filled drinks containers to end consumers in England, Wales or Northern Ireland", classes: "govuk-!-margin-bottom-6" }
                 }
               ]
             }) }}
 
             {{ govukDetails({
-              summaryText: "My organisation sells drinks containers in Scotland",
+              summaryText: "My organisation carries out one or more of these activities in Scotland",
               html: '
               <p>Scotland operates its own deposit return scheme (DRS). You must report any drinks container data for Scotland directly to Circulatory Scotland.</p>
               <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about how to report data for Scotland (opens in new tab)</a>.</p>
