@@ -45,7 +45,7 @@ module.exports = {
   "producerType3": "no",
   "producerType4": "no",
   "producerType5": "no",
-  "producerTypeSeller": "yes",
+  "producerTypeSeller": "no",
   "govGateEmail": "johnsmith@acmeorg.co.uk",
   "defraIdCompaniesHouseNumber": "01234567",
   "defraIdCompanyPhone": "01234 567899",

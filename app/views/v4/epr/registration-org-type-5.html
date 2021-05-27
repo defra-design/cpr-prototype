@@ -26,16 +26,21 @@
           <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 5' producer?</h1>
         {% endif %}
 
-        <p>A type 5 producer is an organisation that supplies reusable packaging.</p>
+        <p>A type 5 producer is an organisation that supplies reusable packaging within the UK.</p>
 
         {{ govukDetails({
           summaryText: "Show me an example of a type 5 producer",
           html: '
-          <p>A pallet company who hires out reusable pallets. The organisations who use the pallets, such as manufacturers and supermarkets, never own them.</p>
+          <p>
+            A pallet company hires out reusable pallets. The organisations that use the pallets, for example manufacturers and supermarkets, return the pallets after use.
+          </p>
+          <p>
+            The type 5 producer is the pallet company.
+          </p>
           '
         }) }}
 
-        <form method="POST" action="registration-org-type-seller?lastVisitedURL={{currentURL}}">
+        <form method="POST" action="registration-check-details?lastVisitedURL={{currentURL}}">
             
             {{ govukRadios({
               name: "producerType5",
