@@ -26,13 +26,40 @@
           <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type 2' producer?</h1>
         {% endif %}
 
-        <p>A type 2 producer is an organisation that imports packaged goods to sell in the UK.</p>
+        <p>
+          A type 2 producer is an organisation that does at least one of the following: 
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>imports filled packaging to sell in the UK</li>
+          <li>imports unfilled packaging to sell to a non-obligated producer in the UK</li>
+        </ul>
+
+        <p>
+          Non-obligated producers are organisations that either: 
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>produce less than 25 tonnes of packaging waste a year</li>
+          <li>have a turnover below £1 million</li>
+        </ul>
 
         {{ govukDetails({
-          summaryText: "Show me an example of a type 2 producer",
+          summaryText: "Show me examples of a type 2 producer",
           html: '
           <p>
-            An organisation who imports pallets of pre-packaged, filled cereal boxes from Spain. The organisation sells this cereal in the UK.
+            <strong>Example A</strong><br />
+            An organisation imports filled cereal boxes from Spain. The organisation sells this cereal in the UK.
+          </p>
+          <p>
+            The type 2 producer is the organisation that imports and sells the cereal boxes.
+          </p>
+          <p>
+            <strong>Example B</strong><br />
+            An organisation imports unfilled coffee cups from France. The organisation sells these to an independent coffee shop in the UK, that is not obligated under the extended producer responsibility regulations.
+          </p>
+          <p>
+            The type 2 producer is the organisation that imports and sells the unfilled coffee cups to the coffee shop.
           </p>
           '
         }) }}
