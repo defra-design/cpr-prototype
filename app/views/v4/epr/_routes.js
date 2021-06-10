@@ -65,11 +65,27 @@ router.post('*/route-check-gg', function (req, res) {
 
 
 
+// Routing for registration-check-org-audit.html
+router.post('*/route-check-org-audit', function (req, res) {
+    var auditChoice = req.session.data['auditChoice']
+    if (auditChoice == "no"){
+        res.redirect('registration-org-audit-address')
+    }
+    else {
+        res.redirect('registration-check-org-correspondence')
+    }
+})
+
+
+
 
 // Routing for registration-check-org-correspondence.html
 router.post('*/route-check-org-correspondence', function (req, res) {
     var correspondenceChoice = req.session.data['correspondenceChoice']
-    if (correspondenceChoice == "yes"){
+    if (correspondenceChoice == "no1"){
+        res.redirect('registration-org-correspondence-address')
+    }
+    else if (correspondenceChoice == "no2"){
         res.redirect('registration-org-correspondence-address')
     }
     else {
