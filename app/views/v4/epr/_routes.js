@@ -318,6 +318,19 @@ router.post('*/route-reporting-serviceprovider', function (req, res) {
 })
 
 
+
+// Routing for report-resubmit-remove.html
+router.post('*/route-resubmit-remove', function (req, res) {
+    var removeChoice = req.session.data['removeChoice']
+    if (removeChoice == "no"){
+        res.redirect('report-check-details-resubmit')
+    }
+    else {
+        res.redirect('report-check-details-resubmit')
+    }
+})
+
+
 // Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
 // router.post('*/route-reporting', function (req, res) {
 //     var orgActivity = req.session.data['orgActivity']

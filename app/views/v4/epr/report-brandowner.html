@@ -43,15 +43,35 @@
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
-                {% if 'paper' in data['reportBrandowner'] %}
+
+
+                {% if 'aluminium' in data['reportBrandowner'] %}
 
                     {{ govukInput({
                         label: {
-                            text: "Paper"
+                            text: "Aluminium"
                         },
                         classes: "govuk-input--width-5",
-                        id: "paperBrandowner",
-                        name: "paperBrandowner",
+                        id: "aluminiumBrandowner",
+                        name: "aluminiumBrandowner",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'fibre' in data['reportBrandowner'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Fibre-based composite"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "fibreBrandowner",
+                        name: "fibreBrandowner",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -79,33 +99,15 @@
 
                 {% endif %}
 
-                {% if 'aluminium' in data['reportBrandowner'] %}
+                {% if 'paper' in data['reportBrandowner'] %}
 
                     {{ govukInput({
                         label: {
-                            text: "Aluminium"
+                            text: "Paper"
                         },
                         classes: "govuk-input--width-5",
-                        id: "aluminiumBrandowner",
-                        name: "aluminiumBrandowner",
-                        type: "number",
-                        inputmode: "numeric",
-                        suffix: {
-                            text: "tonnes"
-                        }
-                    }) }}
-
-                {% endif %}
-
-                {% if 'steel' in data['reportBrandowner'] %}
-
-                    {{ govukInput({
-                        label: {
-                            text: "Steel"
-                        },
-                        classes: "govuk-input--width-5",
-                        id: "steelBrandowner",
-                        name: "steelBrandowner",
+                        id: "paperBrandowner",
+                        name: "paperBrandowner",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -133,15 +135,15 @@
 
                 {% endif %}
 
-                {% if 'wood' in data['reportBrandowner'] %}
+                {% if 'steel' in data['reportBrandowner'] %}
 
                     {{ govukInput({
                         label: {
-                            text: "Wood"
+                            text: "Steel"
                         },
                         classes: "govuk-input--width-5",
-                        id: "woodBrandowner",
-                        name: "woodBrandowner",
+                        id: "steelBrandowner",
+                        name: "steelBrandowner",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -151,15 +153,15 @@
 
                 {% endif %}
 
-                {% if 'fibre' in data['reportBrandowner'] %}
+                {% if 'wood' in data['reportBrandowner'] %}
 
                     {{ govukInput({
                         label: {
-                            text: "Fibre-based composite"
+                            text: "Wood"
                         },
                         classes: "govuk-input--width-5",
-                        id: "fibreBrandowner",
-                        name: "fibreBrandowner",
+                        id: "woodBrandowner",
+                        name: "woodBrandowner",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
