@@ -40,6 +40,7 @@ router.use('/drs/drs-obligation-checker_v1', require('./views/drs/drs-obligation
 router.use('/drs/drs-registration_v1', require('./views/drs/drs-registration_v1/_routes'));
 router.use('/drs/drs-reporting_v1', require('./views/drs/drs-reporting_v1/_routes'));
 
+router.use('/combined/combined-basic-obligation-checker_v1', require('./views/combined/combined-basic-obligation-checker_v1/_routes'));
 
 // Clear all session data
 router.get('/clear', (req, res) => {
