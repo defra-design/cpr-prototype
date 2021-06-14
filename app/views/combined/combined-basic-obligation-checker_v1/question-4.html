@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="results">
+
+            <h1 class="govuk-heading-l">How much packaging did your business place on the UK market between 1 Jan 2022 and 31 Dec 2022?</h1>
+
+            <!-- <p>Only include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in-scope drinks containers</li>
+                <li>drinks containers you sell in England, Wales or Northern Ireland</li>
+            </ul>
+
+            {{ govukDetails({
+                summaryText: "Which drinks containers are in-scope?",
+                html: "
+                <p>In-scope drinks containers are:</p>
+                <ul>
+                    <li>PET plastic bottles</li>
+                    <li>glass bottles</li>
+                    <li>steel and aluminium cans</li>
+                </ul>
+                "
+            }) }} -->
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "obCombinedEprTonnage",
+            name: "obCombinedEprTonnage",
+            items: [
+                {
+                value: "under",
+                text: "Less than 25 tonnes"
+                },
+                {
+                value: "over",
+                text: "25 tonnes or more"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

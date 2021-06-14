@@ -84,5 +84,9 @@ module.exports = {
   "obProducerBrand": "yes",
   "obProducerImporter": "yes",
   "obProducerTurnover": "yes",
-  "obRetailer": "yes"
+  "obRetailer": "yes",
+  "obCombinedTurnover": "yes",
+  "obCombinedDrs": "yes",
+  "obCombinedEprExport": "yes",
+  "obCombinedEprTonnage": "over"
 }

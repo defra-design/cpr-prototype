@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!-- Obligated for both -->
+        {% if 'yes' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] and 'yes' in data['obCombinedEprExport'] and 'over' in data['obCombinedEprTonnage'] %}
+        {{ govukPanel({
+            titleText: "Your business must register for both schemes"
+        }) }}
+        <p>Based on your answers, your business is obligated for both the extended producer responsibility and deposit return schemes.</p>
+        <p>You must register for both schemes.</p>
+        {{ govukButton({
+            text: "Register for both schemes"
+        })}}
+        <!-- Obligated for DRS -->
+        
+        {% elif 'no' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] %}
+        {{ govukPanel({
+            titleText: "Your business must register for the deposit return scheme"
+        }) }}
+        <p>Based on your answers, your business is only obligated for the deposit return scheme. You must now register for the scheme.</p>
+        {{ govukButton({
+            text: "Register for deposit return scheme"
+        })}}
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] and 'no' in data['obCombinedEprExport'] %}
+        {{ govukPanel({
+            titleText: "Your business must register for the deposit return scheme"
+        }) }}
+        <p>Based on your answers, your business is only obligated for the deposit return scheme. You must now register for the scheme.</p>
+        {{ govukButton({
+            text: "Register for deposit return scheme"
+        })}}
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] and 'yes' in data['obCombinedEprExport'] and 'under' in data['obCombinedEprTonnage']  %}
+        {{ govukPanel({
+            titleText: "Your business must register for the deposit return scheme"
+        }) }}
+        <p>Based on your answers, your business is only obligated for the deposit return scheme. You must now register for the scheme.</p>
+        {{ govukButton({
+            text: "Register for deposit return scheme"
+        })}}
+
+        <!-- Obligated for EPR -->
+        {% elif 'yes' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs'] and 'yes' in data['obCombinedEprExport'] and 'over' in data['obCombinedEprTonnage'] %}
+        {{ govukPanel({
+            titleText: "Your business must register for extended producer responsibility"
+        }) }}
+        <p>Based on your answers, your business is only obligated for the extended producer responsibility scheme. You must now register for the scheme.</p>
+        {{ govukButton({
+            text: "Register for extended producer responsibility"
+        })}}
+
+        <!-- Obligated for neither -->
+        {% elif 'no' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs']%}
+        {{ govukPanel({
+            titleText: "You do not need to register your business for either scheme"
+        }) }}
+        <p>Based on your answers, the extended producer responsibility and deposit return scheme regulations do not apply to your business. This means you do not need to do anything.</p>
+        <p>You should check again next year.</p>
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs'] and 'no' in data['obCombinedEprExport'] %}
+        {{ govukPanel({
+            titleText: "You do not need to register your business for either scheme"
+        }) }}
+        <p>Based on your answers, the extended producer responsibility and deposit return scheme regulations do not apply to your business. This means you do not need to do anything.</p>
+        <p>You should check again next year.</p>
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs'] and 'yes' in data['obCombinedEprExport'] and 'under' in data['obCombinedEprTonnage'] %}
+        {{ govukPanel({
+            titleText: "You do not need to register your business for either scheme"
+        }) }}
+        <p>Based on your answers, the extended producer responsibility and deposit return scheme regulations do not apply to your business. This means you do not need to do anything.</p>
+        <p>You should check again next year.</p>
+
+        {% else %}
+        {% endif %}
+
+
+
+        <p><a href="../epr/service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

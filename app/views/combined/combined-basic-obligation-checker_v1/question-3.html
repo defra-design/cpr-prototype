@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="route-question-3">
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "obCombinedEprExport",
+            name: "obCombinedEprExport",
+            fieldset: {
+                legend: {
+                text: "Did your business export any packaging between 1 Jan 2022 and 31 Dec 2022?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

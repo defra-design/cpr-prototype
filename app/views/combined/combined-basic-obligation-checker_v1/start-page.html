@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="question-1">
+
+            <h1 class="govuk-heading-l">Check if you need to register for extended producer responsibility or deposit return scheme</h1>
+            <p>Use this tool to find out if you need to register your business for extended producer responsibility or deposit return scheme for the 2022 calendar year (1 January 2022 to 31 December 2022).</p>
+            <div class="govuk-inset-text">This service is also available <a href="#">in Welsh (Cymraeg)</a>.</div>
+            <p>The tool will not send your details to Department for Environment, Food and Rural Affairs (DEFRA).</p>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
