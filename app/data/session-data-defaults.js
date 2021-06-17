@@ -88,5 +88,6 @@ module.exports = {
   "obCombinedTurnover": "yes",
   "obCombinedDrs": "yes",
   "obCombinedEprExport": "yes",
-  "obCombinedEprTonnage": "over"
+  "obCombinedEprTonnage": "over",
+  "obDrsCheckboxes": "no"
 }

@@ -4,6 +4,17 @@ const router = express.Router()
 
 
 
+// Routing for question-1.html
+router.post('*/route-question-1', function (req, res) {
+    var obDrsCheckboxes = req.session.data['obDrsCheckboxes']
+    if (obDrsCheckboxes == "no"){
+        res.redirect('question-2')
+    }
+    else if (obDrsCheckboxes == "yes"){
+        res.redirect('question-2b')
+    }
+})
+
 
 // Routing for question-2.html
 router.post('*/route-question-2', function (req, res) {
@@ -25,7 +36,7 @@ router.post('*/route-question-3', function (req, res) {
         res.redirect('question-4')
     }
     else if (obCombinedEprExport == "no"){
-        res.redirect('results')
+        res.redirect('question-4b')
     }
 })
 
