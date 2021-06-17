@@ -20,7 +20,7 @@ router.post('*/route-question-1', function (req, res) {
 router.post('*/route-question-2', function (req, res) {
     var obCombinedTurnover = req.session.data['obCombinedTurnover']
     if (obCombinedTurnover == "yes"){
-        res.redirect('question-3')
+        res.redirect('question-4')
     }
     else if (obCombinedTurnover == "no"){
         res.redirect('results')
