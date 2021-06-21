@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Change your packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">Change type A producer packaging data</h1>
+
+        <form method="POST" action="report-resubmit-remove">
+            <button class="govuk-button govuk-button--warning">Remove all type A data</button>
+        </form>
+
+        <form method="POST" action="report-check-details-resubmit">
+
+            {{ govukInput({
+                label: {
+                    text: "Paper"
+                },
+                classes: "govuk-input--width-5",
+                id: "paperBrandowner",
+                name: "paperBrandowner",
+                type: "number",
+                inputmode: "numeric",
+                value: "12",
+                suffix: {
+                    text: "tonnes"
+                }
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Plastic"
+                },
+                classes: "govuk-input--width-5",
+                id: "plasticBrandowner",
+                name: "plasticBrandowner",
+                type: "number",
+                inputmode: "numeric",
+                value: "15",
+                suffix: {
+                    text: "tonnes"
+                }
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Steel"
+                },
+                classes: "govuk-input--width-5",
+                id: "steelBrandowner",
+                name: "steelBrandowner",
+                type: "number",
+                inputmode: "numeric",
+                value: "10",
+                suffix: {
+                    text: "tonnes"
+                }
+            }) }}
+
+            <p><a href="report-brandowner-start">Add or remove a material</a></p>
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+    
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -257,12 +257,6 @@
                             {% endif %}
                         </span>
 
-                        {#
-                        {% if data['registered'] == 'yes' and data['intro2'] == 'no'  %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                        {% endif %}
-                        #}
-
                         {% if data['intro2'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag">Completed</strong>
                         {% endif %}
@@ -284,17 +278,9 @@
 
                         </span>
 
-                        {#
-                        {% if data['registered'] == 'no' and  data['reported'] == 'no' %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
-                        {% endif %}
-                        
-                        {% if data['intro2'] == 'yes' and  data['reported'] == 'no' %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
-                        {% endif %}
-                        #}
-
-                        {% if data['registered'] == 'yes' and data['reported'] == 'yes' %}
+                        {% if data['reported'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not submitted</strong>
+                        {% else %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% endif %}
                         
