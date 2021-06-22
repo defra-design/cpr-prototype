@@ -22,7 +22,11 @@
 
         <form method="POST" action="registration-check-org-audit?lastVisitedURL={{currentURL}}">
 
+          {% if data['isCompany'] == 'no' %}
+            <h1 class="govuk-heading-l">Where is Acme Org Ltd based?</h1>
+          {% else %}
             <h1 class="govuk-heading-l">Where is Acme Org Ltd registered?</h1>
+          {% endif %}
 
             {{ govukRadios({
               name: "orgNation",

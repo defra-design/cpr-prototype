@@ -93,7 +93,11 @@
           
           <div class="govuk-summary-list__row govuk-summary-list--no-border">
             <dt class="govuk-summary-list__key">
-              Registered address
+              {% if data['isCompany'] == 'no' %}
+                Address
+              {% else %}
+                Registered office address
+              {% endif %}
             </dt>
             <dd class="govuk-summary-list__value">
               1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
@@ -103,29 +107,33 @@
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row govuk-summary-list--no-border">
-            <dt class="govuk-summary-list__key">
-              Companies House number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['defraIdCompaniesHouseNumber'] or defaults['defraIdCompaniesHouseNumber'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              
-            </dd>
-          </div>
+          {% if data['isCompany'] != 'no' %}
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              SIC code
-            </dt>
-            <dd class="govuk-summary-list__value">
-              10612: Manufacture of breakfast cereals and cereals-based foods
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              
-            </dd>
-          </div>
+            <div class="govuk-summary-list__row govuk-summary-list--no-border">
+              <dt class="govuk-summary-list__key">
+                Companies House number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['defraIdCompaniesHouseNumber'] or defaults['defraIdCompaniesHouseNumber'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                SIC code
+              </dt>
+              <dd class="govuk-summary-list__value">
+                10612: Manufacture of breakfast cereals and cereals-based foods
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                
+              </dd>
+            </div>
+
+          {% endif %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -167,7 +175,38 @@
 
 
 
-        {% if data['correspondenceChoice'] == 'yes' %}
+        {% if data['auditChoice'] == 'no' %}
+
+        <h2 class="govuk-heading-m">Acme Org Ltd's audit address</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Audit address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['auditAddress1'] }}, 
+              {{ data['auditAddress2'] }}, 
+              {{ data['auditAddress3'] }},
+              {{ data['auditAddress4'] }}, 
+              {{ data['auditTown'] }}, 
+              {{ data['auditPostcode'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+        {% endif %}
+
+
+
+        {% if data['correspondenceChoice'] == 'no1' or data['correspondenceChoice'] == 'no2' %}
 
         <h2 class="govuk-heading-m">Acme Org Ltd's correspondence details</h2>
 

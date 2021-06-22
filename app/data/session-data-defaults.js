@@ -71,6 +71,7 @@ module.exports = {
   "sub2CompanyPhone": "01423 555 787",
   "sub2CompanyEmail": "hello@subsidiarytwo.com",
   "orgDescription": "producer,retailer",
+  "isCompany": "yes",
   "reported1": "no",
   "reported2": "no",
   "reported3": "no",

@@ -20,16 +20,15 @@
           href: "javascript:history.back()"
       }) }}
 
-      <h1 class="govuk-heading-l">
-        Does your organisation keep its packaging data at its registered office address?
-      </h1>
+      {% if data['isCompany'] == 'no' %}
+        <h1 class="govuk-heading-l">Does your organisation keep its packaging data at its main address?</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">Does your organisation keep its packaging data at its registered office address?</h1>
+      {% endif %}
       
       <p>
         We need to know the best place to carry out an audit. 
       </p>
-      <!--<p>
-        1 Francis Crick Avenue,<br />Cambridge Biomedical Campus,<br />Cambridge,<br />United Kingdom,<br />CB2 0AA
-      </p>-->
 
       <!-- Radio button routing in /vN/epr/_routes.js -->
       <form method="POST" action="route-check-org-audit?lastVisitedURL={{currentURL}}">
