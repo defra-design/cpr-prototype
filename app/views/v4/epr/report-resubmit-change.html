@@ -22,56 +22,54 @@
 
         <h1 class="govuk-heading-l">Change type A producer packaging data</h1>
 
-        <p><a href="report-resubmit-remove">Remove all type A data</a></p>
+        <div class="govuk-!-padding-bottom-4">
+            <p><a href="report-resubmit-remove">Remove all type A data</a></p>
+        </div>
 
         <form method="POST" action="report-check-details-resubmit">
 
-            {{ govukInput({
-                label: {
-                    html: 'Paper <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
-                },
-                classes: "govuk-input--width-5",
-                id: "paperBrandowner",
-                name: "paperBrandowner",
-                type: "number",
-                inputmode: "numeric",
-                value: "12",
-                suffix: {
-                    text: "tonnes"
-                }
-            }) }}
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="paperBrandowner">
+                        Paper
+                    </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                    <input class="govuk-input govuk-input--width-5" id="paperBrandowner" name="paperBrandowner" type="text" inputmode="number" value="12">
+                    <div class="govuk-input__suffix">tonnes</div>
+                    <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                </div>
+            </div>
 
-            {{ govukInput({
-                label: {
-                    html: 'Plastic <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
-                },
-                classes: "govuk-input--width-5",
-                id: "plasticBrandowner",
-                name: "plasticBrandowner",
-                type: "number",
-                inputmode: "numeric",
-                value: "15",
-                suffix: {
-                    text: "tonnes"
-                }
-            }) }}
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="plasticBrandowner">
+                        Plastic
+                    </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                    <input class="govuk-input govuk-input--width-5" id="plasticBrandowner" name="plasticBrandowner" type="text" inputmode="number" value="12">
+                    <div class="govuk-input__suffix">tonnes</div>
+                    <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                </div>
+            </div>
 
-            {{ govukInput({
-                label: {
-                    html: 'Steel <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
-                },
-                classes: "govuk-input--width-5",
-                id: "steelBrandowner",
-                name: "steelBrandowner",
-                type: "number",
-                inputmode: "numeric",
-                value: "10",
-                suffix: {
-                    text: "tonnes"
-                }
-            }) }}
+            <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="steelBrandowner">
+                        Steel
+                    </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                    <input class="govuk-input govuk-input--width-5" id="steelBrandowner" name="steelBrandowner" type="text" inputmode="number" value="12">
+                    <div class="govuk-input__suffix">tonnes</div>
+                    <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                </div>
+            </div>
 
+            <div class="govuk-!-padding-bottom-4">
             <p><a href="report-brandowner-start">Add a material</a></p>
+            </div>
 
             {{govukButton({
                 text: "Save and continue"
