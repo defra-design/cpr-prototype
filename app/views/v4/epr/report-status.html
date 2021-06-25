@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Your packaging data status | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <div class="govuk-!-margin-top-4">
+
+          {% if 
+              data['dataReported'] == 'yes' and 
+              data['dataReviewed'] == 'no' and 
+              data['dataAccepted'] == 'no' 
+          %}
+              <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-2">Pending</strong>
+              <h1 class="govuk-heading-l">
+                Your packaging data is pending
+              </h1>
+              <p>We’ve received your data and will start to review it soon.</p>
+              <p>You can still <a href="report-resubmit">change your packaging data</a> if you need to.</p>
+          {% endif %}
+
+          {% if 
+            data['dataReported'] == 'yes' and 
+            data['dataReviewed'] == 'yes' and 
+            data['dataAccepted'] == 'no' 
+          %}
+              <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">Being reviewed</strong>
+              <h1 class="govuk-heading-l">
+                Your packaging data is being reviewed
+              </h1>
+              <p>We're currently reviewing your data. We’ll email you with an update or to ask for more information.</p>
+              <p>If you need to change your packaging data, you must contact us to let us know. Call [number] or email [email address]. Make sure you quote your reference number: [reference number].</p>
+          {% endif %}
+
+          {% if 
+            data['dataReported'] == 'yes' and 
+            data['dataReviewed'] == 'no' and 
+            data['dataAccepted'] == 'yes' 
+          %}
+              <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2">Accepted</strong>
+              <h1 class="govuk-heading-l">
+                Your packaging data has been accepted
+              </h1>
+              <p>We’ll use your data to calculate your obligated fees.</p>
+              <p>We’ll send you an email to let you know how much your fees are and when your payment is due.</p>
+          {% endif %}
+
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

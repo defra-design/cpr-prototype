@@ -22,15 +22,13 @@
 
         <h1 class="govuk-heading-l">Change type A producer packaging data</h1>
 
-        <form method="POST" action="report-resubmit-remove">
-            <button class="govuk-button govuk-button--warning">Remove all type A data</button>
-        </form>
+        <p><a href="report-resubmit-remove">Remove all type A data</a></p>
 
         <form method="POST" action="report-check-details-resubmit">
 
             {{ govukInput({
                 label: {
-                    text: "Paper"
+                    html: 'Paper <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
                 },
                 classes: "govuk-input--width-5",
                 id: "paperBrandowner",
@@ -45,7 +43,7 @@
 
             {{ govukInput({
                 label: {
-                    text: "Plastic"
+                    html: 'Plastic <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
                 },
                 classes: "govuk-input--width-5",
                 id: "plasticBrandowner",
@@ -60,7 +58,7 @@
 
             {{ govukInput({
                 label: {
-                    text: "Steel"
+                    html: 'Steel <a href="report-resubmit-remove-material" class="govuk-!-margin-left-2">Remove material</a>'
                 },
                 classes: "govuk-input--width-5",
                 id: "steelBrandowner",
@@ -73,7 +71,7 @@
                 }
             }) }}
 
-            <p><a href="report-brandowner-start">Add or remove a material</a></p>
+            <p><a href="report-brandowner-start">Add a material</a></p>
 
             {{govukButton({
                 text: "Save and continue"
