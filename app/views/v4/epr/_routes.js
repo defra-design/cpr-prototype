@@ -321,14 +321,31 @@ router.post('*/route-reporting-serviceprovider', function (req, res) {
 
 // Routing for report-resubmit-remove.html
 router.post('*/route-resubmit-remove', function (req, res) {
-    var removeChoice = req.session.data['removeChoice']
-    if (removeChoice == "no"){
-        res.redirect('report-check-details-resubmit')
+    var remove = req.session.data['remove'] // Get the producer type data to be removed
+    var removeChoice = req.session.data['removeChoice'] // Get whether the user has chosen yes or no
+    if (removeChoice == "yes"){
+        res.redirect('report-resubmit?' + remove +'=no')
     }
     else {
-        res.redirect('report-check-details-resubmit')
+        res.redirect('report-resubmit-change')
     }
 })
+
+
+// Routing for report-resubmit-remove-material.html
+router.post('*/route-resubmit-remove-material', function (req, res) {
+    var remove = req.session.data['remove'] // Get the material to be removed
+    var removeChoiceMaterial = req.session.data['removeChoiceMaterial'] // Get whether the user has chosen yes or no
+    if (removeChoiceMaterial == "yes"){
+        res.redirect('report-resubmit-change?' + remove +'=0') // Set the material tonnage to zero because it's too difficult to remove the material name from the array of materials
+    }
+    else {
+        res.redirect('report-resubmit-change')
+    }
+})
+
+
+
 
 
 // Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.

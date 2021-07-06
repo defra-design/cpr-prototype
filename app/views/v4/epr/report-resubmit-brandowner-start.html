@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="report-resubmit-brandowner">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Select any other packaging materials you placed on the market as a type A producer in 2022
+                        </h1>
+                    </legend>
+
+                    <p>Include any packaging materials that:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>your organisation placed goods into to sell</li>
+                        <li>somebody else placed your organisation’s goods into for you to sell </li>
+                    </ul>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+
+                        {% if 'aluminium' in data['reportBrandowner'] and data['aluminiumBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input3" name="reportBrandowner" type="checkbox" value="aluminium" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                    Aluminium
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input3" name="reportBrandowner" type="checkbox" value="aluminium">
+                                <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                    Aluminium
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'fibre' in data['reportBrandowner'] and data['fibreBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input7" name="reportBrandowner" type="checkbox" value="fibre" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                    Fibre-based composite 
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input7" name="reportBrandowner" type="checkbox" value="fibre">
+                                <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                    Fibre-based composite 
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'glass' in data['reportBrandowner'] and data['glassBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input2" name="reportBrandowner" type="checkbox" value="glass" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                    Glass
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input2" name="reportBrandowner" type="checkbox" value="glass">
+                                <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                    Glass
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'paper' in data['reportBrandowner'] and data['paperBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input1" name="reportBrandowner" type="checkbox" value="paper" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                    Paper
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input1" name="reportBrandowner" type="checkbox" value="paper">
+                                <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                    Paper
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'plastic' in data['reportBrandowner'] and data['plasticBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input5" name="reportBrandowner" type="checkbox" value="plastic" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input5">
+                                    Plastic
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input5" name="reportBrandowner" type="checkbox" value="plastic">
+                                <label class="govuk-label govuk-checkboxes__label" for="input5">
+                                    Plastic
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'steel' in data['reportBrandowner'] and data['steelBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input4" name="reportBrandowner" type="checkbox" value="steel" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input4">
+                                    Steel
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input4" name="reportBrandowner" type="checkbox" value="steel">
+                                <label class="govuk-label govuk-checkboxes__label" for="input4">
+                                    Steel
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'wood' in data['reportBrandowner'] and data['woodBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input6" name="reportBrandowner" type="checkbox" value="wood" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                    Wood
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input6" name="reportBrandowner" type="checkbox" value="wood">
+                                <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                    Wood
+                                </label>
+                            </div>
+                        {% endif %}
+
+                        {% if 'other' in data['reportBrandowner'] and data['otherBrandowner'] != '0' %}
+                            <div class="govuk-checkboxes__item" style="display: none;">
+                                <input class="govuk-checkboxes__input" id="input8" name="reportBrandowner" type="checkbox" value="other" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                    Other
+                                </label>
+                            </div>
+                        {% else %}
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="input8" name="reportBrandowner" type="checkbox" value="other">
+                                <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                    Other
+                                </label>
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
