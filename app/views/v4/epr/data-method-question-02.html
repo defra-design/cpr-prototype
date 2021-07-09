@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        
+        <form method="POST" action="route-method-question-02">
+
+            <h1 class="govuk-heading-l">Are you looking to integrate your business software directly with this service?</h1>
+
+            <!-- <p>Only include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in-scope drinks containers</li>
+                <li>drinks containers you place on the market in England, Wales or Northern Ireland</li>
+            </ul> -->
+
+            <!-- {{ govukDetails({
+                summaryText: "Which drinks containers are in-scope?",
+                html: "
+                <p>In-scope drinks containers are:</p>
+                <ul>
+                    <li>PET plastic bottles</li>
+                    <li>glass bottles</li>
+                    <li>steel and aluminium cans</li>
+                </ul>
+                "
+            }) }} -->
+
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "methodSoftwareIntegration",
+            name: "methodSoftwareIntegration",
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -346,6 +346,41 @@ router.post('*/route-resubmit-remove-material', function (req, res) {
 
 
 
+// Routing for data-method-question-01.html
+router.post('*/route-method-question-01', function (req, res) {
+    var methodBusinessSoftware = req.session.data['methodBusinessSoftware']
+    if (methodBusinessSoftware == "yes"){
+        res.redirect('data-method-question-02')
+    }
+    else {
+        res.redirect('data-select-alternate-method')
+    }
+})
+
+
+// Routing for data-method-question-02.html
+router.post('*/route-method-question-02', function (req, res) {
+    var methodSoftwareIntegration = req.session.data['methodSoftwareIntegration']
+    if (methodSoftwareIntegration == "yes"){
+        res.redirect('data-reporting-method-results')
+    }
+    else {
+        res.redirect('data-select-alternate-method')
+    }
+})
+
+
+// Routing for data-select-alternate-method.html
+router.post('*/route-methodSelection', function (req, res) {
+    var methodSelection = req.session.data['methodSelection']
+    if (methodSelection == "manually"){
+        res.redirect('home?reportMethod=yes')
+    }
+    else {
+        res.redirect('data-spreadsheet?reportMethod=yes')
+    }
+})
+
 
 
 // Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
