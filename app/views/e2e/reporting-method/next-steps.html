@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['methodSelection'] == 'manually' %}
+
+        <span class="govuk-caption-l">Manual reporting</span>
+        <h1 class="govuk-heading-l">
+            Next steps 
+        </h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus, arcu nec pulvinar vulputate, purus eros tristique lectus.</p>
+
+        <p>Nullam elit felis, imperdiet at nibh eget, pharetra vehicula eros. Nullam ut orci diam. Morbi ut facilisis diam.</p>
+        
+        <form method="POST" action="home?nextSteps=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+
+        {% elif data['methodSelection'] == 'spreadsheet' %}
+        <span class="govuk-caption-l">Spreadsheet reporting</span>
+        <h1 class="govuk-heading-l">
+            Next steps 
+        </h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus, arcu nec pulvinar vulputate, purus eros tristique lectus.</p>
+
+        <p>Nullam elit felis, imperdiet at nibh eget, pharetra vehicula eros. Nullam ut orci diam. Morbi ut facilisis diam.</p>
+
+        <p><a href="#">Download spreadsheet template</a></p>
+
+        <form method="POST" action="home?nextSteps=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+
+        {% else %}
+        <span class="govuk-caption-l">API reporting</span>
+        <h1 class="govuk-heading-l">
+            Next steps 
+        </h1>
+
+        <p>You'll need to liaise with your developer so they can build the API integration between your business software and this service.</p>
+
+        <p>You should share the <a href="api-documentation">API technical documentation</a> with your developer.</p>
+        
+        <p>API integration can take time to complete, so you need to ensure that any development is completed before your reporting deadline.</p>
+
+        <p>Once your developer has completed the API integration you'll receive an email confirmation from Defra.</p>
+            
+        <p>After this, your business software will prompt you to send your packaging data at the relevant time.</p>
+        
+        <form method="POST" action="home?nextSteps=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+        {% endif %}
+        
+    </div>
+</div>
+
+{% endblock %}

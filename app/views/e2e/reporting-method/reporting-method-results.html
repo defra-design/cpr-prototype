@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        <span class="govuk-caption-l">Based on your answers, we recommend:</span>
+
+        <h1 class="govuk-heading-l">
+            Connect your business software to this service via API integration
+        </h1>
+
+        <p>Application Programming Interface (API) is a software intermediary that allows two applications to talk to each other.</p>
+        
+        <p>Connecting via API will allow your packaging data to be automatically imported into this system for reporting purposes.</p>
+
+        <p>You will need someone with software development expertise to implement an API.</p>
+
+        <p>You can access all of the information you need to integrate your enterprise software with the Extended Producer Responsibility service by clicking <a href="afda" target="_blank">here</a>.</p>
+
+        <form method="POST" action="home?reportMethod=yes">
+            <button class="govuk-button">
+                Choose API reporting method
+            </button>
+        </form>
+        
+        <p><a href="select-alternate-method">Choose another reporting method</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

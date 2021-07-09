@@ -42,6 +42,8 @@ router.use('/drs/drs-reporting_v1', require('./views/drs/drs-reporting_v1/_route
 
 router.use('/combined/combined-basic-obligation-checker_v1', require('./views/combined/combined-basic-obligation-checker_v1/_routes'));
 
+router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
+
 // Clear all session data
 router.get('/clear', (req, res) => {
 	req.session.data = {}
