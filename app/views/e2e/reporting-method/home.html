@@ -27,11 +27,11 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Enrol your organisation for 2023
+                    <span class="app-task-list__section-number">1. </span> Apply to register your organisation
                 </h2>
                 {% if data['registered'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "The registration deadline is 31st January 2024",
+                        text: "The registration deadline is 31st January 2023",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
@@ -214,7 +214,7 @@
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="data-obligations-summary">Summary of your data obligations</a>
+                            <a href="data-obligations-summary">Packaging data you must report</a>
                         </span>
 
                         {% if data['introPrepare'] == 'yes' %}
@@ -225,9 +225,9 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['introPrepare'] == 'yes' %}
-                            <a href="method-question-01">Choose your reporting method</a>
+                            <a href="method-question-01">Choose how to submit your packaging data</a>
                             {% else %}
-                            Choose your reporting method
+                            Choose how to submit your packaging data
                             {% endif %}
                         </span>
 
@@ -239,9 +239,9 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['reportMethod'] == 'yes' %}
-                            <a href="next-steps">Next steps</a>
+                            <a href="next-steps">What happens next</a>
                             {% else %}    
-                            Next steps
+                            What happens next
                             {% endif %}
                         </span>
                         {% if data['nextSteps'] == 'yes' %}
@@ -254,19 +254,19 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">3. </span> Report your packaging data for 2023
+                    <span class="app-task-list__section-number">3. </span> Report your packaging data for 2022
                 </h2>
 
                 {% if data['reported'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "The reporting deadline is 31 January 2024",
+                        text: "The reporting deadline is 7th April 2023",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
 
                 <ul class="app-task-list__items">
 
-                    <!-- <li class="app-task-list__item">
+                    <li class="app-task-list__item">
 
                         <span class="app-task-list__task-name">
                             {% if data['registered'] == 'yes' and data['reported'] == 'no'  %}
@@ -288,7 +288,7 @@
                             <strong class="govuk-tag app-task-list__tag">Completed</strong>
                         {% endif %}
 
-                    </li> -->
+                    </li>
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
@@ -321,9 +321,32 @@
                         
                     </li>
 
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+
+                            View the status of your packaging data
+                            
+                        </span>
+                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not submitted</strong>
+                        {#
+                        {% if data['registered'] == 'no' and  data['reported'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                        {% endif %}
+                        
+                        {% if data['intro2'] == 'yes' and  data['reported'] == 'no' %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+                        {% endif %}
+                        #}
+
+                        {% if data['registered'] == 'yes' and data['reported'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% endif %}
+                        
+                    </li>
+
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">4. </span> Pay your obligated fees for 2023 to the Producer Responsibility Scheme Administration (PRSA)
                 </h2>
@@ -339,13 +362,13 @@
                             View and pay your fees on the PRSA website
                         </span>
 
-                        <!-- {% if data['intro1'] == 'yes' %}
+                        {% if data['intro1'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% else %}
-                        {% endif %} -->
+                        {% endif %}
                     </li>
                 </ul>
-            </li>
+            </li> -->
             
         </ol>
     </div>
