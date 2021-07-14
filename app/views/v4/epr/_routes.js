@@ -382,6 +382,18 @@ router.post('*/route-methodSelection', function (req, res) {
 })
 
 
+// Routing for report-spreadsheet-check.html
+router.post('*/route-report-spreadsheet-check', function (req, res) {
+    var spreadsheetChoice = req.session.data['spreadsheetChoice']
+    if (spreadsheetChoice == "no"){
+        res.redirect('report-spreadsheet')
+    }
+    else {
+        res.redirect('report-spreadsheet-upload')
+    }
+})
+
+
 
 // Routing for the POM data reporting pages. Only the pages that correspond to the user's selections in the 'orgActivity' variable (/epr/registration-org-type.html) will be shown.
 // router.post('*/route-reporting', function (req, res) {
