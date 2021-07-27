@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-methodSelection">
+
+            <h1 class="govuk-heading-l">
+                How do you want to submit your packaging data? 
+            </h1>
+
+            {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "methodSelection",
+            name: "methodSelection",
+            items: [
+                {
+                    value: "manually",
+                    text: "Manually",
+                    hint: {
+                        text: "You’ll enter your data directly into our online form."
+                    }
+                },
+                {
+                    value: "spreadsheet",
+                    text: "Upload a spreadsheet",
+                    hint: {
+                        text: "You’ll download our spreadsheet, fill it in then upload it."
+                    }
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

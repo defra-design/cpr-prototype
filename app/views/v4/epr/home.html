@@ -16,7 +16,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
-            Register as an obligated packaging producer
+            Meet your packaging producer obligations
         </h1>
 
         {% if data['registered'] == 'yes' %}
@@ -27,11 +27,11 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Apply to register your organisation
+                    <span class="app-task-list__section-number">1. </span> Enrol your organisation
                 </h2>
                 {% if data['registered'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "The registration deadline is 31st January 2023",
+                        text: "The registration deadline is 31 January 2023",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
@@ -171,7 +171,7 @@
 
             </li>
 
-            <!--<li>
+            <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">2. </span> Prepare your packaging data for 2022
                 </h2>
@@ -179,36 +179,44 @@
                 <ul class="app-task-list__items">
 
                     <li class="app-task-list__item">
-
                         <span class="app-task-list__task-name">
-                            <a href="#">
-                                Find out what packaging data you need to provide
-                            </a>
+                            {% if data['registered'] == 'yes' %}
+                                <a href="data-obligations-summary">Packaging data you must report</a>
+                            {% else %}
+                                Packaging data you must report
+                            {% endif %}
                         </span>
 
+                        {% if data['introPrepare'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                        {% endif %}
                     </li>
-                    
                     <li class="app-task-list__item">
-
                         <span class="app-task-list__task-name">
-                            <a href="#">
-                                How to prepare your packaging data
-                            </a>
+                            {% if data['introPrepare'] == 'yes' %}
+                                <a href="data-method-question-01">Choose how to submit your packaging data</a>
+                            {% else %}
+                                Choose how to submit your packaging data
+                            {% endif %}
                         </span>
 
+                        {% if data['reportMethod'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                        {% endif %}
                     </li>
-                    
                 </ul>
-            </li>-->
+            </li>
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">2. </span> Report your packaging data for 2022
+                    <span class="app-task-list__section-number">3. </span> Report your packaging data for 2022
                 </h2>
 
                 {% if data['dataReported'] != 'yes' %}
                     {{ govukWarningText({
-                        text: "The reporting deadline is 7th April 2023",
+                        text: "The reporting deadline is 7 April 2023",
                         iconFallbackText: "Warning"
                     }) }}
                 {% endif %}
@@ -218,7 +226,7 @@
                     <li class="app-task-list__item">
 
                         <span class="app-task-list__task-name">
-                            {% if data['registered'] == 'yes' %}
+                            {% if data['reportMethod'] == 'yes' %}
                                 <a href="report-start">
                                     Introduction and what you'll need
                                 </a>
@@ -245,8 +253,9 @@
                             {% endif %}
                             
 
-                            <!-- Report data for the first time -->
+                            <!-- Report data manually for the first time -->
                             {% if 
+                                data['methodSelection'] == 'manually' and 
                                 data['intro2'] == 'yes' and 
                                 data['dataReported'] == 'no' and 
                                 data['dataReviewed'] == 'no' and 
@@ -258,6 +267,21 @@
                                         Submit your packaging data
                                     </a>
                                 </form>
+                            {% endif %}
+                            
+                            
+                            <!-- Report data by CSV for the first time -->
+                            {% if 
+                                data['methodSelection'] == 'spreadsheet' and 
+                                data['intro2'] == 'yes' and 
+                                data['dataReported'] == 'no' and 
+                                data['dataReviewed'] == 'no' and 
+                                data['dataResubmit'] == 'no' and 
+                                data['dataAccepted'] == 'no' 
+                            %}
+                                <a href="report-spreadsheet">
+                                    Submit your packaging data
+                                </a>
                             {% endif %}
 
 
