@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-method-question-01">
+
+            <h1 class="govuk-heading-l">Which packaging materials did you use in your 'primary' packaging?</h1>
+
+            <!-- <p>Only include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in-scope drinks containers</li>
+                <li>drinks containers you place on the market in England, Wales or Northern Ireland</li>
+            </ul> -->
+
+            {{ govukDetails({
+                summaryText: "What is primary packaging?",
+                html: "
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus risus vel neque auctor rhoncus.</p>
+                "
+            }) }}
+
+
+            {{ govukCheckboxes({
+              idPrefix: "organisation",
+              name: "organisation",
+              classes: "govuk-checkboxes--small",
+              hint: {
+                text: "Select all materials used in your primary packaging."
+              },
+              items: [
+                {
+                  value: "hmrc",
+                  text: "Aluminium: Drink Cans"
+                },
+                {
+                  value: "employment-tribunal",
+                  text: "Aluminium: Aerosols"
+                },
+                {
+                  value: "MOD",
+                  text: "Aluminium: Foil Containers"
+                },
+                {
+                  value: "DfT",
+                  text: "Glass bottles: Clear"
+                },
+                {
+                  value: "DfT",
+                  text: "Glass bottles: Amber"
+                },
+                {
+                  value: "DfT",
+                  text: "Glass bottles: Green"
+                },
+                {
+                  value: "DfT",
+                  text: "Paper/Card: Corrugated"
+                },
+                {
+                  value: "DfT",
+                  text: "Paper/Card: Carton and other board"
+                },
+                {
+                  value: "DfT",
+                  text: "Paper/Card: Liquid beverage Carton"
+                },
+                {
+                  value: "DfT",
+                  text: "Paper/Card: Other"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic bottles: Clear HDPE Rigid"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic bottles: Coloured HDPE Rigid Bottles"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic bottles: PE Rigid Bottles"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic pots: HDPE Tubs and Trays"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic pots: LDPE Tubs and Trays"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic pots: PE Tubs and Trays"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic film: Mono Material HDPE Flexible"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic film: Clear Mono Material HDPE Flexible"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic film: Coloured Mono Material HDPE Flexible"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic misc: HDPE Item"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic misc: LDPE Item"
+                },
+                {
+                  value: "DfT",
+                  text: "Plastic misc: PE Item"
+                },
+                {
+                  value: "DfT",
+                  text: "Wood: Box"
+                },
+                {
+                  value: "DfT",
+                  text: "Wood: Case"
+                },
+                {
+                  value: "DfT",
+                  text: "Wood: Tray"
+                },
+                {
+                  value: "DfT",
+                  text: "Wood: Other"
+                }
+              ]
+            }) }}
+
+
+            {{ govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-method-question-01">
+
+            <h1 class="govuk-heading-l">Which material sub-types have you used in your 'primary' packaging?</h1>
+
+            <!-- <p>Only include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in-scope drinks containers</li>
+                <li>drinks containers you place on the market in England, Wales or Northern Ireland</li>
+            </ul> -->
+
+            <div id="waste-hint" class="govuk-hint">Select all sub-types used in your primary packaging.</div>
+
+            {{ govukCheckboxes({
+              idPrefix: "organisation",
+              name: "organisation",
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+                legend: {
+                  text: "Aluminium",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "hmrc",
+                  text: "Drink cans"
+                },
+                {
+                  value: "employment-tribunal",
+                  text: "Aerosols"
+                },
+                {
+                  value: "MOD",
+                  text: "Foil containers"
+                }
+              ]
+            }) }}
+
+
+            {{ govukCheckboxes({
+              idPrefix: "organisation",
+              name: "organisation",
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+                legend: {
+                  text: "Paper/card",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "hmrc",
+                  text: "Corrugated"
+                },
+                {
+                  value: "employment-tribunal",
+                  text: "Carton and other board"
+                },
+                {
+                  value: "employment-tribunal",
+                  text: "Liquid beverage carton"
+                },
+                {
+                  value: "MOD",
+                  text: "Other"
+                }
+              ]
+            }) }}
+
+            {{ govukCheckboxes({
+              idPrefix: "organisation",
+              name: "organisation",
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+                legend: {
+                  text: "Wood",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "hmrc",
+                  text: "Wooden box"
+                },
+                {
+                  value: "employment-tribunal",
+                  text: "Wooden case"
+                },
+                {
+                  value: "MOD",
+                  text: "Wooden tray"
+                },
+                {
+                  value: "MOD",
+                  text: "Miscellaneous"
+                }
+              ]
+            }) }}
+
+
+
+            {{ govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

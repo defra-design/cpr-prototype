@@ -1,0 +1,378 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-method-question-01">
+
+            <h1 class="govuk-heading-l">Which packaging materials did you use in your 'primary' packaging?</h1>
+
+            <!-- <p>Only include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in-scope drinks containers</li>
+                <li>drinks containers you place on the market in England, Wales or Northern Ireland</li>
+            </ul> -->
+
+            {{ govukDetails({
+                summaryText: "What is primary packaging?",
+                html: "
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus risus vel neque auctor rhoncus.</p>
+                "
+            }) }}
+
+            <div id="waste-hint" class="govuk-hint">Select all materials used in your primary packaging.</div>
+
+            <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="col" id="select-all" style="width:5;"></th>
+                  <th class="govuk-table__header" scope="col" style="width:25%;">Material</th>
+                  <th class="govuk-table__header" scope="col" style="width:50%;">Sub-type</th>
+                  <th class="govuk-table__header" scope="col" style="width:20%;">Recyclability</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Aluminium</td>
+                  <td class="govuk-table__cell">Drink cans</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Aluminium</td>
+                  <td class="govuk-table__cell">Aerosols</td>
+                  <td class="govuk-table__cell">Medium</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Aluminium</td>
+                  <td class="govuk-table__cell">Foil containers</td>
+                  <td class="govuk-table__cell">Low</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Glass bottles</td>
+                  <td class="govuk-table__cell">Clear</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Glass bottles</td>
+                  <td class="govuk-table__cell">Amber</td>
+                  <td class="govuk-table__cell">Low</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Glass bottles</td>
+                  <td class="govuk-table__cell">Green</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Paper/card</td>
+                  <td class="govuk-table__cell">Corrugated</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Paper/card</td>
+                  <td class="govuk-table__cell">Carton and other board</td>
+                  <td class="govuk-table__cell">Low</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Paper/card</td>
+                  <td class="govuk-table__cell">Liquid beverage carton</td>
+                  <td class="govuk-table__cell">Low</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Paper/card</td>
+                  <td class="govuk-table__cell">Other</td>
+                  <td class="govuk-table__cell">N/A</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Clear HDPE rigid bottles</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Coloured HDPE rigid bottles</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">PE rigid bottles</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">HDPE tubs and trays</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">LDPE tubs and trays</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">PE tubs and trays</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Mono material HDPE flexible film</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Clear mono material HDPE flexible film</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Coloured mono material HDPE flexible film</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Miscellaneous HDPE item</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Miscellaneous LDPE item</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Plastic</td>
+                  <td class="govuk-table__cell">Miscellaneous PE item</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Wood</td>
+                  <td class="govuk-table__cell">Wooden box</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Wood</td>
+                  <td class="govuk-table__cell">Wooden case</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Wood</td>
+                  <td class="govuk-table__cell">Wooden tray</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+                <tr class="govuk-table__row govuk-table__row--selected">
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                      <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                      <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                      </label>
+                    </div>
+                  </td>
+                  <td class="govuk-table__cell">Wood</td>
+                  <td class="govuk-table__cell">Miscellaneous</td>
+                  <td class="govuk-table__cell">High</td>
+                </tr>
+              </tbody>
+            </table>
+            
+
+            {{ govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
