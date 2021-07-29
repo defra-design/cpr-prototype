@@ -171,6 +171,18 @@
             </dd>
           </div>
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Turnover
+            </dt>
+            <dd class="govuk-summary-list__value">
+              &pound;{{ data['orgTurnover'] or defaults['orgTurnover'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">Change</a>
+            </dd>
+          </div>
+
         </dl>
 
 
@@ -312,53 +324,6 @@
         </dl>
 
         {% endif %}
-
-
-
-
-        {% if data['sub1'] == '1' %}
-          <h2 class="govuk-heading-m">Group activity details</h2>
-        {% else %}
-          <h2 class="govuk-heading-m">Activity details</h2>
-        {% endif %}
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Turnover
-            </dt>
-            <dd class="govuk-summary-list__value">
-              &pound;{{ data['orgTurnover'] or defaults['orgTurnover'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">Change</a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              {% if data['sub1'] == '1' %}
-                Type(s) in the group
-              {% else %}
-                Organisation type(s)
-              {% endif %}
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['producerType1'] == 'yes' %}type A producer<br />{% endif %}
-              {% if data['producerType2'] == 'yes' %}type B producer<br />{% endif %}
-              {% if data['producerType3'] == 'yes' %}type C producer<br />{% endif %}
-              {% if data['producerType4'] == 'yes' %}type D producer<br />{% endif %}
-              {% if data['producerType5'] == 'yes' %}type F producer<br />{% endif %}
-              {% if data['producerTypeSeller'] == 'yes' %}Seller<br />{% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">Change</a>
-            </dd>
-          </div>
-
-        </dl>
-
 
 
         

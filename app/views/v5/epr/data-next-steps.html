@@ -22,56 +22,76 @@
 
         {% if data['methodSelection'] == 'manually' %}
 
-        <span class="govuk-caption-l">Manual reporting</span>
-        <h1 class="govuk-heading-l">
-            What happens next 
-        </h1>
+            <span class="govuk-caption-l">Manual reporting</span>
+            <h1 class="govuk-heading-l">
+                What happens next 
+            </h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus, arcu nec pulvinar vulputate, purus eros tristique lectus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus, arcu nec pulvinar vulputate, purus eros tristique lectus.</p>
 
-        <p>Nullam elit felis, imperdiet at nibh eget, pharetra vehicula eros. Nullam ut orci diam. Morbi ut facilisis diam.</p>
-        
-        <form method="POST" action="home?nextSteps=yes">
-            <button class="govuk-button">
-                Continue
-            </button>
-        </form>
+            <p>Nullam elit felis, imperdiet at nibh eget, pharetra vehicula eros. Nullam ut orci diam. Morbi ut facilisis diam.</p>
+            
+            <form method="POST" action="home?nextSteps=yes">
+                <button class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
 
         {% elif data['methodSelection'] == 'spreadsheet' %}
-        <span class="govuk-caption-l">Spreadsheet reporting</span>
-        <h1 class="govuk-heading-l">
-            What happens next 
-        </h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus, arcu nec pulvinar vulputate, purus eros tristique lectus.</p>
+            <span class="govuk-caption-l">
+                Spreadsheet reporting
+            </span>
+            <h1 class="govuk-heading-l">
+                Prepare your spreadsheet 
+            </h1>
+    
+            <h2 class="govuk-heading-m">
+                Step 1: Download our spreadsheet
+            </h2>
+            <p>
+                <a href="/public/files/2022_packaging_data.csv" download >Download the packaging data spreadsheet</a> (CSV, 400MB).
+            </p>
+    
+            <h2 class="govuk-heading-m">
+                Step 2: Enter your data
+            </h2>
+            <p>
+                Enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.
+            </p>
+            <p>
+                Do not include any materials that are less than 500kg. 
+            </p>
+    
+            <h2 class="govuk-heading-m">
+                Step 3: Return and upload your spreadsheet by 7 April 2023.
+            </h2>
 
-        <p>Nullam elit felis, imperdiet at nibh eget, pharetra vehicula eros. Nullam ut orci diam. Morbi ut facilisis diam.</p>
+            <form method="POST" action="home?nextSteps=yes">
+                <button class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
 
-        <p><a href="#">Download spreadsheet template</a></p>
+        {% elif data['methodSelection'] == 'api' %}
 
-        <form method="POST" action="home?nextSteps=yes">
-            <button class="govuk-button">
-                Continue
-            </button>
-        </form>
+            <!-- <span class="govuk-caption-l">API reporting</span> -->
+            <h1 class="govuk-heading-l">
+                You need to connect your software program to this service 
+            </h1>
 
-        {% else %}
-        <!-- <span class="govuk-caption-l">API reporting</span> -->
-        <h1 class="govuk-heading-l">
-            You need to connect your software program to this service 
-        </h1>
+            <p>You should share the <a href="https://developer-portal.trade.defra.gov.uk/explore-apis/export-health-certificates" target="_blank">API technical documentation (opens in a new tab)</a> with the person who is going to connect your software program with the API.</p>
+            
+            <p>It can take a while to connect via an API, so make sure there’s enough time to do this before your reporting deadline.</p>
 
-        <p>You should share the <a href="https://developer-portal.trade.defra.gov.uk/explore-apis/export-health-certificates" target="_blank">API technical documentation (opens in a new tab)</a> with the person who is going to connect your software program with the API.</p>
-        
-        <p>It can take a while to connect via an API, so make sure there’s enough time to do this before your reporting deadline.</p>
+            <p>Once the API connection has been completed, you'll receive email confirmation from Defra. Your software program will tell you when you need to submit your packaging data.</p>
+            
+            <form method="POST" action="home?nextSteps=yes">
+                <button class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
 
-        <p>Once the API connection has been completed, you'll receive email confirmation from Defra. Your software program will tell you when you need to submit your packaging data.</p>
-        
-        <form method="POST" action="home?nextSteps=yes">
-            <button class="govuk-button">
-                Continue
-            </button>
-        </form>
         {% endif %}
         
     </div>

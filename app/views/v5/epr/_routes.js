@@ -185,6 +185,18 @@ router.post('*/route-report-method', function (req, res) {
 })
 
 
+// Routing for activities-step-01.html
+router.post('*/route-activities-step-01', function (req, res) {
+    var sellerOnly = req.session.data['sellerOnly']
+    if (sellerOnly == "yes"){
+        res.redirect('')
+    }
+    else {
+        res.redirect('activities-primary-intro')
+    }
+})
+
+
 
 // Routing for the POM data reporting pages depending on what type(s) of producer have been selected.
 router.post('*/route-reporting', function (req, res) {
@@ -370,18 +382,6 @@ router.post('*/route-method-question-02', function (req, res) {
 })
 
 
-// Routing for data-select-alternate-method.html
-router.post('*/route-methodSelection', function (req, res) {
-    var methodSelection = req.session.data['methodSelection']
-    if (methodSelection == "manually"){
-        res.redirect('home?reportMethod=yes')
-    }
-    else {
-        res.redirect('data-spreadsheet?reportMethod=yes')
-    }
-})
-
-
 // Routing for report-spreadsheet-check.html
 router.post('*/route-report-spreadsheet-check', function (req, res) {
     var spreadsheetChoice = req.session.data['spreadsheetChoice']
@@ -511,9 +511,9 @@ router.get('*/service-start-defra-check-requested', function (request, response)
     response.render('v5/epr/service-start-defra-check-requested')
 })
 
-router.get('*/authorised', function (request, response) {
+router.get('*/registration-declaration', function (request, response) {
     response.locals.defaults = require('../../../data/session-data-defaults.js')
-    response.render('v5/epr/authorised')
+    response.render('v5/epr/registration-declaration')
 })
 
 router.get('*/pending', function (request, response) {

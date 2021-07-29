@@ -38,7 +38,7 @@
                 html: '<p><a href="/public/files/2022_packaging_data.csv" download>Download the packaging data spreadsheet</a> (CSV, 400MB).</p>'
             }) }}
             
-        {% else %}
+        {% elif data['methodSelection'] == 'manually' %}
 
             <p>For each type of packaging producer your organisation is, you’ll need to tell us:</p>
             
@@ -47,11 +47,15 @@
                 <li>how many tonnes of each packaging material your organisation placed on the market in 2022</li>
             </ul>
 
+        {% elif data['methodSelection'] == 'api' %}
+
+            <p>API content</p>
+
         {% endif %}
 
         <form method="POST" action="home?intro2=yes">
             <button class="govuk-button">
-                Continue
+                Save and continue
             </button>
         </form>
         
