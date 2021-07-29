@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type C' producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type C' producer?</h1>
+        {% endif %}
+
+        <p>A type C producer is an organisation that sells unfilled packaging to non-obligated producers.</p>
+        
+        <p>Non-obligated producers are organisations that either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>produce less than 25 tonnes of packaging waste a year</li>
+          <li>have a turnover below £1 million</li>
+        </ul>
+
+        {{ govukDetails({
+          summaryText: "Show me examples of a type C producer",
+          html: '
+          <p>
+            <strong>Example A</strong><br />
+            A wholesaler buys unfilled paper bags from a manufacturer. The wholesaler sells these bags to an independent cafe that is not obligated under the extended producer responsibility regulations.
+          </p>
+          <p>
+            The type C producer is the wholesaler that buys and sells the unfilled paper bags.
+          </p>
+          <p>
+            <strong>Example B</strong><br />
+            A manufacturer produces bubble wrap and sells it directly to an independent shop that is not obligated under the extended producer responsibility regulations.
+          </p>
+          <p>
+            The independent shop uses this bubble wrap to protect the goods it sells. 
+          </p>
+          <p>
+            The type C producer is the manufacturer that produces and sells the bubble wrap.
+          </p>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-4?lastVisitedURL={{currentURL}}">
+            
+            {{ govukRadios({
+              name: "producerType3",
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

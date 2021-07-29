@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% block pageTitle %}
+Manage team access
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div id="profile">
+    {% include "includes/account-nav-admin.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="manage">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="manage-parent"> Acme Org Ltd</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        Manage team access
+      </li>
+    </ol>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Manage team access
+    </h1>
+
+    {{ govukButton({
+      text: "Add a team member",
+      href: "#"
+    }) }}
+
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header govuk-table__header--column-third column-full" scope="col">
+          Team member
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-third column-full" scope="col">
+          Email address
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+          Acccount role
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+          Account status
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <a class="govuk-link--no-visited-state" href="#">{{ data['defraIdFirstName'] or defaults['defraIdFirstName'] }} {{ data['defraIdSurname'] or defaults['defraIdSurname'] }} (you)</a>
+        </td>
+        <td class="govuk-table__cell">
+          {{ data['govGateEmail'] or defaults['govGateEmail'] }}
+        </td>
+        <td class="govuk-table__cell">
+          Admin
+        </td>
+        <td class="govuk-table__cell">
+          Live
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Type of producer | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        {% if data['sub1'] == '1' %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd or any of its subsidiaries a 'type A' producer?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Is Acme Org Ltd a 'type A' producer?</h1>
+        {% endif %}
+
+        <p>A type A producer is an organisation that sells goods under its own brand name in the UK.</p>
+
+        {{ govukDetails({
+          summaryText: "Show me examples of a type A producer",
+          html: '
+          <p>
+            <strong>Example A</strong><br />
+            An organisation makes sheets of paper and puts the sheets into packets. They put their brand on the packets and sell them to an office. The office uses this paper for printing and throws away the packets. 
+          </p>
+          <p>
+            The type A producer is the organisation whose brand is on the packets of paper.
+          </p>
+          <p>
+            <strong>Example B</strong><br />
+            A supermarket called ‘ABC Ltd’ has an own-brand range of coffee. They contract a manufacturer to make the coffee and put it in packaging. The supermarkets sell the coffee to end consumers.
+          </p>
+          <p>
+            The coffee packaging includes either the supermarket’s primary brand - “by ABC” or any other brand the supermarket owns.
+          </p>
+          <p>
+            The type A producer is the supermarket.
+          </p>
+          <p>
+            <strong>Example C</strong><br />
+            A manufacturer sells unfilled plastic tubs to an organisation that is obligated under the extended producer responsibility regulations. The manufacturer adds shrink wrapping (transit packaging) to the plastic tubs before they sell them. The obligated organisation then fills the plastic tubs and sells them under their own brand.
+          </p>
+          <p>
+            The type A producer for the shrink wrap transit packaging is the manufacturer. 
+          </p>
+          <p>
+            The type A producer for the plastic tubs is the organisation that fills them.
+          </p>
+          '
+        }) }}
+
+        <form method="POST" action="registration-org-type-2?lastVisitedURL={{currentURL}}">
+            
+            {{ govukRadios({
+              name: "producerType1",
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

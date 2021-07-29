@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Your Defra Account | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <form method="POST" action="task-list-page-company-details?contact-details-completed=y">
+
+      {{ govukInput({
+        label: {
+          text: "What is your telephone number?",
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        hint: {
+        text: "We ask for this in case we need to call you directly with any queries about your registration."
+        },
+
+        classes: "govuk-!-width-one-half",
+        name: "defraIdPersonalPhone",
+        type: "tel"
+      }) }}
+
+      <div class="govuk-inset-text">
+        We may also contact you by email, using the address registered with your Government Gateway account:
+        <span class="govuk-!-font-weight-bold">{{data['govGateEmail'] or defaults['govGateEmail'] }}</span>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

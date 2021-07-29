@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+            Introduction and what you’ll need 
+        </h1>
+
+        {% if data['methodSelection'] == 'spreadsheet' %}
+
+            <p>You’ll need to have: </p>
+            
+            <ul class="govuk-list govuk-list--bullet">
+                <li>downloaded our spreadsheet and entered your organisation’s packaging data</li>
+                <li>checked that the data you’ve entered is correct</li>
+            </ul>
+
+            {{ govukDetails({
+                summaryText: "I do not have your packaging data spreadsheet",
+                html: '<p><a href="/public/files/2022_packaging_data.csv" download>Download the packaging data spreadsheet</a> (CSV, 400MB).</p>'
+            }) }}
+            
+        {% else %}
+
+            <p>For each type of packaging producer your organisation is, you’ll need to tell us:</p>
+            
+            <ul class="govuk-list govuk-list--bullet">
+                <li>which packaging materials your organisation placed on the market in 2022</li>
+                <li>how many tonnes of each packaging material your organisation placed on the market in 2022</li>
+            </ul>
+
+        {% endif %}
+
+        <form method="POST" action="home?intro2=yes">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
