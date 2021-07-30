@@ -1,0 +1,455 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Change your packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "report-resubmit"
+        }) }}
+
+        {% if data['changeType'] == '1' %}
+
+            <h1 class="govuk-heading-l">Change type A producer packaging data</h1>
+
+            <div class="govuk-!-padding-bottom-4">
+                <p><a href="report-resubmit-remove?remove=producerType1">Remove all type A data</a></p>
+            </div>
+
+            <form method="POST" action="report-resubmit">
+
+                {% if 'aluminium' in data['reportBrandowner'] and data['aluminiumBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="aluminiumBrandowner">
+                                Aluminium
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="aluminiumBrandowner" name="aluminiumBrandowner" type="text" inputmode="number" value="{{ data['aluminiumBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=aluminiumBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['reportBrandowner'] and data['fibreBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="fibreBrandowner">
+                                Fibre-based composite
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="fibreBrandowner" name="fibreBrandowner" type="text" inputmode="number" value="{{ data['fibreBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=fibreBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['reportBrandowner'] and data['glassBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="glassBrandowner">
+                                Glass
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="glassBrandowner" name="glassBrandowner" type="text" inputmode="number" value="{{ data['glassBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=glassBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if 'paper' in data['reportBrandowner'] and data['paperBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="paperBrandowner">
+                                Paper
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="paperBrandowner" name="paperBrandowner" type="text" inputmode="number" value="{{ data['paperBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=paperBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['reportBrandowner'] and data['plasticBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="plasticBrandowner">
+                                Plastic
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="plasticBrandowner" name="plasticBrandowner" type="text" inputmode="number" value="{{ data['plasticBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=plasticBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['reportBrandowner'] and data['steelBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="steelBrandowner">
+                                Steel
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="steelBrandowner" name="steelBrandowner" type="text" inputmode="number" value="{{ data['steelBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=steelBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['reportBrandowner'] and data['woodBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="woodBrandowner">
+                                Wood
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="woodBrandowner" name="woodBrandowner" type="text" inputmode="number" value="{{ data['woodBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=woodBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['reportBrandowner'] and data['otherBrandowner'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="otherBrandowner">
+                                Other
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="otherBrandowner" name="otherBrandowner" type="text" inputmode="number" value="{{ data['otherBrandowner'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=otherBrandowner" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="govuk-!-padding-bottom-4">
+                    <p><a href="report-resubmit-brandowner-start">Add a material</a></p>
+                </div>
+
+                {{govukButton({
+                    text: "Save and continue"
+                })}}
+        
+            </form>
+
+        {% endif %}
+
+
+
+        {% if data['changeType'] == '2' %}
+
+            <h1 class="govuk-heading-l">Change type B producer packaging data</h1>
+
+            <div class="govuk-!-padding-bottom-4">
+                <p><a href="report-resubmit-remove?remove=producerType2">Remove all type B data</a></p>
+            </div>
+
+            <form method="POST" action="report-resubmit">
+
+                {% if 'aluminium' in data['reportImporter'] and data['aluminiumImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="aluminiumImporter">
+                                Aluminium
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="aluminiumImporter" name="aluminiumImporter" type="text" inputmode="number" value="{{ data['aluminiumImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=aluminiumImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['reportImporter'] and data['fibreImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="fibreImporter">
+                                Fibre-based composite
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="fibreImporter" name="fibreImporter" type="text" inputmode="number" value="{{ data['fibreImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=fibreImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['reportImporter'] and data['glassImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="glassImporter">
+                                Glass
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="glassImporter" name="glassImporter" type="text" inputmode="number" value="{{ data['glassImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=glassImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if 'paper' in data['reportImporter'] and data['paperImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="paperImporter">
+                                Paper
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="paperImporter" name="paperImporter" type="text" inputmode="number" value="{{ data['paperImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=paperImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['reportImporter'] and data['plasticImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="plasticImporter">
+                                Plastic
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="plasticImporter" name="plasticImporter" type="text" inputmode="number" value="{{ data['plasticImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=plasticImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['reportImporter'] and data['steelImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="steelImporter">
+                                Steel
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="steelImporter" name="steelImporter" type="text" inputmode="number" value="{{ data['steelImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=steelImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['reportImporter'] and data['woodImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="woodImporter">
+                                Wood
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="woodImporter" name="woodImporter" type="text" inputmode="number" value="{{ data['woodImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=woodImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['reportImporter'] and data['otherImporter'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="otherImporter">
+                                Other
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="otherImporter" name="otherImporter" type="text" inputmode="number" value="{{ data['otherImporter'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=otherImporter" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="govuk-!-padding-bottom-4">
+                    <p><a href="#">Add a material</a></p>
+                </div>
+
+                {{govukButton({
+                    text: "Save and continue"
+                })}}
+        
+            </form>
+
+        {% endif %}
+
+
+        {% if data['changeType'] == '3' %}
+
+            <h1 class="govuk-heading-l">Change type C producer packaging data</h1>
+
+            <div class="govuk-!-padding-bottom-4">
+                <p><a href="report-resubmit-remove?remove=producerType3">Remove all type C data</a></p>
+            </div>
+
+            <form method="POST" action="report-resubmit">
+
+                {% if 'aluminium' in data['reportDistributor'] and data['aluminiumDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="aluminiumDistributor">
+                                Aluminium
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="aluminiumDistributor" name="aluminiumDistributor" type="text" inputmode="number" value="{{ data['aluminiumDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=aluminiumDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['reportDistributor'] and data['fibreDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="fibreDistributor">
+                                Fibre-based composite
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="fibreDistributor" name="fibreDistributor" type="text" inputmode="number" value="{{ data['fibreDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=fibreDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['reportDistributor'] and data['glassDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="glassDistributor">
+                                Glass
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="glassDistributor" name="glassDistributor" type="text" inputmode="number" value="{{ data['glassDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=glassDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if 'paper' in data['reportDistributor'] and data['paperDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="paperDistributor">
+                                Paper
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="paperDistributor" name="paperDistributor" type="text" inputmode="number" value="{{ data['paperDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=paperDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['reportDistributor'] and data['plasticDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="plasticDistributor">
+                                Plastic
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="plasticDistributor" name="plasticDistributor" type="text" inputmode="number" value="{{ data['plasticDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=plasticDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['reportDistributor'] and data['steelDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="steelDistributor">
+                                Steel
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="steelDistributor" name="steelDistributor" type="text" inputmode="number" value="{{ data['steelDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=steelDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['reportDistributor'] and data['woodDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="woodDistributor">
+                                Wood
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="woodDistributor" name="woodDistributor" type="text" inputmode="number" value="{{ data['woodDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=woodDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['reportDistributor'] and data['otherDistributor'] != '0' %}
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label" for="otherDistributor">
+                                Other
+                            </label>
+                        </h1>
+                        <div class="govuk-input__wrapper">
+                            <input class="govuk-input govuk-input--width-5" id="otherDistributor" name="otherDistributor" type="text" inputmode="number" value="{{ data['otherDistributor'] }}">
+                            <div class="govuk-input__suffix">tonnes</div>
+                            <a href="report-resubmit-remove-material?remove=otherDistributor" class="govuk-!-margin-left-2 govuk-!-margin-top-2">Remove material</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="govuk-!-padding-bottom-4">
+                    <p><a href="report-resubmit-distributor-start">Add a material</a></p>
+                </div>
+
+                {{govukButton({
+                    text: "Save and continue"
+                })}}
+        
+            </form>
+
+        {% endif %}
+        
+    </div>
+</div>
+
+{% endblock %}

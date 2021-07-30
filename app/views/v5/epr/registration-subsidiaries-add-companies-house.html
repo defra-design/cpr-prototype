@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add subsidiaries | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <!-- Radio button routing in /epr/vN/_routes.js -->
+        <form method="POST" action="route-subsidiaries-companies-house">
+
+            {{ govukRadios({
+                name: "subChoice",
+                fieldset: {
+                    legend: {
+                    html: '
+                    <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
+                    <h1 class="govuk-fieldset__heading">
+                        Is the subsidiary registered with Companies House?
+                    </h1>
+                    ',
+                    classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                    value: "no",
+                    text: "No"
+                    },
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    }
+                ]
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "How to find out if the subsidiary is registered with Companies House",
+                html: '
+                <p>You can <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">search for the subsidiary on the Companies House register (opens in new window or tab)</a>.</p>
+                <p>If the subsidiary does not show in the search results, it’s not registered with Companies House. </p>
+                '
+            }) }}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

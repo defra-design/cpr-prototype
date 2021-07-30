@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Tell us which transit packaging activities your organisation carried out in 2022
+        </h1>
+
+        <p>
+          Transit packaging is conceived to facilitate handling and transport of a number of sales units or grouped packaging in order to prevent physical handling and transport damage. Transport packaging does not include road, rail, ship and air containers.
+        </p>
+
+        {{ govukDetails({
+          summaryText: "Show me examples of transit packaging",
+          html: '<p>TBC</p>'
+        }) }}
+
+        <form method="POST" action="activities-transit-materials">
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
