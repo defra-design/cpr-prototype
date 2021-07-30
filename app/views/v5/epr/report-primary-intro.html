@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Tell us about your packaging activities | {{serviceName}} prototype
+Report your organisation's packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,29 +21,19 @@
         }) }}
 
         <h1 class="govuk-heading-l">
-          Did your organisation sell products in primary packaging under one of its own brand names in the UK in 2022?
+          Report your organisation's primary packaging for 2022
         </h1>
 
+        <p>
+          Primary packaging is conceived so as to constitute a sales unit to the final user or consumer at the point of purchase.
+        </p>
+
         {{ govukDetails({
-          summaryText: "Show me examples of this packaging activity",
+          summaryText: "Show me examples of primary packaging",
           html: '<p>TBC</p>'
         }) }}
 
-        <form method="POST" action="activities-primary-02">
-            
-            {{ govukRadios({
-              name: "activityPrimary01",
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
-                },
-                {
-                  value: "no",
-                  text: "No"
-                }
-              ]
-            }) }}
+        <form method="POST" action="route-reporting-primary">
             
             {{govukButton({
                 text: "Save and continue"

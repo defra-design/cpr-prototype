@@ -181,7 +181,7 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['registered'] == 'yes' %}
-                                <a href="activities-step-01">Tell us about your packaging activities</a>
+                                <a href="activities-primary-intro">Tell us about your packaging activities</a>
                             {% else %}
                                 Tell us about your packaging activities
                             {% endif %}
@@ -290,12 +290,17 @@
                                 data['dataResubmit'] == 'no' and 
                                 data['dataAccepted'] == 'no' 
                             %}
-                                <!-- This is a route rather than a link so that we can send the user to the correct first data collection page based on the producer types they selected during registration -->
-                                <form method="POST" action="route-reporting">    
+                                <!-- This is a route rather than a link so that we can send the user to the correct first data collection page based on the packaging activities they selected during step 2 of the task list -->
+                                <!--<form method="POST" action="route-reporting">
                                     <a href="" onclick="this.closest('form').submit();return false;">
                                         Submit your packaging data
                                     </a>
-                                </form>
+                                </form>-->
+
+                                <a href="report-manually-check">
+                                    Submit your packaging data
+                                </a>
+
                             {% endif %}
                             
                             
@@ -357,7 +362,7 @@
                             {% endif %}
 
 
-                            <!-- Data rejected, user can change and resubmit -->
+                            <!-- Data rejected by SA, user can change and resubmit -->
                             {% if 
                                 data['intro2'] == 'yes' and 
                                 data['dataReported'] == 'yes' and 
