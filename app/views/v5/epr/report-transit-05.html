@@ -20,40 +20,31 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="route-reporting-brandowner">
-            
+        <form method="POST" action="report-check-details">
+
+            <span class="govuk-caption-l">2022 packaging data</span>
+
             {% call govukFieldset({
             legend: {
-                text: "How many tonnes of each material did you place on the market as a 'type A' producer in 2022?",
+                text: "Transit 05",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
-
-            {{ govukDetails({
-                summaryText: "Which packaging do I need to include",
-                html: '
-                <p>Include any packaging materials that: </p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>your organisation placed goods into to sell</li>
-                    <li>somebody else placed your organisation’s goods into for you to sell </li>
-                </ul>
-                '
-            }) }}
 
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
 
 
-                {% if 'aluminium' in data['reportBrandowner'] %}
+                {% if 'aluminium' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Aluminium"
                         },
                         classes: "govuk-input--width-5",
-                        id: "aluminiumBrandowner",
-                        name: "aluminiumBrandowner",
+                        id: "aluminiumTransit05",
+                        name: "aluminiumTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -63,15 +54,15 @@
 
                 {% endif %}
 
-                {% if 'fibre' in data['reportBrandowner'] %}
+                {% if 'fibre' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Fibre-based composite"
                         },
                         classes: "govuk-input--width-5",
-                        id: "fibreBrandowner",
-                        name: "fibreBrandowner",
+                        id: "fibreTransit05",
+                        name: "fibreTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -81,15 +72,15 @@
 
                 {% endif %}
 
-                {% if 'glass' in data['reportBrandowner'] %}
+                {% if 'glass' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Glass"
                         },
                         classes: "govuk-input--width-5",
-                        id: "glassBrandowner",
-                        name: "glassBrandowner",
+                        id: "glassTransit05",
+                        name: "glassTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -99,15 +90,15 @@
 
                 {% endif %}
 
-                {% if 'paper' in data['reportBrandowner'] %}
+                {% if 'paper' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Paper"
                         },
                         classes: "govuk-input--width-5",
-                        id: "paperBrandowner",
-                        name: "paperBrandowner",
+                        id: "paperTransit05",
+                        name: "paperTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -117,15 +108,15 @@
 
                 {% endif %}
 
-                {% if 'plastic' in data['reportBrandowner'] %}
+                {% if 'plastic' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Plastic"
                         },
                         classes: "govuk-input--width-5",
-                        id: "plasticBrandowner",
-                        name: "plasticBrandowner",
+                        id: "plasticTransit05",
+                        name: "plasticTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -135,15 +126,15 @@
 
                 {% endif %}
 
-                {% if 'steel' in data['reportBrandowner'] %}
+                {% if 'steel' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Steel"
                         },
                         classes: "govuk-input--width-5",
-                        id: "steelBrandowner",
-                        name: "steelBrandowner",
+                        id: "steelTransit05",
+                        name: "steelTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -153,15 +144,15 @@
 
                 {% endif %}
 
-                {% if 'wood' in data['reportBrandowner'] %}
+                {% if 'wood' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Wood"
                         },
                         classes: "govuk-input--width-5",
-                        id: "woodBrandowner",
-                        name: "woodBrandowner",
+                        id: "woodTransit05",
+                        name: "woodTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
@@ -171,15 +162,15 @@
 
                 {% endif %}
 
-                {% if 'other' in data['reportBrandowner'] %}
+                {% if 'other' in data['materialsTransit'] %}
 
                     {{ govukInput({
                         label: {
                             text: "Other"
                         },
                         classes: "govuk-input--width-5",
-                        id: "otherBrandowner",
-                        name: "otherBrandowner",
+                        id: "otherTransit05",
+                        name: "otherTransit05",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {

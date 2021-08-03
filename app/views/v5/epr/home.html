@@ -39,6 +39,7 @@
 
                 <ul class="app-task-list__items">
 
+                    {#
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['paid'] == 'yes' %}
@@ -55,10 +56,12 @@
                         {% else %}
                         {% endif %}
                     </li>
+                    #}
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            {% if data['intro1'] == 'yes' and data['declared'] == 'no' %}
+                            {#  {% if data['intro1'] == 'yes' and data['declared'] == 'no' %}  #}
+                            {% if data['declared'] == 'no' %}
                                 <a href="registration-privacy-policy">
                                     Privacy policy and declaration   
                                 </a>
@@ -67,7 +70,8 @@
                             {% endif %}
                         </span>
                             
-                        {% if data['intro1'] == 'yes' and data['declared'] == 'yes' %}
+                        {#  {% if data['intro1'] == 'yes' and data['declared'] == 'yes' %}  #}
+                        {% if data['declared'] == 'yes' %}
                             <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                         {% endif %} 
 
@@ -83,7 +87,7 @@
                                         Add information about your organisation
                                     </a>
                                 {% else %}
-                                    <a href="registration-check-contact">
+                                    <a href="registration-start">
                                         Add information about your organisation
                                     </a>
                                 {% endif %}
@@ -251,6 +255,7 @@
 
                 <ul class="app-task-list__items">
 
+                    {#
                     <li class="app-task-list__item">
 
                         <span class="app-task-list__task-name">
@@ -268,15 +273,17 @@
                         {% endif %}
 
                     </li>
+                    #}
                     
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
 
-                            <!-- Introduction page not read yet -->
-                            {% if 
+                            
+                            {#  {% if 
                                 data['intro2'] == 'no' 
-                            %}
+                            %}  #}
+                            {% if data['nextSteps'] == 'no' %}
                                 Submit your packaging data
                             {% endif %}
                             
@@ -284,7 +291,7 @@
                             <!-- Report data manually for the first time -->
                             {% if 
                                 data['methodSelection'] == 'manually' and 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'no' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'no' and 
@@ -307,7 +314,7 @@
                             <!-- Report data by CSV for the first time -->
                             {% if 
                                 data['methodSelection'] == 'spreadsheet' and 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'no' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'no' and 
@@ -322,7 +329,7 @@
                             <!-- Report data by API for the first time -->
                             {% if 
                                 data['methodSelection'] == 'api' and 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'no' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'no' and 
@@ -336,7 +343,7 @@
 
                             <!-- Data reported and in pending state, user can change data -->
                             {% if 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'yes' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'no' and 
@@ -350,7 +357,7 @@
 
                             <!-- Data being reviewed, user cannot change data -->
                             {% if 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'yes' and 
                                 data['dataReviewed'] == 'yes' and 
                                 data['dataResubmit'] == 'no' and 
@@ -364,7 +371,7 @@
 
                             <!-- Data rejected by SA, user can change and resubmit -->
                             {% if 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'yes' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'yes' and 
@@ -377,7 +384,7 @@
 
                             <!-- Data accepted, user cannot change data -->
                             {% if 
-                                data['intro2'] == 'yes' and 
+                                data['nextSteps'] == 'yes' and 
                                 data['dataReported'] == 'yes' and 
                                 data['dataReviewed'] == 'no' and 
                                 data['dataResubmit'] == 'no' and 

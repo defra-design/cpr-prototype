@@ -185,20 +185,11 @@ router.post('*/route-report-method', function (req, res) {
 })
 
 
-// Routing for activities-step-01.html
-router.post('*/route-activities-step-01', function (req, res) {
-    var sellerOnly = req.session.data['sellerOnly']
-    if (sellerOnly == "yes"){
-        res.redirect('')
-    }
-    else {
-        res.redirect('activities-primary-intro')
-    }
-})
-
 
 
 // Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during section 2 of the task list.
+
+// Primary
 router.post('*/route-reporting-primary', function (req, res) {
     var activityPrimary01 = req.session.data['activityPrimary01']
     var activityPrimary02 = req.session.data['activityPrimary02']
@@ -221,7 +212,7 @@ router.post('*/route-reporting-primary', function (req, res) {
         res.redirect('report-primary-05')
     }
     else {
-        res.redirect('report-check-details')
+        res.redirect('report-secondary-intro')
     }
 })
 
@@ -244,9 +235,250 @@ router.post('*/route-reporting-primary-01', function (req, res) {
         res.redirect('report-primary-05')
     }
     else {
+        res.redirect('report-secondary-intro')
+    }
+})
+
+
+router.post('*/route-reporting-primary-02', function (req, res) {
+    var activityPrimary03 = req.session.data['activityPrimary03']
+    var activityPrimary04 = req.session.data['activityPrimary04']
+    var activityPrimary05 = req.session.data['activityPrimary05']
+    if (activityPrimary03 == "yes"){
+        res.redirect('report-primary-03')
+    }
+    else if (activityPrimary04 == "yes"){
+        res.redirect('report-primary-04')
+    }
+    else if (activityPrimary05 == "yes"){
+        res.redirect('report-primary-05')
+    }
+    else {
+        res.redirect('report-secondary-intro')
+    }
+})
+
+
+router.post('*/route-reporting-primary-03', function (req, res) {
+    var activityPrimary04 = req.session.data['activityPrimary04']
+    var activityPrimary05 = req.session.data['activityPrimary05']
+    if (activityPrimary04 == "yes"){
+        res.redirect('report-primary-04')
+    }
+    else if (activityPrimary05 == "yes"){
+        res.redirect('report-primary-05')
+    }
+    else {
+        res.redirect('report-secondary-intro')
+    }
+})
+
+
+router.post('*/route-reporting-primary-04', function (req, res) {
+    var activityPrimary05 = req.session.data['activityPrimary05']
+    if (activityPrimary05 == "yes"){
+        res.redirect('report-primary-05')
+    }
+    else {
+        res.redirect('report-secondary-intro')
+    }
+})
+
+
+
+// Secondary
+router.post('*/route-reporting-secondary', function (req, res) {
+    var activitySecondary01 = req.session.data['activitySecondary01']
+    var activitySecondary02 = req.session.data['activitySecondary02']
+    var activitySecondary03 = req.session.data['activitySecondary03']
+    var activitySecondary04 = req.session.data['activitySecondary04']
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    if (activitySecondary01 == "yes"){
+        res.redirect('report-secondary-01')
+    }
+    else if (activitySecondary02 == "yes"){
+        res.redirect('report-secondary-02')
+    }
+    else if (activitySecondary03 == "yes"){
+        res.redirect('report-secondary-03')
+    }
+    else if (activitySecondary04 == "yes"){
+        res.redirect('report-secondary-04')
+    }
+    else if (activitySecondary05 == "yes"){
+        res.redirect('report-secondary-05')
+    }
+    else {
+        res.redirect('report-transit-intro')
+    }
+})
+
+
+router.post('*/route-reporting-secondary-01', function (req, res) {
+    var activitySecondary02 = req.session.data['activitySecondary02']
+    var activitySecondary03 = req.session.data['activitySecondary03']
+    var activitySecondary04 = req.session.data['activitySecondary04']
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    if (activitySecondary02 == "yes"){
+        res.redirect('report-secondary-02')
+    }
+    else if (activitySecondary03 == "yes"){
+        res.redirect('report-secondary-03')
+    }
+    else if (activitySecondary04 == "yes"){
+        res.redirect('report-secondary-04')
+    }
+    else if (activitySecondary05 == "yes"){
+        res.redirect('report-secondary-05')
+    }
+    else {
+        res.redirect('report-transit-intro')
+    }
+})
+
+
+router.post('*/route-reporting-secondary-02', function (req, res) {
+    var activitySecondary03 = req.session.data['activitySecondary03']
+    var activitySecondary04 = req.session.data['activitySecondary04']
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    if (activitySecondary03 == "yes"){
+        res.redirect('report-secondary-03')
+    }
+    else if (activitySecondary04 == "yes"){
+        res.redirect('report-secondary-04')
+    }
+    else if (activitySecondary05 == "yes"){
+        res.redirect('report-secondary-05')
+    }
+    else {
+        res.redirect('report-transit-intro')
+    }
+})
+
+
+router.post('*/route-reporting-secondary-03', function (req, res) {
+    var activitySecondary04 = req.session.data['activitySecondary04']
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    if (activitySecondary04 == "yes"){
+        res.redirect('report-secondary-04')
+    }
+    else if (activitySecondary05 == "yes"){
+        res.redirect('report-secondary-05')
+    }
+    else {
+        res.redirect('report-transit-intro')
+    }
+})
+
+
+router.post('*/route-reporting-secondary-04', function (req, res) {
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    if (activitySecondary05 == "yes"){
+        res.redirect('report-secondary-05')
+    }
+    else {
+        res.redirect('report-transit-intro')
+    }
+})
+
+
+
+// Transit
+router.post('*/route-reporting-transit', function (req, res) {
+    var activityTransit01 = req.session.data['activityTransit01']
+    var activityTransit02 = req.session.data['activityTransit02']
+    var activityTransit03 = req.session.data['activityTransit03']
+    var activityTransit04 = req.session.data['activityTransit04']
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityTransit01 == "yes"){
+        res.redirect('report-transit-01')
+    }
+    else if (activityTransit02 == "yes"){
+        res.redirect('report-transit-02')
+    }
+    else if (activityTransit03 == "yes"){
+        res.redirect('report-transit-03')
+    }
+    else if (activityTransit04 == "yes"){
+        res.redirect('report-transit-04')
+    }
+    else if (activityTransit05 == "yes"){
+        res.redirect('report-transit-05')
+    }
+    else {
         res.redirect('report-check-details')
     }
 })
+
+
+router.post('*/route-reporting-transit-01', function (req, res) {
+    var activityTransit02 = req.session.data['activityTransit02']
+    var activityTransit03 = req.session.data['activityTransit03']
+    var activityTransit04 = req.session.data['activityTransit04']
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityTransit02 == "yes"){
+        res.redirect('report-transit-02')
+    }
+    else if (activityTransit03 == "yes"){
+        res.redirect('report-transit-03')
+    }
+    else if (activityTransit04 == "yes"){
+        res.redirect('report-transit-04')
+    }
+    else if (activityTransit05 == "yes"){
+        res.redirect('report-transit-05')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+
+router.post('*/route-reporting-transit-02', function (req, res) {
+    var activityTransit03 = req.session.data['activityTransit03']
+    var activityTransit04 = req.session.data['activityTransit04']
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityTransit03 == "yes"){
+        res.redirect('report-transit-03')
+    }
+    else if (activityTransit04 == "yes"){
+        res.redirect('report-transit-04')
+    }
+    else if (activityTransit05 == "yes"){
+        res.redirect('report-transit-05')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+
+router.post('*/route-reporting-transit-03', function (req, res) {
+    var activityTransit04 = req.session.data['activityTransit04']
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityTransit04 == "yes"){
+        res.redirect('report-transit-04')
+    }
+    else if (activityTransit05 == "yes"){
+        res.redirect('report-transit-05')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+
+router.post('*/route-reporting-transit-04', function (req, res) {
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityTransit05 == "yes"){
+        res.redirect('report-transit-05')
+    }
+    else {
+        res.redirect('report-check-details')
+    }
+})
+
+
 
 
 

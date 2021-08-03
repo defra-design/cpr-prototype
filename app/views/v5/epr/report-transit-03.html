@@ -20,162 +20,164 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form method="POST" action="route-reporting-onlinemarketplace">
-            
+        <form method="POST" action="route-reporting-transit-03">
+
+            <span class="govuk-caption-l">2022 packaging data</span>
+
             {% call govukFieldset({
             legend: {
-                text: "How many tonnes of each material did you place on the market as a 'type D' producer in 2022?",
+                text: "Transit 03",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
-                {{ govukDetails({
-                    summaryText: "Which packaging do I need to include",
-                    html: '
-                    <p>Include any:</p>
-                    <ul>
-                        <li>filled packaging materials that were sold using your organisation’s online platform on behalf of non-UK producers</li>
-                        <li>unfilled packaging that your organisation sold to non-obligated UK producers</li>
-                    </ul>
-                    '
-                }) }}
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
-                <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
-                <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
-                {% if 'aluminium' in data['reportOnlinemarketplace'] %}
+
+                {% if 'aluminium' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Aluminium"
                         },
                         classes: "govuk-input--width-5",
-                        id: "aluminiumOnlinemarketplace",
-                        name: "aluminiumOnlinemarketplace",
+                        id: "aluminiumTransit03",
+                        name: "aluminiumTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
-                
-                
-                {% if 'fibre' in data['reportOnlinemarketplace'] %}
+
+                {% if 'fibre' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Fibre-based composite"
                         },
                         classes: "govuk-input--width-5",
-                        id: "fiberOnlinemarketplace",
-                        name: "fibreOnlinemarketplace",
+                        id: "fibreTransit03",
+                        name: "fibreTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
+                {% if 'glass' in data['materialsTransit'] %}
 
-                {% if 'glass' in data['reportOnlinemarketplace'] %}
                     {{ govukInput({
                         label: {
                             text: "Glass"
                         },
                         classes: "govuk-input--width-5",
-                        id: "glassOnlinemarketplace",
-                        name: "glassOnlinemarketplace",
+                        id: "glassTransit03",
+                        name: "glassTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
-            
-                {% if 'paper' in data['reportOnlinemarketplace'] %}
+                {% if 'paper' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Paper"
                         },
                         classes: "govuk-input--width-5",
-                        id: "paperOnlinemarketplace",
-                        name: "paperOnlinemarketplace",
+                        id: "paperTransit03",
+                        name: "paperTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
-                
-                {% if 'plastic' in data['reportOnlinemarketplace'] %}
+                {% if 'plastic' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Plastic"
                         },
                         classes: "govuk-input--width-5",
-                        id: "plasticOnlinemarketplace",
-                        name: "plasticOnlinemarketplace",
+                        id: "plasticTransit03",
+                        name: "plasticTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
-                {% endif %}
-                
 
-                {% if 'steel' in data['reportOnlinemarketplace'] %}
+                {% endif %}
+
+                {% if 'steel' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Steel"
                         },
                         classes: "govuk-input--width-5",
-                        id: "steelOnlinemarketplace",
-                        name: "steelOnlinemarketplace",
+                        id: "steelTransit03",
+                        name: "steelTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
+                {% if 'wood' in data['materialsTransit'] %}
 
-                {% if 'wood' in data['reportOnlinemarketplace'] %}
                     {{ govukInput({
                         label: {
                             text: "Wood"
                         },
                         classes: "govuk-input--width-5",
-                        id: "woodOnlinemarketplace",
-                        name: "woodOnlinemarketplace",
+                        id: "woodTransit03",
+                        name: "woodTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
-        
-                {% if 'other' in data['reportOnlinemarketplace'] %}
+                {% if 'other' in data['materialsTransit'] %}
+
                     {{ govukInput({
                         label: {
                             text: "Other"
                         },
                         classes: "govuk-input--width-5",
-                        id: "otherOnlinemarketplace",
-                        name: "otherOnlinemarketplace",
+                        id: "otherTransit03",
+                        name: "otherTransit03",
                         type: "number",
                         inputmode: "numeric",
                         suffix: {
                             text: "tonnes"
                         }
                     }) }}
+
                 {% endif %}
 
             {% endcall %}
