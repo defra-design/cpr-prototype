@@ -20,28 +20,50 @@ Tell us about your packaging activities | {{serviceName}} prototype
             href: "javascript:history.back()"
         }) }}
 
+        <span class="govuk-caption-l">2022 packaging activities</span>
         <h1 class="govuk-heading-l">
-          Tell us which primary packaging activities your organisation carried out in 2022
+          Did your organisation place any primary packaging on the market in 2022?
         </h1>
 
         <p>
-          Primary packaging is conceived so as to constitute a sales unit to the final user or consumer at the point of purchase.
+          Primary packaging is packaging conceived as a sales unit to the final user or consumer. 
         </p>
 
         {{ govukDetails({
-          summaryText: "Show me examples of primary packaging",
-          html: '<p>TBC</p>'
+          summaryText: "View examples of primary packaging",
+          html: '
+            <p><strong>Example A</strong></p>
+            <p>A crisp manufacturer sells large cardboard boxes containing individual packets of crisps to a retail organisation.</p>
+            <p>The primary packaging is each individual foil crisp packet.</p>
+            <p><strong>Example B</strong></p>
+            <p>An organisation sells boxed, individual ink cartridges to an office.</p>
+            <p>The primary packaging is each individual box that contains a single ink cartridge.</p>
+          '
         }) }}
 
-        <form method="POST" action="activities-primary-materials">
-            
-            {{govukButton({
-                text: "Save and continue"
-            })}}
+        <form method="POST" action="route-activities-primary-intro">
 
-            {% include "includes/save-and-exit.html" %}
+          {{ govukRadios({
+            name: "packagingPrimary",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+          
+          {{govukButton({
+              text: "Save and continue"
+          })}}
 
         </form>
+
+        {% include "includes/save-and-exit.html" %}
 
     </div>
 </div>

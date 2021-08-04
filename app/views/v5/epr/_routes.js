@@ -186,6 +186,41 @@ router.post('*/route-report-method', function (req, res) {
 
 
 
+// Routing for activities-primary-intro.html
+router.post('*/route-activities-primary-intro', function (req, res) {
+    var packagingPrimary = req.session.data['packagingPrimary']
+    if (packagingPrimary == "no"){
+        res.redirect('activities-secondary-intro')
+    }
+    else {
+        res.redirect('activities-primary-materials')
+    }
+})
+
+// Routing for activities-secondary-intro.html
+router.post('*/route-activities-secondary-intro', function (req, res) {
+    var packagingSecondary = req.session.data['packagingSecondary']
+    if (packagingSecondary == "no"){
+        res.redirect('activities-transit-intro')
+    }
+    else {
+        res.redirect('activities-secondary-materials')
+    }
+})
+
+// Routing for activities-transit-intro.html
+router.post('*/route-activities-transit-intro', function (req, res) {
+    var packagingTransit = req.session.data['packagingTransit']
+    if (packagingTransit == "no"){
+        res.redirect('activities-check-answers')
+    }
+    else {
+        res.redirect('activities-transit-materials')
+    }
+})
+
+
+
 
 // Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during section 2 of the task list.
 

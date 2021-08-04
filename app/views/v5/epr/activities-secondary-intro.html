@@ -20,28 +20,50 @@ Tell us about your packaging activities | {{serviceName}} prototype
             href: "javascript:history.back()"
         }) }}
 
+        <span class="govuk-caption-l">2022 packaging activities</span>
         <h1 class="govuk-heading-l">
-          Tell us which secondary packaging activities your organisation carried out in 2022
+          Did your organisation place any secondary packaging on the UK market in 2022?
         </h1>
 
         <p>
-          Secondary packaging is conceived so as to constitute at the point of purchase a grouping of a certain number of sales units whether the latter is sold as such to the final user or consumer or whether it serves only as a means to replenish the shelves at the point of sale; it can be removed from the product without affecting its characteristics;
+          Secondary packaging is used to group a number of ‘sales units’. Organisations sometimes use it to display products in shops or sell it to the end consumer along with the products it contains.
         </p>
 
         {{ govukDetails({
-          summaryText: "Show me examples of secondary packaging",
-          html: '<p>TBC</p>'
+          summaryText: "View examples of secondary packaging",
+          html: '
+            <p><strong>Example A</strong></p>
+            <p>A baby food manufacturer sells individual baby food pouches grouped together in a cardboard tray and plastic wrap to a retail organisation. The retail organisation removes and disregards the plastic wrap. It puts the baby food pouches on shelves in the cardboard trays.</p>
+            <p>The secondary packaging is the cardboard tray and the plastic wrap.</p>
+            <p><strong>Example B</strong></p>
+            <p>An organisation imports computer parts into the UK. The computer parts are grouped together in a cardboard tray and box.</p>
+            <p>The secondary packaging is the cardboard tray and box it is transported in.</p>
+          '
         }) }}
 
-        <form method="POST" action="activities-secondary-materials">
-            
-            {{govukButton({
-                text: "Save and continue"
-            })}}
+        <form method="POST" action="route-activities-secondary-intro">
 
-            {% include "includes/save-and-exit.html" %}
+          {{ govukRadios({
+            name: "packagingSecondary",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+            
+          {{govukButton({
+              text: "Save and continue"
+          })}}
 
         </form>
+        
+        {% include "includes/save-and-exit.html" %}
 
     </div>
 </div>
