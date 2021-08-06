@@ -62,7 +62,7 @@ module.exports = {
   "sub2CompanyPhone": "01423 555 787",
   "sub2CompanyEmail": "hello@subsidiarytwo.com",
   
- /* Removed defaults for UR
+
   "packagingPrimary": "yes",
   "packagingSecondary": "yes",
   "packagingTransit": "yes",
@@ -84,7 +84,7 @@ module.exports = {
   "materialsPrimary": "steel,plastic",
   "materialsSecondary": "paper,plastic",
   "materialsTransit": "wood,plastic",
-*/
+
 
   // DRS-specific data below
   "orgDescription": "producer,retailer",
