@@ -1,0 +1,719 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">Check and submit your packaging data</h1>
+
+
+
+        <!-- Primary -->
+
+        <h2 class="govuk-heading-m">Primary packaging data</h2>
+
+        {% if data['activityPrimary01'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much primary packaging did you supply your own brand products in within the UK?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibrePrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['paperPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            1104{{ data['plasticPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            117{{ data['steelPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['woodPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherPrimary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+                <br>
+                <a href="#" class="govuk-link govuk-body">Change or remove data</a>
+
+            </dl>
+            
+        {% endif %}
+
+
+
+        {% if data['activityPrimary02'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much filled primary packaging did you import into the UK to sell?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibrePrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['paperPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            3105{{ data['plasticPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            270{{ data['steelPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['woodPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsPrimary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherPrimary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                <br>
+                <a href="#" class="govuk-link govuk-body">Change or remove data</a>
+
+            </dl>
+            
+
+        {% endif %}
+
+
+
+
+
+        <!-- Secondary -->
+
+        <h2 class="govuk-heading-m">Secondary packaging data</h2>
+
+        {% if data['activitySecondary01'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much secondary packaging did you add to your own brand products that were supplied in the UK?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            121{{ data['paperSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            3{{ data['plasticSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['steelSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['woodSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherSecondary01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+                <br>
+                <a href="#" class="govuk-link govuk-body">Change or remove data</a>
+            </dl>
+
+        {% endif %}
+
+
+
+        {% if data['activitySecondary02'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much secondary packaging containing filled packaging did you import into the UK to sell?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            200{{ data['paperSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            12{{ data['plasticSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['steelSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['woodSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsSecondary'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherSecondary02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+                <br>
+                <a href="#" class="govuk-link govuk-body">Change or remove data</a>
+            </dl>
+
+        {% endif %}
+
+
+
+
+
+
+        <!-- Transit -->
+
+        <h2 class="govuk-heading-m">Transit packaging data</h2>
+
+
+        {% if data['activityTransit01'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much transit packaging did you use to transport products that you supplied in the UK?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['paperTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            15{{ data['plasticTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['steelTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            84{{ data['woodTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherTransit01'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+            </dl>
+
+        {% endif %}
+
+
+
+        {% if data['activityTransit02'] == 'yes' %}
+
+            <h3 class="govuk-heading-s">How much filled transit packaging did you import into the UK to sell?</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Material
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Tonnes
+                    </dt>
+                </div>
+
+                {% if 'aluminium' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Aluminium
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['aluminiumTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'fibre' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Fibre-based composite
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['fibreTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'glass' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Glass
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['glassTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'paper' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Paper
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['paperTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'plastic' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Plastic
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            47{{ data['plasticTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'steel' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Steel
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['steelTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'wood' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Wood
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            230{{ data['woodTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if 'other' in data['materialsTransit'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__value">
+                            Other
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['otherTransit02'] }}
+                        </dd>
+                    </div>
+                {% endif %}
+                <br>
+                <a href="#" class="govuk-link govuk-body">Change or remove data</a>
+            </dl>
+
+        {% endif %}
+
+
+
+               
+
+        <form method="POST" action="report-complete?dataReported=yes">
+            {{govukButton({
+                text: "Submit"
+            })}}
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+   What you'll need | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">What you’ll need</h1>
+
+        <p>In this section we'll ask you:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>which contact details you want us to use for this application </li>
+            <li>to confirm your organisation’s address and contact details</li>
+            <li>for details about any subsidiaries your organisation has</li>
+            <li>for your organisation’s turnover in its last annual accounts</li>
+        </ul>
+
+        <form method="POST" action="registration-check-contact">
+            <button class="govuk-button">
+                Continue
+            </button>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

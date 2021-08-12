@@ -20,7 +20,7 @@ Example usage:
 
 module.exports = {
 
-  "protoVer": "v4", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
+  "protoVer": "v5", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
   "intro1": "no",
   "intro2": "no",
   "declared": "no",
@@ -32,23 +32,11 @@ module.exports = {
   "dataReviewed": "no",
   "dataAccepted": "no",
   "dataResubmit": "no",
+  "nextSteps": "no",
   "sub1": "null",
   "sub2": "null",
-  "reportBrandowner": "null",
-  "reportImporter": "null",
-  "reportDistributor": "null",
-  "reportOnlinemarketplace": "null",
-  "reportSeller": "null",
-  "reportServiceprovider": "null",
   "orgNation": "England",
-  "orgActivity": "brandowner,importer,seller",
   "orgTurnover": "5,500,000",
-  "producerType1": "yes",
-  "producerType2": "yes",
-  "producerType3": "no",
-  "producerType4": "no",
-  "producerType5": "no",
-  "producerTypeSeller": "no",
   "govGateEmail": "johnsmith@acmeorg.co.uk",
   "defraIdCompaniesHouseNumber": "01234567",
   "defraIdCompanyPhone": "01234 567899",
@@ -73,6 +61,32 @@ module.exports = {
   "sub2CompanyName": "Subsidiary Two Ltd",
   "sub2CompanyPhone": "01423 555 787",
   "sub2CompanyEmail": "hello@subsidiarytwo.com",
+  
+
+  "packagingPrimary": "yes",
+  "packagingSecondary": "yes",
+  "packagingTransit": "yes",
+  "activityPrimary01": "yes",
+  "activityPrimary02": "yes",
+  "activityPrimary03": "yes",
+  "activityPrimary04": "yes",
+  "activityPrimary05": "yes",
+  "activitySecondary01": "yes",
+  "activitySecondary02": "yes",
+  "activitySecondary03": "yes",
+  "activitySecondary04": "yes",
+  "activitySecondary05": "yes",
+  "activityTransit01": "yes",
+  "activityTransit02": "yes",
+  "activityTransit03": "yes",
+  "activityTransit04": "yes",
+  "activityTransit05": "yes",
+  "materialsPrimary": "steel,plastic",
+  "materialsSecondary": "paper,plastic",
+  "materialsTransit": "wood,plastic",
+
+
+  // DRS-specific data below
   "orgDescription": "producer,retailer",
   "isCompany": "yes",
   "reported1": "no",

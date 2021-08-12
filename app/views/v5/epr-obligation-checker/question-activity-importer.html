@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Check how the extended producer responsibility applies to your organisation" %}
+
+{% block pageTitle %}
+Check how the extended producer responsibility applies to your organisation | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Extended producer responsibility</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check how the extended producer responsibility applies to your organisation</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="question-activity-distributor">
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "obCheckImporter",
+            name: "obCheckImporter",
+            fieldset: {
+                legend: {
+                text: "Does your organisation import packaged goods to sell in the UK?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Authorised person | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+            Review the privacy policy
+        </h1>
+
+        <p>Key points of the privacy policy:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>we'll share your information with the relevant environmental regulator and scheme administrator</li>
+            <li>we may add your organisation's name, address and contact details to the packaging public registers  </li>
+            <li>we'll keep your personal data for 7 years after the end of each compliance year </li>
+        </ul>
+        
+        <p><a href="#">Read the full privacy policy (opens in a new tab or window)</a>.</p>
+
+        <form method="POST" action="registration-declaration">
+
+            {{ govukCheckboxes({
+                name: "privacyPolicy",
+                items: [
+                    {
+                    value: "accepted",
+                    text: "I confirm that I have read, understand and agree to the privacy policy. "
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Confirm and continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

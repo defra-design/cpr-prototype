@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Obligation declaration | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+            Obligation declaration
+        </h1>
+
+        <form method="POST" action="home?obligated=no&registered=no&paid=no">
+
+            <h2 class="govuk-heading-m">
+                Some kind of declaration
+            </h2>
+
+            <p>I am authorised to declare that my org is not going to be obligated this year and I will review this if I think we'll go over the threshold at a later time.</p>
+
+            <div class="govuk-form-group">
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="eprDeclaration" name="eprDeclaration" type="checkbox" value="I declare">
+                        <label class="govuk-label govuk-checkboxes__label" for="eprDeclaration">
+                            I declare this is correct.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Did your organisation place any secondary packaging on the UK market in 2022?
+        </h1>
+
+        <p>
+          Secondary packaging is packaging conceived to group a certain number of sales units whether sold to the final user or consumer or a means to stock shelves at the point of sale. It can be removed from the product without affecting its characteristics. 
+        </p>
+
+        {{ govukDetails({
+          summaryText: "View examples of secondary packaging",
+          html: '
+            <p><strong>Example A</strong></p>
+            <p>An organisation sells individually boxed ink cartridges, grouped in a cardboard tray covered in plastic wrap, to a retail organisation. </p>
+            <p>The retail organisation removes the plastic wrap, disposes of it and displays the ink cartridges on shelves in the cardboard trays. It sells the ink cartridges individually. </p>
+            <p>The secondary packaging is the cardboard trays and the plastic wrap. </p>
+            <p><strong>Example B - not secondary packaging</strong></p>
+            <p>An organisation sells individually boxed ink cartridges, grouped in a cardboard tray covered in plastic wrap, to an end consumer. </p>
+            <p>In this example, the cardboard tray and plastic wrap are primary packaging, because they’re sold to the end consumer as part of the sales unit. </p>
+          '
+        }) }}
+
+        <form method="POST" action="route-activities-secondary-intro">
+
+          {{ govukRadios({
+            name: "packagingSecondary",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+            
+          {{govukButton({
+              text: "Save and continue"
+          })}}
+
+        </form>
+        
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

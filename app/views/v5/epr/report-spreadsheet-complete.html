@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Upload your packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "You’ve uploaded packaging data for 2022",
+        html: "Your reference number<br />0038173"
+      }) }}
+
+      <p>We’ve sent you a confirmation email.</p>
+      
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>
+        We’ve sent your packaging data to PRSA. They’ll review it and email you with an update or to ask for more information.
+      </p>
+
+      <form method="POST" action="home?dataReported=yes">
+
+          {{govukButton({
+              text: "Finish"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

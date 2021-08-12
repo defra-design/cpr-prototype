@@ -27,7 +27,7 @@
         <ol class="app-task-list">
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">1. </span> Enrol your organisation
+                    <span class="app-task-list__section-number">1. </span> Register your organisation
                 </h2>
                 {% if data['registered'] != 'yes' %}
                     {{ govukWarningText({
@@ -192,6 +192,7 @@
                         {% else %}
                         {% endif %}
                     </li>
+
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                             {% if data['introPrepare'] == 'yes' %}
@@ -206,6 +207,20 @@
                         {% else %}
                         {% endif %}
                     </li>
+
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            {% if data['reportMethod'] == 'yes' %}
+                                <a href="data-next-steps">What happens next</a>
+                            {% else %}    
+                                What happens next
+                            {% endif %}
+                        </span>
+                        {% if data['nextSteps'] == 'yes' %}
+                            <strong class="govuk-tag app-task-list__tag">Completed</strong>
+                        {% endif %}
+                    </li>
+
                 </ul>
             </li>
 
@@ -226,7 +241,7 @@
                     <li class="app-task-list__item">
 
                         <span class="app-task-list__task-name">
-                            {% if data['reportMethod'] == 'yes' %}
+                            {% if data['nextSteps'] == 'yes' %}
                                 <a href="report-start">
                                     Introduction and what you'll need
                                 </a>
@@ -262,6 +277,7 @@
                                 data['dataResubmit'] == 'no' and 
                                 data['dataAccepted'] == 'no' 
                             %}
+                                <!-- This is a route rather than a link so that we can send the user to the correct first data collection page based on the producer types they selected during registration -->
                                 <form method="POST" action="route-reporting">    
                                     <a href="" onclick="this.closest('form').submit();return false;">
                                         Submit your packaging data
@@ -280,6 +296,21 @@
                                 data['dataAccepted'] == 'no' 
                             %}
                                 <a href="report-spreadsheet">
+                                    Submit your packaging data
+                                </a>
+                            {% endif %}
+
+
+                            <!-- Report data by API for the first time -->
+                            {% if 
+                                data['methodSelection'] == 'api' and 
+                                data['intro2'] == 'yes' and 
+                                data['dataReported'] == 'no' and 
+                                data['dataReviewed'] == 'no' and 
+                                data['dataResubmit'] == 'no' and 
+                                data['dataAccepted'] == 'no' 
+                            %}
+                                <a href="home?dataReported=yes">
                                     Submit your packaging data
                                 </a>
                             {% endif %}

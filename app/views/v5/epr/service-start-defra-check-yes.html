@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Packaging waste: producer responsibilities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Extended producer responsibility</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        Your organisation already has a Defra account
+      </h1>
+
+      <p>We’ll send your contact details to your organisation’s account administrator and ask them to give you access.</p>
+
+      <form method="POST" action="service-start-defra-check-requested">
+
+        {{ govukInput({
+          label: {
+            text: "Your full name"
+          },
+          id: "defraCheckName",
+          name: "defraCheckName",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Your work email address"
+          },
+          id: "defraCheckEmail",
+          name: "defraCheckEmail",
+          classes: "govuk-!-width-two-thirds"
+        }) }}
+      
+        {{govukButton({
+            text: "Continue"
+        })}}
+
+      </form>
+
+      <p><a href="service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

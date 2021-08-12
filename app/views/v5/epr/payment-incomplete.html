@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+We’ve saved the details you entered | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">We’ve saved the details you entered</h2>
+
+      <p>You must return and submit your application once you or someone else from your organisation has paid the registration fee.</p>
+      <p>You can save the following link and use it to return to your application: <a href="../defra-id/login">https://epr.defra.gov.uk/signin</a>.</p>
+      <p>The Environment Agency will not review your application until it’s been submitted. </p>
+
+      <form method="POST" action="home">
+
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

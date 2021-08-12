@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Correspondence details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        Can we use these details if we need to contact your organisation about this application?
+      </h1>
+      
+      <dl class="govuk-summary-list">
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone'] }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail'] }}
+          </dd>
+        </div>
+
+      </dl>
+
+      <!-- Radio button routing in /vN/epr/_routes.js -->
+      <form method="POST" action="route-check-org-correspondence?lastVisitedURL={{currentURL}}">
+
+        {{ govukRadios({
+          name: "correspondenceChoice",
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no1",
+              text: "No, I need to change some of these details"
+            },
+            {
+              value: "no2",
+              text: "No, I need to change all of these details"
+            }
+          ]
+        }) }}
+
+        {{govukButton({
+            text: "Save and continue"
+        })}}
+
+        {% include "includes/save-and-exit.html" %}
+
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}

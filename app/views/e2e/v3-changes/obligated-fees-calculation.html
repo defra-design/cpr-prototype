@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Pay your registration fees | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Obligated fees calculation
+        </h1>
+
+        <p class="govuk-body-l">Acme Org Ltd’s 2022 packaging obligation fees</p>
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Primary packaging</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Material</th>
+              <th scope="col" class="govuk-table__header">Obligated tonnes</th>
+              <th scope="col" class="govuk-table__header">Cost per tonne</th>
+              <th scope="col" class="govuk-table__header">Obligated fees</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Plastic</th>
+              <td class="govuk-table__cell">4209</td>
+              <td class="govuk-table__cell">&pound;22.11</td>
+              <td class="govuk-table__cell">&pound;93,060.99</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Steel</th>
+              <td class="govuk-table__cell">387</td>
+              <td class="govuk-table__cell">&pound;7.09</td>
+              <td class="govuk-table__cell">&pound;2,743.83</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Secondary packaging</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Material</th>
+              <th scope="col" class="govuk-table__header">Obligated tonnes</th>
+              <th scope="col" class="govuk-table__header">Cost per tonne</th>
+              <th scope="col" class="govuk-table__header">Obligated fees</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Paper</th>
+              <td class="govuk-table__cell">321</td>
+              <td class="govuk-table__cell">&pound;3.84</td>
+              <td class="govuk-table__cell">&pound;1,232.64</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Plastic</th>
+              <td class="govuk-table__cell">15</td>
+              <td class="govuk-table__cell">&pound;22.11</td>
+              <td class="govuk-table__cell">&pound;331.65</td>
+            </tr>
+          </tbody>
+        </table>
+        
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Transit packaging</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Material</th>
+              <th scope="col" class="govuk-table__header">Obligated tonnes</th>
+              <th scope="col" class="govuk-table__header">Cost per tonne</th>
+              <th scope="col" class="govuk-table__header">Obligated fees</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Plastic</th>
+              <td class="govuk-table__cell">62</td>
+              <td class="govuk-table__cell">&pound;22.11</td>
+              <td class="govuk-table__cell">&pound;1,370.82</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Wood</th>
+              <td class="govuk-table__cell">314</td>
+              <td class="govuk-table__cell">&pound;8.54</td>
+              <td class="govuk-table__cell">&pound;2,681.56</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Total obligated tonnage:</strong> 5308</p>
+        <p><strong>Net recycling tonnage:</strong> 382<br><span class="govuk-body-s">(Total recycling minus total of materials recycling)</span></p>
+        
+
+        <h2 class="govuk-heading-m">Total obligated fees: <span style="font-weight: normal;">&pound;101,429.49</span></h2>
+        
+        <!-- <p class="govuk-body-l">&pound;116,328.52</p> -->
+
+        {{ govukDetails({
+          summaryText: "View all submitted packaging data",
+          html: '
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator registration fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £536
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator compliance fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £250
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Annual regulator enforcement fee
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £348
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Total
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £1134
+              </dd>
+            </div>
+          </dl>
+          '
+        }) }}
+        
+        {{govukButton({
+          text: "Continue"
+      })}}
+
+    </div>
+</div>
+
+{% endblock %}

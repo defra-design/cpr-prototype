@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="activities-secondary-01">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-7">
+                        <h1 class="govuk-fieldset__heading">
+                            Which packaging materials did your organisation use in its secondary packaging in 2022?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input1" name="materialsSecondary" type="checkbox" value="aluminium">
+                            <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                Aluminium
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input2" name="materialsSecondary" type="checkbox" value="fibre">
+                            <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                Fibre-based composite 
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input3" name="materialsSecondary" type="checkbox" value="glass">
+                            <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                Glass
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input4" name="materialsSecondary" type="checkbox" value="paper">
+                            <label class="govuk-label govuk-checkboxes__label" for="input4">
+                                Paper
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input5" name="materialsSecondary" type="checkbox" value="plastic" >
+                            <label class="govuk-label govuk-checkboxes__label" for="input5">
+                                Plastic
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input6" name="materialsSecondary" type="checkbox" value="steel">
+                            <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                Steel
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input7" name="materialsSecondary" type="checkbox" value="wood">
+                            <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                Wood
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input8" name="materialsSecondary" type="checkbox" value="other">
+                            <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    You have submitted your organisation information | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "You’ve added your organisation’s information"
+      }) }}
+
+      <p>We’ve saved your answers, but they have not been submitted yet.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>You or someone else from your organisation must pay the registration fee. Then, you can submit your application.</p>
+
+      <form method="POST" action="home?applied=yes">
+
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

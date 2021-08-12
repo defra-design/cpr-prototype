@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add subsidiaries | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-xl govuk-!-margin-top-4">Add a subsidiary</span>
+        <h1 class="govuk-heading-l">Enter the subsidiary’s name</h1>
+
+        <form method="POST" action="registration-subsidiaries-add-address">
+
+        {{ govukInput({
+            label: {
+            text: "Subsidiary name"
+            },
+            classes: "govuk-!-width-three-quarters",
+            name: "sub1CompanyName"
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

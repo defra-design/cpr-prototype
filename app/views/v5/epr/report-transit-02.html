@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="route-reporting-transit-02">
+
+            <span class="govuk-caption-l">2022 packaging data</span>
+
+            {% call govukFieldset({
+            legend: {
+                text: "Transit 02",
+                classes: "govuk-fieldset__legend--l"
+            }
+            }) %}
+
+            <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
+            <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
+
+
+
+                {% if 'aluminium' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Aluminium"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "aluminiumTransit02",
+                        name: "aluminiumTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'fibre' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Fibre-based composite"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "fibreTransit02",
+                        name: "fibreTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'glass' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Glass"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "glassTransit02",
+                        name: "glassTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'paper' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Paper"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "paperTransit02",
+                        name: "paperTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'plastic' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Plastic"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "plasticTransit02",
+                        name: "plasticTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'steel' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Steel"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "steelTransit02",
+                        name: "steelTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'wood' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Wood"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "woodTransit02",
+                        name: "woodTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+                {% if 'other' in data['materialsTransit'] %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Other"
+                        },
+                        classes: "govuk-input--width-5",
+                        id: "otherTransit02",
+                        name: "otherTransit02",
+                        type: "number",
+                        inputmode: "numeric",
+                        suffix: {
+                            text: "tonnes"
+                        }
+                    }) }}
+
+                {% endif %}
+
+            {% endcall %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
