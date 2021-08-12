@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Correspondence details | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="registration-subsidiaries?lastVisitedURL={{currentURL}}">
+
+            {% if data['correspondenceChoice'] == 'no2' %}
+
+                {% call govukFieldset({
+                    legend: {
+                    text: "Enter the contact details for this application",
+                    classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-8",
+                    isPageHeading: true
+                    }
+                }) %}
+
+                <div class="govuk-form-group govuk-!-margin-bottom-8">
+
+                    <h2 class="govuk-heading-m">Correspondence address</h2>
+
+                    <p>This will not change any of your organisation’s registered office details.</p>
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 1'
+                        },
+                        name: "correspondenceAddress1"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 2'
+                        },
+                        name: "correspondenceAddress2"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 3 (optional)'
+                        },
+                        name: "correspondenceAddress3"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 4 (optional)'
+                        },
+                        name: "correspondenceAddress4"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondenceTown"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        name: "correspondencePostcode"
+                    }) }}
+
+                </div>
+
+                <div class="govuk-form-group govuk-!-margin-bottom-8">
+
+                    <h2 class="govuk-heading-m">Contact information</h2>
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Phone number'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondencePhone"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Email address'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondenceEmail"
+                    }) }}
+
+                </div>
+                
+                {% endcall %}
+
+            {% else %}
+
+                {% call govukFieldset({
+                    legend: {
+                    text: "Enter the contact details for this application",
+                    classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-8",
+                    isPageHeading: true
+                    }
+                }) %}
+
+                <div class="govuk-form-group govuk-!-margin-bottom-8">
+
+                    <h2 class="govuk-heading-m">Correspondence address</h2>
+
+                    <p>This will not change any of your organisation’s registered office details.</p>
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 1'
+                        },
+                        name: "correspondenceAddress1",
+                        value: "1 Francis Crick Avenue"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 2'
+                        },
+                        name: "correspondenceAddress2",
+                        value: "Cambridge Biomedical Campus"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 3 (optional)'
+                        },
+                        name: "correspondenceAddress3"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Address line 4 (optional)'
+                        },
+                        name: "correspondenceAddress4"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondenceTown",
+                        value: "Cambridge"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        name: "correspondencePostcode",
+                        value: "CB2 0AA"
+                    }) }}
+
+                </div>
+
+                <div class="govuk-form-group govuk-!-margin-bottom-8">
+
+                    <h2 class="govuk-heading-m">Contact information</h2>
+
+                    {{ govukInput({
+                        label: {
+                            text: 'Phone number'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondencePhone",
+                        value: "01234 567899"
+                    }) }}
+                
+                    {{ govukInput({
+                        label: {
+                            text: 'Email address'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "correspondenceEmail",
+                        value: "info@acmeorg.co.uk"
+                    }) }}
+
+                </div>
+                
+                {% endcall %}
+
+            {% endif %}
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Did your organisation place any transit packaging on the UK market in 2022?
+        </h1>
+
+        {{ govukDetails({
+          summaryText: "View definition and examples of transit packaging",
+          html: '
+          <p><strong>Definition</strong></p>
+          <p>Transit packaging is packaging conceived to aid handling and transport of a number of sales units or grouped packs in order to prevent physical handling and transport damage. Transit packaging does not include road, rail, ship and air containers.</p>
+          <p><strong>Example A</strong></p>
+          <p>A chemical manufacturer sells barrels of the chemical they produce to a pharmaceutical organisation. The manufacturer transports the barrels to the pharmaceutical organisation on shrink-wrapped crates. </p>
+          <p>The transit packaging is the shrink-wrap and crates. </p>
+          <p><strong>Example B</strong></p>
+          <p>An online marketplace facilitates the sale of clothing by a non-UK based producer. The online marketplace adds bubble wrap and a cardboard box to the clothing, to deliver it to the end consumer.</p>
+          <p>The transit packaging is the bubble wrap and cardboard box.</p>
+          '
+        }) }}
+
+        <form method="POST" action="route-activities-transit-intro?packagingTransitIntro=yes">
+
+          {{ govukRadios({
+            name: "packagingTransit",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+            
+          {{govukButton({
+              text: "Save and continue"
+          })}}
+
+        </form>
+        
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

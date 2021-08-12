@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Introduction to the packaging categories | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Introduction to the packaging categories
+        </h1>
+
+        <p>As part of the Extended Producer Responsibility scheme, organisations must submit data about activities they have undertaken within each of the packaging categories.</p>
+
+        <p>In the following sections you'll be asked a series of questions about your activities, these will help you to understand how your organisation is obligated, and what data you need to report.</p>
+
+        <h2 class="govuk-heading-m">Packaging definitions</h2>
+
+
+        <h3 class="govuk-heading-s">Primary packaging</h3>
+        <p>Primary packaging is packaging conceived as a sales unit to the final user or consumer.</p>
+
+        <h3 class="govuk-heading-s">Secondary packaging</h3>
+        <p>Secondary packaging is packaging conceived to group a certain number of sales units whether sold to the final user or consumer or a means to stock shelves at the point of sale. It can be removed from the product without affecting its characteristics.</p>
+
+        <h3 class="govuk-heading-s">Transit packaging</h3>
+        <p>Transit packaging is packaging conceived to aid handling and transport of a number of sales units or grouped packs in order to prevent physical handling and transport damage. Transit packaging does not include road, rail, ship and air containers.</p>
+
+
+        <h2 class="govuk-heading-m">Packaging example</h2>
+
+        <p>In the following sections you'll be asked a series of questions about your activities, these will help you to understand how your organisation is obligated, and what data you need to report.</p>
+
+      
+        <form method="POST" action="home?packagingIntro=yes">
+          
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

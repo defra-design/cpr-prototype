@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Did your organisation place any primary packaging on the market in 2022?
+        </h1>
+
+        {{ govukDetails({
+          summaryText: "View definition and examples of primary packaging",
+          html: '
+          <p><strong>Definition</strong></p>
+          <p>Primary packaging is packaging conceived as a sales unit to the final user or consumer.</p>  
+          <p><strong>Example A</strong></p>
+            <p>A crisp manufacturer sells large cardboard boxes containing individual packets of crisps to a supermarket. The supermarket sells the packets of crisps individually.</p>
+            <p>The primary packaging is each individual crisp packet.</p>
+            <p><strong>Example B</strong></p>
+            <p>A crisp manufacturer sells large cardboard boxes containing individual packets of crisps to a wholesaler. The wholesaler sells full boxes of individual packets of crisps. </p>
+            <p>The primary packaging is the cardboard boxes and the individual crisp packets.</p>
+          '
+        }) }}
+
+        <form method="POST" action="route-activities-primary-intro?packagingPrimaryIntro=yes">
+
+          {{ govukRadios({
+            name: "packagingPrimary",
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+          
+          {{govukButton({
+              text: "Save and continue"
+          })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

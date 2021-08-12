@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="report-brandowner">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Which packaging materials did you place on the market as a 'type A' producer in 2022?
+                        </h1>
+                    </legend>
+
+                    <p>Include any packaging materials that: </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>your organisation placed goods into to sell</li>
+                        <li>somebody else placed your organisation’s goods into for you to sell </li>
+                    </ul>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input3" name="reportBrandowner" type="checkbox" value="aluminium" {% if 'aluminium' in data['reportBrandowner'] %}checked{% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                Aluminium
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input7" name="reportBrandowner" type="checkbox" value="fibre" {% if 'fibre' in data['reportBrandowner'] %}checked{% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                Fibre-based composite 
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input2" name="reportBrandowner" type="checkbox" value="glass" {% if 'glass' in data['reportBrandowner'] %}checked{% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                Glass
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input6" name="reportBrandowner" type="checkbox" value="wood" {% if 'wood' in data['reportBrandowner'] %}checked{% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                Wood
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input8" name="reportBrandowner" type="checkbox" value="other" {% if 'other' in data['reportBrandowner'] %}checked{% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

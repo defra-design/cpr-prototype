@@ -1,0 +1,388 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your packaging activity answers | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-xl">
+          Check your answers
+        </h1>
+
+        <h2 class="govuk-heading-m">Primary packaging for 2022</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation place any primary packaging on the market in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {% if data['packagingPrimary'] == 'yes' %}
+                Yes
+              {% else %}
+                No
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Which packaging materials did your organisation use in its primary packaging in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {% if data['packagingPrimary'] == 'yes' %}
+                {{ data['materialsPrimary'] | escape | replace(",", "<br />") }}
+              {% else %}
+                none
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          {% if data['packagingPrimary'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation supply its own brand products in primary packaging within the UK?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityPrimary01'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation import filled primary packaging into the UK to sell?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityPrimary02'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation sell unfilled primary packaging to non-obligated producers?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityPrimary03'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation facilitate the sale of filled primary packaging by non-UK producers within the UK via its online platform?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityPrimary04'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation hire or lend out reusable primary packaging to UK-based organisations?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityPrimary05'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+
+
+
+        <h2 class="govuk-heading-m">Secondary packaging for 2022</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation place any secondary packaging on the market in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {% if data['packagingSecondary'] == 'yes' %}
+                Yes
+              {% else %}
+                No
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Which packaging materials did your organisation use in its secondary packaging in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {% if data['packagingSecondary'] == 'yes' %}
+                {{ data['materialsSecondary'] | escape | replace(",", "<br />") }}
+              {% else %}
+                none
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          {% if data['packagingSecondary'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Was any secondary packaging added to your organisation's own brand products that were supplied in the UK?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activitySecondary01'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation import filled packaging within secondary packaging into the UK to sell?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activitySecondary02'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation sell unfilled packaging within secondary packaging to non-obligated producers?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activitySecondary03'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation facilitate the sale of secondary packaging via its online platform by non-UK producers in the UK?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activitySecondary04'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation hire or lend out reusable secondary packaging to UK-based organisations?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activitySecondary05'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Transit packaging for 2022</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation place any transit packaging on the market in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {% if data['packagingTransit'] == 'yes' %}
+                Yes
+              {% else %}
+                No
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Which packaging materials did your organisation use in its transit packaging in 2022?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {% if data['packagingTransit'] == 'yes' %}
+                {{ data['materialsTransit'] | escape | replace(",", "<br />") }}
+              {% else %}
+                none
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          {% if data['packagingTransit'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation use transit packaging to transport products that it supplied in the UK?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityTransit01'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation import filled transit packaging into the UK to sell?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityTransit02'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation sell any unfilled transit packaging to non-obligated producers?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityTransit03'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Was filled packaging that your organisation facilitated the sale of by non-UK producers in the UK via its online platform transported by transit packaging?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityTransit04'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Did your organisation hire or lend out reusable transit packaging to UK-based organisations?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter" style="text-transform: capitalize;">
+              {{ data['activityTransit05'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+
+
+
+
+
+
+        
+        <form method="POST" action="home?chooseActivities=yes">
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+        
+    </div>
+</div>
+
+{% endblock %}
