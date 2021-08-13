@@ -26,10 +26,15 @@
 
             {% call govukFieldset({
             legend: {
-                text: "Primary 05",
+                text: "How much reusable primary packaging did you hire or lend out to UK-based organisations?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
+
+            {{ govukWarningText({
+                text: "Only include packaging that has not been reported under the PR or EPR scheme before",
+                iconFallbackText: "Warning"
+            }) }}
 
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>

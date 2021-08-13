@@ -26,10 +26,21 @@
 
             {% call govukFieldset({
             legend: {
-                text: "Primary 03",
+                text: "How much unfilled primary packaging did you sell to non-obligated producers?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
+
+            {{ govukDetails({
+                summaryText: "What's a non-obligated producer?",
+                html: '
+                <p>Non-obligated producers are organisations that either:</p>
+                <ul>
+                    <li>produce less than 25 tonnes of packaging waste a year</li>
+                    <li>have a turnover below £1 million </li>
+                </ul>
+                '
+              }) }}
 
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
