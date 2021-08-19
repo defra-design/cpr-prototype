@@ -220,6 +220,41 @@ router.post('*/route-activities-transit-intro', function (req, res) {
 })
 
 
+// Routing for activities-seller-07.html
+router.post('*/route-activities-seller', function (req, res) {
+    var packagingSeller01 = req.session.data['packagingSeller01']
+    var packagingSeller02 = req.session.data['packagingSeller02']
+    var packagingSeller03 = req.session.data['packagingSeller03']
+    var packagingSeller04 = req.session.data['packagingSeller04']
+    var packagingSeller05 = req.session.data['packagingSeller05']
+    var packagingSeller06 = req.session.data['packagingSeller06']
+    var packagingSeller07 = req.session.data['packagingSeller07']
+    if (packagingSeller01 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller02 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller03 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller04 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller05 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller06 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else if (packagingSeller07 == "yes"){
+        res.redirect('activities-seller-materials')
+    }
+    else {
+        res.redirect('activities-check-answers')
+    }
+})
+
 
 
 // Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during section 2 of the task list.

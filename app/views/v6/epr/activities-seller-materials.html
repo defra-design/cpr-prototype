@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form method="POST" action="activities-check-answers">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-7">
+                        <h1 class="govuk-fieldset__heading">
+                            Which materials did you use in packaging you've sold in 2022?
+                        </h1>
+                    </legend>
+
+                    <p class="govuk-body">Include materials used in these activities:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        {% if data['packagingSeller01'] == 'yes' %}
+                        <li>Filled packaging sold to end consumers</li>
+                        {% endif %}
+                        {% if data['packagingSeller02'] == 'yes' %}
+                        <li>Secondary or transit packaging that you sold to a retail organisation that disposed it</li>
+                        {% endif %}
+                        {% if data['packagingSeller03'] == 'yes' %}
+                        <li>Packaging containing goods that you imported and sold to end consumers in the UK</li>
+                        {% endif %}
+                        {% if data['packagingSeller04'] == 'yes' %}
+                        <li>Packaging that you imported that you disposed of before it was sold</li>
+                        {% endif %}
+                        {% if data['packagingSeller05'] == 'yes' %}
+                        <li>Empty packaging that you sold to non-obligated producers</li>
+                        {% endif %}
+                        {% if data['packagingSeller06'] == 'yes' %}
+                        <li>Packaging containing goods sold by non-obligated producers via your online marketplace</li>
+                        {% endif %}
+                        {% if data['packagingSeller07'] == 'yes' %}
+                        <li>Reusable packaging that your organisation hired or lent out, that hasn't already been reported</li>
+                        {% endif %}
+                    </ul>
+
+                    <div class="govuk-hint">
+                        Select all that apply.
+                    </div>
+
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input1" name="materialsSeller" type="checkbox" value="aluminium">
+                            <label class="govuk-label govuk-checkboxes__label" for="input1">
+                                Aluminium
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input2" name="materialsSeller" type="checkbox" value="fibre">
+                            <label class="govuk-label govuk-checkboxes__label" for="input2">
+                                Fibre-based composite 
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input3" name="materialsSeller" type="checkbox" value="glass">
+                            <label class="govuk-label govuk-checkboxes__label" for="input3">
+                                Glass
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input4" name="materialsSeller" type="checkbox" value="paper">
+                            <label class="govuk-label govuk-checkboxes__label" for="input4">
+                                Paper
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input5" name="materialsSeller" type="checkbox" value="plastic" >
+                            <label class="govuk-label govuk-checkboxes__label" for="input5">
+                                Plastic
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input6" name="materialsSeller" type="checkbox" value="steel">
+                            <label class="govuk-label govuk-checkboxes__label" for="input6">
+                                Steel
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input7" name="materialsSeller" type="checkbox" value="wood">
+                            <label class="govuk-label govuk-checkboxes__label" for="input7">
+                                Wood
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="input8" name="materialsSeller" type="checkbox" value="other">
+                            <label class="govuk-label govuk-checkboxes__label" for="input8">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -84,6 +84,7 @@ module.exports = {
   "materialsPrimary": "steel,plastic",
   "materialsSecondary": "paper,plastic",
   "materialsTransit": "wood,plastic",
+  "materialsSeller": "aluminium,wood,plastic",
 
 
   // DRS-specific data below
