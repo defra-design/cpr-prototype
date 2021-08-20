@@ -21,9 +21,7 @@
         }) }}
 
         <span class="govuk-caption-l">2022 packaging activities</span>
-        <h1 class="govuk-heading-l">
-          Did your organisation sell unfilled packaging within secondary packaging to non-obligated producers?
-        </h1>
+        <h1 class="govuk-heading-l">Did your organisation sell empty secondary packaging to non-obligated producers?</h1>
 
         {{ govukDetails({
           summaryText: "What's a non-obligated producer?",
@@ -36,7 +34,11 @@
           '
         }) }}
 
+        {% if data['orgOnlineMarketplace'] == 'yes' %}
         <form method="POST" action="activities-secondary-04">
+        {% else %}
+        <form method="POST" action="activities-secondary-05">
+        {% endif %}
             
             {{ govukRadios({
               name: "activitySecondary03",

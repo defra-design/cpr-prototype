@@ -21,14 +21,55 @@
         }) }}
 
         <span class="govuk-caption-l">2022 packaging activities</span>
-        <h1 class="govuk-heading-l">
-          Was any secondary packaging added to your organisation's own brand products that were supplied in the UK?
-        </h1>
+        <h1 class="govuk-heading-l">Own brand goods</h1>
 
         
 
         <form method="POST" action="activities-secondary-02">
             
+          {{ govukRadios({
+            name: "activitySecondary01a",
+            fieldset: {
+              legend: {
+                text: "Did your organisation add any secondary packaging to its own brand goods that it supplied in the UK?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+
+          {{ govukRadios({
+            name: "activitySecondary01b",
+            fieldset: {
+              legend: {
+                text: "Did another organisation add any secondary packaging to your organisation's own brand goods that it supplied in the UK?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
             {{ govukRadios({
               name: "activitySecondary01",
               items: [

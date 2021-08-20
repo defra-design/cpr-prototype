@@ -22,7 +22,7 @@ Tell us about your packaging activities | {{serviceName}} prototype
 
         <span class="govuk-caption-l">2022 packaging activities</span>
         <h1 class="govuk-heading-l">
-          Did your organisation sell unfilled primary packaging to non-obligated producers?
+          Did your organisation sell empty primary packaging to non-obligated producers?
         </h1>
 
         {{ govukDetails({
@@ -37,8 +37,11 @@ Tell us about your packaging activities | {{serviceName}} prototype
         }) }}
 
         
-
+        {% if data['orgOnlineMarketplace'] == 'yes' %}
         <form method="POST" action="activities-primary-04">
+        {% else %}
+        <form method="POST" action="activities-primary-05">
+        {% endif %}
             
             {{ govukRadios({
               name: "activityPrimary03",

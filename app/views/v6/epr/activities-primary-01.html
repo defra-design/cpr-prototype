@@ -21,28 +21,54 @@
         }) }}
 
         <span class="govuk-caption-l">2022 packaging activities</span>
-        <h1 class="govuk-heading-l">
-          Did your organisation supply its own brand products in primary packaging within the UK?
-        </h1>
-
-        
+        <h1 class="govuk-heading-l">Own brand goods</h1>
 
         <form method="POST" action="activities-primary-02">
-            
-            {{ govukRadios({
-              name: "activityPrimary01",
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
-                },
-                {
-                  value: "no",
-                  text: "No"
-                }
-              ]
-            }) }}
-            
+
+          {{ govukRadios({
+            name: "activityPrimary01a",
+            fieldset: {
+              legend: {
+                text: "Did your organisation pack and supply its own brand goods in primary packaging within the UK?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+
+          {{ govukRadios({
+            name: "activityPrimary01b",
+            fieldset: {
+              legend: {
+                text: "Did another organisation pack and supply your organisation's own brand goods in primary packaging within the UK?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          
             {{govukButton({
                 text: "Save and continue"
             })}}
