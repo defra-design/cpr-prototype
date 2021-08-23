@@ -21,7 +21,7 @@ Packaging data you must report | {{serviceName}} prototype
       }) }}
 
       <h1 class="govuk-heading-l">
-        What packaging data you'll need to report for 2022
+        Packaging data you'll need to report for 2022
       </h1>
 
       {% if data['packagingPrimary'] == 'yes' %}
@@ -31,24 +31,28 @@ Packaging data you must report | {{serviceName}} prototype
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsPrimary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in:</p>
 
         <ul class="govuk-list govuk-list--bullet">
-          {% if data['activityPrimary01'] == 'yes' %}
-            <li>primary packaging you supplied your own brand products in within the UK</li>
+          {% if data['activityPrimary01a'] == 'yes' %}
+            <li>primary packaging you packed and supplied your own brand goods in within the UK</li>
           {% endif %}
 
+          {% if data['activityPrimary01b'] == 'yes' %}
+          <li>primary packaging another organisation packed and supplied your own brand goods in within the UK</li>
+        {% endif %}
+
           {% if data['activityPrimary02'] == 'yes' %}
-            <li>filled primary packaging you imported into the UK to sell </li>
+            <li>primary packaging containing goods that you imported into the UK to sell</li>
           {% endif %}
 
           {% if data['activityPrimary03'] == 'yes' %}
-            <li>unfilled primary packaging you sold to non-obligated producers </li>
+            <li>empty primary packaging you sold to non-obligated producers</li>
           {% endif %}
 
           {% if data['activityPrimary04'] == 'yes' %}
-            <li>filled primary packaging you facilitated the sale of via your online platform by non-UK producers in the UK </li>
+            <li>primary packaging containing goods that non-UK businesses sold in the UK using your online marketplace</li>
           {% endif %}
 
           {% if data['activityPrimary05'] == 'yes' %}
-            <li>reusable primary packaging you hired or lent out to UK-based organisations (if it has not been reported under the PR or EPR schemes before) </li>
+            <li>reusable primary packaging you hired or lent out to UK-based organisations (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
         </ul>
 
@@ -63,24 +67,28 @@ Packaging data you must report | {{serviceName}} prototype
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsSecondary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in: </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          {% if data['activitySecondary01'] == 'yes' %}
-            <li>secondary packaging you added to your own brand products that you supplied in the UK </li>
+          {% if data['activitySecondary01a'] == 'yes' %}
+            <li>secondary packaging you added to your own brand goods that you supplied in the UK</li>
           {% endif %}
 
+          {% if data['activitySecondary01b'] == 'yes' %}
+          <li>secondary packaging another organisation added to your own brand goods that it supplied in the UK</li>
+        {% endif %}
+
           {% if data['activitySecondary02'] == 'yes' %}
-            <li>secondary packaging containing filled packaging that you imported into the UK to sell </li>
+            <li>secondary packaging containing goods that you imported into the UK to sell</li>
           {% endif %}
 
           {% if data['activitySecondary03'] == 'yes' %}
-            <li>secondary packaging containing unfilled packaging that you sold to non-obligated producers </li>
+            <li>empty secondary packaging that you sold to non-obligated producers</li>
           {% endif %}
 
           {% if data['activitySecondary04'] == 'yes' %}
-            <li>secondary packaging you facilitated the sale of via your online marketplace by non-UK producers in the UK </li>
+            <li>secondary packaging containing goods that non-UK businesses sold in the UK using your online marketplace</li>
           {% endif %}
 
           {% if data['activitySecondary05'] == 'yes' %}
-            <li>reusable secondary packaging you hired or lent out to UK-based organisations (if it has not been reported under the PR or EPR schemes before) </li>
+            <li>reusable secondary packaging you hired or lent out to UK-based organisations (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
         </ul>
 
@@ -96,23 +104,23 @@ Packaging data you must report | {{serviceName}} prototype
 
         <ul class="govuk-list govuk-list--bullet">
           {% if data['activityTransit01'] == 'yes' %}
-            <li>transit packaging you used to transport products that you supplied in the UK </li>
+            <li>transit packaging you used to transport goods that you supplied in the UK</li>
           {% endif %}
 
           {% if data['activityTransit02'] == 'yes' %}
-            <li>filled transit packaging you imported into the UK to sell </li>
+            <li>transit packaging containing goods that you imported into the UK to sell</li>
           {% endif %}
 
           {% if data['activityTransit03'] == 'yes' %}
-            <li>unfilled transit packaging you sold to non-obligated producers</li>
+            <li>empty transit packaging that you sold to non-obligated producers</li>
           {% endif %}
 
           {% if data['activityTransit04'] == 'yes' %}
-            <li>transit packaging used to transport filled packaging that you facilitated the sale of via your online marketplace by non-UK producers in the UK </li>
+            <li>transit packaging containing goods that non-UK businesses sold in the UK using your online marketplace</li>
           {% endif %}
 
           {% if data['activityTransit05'] == 'yes' %}
-            <li>reusable transit packaging you hired or lent out to UK-based organisations that has not been reported under the PR or EPR schemes before  </li>
+            <li>reusable transit packaging you hired or lent out to UK-based organisations (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
         </ul>
 
@@ -161,15 +169,15 @@ Packaging data you must report | {{serviceName}} prototype
 
       <h2 class="govuk-heading-m">When to report your packaging data </h2>
 
-      <p>You’ll need to report your organisation’s packaging data once a year. You can do this in the ‘report your packaging data’ section of this service. </p>
+      <p>You’ll need to report your organisation’s packaging data once a year. You can do this in the ‘report your packaging data’ section of this service.</p>
 
-      <p>You must report data for 2022 by 7 April 2023. We’ll send you an email to remind you nearer the time. </p>
+      <p>You must report data for 2022 by 7 April 2023. We’ll send you an email to remind you nearer the time.</p>
 
      
 
       <form method="POST" action="home?introPrepare=yes">
           <button class="govuk-button">
-              Save and continue
+              Continue
           </button>
       </form>
         

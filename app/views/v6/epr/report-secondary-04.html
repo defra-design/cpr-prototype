@@ -26,11 +26,19 @@
 
             {% call govukFieldset({
             legend: {
-                text: "How much secondary packaging did you facilitate the sale of by non-UK producers within the UK via your online platform?",
+                text: "How much secondary packaging that contained goods did non-UK businesses sell in the UK using your online marketplace?",
                 classes: "govuk-fieldset__legend--l"
             }
             }) %}
 
+            {{ govukDetails({
+                summaryText: "What’s an online marketplace?",
+                html: '
+                <p>An online marketplace is a platform that allows you to sell goods on behalf of a third party over the internet. For example, eBay and Etsy.</p>
+                <p>If your organisation has a company website that only sells its own goods, then this is not an online marketplace.</p>
+                '
+              }) }}
+            
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
@@ -183,7 +191,7 @@
             {% endcall %}
 
             {{govukButton({
-                text: "Continue"
+                text: "Save and continue"
             })}}
 
         </form>

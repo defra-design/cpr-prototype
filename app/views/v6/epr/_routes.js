@@ -266,6 +266,8 @@ router.post('*/route-reporting-primary', function (req, res) {
     var activityPrimary03 = req.session.data['activityPrimary03']
     var activityPrimary04 = req.session.data['activityPrimary04']
     var activityPrimary05 = req.session.data['activityPrimary05']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activityPrimary01 == "yes"){
         res.redirect('report-primary-01')
     }
@@ -281,6 +283,12 @@ router.post('*/route-reporting-primary', function (req, res) {
     else if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
     }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
     else {
         res.redirect('home')
     }
@@ -292,6 +300,8 @@ router.post('*/route-reporting-primary-01', function (req, res) {
     var activityPrimary03 = req.session.data['activityPrimary03']
     var activityPrimary04 = req.session.data['activityPrimary04']
     var activityPrimary05 = req.session.data['activityPrimary05']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activityPrimary02 == "yes"){
         res.redirect('report-primary-02')
     }
@@ -304,6 +314,12 @@ router.post('*/route-reporting-primary-01', function (req, res) {
     else if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
     }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
     else {
         res.redirect('home')
     }
@@ -314,6 +330,8 @@ router.post('*/route-reporting-primary-02', function (req, res) {
     var activityPrimary03 = req.session.data['activityPrimary03']
     var activityPrimary04 = req.session.data['activityPrimary04']
     var activityPrimary05 = req.session.data['activityPrimary05']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activityPrimary03 == "yes"){
         res.redirect('report-primary-03')
     }
@@ -322,6 +340,12 @@ router.post('*/route-reporting-primary-02', function (req, res) {
     }
     else if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
+    }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -332,11 +356,19 @@ router.post('*/route-reporting-primary-02', function (req, res) {
 router.post('*/route-reporting-primary-03', function (req, res) {
     var activityPrimary04 = req.session.data['activityPrimary04']
     var activityPrimary05 = req.session.data['activityPrimary05']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activityPrimary04 == "yes"){
         res.redirect('report-primary-04')
     }
     else if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
+    }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -346,8 +378,30 @@ router.post('*/route-reporting-primary-03', function (req, res) {
 
 router.post('*/route-reporting-primary-04', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
+    }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
+    else {
+        res.redirect('home')
+    }
+})
+
+router.post('*/route-reporting-primary-05', function (req, res) {
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
+    if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -363,6 +417,7 @@ router.post('*/route-reporting-secondary', function (req, res) {
     var activitySecondary03 = req.session.data['activitySecondary03']
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activitySecondary01 == "yes"){
         res.redirect('report-secondary-01')
     }
@@ -378,6 +433,9 @@ router.post('*/route-reporting-secondary', function (req, res) {
     else if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
     }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
     else {
         res.redirect('home')
     }
@@ -389,6 +447,7 @@ router.post('*/route-reporting-secondary-01', function (req, res) {
     var activitySecondary03 = req.session.data['activitySecondary03']
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activitySecondary02 == "yes"){
         res.redirect('report-secondary-02')
     }
@@ -401,6 +460,9 @@ router.post('*/route-reporting-secondary-01', function (req, res) {
     else if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
     }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
     else {
         res.redirect('home')
     }
@@ -411,6 +473,7 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
     var activitySecondary03 = req.session.data['activitySecondary03']
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activitySecondary03 == "yes"){
         res.redirect('report-secondary-03')
     }
@@ -419,6 +482,9 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
     }
     else if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -429,11 +495,15 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
 router.post('*/route-reporting-secondary-03', function (req, res) {
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activitySecondary04 == "yes"){
         res.redirect('report-secondary-04')
     }
     else if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -443,8 +513,23 @@ router.post('*/route-reporting-secondary-03', function (req, res) {
 
 router.post('*/route-reporting-secondary-04', function (req, res) {
     var activitySecondary05 = req.session.data['activitySecondary05']
+    var packagingTransit = req.session.data['packagingTransit']
     if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
+    else {
+        res.redirect('home')
+    }
+})
+
+
+router.post('*/route-reporting-secondary-05', function (req, res) {
+    var packagingTransit = req.session.data['packagingTransit']
+    if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
     }
     else {
         res.redirect('home')
@@ -544,7 +629,7 @@ router.post('*/route-reporting-transit-04', function (req, res) {
         res.redirect('report-transit-05')
     }
     else {
-        res.redirect('activities-check-answers')
+        res.redirect('report-check-details')
     }
 })
 
