@@ -104,7 +104,7 @@ router.post('*/route-subsidiaries-choice', function (req, res) {
         res.redirect('registration-subsidiaries-add-companies-house-search?subNumber=1')
     }
     else {
-        res.redirect('registration-org-turnover')
+        res.redirect('registration-online-marketplace')
     }
 })
 
@@ -128,7 +128,7 @@ router.post('*/route-subsidiaries-add-check', function (req, res) {
         res.redirect('registration-subsidiaries-add-companies-house-search?subNumber=2')
     }
     else {
-        res.redirect('registration-org-turnover')
+        res.redirect('registration-online-marketplace')
     }
 })
 
