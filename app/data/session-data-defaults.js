@@ -98,6 +98,7 @@ module.exports = {
   "activityNation02a": "yes",
   "activityNation02b": "yes",
   "activityNation03a": "yes",
+  "activityNation03b": "yes",
   "activityNation03c": "yes",
   "activityNation04": "yes",
   "activityNation05": "yes",
