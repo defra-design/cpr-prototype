@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-l">2022 nation reporting</span>
+        
+        <h1 class="govuk-heading-l">
+          Packaging you've sold
+        </h1>
+
+        <form method="POST" action="activities-nation-02">
+
+
+          {{ govukRadios({
+            name: "activityNation01a",
+            fieldset: {
+              legend: {
+                text: "Did your organisation sell packaging to end consumers?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          {{ govukDetails({
+            summaryText: "What's an end consumer?",
+            html: '
+            <p>TBC</p>
+            '
+          }) }}          
+
+          {{ govukRadios({
+            name: "activityNation01b",
+            fieldset: {
+              legend: {
+                text: "Did your organisation sell packaging to non-obligated producers?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          {{ govukDetails({
+            summaryText: "What's a non-obligated producer?",
+            html: '
+            <p>Non-obligated producers are organisations that either:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>produce less than 25 tonnes of packaging waste a year</li>
+              <li>have a turnover below £1 million</li>
+            </ul>
+            '
+          }) }}
+   
+          
+          {{govukButton({
+              text: "Save and continue"
+          })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

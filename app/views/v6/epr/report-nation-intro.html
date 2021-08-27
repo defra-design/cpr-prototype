@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Report your organisation's packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Report packaging your organisation has sold per UK nation in 2022
+        </h1>
+
+        <p>As a combined total of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsNation'] | escape | replace(",", ",&nbsp;") }} was sold per UK nation during 2022: </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+
+                        {% if data['activityNation01a'] == 'yes' %}
+                        <li>Packaging you've sold - Q1</li>
+                        {% endif %}
+                        {% if data['activityNation01b'] == 'yes' %}
+                        <li>Packaging you've sold - Q2</li>
+                        {% endif %}
+                        {% if data['activityNation02b'] == 'yes' %}
+                        <li>Secondary or transit packaging - Q2</li>
+                        {% endif %}
+                        {% if data['activityNation03a'] == 'yes' %}
+                        <li>Imported packaging - Q1</li>
+                        {% endif %}
+                        {% if data['activityNation03b'] == 'yes' %}
+                        <li>Imported packaging - Q2</li>
+                        {% endif %}
+                        {% if data['activityNation04'] == 'yes' %}
+                        <li>Imported packaging - Q3</li>
+                        {% endif %}
+                        {% if data['activityNation05'] == 'yes' %}
+                        <li>Packaging containing goods - Q1</li>
+                        {% endif %}
+                        {% if data['activityPrimary05'] == 'yes' or data['activitySecondary05'] == 'yes' or data['activityTransit05'] == 'yes' %}
+                        <li>Packaging containing goods - Q1</li>
+                        {% endif %}
+
+          </ul>
+
+
+        <form method="POST" action="report-nation-all">
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

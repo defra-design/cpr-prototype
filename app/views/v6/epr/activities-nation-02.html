@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-l">2022 nation reporting</span>
+
+        <h1 class="govuk-heading-l">
+          Secondary or transit packaging
+        </h1>
+
+        <form method="POST" action="route-nation-activities-02">
+            
+          {% set nationQuestion2b %}
+{{ govukRadios({
+            name: "activityNation02b",
+            fieldset: {
+              legend: {
+                text: "Was this secondary or transit packaging disposed of by the other organisations?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+{% endset -%}
+
+
+{{ govukRadios({
+            name: "activityNation02a",
+            fieldset: {
+              legend: {
+                text: "Did your organisation use secondary or transit packaging in the sale of a product to another organisation?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+		conditional: {
+        html: nationQuestion2b
+      }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

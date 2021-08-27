@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-l">2022 nation reporting</span>
+
+        <h1 class="govuk-heading-l">Hiring or lending out reusable packaging</h1>
+
+        <p>You've already told us that your organisation hired or lent out reusable packaging in 2022.</p>
+        <p>You must include this packaging as part of your [NATION DATA TERMINOLOGY].</p>
+
+        <p><a href="#">If this no longer correct, you can change your answers</a></p>
+        <form method="POST" action="activities-nation-materials">
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

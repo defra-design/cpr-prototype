@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Tell us about your packaging activities | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <span class="govuk-caption-l">2022 nation reporting</span>
+
+        <h1 class="govuk-heading-l">Imported packaging</h1>
+
+        <form method="POST" action="activities-nation-05">
+            
+          {{ govukRadios({
+            name: "activityNation04",
+            fieldset: {
+              legend: {
+                text: "Did your organisation dispose of any imported packaging before it was sold?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+            
+            {{govukButton({
+                text: "Save and continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

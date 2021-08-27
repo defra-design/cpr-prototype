@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Introduction to the packaging categories | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">Nation reporting</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget mauris mattis, hendrerit ipsum in, venenatis orci. Sed ac molestie nulla, non eleifend neque.</p>
+        <p>Mauris vulputate sollicitudin eros feugiat rhoncus. Mauris in metus gravida, laoreet ex imperdiet, cursus mauris. Praesent id vehicula justo, et lacinia sapien.</p>
+
+      
+        <form method="POST" action="home?nationIntro=yes">
+          
+          {{govukButton({
+              text: "Continue"
+          })}}
+
+        </form>
+
+        {% include "includes/save-and-exit.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

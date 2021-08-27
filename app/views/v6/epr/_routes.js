@@ -185,6 +185,27 @@ router.post('*/route-report-method', function (req, res) {
 })
 
 
+// Routing for manual report-manually-check.html
+router.post('*/route-report-manually', function (req, res) {
+    var packagingPrimary = req.session.data['packagingPrimary']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
+    if (packagingPrimary == "yes"){
+        res.redirect('report-primary-intro')
+    }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
+    else {
+        res.redirect('home')
+    }
+})
+
+
+
 
 // Routing for activities-primary-intro.html
 router.post('*/route-activities-primary-intro', function (req, res) {
@@ -216,6 +237,48 @@ router.post('*/route-activities-transit-intro', function (req, res) {
     }
     else {
         res.redirect('activities-transit-materials')
+    }
+})
+
+
+// Routing for activities-nation-02.html
+
+router.post('*/route-nation-activities-02', function (req, res) {
+    var activityPrimary02 = req.session.data['activityPrimary02']
+    var activitySecondary02 = req.session.data['activitySecondary02']
+    var activityTransit02 = req.session.data['activityTransit02']
+    if (activityPrimary02 == "yes"){
+        res.redirect('activities-nation-03')
+    }
+    else if (activitySecondary02 == "yes"){
+        res.redirect('activities-nation-03')
+    }
+    else if (activityTransit02 == "yes"){
+        res.redirect('activities-nation-03')
+    }
+    else {
+        res.redirect('activities-nation-05')
+    }
+})
+
+
+// Routing for activities-nation-05.html
+
+router.post('*/route-nation-activities-05', function (req, res) {
+    var activityPrimary05 = req.session.data['activityPrimary05']
+    var activitySecondary05 = req.session.data['activitySecondary05']
+    var activityTransit05 = req.session.data['activityTransit05']
+    if (activityPrimary05 == "yes"){
+        res.redirect('activities-nation-06')
+    }
+    else if (activitySecondary05 == "yes"){
+        res.redirect('activities-nation-06')
+    }
+    else if (activityTransit05 == "yes"){
+        res.redirect('activities-nation-06')
+    }
+    else {
+        res.redirect('activities-nation-materials')
     }
 })
 
@@ -290,7 +353,7 @@ router.post('*/route-reporting-primary', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -321,7 +384,7 @@ router.post('*/route-reporting-primary-01', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -348,7 +411,7 @@ router.post('*/route-reporting-primary-02', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -371,7 +434,7 @@ router.post('*/route-reporting-primary-03', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -390,7 +453,7 @@ router.post('*/route-reporting-primary-04', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -404,7 +467,7 @@ router.post('*/route-reporting-primary-05', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -437,7 +500,7 @@ router.post('*/route-reporting-secondary', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -464,7 +527,7 @@ router.post('*/route-reporting-secondary-01', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -487,7 +550,7 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -506,7 +569,7 @@ router.post('*/route-reporting-secondary-03', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -521,7 +584,7 @@ router.post('*/route-reporting-secondary-04', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -532,7 +595,7 @@ router.post('*/route-reporting-secondary-05', function (req, res) {
         res.redirect('report-transit-intro')
     }
     else {
-        res.redirect('home')
+        res.redirect('report-check-details')
     }
 })
 
@@ -561,7 +624,7 @@ router.post('*/route-reporting-transit', function (req, res) {
         res.redirect('report-transit-05')
     }
     else {
-        res.redirect('activities-check-answers')
+        res.redirect('report-check-details')
     }
 })
 
@@ -584,7 +647,7 @@ router.post('*/route-reporting-transit-01', function (req, res) {
         res.redirect('report-transit-05')
     }
     else {
-        res.redirect('activities-check-answers')
+        res.redirect('report-check-details')
     }
 })
 
@@ -603,7 +666,7 @@ router.post('*/route-reporting-transit-02', function (req, res) {
         res.redirect('report-transit-05')
     }
     else {
-        res.redirect('activities-check-answers')
+        res.redirect('report-check-details')
     }
 })
 
@@ -618,7 +681,7 @@ router.post('*/route-reporting-transit-03', function (req, res) {
         res.redirect('report-transit-05')
     }
     else {
-        res.redirect('activities-check-answers')
+        res.redirect('report-check-details')
     }
 })
 

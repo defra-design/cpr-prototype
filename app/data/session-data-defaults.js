@@ -62,8 +62,9 @@ module.exports = {
   "sub2CompanyName": "Subsidiary Two Ltd",
   "sub2CompanyPhone": "01423 555 787",
   "sub2CompanyEmail": "hello@subsidiarytwo.com",
-  
 
+
+// EPR packaging category data
   "packagingPrimary": "yes",
   "packagingSecondary": "yes",
   "packagingTransit": "yes",
@@ -72,24 +73,35 @@ module.exports = {
   "activityPrimary01b": "yes",
   "activityPrimary02": "yes",
   "activityPrimary03": "yes",
-  "activityPrimary04": "yes",
+  "activityPrimary04": "no",
   "activityPrimary05": "yes",
   "activitySecondary01": "yes",
   "activitySecondary01a": "yes",
   "activitySecondary01b": "yes",
   "activitySecondary02": "yes",
   "activitySecondary03": "yes",
-  "activitySecondary04": "yes",
+  "activitySecondary04": "no",
   "activitySecondary05": "yes",
   "activityTransit01": "yes",
   "activityTransit02": "yes",
   "activityTransit03": "yes",
-  "activityTransit04": "yes",
+  "activityTransit04": "no",
   "activityTransit05": "yes",
   "materialsPrimary": "steel,plastic",
   "materialsSecondary": "paper,plastic",
   "materialsTransit": "wood,plastic",
-  "materialsSeller": "aluminium,wood,plastic",
+
+
+  // EPR nation data
+  "activityNation01a": "yes",
+  "activityNation01b": "yes",
+  "activityNation02a": "yes",
+  "activityNation02b": "yes",
+  "activityNation03a": "yes",
+  "activityNation03c": "yes",
+  "activityNation04": "yes",
+  "activityNation05": "yes",
+  "materialsNation": "aluminium,wood,plastic",
 
 
   // DRS-specific data below
