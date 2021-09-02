@@ -1,0 +1,976 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-0">
+        1. Extended producer responsibility (EPR) prototypes
+      </h1>
+      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
+
+      <p class="govuk-!-margin-bottom-6">Prototype contacts: <a href="mailto:alex.colbeck@defra.gov.uk">Alex Colbeck</a> / <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a></p>
+
+      <!-- Change the prototype version in /app/data/session-data-defaults.js -->
+      <!--<p>Current version number: {{data['protoVer']}}</p>-->
+
+      <h2 class="govuk-heading-m">Alpha: functional prototypes</h2>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Version</th>
+            <th scope="col" class="govuk-table__header">User research</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+          <!-- Version 6 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 6 (latest version)</strong></p>
+              <form action="/v6/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+
+            <td class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v5 to v6
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Added a question about 'Online Marketplace' to the registration section</li>
+                    <li>Added an introduction page to the 'Prepare' task list section which details the packaging type categories</li>
+                    <li>Broken down the questions on 'Primary', 'Secondary' and 'Transit' packaging into separate tasks</li>
+                    <li>Replaced the 'filled' and 'unfilled' wording</li>
+                    <li>Added a definition for 'online marketplace'</li>
+                    <li>Broken some of the questions into 2 parts to improve comprehension</li>
+                    <li>placeholder</li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+            
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td colspan="3" class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Jump links
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p>Use the following links to jump to different stages of the digital journey.</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li class="govuk-!-margin-top-4">
+                      Obligation checker tool
+                      <ul>
+                        <li><a href="/v6/epr-obligation-checker">Am I obligated?</a></li>
+                        <li><a href="/v6/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      <a href="/v6/epr/service-start">Service start page</a>
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      EPR registration and data reporting task list:
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                      <ul>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 1 (Register):</strong>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Privacy policy and declaration
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Add information about your organisation
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Pay the fee and submit your application
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application being reviewed
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 2 (Prepare):</strong>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application approved &amp; prepare packaging data
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes">
+                            Tell us about your primary packaging
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes">
+                            Tell us about your secondary packaging
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes">
+                            Tell us about your transit packaging
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 3 (Summary):</strong>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes">
+                            Check what packaging data you must report
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 4 (Reporting method):</strong>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes">
+                            Choose how to submit your packaging data
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually">
+                            How to prepare your packaging data
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 5 (Report):</strong>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Report packaging data manually
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&chooseActivities=yes">
+                            Report packaging data by uploading a spreadsheet
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data reported (pending)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=yes&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data being reviewed (being reviewed)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=yes&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&reportBrandowner=paper,glass,steel&paperBrandowner=23&glassBrandowner=45&steelBrandowner=12&reportImporter=paper,glass,fibre&paperImporter=4&glassImporter=10&fibreImporter=3&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data rejected (resubmit)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data approved
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service emails
+                      <ul>
+                        <li><a href="/v6/epr/registration-email-submitted">Application submitted</a></li>
+                        <li><a href="/v6/epr/registration-email-complete">Registration approved and complete</a></li>
+                        <li><a href="/v6/epr/report-email-complete">Packaging data submission complete</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+
+          </tr>
+          <!-- Version 6 end -->
+
+
+
+          <!-- Version 5 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 5</strong></p>
+              <form action="/v5/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              <p>Usability testing between 5th and 10th August 2021</p>
+              <p><a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Research hypotheses (Sharepoint)</a></p>
+              <p><a href="https://defra.sharepoint.com/:p:/t/Team568/Eey_NPMmq4FPmPoJFw8NM5kBmndNI4MSoq7QlKNTE5tU4g?e=tVaT0H" target="_blank">Research findings (Sharepoint)</a></p>
+            </td>
+
+            <td class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v4 to v5
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Removed the producer 'type A, B, C' questions from the registration section</li>
+                    <li>Moved the content on 'Introduction and what you'll need' to the 'Add information about your organisation' task</li>
+                    <li>Added the 'Tell us about your packaging activities' task</li>
+                    <li>Added the 'Check what packaging data you must report' task</li>
+                    <li>Renamed the 'Next steps' task to 'How to prepare your packaging data'</li>
+                    <li>Moved the spreadsheet and API guidance content into the 'How to prepare your packaging data' task</li>
+                    <li>Added the data entry pages for the 'Submit your packaging data' task</li>
+                    <li>Removed the 'Introduction and what you'll need' task from section 3 of the task list</li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+            
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td colspan="3" class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Jump links
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p>Use the following links to jump to different stages of the digital journey.</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li class="govuk-!-margin-top-4">
+                      Obligation checker tool
+                      <ul>
+                        <li><a href="/v5/epr-obligation-checker">Am I obligated?</a></li>
+                        <li><a href="/v5/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      <a href="/v5/epr/service-start">Service start page</a>
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      EPR registration and data reporting task list:
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                      <ul>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 1 (Register):</strong>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Privacy policy and declaration
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Add information about your organisation
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Pay the fee and submit your application
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application being reviewed
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 2 (Prepare):</strong>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application approved &amp; prepare packaging data
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes">
+                            Check what packaging data you must report
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes&introPrepare=yes">
+                            Choose how to submit your packaging data
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually">
+                            How to prepare your packaging data
+                          </a>
+                        </li>
+                        <li class="govuk-!-margin-top-3">
+                          <strong>Task list section 3 (Report):</strong>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Report packaging data manually
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&chooseActivities=yes">
+                            Report packaging data by uploading a spreadsheet
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data reported (pending)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=yes&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data being reviewed (being reviewed)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=yes&dataAccepted=no&reportBrandowner=paper,glass,steel&paperBrandowner=23&glassBrandowner=45&steelBrandowner=12&reportImporter=paper,glass,fibre&paperImporter=4&glassImporter=10&fibreImporter=3&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data rejected (resubmit)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                            Packaging data approved
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service emails
+                      <ul>
+                        <li><a href="/v5/epr/registration-email-submitted">Application submitted</a></li>
+                        <li><a href="/v5/epr/registration-email-complete">Registration approved and complete</a></li>
+                        <li><a href="/v5/epr/report-email-complete">Packaging data submission complete</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+
+          </tr>
+          <!-- Version 5 end -->
+
+
+          
+          <!-- Version 4 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 4</strong></p>
+              <form action="/v4/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              <p>Usability testing between 13th and 26th July 2021</p>
+              <p><a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Research hypotheses (Sharepoint)</a></p>
+              <p><a href="https://defra.sharepoint.com/:p:/t/Team568/EUD-hiMaa7RGiGa0r_mZXuUBqhRngAadSG9nsNHu1U58kg?e=d7A0vN" target="_blank">Research findings (Sharepoint)</a></p>
+            </td>
+
+            <td class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v3 to v4
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Added section 2 into the task list: prepare data</li>
+                    <li>Added the task to allow users to choose a data reporting method; manual, spreadsheet or API</li>
+                    <li>Added the resubmission journey so users are able to amend their packaging data in different scenarios</li>
+                    <li>Added steps to collect the organisation's audit address if relevant</li>
+                    <li>Changed the content for the correspondence address question</li>
+                    <li>Changed the producer 'types' to letters i.e. A, B, C etc</li>
+                    <li>Added more guidance and updated the examples for each producer type question</li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+            
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td colspan="3" class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Jump links
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p>Use the following links to jump to different stages of the digital journey.</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li class="govuk-!-margin-top-4">
+                      <a href="/v4/epr/service-start">Service start page</a>
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Obligation checker tool
+                      <ul>
+                        <li><a href="/v4/epr-obligation-checker">Am I obligated?</a></li>
+                        <li><a href="/v4/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      EPR registration and data reporting task list:
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                      <ul>
+                        <li>
+                          <a href="/v4/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Introduction and what you'll need
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Privacy policy and declaration
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Add information about your organisation
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Pay the fee and submit your application
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application being reviewed
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                            Application approved &amp; prepare packaging data
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                            Report packaging data manually
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes">
+                            Report packaging data by uploading a spreadsheet
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                            Packaging data reported (pending)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=yes&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                            Packaging data being reviewed (being reviewed)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=yes&dataAccepted=no&reportBrandowner=paper,glass,steel&paperBrandowner=23&glassBrandowner=45&steelBrandowner=12&reportImporter=paper,glass,fibre&paperImporter=4&glassImporter=10&fibreImporter=3&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                            Packaging data rejected (resubmit)
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/v4/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                            Packaging data approved
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service emails
+                      <ul>
+                        <li><a href="/v4/epr/registration-email-submitted">Application submitted</a></li>
+                        <li><a href="/v4/epr/registration-email-complete">Registration approved and complete</a></li>
+                        <li><a href="/v4/epr/report-email-complete">Packaging data submission complete</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+
+          </tr>
+          <!-- Version 4 end -->
+
+
+
+          <!-- Version 3 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 3</strong></p>
+              <form action="/v3/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              <p>Usability testing between 18th and 24th May 2021</p>
+              <p><a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Research hypotheses (Sharepoint)</a></p>
+              <p><a href="https://defra.sharepoint.com/:p:/t/Team568/EXU-Bb9uer1AvDjHO2pm0LIBGae1AhKiWTjYl3UnOnmaMw?e=xNLgXu" target="_blank">Research findings (Sharepoint)</a></p>
+            </td>
+
+            <td class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v2 to v3
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Tweaked the content to make it clear the user should be using their own Defra and GG accounts.</li>
+                    <li>Added a route to find out if the organisation has already been registered in Defra Identity and deal with that scenario.</li>
+                    <li>Added a details component to help the user understand what makes someone 'authorised'.</li>
+                    <li>Added progress saving (save and exit, save and continue) to the longer journeys.</li>
+                    <li>Added a question to find out which nation the organisation is registered in.</li>
+                    <li>Split the 'producer types' question into multiple pages, one of each type.</li>
+                    <li>Renamed the producer type names to use numbers and added examples to the pages.</li>
+                    <li>Renamed the payment details PDF to 'invoice'.</li>
+                    <li>Other minor content changes.</li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+            
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td colspan="3" class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Jump links
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p>Use the following links to jump to different stages of the digital journey.</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li class="govuk-!-margin-top-4">
+                      <a href="/v3/epr/service-start">Service start page</a>
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Obligation checker tool
+                      <ul>
+                        <li><a href="/v3/epr-obligation-checker">Am I obligated?</a></li>
+                        <li><a href="/v3/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      EPR registration and data reporting task list:
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                      <ul>
+                        <li><a href="/v3/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                        <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service emails
+                      <ul>
+                        <li><a href="/v3/epr/registration-email-submitted">Application submitted</a></li>
+                        <li><a href="/v3/epr/registration-email-complete">Registration approved and complete</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+
+          </tr>
+          <!-- Version 3 end -->
+
+
+
+          <!-- Version 2 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 2</strong></p>
+              <form action="/v2/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              <p>Usability testing week commencing 19th April 2021</p>
+              <p><a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Research hypotheses (Sharepoint)</a></p>
+              <p><a href="https://defra.sharepoint.com/:p:/t/Team568/ERL2OzSUuoRGnxRvyFC6S_0ByVMQL7v334cPH8B7qarnvw?e=naH2eJ" target="_blank">Research findings (Sharepoint)</a></p>
+            </td>
+
+            <td class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Changes from v1 to v2
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Removed the necessity for a director/secretary/partner to set up the Defra ID account and enrol onto the service.</li>
+                    <li>Removed the step where the regulator is required to approve the user's access to the service.</li>
+                    <li>Added a new <a href="/v2/epr/authorised">declaration and privacy policy page</a> before the user enters the service.</li>
+                    <li>Removed the 3rd 'certificate of compliance' step from the <a href="/v2/epr/home">producer task list</a>.</li>
+                    <li>Added the application, payment and status journeys leading off from the <a href="/v2/epr/home">producer task list</a>.</li>
+                    <li>Added the journey for reporting placed on the market (POM) data.</li>
+                  </ul>
+                  <a href="https://defra.sharepoint.com/:w:/t/Team568/ERb_QUDI3N9GkIL_yJXkzPABjdm24vShfuWR3wvqOUwqRw?e=WJoaAB" target="_blank">More info in the design decisions log (on Sharepoint)</a>
+                </div>
+              </details>
+            </td>
+            
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td colspan="3" class="govuk-table__cell">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Jump links
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p>Use the following links to jump to different stages of the digital journey.</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li class="govuk-!-margin-top-4">
+                      <a href="/v2/epr/service-start">Service start page</a>
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Obligation checker tool
+                      <ul>
+                        <li><a href="/v2/epr-obligation-checker">Am I obligated?</a></li>
+                        <li><a href="/v2/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service task list:
+                      <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                      <ul>
+                        <li><a href="/v2/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                        <li><a href="/v2/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                      </ul>
+                    </li>
+                    <li class="govuk-!-margin-top-4">
+                      Service emails
+                      <ul>
+                        <li><a href="/v2/epr/payment-email-information">Payment information</a></li>
+                        <li><a href="/v2/epr/registration-email-submitted">Application submitted</a></li>
+                        <li><a href="/v2/epr/registration-email-complete">Registration approved and complete</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </td>
+
+          </tr>
+          <!-- Version 2 end -->
+
+          
+
+          <!-- Version 1 start -->
+          <tr class="govuk-table__row no-border">
+
+            <td class="govuk-table__cell">
+              <p><strong>Version 1</strong></p>
+              <form action="/v1/epr/service-start">
+                <button class="govuk-button" type="submit">Enter prototype</button>
+              </form>
+            </td>
+
+            <td class="govuk-table__cell">
+              Not tested
+            </td>
+
+            <td class="govuk-table__cell">
+            </td>
+            
+          </tr>
+          <!-- Version 1 end -->
+
+
+        </tbody>
+      </table>
+
+
+      <h2 class="govuk-heading-m" style="margin-top:80px;">Pipeline: conceptual end-to-end prototypes</h2>
+      
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="width: 20%;">Version</th>
+            <th scope="col" class="govuk-table__header" style="width: 20%;">Service model details</th>
+            <th scope="col" class="govuk-table__header" style="width: 20%;">Tested on</th>
+            <th scope="col" class="govuk-table__header" style="width: 40%;">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><strong>Option 1c</strong></p><a href="https://www.sketch.com/s/944d7de4-c2fa-4711-8c2d-6a482b0a087c/a/GmxnEZw/play" target="_blank">Clickable end-to-end prototype</a></td>
+            <td class="govuk-table__cell">Defra / Regulator</td>
+            <td class="govuk-table__cell">w/c 16 August 2021</td>
+            <td class="govuk-table__cell"><ul><li>Updated all screens to incorporate latest designs from the working prototypes</li>
+<li>All in-service email comms sent by Defra</li>
+<li>Review and payment of obligated fees completed within the Gov branded service</li></ul></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><strong>Option 1b</strong></p><a href="https://www.sketch.com/s/944d7de4-c2fa-4711-8c2d-6a482b0a087c/a/dl1DDkj/play" target="_blank">Clickable end-to-end prototype</a></td>
+            <td class="govuk-table__cell">Defra / Scheme Admin / Regulator</td>
+            <td class="govuk-table__cell">w/c 7 June 2021</td>
+            <td class="govuk-table__cell"><ul><li>Introduced messaging related to the Scheme Admin at the start of the journey, and at key points throughout the journey</li>
+<li>Made the Scheme Admin payee for both registration and obligated fees</li>
+<li>Update all email comms from the regulator to be from the Scheme Admin</li>
+<li>Direct users to the Scheme Admin login page instead of homepage</li></ul></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><strong>Option 1a</strong></p><a href="https://www.sketch.com/s/944d7de4-c2fa-4711-8c2d-6a482b0a087c/a/DP4eyee/play" target="_blank">Clickable end-to-end prototype</a><br><br><a href="https://defra.sharepoint.com/:i:/t/Team568/EQWb2miyyA5FinqD7cISABYB3NfjCxzZZ4vcEZGRagoadg?e=55NyXa" target="_blank">Prototype blueprint</a></td>
+            <td class="govuk-table__cell">Defra / Scheme Admin / Regulator</td>
+            <td class="govuk-table__cell">w/c 26 April 2021</td>
+            <td class="govuk-table__cell">N/A</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><strong>Option 2a</strong></p><a href="https://www.sketch.com/s/944d7de4-c2fa-4711-8c2d-6a482b0a087c/a/rbQedPP/play" target="_blank">Clickable end-to-end prototype</a><br><br><a href="https://defra.sharepoint.com/:i:/t/Team568/ES_epZfanzhPgFx599Z-ZvIBoJnyaTmuVelFzDUeu5q0Eg?e=1kTkbb" target="_blank">Prototype blueprint</a></td>
+            <td class="govuk-table__cell">Scheme Admin / Regulator</td>
+            <td class="govuk-table__cell">No testing planned</td>
+            <td class="govuk-table__cell">N/A</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-0" style="margin-top:80px;">
+        2. Deposit return scheme (DRS) prototypes
+      </h1>
+      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
+      <p class="govuk-!-margin-bottom-6">Prototype contact: <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a></p>
+
+      <h2 class="govuk-heading-m">Alpha: functional prototypes</h2>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Version 1.0</th>
+            <th scope="col" class="govuk-table__header">Tested on</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Scenario A: Standard journey</strong><ul><li>User below EPR turnover threshold</li><li>User has Defra ID account, not registered for EPR</li></ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <!-- <li class="govuk-!-margin-top-4">
+                  <a href="/drs/drs-registration_v1/service-start">Service start page</a>
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Obligation checker tool
+                  <ul>
+                    <li><a href="/drs/drs-obligation-checker_v1">Am I obligated?</a></li>
+                    <li><a href="/drs/drs-obligation-checker_v1/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                  </ul>
+                </li> -->
+                <li class="govuk-!-margin-top-4">
+                  DRS obligation checker tool:
+                  <ul>
+                    <li><a href="/drs/drs-obligation-checker_v1/">Am I obligated?</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  DRS organisation type:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(User type undefined)</span>
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/registration-drs-org-type?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Which description applies to your organisation</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  DRS registration task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(Producer & retailer)</span>
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  DRS reporting task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(Producer & retailer)</span>
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                  </ul>
+                </li>
+                <!-- <li class="govuk-!-margin-top-4">
+                  Service emails
+                  <ul>
+                    <li><a href="/v3/epr/registration-email-submitted">Application submitted</a></li>
+                    <li><a href="/v3/epr/registration-email-complete">Registration approved and complete</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Scenario B: Standard journey</strong><ul><li>User above EPR turnover threshold</li><li>User has Defra ID account, not registered for EPR</li></ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-margin-top-4">
+                  DRS registration task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(Producer & retailer)</span>
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/home?thresholdMet=yes&intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Scenario C: Streamlined journey</strong><ul><li>User above EPR turnover threshold</li><li>User has Defra ID account, registered for EPR</li></ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-margin-top-4">
+                  DRS registration task list:
+                  <span class="govuk-hint govuk-!-margin-bottom-0">(Producer & retailer)</span>
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/home?existingEpr=yes&intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                    <!-- <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                    <li><a href="/drs/drs-registration_v1/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li> -->
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <strong>Alternate designs</strong>
+              <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-margin-top-4">
+                  DRS organisation type: (2 page version)
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/registration-drs-org-type?drsOrgTypeV2=yes&intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Which description applies to your organisation?</a></li>
+                  </ul>
+                </li>
+                <li class="govuk-!-margin-top-4">
+                  Organisation nation - Scotland: (2 page version)
+                  <ul>
+                    <li><a href="/drs/drs-registration_v1/registration-org-nation?drsNationV2=yes">Where is your organisation registered?</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-0" style="margin-top:80px;">
+        3. Combined approach prototypes
+      </h1>
+      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
+      <p class="govuk-!-margin-bottom-6">Prototype contact: <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a> </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Obligation checkers</th>
+            <th scope="col" class="govuk-table__header">Tested on</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p><strong>Option 1: Basic obligation checker</strong></p>
+              <p><a href="/combined/combined-basic-obligation-checker_v1/start-page?obDrsCheckboxes=no" target="_blank">Start page (DRS yes/no)</a></p>
+              <p><a href="/combined/combined-basic-obligation-checker_v1/start-page?obDrsCheckboxes=yes" target="_blank">Start page (DRS checkboxes)</a></p>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <p><strong>Option 2: Basic obligation criteria displayed in guidance</strong></p>
+              <p><a href="/combined/combined-basic-obligation-guidance_v1/obligation" target="_blank">Am I obligated page</a></p>
+            </td>
+            <td class="govuk-table__cell">
+              Awaiting testing
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+{% endblock %}

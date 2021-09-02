@@ -1,12 +1,23 @@
+{% set serviceName = "Collection & Packaging Reforms (CPR) prototypes" %}
 {% extends "layout.html" %}
 
 {% block content %}
 
-<script>
-    window.onload = function() {
-        // similar behavior as an HTTP redirect
-        window.location.replace("../epr/home");
-    }
-</script>
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {{ govukBackLink({
+            text: "Back to all CPR prototypes",
+            href: "/index"
+        }) }}
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Version 1</h1>
+
+        <a href="/v1/epr/service-start" class="govuk-button">Start prototype</a>
+
+               
+    </div>
+</div>
 
 {% endblock %}

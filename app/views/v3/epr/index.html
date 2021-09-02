@@ -1,12 +1,138 @@
+{% set serviceName = "Collection & Packaging Reforms (CPR) prototypes" %}
 {% extends "layout.html" %}
 
 {% block content %}
 
-<script>
-    window.onload = function() {
-        // similar behavior as an HTTP redirect
-        window.location.replace("../v3/epr/home");
-    }
-</script>
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {{ govukBackLink({
+            text: "Back to all CPR prototypes",
+            href: "/index"
+        }) }}
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Version 3</h1>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Prototype journeys
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li class="govuk-!-margin-top-4">
+                        <a href="/v3/epr/service-start">Service start page</a>
+                        <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                        </li>
+                        <li class="govuk-!-margin-top-4">
+                        Obligation checker tool
+                        <ul>
+                            <li><a href="/v3/epr-obligation-checker">Am I obligated?</a></li>
+                            <li><a href="/v3/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                        </ul>
+                        </li>
+                        <li class="govuk-!-margin-top-4">
+                        EPR registration and data reporting task list:
+                        <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                        <ul>
+                            <li><a href="/v3/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Introduction and what you'll need</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&reported=no">Privacy policy and declaration</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&reported=no">Add information about your organisation</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&reported=no">Pay the fee and submit your application</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&reported=no">Application being reviewed</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&reported=no">Application approved &amp; report POM data</a></li>
+                            <li><a href="/v3/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&reported=yes">POM data reported</a></li>
+                        </ul>
+                        </li>
+                        <li class="govuk-!-margin-top-4">
+                        Service emails
+                        <ul>
+                            <li><a href="/v3/epr/registration-email-submitted">Application submitted</a></li>
+                            <li><a href="/v3/epr/registration-email-complete">Registration approved and complete</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Implemented changes
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Tweaked the content to make it clear the user should be using their own Defra and GG accounts.</li>
+                        <li>Added a route to find out if the organisation has already been registered in Defra Identity and deal with that scenario.</li>
+                        <li>Added a details component to help the user understand what makes someone 'authorised'.</li>
+                        <li>Added progress saving (save and exit, save and continue) to the longer journeys.</li>
+                        <li>Added a question to find out which nation the organisation is registered in.</li>
+                        <li>Split the 'producer types' question into multiple pages, one of each type.</li>
+                        <li>Renamed the producer type names to use numbers and added examples to the pages.</li>
+                        <li>Renamed the payment details PDF to 'invoice'.</li>
+                        <li>Other minor content changes.</li>
+                    </ul>
+                </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Known limitations and issues
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>placeholder</li>
+                    </ul>
+                </dd>
+            </div>-->
+
+        </dl>
+
+
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-8">Research</h2>
+            
+        <dl class="govuk-summary-list">
+        
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Session dates
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Usability testing between 18th and 24th May 2021
+              </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Participants
+              </dt>
+              <dd class="govuk-summary-list__value">
+                5 company employees who currently manage their company's packaging producer responsibilitites
+              </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Hypotheses
+              </dt>
+              <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                  <a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Hypotheses spreadsheet (Sharepoint)</a>
+              </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Insights
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <a href="https://defra.sharepoint.com/:p:/t/Team568/EXU-Bb9uer1AvDjHO2pm0LIBGae1AhKiWTjYl3UnOnmaMw?e=xNLgXu" target="_blank">Research findings presentation (Sharepoint)</a>
+              </dd>
+          </div>
+
+        </dl>
+        
+    </div>
+</div>
 
 {% endblock %}

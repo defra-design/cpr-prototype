@@ -1,12 +1,210 @@
+{% set serviceName = "Collection & Packaging Reforms (CPR) prototypes" %}
 {% extends "layout.html" %}
 
 {% block content %}
 
-<script>
-    window.onload = function() {
-        // similar behavior as an HTTP redirect
-        window.location.replace("../v5/epr/home");
-    }
-</script>
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {{ govukBackLink({
+            text: "Back to all CPR prototypes",
+            href: "/index"
+        }) }}
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-6">Version 5</h1>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Prototype journeys
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li class="govuk-!-margin-top-4">
+                        Obligation checker tool
+                        <ul>
+                          <li><a href="/v5/epr-obligation-checker">Am I obligated?</a></li>
+                          <li><a href="/v5/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
+                        </ul>
+                      </li>
+                      <li class="govuk-!-margin-top-4">
+                        <a href="/v5/epr/service-start">Service start page</a>
+                        <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                      </li>
+                      <li class="govuk-!-margin-top-4">
+                        EPR registration and data reporting task list:
+                        <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+                        <ul>
+                          <li class="govuk-!-margin-top-3">
+                            <strong>Task list section 1 (Register):</strong>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                              Privacy policy and declaration
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                              Add information about your organisation
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                              Pay the fee and submit your application
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                              Application being reviewed
+                            </a>
+                          </li>
+                          <li class="govuk-!-margin-top-3">
+                            <strong>Task list section 2 (Prepare):</strong>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
+                              Application approved &amp; prepare packaging data
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes">
+                              Check what packaging data you must report
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes&introPrepare=yes">
+                              Choose how to submit your packaging data
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&chooseActivities=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually">
+                              How to prepare your packaging data
+                            </a>
+                          </li>
+                          <li class="govuk-!-margin-top-3">
+                            <strong>Task list section 3 (Report):</strong>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                              Report packaging data manually
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&chooseActivities=yes">
+                              Report packaging data by uploading a spreadsheet
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                              Packaging data reported (pending)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=yes&dataResubmit=no&dataAccepted=no&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                              Packaging data being reviewed (being reviewed)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=yes&dataAccepted=no&reportBrandowner=paper,glass,steel&paperBrandowner=23&glassBrandowner=45&steelBrandowner=12&reportImporter=paper,glass,fibre&paperImporter=4&glassImporter=10&fibreImporter=3&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                              Packaging data rejected (resubmit)
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/v5/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
+                              Packaging data approved
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="govuk-!-margin-top-4">
+                        Service emails
+                        <ul>
+                          <li><a href="/v5/epr/registration-email-submitted">Application submitted</a></li>
+                          <li><a href="/v5/epr/registration-email-complete">Registration approved and complete</a></li>
+                          <li><a href="/v5/epr/report-email-complete">Packaging data submission complete</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Implemented changes
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>Removed the producer 'type A, B, C' questions from the registration section</li>
+                      <li>Moved the content on 'Introduction and what you'll need' to the 'Add information about your organisation' task</li>
+                      <li>Added the 'Tell us about your packaging activities' task</li>
+                      <li>Added the 'Check what packaging data you must report' task</li>
+                      <li>Renamed the 'Next steps' task to 'How to prepare your packaging data'</li>
+                      <li>Moved the spreadsheet and API guidance content into the 'How to prepare your packaging data' task</li>
+                      <li>Added the data entry pages for the 'Submit your packaging data' task</li>
+                      <li>Removed the 'Introduction and what you'll need' task from section 3 of the task list</li>
+                    </ul>
+                </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Known limitations and issues
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>placeholder</li>
+                    </ul>
+                </dd>
+            </div>-->
+
+        </dl>
+
+
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-8">Research</h2>
+            
+        <dl class="govuk-summary-list">
+        
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Session dates
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Usability testing between 5th and 10th August 2021
+              </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Participants
+              </dt>
+              <dd class="govuk-summary-list__value">
+                5 company employees who currently manage their company's packaging producer responsibilitites
+              </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Hypotheses
+              </dt>
+              <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                  <a href="https://defra.sharepoint.com/:x:/t/Team568/EWVrqVNJOu9FrKDOPe7hbtcBVuGhUOKTpy9E2H47qemYdw?e=jbpWoL" target="_blank">Hypotheses spreadsheet (Sharepoint)</a>
+              </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Insights
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <a href="https://defra.sharepoint.com/:p:/t/Team568/Eey_NPMmq4FPmPoJFw8NM5kBmndNI4MSoq7QlKNTE5tU4g?e=tVaT0H" target="_blank">Research findings presentation (Sharepoint)</a>
+              </dd>
+          </div>
+
+        </dl>
+        
+    </div>
+</div>
 
 {% endblock %}

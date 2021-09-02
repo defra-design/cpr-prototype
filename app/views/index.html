@@ -1,3 +1,4 @@
+{% set serviceName = "Collection & Packaging Reforms (CPR) prototypes" %}
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -8,219 +9,338 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-0">
-        1. Extended producer responsibility (EPR) prototypes
+      <h1 class="govuk-heading-l">
+        Collection &amp; Packaging Reforms (CPR) prototypes
       </h1>
-      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
 
       <p class="govuk-!-margin-bottom-6">Prototype contacts: <a href="mailto:alex.colbeck@defra.gov.uk">Alex Colbeck</a> / <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a></p>
 
-      <!-- Change the prototype version in /app/data/session-data-defaults.js -->
-      <!--<p>Current version number: {{data['protoVer']}}</p>-->
-
-      <h2 class="govuk-heading-m">Alpha: functional prototypes</h2>
-
+      <h1 class="govuk-heading-m govuk-!-padding-top-4">
+        Extended Producer Responsibility (EPR) Alpha prototypes
+      </h1>
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Version</th>
-            <th scope="col" class="govuk-table__header">Tested on</th>
-            <th scope="col" class="govuk-table__header">Changes</th>
+            <th class="govuk-table__header" scope="col">Version</th>
+            <th class="govuk-table__header" scope="col">Sprint(s)</th>
+            <th class="govuk-table__header" scope="col">Date created</th>
+            <th class="govuk-table__header" scope="col">Status</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-
-
-
-
-
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <strong>Version 6 (latest version)</strong><br />
-              <ul class="govuk-list govuk-list--bullet">
-                <li class="govuk-!-margin-top-4">
-                  Obligation checker tool
-                  <ul>
-                    <li><a href="/v6/epr-obligation-checker">Am I obligated?</a></li>
-                    <li><a href="/v6/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
-                  </ul>
-                </li>
-                <li class="govuk-!-margin-top-4">
-                  <a href="/v6/epr/service-start">Service start page</a>
-                  <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
-                </li>
-                <li class="govuk-!-margin-top-4">
-                  EPR registration and data reporting task list:
-                  <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
-                  <ul>
-                    <li class="govuk-!-margin-top-3">
-                      <strong>Task list section 1 (Register):</strong>
-                    </li>
-                    <!--<li>
-                      <a href="/v5/epr/home?intro1=no&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Introduction and what you'll need
-                      </a>
-                    </li>-->
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Privacy policy and declaration
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Add information about your organisation
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Pay the fee and submit your application
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Application being reviewed
-                      </a>
-                    </li>
-                    <li class="govuk-!-margin-top-3">
-                      <strong>Task list section 2 (Prepare):</strong>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no">
-                        Application approved &amp; prepare packaging data
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes">
-                        Tell us about your primary packaging
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes">
-                        Tell us about your secondary packaging
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes">
-                        Tell us about your transit packaging
-                      </a>
-                    </li>
-                    <li class="govuk-!-margin-top-3">
-                      <strong>Task list section 3 (Summary):</strong>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes">
-                        Check what packaging data you must report
-                      </a>
-                    </li>
-                    <li class="govuk-!-margin-top-3">
-                      <strong>Task list section 4 (Reporting method):</strong>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes">
-                        Choose how to submit your packaging data
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually">
-                        How to prepare your packaging data
-                      </a>
-                    </li>
-                    <li class="govuk-!-margin-top-3">
-                      <strong>Task list section 5 (Report):</strong>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
-                        Report packaging data manually
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=no&dataReported=no&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&chooseActivities=yes">
-                        Report packaging data by uploading a spreadsheet
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
-                        Packaging data reported (pending)
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=yes&dataResubmit=no&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
-                        Packaging data being reviewed (being reviewed)
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=yes&dataAccepted=no&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&reportBrandowner=paper,glass,steel&paperBrandowner=23&glassBrandowner=45&steelBrandowner=12&reportImporter=paper,glass,fibre&paperImporter=4&glassImporter=10&fibreImporter=3&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
-                        Packaging data rejected (resubmit)
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&intro2=yes&dataReported=yes&dataReviewed=no&dataResubmit=no&dataAccepted=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&introPrepare=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&chooseActivities=yes">
-                        Packaging data approved
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="govuk-!-margin-top-4">
-                  Service emails
-                  <ul>
-                    <li><a href="/v6/epr/registration-email-submitted">Application submitted</a></li>
-                    <li><a href="/v6/epr/registration-email-complete">Registration approved and complete</a></li>
-                    <li><a href="/v6/epr/report-email-complete">Packaging data submission complete</a></li>
-                  </ul>
-                </li>
-              </ul>
+              <a href="v6/epr/index">V6</a>
             </td>
             <td class="govuk-table__cell">
-              Awaiting testing
+              15 &amp; 16
+            </td>
+            <td class="govuk-table__cell">
+              12th Aug 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="v5/epr/index">V5</a>
+            </td>
+            <td class="govuk-table__cell">
+              14 &amp; 15
+            </td>
+            <td class="govuk-table__cell">
+              29th Jul 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="v4/epr/index">V4</a>
+            </td>
+            <td class="govuk-table__cell">
+              9 to 13
+            </td>
+            <td class="govuk-table__cell">
+              24th May 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="v3/epr/index">V3</a>
             </td>
             <td class="govuk-table__cell">
               
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Changes from v5 to v6
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul>
-                    <li>Added a question about 'Online Marketplace' to the registration section</li>
-                    <li>Added an introduction page to the 'Prepare' task list section which details the packaging type categories</li>
-                    <li>Broken down the questions on 'Primary', 'Secondary' and 'Transit' packaging into separate tasks</li>
-                    <li>Replaced the 'filled' and 'unfilled' wording</li>
-                    <li>Added a definition for 'online marketplace'</li>
-                    <li>Broken some of the questions into 2 parts to improve comprehension</li>
-                    <li>placeholder</li>
-                  </ul>
-                </div>
-              </details>
-
+            </td>
+            <td class="govuk-table__cell">
+              30th Apr 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
             </td>
           </tr>
-          
-          
-          
-          
-          
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <strong><a href="index-epr-old">View the previous versions</a></strong><br />
+              <a href="v2/epr/index">V2</a>
             </td>
             <td class="govuk-table__cell">
+              
             </td>
             <td class="govuk-table__cell">
+              25th Feb 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
             </td>
           </tr>
-
-
-          
-
-
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="v1/epr/index">V1</a>
+            </td>
+            <td class="govuk-table__cell">
+              
+            </td>
+            <td class="govuk-table__cell">
+              21st Jan 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
         </tbody>
       </table>
 
 
-      <h2 class="govuk-heading-m" style="margin-top:80px;">Pipeline: conceptual end-to-end prototypes</h2>
       
+      <h1 class="govuk-heading-m govuk-!-padding-top-4">
+        Extended Producer Responsibility (EPR) end-to-end prototypes
+      </h1>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Version</th>
+            <th class="govuk-table__header" scope="col">Scenario</th>
+            <th class="govuk-table__header" scope="col">Date created</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="e2e/option-1c">Option 1c</a>
+            </td>
+            <td class="govuk-table__cell">
+              Defra / Regulator
+            </td>
+            <td class="govuk-table__cell">
+              
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="e2e/option-1b">Option 1b</a>
+            </td>
+            <td class="govuk-table__cell">
+              Defra / Scheme Admin / Regulator
+            </td>
+            <td class="govuk-table__cell">
+              
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="e2e/option-1a">Option 1a</a>
+            </td>
+            <td class="govuk-table__cell">
+              Defra / Scheme Admin / Regulator
+            </td>
+            <td class="govuk-table__cell">
+              
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="e2e/option-2a">Option 2a</a>
+            </td>
+            <td class="govuk-table__cell">
+              Scheme Admin / Regulator
+            </td>
+            <td class="govuk-table__cell">
+              
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Complete
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h1 class="govuk-heading-m govuk-!-padding-top-4">
+        Deposit return scheme (DRS) Alpha prototypes
+      </h1>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Version</th>
+            <th class="govuk-table__header" scope="col">Scenario</th>
+            <th class="govuk-table__header" scope="col">Date created</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              V1
+            </td>
+            <td class="govuk-table__cell">
+              <a href="drs/v1-scenario-a">Scenario A: standard journey</a>
+            </td>
+            <td class="govuk-table__cell">
+              19th May 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              V1
+            </td>
+            <td class="govuk-table__cell">
+              <a href="drs/v1-scenario-b">Scenario B: standard journey</a>
+            </td>
+            <td class="govuk-table__cell">
+              19th May 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              V1
+            </td>
+            <td class="govuk-table__cell">
+              <a href="drs/v1-scenario-c">Scenario C: streamlined journey</a>
+            </td>
+            <td class="govuk-table__cell">
+              19th May 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              V1
+            </td>
+            <td class="govuk-table__cell">
+              <a href="drs/v1-alternative">Alternative designs</a>
+            </td>
+            <td class="govuk-table__cell">
+              19th May 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h1 class="govuk-heading-m govuk-!-padding-top-4">
+        Combined approach (EPR &amp; DRS) prototypes
+      </h1>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Option</th>
+            <th class="govuk-table__header" scope="col">Description</th>
+            <th class="govuk-table__header" scope="col">Date created</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="combined/option-1">Option 1</a>
+            </td>
+            <td class="govuk-table__cell">
+              Basic obligation checker
+            </td>
+            <td class="govuk-table__cell">
+              18th Jun 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="combined/option-2">Option 2</a>
+            </td>
+            <td class="govuk-table__cell">
+              Basic obligation criteria displayed in guidance
+            </td>
+            <td class="govuk-table__cell">
+              18th Jun 2021
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                In progress
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+{#
+      <h2 class="govuk-heading-m" style="margin-top:80px;">Pipeline: conceptual end-to-end prototypes</h2>
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -263,15 +383,7 @@
         </tbody>
       </table>
 
-
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-0" style="margin-top:80px;">
-        2. Deposit return scheme (DRS) prototypes
-      </h1>
-      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
-      <p class="govuk-!-margin-bottom-6">Prototype contact: <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a></p>
-
-      <h2 class="govuk-heading-m">Alpha: functional prototypes</h2>
-
+      <h2 class="govuk-heading-m" style="margin-top:80px;">Deposit return scheme (DRS) prototypes</h2>
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -413,13 +525,8 @@
           </tr>
         </tbody>
       </table>
-      
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-0" style="margin-top:80px;">
-        3. Combined approach prototypes
-      </h1>
-      <p class="govuk-hint govuk-!-margin-top-2">Part of the Collection &amp; Packaging Reforms project</p>
-      <p class="govuk-!-margin-bottom-6">Prototype contact: <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a> </p>
 
+      <h2 class="govuk-heading-m" style="margin-top:80px;">Combined approach prototypes</h2>
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -454,6 +561,8 @@
           </tr>
         </tbody>
       </table>
+#}
+
 
     </div>
   </div>
