@@ -21,67 +21,45 @@ Tell us about your packaging activities | {{serviceName}} prototype
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 nation reporting</span>
+        <span class="govuk-caption-l">2022 packaging activities</span>
         
         <h1 class="govuk-heading-l">
-          Packaging you've sold
+          Who did your organisation sell packaging to within the UK?
         </h1>
 
         <form method="POST" action="activities-nation-02">
 
-
-          {{ govukRadios({
-            name: "activityNation01a",
-            fieldset: {
-              legend: {
-                text: "Did your organisation sell packaging to end consumers?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
+          {{ govukCheckboxes({
+            name: "activityNation01",
             items: [
-              {
-                value: "yes",
-                text: "Yes"
-              },
-              {
-                value: "no",
-                text: "No"
-              }
+                {
+                  value: "consumers",
+                  text: "End-consumers"
+                },
+                {
+                  value: "producers",
+                  text: "Non-obligated producers"
+                },
+                {
+                  divider: "or"
+                },
+                {
+                  value: "somebody_else",
+                  text: "Somebody else",
+                  behaviour: "exclusive"
+                }
             ]
           }) }}
 
           {{ govukDetails({
-            summaryText: "What's an end consumer?",
+            summaryText: "What are end consumers and non-obligated producers?",
             html: '
-            <p>TBC</p>
-            '
-          }) }}          
-
-          {{ govukRadios({
-            name: "activityNation01b",
-            fieldset: {
-              legend: {
-                text: "Did your organisation sell packaging to non-obligated producers?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "yes",
-                text: "Yes"
-              },
-              {
-                value: "no",
-                text: "No"
-              }
-            ]
-          }) }}
-
-          {{ govukDetails({
-            summaryText: "What's a non-obligated producer?",
-            html: '
+            <p>End consumers are the people and businesses who dispose of primary or secondary packaging, including non-obligated businesses that resell primary or secondary packaging. For example, a:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>member of the public who bought packaged goods from a retail organisation, then threw the packaging into their household bin</li>
+              <li>non-obligated business that bought packaged goods from a wholesaler then sold them on</li>
+              <li>retailer that bought packaged goods to sell on and disregarded any secondary packaging</li>
+            </ul>
             <p>Non-obligated producers are organisations that either:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>produce less than 25 tonnes of packaging waste a year</li>
@@ -90,7 +68,6 @@ Tell us about your packaging activities | {{serviceName}} prototype
             '
           }) }}
    
-          
           {{govukButton({
               text: "Save and continue"
           })}}

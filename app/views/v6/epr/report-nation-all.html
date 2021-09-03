@@ -23,21 +23,19 @@
 
         <form method="POST" action="report-check-details">
 
-            <span class="govuk-caption-l">Nation reporting for 2022</span>
+            <span class="govuk-caption-l">2022 packaging data</span>
 
             {% call govukFieldset({
             legend: {
-                text: "How much packaging materials did you sell per UK nation?",
-                classes: "govuk-fieldset__legend--l"
+                text: "How many tonnes of each material was used to package goods your organisation sold per nation?",
+                classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
             }
             }) %}
 
             <p class="govuk-hint">You must enter your packaging data in whole tonnes. Round any decimals to the nearest whole number.</p>
             <p class="govuk-hint">Do not include any materials that are less than 500kg.</p>
 
-
-
-            <h2 class="govuk-heading-m">England</h2>
+            <h2 class="govuk-heading-m govuk-!-margin-top-4">England</h2>
 
                 {% if 'aluminium' in data['materialsNation'] %}
 
@@ -183,6 +181,7 @@
 
                 {% endif %}
 
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
                 <h2 class="govuk-heading-m">Scotland</h2>
 
@@ -330,6 +329,7 @@
 
                 {% endif %}
 
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
                 <h2 class="govuk-heading-m">Wales</h2>
 
@@ -477,6 +477,7 @@
 
                 {% endif %}
 
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
                 <h2 class="govuk-heading-m">Northern Ireland</h2>
 
@@ -624,13 +625,13 @@
 
                 {% endif %}
 
-
-
             {% endcall %}
 
-            {{govukButton({
-                text: "Continue"
-            })}}
+            <div class="govuk-!-padding-top-6">
+                {{govukButton({
+                    text: "Continue"
+                })}}
+            </div>
 
         </form>
         
