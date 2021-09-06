@@ -270,7 +270,6 @@
             </li>
 
 
-            {# {% if data['nationData'] == 'yes' %} #}
             <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">3. </span> Tell us where your packaging was sold in 2022
@@ -324,7 +323,6 @@
 
                 </ul>
             </li>            
-            {# {% endif %} #}
 
 
             <li>
@@ -438,11 +436,11 @@
 
                         <span class="app-task-list__task-name">
 
-                            <a href="report-check">Check your packaging materials and activities </a>
+                            <a href="report-manually-check">Check your packaging materials and activities </a>
 
                             {#
                             {% if data['nextSteps'] == 'yes' %}
-                                <a href="report-check">Check your packaging materials and activities </a>
+                                <a href="report-manually-check">Check your packaging materials and activities </a>
                             {% else %}
                                 Check your packaging materials and activities 
                             {% endif %}
@@ -460,7 +458,11 @@
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
-                            <a href="report-manually-check">Submit your data</a>
+                            <form method="POST" action="route-report-manually">
+                                <a href="" onclick="this.closest('form').submit();return false;">
+                                    Submit your data
+                                </a>
+                            </form>
 
                             {#
 
@@ -482,15 +484,11 @@
                                 data['dataAccepted'] == 'no' 
                             %}
                                 <!-- This is a route rather than a link so that we can send the user to the correct first data collection page based on the packaging activities they selected during step 2 of the task list -->
-                                <!--<form method="POST" action="route-reporting">
+                                <form method="POST" action="route-report-manually">
                                     <a href="" onclick="this.closest('form').submit();return false;">
-                                        Submit your packaging data
+                                        Submit your data
                                     </a>
-                                </form>-->
-
-                                <a href="report-manually-check">
-                                    Submit your data
-                                </a>
+                                </form>
 
                             {% endif %}
                             

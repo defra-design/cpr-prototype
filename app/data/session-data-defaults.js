@@ -93,16 +93,15 @@ module.exports = {
 
 
   // EPR nation data
-  "activityNation01a": "yes",
-  "activityNation01b": "yes",
-  "activityNation02a": "yes",
-  "activityNation02b": "yes",
+  /*
+  "activityNation01": "consumers,producers",
+  "activityNation02": "yes",
   "activityNation03a": "yes",
   "activityNation03b": "yes",
-  "activityNation03c": "yes",
   "activityNation04": "yes",
   "activityNation05": "yes",
   "materialsNation": "aluminium,wood,plastic",
+  */
 
 
   // DRS-specific data below

@@ -21,20 +21,27 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 nation reporting</span>
+        <span class="govuk-caption-l">2022 packaging activities</span>
         <h1 class="govuk-heading-l">Imported packaging</h1>
 
         <form method="POST" action="activities-nation-04">
+
+          <h2 class="govuk-heading-m">Did your organisation import packaging to sell directly to end consumers within the UK?</h2>
+
+          {{ govukDetails({
+            summaryText: "What are end consumers?",
+            html: '
+            <p>End consumers are the people and businesses who dispose of primary or secondary packaging, including non-obligated businesses that resell primary or secondary packaging. For example, a:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>member of the public who bought packaged goods from a retail organisation, then threw the packaging into their household bin</li>
+              <li>non-obligated business that bought packaged goods from a wholesaler then sold them on</li>
+              <li>retailer that bought packaged goods to sell on and disregarded any secondary packaging</li>
+            </ul>
+            '
+          }) }}
             
           {{ govukRadios({
             name: "activityNation03a",
-            fieldset: {
-              legend: {
-                text: "Did your organisation import packaging to sell directly to end consumers in the UK?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
             items: [
               {
                 value: "yes",
@@ -48,15 +55,21 @@
           }) }}
 
 
+          <h2 class="govuk-heading-m">Did your organisation import packaging to sell directly to non-obligated producers within the UK?</h2>
+
+          {{ govukDetails({
+            summaryText: "What are non-obligated producers?",
+            html: '
+            <p>Non-obligated producers are organisations that either:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>produce less than 25 tonnes of packaging waste a year</li>
+              <li>have a turnover below £1 million</li>
+            </ul>
+            '
+          }) }}
+            
           {{ govukRadios({
             name: "activityNation03b",
-            fieldset: {
-              legend: {
-                text: "Did your organisation import packaging to sell directly to non-obligated producers in the UK?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
             items: [
               {
                 value: "yes",
@@ -69,13 +82,13 @@
             ]
           }) }}
             
-            {{govukButton({
-                text: "Save and continue"
-            })}}
-
-            {% include "includes/save-and-exit.html" %}
+          {{govukButton({
+              text: "Save and continue"
+          })}}
 
         </form>
+
+        {% include "includes/save-and-exit.html" %}
 
     </div>
 </div>

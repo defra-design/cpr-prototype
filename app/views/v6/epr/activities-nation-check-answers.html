@@ -21,21 +21,17 @@
             href: "javascript:history.back()"
         }) }}
 
-        <h1 class="govuk-heading-xl">
-          Check your answers
-        </h1>
-
-
-        <h2 class="govuk-heading-m">Nation reporting for 2022</h2>
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h2 class="govuk-heading-m">Packaged goods your organisation sold</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation sell packaging to end consumers?
+              Who did your organisation sell packaging to within the UK?
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {{ data['activityNation01a'] }}
+              {{ data['activityNation01'] | escape | replace(",", "<br />") }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
               <a class="govuk-link govuk-body-s" href="#">
@@ -46,10 +42,10 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation sell packaging to non-obligated producers?
+              Did your organisation use secondary or transit packaging to package goods it sold to other organisations? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {{ data['activityNation01b'] }}
+              {{ data['activityNation02'] }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
               <a class="govuk-link govuk-body-s" href="#">
@@ -60,35 +56,7 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation use secondary or transit packaging in the sale of a product to another organisation?
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {{ data['activityNation02a'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Was this secondary or transit packaging disposed of by the other organisations?
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {{ data['activityNation02b'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation import packaging to sell directly to end consumers in the UK?
+              Did your organisation import packaging to sell directly to end consumers within the UK? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
               {{ data['activityNation03a'] }}
@@ -100,10 +68,9 @@
             </dd>
           </div>
 
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation import packaging to sell directly to non-obligated producers in the UK?
+              Did your organisation import packaging to sell directly to non-obligated producers within the UK? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
               {{ data['activityNation03b'] }}
@@ -115,10 +82,9 @@
             </dd>
           </div>
 
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did your organisation dispose of any imported packaging before it was sold?
+              Did your organisation import goods in packaging then dispose of any packaging before the goods were sold? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
               {{ data['activityNation04'] }}
@@ -133,7 +99,7 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Did producers sell any packaging containing goods to UK customers via your website or app?
+              Did any businesses use your website or app to sell goods in packaging within the UK? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
               {{ data['activityNation05'] }}
@@ -145,17 +111,13 @@
             </dd>
           </div>
 
-          
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Which packaging materials were used in your seller activities in 2022?
+              Which materials were used to package goods your organisation sold in 2022? 
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {% if data['nationData'] == 'yes' %}
-                {{ data['materialsNation'] | escape | replace(",", "<br />") }}
-              {% else %}
-                none
-              {% endif %}
+              {{ data['materialsNation'] | escape | replace(",", "<br />") }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
               <a class="govuk-link govuk-body-s" href="#">
@@ -163,6 +125,7 @@
               </a>
             </dd>
           </div>
+
 
         </dl>
 

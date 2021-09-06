@@ -21,24 +21,22 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 nation reporting</span>
+        <span class="govuk-caption-l">2022 packaging activities</span>
 
         <h1 class="govuk-heading-l">
-          Secondary or transit packaging
+          Did your organisation use secondary or transit packaging to package goods it sold to other organisations?
         </h1>
 
-        <form method="POST" action="route-nation-activities-02">
+        <p>This includes any secondary or transit packaging:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>you added to goods before you sold them</li>
+          <li>that the goods were already in which you reused when you sold them </li>
+        </ul>
+
+        <form method="POST" action="activities-nation-03">
             
-          {% set nationQuestion2b %}
-{{ govukRadios({
-            name: "activityNation02b",
-            fieldset: {
-              legend: {
-                text: "Was this secondary or transit packaging disposed of by the other organisations?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
+          {{ govukRadios({
+            name: "activityNation02",
             items: [
               {
                 value: "yes",
@@ -50,40 +48,14 @@
               }
             ]
           }) }}
-{% endset -%}
-
-
-{{ govukRadios({
-            name: "activityNation02a",
-            fieldset: {
-              legend: {
-                text: "Did your organisation use secondary or transit packaging in the sale of a product to another organisation?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "yes",
-                text: "Yes",
-		conditional: {
-        html: nationQuestion2b
-      }
-              },
-              {
-                value: "no",
-                text: "No"
-              }
-            ]
-          }) }}
             
-            {{govukButton({
-                text: "Save and continue"
-            })}}
-
-            {% include "includes/save-and-exit.html" %}
+          {{govukButton({
+              text: "Save and continue"
+          })}}
 
         </form>
+
+        {% include "includes/save-and-exit.html" %}
 
     </div>
 </div>

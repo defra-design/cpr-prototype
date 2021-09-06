@@ -21,21 +21,13 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 nation reporting</span>
+        <span class="govuk-caption-l">2022 packaging activities</span>
+        <h2 class="govuk-heading-l">Did any businesses use your website or app to sell goods in packaging within the UK?</h2>
 
-        <h1 class="govuk-heading-l">Packaging containing goods</h1>
+        <form method="POST" action="activities-nation-06">
 
-        <form method="POST" action="route-nation-activities-05">
-            
           {{ govukRadios({
             name: "activityNation05",
-            fieldset: {
-              legend: {
-                text: "Did producers sell any packaging containing goods to UK customers via your website or app?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
             items: [
               {
                 value: "yes",
@@ -48,13 +40,13 @@
             ]
           }) }}
             
-            {{govukButton({
-                text: "Save and continue"
-            })}}
-
-            {% include "includes/save-and-exit.html" %}
+          {{govukButton({
+              text: "Save and continue"
+          })}}
 
         </form>
+
+        {% include "includes/save-and-exit.html" %}
 
     </div>
 </div>

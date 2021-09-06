@@ -320,7 +320,7 @@ router.post('*/route-activities-seller', function (req, res) {
 
 
 
-// Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during section 2 of the task list.
+// Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during previous sections.
 
 // Primary
 router.post('*/route-reporting-primary', function (req, res) {
