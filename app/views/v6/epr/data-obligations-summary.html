@@ -32,13 +32,14 @@ Packaging data you must report | {{serviceName}} prototype
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsPrimary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in:</p>
 
         <ul class="govuk-list govuk-list--bullet">
+
           {% if data['activityPrimary01a'] == 'yes' %}
             <li>primary packaging you packed and supplied your own brand goods in within the UK</li>
           {% endif %}
 
           {% if data['activityPrimary01b'] == 'yes' %}
-          <li>primary packaging another organisation packed and supplied your own brand goods in within the UK</li>
-        {% endif %}
+            <li>primary packaging another organisation packed and supplied your own brand goods in within the UK</li>
+          {% endif %}
 
           {% if data['activityPrimary02'] == 'yes' %}
             <li>primary packaging containing goods that you imported into the UK to sell</li>
@@ -55,6 +56,7 @@ Packaging data you must report | {{serviceName}} prototype
           {% if data['activityPrimary05'] == 'yes' %}
             <li>reusable primary packaging you hired or lent out to UK-based organisations (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
+
         </ul>
 
       {% endif %}
@@ -68,13 +70,14 @@ Packaging data you must report | {{serviceName}} prototype
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsSecondary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in: </p>
 
         <ul class="govuk-list govuk-list--bullet">
+
           {% if data['activitySecondary01a'] == 'yes' %}
             <li>secondary packaging you added to your own brand goods that you supplied in the UK</li>
           {% endif %}
 
           {% if data['activitySecondary01b'] == 'yes' %}
-          <li>secondary packaging another organisation added to your own brand goods that it supplied in the UK</li>
-        {% endif %}
+            <li>secondary packaging another organisation added to your own brand goods that it supplied in the UK</li>
+          {% endif %}
 
           {% if data['activitySecondary02'] == 'yes' %}
             <li>secondary packaging containing goods that you imported into the UK to sell</li>
@@ -91,6 +94,7 @@ Packaging data you must report | {{serviceName}} prototype
           {% if data['activitySecondary05'] == 'yes' %}
             <li>reusable secondary packaging you hired or lent out to UK-based organisations (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
+
         </ul>
 
       {% endif %}
@@ -127,46 +131,40 @@ Packaging data you must report | {{serviceName}} prototype
 
       {% endif %}
 
+      {% if data['activityNation01'] == 'yes' %}
 
-      {% if data['nationData'] == 'yes' %}
+        <h2 class="govuk-heading-m">Packaged goods your organisation sold in 2022</h2>
 
-        <h2 class="govuk-heading-m">Packaging you've sold per nation</h2>
-
-        <p>As a combined total of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsSeller'] | escape | replace(",", ",&nbsp;") }} was sold per UK nation during 2022: </p>
+        <p>For each of the following activities, you’ll need to tell us the combined total tonnage of {{ data['materialsNation'] | escape | replace(",", ",&nbsp;") }} your organisation used per nation during 2022 in: </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          {% if data['packagingSeller01'] == 'yes' %}
-            <li>filled packaging sold to end consumers</li>
+          {% if data['activityNation01'] == 'yes' %}
+            <li>packaging you sold to end consumers and non-obligated producers </li>
           {% endif %}
 
-          {% if data['packagingSeller02'] == 'yes' %}
-            <li>secondary or transit packaging that you sold to a retail organisation that disposed it</li>
+          {% if data['activityNation02'] == 'yes' %}
+            <li>secondary or transit packaging you used to package goods you sold to other organisations</li>
           {% endif %}
 
-          {% if data['packagingSeller03'] == 'yes' %}
-            <li>packaging containing goods that you imported and sold to end consumers in the UK</li>
+          {% if data['activityNation03a'] == 'yes' or data['activityNation03b'] == 'yes' %}
+            <li>packaging you imported to sell directly to end consumers and non-obligated producers within the UK </li>
           {% endif %}
 
-          {% if data['packagingSeller04'] == 'yes' %}
-            <li>packaging that you imported that you disposed of before it was sold</li>
+          {% if data['activityNation04'] == 'yes' %}
+            <li>packaging you imported goods in, then disposed of before the goods were sold </li>
           {% endif %}
 
-          {% if data['packagingSeller05'] == 'yes' %}
-            <li>empty packaging that you sold to non-obligated producers</li>
+          {% if data['activityNation05'] == 'yes' %}
+            <li>packaging containing goods that businesses used your website or app to sell within the UK </li>
           {% endif %}
 
-          {% if data['packagingSeller06'] == 'yes' %}
-            <li>packaging containing goods sold to UK customers by non-UK producers via your online marketplace</li>
+          {% if data['activityPrimary05'] == 'yes' %}
+            <li>packaging you hired or lent out (if it has not been reported under current or previous packaging regulations)</li>
           {% endif %}
 
-          {% if data['packagingSeller07'] == 'yes' %}
-            <li>reusable packaging that your organisation hired or lent out, that hasn't already been reported</li>
-          {% endif %}
-
-          </ul>
-
-      {% endif %}      
-
+        </ul>
+     
+      {% endif %}
 
       <h2 class="govuk-heading-m">When to report your packaging data </h2>
 
@@ -176,7 +174,7 @@ Packaging data you must report | {{serviceName}} prototype
 
      
 
-      <form method="POST" action="home?introPrepare=yes">
+      <form method="POST" action="home?introObligations=yes">
           <button class="govuk-button">
               Continue
           </button>

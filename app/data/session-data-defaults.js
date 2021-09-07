@@ -21,18 +21,31 @@ Example usage:
 module.exports = {
 
   "protoVer": "v6", // Update the prototype version here. This will also change the urls e.g. /epr/v1/home
+
+  // Stages of the journey
   "intro1": "no",
-  "intro2": "no",
   "declared": "no",
   "applied": "no",
   "paid": "no",
   "submitted": "no",
   "registered": "no",
+  "packagingIntro": "no",
+  "packagingPrimaryIntro": "no",
+  "packagingSecondaryIntro": "no",
+  "packagingTransitIntro": "no",
+  "chooseActivities": "no",
+  "nationIntro": "no",
+  "chooseNation": "no",
+  "introObligations": "no",
+  "reportMethod": "no",
+  "nextSteps": "no",
+  "checkReporting": "no",
   "dataReported": "no",
   "dataReviewed": "no",
   "dataAccepted": "no",
-  "dataResubmit": "no",
-  "nextSteps": "no",
+
+
+  // Company information
   "sub1": "null",
   "sub2": "null",
   "orgNation": "England",
@@ -65,27 +78,26 @@ module.exports = {
 
 
 // EPR packaging category data
+
   "packagingPrimary": "yes",
   "packagingSecondary": "yes",
   "packagingTransit": "yes",
-  "activityPrimary01": "yes",
   "activityPrimary01a": "yes",
   "activityPrimary01b": "yes",
   "activityPrimary02": "yes",
   "activityPrimary03": "yes",
-  "activityPrimary04": "no",
+  "activityPrimary04": "yes",
   "activityPrimary05": "yes",
-  "activitySecondary01": "yes",
   "activitySecondary01a": "yes",
   "activitySecondary01b": "yes",
   "activitySecondary02": "yes",
   "activitySecondary03": "yes",
-  "activitySecondary04": "no",
+  "activitySecondary04": "yes",
   "activitySecondary05": "yes",
   "activityTransit01": "yes",
   "activityTransit02": "yes",
   "activityTransit03": "yes",
-  "activityTransit04": "no",
+  "activityTransit04": "yes",
   "activityTransit05": "yes",
   "materialsPrimary": "steel,plastic",
   "materialsSecondary": "paper,plastic",
@@ -93,15 +105,16 @@ module.exports = {
 
 
   // EPR nation data
-  /*
-  "activityNation01": "consumers,producers",
+  
+  "nationData": "yes",
+  "activityNation01": "yes",
   "activityNation02": "yes",
   "activityNation03a": "yes",
   "activityNation03b": "yes",
   "activityNation04": "yes",
   "activityNation05": "yes",
   "materialsNation": "aluminium,wood,plastic",
-  */
+  
 
 
   // DRS-specific data below
