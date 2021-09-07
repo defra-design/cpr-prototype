@@ -138,16 +138,15 @@ Packaging data you must report | {{serviceName}} prototype
         <p>For each of the following activities, you’ll need to tell us the combined total tonnage of {{ data['materialsNation'] | escape | replace(",", ",&nbsp;") }} your organisation used per nation during 2022 in: </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          {% if data['nationData'] == 'yes' %}
-            <li>packaging you sold to end consumers and non-obligated producers </li>
-          {% endif %}
+
+          <li>packaging you sold to end consumers</li>
 
           {% if data['activityNation02'] == 'yes' %}
             <li>secondary or transit packaging you used to package goods you sold to other organisations</li>
           {% endif %}
 
-          {% if data['activityNation03a'] == 'yes' or data['activityNation03b'] == 'yes' %}
-            <li>packaging you imported to sell directly to end consumers and non-obligated producers within the UK </li>
+          {% if data['activityNation03'] == 'yes' %}
+            <li>packaging you imported to sell directly to end consumers within the UK </li>
           {% endif %}
 
           {% if data['activityNation04'] == 'yes' %}
