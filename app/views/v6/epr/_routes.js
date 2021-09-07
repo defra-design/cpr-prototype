@@ -240,6 +240,17 @@ router.post('*/route-activities-transit-intro', function (req, res) {
     }
 })
 
+// Routing for activities-nation-intro.html
+router.post('*/route-activities-nation-intro', function (req, res) {
+    var nationData = req.session.data['nationData']
+    if (nationData == "no"){
+        res.redirect('activities-nation-check-answers')
+    }
+    else {
+        res.redirect('activities-nation-materials')
+    }
+})
+
 
 // Routing for activities-nation-02.html
 
