@@ -49,7 +49,7 @@ module.exports = {
   "sub1": "null",
   "sub2": "null",
   "orgNation": "England",
-  "orgOnlineMarketplace": "yes",
+  "orgOnlineMarketplace": "no", // toggle between 'no' or 'yes'
   "orgTurnover": "5,500,000",
   "govGateEmail": "johnsmith@acmeorg.co.uk",
   "defraIdCompaniesHouseNumber": "01234567",
@@ -106,7 +106,7 @@ module.exports = {
 
   // EPR nation data
   
-  "nationData": "yes",
+  "nationData": "yes", // toggle between 'no' or 'yes'
   "activityNation01": "yes",
   "activityNation02": "yes",
   "activityNation03": "yes",

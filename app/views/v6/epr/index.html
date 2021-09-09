@@ -17,178 +17,188 @@
         <dl class="govuk-summary-list">
           
             <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Prototype journeys
-                </dt>
-                <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
-                    <ul class="govuk-list govuk-list--bullet">
+
+              <dt class="govuk-summary-list__key">
+                  Prototype journeys
+              </dt>
+
+              <dd class="govuk-summary-list__value govuk-!-padding-bottom-6">
+
+                <p>
+                  Online marketplace: 
+                  {% if data['orgOnlineMarketplace'] == 'yes' %}<strong>visible</strong> <a href="index?orgOnlineMarketplace=no">hide</a>{% endif %}
+                  {% if data['orgOnlineMarketplace'] == 'no' %}<strong>hidden</strong> <a href="index?orgOnlineMarketplace=yes">show</a>{% endif %}
+                </p>
+
+                <p>
+                  Nation data: 
+                  {% if data['nationData'] == 'yes' %}<strong>visible</strong> <a href="index?nationData=no">hide</a>{% endif %}
+                  {% if data['nationData'] == 'no' %}<strong>hidden</strong> <a href="index?nationData=yes">show</a>{% endif %}
+                </p>
+
+                <ul class="govuk-list govuk-list--bullet">
 
 
-                      <li class="govuk-!-margin-top-4">
-                        Obligation checker tool
-                        <ul>
-                          <li><a href="/v6/epr-obligation-checker">Am I obligated?</a></li>
-                          <li><a href="/v6/epr-obligation-checker/question-activity-brandowner">I'm obligated, how does it affect me?</a></li>
-                        </ul>
+                  <li class="govuk-!-margin-top-4">
+                    <a href="/v6/epr/service-start">Service start page</a>
+                    <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+                  </li>
+
+                  <li class="govuk-!-margin-top-4">
+
+                    EPR registration and data reporting task list:
+                    <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
+
+                    <ul>
+
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 1 (Register):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no">
+                          Privacy policy and declaration
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no">
+                          Add information about your organisation
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no">
+                          Pay the fee and submit your application
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no">
+                          Application being reviewed
+                        </a>
                       </li>
 
 
-                      <li class="govuk-!-margin-top-4">
-                        <a href="/v6/epr/service-start">Service start page</a>
-                        <span class="govuk-hint govuk-!-margin-bottom-0">(User needs to sign in or create an account)</span>
+
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 2 (Packaging data):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes">
+                          Application approved &amp; prepare packaging data
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes">
+                          Tell us about your primary packaging
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes">
+                          Tell us about your secondary packaging
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes">
+                          Tell us about your transit packaging
+                        </a>
                       </li>
 
-                      <li class="govuk-!-margin-top-4">
 
-                        EPR registration and data reporting task list:
-                        <span class="govuk-hint govuk-!-margin-bottom-0">(User is signed in)</span>
-
-                        <ul>
-
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 1 (Register):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no">
-                              Privacy policy and declaration
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=no&paid=no&registered=no">
-                              Add information about your organisation
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=no&registered=no">
-                              Pay the fee and submit your application
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=no">
-                              Application being reviewed
-                            </a>
-                          </li>
+                      {% if data['nationData'] == 'yes' %}
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 3 (Nation data):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes">
+                          Find out about reporting by nation
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes">
+                          Tell us about activities you must report by nation
+                        </a>
+                      </li>
+                      {% endif %}
 
 
 
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 2 (Packaging data):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes">
-                              Application approved &amp; prepare packaging data
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes">
-                              Tell us about your primary packaging
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes">
-                              Tell us about your secondary packaging
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes">
-                              Tell us about your transit packaging
-                            </a>
-                          </li>
-
-
-
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 3 (Nation data):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes">
-                              Find out about reporting by nation
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes">
-                              Tell us about activities you must report by nation
-                            </a>
-                          </li>
-
-
-
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 4 (Data summary):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes">
-                              Check what packaging data you must report
-                            </a>
-                          </li>
-
-
-
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 5 (Reporting method):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes">
-                              Select your reporting method
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually">
-                              How to prepare your packaging data
-                            </a>
-                          </li>
-
-
-
-                          <li class="govuk-!-margin-top-6">
-                            <strong>Task list section 6 (Reporting data):</strong>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
-                              Check your packaging materials and activities
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes">
-                              Report packaging data manually
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&checkReporting=yes">
-                              Report packaging data by uploading a spreadsheet
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes">
-                              Packaging data submitted and pending review
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes&dataReviewed=yes">
-                              Packaging data being reviewed
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes&dataReviewed=yes&dataAccepted=yes">
-                              Packaging data approved
-                            </a>
-                          </li>
-
-                        </ul>
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 4 (Data summary):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes">
+                          Check what packaging data you must report
+                        </a>
                       </li>
 
-                      <li class="govuk-!-margin-top-4">
-                        Service emails
-                        <ul>
-                          <li><a href="/v6/epr/registration-email-submitted">Application submitted</a></li>
-                          <li><a href="/v6/epr/registration-email-complete">Registration approved and complete</a></li>
-                          <li><a href="/v6/epr/report-email-complete">Packaging data submission complete</a></li>
-                        </ul>
+
+
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 5 (Reporting method):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes">
+                          Select your reporting method
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually">
+                          How to prepare your packaging data
+                        </a>
+                      </li>
+
+
+
+                      <li class="govuk-!-margin-top-6">
+                        <strong>Task list section 6 (Reporting data):</strong>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes">
+                          Check your packaging materials and activities
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes">
+                          Report packaging data manually
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=spreadsheet&nextSteps=yes&checkReporting=yes">
+                          Report packaging data by uploading a spreadsheet
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes">
+                          Packaging data submitted and pending review
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes&dataReviewed=yes">
+                          Packaging data being reviewed
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/v6/epr/home?intro1=yes&declared=yes&applied=yes&paid=yes&registered=yes&packagingIntro=yes&packagingPrimaryIntro=yes&packagingSecondaryIntro=yes&packagingTransitIntro=yes&chooseActivities=yes&nationIntro=yes&chooseNation=yes&introObligations=yes&reportMethod=yes&methodSelection=manually&nextSteps=yes&checkReporting=yes&dataReported=yes&dataReviewed=yes&dataAccepted=yes">
+                          Packaging data approved
+                        </a>
                       </li>
 
                     </ul>
-                </dd>
+                  </li>
+
+                  <li class="govuk-!-margin-top-4">
+                    Service emails
+                    <ul>
+                      <li><a href="/v6/epr/registration-email-submitted">Application submitted</a></li>
+                      <li><a href="/v6/epr/registration-email-complete">Registration approved and complete</a></li>
+                      <li><a href="/v6/epr/report-email-complete">Packaging data submission complete</a></li>
+                    </ul>
+                  </li>
+
+                </ul>
+
+              </dd>
+
             </div>
+
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     Implemented changes
@@ -202,6 +212,7 @@
                         <li>Added a definition for 'online marketplace'</li>
                         <li>Broken some of the questions into 2 parts to improve comprehension</li>
                         <li>Added the 'nation data' functionality to section 3 and the reporting pages in section 6</li>
+                        <li>Added logic to show or hide the 'online marketplace' and 'nation data' questions &amp; content</li>
                     </ul>
                 </dd>
             </div>

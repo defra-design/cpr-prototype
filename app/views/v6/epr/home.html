@@ -245,6 +245,8 @@
             </li>
 
 
+            {% if data['nationData'] == 'yes' %}
+
             <li>
                 <h2 class="app-task-list__section">
                     <span class="app-task-list__section-number">3. </span> Tell us where your packaging was sold in 2022
@@ -293,12 +295,20 @@
                     </li>
 
                 </ul>
-            </li>            
+            </li>
+            
+            {% endif %}
 
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">4. </span> Data you need to report from 2022
+                    <span class="app-task-list__section-number">
+                        {% if data['nationData'] == 'yes' %}
+                        4. 
+                        {% else %}
+                        3. 
+                        {% endif %}
+                    </span> Data you need to report from 2022
                 </h2>
 
                 <ul class="app-task-list__items">
@@ -307,10 +317,22 @@
 
                         <span class="app-task-list__task-name">
 
-                            {% if data['chooseNation'] == 'yes' %}
-                                <a href="data-obligations-summary">Check what packaging and nation data you must report</a>
+                            {% if data['nationData'] == 'yes' %}
+
+                                {% if data['chooseNation'] == 'yes' %}
+                                    <a href="data-obligations-summary">Check what packaging and nation data you must report</a>
+                                {% else %}
+                                    Check what packaging and nation data you must report
+                                {% endif %}
+
                             {% else %}
-                                Check what packaging and nation data you must report
+
+                                {% if data['packagingTransitIntro'] == 'yes' %}
+                                    <a href="data-obligations-summary">Check what packaging and nation data you must report</a>
+                                {% else %}
+                                    Check what packaging and nation data you must report
+                                {% endif %}
+
                             {% endif %}
 
                         </span>
@@ -330,7 +352,13 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">5. </span> Choose how to submit your packaging data
+                    <span class="app-task-list__section-number">
+                    {% if data['nationData'] == 'yes' %}
+                    5. 
+                    {% else %}
+                    4. 
+                    {% endif %}
+                    </span> Choose how to submit your packaging data
                 </h2>
 
                 <ul class="app-task-list__items">
@@ -384,7 +412,13 @@
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">6. </span> Report your packaging data for 2022
+                    <span class="app-task-list__section-number">
+                    {% if data['nationData'] == 'yes' %}
+                    6. 
+                    {% else %}
+                    5. 
+                    {% endif %}
+                    </span> Report your packaging data for 2022
                 </h2>
 
                 {% if data['dataReported'] != 'yes' %}
