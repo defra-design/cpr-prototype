@@ -385,6 +385,7 @@
 
                     </li>
 
+                    {% if data['methodSelection'] == 'api' or data['methodSelection'] == 'spreadsheet' %}
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
@@ -405,6 +406,7 @@
                         {% endif %}
 
                     </li>
+                    {% endif %}
 
                 </ul>
             </li>
@@ -434,7 +436,7 @@
 
                         <span class="app-task-list__task-name">
 
-                            {% if data['nextSteps'] == 'yes' %}
+                            {% if data['nextSteps'] == 'yes' or data['reportMethod'] == 'yes' %}
                                 <a href="report-manually-check">Check your packaging materials and activities</a>
                             {% else %}
                                 Check your packaging materials and activities
@@ -442,7 +444,7 @@
                             
                         </span>
 
-                        {% if data['nextSteps'] == 'yes' %}
+                        {% if data['nextSteps'] == 'yes' or data['reportMethod'] == 'yes' %}
                             {% if data['checkReporting'] == 'yes' %}
                                 <strong class="govuk-tag app-task-list__tag">Completed</strong>
                             {% else %}
@@ -669,6 +671,60 @@
 
                 </ul>
             </li>
+
+
+            <!-- <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">6. </span> Review and pay your packaging fees for 2022
+                </h2>
+                    {{ govukWarningText({
+                        text: "The payment deadline is 31 July 2023",
+                        iconFallbackText: "Warning"
+                    }) }}
+                    <ul class="app-task-list__items">
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                                {% if data['dataAccepted'] == 'yes' 
+                                %}
+                                    <a href="#">View your fees and how they were calculated</a>
+                                {% else %}
+                                View your fees and how they were calculated
+                                {% endif %}
+                            </span>
+    
+                            {% if data['dataAccepted'] == 'yes' %}
+                                {% if data['feesPaid'] == 'yes' %}
+                                <strong class="govuk-tag app-task-list__tag govuk-tag--green">Completed</strong>
+                                {% else %}
+                                <strong class="govuk-tag app-task-list__tag govuk-tag--grey">To Do</strong>
+                                {% endif %}
+                            {% endif %}
+                            
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                                {% if 
+                                    data['dataReported'] == 'yes' and 
+                                    data['dataReviewed'] == 'no' and 
+                                    data['dataResubmit'] == 'no' and 
+                                    data['dataAccepted'] == 'yes' 
+                                %}
+                                    <a href="#">Pay your packaging fees</a>
+                                {% else %}
+                                Pay your packaging fees
+                                {% endif %}
+                            </span>
+    
+                            {% if data['dataAccepted'] == 'yes' %}
+                                {% if data['feesPaid'] == 'yes' %}
+                                <strong class="govuk-tag app-task-list__tag govuk-tag--green">Successful</strong>
+                                {% else %}
+                                <strong class="govuk-tag app-task-list__tag govuk-tag--grey">Requires payment</strong>
+                                {% endif %}
+                            {% endif %}
+                        </li>
+                    </ul>
+            </li> -->
             
         </ol>
     </div>

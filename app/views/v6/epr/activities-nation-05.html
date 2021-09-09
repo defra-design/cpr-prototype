@@ -26,7 +26,12 @@
           Did any businesses use your website or app to sell packaged goods to end-consumers within the UK?
         </h2>
 
-        <form method="POST" action="activities-nation-06">
+        <!-- Skip the service provider page if the user hasn't previously said 'yes' to one of the 3 service provider questions -->
+        {% if data['activityPrimary05'] == 'yes' or data['activitySecondary05'] == 'yes' or data['activityTransit05'] == 'yes' %}
+          <form method="POST" action="activities-nation-06">
+        {% else %}
+          <form method="POST" action="activities-nation-check-answers">
+        {% endif %}
 
           {{ govukRadios({
             name: "activityNation05",
