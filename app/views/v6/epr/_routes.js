@@ -185,25 +185,6 @@ router.post('*/route-report-method', function (req, res) {
 })
 
 
-// Routing for manual report-manually-check.html
-router.post('*/route-report-manually', function (req, res) {
-    var packagingPrimary = req.session.data['packagingPrimary']
-    var packagingSecondary = req.session.data['packagingSecondary']
-    var packagingTransit = req.session.data['packagingTransit']
-    if (packagingPrimary == "yes"){
-        res.redirect('report-primary-intro')
-    }
-    else if (packagingSecondary == "yes"){
-        res.redirect('report-secondary-intro')
-    }
-    else if (packagingTransit == "yes"){
-        res.redirect('report-transit-intro')
-    }
-    else {
-        res.redirect('home')
-    }
-})
-
 
 
 
@@ -331,6 +312,35 @@ router.post('*/route-activities-seller', function (req, res) {
 
 
 
+// Routing for manual report-manually-check.html
+router.post('*/route-report-manually', function (req, res) {
+    var packagingPrimary = req.session.data['packagingPrimary']
+    var packagingSecondary = req.session.data['packagingSecondary']
+    var packagingTransit = req.session.data['packagingTransit']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
+    if (packagingPrimary == "yes"){
+        res.redirect('report-primary-intro')
+    }
+    else if (packagingSecondary == "yes"){
+        res.redirect('report-secondary-intro')
+    }
+    else if (packagingTransit == "yes"){
+        res.redirect('report-transit-intro')
+    }
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
+    }
+    else {
+        res.redirect('home')
+    }
+})
+
+
 // Routing for the packaging data collection pages depending on what packaging activities have been selected by the user during previous sections.
 
 // Primary
@@ -343,7 +353,12 @@ router.post('*/route-reporting-primary', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityPrimary01a == "yes" || activityPrimary01b == "yes"){
         res.redirect('report-primary-01')
     }
@@ -365,8 +380,8 @@ router.post('*/route-reporting-primary', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -381,7 +396,12 @@ router.post('*/route-reporting-primary-01', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityPrimary02 == "yes"){
         res.redirect('report-primary-02')
     }
@@ -400,8 +420,8 @@ router.post('*/route-reporting-primary-01', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -415,7 +435,12 @@ router.post('*/route-reporting-primary-02', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityPrimary03 == "yes"){
         res.redirect('report-primary-03')
     }
@@ -431,8 +456,8 @@ router.post('*/route-reporting-primary-02', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -445,7 +470,12 @@ router.post('*/route-reporting-primary-03', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityPrimary04 == "yes"){
         res.redirect('report-primary-04')
     }
@@ -458,8 +488,8 @@ router.post('*/route-reporting-primary-03', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -471,7 +501,12 @@ router.post('*/route-reporting-primary-04', function (req, res) {
     var activityPrimary05 = req.session.data['activityPrimary05']
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityPrimary05 == "yes"){
         res.redirect('report-primary-05')
     }
@@ -481,8 +516,8 @@ router.post('*/route-reporting-primary-04', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -492,15 +527,20 @@ router.post('*/route-reporting-primary-04', function (req, res) {
 router.post('*/route-reporting-primary-05', function (req, res) {
     var packagingSecondary = req.session.data['packagingSecondary']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (packagingSecondary == "yes"){
         res.redirect('report-secondary-intro')
     }
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -518,7 +558,12 @@ router.post('*/route-reporting-secondary', function (req, res) {
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activitySecondary01a == "yes" || activitySecondary01b == "yes"){
         res.redirect('report-secondary-01')
     }
@@ -537,8 +582,8 @@ router.post('*/route-reporting-secondary', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -552,7 +597,12 @@ router.post('*/route-reporting-secondary-01', function (req, res) {
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activitySecondary02 == "yes"){
         res.redirect('report-secondary-02')
     }
@@ -568,8 +618,8 @@ router.post('*/route-reporting-secondary-01', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -582,7 +632,12 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activitySecondary03 == "yes"){
         res.redirect('report-secondary-03')
     }
@@ -595,8 +650,8 @@ router.post('*/route-reporting-secondary-02', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -608,7 +663,12 @@ router.post('*/route-reporting-secondary-03', function (req, res) {
     var activitySecondary04 = req.session.data['activitySecondary04']
     var activitySecondary05 = req.session.data['activitySecondary05']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activitySecondary04 == "yes"){
         res.redirect('report-secondary-04')
     }
@@ -618,8 +678,8 @@ router.post('*/route-reporting-secondary-03', function (req, res) {
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -630,15 +690,20 @@ router.post('*/route-reporting-secondary-03', function (req, res) {
 router.post('*/route-reporting-secondary-04', function (req, res) {
     var activitySecondary05 = req.session.data['activitySecondary05']
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activitySecondary05 == "yes"){
         res.redirect('report-secondary-05')
     }
     else if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -648,12 +713,17 @@ router.post('*/route-reporting-secondary-04', function (req, res) {
 
 router.post('*/route-reporting-secondary-05', function (req, res) {
     var packagingTransit = req.session.data['packagingTransit']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (packagingTransit == "yes"){
         res.redirect('report-transit-intro')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -669,7 +739,12 @@ router.post('*/route-reporting-transit', function (req, res) {
     var activityTransit03 = req.session.data['activityTransit03']
     var activityTransit04 = req.session.data['activityTransit04']
     var activityTransit05 = req.session.data['activityTransit05']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityTransit01 == "yes"){
         res.redirect('report-transit-01')
     }
@@ -685,8 +760,8 @@ router.post('*/route-reporting-transit', function (req, res) {
     else if (activityTransit05 == "yes"){
         res.redirect('report-transit-05')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -699,7 +774,12 @@ router.post('*/route-reporting-transit-01', function (req, res) {
     var activityTransit03 = req.session.data['activityTransit03']
     var activityTransit04 = req.session.data['activityTransit04']
     var activityTransit05 = req.session.data['activityTransit05']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityTransit02 == "yes"){
         res.redirect('report-transit-02')
     }
@@ -712,8 +792,8 @@ router.post('*/route-reporting-transit-01', function (req, res) {
     else if (activityTransit05 == "yes"){
         res.redirect('report-transit-05')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -725,7 +805,12 @@ router.post('*/route-reporting-transit-02', function (req, res) {
     var activityTransit03 = req.session.data['activityTransit03']
     var activityTransit04 = req.session.data['activityTransit04']
     var activityTransit05 = req.session.data['activityTransit05']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityTransit03 == "yes"){
         res.redirect('report-transit-03')
     }
@@ -735,8 +820,8 @@ router.post('*/route-reporting-transit-02', function (req, res) {
     else if (activityTransit05 == "yes"){
         res.redirect('report-transit-05')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -747,15 +832,20 @@ router.post('*/route-reporting-transit-02', function (req, res) {
 router.post('*/route-reporting-transit-03', function (req, res) {
     var activityTransit04 = req.session.data['activityTransit04']
     var activityTransit05 = req.session.data['activityTransit05']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityTransit04 == "yes"){
         res.redirect('report-transit-04')
     }
     else if (activityTransit05 == "yes"){
         res.redirect('report-transit-05')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -765,12 +855,17 @@ router.post('*/route-reporting-transit-03', function (req, res) {
 
 router.post('*/route-reporting-transit-04', function (req, res) {
     var activityTransit05 = req.session.data['activityTransit05']
-    var nationData = req.session.data['nationData']
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
     if (activityTransit05 == "yes"){
         res.redirect('report-transit-05')
     }
-    else if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    else if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')
@@ -778,9 +873,14 @@ router.post('*/route-reporting-transit-04', function (req, res) {
 })
 
 router.post('*/route-reporting-transit-05', function (req, res) {
-    var nationData = req.session.data['nationData']
-    if (nationData == "yes"){
-        res.redirect('report-nation-all')
+    var activityNation01 = req.session.data['activityNation01']
+    var activityNation02 = req.session.data['activityNation02']
+    var activityNation03 = req.session.data['activityNation03']
+    var activityNation04 = req.session.data['activityNation04']
+    var activityNation05 = req.session.data['activityNation05']
+    var activityNation06 = req.session.data['activityNation06']
+    if (activityNation01 == "yes" || activityNation02 == "yes" || activityNation03 == "yes" || activityNation04 == "yes" || activityNation05 == "yes" || activityNation06 == "yes"){
+        res.redirect('report-nation-intro')
     }
     else {
         res.redirect('report-check-details')

@@ -25,79 +25,6 @@
           Check your packaging materials and activities for 2022
         </h1>
 
-        <h2 class="govuk-heading-m">Acme Org Ltd’s packaging materials</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
-
-          {% if data['packagingPrimary'] == 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Primary packaging materials  
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
-              {{ data['materialsPrimary'] | escape | replace(",", "<br />") }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          {% endif %}
-
-
-          {% if data['packagingSecondary'] == 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Secondary packaging materials
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
-              {{ data['materialsSecondary'] | escape | replace(",", "<br />") }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          {% endif %}
-
-
-          {% if data['packagingTransit'] == 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Transit packaging materials  
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
-              {{ data['materialsTransit'] | escape | replace(",", "<br />") }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          {% endif %}
-
-
-          {% if data['nationData'] == 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-              Materials used to package goods your organisation sold 
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
-              {{ data['materialsNation'] | escape | replace(",", "<br />") }}
-            </dd>
-            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link govuk-body-s" href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          {% endif %}
-
-        </dl>
-
         <h2 class="govuk-heading-m">Primary packaging for 2022</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
@@ -120,8 +47,22 @@
             </dd>
           </div>
 
-          {% if data['packagingPrimary'] == 'yes' %}          
+          {% if data['packagingPrimary'] == 'yes' %}
 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+                Primary packaging materials  
+              </dt>
+              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
+                {{ data['materialsPrimary'] | escape | replace(",", "<br />") }}
+              </dd>
+              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+                <a class="govuk-link govuk-body-s" href="#">
+                  Change
+                </a>
+              </dd>
+            </div>
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
                 Did your organisation pack and supply its own brand goods in primary packaging within the UK?
@@ -240,6 +181,20 @@
           {% if data['packagingSecondary'] == 'yes' %}          
 
             <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+                Secondary packaging materials
+              </dt>
+              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
+                {{ data['materialsSecondary'] | escape | replace(",", "<br />") }}
+              </dd>
+              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+                <a class="govuk-link govuk-body-s" href="#">
+                  Change
+                </a>
+              </dd>
+            </div>  
+            
+            <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">Did your organisation add any secondary packaging to its own brand goods that it supplied in the UK?</dt>
               <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
                 {{ data['activitySecondary01a'] }}
@@ -352,6 +307,20 @@
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+                Transit packaging materials  
+              </dt>
+              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
+                {{ data['materialsTransit'] | escape | replace(",", "<br />") }}
+              </dd>
+              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+                <a class="govuk-link govuk-body-s" href="#">
+                  Change
+                </a>
+              </dd>
+            </div>  
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
                 Did your organisation use transit packaging to transport goods that it supplied in the UK?
               </dt>
               <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
@@ -427,7 +396,7 @@
         </dl>
 
 
-        {% if data['nationData'] == 'yes' %} 
+        {% if data['nationData'] == 'yes' %}
         <h2 class="govuk-heading-m">Packaged goods your organisation sold in 2022</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9 custom-remove-bold">
@@ -437,7 +406,7 @@
               Did your organisation sell packaged goods or empty packaging to end consumers within the UK?
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-              {{ data['nationData'] }}
+              {{ data['activityNation01'] }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
               <a class="govuk-link govuk-body-s" href="#">
@@ -446,86 +415,105 @@
             </dd>
           </div>
 
-          {% if data['nationData'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+              Materials used to package goods your organisation sold 
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s">
+              {{ data['materialsNation'] | escape | replace(",", "<br />") }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link govuk-body-s" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s" style="border-bottom:none;">
+              Did your organisation sell packaged goods to other organisations?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize; border-bottom:none;">
+              {{ data['activityNation02a'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter" style="border-bottom:none;">
+              <a class="govuk-link govuk-body-s" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
+          
 
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s" style="border-bottom:none;">
-                Did your organisation sell packaged goods to other organisations?
-              </dt>
-              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize; border-bottom:none;">
-                {{ data['activityNation02a'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter" style="border-bottom:none;">
-                <a class="govuk-link govuk-body-s" href="#">
-                  Change
-                </a>
-              </dd>
-            </div>
-            
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+              Did any of the other organisations dispose of any of this packaging?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
+              {{ data['activityNation02'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            </dd>
+          </div>       
 
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-                Did any of the other organisations dispose of any of this packaging?
-              </dt>
-              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-                {{ data['activityNation02'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              </dd>
-            </div>       
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-                Did your organisation import packaged goods or empty packaging to sell directly to end consumers within the UK?
-              </dt>
-              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-                {{ data['activityNation03'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-                <a class="govuk-link govuk-body-s" href="#">
-                  Change
-                </a>
-              </dd>
-            </div>
+          
+          {% if 
+            data['activityPrimary02'] == 'yes' or 
+            data['activitySecondary02'] == 'yes' or 
+            data['activityTransit02'] == 'yes' 
+          %}
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+              Did your organisation import packaged goods or empty packaging to sell directly to end consumers within the UK?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
+              {{ data['activityNation03'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link govuk-body-s" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
 
 
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-                Did your organisation import packaged goods then dispose of any packaging before the goods were sold?
-              </dt>
-              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-                {{ data['activityNation04'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-                <a class="govuk-link govuk-body-s" href="#">
-                  Change
-                </a>
-              </dd>
-            </div>
-
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
-                Did any businesses use your website or app to sell packaged goods to end-consumers within the UK? 
-              </dt>
-              <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
-                {{ data['activityNation05'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-                <a class="govuk-link govuk-body-s" href="#">
-                  Change
-                </a>
-              </dd>
-            </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+              Did your organisation import packaged goods then dispose of any packaging before the goods were sold?
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
+              {{ data['activityNation04'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link govuk-body-s" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
 
           {% endif %}
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
+              Did any businesses use your website or app to sell packaged goods to end-consumers within the UK? 
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter govuk-body-s" style="text-transform: capitalize;">
+              {{ data['activityNation05'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link govuk-body-s" href="#">
+                Change
+              </a>
+            </dd>
+          </div>
 
         </dl>
         {% endif %}
 
 
         
-        <form method="POST" action="home?checkReporting=yes">
+        <form method="POST" action="home?checkReporting=yes#section-06">
 
             {{govukButton({
                 text: "Save and continue"

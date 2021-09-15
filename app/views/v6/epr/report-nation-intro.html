@@ -1,0 +1,45 @@
+{% set serviceName = "Report your organisation’s packaging data" %}
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Report your organisation's packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">
+          Report your organisation's nation data for 2022
+        </h1>
+
+        <p>
+          TBC
+        </p>
+
+        <form method="POST" action="report-nation-all">
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+
+            {% include "includes/save-and-exit.html" %}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

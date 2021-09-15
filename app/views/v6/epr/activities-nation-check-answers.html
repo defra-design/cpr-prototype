@@ -68,6 +68,13 @@
             </dd>
           </div>
 
+
+          {% if 
+            data['activityPrimary02'] == 'yes' or 
+            data['activitySecondary02'] == 'yes' or 
+            data['activityTransit02'] == 'yes' 
+          %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half govuk-body-s">
               Did your organisation import packaged goods or empty packaging to sell directly to end consumers within the UK?
@@ -96,6 +103,8 @@
               </a>
             </dd>
           </div>
+
+          {% endif %}
           
 
           <div class="govuk-summary-list__row">
@@ -136,7 +145,7 @@
 
 
         
-        <form method="POST" action="home?chooseNation=yes">
+        <form method="POST" action="home?chooseNation=yes#section-04">
 
             {{govukButton({
                 text: "Save and continue"

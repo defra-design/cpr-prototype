@@ -143,7 +143,9 @@ Packaging data you must report | {{serviceName}} prototype
 
         <ul class="govuk-list govuk-list--bullet">
 
-          <li>empty packaging or packaging containing goods that you sold to end consumers within the UK</li>
+          {% if data['activityNation01'] == 'yes' %} 
+            <li>empty packaging or packaging containing goods that you sold to end consumers within the UK</li>
+          {% endif %}
 
           {% if data['activityNation02'] == 'yes' %}
             <li>any packaging containing goods that you sold to other organisations which they disposed of</li>
@@ -177,7 +179,7 @@ Packaging data you must report | {{serviceName}} prototype
 
      
 
-      <form method="POST" action="home?introObligations=yes">
+      <form method="POST" action="home?introObligations=yes#section-05">
           <button class="govuk-button">
               Continue
           </button>

@@ -27,7 +27,16 @@
           Did your organisation sell packaged goods to other businesses?
         </h1>
 
-        <form method="POST" action="activities-nation-03">
+        <!-- Skip the service provider page if the user hasn't previously said 'yes' to one of the 3 service provider questions -->
+        {% if 
+          data['activityPrimary02'] == 'yes' or 
+          data['activitySecondary02'] == 'yes' or 
+          data['activityTransit02'] == 'yes' 
+        %}
+          <form method="POST" action="activities-nation-03">
+        {% else %}
+          <form method="POST" action="activities-nation-05">
+        {% endif %}
 
           {% set nationQuestion2 %}
             {{ govukRadios({
