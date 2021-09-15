@@ -21,26 +21,45 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 packaging activities</span>
+        <span class="govuk-caption-l">2022 report by nation activities</span>
 
         <h1 class="govuk-heading-l">
-          Did your organisation use secondary or transit packaging to package goods it sold to other organisations?
+          Did your organisation sell packaged goods to other businesses?
         </h1>
 
-        <p>This includes any secondary or transit packaging:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>you added to goods before you sold them</li>
-          <li>that the goods were already in which you reused when you sold them </li>
-        </ul>
-
         <form method="POST" action="activities-nation-03">
+
+          {% set nationQuestion2 %}
+            {{ govukRadios({
+              name: "activityNation02",
+              fieldset: {
+                legend: {
+                  text: "Did any of the other businesses dispose of any of this packaging within the UK? 
+                  "
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+          {% endset -%}
             
           {{ govukRadios({
-            name: "activityNation02",
+            name: "activityNation02a",
             items: [
               {
                 value: "yes",
-                text: "Yes"
+                text: "Yes",
+                conditional: {
+                  html: nationQuestion2
+                }
               },
               {
                 value: "no",

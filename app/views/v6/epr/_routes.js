@@ -247,7 +247,7 @@ router.post('*/route-activities-nation-intro', function (req, res) {
         res.redirect('activities-nation-check-answers')
     }
     else {
-        res.redirect('activities-nation-materials')
+        res.redirect('activities-nation-02')
     }
 })
 

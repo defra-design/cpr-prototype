@@ -106,8 +106,7 @@ module.exports = {
 
   // EPR nation data
   
-  "nationData": "no", // toggle between 'no' or 'yes'
-  "activityNation01": "",
+  "nationData": "yes", // toggle between 'no' or 'yes' (replaced activityNation01)
   "activityNation02": "",
   "activityNation03": "",
   "activityNation04": "",

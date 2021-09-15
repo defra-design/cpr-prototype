@@ -21,16 +21,33 @@
             href: "javascript:history.back()"
         }) }}
 
-        <span class="govuk-caption-l">2022 packaging activities</span>
+        <span class="govuk-caption-l">2022 report by nation activities</span>
         <h2 class="govuk-heading-l">
           Did any businesses use your website or app to sell packaged goods to end-consumers within the UK?
         </h2>
+
+        {{ govukDetails({
+          summaryText: "What are end consumers?",
+          html: '
+          <p>End consumers are: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>members of the public who bought packaged goods from your organisation, then threw the packaging into their household bin</li>
+            <li>non-obligated businesses that bought packaged goods from your organisation then sold them on</li>
+            <li>retailers that bought packaged goods to sell on and disregarded any packaging</li>
+          </ul>
+          <p>Non-obligated businesses are organisations that either:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>produce less than 25 tonnes of packaging waste a year </li>
+            <li>have a turnover below £1 million </li>
+          </ul>
+          '
+        }) }}
 
         <!-- Skip the service provider page if the user hasn't previously said 'yes' to one of the 3 service provider questions -->
         {% if data['activityPrimary05'] == 'yes' or data['activitySecondary05'] == 'yes' or data['activityTransit05'] == 'yes' %}
           <form method="POST" action="activities-nation-06">
         {% else %}
-          <form method="POST" action="activities-nation-check-answers">
+          <form method="POST" action="activities-nation-materials">
         {% endif %}
 
           {{ govukRadios({

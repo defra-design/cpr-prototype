@@ -22,12 +22,14 @@ Packaging data you must report | {{serviceName}} prototype
       }) }}
 
       <h1 class="govuk-heading-l">
-        Packaging data you'll need to report for 2022
+        Packaging and nation data you'll need to report for 2022
       </h1>
+
+      <h2 class="govuk-heading-m">Packaging data</h2>
 
       {% if data['packagingPrimary'] == 'yes' %}
 
-        <h2 class="govuk-heading-m">Primary packaging</h2>
+        <h3 class="govuk-heading-s">Primary packaging</h3>
 
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsPrimary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in:</p>
 
@@ -65,7 +67,7 @@ Packaging data you must report | {{serviceName}} prototype
 
       {% if data['packagingSecondary'] == 'yes' %}
 
-        <h2 class="govuk-heading-m">Secondary packaging</h2>
+        <h3 class="govuk-heading-s">Secondary packaging</h3>
 
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsSecondary'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in: </p>
 
@@ -103,7 +105,7 @@ Packaging data you must report | {{serviceName}} prototype
 
       {% if data['packagingTransit'] == 'yes' %}
 
-        <h2 class="govuk-heading-m">Transit packaging</h2>
+        <h3 class="govuk-heading-s">Transit packaging</h3>
 
         <p>For each of the following activities, you’ll need to tell us how many tonnes of {{ data['materialsTransit'] | escape | replace(",", ",&nbsp;") }} your organisation used during 2022 in: </p>
 
@@ -133,7 +135,9 @@ Packaging data you must report | {{serviceName}} prototype
 
       {% if data['nationData'] == 'yes' %}
 
-        <h2 class="govuk-heading-m">Packaged goods your organisation sold in 2022</h2>
+        <h2 class="govuk-heading-m">Nation data</h2>
+
+        <h3 class="govuk-heading-s">Packaged goods your organisation sold in 2022</h3>
 
         <p>For each of the following activities, you’ll need to tell us the combined total tonnage of {{ data['materialsNation'] | escape | replace(",", ",&nbsp;") }} your organisation used per nation during 2022 in: </p>
 
@@ -142,7 +146,7 @@ Packaging data you must report | {{serviceName}} prototype
           <li>empty packaging or packaging containing goods that you sold to end consumers within the UK</li>
 
           {% if data['activityNation02'] == 'yes' %}
-            <li>secondary or transit packaging you used to package goods you sold to other organisations</li>
+            <li>any packaging containing goods that you sold to other organisations which they disposed of</li>
           {% endif %}
 
           {% if data['activityNation03'] == 'yes' %}
