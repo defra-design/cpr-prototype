@@ -36,109 +36,56 @@ Tell us about your packaging activities | {{serviceName}} prototype
                         Select all that apply.
                     </div>
 
-                    <div id="materials-list"></div>
+
+                    <table class="govuk-table" id="materials-list-table">
+
+                        <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">List of materials</caption>
+
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"></th>
+                                <th scope="col" class="govuk-table__header">Category</th>
+                                <th scope="col" class="govuk-table__header">Material</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody class="govuk-table__body" id="materials-list">
+                            <!-- JS inserted here -->
+                        </tbody>
+
+
+                    </table>
+
 
                     <script>
-                        
-                        const materials = [
-                        "Aluminium Aerosols",
-                        "Aluminium Closures",
-                        "Aluminium Drink Cans",
-                        "Aluminium Foil Containers",
-                        "Aluminium Other",
-                        "Aluminium Plain Foil",
-                        "Aluminium Tubes",
-                        "Amber Glass Bottles",
-                        "Amber Glass Jars",
-                        "Amber Glass Other",
-                        "Amber non-beverage Bottles",
-                        "Carbon Black HDPE Pots, Tubs and Trays",
-                        "Carbon Black LDPE Pots, Tubs and Trays",
-                        "Carbon Black Other Material Pots, Tubs and Trays",
-                        "Carbon Black PE Pots, Tubs and Trays",
-                        "Carbon Black PET Pots, Tubs and Trays",
-                        "Carbon Black PP Pots, Tubs and Trays",
-                        "Carbon Black PS Pots, Tubs and Trays",
-                        "Carbon Black PVC Pots, Tubs and Trays",
-                        "Clear Glass Bottles",
-                        "Clear Glass Jars",
-                        "Clear Glass Other",
-                        "Clear Mono Material HDPE Flexible Films",
-                        "Clear non-beverage Bottles",
-                        "Clear PET Rigid Bottles",
-                        "Coloured HDPE Rigid Bottles",
-                        "Coloured Mono Material HDPE Flexible Films",
-                        "Coloured PET Rigid Bottles",
-                        "Flexible Compostible Plastic",
-                        "Green Glass Bottles",
-                        "Green Glass Jars",
-                        "Green Glass Other",
-                        "Green non-beverage Bottles",
-                        "HDPE Pots, Tubs and Trays",
-                        "LDPE Pots, Tubs and Trays",
-                        "Metalised Laminate PP Flexible Films",
-                        "Misc Pots, Tubs and Trays",
-                        "Miscellaneous HDPE Item",
-                        "Miscellaneous LDPE Item",
-                        "Miscellaneous PE Item",
-                        "Miscellaneous PET Item",
-                        "Miscellaneous PP Item",
-                        "Miscellaneous PS Item",
-                        "Miscellaneous PVC Item",
-                        "Mono Material HDPE Flexible Films",
-                        "Mono Material HDPE Flexible Films",
-                        "Mono Material LDPE Flexible Films",
-                        "Mono Material PET Flexible Films",
-                        "Mono Material PP Flexible Films",
-                        "Paper/Card Carton and other board",
-                        "Paper/Card Corrugated",
-                        "Paper/Card Liquid beverage Carton",
-                        "Paper/Card Other",
-                        "PE Pots, Tubs and Trays",
-                        "PE Rigid Bottles",
-                        "PE/PA Laminate Flexible Films",
-                        "PE/PP Laminate Flexible Films",
-                        "PET Pots, Tubs and Trays",
-                        "PET Pots, Tubs and Trays",
-                        "PET/PE Laminate Flexible Films",
-                        "PET/PE Laminate Flexible Films",
-                        "PET/PP Flexible Films",
-                        "PP Pots, Tubs and Trays",
-                        "PP Rigid Bottles",
-                        "PS Pots, Tubs and Trays",
-                        "PVC Pots, Tubs and Trays",
-                        "PVdC Coated PP Flexible Films",
-                        "Rigid Compostible Plastic",
-                        "Steel Aerosols",
-                        "Steel Closures",
-                        "Steel Drinks Can",
-                        "Steel Food Can",
-                        "Steel Other",
-                        "Steel Other container",
-                        "Wooden Box",
-                        "Wooden Case",
-                        "Wooden Other",
-                        "Wooden Tray"
-                        ];
-                        let fLen = materials.length;
 
-                        let text = '<div class="govuk-checkboxes">';
+                        const materials = JSON.parse('[ {   "id": "mat1",   "category": "Aluminium",   "material": "Aluminium Aerosols" }, {   "id": "mat2",   "category": "Aluminium",   "material": "Aluminium Closures" }, {   "id": "mat3",   "category": "Aluminium",   "material": "Aluminium Drink Cans" }, {   "id": "mat4",   "category": "Aluminium",   "material": "Aluminium Foil Containers" }, {   "id": "mat5",   "category": "Aluminium",   "material": "Aluminium Other" }, {   "id": "mat6",   "category": "Aluminium",   "material": "Aluminium Plain Foil" }, {   "id": "mat7",   "category": "Aluminium",   "material": "Aluminium Tubes " }, {   "id": "mat8",   "category": "Glass",   "material": "Amber Glass Bottles" }, {   "id": "mat9",   "category": "Glass",   "material": "Amber Glass Jars" }, {   "id": "mat10",   "category": "Glass",   "material": "Amber Glass Other " }, {   "id": "mat11",   "category": "Glass",   "material": "Amber non-beverage Bottles" }, {   "id": "mat12",   "category": "Plastic",   "material": "Carbon Black HDPE Pots, Tubs and Trays" }, {   "id": "mat13",   "category": "Plastic",   "material": "Carbon Black LDPE Pots, Tubs and Trays" }, {   "id": "mat14",   "category": "Plastic",   "material": "Carbon Black Other Material Pots, Tubs and Trays" }, {   "id": "mat15",   "category": "Plastic",   "material": "Carbon Black PE Pots, Tubs and Trays" }, {   "id": "mat16",   "category": "Plastic",   "material": "Carbon Black PET Pots, Tubs and Trays" }, {   "id": "mat17",   "category": "Plastic",   "material": "Carbon Black PP Pots, Tubs and Trays" }, {   "id": "mat18",   "category": "Plastic",   "material": "Carbon Black PS Pots, Tubs and Trays" }, {   "id": "mat19",   "category": "Plastic",   "material": "Carbon Black PVC Pots, Tubs and Trays" }, {   "id": "mat20",   "category": "Glass",   "material": "Clear Glass Bottles" }, {   "id": "mat21",   "category": "Glass",   "material": "Clear Glass Jars" }, {   "id": "mat22",   "category": "Glass",   "material": "Clear Glass Other " }, {   "id": "mat23",   "category": "Plastic",   "material": "Clear Mono Material HDPE Flexible Films" }, {   "id": "mat24",   "category": "Glass",   "material": "Clear non-beverage Bottles" }, {   "id": "mat25",   "category": "Plastic",   "material": "Clear PET Rigid Bottles " }, {   "id": "mat26",   "category": "Plastic",   "material": "Coloured HDPE Rigid Bottles " }, {   "id": "mat27",   "category": "Plastic",   "material": "Coloured Mono Material HDPE Flexible Films" }, {   "id": "mat28",   "category": "Plastic",   "material": "Coloured PET Rigid Bottles " }, {   "id": "mat29",   "category": "Plastic",   "material": "Flexible Compostible Plastic " }, {   "id": "mat30",   "category": "Glass",   "material": "Green Glass Bottles" }, {   "id": "mat31",   "category": "Glass",   "material": "Green Glass Jars" }, {   "id": "mat32",   "category": "Glass",   "material": "Green Glass Other " }, {   "id": "mat33",   "category": "Glass",   "material": "Green non-beverage Bottles" }, {   "id": "mat34",   "category": "Plastic",   "material": "HDPE Pots, Tubs and Trays" }, {   "id": "mat35",   "category": "Plastic",   "material": "LDPE Pots, Tubs and Trays" }, {   "id": "mat36",   "category": "Plastic",   "material": "Metalised Laminate PP Flexible Films" }, {   "id": "mat37",   "category": "Plastic",   "material": "Misc Pots, Tubs and Trays" }, {   "id": "mat38",   "category": "Plastic",   "material": "Miscellaneous HDPE Item" }, {   "id": "mat39",   "category": "Plastic",   "material": "Miscellaneous LDPE Item " }, {   "id": "mat40",   "category": "Plastic",   "material": "Miscellaneous PE Item " }, {   "id": "mat41",   "category": "Plastic",   "material": "Miscellaneous PET Item " }, {   "id": "mat42",   "category": "Plastic",   "material": "Miscellaneous PP Item " }, {   "id": "mat43",   "category": "Plastic",   "material": "Miscellaneous PS Item " }, {   "id": "mat44",   "category": "Plastic",   "material": "Miscellaneous PVC Item " }, {   "id": "mat45",   "category": "Plastic",   "material": "Mono Material HDPE Flexible Films" }, {   "id": "mat46",   "category": "Plastic",   "material": "Mono Material HDPE Flexible Films" }, {   "id": "mat47",   "category": "Plastic",   "material": "Mono Material LDPE Flexible Films" }, {   "id": "mat48",   "category": "Plastic",   "material": "Mono Material PET Flexible Films" }, {   "id": "mat49",   "category": "Plastic",   "material": "Mono Material PP Flexible Films" }, {   "id": "mat50",   "category": "Paper/card",   "material": "Paper/Card Carton and other board" }, {   "id": "mat51",   "category": "Paper/card",   "material": "Paper/Card Corrugated" }, {   "id": "mat52",   "category": "Paper/card",   "material": "Paper/Card Liquid beverage Carton" }, {   "id": "mat53",   "category": "Paper/card",   "material": "Paper/Card Other " }, {   "id": "mat54",   "category": "Plastic",   "material": "PE Pots, Tubs and Trays" }, {   "id": "mat55",   "category": "Plastic",   "material": "PE Rigid Bottles " }, {   "id": "mat56",   "category": "Plastic",   "material": "PE/PA Laminate Flexible Films" }, {   "id": "mat57",   "category": "Plastic",   "material": "PE/PP Laminate Flexible Films" }, {   "id": "mat58",   "category": "Plastic",   "material": "PET Pots, Tubs and Trays" }, {   "id": "mat59",   "category": "Plastic",   "material": "PET Pots, Tubs and Trays" }, {   "id": "mat60",   "category": "Plastic",   "material": "PET/PE Laminate Flexible Films" }, {   "id": "mat61",   "category": "Plastic",   "material": "PET/PE Laminate Flexible Films" }, {   "id": "mat62",   "category": "Plastic",   "material": "PET/PP Flexible Films" }, {   "id": "mat63",   "category": "Plastic",   "material": "PP Pots, Tubs and Trays" }, {   "id": "mat64",   "category": "Plastic",   "material": "PP Rigid Bottles " }, {   "id": "mat65",   "category": "Plastic",   "material": "PS Pots, Tubs and Trays" }, {   "id": "mat66",   "category": "Plastic",   "material": "PVC Pots, Tubs and Trays" }, {   "id": "mat67",   "category": "Plastic",   "material": "PVdC Coated PP Flexible Films" }, {   "id": "mat68",   "category": "Plastic",   "material": "Rigid Compostible Plastic" }, {   "id": "mat69",   "category": "Steel",   "material": "Steel Aerosols " }, {   "id": "mat70",   "category": "Steel",   "material": "Steel Closures" }, {   "id": "mat71",   "category": "Steel",   "material": "Steel Drinks Can" }, {   "id": "mat72",   "category": "Steel",   "material": "Steel Food Can " }, {   "id": "mat73",   "category": "Steel",   "material": "Steel Other" }, {   "id": "mat74",   "category": "Steel",   "material": "Steel Other container " }, {   "id": "mat75",   "category": "Wood",   "material": "Wooden Box" }, {   "id": "mat76",   "category": "Wood",   "material": "Wooden Case" }, {   "id": "mat77",   "category": "Wood",   "material": "Wooden Other " }, {   "id": "mat78",   "category": "Wood",   "material": "Wooden Tray" }]');
                         
+                        let arrayLength = materials.length;
 
-                        for (let i = 0; i < fLen; i++) {
-                            text += '<div class="govuk-checkboxes__item">';
-                            text += '<input class="govuk-checkboxes__input" id="input'+ [i] +'" name="materialsPrimary" type="checkbox" value="' + materials[i] + '">';
-                            text += '<label class="govuk-label govuk-checkboxes__label" for="input'+ [i] +'" style="text-transform: capitalize;">' + materials[i] + '</label>';
-                            text += '</div>';
+                        let text = '';
+
+                        for (let i = 0; i < arrayLength; i++) {
+                            
+                            text += '<tr class="govuk-table__row">';
+                                text += '<td class="govuk-table__cell"><div class="govuk-checkboxes"><div class="govuk-checkboxes__item govuk-checkboxes--small">';
+                                    text += '<input class="govuk-checkboxes__input" id="input-'+ materials[i].id +'" name="materialsSecondary" type="checkbox" value="' + materials[i].id + '">';
+                                    text += '<label class="govuk-label govuk-checkboxes__label" for="input-'+ materials[i].id +'"></label>';
+                                text += '</div></div></td>';
+                                text += '<td class="govuk-table__cell">' + materials[i].category + '</td>';
+                                text += '<td class="govuk-table__cell">' + materials[i].material + '</td>';
+                            text += '</tr>';
+
                         }
-
-                        text += '</div>';
 
                         document.getElementById("materials-list").innerHTML = text;
 
                     </script>
 
-                    {#
+
+{#
+                    
                     <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="input1" name="materialsPrimary" type="checkbox" value="aluminium">
