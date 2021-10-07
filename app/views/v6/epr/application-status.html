@@ -18,11 +18,12 @@
 
         {{ govukBackLink({
             text: "Back",
-            href: "javascript:history.back()"
+            href: "home"
         }) }}
 
         <div class="govuk-!-margin-top-4">
 
+          {#
           {% if 
               data['applied'] == 'yes' and 
               data['paid'] == 'no' and 
@@ -34,10 +35,11 @@
               </h1>
               <p>You cannot submit your application until you or someone else from Acme Org Ltd <a href="payment-information">pays the registration fee</a>.</p>
           {% endif %}
+          #}
+
 
           {% if 
               data['applied'] == 'yes' and 
-              data['paid'] == 'yes' and 
               data['registered'] == 'no' 
           %}
               <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">Being reviewed</strong>
@@ -46,12 +48,11 @@
               </h1>
               <p>The Environment Agency is reviewing your application. </p>
               <p>They’ll email you the application outcome or to ask for more information by 20th January 2023. </p>
-              <p>You can view contact details for the Environment Agency at <a href="https://www.gov.uk/guidance/packaging-producer-responsibilities" target="_blank">https://www.gov.uk/guidance/packaging-producer-responsibilities</a>. You’ll need your reference number (9937261) if you contact them. </p>
+              <p>You can view contact details for the Environment Agency at <a href="https://www.gov.uk/guidance/packaging-producer-responsibilities" target="_blank">https://www.gov.uk/guidance/packaging-producer-responsibilities</a>. You’ll need your reference number (0038173) if you contact them. </p>
           {% endif %}
 
           {% if 
               data['applied'] == 'yes' and 
-              data['paid'] == 'yes' and 
               data['registered'] == 'yes' 
           %}
               <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2">Successful</strong>

@@ -68,29 +68,30 @@
 
                                 {% if data['lastVisitedURL'] %}
                                     <a href="{{ data['lastVisitedURL'] }}">
-                                        Add information about your organisation
+                                        Add organisation information and submit application
                                     </a>
                                 {% else %}
                                     <a href="registration-start">
-                                        Add information about your organisation
+                                        Add organisation information and submit application
                                     </a>
                                 {% endif %}
 
                             {% else %}
-                                Add information about your organisation
+                                Add organisation information and submit application
                             {% endif %}
                         </span>
                         
                         {% if data['declared'] == 'yes' %}
                             {% if data['declared'] == 'yes' and data['applied'] == 'yes' %}
-                            <strong class="govuk-tag app-task-list__tag">Completed</strong>
+                                <strong class="govuk-tag app-task-list__tag">Completed</strong>
                             {% else %}
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">To do</strong>
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">To do</strong>
                             {% endif %}
                         {% endif %}
 
                     </li>
 
+                    {#
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
 
@@ -118,6 +119,7 @@
                             {% endif %}
                         {% endif %}    
                     </li>
+                    #}
 
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
@@ -130,17 +132,26 @@
                             {% endif %}
                         </span>
 
+                        {#
                         {% if 
                             data['applied'] == 'yes' and 
                             data['paid'] == 'no' and 
                             data['registered'] == 'no' 
                         %}
+                        
                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Requires payment</strong>
                         {% endif %}
+                        #}
 
                         {% if 
+                            data['applied'] == 'no' and 
+                            data['registered'] == 'no' 
+                        %}
+                            <strong class="govuk-tag app-task-list__tag govuk-tag--grey">Not submitted</strong>
+                        {% endif %}
+                        
+                        {% if 
                             data['applied'] == 'yes' and 
-                            data['paid'] == 'yes' and 
                             data['registered'] == 'no' 
                         %}
                             <strong class="govuk-tag govuk-tag--blue app-task-list__tag">Being reviewed</strong>
@@ -148,7 +159,6 @@
 
                         {% if 
                             data['applied'] == 'yes' and 
-                            data['paid'] == 'yes' and 
                             data['registered'] == 'yes' 
                         %}
                             <strong class="govuk-tag govuk-tag--green app-task-list__tag">Successful</strong>
@@ -328,9 +338,9 @@
                             {% else %}
 
                                 {% if data['packagingTransitIntro'] == 'yes' %}
-                                    <a href="data-obligations-summary">Check what packaging and nation data you must report</a>
+                                    <a href="data-obligations-summary">Check what packaging data you must report</a>
                                 {% else %}
-                                    Check what packaging and nation data you must report
+                                    Check what packaging data you must report
                                 {% endif %}
 
                             {% endif %}

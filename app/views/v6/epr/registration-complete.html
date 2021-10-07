@@ -17,6 +17,27 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
+        titleText: "Application submitted",
+        html: "Your reference number<br />0038173"
+      }) }}
+
+      <p>We’ve sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>We’ve sent your application to the Environment Agency, so that they can review your details.</p>
+      <p>They’ll email you when there’s an update with your application.</p>
+
+      <form method="POST" action="home?applied=yes">
+
+          {{govukButton({
+              text: "Finish"
+          })}}
+
+      </form>
+
+      {#
+      {{ govukPanel({
         titleText: "You’ve added your organisation’s information"
       }) }}
 
@@ -33,6 +54,7 @@
           })}}
 
       </form>
+      #}
         
     </div>
 </div>
