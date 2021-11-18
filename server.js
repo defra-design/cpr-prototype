@@ -63,9 +63,6 @@ promoMode = promoMode.toLowerCase()
 // Disable promo mode if docs aren't enabled
 if (!useDocumentation) promoMode = 'false'
 
-// logging
-var useLogging = config.useLogging
-
 // Force HTTPS on production. Do this before using basicAuth to avoid
 // asking for username/password twice (for `http`, then `https`).
 var isSecure = (env === 'production' && useHttps === 'true')
@@ -199,24 +196,6 @@ if (useAutoStoreData === 'true') {
   if (useV6) {
     utils.addCheckedFunction(nunjucksV6Env)
   }
-}
-
-// Logging session data
-if (useLogging !== 'false') {
-  app.use((req, res, next) => {
-    const all = (useLogging === 'true')
-    const post = (useLogging === 'post' && req.method === 'POST')
-    const get = (useLogging === 'get' && req.method === 'GET')
-    if (all || post || get) {
-      const log = {
-        method: req.method,
-        url: req.originalUrl,
-        data: req.session.data
-      }
-      console.log(JSON.stringify(log, null, 2))
-    }
-    next()
-  })
 }
 
 // Clear all data in session if you open /prototype-admin/clear-data
