@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div>
+
+<a class="govuk-back-link" href="./question-1.html">Back</a>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="route-question-2">
+
+            <h1 class="govuk-heading-l">What activities describe how you work with packaging?</h1>
+
+            {{ govukCheckboxes({
+                idPrefix: "activities",
+                name: "activities",
+                fieldset: {
+                    legend: {
+                      text: "What activities describe how you work with packaging?",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                    }
+                },
+                value: "activities",
+                hint: {
+                  text: "Select all that apply."
+                },
+                items: [
+                  {
+                    value: "placing your own-brand goods on the UK market in primary or secondary packaging",
+                    text: "Placing your own-brand goods on the UK market in primary or secondary packaging"
+                  },
+                  {
+                    value: "paying another organisation to pack and place your own-brand goods on the UK market",
+                    text: "Paying another organisation to pack and place your own-brand goods on the UK market"
+                  },
+                  {
+                    value: "using transit packaging to transport goods that are placed on the UK market",
+                    text: "Using transit packaging to transport goods that are placed on the UK market"
+                  },
+                  {
+                    value: "importing packaging that contains goods into the UK to sell",
+                    text: "Importing packaging that contains goods into the UK to sell"
+                  },
+                  {
+                    value: "owning an online marketplace that allows non-UK business to sell packaged products in the UK",
+                    text: "Owning an online marketplace that allows non-UK business to sell packaged products in the UK"
+                  },
+                  {
+                    value: "selling empty packaging to non-obligated businesses",
+                    text: "Selling empty packaging to non-obligated businesses"
+                  },
+                  {
+                    value: "hiring or loaning out reusable packaging to UK organisations",
+                    text: "Hiring or loaning out reusable packaging to UK organisations"
+                  },
+                  {
+                    divider: "or"
+                  },
+                  {
+                    value: "none",
+                    text: "None of the above",
+                    behaviour: "exclusive"
+                  }
+                ]
+              }) 
+            }}
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
