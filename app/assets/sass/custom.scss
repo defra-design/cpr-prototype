@@ -272,3 +272,33 @@
 .custom-remove-bold .govuk-summary-list__key {
     font-weight: 500;
 }
+
+// Action list
+
+ol.action-list {
+    counter-reset: gov-speak-numbered-action;
+    padding-left: 40px;
+  }
+
+ol.action-list li.action {
+    counter-increment: gov-speak-numbered-action;
+    position: relative;
+    margin-bottom: 30px;
+}
+  
+ol.action-list li::before {
+    content: counter(gov-speak-numbered-action);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    --size: 26px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: 0;
+    background: #0c0101;
+    border-radius: 100%;
+    text-align: center;
+}

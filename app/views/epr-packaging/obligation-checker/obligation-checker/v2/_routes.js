@@ -6,7 +6,8 @@ const router = express.Router()
 
 // Routing for question-1.html
 router.post('*/route-question-1', function (req, res) {
-    var obDrsCheckboxes = req.session.data['obCombinedTurnover']
+    var obDrsCheckboxes = req.session.data['turnover']
+    
     if (obDrsCheckboxes == "no"){
         res.redirect('outcome-not-obligated-below-turnover')
     }
