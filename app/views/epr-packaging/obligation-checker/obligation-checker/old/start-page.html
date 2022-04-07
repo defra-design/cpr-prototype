@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="question-1">
+
+            <h1 class="govuk-heading-l">Check if you need to register for the extended producer responsibility and deposit return scheme</h1>
+            <p>Use this tool to find out if your business needs to register for the extended producer responsibility and deposit return schemes for 2022.</p>
+
+            <div class="govuk-inset-text">It should take about 5 minutes to check.</div>
+            <p>This tool will not send your business’s details to the Department for Environment, Food & Rural Affairs (Defra).</p>
+
+            {{ govukButton({
+                text: "Start now"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

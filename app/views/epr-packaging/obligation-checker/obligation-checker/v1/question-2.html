@@ -11,7 +11,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-breadcrumbs">
+<!-- <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
             <a class="govuk-breadcrumbs__link" href="#">Home</a>
@@ -24,8 +24,13 @@ Check if your organisation needs to register | {{serviceName}} prototype
         </li>
         <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
     </ol>
-</div>
+</div> -->
+
+<a class="govuk-back-link" href="./question-1.html">Back</a>
+
 {% endblock %}
+
+
 
 {% block content %}
 
@@ -34,51 +39,62 @@ Check if your organisation needs to register | {{serviceName}} prototype
 
         <form method="POST" action="route-question-2">
 
-            <h1 class="govuk-heading-l">Does your business carry out any of these activities?</h1>
+            <h1 class="govuk-heading-l">What activities describe how you work with packaging?</h1>
 
-            <p>The activities are:</p>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>filling drinks containers with its own branded drinks to place on the market in England, Wales or Northern Ireland</li>
-                <li>importing filled drinks containers from outside of the UK to place on the market in England, Wales or Northern Ireland</li>
-                <li>selling filled drinks containers to end consumers in England, Wales or Northern Ireland</li>
-            </ul>
-
-            <!-- {{ govukDetails({
-                summaryText: "Which drinks containers are in-scope?",
-                html: "
-                <p>In-scope drinks containers are:</p>
-                <ul>
-                    <li>PET plastic bottles</li>
-                    <li>glass bottles</li>
-                    <li>steel and aluminium cans</li>
-                </ul>
-                "
-            }) }} -->
-
-            {{ govukRadios({
-            classes: "govuk-radios--inline",
-            idPrefix: "obCombinedDrs",
-            name: "obCombinedDrs",
-            items: [
-                {
-                value: "yes",
-                text: "Yes"
+            {{ govukCheckboxes({
+                idPrefix: "activities",
+                name: "activities",
+                fieldset: {
+                    legend: {
+                      text: "What activities describe how you work with packaging?",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                    }
                 },
-                {
-                value: "no",
-                text: "No"
-                }
-            ]
-            }) }}
-
-            {{ govukDetails({
-                summaryText: "My organisation carries out one or more of these activities in Scotland",
-                html: '
-                <p>Scotland operates its own deposit return scheme (DRS). You must report any drinks container data for Scotland directly to their scheme administrator.</p>
-                <p><a href="https://depositreturnscheme.zerowastescotland.org.uk/" target="_blank">Find out more about reporting data for Scotland on the Zero Waste Scotland website (opens in new tab)</a>.</p>
-                '
-              }) }}
+                value: "activities",
+                hint: {
+                  text: "Select all that apply."
+                },
+                items: [
+                  {
+                    value: "placing your own-brand goods on the UK market in primary or secondary packaging",
+                    text: "Placing your own-brand goods on the UK market in primary or secondary packaging"
+                  },
+                  {
+                    value: "paying another organisation to pack and place your own-brand goods on the UK market",
+                    text: "Paying another organisation to pack and place your own-brand goods on the UK market"
+                  },
+                  {
+                    value: "using transit packaging to transport goods that are placed on the UK market",
+                    text: "Using transit packaging to transport goods that are placed on the UK market"
+                  },
+                  {
+                    value: "importing packaging that contains goods into the UK to sell",
+                    text: "Importing packaging that contains goods into the UK to sell"
+                  },
+                  {
+                    value: "owning an online marketplace that allows non-UK business to sell packaged products in the UK",
+                    text: "Owning an online marketplace that allows non-UK business to sell packaged products in the UK"
+                  },
+                  {
+                    value: "selling empty packaging to non-obligated businesses",
+                    text: "Selling empty packaging to non-obligated businesses"
+                  },
+                  {
+                    value: "hiring or loaning out reusable packaging to UK organisations",
+                    text: "Hiring or loaning out reusable packaging to UK organisations"
+                  },
+                  {
+                    divider: "or"
+                  },
+                  {
+                    value: "none",
+                    text: "None of the above",
+                    behaviour: "exclusive"
+                  }
+                ]
+              }) 
+            }}
 
             {{ govukButton({
                 text: "Continue"

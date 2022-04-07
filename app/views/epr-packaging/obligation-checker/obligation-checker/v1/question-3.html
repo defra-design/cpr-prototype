@@ -11,7 +11,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-breadcrumbs">
+<!-- <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
             <a class="govuk-breadcrumbs__link" href="#">Home</a>
@@ -24,8 +24,12 @@ Check if your organisation needs to register | {{serviceName}} prototype
         </li>
         <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
     </ol>
-</div>
+</div> -->
+
+<a class="govuk-back-link" href="./question-2.html">Back</a>
+
 {% endblock %}
+
 
 {% block content %}
 
@@ -33,33 +37,49 @@ Check if your organisation needs to register | {{serviceName}} prototype
     <div class="govuk-grid-column-two-thirds">
 
 
-        <h1 class="govuk-heading-l">Did your business export any packaging between 1 Jan 2022 and 31 Dec 2022</h1>
+        <h1 class="govuk-heading-l">Your chosen packaging activities</h1>
 
-        <p>Your business exported packaging if it sold packaged goods:</p>
+        <p>You told us your activities were:</p>
 
-        <ul class="govuk-list govuk-list--bullet">
-            <li>directly to customers outside of the UK</li>
-            <li>to other organisations that sold or will sell the goods outside of the UK</li>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+          <li>
+            Hello
+          </li>
         </ul>
-        
+
+<p class="govuk-body">You can buy:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>apples</li>
+          <li>oranges</li>
+          <li>pears</li>
+        </ul>
+
         
         <form method="POST" action="route-question-3">
 
             {{ govukRadios({
-            classes: "govuk-radios--inline",
-            idPrefix: "obCombinedEprExport",
-            name: "obCombinedEprExport",
-            items: [
-                {
-                value: "yes",
-                text: "Yes"
+                idPrefix: "tonnage",
+                name: "tonnage",
+                fieldset: {
+                  legend: {
+                    text: "How much packaging do you expect to be involved as part of these activities in 2023?",
+                    classes: "govuk-fieldset__legend--m govuk-!-margin-bottom-4",
+                    isPageHeading: false
+                  }
                 },
-                {
-                value: "no",
-                text: "No"
-                }
-            ]
-            }) }}
+                items: [
+                  {
+                    value: "under-25",
+                    text: "Under 25 tonnes"
+                  },
+                  {
+                    value: "25-and-over",
+                    text: "25 tonnes or more"
+                  }
+                ]
+              }) }}
+
+
 
             {{ govukButton({
                 text: "Continue"

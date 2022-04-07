@@ -11,7 +11,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
-<!-- <div class="govuk-breadcrumbs">
+<div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
             <a class="govuk-breadcrumbs__link" href="#">Home</a>
@@ -24,10 +24,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
         </li>
         <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
     </ol>
-</div> -->
-
-<a class="govuk-back-link" href="./start-page.html">Back</a>
-
+</div>
 {% endblock %}
 
 {% block content %}
@@ -35,35 +32,34 @@ Check if your organisation needs to register | {{serviceName}} prototype
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST" action="route-question-1">
+
+        <h1 class="govuk-heading-l">Did your business export any packaging between 1 Jan 2022 and 31 Dec 2022</h1>
+
+        <p>Your business exported packaging if it sold packaged goods:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>directly to customers outside of the UK</li>
+            <li>to other organisations that sold or will sell the goods outside of the UK</li>
+        </ul>
+        
+        
+        <form method="POST" action="route-question-3">
 
             {{ govukRadios({
-                classes: "govuk-radios",
-                idPrefix: "obCombinedTurnover",
-                name: "obCombinedTurnover",
-                fieldset: {
-                  legend: {
-                    text: "Was your organisation or group's turnover more than £1 million in its last financial year?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
-                  }
+            classes: "govuk-radios--inline",
+            idPrefix: "obCombinedEprExport",
+            name: "obCombinedEprExport",
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
                 },
-                hint: {
-                  text: "Refer to your organisation's most recent published accounts on Companies House."
-                },
-                items: [
-                  {
-                    value: "yes",
-                    text: "Yes",
-                    checked: checked("obCombinedTurnover", "yes")
-                  },
-                  {
-                    value: "no",
-                    text: "No",
-                    checked: checked("obCombinedTurnover", "no")
-                  }
-                ]
-              }) }}
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
 
             {{ govukButton({
                 text: "Continue"
