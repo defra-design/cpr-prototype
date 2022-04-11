@@ -42,17 +42,12 @@ Check if your organisation needs to register | {{serviceName}} prototype
         <p>You told us your activities were:</p>
 
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-          <li>
-            Hello
-          </li>
-        </ul>
-
-<p class="govuk-body">You can buy:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>apples</li>
-          <li>oranges</li>
-          <li>pears</li>
-        </ul>
+            {% for item in data["activities"] %}
+              <li>
+                {{ item }}
+              </li>
+            {% endfor %}
+          </ul>
 
         
         <form method="POST" action="route-question-3">
