@@ -46,6 +46,7 @@ router.use('/drs/drs-reporting_v1', require('./views/drs/drs-reporting_v1/_route
 
 router.use('/epr-packaging/obligation-checker/obligation-checker/v1', require('./views/epr-packaging/obligation-checker/obligation-checker/v1/_routes'));
 router.use('/epr-packaging/obligation-checker/obligation-checker/v2', require('./views/epr-packaging/obligation-checker/obligation-checker/v2/_routes'));
+router.use('/epr-packaging/obligation-checker/obligation-checker/v3', require('./views/epr-packaging/obligation-checker/obligation-checker/v3/_routes'));
 
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
