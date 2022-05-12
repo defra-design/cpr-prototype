@@ -28,10 +28,142 @@ Check if your organisation needs to register | {{serviceName}} prototype
 {% endblock %}
 
 
+
+
 {% block content %}
 
+{{ data | log }}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Group, or part of a group
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['group-1'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="group-1.html">
+                  Change<span class="govuk-visually-hidden">Group</span>
+                </a>
+              </dd>
+            </div>
+            {% if (data['acting-as'] == "holding-parent") %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Parent or holding company
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['group-2'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="group-2.html">
+                    Change<span class="govuk-visually-hidden">Group</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+            {% if (data['acting-as'] == "subsidiary-group") %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Parent or holding company
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['group-2'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="group-2.html">
+                    Change<span class="govuk-visually-hidden">Group</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Turnover
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['turnover'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="turnover-again.html">
+                  Change<span class="govuk-visually-hidden">Turnover</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How you handle and supply packaging
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+                    {% if data["brand-owner-1"] == 'yes' %}
+                    <li>
+                      supply your own brand goods to the UK market in primary or secondary packaging
+                    </li>
+                    {% endif %}
+                    {% if data["brand-owner-2"] == 'yes' %}
+                    <li>
+                      pay another organisation to pack and place your own brand goods on the UK market
+                    </li>
+                    {% endif %}
+                    {% if data["brand-owner-3"] == 'yes' %}
+                    <li>
+                      use transit packaging to transport goods that are placed on the UK market
+                    </li>
+                    {% endif %}
+                    {% if data["importer"] == 'yes' %}
+                    <li>
+                      import packaging that contains goods into the UK to sell
+                    </li>
+                    {% endif %}
+                    {% if data["online-market-place"] == 'yes' %}
+                    <li>
+                      own an online marketplace that allows non-UK businesses to sell packaged products in the UK
+                    </li>
+                    {% endif %}
+                    {% if data["distributor"] == 'yes' %}
+                    <li>
+                      sell empty packaging to organisations that are not affected by the extended producer responsibility for packaging regulations
+                    </li>
+                    {% endif %}
+                    {% if data["service-provider"] == 'yes' %}
+                    <li>
+                      hire or lend reusable packaging to UK organisations
+                    </li>
+                    {% endif %}
+                  </ul>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="activities.html">
+                  Change<span class="govuk-visually-hidden">How you handle and supply packaging</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Packaging amount
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['packaging-tonnage'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="tonnage.html">
+                  Change<span class="govuk-visually-hidden">Packaging amount</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+
+
+
+
+
+
+
 
         <div class="govuk-panel govuk-panel--confirmation" style="background-color: #1D70B8;">
             <h1 class=" govuk-heading-l" style="color: #fff; padding: 0px; margin: 0 auto;">
