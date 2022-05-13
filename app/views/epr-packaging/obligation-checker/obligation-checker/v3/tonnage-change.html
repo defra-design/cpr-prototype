@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
+
+<a class="govuk-back-link" href="./activities.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+{{ data | log }}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">The amount of packaging you handle and supply</h1>
+
+        <p>You told us that you:</p>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+          {% if data["brand-owner-1"] == 'yes' %}
+          <li>
+            supply your own brand goods to the UK market in primary or secondary packaging
+          </li>
+          {% endif %}
+          {% if data["brand-owner-2"] == 'yes' %}
+          <li>
+            pay another organisation to pack and place your own brand goods on the UK market
+          </li>
+          {% endif %}
+          {% if data["brand-owner-3"] == 'yes' %}
+          <li>
+            use transit packaging to transport goods that are placed on the UK market
+          </li>
+          {% endif %}
+          {% if data["importer"] == 'yes' %}
+          <li>
+            import packaging that contains goods into the UK to sell
+          </li>
+          {% endif %}
+          {% if data["online-market-place"] == 'yes' %}
+          <li>
+            own an online marketplace that allows non-UK businesses to sell packaged products in the UK
+          </li>
+          {% endif %}
+          {% if data["distributor"] == 'yes' %}
+          <li>
+            sell empty packaging to organisations that are not affected by the extended producer responsibility for packaging regulations
+          </li>
+          {% endif %}
+          {% if data["service-provider"] == 'yes' %}
+          <li>
+            hire or lend reusable packaging to UK organisations
+          </li>
+          {% endif %}
+        </ul>
+        
+        <form method="POST" action="route-tonnage-change">
+
+          {% if (data['acting-as'] == "holding-parent") %}
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-4">
+              <h2 class="govuk-fieldset__heading">
+                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
+            </legend>
+
+            <div id="changed-name-hint" class="govuk-hint">
+              You should calculate the total amount of packaging handled or supplied in these ways across the relevant subsidiaries in your organisation.
+            </div>
+          {% endif %}
+
+          {% if (data['acting-as'] == "subsidiary-group") %}
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
+            </legend>
+          {% endif %}
+
+          {% if (data['acting-as'] == "independent") %}
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
+            </legend>
+          {% endif %}
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="Under 25 tonnes" name="packaging-tonnage" type="radio" value="Under 25 tonnes" {{ checked("packaging-tonnage", "Under 25 tonnes") }}>
+                  <label class="govuk-label govuk-radios__label" for="Under 25 tonnes">
+                    Under 25 tonnes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="25 tonnes to 50 tonnes" name="packaging-tonnage" type="radio" value="25 tonnes to 50 tonnes" {{ checked("packaging-tonnage", "25 tonnes to 50 tonnes") }}>
+                  <label class="govuk-label govuk-radios__label" for="25 tonnes to 50 tonnes">
+                    25 tonnes to 50 tonnes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="50 tonnes or more" name="packaging-tonnage" type="radio" value="50 tonnes or more" {{ checked("packaging-tonnage", "50 tonnes or more") }}>
+                  <label class="govuk-label govuk-radios__label" for="50 tonnes or more">
+                    50 tonnes or more
+                  </label>
+                </div>
+              </div>
+          
+            </fieldset>
+          </div> 
+            {{ govukButton({
+                text: "Continue"
+            })}}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

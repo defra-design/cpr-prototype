@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
+
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="route-group-2">
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+                <h1 class="govuk-fieldset__heading">
+                  Are you answering as a group or subsidiary?
+                </h1>
+              </legend>
+              
+              <div id="changed-name-hint" class="govuk-hint">
+                Groups are owned by a parent company (sometimes called a holding company). Subsidiaries are the individual organisations that form a group. 
+              </div>
+            
+    
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="parent-company" name="group-2" type="radio" value="Parent company" {{ checked("group-2", "parent-company") }}>
+                  <label class="govuk-label govuk-radios__label" for="parent-company">
+                    Parent company
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="subsidiary" name="group-2" type="radio" value="Subsidiary" {{ checked("group-2", "subsidiary") }}>
+                  <label class="govuk-label govuk-radios__label" for="subsidiary">
+                    Subsidiary
+                  </label>
+                </div>
+
+              </div>
+    
+            </fieldset>
+          </div>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

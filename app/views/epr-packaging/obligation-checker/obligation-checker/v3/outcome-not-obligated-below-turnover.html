@@ -42,8 +42,18 @@ Check if your organisation needs to register | {{serviceName}} prototype
         <h2 class="govuk-heading-m">What happens next</h2>
 
         <p class="govuk-body">
-            You may need to comply with the extended producer responsibility for packaging regulations in the future if your turnover exceeds £1 million.
+            You may need to comply with the extended producer responsibility (EPR) for packaging regulations in the future if the turnover for your organisation exceeds £1 million.
         </p>
+
+        {% if (data['acting-as'] == "subsidiary-group") %}
+            <h2 class="govuk-heading-m">
+                How the regulations may affect your parent company
+            </h2>
+
+            <p class="govuk-body">
+                Your parent company may need to register for the EPR for packaging regulations if the combined annual turnover for any subsidiaries that do not meet the turnover criteria is over £1 million. 
+            </p>
+        {% endif %}
 
         <p><a href="#">Leave feedback about this tool</a> (takes about 30 seconds)</p>
     </div>
