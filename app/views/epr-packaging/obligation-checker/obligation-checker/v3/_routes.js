@@ -7,7 +7,7 @@ router.post('*/route-group-1', function (req, res) {
     var groupYesNo = req.session.data['group-1']
     
     if (groupYesNo == "Yes"){
-        res.redirect('group-2')
+        res.redirect('group-2?group-1-answer=yes')
     }
     else if (groupYesNo == "No"){
         res.redirect('turnover?acting-as=independent')

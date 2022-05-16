@@ -12,7 +12,13 @@ Check if your organisation needs to register | {{serviceName}} prototype
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% if (data['acting-as'] == "independent") %}
+<a class="govuk-back-link" href="group-1.html">Back</a>
+{% endif %}
+
+{% if (data['group-1-answer'] == "yes") %}
+<a class="govuk-back-link" href="group-2.html">Back</a>
+{% endif %}
 
 {% endblock %}
 
@@ -22,7 +28,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="organisation-turnover-change">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="organisation-turnover-hint">
 
           {% if (data['acting-as'] == "holding-parent") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
@@ -49,7 +55,7 @@ Check if your organisation needs to register | {{serviceName}} prototype
             </legend>
           {% endif %}
 
-          <div id="changed-name-hint" class="govuk-hint">
+          <div id="organisation-turnover-hint" class="govuk-hint">
             Refer to your most recent annual accounts.
           </div>
 
