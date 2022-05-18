@@ -179,10 +179,10 @@ router.post('*/route-tonnage', function (req, res) {
     if (obCombinedEprExport == "Under 25 tonnes") {
         res.redirect('outcome-not-obligated-below-tonnage')
     }
-    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£25 million to £50 million") ){
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
-    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£25 million to £50 million") ){
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
     else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") ){
@@ -207,10 +207,10 @@ router.post('*/route-tonnage-change', function (req, res) {
     else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
-    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £50 million") ){
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
-    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £50 million") ){
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") ){
         res.redirect('outcome-obligated?small-producer=no')
     }
 })
