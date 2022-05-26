@@ -44,9 +44,12 @@ router.use('/drs/defra-id-manage', require('./views/drs/defra-id-manage/_routes'
 router.use('/drs/drs-registration_v1', require('./views/drs/drs-registration_v1/_routes'));
 router.use('/drs/drs-reporting_v1', require('./views/drs/drs-reporting_v1/_routes'));
 
-router.use('/epr-packaging/obligation-checker/obligation-checker/v1', require('./views/epr-packaging/obligation-checker/obligation-checker/v1/_routes'));
-router.use('/epr-packaging/obligation-checker/obligation-checker/v2', require('./views/epr-packaging/obligation-checker/obligation-checker/v2/_routes'));
-router.use('/epr-packaging/obligation-checker/obligation-checker/v3', require('./views/epr-packaging/obligation-checker/obligation-checker/v3/_routes'));
+router.use('/obligation-checker/v1', require('./views/obligation-checker/v1/_routes'));
+router.use('/obligation-checker/v2', require('./views/obligation-checker/v2/_routes'));
+router.use('/obligation-checker/v3', require('./views/obligation-checker/v3/_routes'));
+
+router.use('/guidance/v1', require('./views/guidance/v1/_routes'));
+router.use('/guidance/v2', require('./views/guidance/v2/_routes'));
 
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));

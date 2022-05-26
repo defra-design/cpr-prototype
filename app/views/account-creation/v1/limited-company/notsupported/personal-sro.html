@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% set title = "Do you have authority to act on behalf of this business or organisation?" %}
+
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['flowType'] == "check" %}
+      <form method="post" action="check-your-answers">
+    {% else %}
+      <form method="post" action="task-list-page-sro">
+    {% endif %}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "personalSRO",
+        name: "personalSRO",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+          },
+          hint: {
+            text: "We need to know who has legal responsibility for your business or organisation. This is so the [service name] service knows who to contact if there is a problem."
+        },
+
+
+
+        items: [
+          {
+            value: "Yes",
+            html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span> - I own, run or have permission to act on behalf of this business or organisation.',
+            checked:  checked('personalSRO','Yes')
+
+          },
+          {
+            value: "No",
+            html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span> - someone else has this authority.',
+            checked:  checked('personalSRO','No')
+
+          }
+
+        ]
+      }) }}
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
