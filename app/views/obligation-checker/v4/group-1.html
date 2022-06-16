@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if the EPR for packaging regulations apply to you" %}
+
+{% block pageTitle %}
+Check if the EPR for packaging regulations apply to you | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
+
+<!-- <a class="govuk-back-link" href="./start-page.html">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="route-group-1">
+
+          <div class="govuk-form-group govuk-!-margin-top-5">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+                <h1 class="govuk-fieldset__heading">
+                  Is your organisation a group, or part of a group?
+                </h1>
+              </legend>
+              
+              <div id="changed-name-hint" class="govuk-hint">
+                A collection of organisations that are owned by a parent company (sometimes called a holding company) is known as a group.
+              </div>
+            
+    
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="group-or-part-of-group" name="group-1" type="radio" value="Yes" {{ checked("group-1", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="group-or-part-of-group">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="independent" name="group-1" type="radio" value="No" {{ checked("group-1", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="independent">
+                    No
+                  </label>
+                </div>
+
+              </div>
+    
+            </fieldset>
+          </div>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

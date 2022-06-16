@@ -49,6 +49,8 @@ router.use('/combined/combined-basic-obligation-checker_v1', require('./views/co
 router.use('/obligation-checker/v1', require('./views/obligation-checker/v1/_routes'));
 router.use('/obligation-checker/v2', require('./views/obligation-checker/v2/_routes'));
 router.use('/obligation-checker/v3', require('./views/obligation-checker/v3/_routes'));
+router.use('/obligation-checker/v4', require('./views/obligation-checker/v4/_routes'));
+
 
 router.use('/guidance/v1', require('./views/guidance/v1/_routes'));
 router.use('/guidance/v2', require('./views/guidance/v2/_routes'));
