@@ -12,13 +12,8 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
 
 {% block beforeContent %}
 
-{% if (data['acting-as'] == "independent") %}
-<a class="govuk-back-link" href="group-1.html">Back</a>
-{% endif %}
+<a class="govuk-back-link" href="organisation-type.html">Back</a>
 
-{% if (data['group-1-answer'] == "yes") %}
-<a class="govuk-back-link" href="group-2.html">Back</a>
-{% endif %}
 
 {% endblock %}
 
@@ -47,7 +42,7 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
             </legend>
           {% endif %}
 
-          {% if (data['acting-as'] == "independent") %}
+          {% if (data['acting-as'] == "individual") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 What was your organisation’s last annual turnover?
@@ -61,20 +56,20 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="under-1m" name="turnover" type="radio" value="Under £1 million" {{ checked("turnover", "Under £1 million") }}>
-              <label class="govuk-label govuk-radios__label" for="under-1m">
+              <input class="govuk-radios__input" id="Under £1 million" name="turnover" type="radio" value="Under £1 million" {{ checked("turnover", "Under £1 million") }}>
+              <label class="govuk-label govuk-radios__label" for="Under £1 million">
                 Under £1 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="1-2m" name="turnover" type="radio" value="£1 million to £2 million" {{ checked("turnover", "£1 million to £2 million") }}>
-              <label class="govuk-label govuk-radios__label" for="1-2m">
+              <input class="govuk-radios__input" id="£1 million to £2 million" name="turnover" type="radio" value="£1 million to £2 million" {{ checked("turnover", "£1 million to £2 million") }}>
+              <label class="govuk-label govuk-radios__label" for="£1 million to £2 million">
                 £1 million to £2 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Over-2m" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
-              <label class="govuk-label govuk-radios__label" for="Over-2m">
+              <input class="govuk-radios__input" id="Over £2 million" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
+              <label class="govuk-label govuk-radios__label" for="Over £2 million">
                 Over £2 million
               </label>
             </div>

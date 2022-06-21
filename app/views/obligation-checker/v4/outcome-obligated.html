@@ -38,9 +38,9 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
 
 
         <!-- PANEL -->
-        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5" style="background-color: #1D70B8;">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5 govuk-!-margin-top-5" style="background-color: #1D70B8;">
             <h1 class=" govuk-heading-l" style="color: #fff; padding: 0px; margin: 0 auto;">
-              You will need to take action under the extended producer responsibility (EPR) for packaging regulations
+              You will need to take action under extended producer responsibility (EPR) for packaging
             </h1>
         </div>
 
@@ -128,48 +128,18 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
         <h2 class="govuk-heading-m">What you told us</h2>
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Group, or part of a group
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['group-1'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="group-1-change.html">
-                Change<span class="govuk-visually-hidden">Group</span>
-              </a>
-            </dd>
+              <dt class="govuk-summary-list__key">
+                  Organisation type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['organisation-type'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="organisation-type-change.html">
+                  Change<span class="govuk-visually-hidden">organisation type</span>
+                </a>
+              </dd>
           </div>
-          {% if (data['acting-as'] == "holding-parent") %}
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  Parent or holding company
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['group-2'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="group-2-change.html">
-                  Change<span class="govuk-visually-hidden">Group</span>
-                </a>
-              </dd>
-            </div>
-          {% endif %}
-          {% if (data['acting-as'] == "subsidiary-group") %}
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  Parent or holding company
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['group-2'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="group-2-change.html">
-                  Change<span class="govuk-visually-hidden">Group</span>
-                </a>
-              </dd>
-            </div>
-          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Turnover
@@ -240,7 +210,7 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
               {{ data['packaging-tonnage'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="tonnage.html">
+              <a class="govuk-link" href="tonnage-change.html">
                 Change<span class="govuk-visually-hidden">Amount handled and supplied</span>
               </a>
             </dd>
@@ -253,7 +223,7 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
               {{ data['nation-tonnage'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="nation-tonnage.html">
+              <a class="govuk-link" href="nation-tonnage-change.html">
                 Change<span class="govuk-visually-hidden">Amount sold, hired, loaned, gifted or discarded</span>
               </a>
             </dd>

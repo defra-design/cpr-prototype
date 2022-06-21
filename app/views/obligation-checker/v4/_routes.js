@@ -2,51 +2,34 @@ const express = require('express')
 const router = express.Router()
 // Add your routes here - above the module.exports line
 
-// Routing for Group-1
-router.post('*/route-group-1', function (req, res) {
-    var groupYesNo = req.session.data['group-1']
-    
-    if (groupYesNo == "Yes"){
-        res.redirect('group-2?group-1-answer=yes')
-    }
-    else if (groupYesNo == "No"){
-        res.redirect('turnover?acting-as=independent')
-    } 
-})
 
-// Routing for Group-1-change
-router.post('*/route-group-1-change', function (req, res) {
-    var groupYesNo = req.session.data['group-1']
-    
-    if (groupYesNo == "Yes"){
-        res.redirect('group-2-change')
-    }
-    else if (groupYesNo == "No"){
-        res.redirect('outcome-obligated?acting-as=independent')
-    } 
-})
-
-// Routing for Group-2
-router.post('*/route-group-2', function (req, res) {
-    var actingAs = req.session.data['group-2']
+// Routing for Organisation type
+router.post('*/route-organisation-type', function (req, res) {
+    var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
         res.redirect('turnover?acting-as=holding-parent')
     }
     else if (actingAs == "Subsidiary"){
         res.redirect('turnover?acting-as=subsidiary-group')
-    } 
+    }
+    else if (actingAs == "Individual business"){
+        res.redirect('turnover?acting-as=individual')
+    }  
 })
 
-// Routing for Group-2-change
-router.post('*/route-group-2-change', function (req, res) {
-    var actingAs = req.session.data['group-2']
+// Routing for Organisation type change
+router.post('*/route-organisation-type-change', function (req, res) {
+    var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
         res.redirect('outcome-obligated?acting-as=holding-parent')
     }
     else if (actingAs == "Subsidiary"){
         res.redirect('outcome-obligated?acting-as=subsidiary-group')
+    } 
+    else if (actingAs == "Individual business"){
+        res.redirect('outcome-obligated?acting-as=individual')
     } 
 })
 
@@ -218,6 +201,20 @@ router.post('*/route-tonnage-change', function (req, res) {
 
 // Routing for Nation Tonnage
 router.post('*/packaging-nation-tonnage', function (req, res) {
+    var obCombinedEprExport = req.session.data['packaging-tonnage']
+    var obDrsCheckboxes = req.session.data['turnover']
+    var nationTonnageData = req.session.data['nation-tonnage']
+
+    if (nationTonnageData == "Under 25 tonnes") {
+        res.redirect('outcome-obligated?nation-data=no')
+    }
+    else if (nationTonnageData == "25 tonnes or more")  {
+        res.redirect('outcome-obligated?nation-data=yes')
+    }
+})
+
+// Routing for Nation Tonnage
+router.post('*/packaging-nation-tonnage-change', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
     var nationTonnageData = req.session.data['nation-tonnage']

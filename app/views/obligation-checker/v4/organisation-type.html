@@ -26,7 +26,7 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
     </ol>
 </div> -->
 
-<a class="govuk-back-link" href="./group-1.html">Back</a>
+<a class="govuk-back-link" href="./start-page.html">Back</a>
 
 {% endblock %}
 
@@ -35,7 +35,7 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST" action="route-group-2">
+        <form method="POST" action="route-organisation-type">
 
 
           <div class="govuk-form-group">
@@ -43,29 +43,34 @@ Check if the EPR for packaging regulations apply to you | {{serviceName}} protot
     
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
                 <h1 class="govuk-fieldset__heading">
-                  Are you answering as a group or subsidiary?
+                  What type of organisation are you?
                 </h1>
               </legend>
               
               <div id="changed-name-hint" class="govuk-hint">
-                Groups are owned by a parent company (sometimes called a holding company). Subsidiaries are the individual organisations that form a group. 
+                Parent companies (sometimes called a holding company) own groups. Subsidiaries are the separate organisations that form a group. 
               </div>
             
     
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="parent-company" name="group-2" type="radio" value="Parent company" {{ checked("group-2", "parent-company") }}>
+                  <input class="govuk-radios__input" id="parent-company" name="organisation-type" type="radio" value="Parent company" {{ checked("organisation-type", "Parent company") }}>
                   <label class="govuk-label govuk-radios__label" for="parent-company">
                     Parent company
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="subsidiary" name="group-2" type="radio" value="Subsidiary" {{ checked("group-2", "subsidiary") }}>
+                  <input class="govuk-radios__input" id="subsidiary" name="organisation-type" type="radio" value="Subsidiary" {{ checked("organisation-type", "Subsidiary") }}>
                   <label class="govuk-label govuk-radios__label" for="subsidiary">
                     Subsidiary
                   </label>
                 </div>
-
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="Individual business" name="organisation-type" type="radio" value="Individual business" {{ checked("organisation-type", "Individual business") }}>
+                  <label class="govuk-label govuk-radios__label" for="Individual business">
+                    Individual business
+                  </label>
+                </div>
               </div>
     
             </fieldset>
