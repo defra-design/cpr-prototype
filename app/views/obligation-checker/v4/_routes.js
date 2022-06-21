@@ -76,11 +76,11 @@ router.post('*/packaging-activities', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
-    var brandOwner3 = req.session.data['brand-owner-3']
     var importer = req.session.data['importer']
     var onlineMarketPlace = req.session.data['online-market-place']
     var distributor = req.session.data['distributor']
     var serviceProvider = req.session.data['service-provider']
+    var seller = req.session.data['seller']
 
 
     // Check whether the variable matches a condition
@@ -88,9 +88,6 @@ router.post('*/packaging-activities', function (req, res) {
         // Send user to next page
         res.redirect('tonnage')
     } else if (brandOwner2 == "yes") {
-        // Send user to next page
-        res.redirect('tonnage') 
-    } else if (brandOwner3 == "yes") {
         // Send user to next page
         res.redirect('tonnage') 
     } else if (importer == "yes") {
@@ -103,6 +100,9 @@ router.post('*/packaging-activities', function (req, res) {
         // Send user to next page
         res.redirect('tonnage') 
     } else if (serviceProvider == "yes") {
+        // Send user to next page
+        res.redirect('tonnage') 
+    } else if (seller == "yes") {
         // Send user to next page
         res.redirect('tonnage') 
     }
@@ -132,9 +132,6 @@ router.post('*/packaging-activities-change', function (req, res) {
     } else if (brandOwner2 == "yes") {
         // Send user to next page
         res.redirect('outcome-obligated') 
-    } else if (brandOwner3 == "yes") {
-        // Send user to next page
-        res.redirect('outcome-obligated') 
     } else if (importer == "yes") {
         // Send user to next page
         res.redirect('outcome-obligated') 
@@ -145,6 +142,9 @@ router.post('*/packaging-activities-change', function (req, res) {
         // Send user to next page
         res.redirect('outcome-obligated') 
     } else if (serviceProvider == "yes") {
+        // Send user to next page
+        res.redirect('outcome-obligated') 
+    } else if (seller == "yes") {
         // Send user to next page
         res.redirect('outcome-obligated') 
     }
