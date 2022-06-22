@@ -13,7 +13,7 @@ router.post('*/route-organisation-type', function (req, res) {
     else if (actingAs == "Subsidiary"){
         res.redirect('turnover?acting-as=subsidiary-group')
     }
-    else if (actingAs == "Individual business"){
+    else if (actingAs == "Individual company"){
         res.redirect('turnover?acting-as=individual')
     }  
 })
@@ -28,7 +28,7 @@ router.post('*/route-organisation-type-change', function (req, res) {
     else if (actingAs == "Subsidiary"){
         res.redirect('outcome-obligated?acting-as=subsidiary-group')
     } 
-    else if (actingAs == "Individual business"){
+    else if (actingAs == "Individual company"){
         res.redirect('outcome-obligated?acting-as=individual')
     } 
 })
