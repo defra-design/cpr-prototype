@@ -104,7 +104,7 @@ router.post('*/packaging-activities', function (req, res) {
         res.redirect('tonnage') 
     } else if (seller == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('nation-tonnage') 
     }
     else {
       // Send user to ineligible page
