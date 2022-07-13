@@ -110,10 +110,13 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
           </div>
         {% endif %}
 
+        
+
+
         <!-- NEXT STEPS -->
         <h2 class="govuk-heading-m">Your next steps</h2>
         <ol class="govuk-list action-list">
-            <li class="action">Prepare to collect data about the packaging you handle or supply in 2023.<a href="#">Find out more about the data you'll need to collect</a>.</li>
+            <li class="action">Prepare to collect data about the packaging you handle or supply in 2023. <a href="#">Find out more about the data you'll need to collect</a>.</li>
             <li class="action"><a href="../../account-creation/v1/start-page.html">Create an account</a> on behalf on your organisation. Once you have created an account, you’ll receive email updates about the registration process and when it opens.</li>
         </ol>
 
@@ -198,6 +201,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
               </a>
             </dd>
           </div>
+          {% if data["handle-supply"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Amount handled and supplied
@@ -211,6 +215,11 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
               </a>
             </dd>
           </div>
+          {% endif %}
+
+
+          
+          {% if data["sell-tonnage"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Amount sold, hired, loaned, gifted or discarded
@@ -224,6 +233,9 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
               </a>
             </dd>
           </div>
+          {% endif %}
+
+
         </dl>
 
     </div>

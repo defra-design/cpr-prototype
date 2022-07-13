@@ -86,25 +86,25 @@ router.post('*/packaging-activities', function (req, res) {
     // Check whether the variable matches a condition
     if (brandOwner1 == "yes") {
         // Send user to next page
-        res.redirect('tonnage')
+        res.redirect('tonnage?handle-supply=yes')
     } else if (brandOwner2 == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (importer == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (onlineMarketPlace == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (distributor == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (serviceProvider == "yes") {
         // Send user to next page
-        res.redirect('tonnage') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (seller == "yes") {
         // Send user to next page
-        res.redirect('nation-tonnage') 
+        res.redirect('nation-tonnage?handle-supply=no') 
     }
     else {
       // Send user to ineligible page
@@ -118,39 +118,39 @@ router.post('*/packaging-activities-change', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
-    var brandOwner3 = req.session.data['brand-owner-3']
     var importer = req.session.data['importer']
     var onlineMarketPlace = req.session.data['online-market-place']
     var distributor = req.session.data['distributor']
     var serviceProvider = req.session.data['service-provider']
+    var seller = req.session.data['seller']
 
 
     // Check whether the variable matches a condition
     if (brandOwner1 == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated')
+        res.redirect('tonnage?handle-supply=yes')
     } else if (brandOwner2 == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (importer == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (onlineMarketPlace == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (distributor == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (serviceProvider == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('tonnage?handle-supply=yes') 
     } else if (seller == "yes") {
         // Send user to next page
-        res.redirect('outcome-obligated') 
+        res.redirect('nation-tonnage?handle-supply=no') 
     }
     else {
-      // Send user to ineligible page
-      res.redirect('outcome-not-obligated-no-activities')
+    // Send user to ineligible page
+    res.redirect('outcome-not-obligated-no-activities')
     }
 })
 
@@ -158,21 +158,64 @@ router.post('*/packaging-activities-change', function (req, res) {
 router.post('*/route-tonnage', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
+    var brandOwner1 = req.session.data['brand-owner-1']
+    var brandOwner2 = req.session.data['brand-owner-2']
+    var importer = req.session.data['importer']
+    var onlineMarketPlace = req.session.data['online-market-place']
+    var distributor = req.session.data['distributor']
+    var serviceProvider = req.session.data['service-provider']
+    var seller = req.session.data['seller']
 
     if (obCombinedEprExport == "Under 25 tonnes") {
         res.redirect('outcome-not-obligated-below-tonnage')
     }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
     else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") ){
-        res.redirect('nation-card?small-producer=yes')
+        res.redirect('nation-card?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
     }
     else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") ){
-        res.redirect('nation-card?small-producer=yes')
+        res.redirect('nation-card?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes&handle-supply=yes')
     }
     else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") ){
-        res.redirect('nation-card?small-producer=yes')
+        res.redirect('nation-card?small-producer=yes&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no&handle-supply=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no&handle-supply=yes')
     }
     else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") ){
-        res.redirect('nation-card?small-producer=no')
+        res.redirect('nation-card?small-producer=no&handle-supply=yes')
     }
 })
 
@@ -180,18 +223,61 @@ router.post('*/route-tonnage', function (req, res) {
 router.post('*/route-tonnage-change', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
+    var brandOwner1 = req.session.data['brand-owner-1']
+    var brandOwner2 = req.session.data['brand-owner-2']
+    var importer = req.session.data['importer']
+    var onlineMarketPlace = req.session.data['online-market-place']
+    var distributor = req.session.data['distributor']
+    var serviceProvider = req.session.data['service-provider']
+    var seller = req.session.data['seller']
 
     if (obCombinedEprExport == "Under 25 tonnes") {
         res.redirect('outcome-not-obligated-below-tonnage')
     }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
     else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "£1 million to £2 million") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
     else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "£1 million to £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
     }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=yes')
+    }
     else if ( (obCombinedEprExport == "25 tonnes to 50 tonnes") && (obDrsCheckboxes == "Over £2 million") ){
         res.redirect('outcome-obligated?small-producer=yes')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "yes") && (brandOwner2 == "no") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no')
+    }
+    else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") && (brandOwner1 == "no") && (brandOwner2 == "yes") && (importer == "no") && (onlineMarketPlace == "no") && (distributor == "no") && (serviceProvider == "no") && (seller == "no") ){
+        res.redirect('outcome-obligated?small-producer=no')
     }
     else if ( (obCombinedEprExport == "50 tonnes or more") && (obDrsCheckboxes == "Over £2 million") ){
         res.redirect('outcome-obligated?small-producer=no')
@@ -206,24 +292,24 @@ router.post('*/packaging-nation-tonnage', function (req, res) {
     var nationTonnageData = req.session.data['nation-tonnage']
 
     if (nationTonnageData == "Under 25 tonnes") {
-        res.redirect('outcome-obligated?nation-data=no')
+        res.redirect('outcome-obligated?nation-data=no&sell-tonnage=yes')
     }
     else if (nationTonnageData == "25 tonnes or more")  {
-        res.redirect('outcome-obligated?nation-data=yes')
+        res.redirect('outcome-obligated?nation-data=yes&sell-tonnage=yes')
     }
 })
 
-// Routing for Nation Tonnage
+// Routing for Nation Tonnage Change
 router.post('*/packaging-nation-tonnage-change', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
     var nationTonnageData = req.session.data['nation-tonnage']
 
     if (nationTonnageData == "Under 25 tonnes") {
-        res.redirect('outcome-obligated?nation-data=no')
+        res.redirect('outcome-obligated?nation-data=no&sell-tonnage=yes')
     }
     else if (nationTonnageData == "25 tonnes or more")  {
-        res.redirect('outcome-obligated?nation-data=yes')
+        res.redirect('outcome-obligated?nation-data=yes&sell-tonnage=yes')
     }
 })
 
