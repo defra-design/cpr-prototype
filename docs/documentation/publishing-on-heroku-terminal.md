@@ -1,6 +1,9 @@
-# Publishing on the web (Heroku) from the terminal
+---
+title: Publish on the web from the terminal
+---
+# Publish on the web (Heroku) from the terminal
 
-We recommend using [Heroku](http://www.heroku.com) to get your prototype online. It’s simple and fast to deploy new versions as you work.
+We recommend [using Heroku](http://www.heroku.com) to get your prototype online. It’s simple and fast to deploy new versions as you work.
 
 Once your prototype is on Heroku, other people will be able to access and try your prototype from their own computers or mobile devices.
 
@@ -20,7 +23,7 @@ If you’re new to Heroku, [sign up for a free account](https://signup.heroku.co
 
 ## 3) Install the Heroku toolbelt
 
-Install the [Heroku toolbelt](https://toolbelt.heroku.com/).
+[Install the Heroku toolbelt](https://toolbelt.heroku.com/).
 
 > On Windows, after downloading the toolbelt you'll need to run `heroku login` using the `cmd` app, as it does not work in Git Bash. Once you’ve logged in, you can return to using Git Bash.
 
@@ -44,15 +47,20 @@ heroku apps:create [name of your app] --region eu
 ```
 Replace `[name of your app]` with your app name from step 4.
 
-## 6) Set a username and password
+## 6) Set a password
 
-Prototypes made with the kit require a username and password when published online. This stops members of the public coming across your prototype by accident.
+Prototypes made with the kit require a password when published online. This stops members of the public coming across your prototype by accident.
 
-### To set username and password:
+To set a password, run:
+
+```
+heroku config:set PASSWORD=password_here
+```
+
+If you get an error about username, run:
 
 ```
 heroku config:set USERNAME=username_here
-heroku config:set PASSWORD=password_here
 ```
 
 ## 7) Deploy your work
