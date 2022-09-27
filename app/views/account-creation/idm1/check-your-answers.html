@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Your Defra Account | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <h1 class="govuk-heading-l">Check your information</h1>
+        
+        <h2 class="govuk-heading-m">Your account</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Account Type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Business
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> account type</span>
+                </a>
+                </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">About your organisation</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your organisation's details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or defaults['defraIdCompaniesHouseNumber'] }})<br />
+                    1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> registered company</span>
+                </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Limited company
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Main contact details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['defraIdCompanyPhone'] or defaults['defraIdCompanyPhone']}}<br>
+                    {{ data['defraIdCompanyEmail'] or defaults['defraIdCompanyEmail']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a href="company-contact?flowType=check">
+                        Change<span class="govuk-visually-hidden"> company contact details</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">About you</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['defraIdFirstName'] or defaults['defraIdFirstName']}} {{ data['defraIdSurname'] or defaults['defraIdSurname']}} 
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> your name</span>
+                </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your contact details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['defraIdPersonalPhone'] or defaults['defraIdPersonalPhone']}}<br />
+                    {{ data['govGateEmail'] or defaults['govGateEmail']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> your contact details</span>
+                </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your security word
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['defraIdSecurityWord'] or defaults['defraIdSecurityWord']}}<br />
+                    {{ data['defraIdSecurityHint'] or defaults['defraIdSecurityHint']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> security word and hint</span>
+                </a>
+                </dd>
+            </div>
+        </dl>
+
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-visually-hidden" for="reCAPTCHA">
+                reCAPTCHA
+            </label>
+
+            <!-- Start of Mary's beautiful Capture Hack -->
+            <div class="rc-anchor rc-anchor-normal rc-anchor-light">
+                <div class="rc-anchor-content">
+                    <div class="rc-inline-block">
+                        <div class="rc-anchor-center-container">
+                            <div class="rc-anchor-center-item">
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="robot" name="robot" type="checkbox" value="myButton" onchange="document.getElementById('myButton').disabled = !this.checked;">
+                                        <label class="govuk-body-s govuk-checkboxes__label" for="robot">
+                                            I'm not a robot.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rc-anchor-normal-footer">
+                    <div class="rc-anchor-logo-portrait" aria-hidden="true" role="presentation">
+                        <div class="rc-anchor-logo-img rc-anchor-logo-img-portrait"></div>
+                        <div class="rc-anchor-logo-text">reCAPTCHA</div>
+                    </div>
+                    <div class="rc-anchor-pt">
+                        <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Mary's beautiful capture hack -->
+        </div>
+
+        <form method="POST" action="../../v6/epr/home?intro1=yes&declared=no&applied=no&paid=no&registered=no">
+            <button class="govuk-button" id="myButton" disabled>Continue</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

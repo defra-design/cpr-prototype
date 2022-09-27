@@ -35,6 +35,8 @@ router.use('/v5/epr', require('./views/v5/epr/_routes'));
 router.use('/v5/defra-id', require('./views/v5/defra-id/_routes'));
 router.use('/v5/defra-id-manage', require('./views/v5/defra-id-manage/_routes'));
 
+router.use('/account-creation/idm1', require('./views/account-creation/idm1/_routes'));
+
 router.use('/v6/epr', require('./views/v6/epr/_routes'));
 router.use('/v6/defra-id', require('./views/v6/defra-id/_routes'));
 router.use('/v6/defra-id-manage', require('./views/v6/defra-id-manage/_routes'));
