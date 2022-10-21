@@ -26,16 +26,16 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="organisation-turnover-hint">
 
-          {% if (data['acting-as'] == "parent-company") %}
+          {% if (data['acting-as'] == "holding-parent") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
               <h1 class="govuk-fieldset__heading">
                 What was your group’s last annual turnover?
               </h1>
             </legend>
-            <p class="govuk-body">Your answer should include the annual turnover of all relevant subsidiaries in your group that handle and supply (create, import, distribute or sell) packaging.</p>
+            <p class="govuk-body">Your answer should include the annual turnover of all subsidiary organisations in your group that handle and supply (create, import, distribute or sell) packaging.</p>
           {% endif %}
 
-          {% if (data['acting-as'] == "subsidiary") %}
+          {% if (data['acting-as'] == "subsidiary-group") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 What was your organisation’s last annual turnover?
@@ -78,7 +78,6 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
         </fieldset>
       </div>
-      
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>

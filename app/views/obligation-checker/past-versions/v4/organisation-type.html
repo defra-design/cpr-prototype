@@ -26,7 +26,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
     </ol>
 </div> -->
 
-<a class="govuk-back-link" href="./outcome-obligated.html">Go back to your results</a>
+<a class="govuk-back-link" href="./start-page.html">Back</a>
 
 {% endblock %}
 
@@ -35,7 +35,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST" action="route-organisation-type-change">
+        <form method="POST" action="route-organisation-type">
 
 
           <div class="govuk-form-group">
@@ -54,14 +54,14 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
     
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Parent company" name="organisation-type" type="radio" value="Parent company" {{ checked("organisation-type", "Parent company") }}>
-                  <label class="govuk-label govuk-radios__label" for="Parent company">
+                  <input class="govuk-radios__input" id="parent-company" name="organisation-type" type="radio" value="Parent company" {{ checked("organisation-type", "Parent company") }}>
+                  <label class="govuk-label govuk-radios__label" for="parent-company">
                     Parent company
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Subsidiary" name="organisation-type" type="radio" value="Subsidiary" {{ checked("organisation-type", "Subsidiary") }}>
-                  <label class="govuk-label govuk-radios__label" for="Subsidiary">
+                  <input class="govuk-radios__input" id="subsidiary" name="organisation-type" type="radio" value="Subsidiary" {{ checked("organisation-type", "Subsidiary") }}>
+                  <label class="govuk-label govuk-radios__label" for="subsidiary">
                     Subsidiary
                   </label>
                 </div>
@@ -76,31 +76,11 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
             </fieldset>
           </div>
 
-          <!-- DETAILS -->
-          <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                How EPR for packaging affects parent companies and subsidiaries
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              <p class="govuk-body">For parent companies and their subsidiaries, there are different ways you can comply with EPR for packaging. You can:</p>
-              <ol class="govuk-list govuk-list--bullet">
-                <li>register as a whole group (in this instance, the parent group complies with EPR for packaging on behalf of every subsidiary within the group)</li>
-                <li>register as individual subsidiaries (in this instance, the subsidiaries that meet the turnover and tonnage requirements comply with EPR for packaging independently)</li>
-                <li>register as a parent company for part of the group (this is where the parent company registers to comply with EPR for packaging on behalf of some, but not all of its subsidiaries)</li>
-              </ol>
-              <p class="govuk-body">You should register as a parent company for part of the group if some of your subsidiaries don’t meet the turnover and tonnage requirements in their own right, but do meet the requirements when combined. In this instance, the parent company will comply with EPR for packaging on behalf of the combined subsidiaries.</p>
-            </div>
-          </details>
-
             {{ govukButton({
                 text: "Continue"
             })}}
 
         </form>
-
-       
 
     </div>
 </div>

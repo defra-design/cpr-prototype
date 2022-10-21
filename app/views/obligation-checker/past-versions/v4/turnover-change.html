@@ -12,8 +12,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="organisation-type.html">Back</a>
-
+<a class="govuk-back-link" href="./outcome-obligated.html">Go back to your results</a>
 
 
 {% endblock %}
@@ -22,20 +21,20 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="organisation-turnover">
+    <form method="POST" action="organisation-turnover-change">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="organisation-turnover-hint">
 
-          {% if (data['acting-as'] == "parent-company") %}
+          {% if (data['acting-as'] == "holding-parent") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
               <h1 class="govuk-fieldset__heading">
                 What was your group’s last annual turnover?
               </h1>
             </legend>
-            <p class="govuk-body">Your answer should include the annual turnover of all relevant subsidiaries in your group that handle and supply (create, import, distribute or sell) packaging.</p>
+            <p class="govuk-body">Your answer should include the annual turnover of all subsidiary organisations in your group that handle and supply (create, import, distribute or sell) packaging.</p>
           {% endif %}
 
-          {% if (data['acting-as'] == "subsidiary") %}
+          {% if (data['acting-as'] == "subsidiary-group") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 What was your organisation’s last annual turnover?
@@ -57,20 +56,20 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="under-1m" name="turnover" type="radio" value="Under £1 million" {{ checked("turnover", "Under £1 million") }}>
-              <label class="govuk-label govuk-radios__label" for="under-1m">
+              <input class="govuk-radios__input" id="Under £1 million" name="turnover" type="radio" value="Under £1 million" {{ checked("turnover", "Under £1 million") }}>
+              <label class="govuk-label govuk-radios__label" for="Under £1 million">
                 Under £1 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="1-2m" name="turnover" type="radio" value="£1 million to £2 million" {{ checked("turnover", "£1 million to £2 million") }}>
-              <label class="govuk-label govuk-radios__label" for="1-2m">
+              <input class="govuk-radios__input" id="£1 million to £2 million" name="turnover" type="radio" value="£1 million to £2 million" {{ checked("turnover", "£1 million to £2 million") }}>
+              <label class="govuk-label govuk-radios__label" for="£1 million to £2 million">
                 £1 million to £2 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Over-2m" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
-              <label class="govuk-label govuk-radios__label" for="Over-2m">
+              <input class="govuk-radios__input" id="Over £2 million" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
+              <label class="govuk-label govuk-radios__label" for="Over £2 million">
                 Over £2 million
               </label>
             </div>
@@ -78,7 +77,6 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
         </fieldset>
       </div>
-      
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
