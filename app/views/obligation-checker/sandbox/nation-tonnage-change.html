@@ -12,10 +12,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
 {% block beforeContent %}
 
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
+<a class="govuk-back-link" href="./outcome-obligated.html">Go back to your results</a>
 
 {% endblock %}
 
@@ -33,45 +30,43 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
         <p>The ways that you sold, hired, loaned, gifted or discarded packaging in the UK may make you legally obligated under EPR for packaging. These include:</p>
 
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
           {% if data["importer"] == 'yes' %}
           <li>
-            importing packaging that contains goods into the UK to sell
+            import packaging that contains goods into the UK to sell
           </li>
           {% endif %}
           {% if data["online-market-place"] == 'yes' %}
           <li>
-            owning an online marketplace that allows non-UK businesses to sell packaged products in the UK
+            own an online marketplace that allows non-UK businesses to sell packaged products in the UK
           </li>
           {% endif %}
           {% if data["distributor"] == 'yes' %}
           <li>
-            selling empty packaging to businesses that aren’t obligated under extended producer responsibility for packaging
+            sell empty packaging to businesses that aren’t obligated under extended producer responsibility for packaging
           </li>
           {% endif %}
           {% if data["service-provider"] == 'yes' %}
           <li>
-            hiring out or lend reusable packaging to UK organisations
+            hire out or lend reusable packaging to UK organisations
           </li>
           {% endif %}
           {% if data["seller"] == 'yes' %}
           <li>
-            selling empty or filled packaging directly to end consumers
+            sell empty or filled packaging directly to end consumers
           </li>
           {% endif %}
         </ul>
 
-        <!-- INTERIM DRS -->
-        {% if data["drink-size"] == 'yes' %}
         <p class="govuk-body " >
           You also told us that you place single-use drinks containers on the market in England, Wales or Northern Ireland. You should only include any single-use drinks containers that you sell to end consumers.  
         </p>
+
         <p class="govuk-body govuk-!-margin-bottom-6" >
           For example, you do not need to include any single-use drinks containers that you sell to another business (such as a supermarket) as long as that business sells them on.
         </p>
-        {% endif %}
         
-        <form method="POST" action="packaging-nation-tonnage">
+        <form method="POST" action="packaging-nation-tonnage-change">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 

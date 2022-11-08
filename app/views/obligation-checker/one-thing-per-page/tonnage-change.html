@@ -11,11 +11,22 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
 
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
+<a class="govuk-back-link" href="outcome-obligated.html">Go back to your results</a>
 
 {% endblock %}
 
@@ -32,59 +43,57 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
         <h1 class="govuk-heading-l">The amount of packaging you handle and supply</h1>
 
         <p>Some of the ways you handle and supply packaging may make you legally obligated under EPR for packaging. These include:</p>
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
           {% if data["brand-owner-1"] == 'yes' %}
           <li>
-            supplying your own brand goods to the UK market in primary or secondary packaging
+            supply your own brand goods to the UK market in primary or secondary packaging
           </li>
           {% endif %}
           {% if data["brand-owner-2"] == 'yes' %}
           <li>
-            paying another organisation to pack and place your own brand goods on the UK market
+            pay another organisation to pack and place your own brand goods on the UK market
           </li>
           {% endif %}
           {% if data["brand-owner-3"] == 'yes' %}
           <li>
-            using transit packaging to transport goods that are placed on the UK market
+            use transit packaging to transport goods that are placed on the UK market
           </li>
           {% endif %}
           {% if data["packer-filler"] == 'yes' %}
           <li>
-            placing goods into packaging, on behalf of a UK organisation that isn’t obligated under extended producer responsibility for packaging
+            place goods into packaging, on behalf of a UK organisation that isn’t obligated under extended producer responsibility for packaging
           </li>
           {% endif %}
           {% if data["importer"] == 'yes' %}
           <li>
-            importing packaging that contains goods into the UK to sell
+            import packaging that contains goods into the UK to sell
           </li>
           {% endif %}
           {% if data["online-market-place"] == 'yes' %}
           <li>
-            owning an online marketplace that allows non-UK businesses to sell packaged products in the UK
+            own an online marketplace that allows non-UK businesses to sell packaged products in the UK
           </li>
           {% endif %}
           {% if data["distributor"] == 'yes' %}
           <li>
-            selling empty packaging to organisations that are not affected by the extended producer responsibility for packaging regulations
+            sell empty packaging to organisations that are not affected by the extended producer responsibility for packaging regulations
           </li>
           {% endif %}
           {% if data["service-provider"] == 'yes' %}
           <li>
-            hiring or lend reusable packaging to UK organisations
+            hire or lend reusable packaging to UK organisations
+          </li>
+          {% endif %}
+          
+          <!-- INTERIM DRS -->
+          {% if data["drink-size"] == 'yes' %}
+          <li>
+            placing drinks on the market in England, Wales or Northern Ireland, in single-use containers
           </li>
           {% endif %}
         </ul>
-
-        <!-- INTERIM DRS -->
-        {% if data["drink-size"] == 'yes' %}
-        <p class="govuk-body govuk-!-margin-bottom-6" >
-          You also told us that you place single-use drinks containers on the market in England, Wales or Northern Ireland. You should include this packaging in your total tonnage.
-        </p>
-        {% endif %}
         
-        <form method="POST" action="route-tonnage">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <form method="POST" action="route-tonnage-change">
 
           {% if (data['acting-as'] == "parent-company") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-4">
@@ -111,9 +120,8 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
             </legend>
           {% endif %}
 
-          
-
-
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" >
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="Under 25 tonnes" name="packaging-tonnage" type="radio" value="Under 25 tonnes" {{ checked("packaging-tonnage", "Under 25 tonnes") }}>
@@ -141,7 +149,6 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
                 text: "Continue"
             })}}
         </form>
-
     </div>
 </div>
 
