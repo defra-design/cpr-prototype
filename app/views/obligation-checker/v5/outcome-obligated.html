@@ -4,10 +4,10 @@
   Collection and packaging reforms
 {% endset%}
 
-{% set serviceName = "Check if EPR for packaging affects you" %}
+{% set serviceName = "Check if you need to report packaging data" %}
 
 {% block pageTitle %}
-Check if EPR for packaging affects you | {{serviceName}} prototype
+Check if you need to report packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,20 +23,20 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
         <!-- PANEL -->
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5 govuk-!-margin-top-5" style="background-color: #1D70B8;">
             <h1 class=" govuk-heading-l" style="color: #fff; padding: 0px; margin: 0 auto;">
-              You will need to take action under extended producer responsibility (EPR) for packaging
+              You will need to report packaging data
             </h1>
         </div>
 
         <!-- SUMMARY -->
         {% if data["small-producer"] == 'yes' %}
           <p class="govuk-body">
-            You are classed as a small organisation. Your organisation will need to record and submit data about the packaging it handles and supplies.
+            Under EPR for packaging, you're classed as a small organisation. This means your organisation will need to record and submit data about the packaging it handles and supplies.
           </p>
         {% endif %}
 
         {% if data["small-producer"] == 'no' %}
           <p class="govuk-body">
-            You are classed as a large organisation. Your organisation will need to record and submit data about the packaging it handles and supplies. You’ll also need to pay fees.
+            Under EPR for packaging, you're classed as a large organisation. This means your organisation will need to record and submit data about the packaging it handles and supplies. You’ll also need to pay fees.
           </p>
         {% endif %}
 
@@ -107,11 +107,9 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
         {% endif %}
 
         <!-- NEXT STEPS -->
-        <h2 class="govuk-heading-m">Your next steps</h2>
-        <ol class="govuk-list action-list">
-            <li class="action">Prepare to collect data about the packaging you handle or supply in 2023. <a href="#">Find out more about the data you'll need to collect</a>.</li>
-            <li class="action"><a href="../../account-creation/v2/start-page.html">Create an account</a> on behalf on your organisation. Once you have created an account, you’ll receive email updates about the registration process and when it opens.</li>
-        </ol>
+        <h2 class="govuk-heading-m">What you should do next</h2>
+        <p class="govuk-body">Prepare to collect data about the packaging you handle or supply in 2023. </p>
+        <p class="govuk-body"><a href="#" class="govuk-link">Find out more about the data you'll need to collect</a></p>
 
         <!-- SECTION BREAK -->
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -211,14 +209,21 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
           {% endif %}
 
           <!-- DRINKS SIZE -->
-          {% if data["drink-size"] == 'yes' %}
+          {% if data["drink-size-answer"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Place drinks containers on the market
             </dt>
+            {% if data["drink-size"] == 'yes' %}
             <dd class="govuk-summary-list__value">
-              {{ data['drink-size'] }}
+              Yes
             </dd>
+            {% endif %}
+            {% if data["drink-size"] == 'no' %}
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            {% endif %}
           </div>
           {% endif %}
           
