@@ -4,15 +4,15 @@
   Collection and packaging reforms
 {% endset%}
 
-{% set serviceName = "Check if EPR for packaging affects you" %}
+{% set serviceName = "Check if you need to report packaging data" %}
 
 {% block pageTitle %}
-Check if EPR for packaging affects you | {{serviceName}} prototype
+Check if you need to report packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./packer-filler.html">Back</a>
+<a class="govuk-back-link" href="./service-provider.html">Back</a>
 
 {% endblock %}
 
@@ -21,41 +21,41 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 {% block content %}
 
 
-{{ data["brand-owner-1"] | upper |  log }}
+{{ data["online-marketplace"] | upper |  log }}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-l">Your packaging activities</span>
-        Importing products in packaging
+        Supplying filled packaging to consumers
       </h1>
 
       <p class="govuk-body">
-        You’ll be classed as an organisation that imports packaging if you import packaging that contains goods into the UK and supply those goods to the UK market.
+        This refers to any organisations that supply filled packaging directly to consumers. 
       </p>
 
       <p class="govuk-body">
-        You’ll also be classed as an organisation that imports packaging if you discard the packaging before selling the goods. 
+        A consumer is the last person to use packaging before discarding it. This could be an individual or a business.
       </p>
 
-      <form action="../activities/distributor" method="post" novalidate>
+      <form action="activities-calculation" method="post" novalidate>
 
         <div class="govuk-form-group govuk-!-margin-top-5">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Do you import packaging that contains goods into the UK to sell?
+              Do you supply filled packaging to consumers?
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="importer-yes" name="importer" type="radio" value="yes" {{ checked("importer", "yes") }}>
-                <label class="govuk-label govuk-radios__label" for="importer-yes">
+                <input class="govuk-radios__input" id="seller-yes" name="seller" type="radio" value="yes" {{ checked("seller", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="seller-yes">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="importer-no" name="importer" type="radio" value="no" {{ checked("importer", "no") }}>
-                <label class="govuk-label govuk-radios__label" for="importer-no">
+                <input class="govuk-radios__input" id="seller-no" name="seller" type="radio" value="no" {{ checked("seller", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="seller-no">
                   No
                 </label>
               </div>

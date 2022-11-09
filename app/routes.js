@@ -54,7 +54,7 @@ router.use('/obligation-checker/v3', require('./views/obligation-checker/v3/_rou
 router.use('/obligation-checker/v3-1', require('./views/obligation-checker/v3-1/_routes'));
 router.use('/obligation-checker/v4', require('./views/obligation-checker/v4/_routes'));
 router.use('/obligation-checker/sandbox', require('./views/obligation-checker/sandbox/_routes'));
-router.use('/obligation-checker/one-thing-per-page', require('./views/obligation-checker/one-thing-per-page/_routes'));
+router.use('/obligation-checker/v5', require('./views/obligation-checker/v5/_routes'));
 
 
 

@@ -4,10 +4,10 @@
   Collection and packaging reforms
 {% endset%}
 
-{% set serviceName = "Check if EPR for packaging affects you" %}
+{% set serviceName = "Check if you need to report packaging data" %}
 
 {% block pageTitle %}
-Check if EPR for packaging affects you | {{serviceName}} prototype
+Check if you need to report packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,6 +28,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
           {% if (data['acting-as'] == "parent-company") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+              <span class="govuk-caption-l">About you organisation</span>
               <h1 class="govuk-fieldset__heading">
                 What was your group’s last annual turnover?
               </h1>
@@ -37,6 +38,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
           {% if (data['acting-as'] == "subsidiary") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">About you organisation</span>
               <h1 class="govuk-fieldset__heading">
                 What was your organisation’s last annual turnover?
               </h1>
@@ -45,6 +47,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 
           {% if (data['acting-as'] == "individual") %}
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <span class="govuk-caption-l">About you organisation</span>
               <h1 class="govuk-fieldset__heading">
                 What was your organisation’s last annual turnover?
               </h1>
@@ -71,7 +74,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Over-2m" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
               <label class="govuk-label govuk-radios__label" for="Over-2m">
-                Over £2 million
+                £2 million or more
               </label>
             </div>
           </div>

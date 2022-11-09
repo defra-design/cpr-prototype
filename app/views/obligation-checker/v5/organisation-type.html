@@ -4,10 +4,10 @@
   Collection and packaging reforms
 {% endset%}
 
-{% set serviceName = "Check if EPR for packaging affects you" %}
+{% set serviceName = "Check if you need to report packaging data" %}
 
 {% block pageTitle %}
-Check if EPR for packaging affects you | {{serviceName}} prototype
+Check if you need to report packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -26,7 +26,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
     </ol>
 </div> -->
 
-<a class="govuk-back-link" href="./outcome-obligated.html">Go back to your results</a>
+<!-- <a class="govuk-back-link" href="./start-page.html">Back</a> -->
 
 {% endblock %}
 
@@ -35,13 +35,14 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST" action="route-organisation-type-change">
+        <form method="POST" action="route-organisation-type">
 
 
-          <div class="govuk-form-group">
+          <div class="govuk-form-group govuk-!-margin-top-8">
             <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+                <span class="govuk-caption-l">About you organisation</span>
                 <h1 class="govuk-fieldset__heading">
                   What type of organisation are you?
                 </h1>
@@ -54,20 +55,20 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
     
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Parent company" name="organisation-type" type="radio" value="Parent company" {{ checked("organisation-type", "Parent company") }}>
-                  <label class="govuk-label govuk-radios__label" for="Parent company">
+                  <input class="govuk-radios__input" id="parent-company" name="organisation-type" type="radio" value="Parent company" {{ checked("organisation-type", "Parent company") }}>
+                  <label class="govuk-label govuk-radios__label" for="parent-company">
                     Parent company
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Subsidiary" name="organisation-type" type="radio" value="Subsidiary" {{ checked("organisation-type", "Subsidiary") }}>
-                  <label class="govuk-label govuk-radios__label" for="Subsidiary">
+                  <input class="govuk-radios__input" id="subsidiary" name="organisation-type" type="radio" value="Subsidiary" {{ checked("organisation-type", "Subsidiary") }}>
+                  <label class="govuk-label govuk-radios__label" for="subsidiary">
                     Subsidiary
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Individual company" name="organisation-type" type="radio" value="Individual company" {{ checked("organisation-type", "Individual company") }}>
-                  <label class="govuk-label govuk-radios__label" for="Individual company">
+                  <input class="govuk-radios__input" id="individual" name="organisation-type" type="radio" value="Individual company" {{ checked("organisation-type", "Individual company") }}>
+                  <label class="govuk-label govuk-radios__label" for="individual">
                     Individual company
                   </label>
                 </div>
@@ -94,13 +95,13 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
             </div>
           </details>
 
-            {{ govukButton({
-                text: "Continue"
-            })}}
+          {{ govukButton({
+              text: "Continue"
+          })}}
 
         </form>
 
-       
+        
 
     </div>
 </div>
