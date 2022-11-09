@@ -86,7 +86,7 @@ router.post('*/place-drinks-market-question', function (req, res) {
 
     var drinksMarket = req.session.data['place-drinks']
     
-    if (drinksMarket == "Yes") {
+    if (drinksMarket == "yes") {
         res.redirect('drinks-container-materials')
     }
     else if ( (drinksMarket == "no") && (brandOwner == "yes") ){
