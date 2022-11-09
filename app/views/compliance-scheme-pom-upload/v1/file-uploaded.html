@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="task-list?file-uploaded=yes" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        <span class="govuk-caption-xl">Upload producer data for 2023</span>
+                        File uploaded                    
+                    </h1>
+
+                    <p class="govuk-body"> You have successfully uploaded your file.</p>
+
+                    <p class="govuk-body">It contains complete data for [200] producers.</p>
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can update your file and upload it again as many times as you need to.</p>
+
+                    <p class="govuk-body">Once you’re sure that your file is ready, you can submit it to the regulator. You need to do this by [insert deadline].</p>
+
+
+                </fieldset>
+            </div>
+
+
+            {{
+ govukButton({
+        text: "Continue"
+      })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
