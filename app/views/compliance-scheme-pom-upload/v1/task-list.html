@@ -12,8 +12,28 @@
         Service name goes here
       </h1>
 
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 8 sections.</p>
+
+      
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">2023 application incomplete</h2>
+
+        {% if (data['section-one-complete'] == "yes") %}
+            <p>you have completed 1 of 4 sections</p>
+        {% endif %}
+
+
+        {% if (data['section-two-complete'] == "yes") %}
+            <p>you have completed 2 of 4 sections</p>
+        {% endif %}
+
+        {% if (data['section-three-complete'] == "yes") %}
+            <p>you have completed 3 of 4 sections</p>
+        {% endif %}
+
+        {% if (data['section-four-complete'] == "yes") %}
+            <p>you have completed 4 of 4 sections</p>
+        {% endif %}
+
+        <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 4 sections.</p>
 
       <ol class="app-task-list">
 
@@ -24,34 +44,26 @@
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="company-information-status">
                     Review privacy policy and declaration
-                  </a>
-                </span>
+                  </span>
                 <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="contact-details-status">
                     Add producer information
-                  </a>
-                </span>
+                  </span>
                 <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="list-convictions-status">
                     Submit application
-                  </a>
-                </span>
+                  </span>
                 <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="list-convictions-status">
                     View application status
-                  </a>
-                </span>
+                  </span>
                 <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
               </li>
             </ul>
@@ -78,6 +90,8 @@
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
     
               {% endif %}
+
+
 
             </li>
             
