@@ -16,29 +16,16 @@
       
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">2023 application incomplete</h2>
 
-        {% if (data['section-one-complete'] == "yes") %}
-            <p>you have completed 1 of 4 sections</p>
-        {% endif %}
-
-
         {% if (data['section-two-complete'] == "yes") %}
-            <p>you have completed 2 of 4 sections</p>
+            <p class="govuk-body">You have completed 2 of 4 sections.</p>
+            {% else %}
+            <p class="govuk-body">You have completed 1 of 4 sections.</p>
         {% endif %}
 
-        {% if (data['section-three-complete'] == "yes") %}
-            <p>you have completed 3 of 4 sections</p>
-        {% endif %}
-
-        {% if (data['section-four-complete'] == "yes") %}
-            <p>you have completed 4 of 4 sections</p>
-        {% endif %}
-
-        <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 4 sections.</p>
-
-      <ol class="app-task-list">
+      <ol class="app-task-list govuk-!-margin-top-6">
 
         <li>
-            <h2 class="app-task-list__section">
+            <h2 class="app-task-list__section ">
               <span class="app-task-list__section-number">1. </span> Prepare application
             </h2>
             <ul class="app-task-list__items">
