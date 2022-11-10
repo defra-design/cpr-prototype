@@ -16,7 +16,9 @@ Check if you need to report packaging data | {{serviceName}} prototype
 
 {% block content %}
 
-{{ data | log }}
+{{ data["drink-materials"] |  log }}
+
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -146,73 +148,100 @@ Check if you need to report packaging data | {{serviceName}} prototype
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list govuk-list--bullet">
                 {% if data["brand-owner"] == 'yes' %}
-                <li>
-                  supply your own brand goods to the UK market in primary or secondary packaging
-                </li>
+                  <li>
+                    supplying goods to the UK market under your own brand
+                  </li>
                 {% endif %}
                 {% if data["packer-filler"] == 'yes' %}
-                <li>
-                  pay another organisation to pack and place your own brand goods on the UK market
-                </li>
+                  <li>
+                    placing goods into packaging that's unbranded when it's sold
+                  </li>
                 {% endif %}
                 {% if data["importer"] == 'yes' %}
-                <li>
-                  import packaging that contains goods into the UK to sell
-                </li>
-                {% endif %}
-                {% if data["online-market-place"] == 'yes' %}
-                <li>
-                  own an online marketplace that allows non-UK businesses to sell packaged products in the UK
-                </li>
+                  <li>
+                    importing packaging that contains goods into the UK to sell
+                  </li>
                 {% endif %}
                 {% if data["distributor"] == 'yes' %}
-                <li>
-                  sell empty packaging to organisations that are not affected by the extended producer responsibility for packaging regulations
-                </li>
+                  <li>
+                    selling empty packaging to businesses that fall under the higher threshold
+                  </li>
+                {% endif %}
+                {% if data["online-marketplace"] == 'yes' %}
+                  <li>
+                    owning an online marketplace
+                  </li>
                 {% endif %}
                 {% if data["service-provider"] == 'yes' %}
-                <li>
-                  hire or lend reusable packaging to UK organisations
-                </li>
+                  <li>
+                    hiring or loaning out reusable packaging to UK organisations
+                  </li>
                 {% endif %}
                 {% if data["seller"] == 'yes' %}
-                <li>
-                  sell empty or filled packaging directly to end consumers
-                </li>
+                  <li>
+                    supplying filled packaging to consumers
+                  </li>
                 {% endif %}
               </ul>
             </dd>
           </div>
 
           <!-- DRINKS ON MARKET -->
-          {% if data["drinks-market"] == 'yes' %}
+          <!-- {% if data["drinks-market-answer"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Place drinks containers on the market
             </dt>
+            {% if data["place-drinks"] == 'yes' %}
             <dd class="govuk-summary-list__value">
-              {{ data['place-drinks'] }}
+              Yes
             </dd>
+            {% else %}
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            {% endif %}
           </div>
-          {% endif %}
+          {% endif %} -->
 
           <!-- DRINKS MATERIAL -->
-          {% if data["drink-material"] == 'yes' %}
+          <!-- {% if data["drink-material-answer"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Place drinks containers on the market
+              Materials used for drinks containers
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['drink-materials'] }}
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data["drink-materials"] == 'plastic-bottles' %}
+                <li>PET plastic bottles</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'glass-bottles' %}
+                <li>glass bottles</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'steel-cans' %}
+                <li>steel cans</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'aluminium-cans' %}
+                <li>aluminium cans</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'None' %}
+                <li>None</li>
+                {% endif %}
+                
+              </ul>
             </dd>
           </div>
-          {% endif %}
+          {% endif %} -->
 
           <!-- DRINKS SIZE -->
-          {% if data["drink-size-answer"] == 'yes' %}
+          <!-- {% if data["drink-size-answer"] == 'yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Place drinks containers on the market
+              Drinks containers between 50ml and 3l
             </dt>
             {% if data["drink-size"] == 'yes' %}
             <dd class="govuk-summary-list__value">
@@ -225,7 +254,7 @@ Check if you need to report packaging data | {{serviceName}} prototype
             </dd>
             {% endif %}
           </div>
-          {% endif %}
+          {% endif %} -->
           
           <!-- WASTE COST • TONNAGE -->
           {% if data["handle-supply"] == 'yes' %}

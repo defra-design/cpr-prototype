@@ -126,28 +126,28 @@ router.post('*/drinks-container-materials', function (req, res) {
     var drinkMaterials = req.session.data['drink-materials']
     
     if ( (drinkMaterials == "None") && (brandOwner == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (packerFiller == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yesdrink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (importer == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yesdrink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (onlineMarketPlace == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yesdrink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (distributor == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yesdrink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (serviceProvider == "yes") ){
-        res.redirect('tonnage?handle-supply=yes&drinks-market=yesdrink-material=yes')
+        res.redirect('tonnage?handle-supply=yes&drinks-market=yes&drink-material-answer=yes')
     }
     else if ( (drinkMaterials == "None") && (seller == "yes") ){
-        res.redirect('nation-tonnage?handle-supply=no&drinks-market=yesdrink-material=yes')
+        res.redirect('nation-tonnage?handle-supply=no&drinks-market=yes&drink-material-answer=yes')
     }
     else {
-        res.redirect('drinks-container-size')
+        res.redirect('drinks-container-size?drink-material-answer=yes')
     }
 })
 
