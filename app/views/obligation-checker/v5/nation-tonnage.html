@@ -63,14 +63,15 @@ Check if you need to report packaging data | {{serviceName}} prototype
 
         <!-- INTERIM DRS -->
         {% if data["drink-size"] == 'yes' %}
-        <div class="govuk-inset-text">
+        <div class="govuk-inset-text govuk-!-margin-bottom-6">
           <p class="govuk-body " >
             You also told us that you place single-use drinks containers on the market in England, Wales or Northern Ireland. You should only include any single-use drinks containers that you sell to end consumers.  
           </p>
+          <p class="govuk-body " >
+            For example, you do not need to include any single-use drinks containers that you sell to another business (such as a supermarket) as long as that business sells them on.
+          </p>
         </div>
-        <p class="govuk-body govuk-!-margin-bottom-6" >
-          For example, you do not need to include any single-use drinks containers that you sell to another business (such as a supermarket) as long as that business sells them on.
-        </p>
+
         {% endif %}
         
         <form method="POST" action="packaging-nation-tonnage">
@@ -117,13 +118,13 @@ Check if you need to report packaging data | {{serviceName}} prototype
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="Under 25 tonnes" name="nation-tonnage" type="radio" value="Under 25 tonnes" {{ checked("nation-tonnage", "Under 25 tonnes") }}>
                   <label class="govuk-label govuk-radios__label" for="Under 25 tonnes">
-                    Under 25 tonnes
+                    25 tonnes or less
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="25 tonnes or more" name="nation-tonnage" type="radio" value="25 tonnes or more" {{ checked("nation-tonnage", "25 tonnes or more") }}>
                   <label class="govuk-label govuk-radios__label" for="25 tonnes or more">
-                    25 tonnes or more
+                    More than 25 tonnes
                   </label>
                 </div>
               </div>
