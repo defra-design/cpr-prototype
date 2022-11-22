@@ -1,14 +1,20 @@
 const express = require('express')
 const router = express.Router()
-// Add your routes here - above the module.exports line
 
-
-
-// Routing for Start Page
-router.post('*/start-page', function (req, res) {
-    res.redirect('govt-gateway/login')
+// Routing for Page
+router.post('*/route', function (req, res) {
+    var actingAs = req.session.data['data-type']
+    
+    if (actingAs == "answer"){
+        res.redirect('go-to-this-page')
+    }
+    else if (actingAs == "answer"){
+        res.redirect('go-to-this-page')
+    }
+    else if (actingAs == "answer"){
+        res.redirect('go-to-this-page')
+    }  
 })
-
 
 
 

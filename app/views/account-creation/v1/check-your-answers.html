@@ -1,9 +1,8 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "Defra account" %}
+{% set serviceName = "Create an account to report packaging data" %}
 
-{% set title = "Check your information" %}
-
+{% set title = "Check you details" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -11,195 +10,75 @@
 
 {% block beforeContent %}
 
-
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+<a class="govuk-back-link" href="#">Back</a>
 
 {% endblock %}
 
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your answers</h1>
 
-    <h1 class="govuk-heading-l">{{title}}</h1>
-
-    {% if data['CHregistered'] == "No" %}
-
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">About you and your business</caption>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your name</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            {{ data['personalFirstName']}} {{ data['personalSurname']}}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./sole-trader/personal-details?flowType=check" class="govuk-link" >
+    <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sarah Philips
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
               Change<span class="govuk-visually-hidden"> name</span>
             </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your contact details</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            {{ data['personalTelephone'] }}<br>
-          {{data['scpEmail']}}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./sole-trader/personal-contact?flowType=check" class="govuk-link" >
-              Change<span class="govuk-visually-hidden"> contact number</span>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 January 1978
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
             </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Business trading name</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            {{ data['companyName'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./sole-trader/sole-trader-name?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> business trading name</span>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street<br>London<br>SE23 6FH
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> address</span>
             </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Business trading address</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            7, Grange Road, Bristol, BS1 5AH
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./sole-trader/company-postcode?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> business trading address</span>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">07700 900457</p>
+            <p class="govuk-body">sarah.phillips@example.com</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
             </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Business contact details</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            {{ data['businessTelephone'] }} <br>
-          {{ data['businessEmail'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./sole-trader/company-contact-radio?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> business contact details</span>
-            </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your security word</th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            {{ data['securityNum'] }} <br>
-          {{ data['securityHint'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="personal-security?flowType=check" class="govuk-link" >
-              Change<span class="govuk-visually-hidden"> your security word</span>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    {% else %}
-
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">About your organisation</caption>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your organisation's details</th>
-          <td class="govuk-table__cell">
-            Acme Org (12345678)<br />
-                    1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
-          </td>
-          <td class="govuk-table__cell">
-            <a href="./limited-company/company-lookup?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> registered company</span>
-          </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your organisation's type</th>
-          <td class="govuk-table__cell">Limited company</td>
-          <td class="govuk-table__cell">
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Main contact details</th>
-          <td class="govuk-table__cell">
-            {{ data['businessTelephone'] }}<br>
-                    {{ data['businessEmail'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./limited-company/company-contact?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> registered company contact details</span>
-          </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">About you</caption>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your name</th>
-          <td class="govuk-table__cell">
-            {{ data['personalFirstName']}} {{ data['personalSurname']}}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./limited-company/personal-details?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> name</span>
-          </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your contact details</th>
-          <td class="govuk-table__cell">
-            {{data['scpEmail']}} <br>
-                    {{ data['personalTelephone'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="./limited-company/personal-contact?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> contact number</span>
-          </a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header check-your-answers-question">Your security word</th>
-          <td class="govuk-table__cell">
-            {{ data['securityNum'] }} <br>
-                    {{ data['securityHint'] }}
-          </td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="personal-security?flowType=check" class="govuk-link">
-              Change<span class="govuk-visually-hidden"> your security word</span>
-          </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    {% endif %}
-
-
-
-
-
-    <form action="epr-homepage" method="post">
-    <button class="govuk-button" data-module="govuk-button" id="myButton">Accept and create account   </button>
-
-    </form>
-
-    <!-- reCatptcha End -->
+          </dd>
+        </div>
+      </dl>
 
   </div>
 </div>
+
 
 {% endblock %}

@@ -35,7 +35,8 @@ router.use('/v5/epr', require('./views/v5/epr/_routes'));
 router.use('/v5/defra-id', require('./views/v5/defra-id/_routes'));
 router.use('/v5/defra-id-manage', require('./views/v5/defra-id-manage/_routes'));
 
-router.use('/account-creation/idm1', require('./views/account-creation/idm1/_routes'));
+router.use('/account-creation/old/idm1', require('./views/account-creation/old/idm1/_routes'));
+router.use('/account-creation/v1', require('./views/account-creation/v1/_routes'));
 
 router.use('/v6/epr', require('./views/v6/epr/_routes'));
 router.use('/v6/defra-id', require('./views/v6/defra-id/_routes'));
@@ -55,7 +56,6 @@ router.use('/obligation-checker/v3-1', require('./views/obligation-checker/v3-1/
 router.use('/obligation-checker/v4', require('./views/obligation-checker/v4/_routes'));
 router.use('/obligation-checker/sandbox', require('./views/obligation-checker/sandbox/_routes'));
 router.use('/obligation-checker/v5', require('./views/obligation-checker/v5/_routes'));
-
 
 
 
