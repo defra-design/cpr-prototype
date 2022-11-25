@@ -1,0 +1,54 @@
+{% set serviceName = "Report your packaging data" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block pageTitle %}
+    Home | {{serviceName}} prototype
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            You’ve created an account for Acme Org Ltd
+          </h3>
+          <!-- <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p> -->
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">
+        What happens next
+      </h1>
+
+      {% if (data['authorised-person'] == "yes") %}
+        <p class="govuk-body">Your account is not yet active - first it needs to be approved by the regulator. This takes up to 28 days.</p>
+        <p class="govuk-body">We’ll email you when your account is approved.</p>
+      {% endif %}
+
+      {% if (data['authorised-person'] == "no") %}
+        <p class="govuk-body">Your account is not yet active - first it needs to be approved by the regulator.</p>
+        <p class="govuk-body">To do this, we will contact your authorised person and get their consent. We’ll also ask them to confirm their personal details.</p>
+        <p class="govuk-body">Once the regulator has their details and consent, they can approve the account.  This takes up to 28 days. </p>
+        <p class="govuk-body">We’ll email you when your account is approved.</p>
+      {% endif %}
+ 
+    </div>
+</div>
+
+{% endblock %}
