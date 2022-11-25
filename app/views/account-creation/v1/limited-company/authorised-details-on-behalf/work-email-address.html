@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./role-in-organisation.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../check-your-answers">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="authorised-work-email">
+            What is {{ data['authorised-first-name'] }} {{ data['authorised-last-name'] }}'s work email address?
+          </label>
+        </h1>
+        <input class="govuk-input" id="authorised-work-email" name="authorised-work-email" type="email" spellcheck="false" autocomplete="email" value="{{data['authorised-work-email']}}">
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

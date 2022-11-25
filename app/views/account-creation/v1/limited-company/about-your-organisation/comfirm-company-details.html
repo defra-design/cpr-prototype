@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./companies-house-number.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./company-contact-details">
+      <h1 class="govuk-heading-l">Confirm your company details</h1>
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-m">Acme Org Ltd.</h2>
+        <div class="govuk-!-margin-bottom-4">
+          <p class="govuk-body govuk-!-margin-bottom-1">Company number:</p>
+          <p class="govuk-body">00123456</p>
+        </div>
+        <div class="">
+          <p class="govuk-body govuk-!-margin-bottom-1">Registered address:</p>
+          <p class="govuk-body govuk-!-margin-bottom-1">1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
+        </div>
+      </div>
+      <p class="govuk-body govuk-!-margin-bottom-7">If these details are wrong, you’ll need to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change them on Companies House (opens in a new tab)</a>.</p>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
