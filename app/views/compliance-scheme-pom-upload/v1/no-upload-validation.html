@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="upload-csv" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-grid-column-full-width">
+
+                  
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                            <span class="govuk-caption-xl">Upload data for 2023</span>
+                            File not uploaded                    
+                        </h1>
+
+                        <p class="govuk-body">Your data file has not been uploaded to your organisation's account because it comtains errors.</p>
+
+                        <p class="govuk-body">Read the error report to fund out what these are.</p>
+
+                        <p><a href="./error-report.html">Download error report (CSV.21KB)</a></p>
+                  
+                        <p class="govuk-body">When you've fixed the errors in your file, you can try upload it again.</p>
+                 
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+            {{
+                govukButton({
+                       text: "Upload file again"
+                     })
+                           }}
+           
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
