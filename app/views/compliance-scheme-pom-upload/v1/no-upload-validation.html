@@ -26,7 +26,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form action="file-uploaded" method="post">
+        <form action="upload-csv" method="post">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -37,16 +37,20 @@
                   
                         <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
                             <span class="govuk-caption-xl">Upload data for 2023</span>
-                            Uploading file and validating data                    
+                            File not uploaded                    
                         </h1>
-            
-                  <p>
-                  <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
-                  </p>
+
+                        <p class="govuk-body">Your data file has not been uploaded to your organisation's account.</p>
+
+                        <p class="govuk-body">Some of the data is missing or in the wrong format. </p>
+
+                        <p class="govuk-body">Read the error report to find out what the issues are. </p>
+
+
+
+                        <p><a href="./error-report.html">Download error report (CSV,21KB)</a></p>
                   
-                  
-                 
-                  
+                        <p class="govuk-body">When you've fixed the errors in your file, you can try upload it again.</p>
                  
                       </div>
 
@@ -54,8 +58,12 @@
                 </fieldset>
             </div>
 
-            <a href="./file-uploaded.html">Next page</a>
-
+            {{
+                govukButton({
+                       text: "Upload file again"
+                     })
+                           }}
+           
         </form>
 
     </div>

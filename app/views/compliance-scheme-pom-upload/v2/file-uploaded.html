@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="task-list?file-uploaded=yes&section-two-complete=yes" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        <span class="govuk-caption-xl">Upload data for 2023</span>
+                        File uploaded                    
+                    </h1>
+
+                    <p class="govuk-body">You’ve successfully uploaded your organisation’s 2023 data file. </p>
+
+                    <p class="govuk-body">[file name]</p>
+
+                    <p class="govuk-body">We’ve finished the validation - the data is in the right format.</p>
+
+                    <p class="govuk-body">The file is now stored on your organisation’s account.</p>
+
+                    <p class="govuk-body">You can make changes if you need to, and when it’s ready your organisation can submit it to the regulator.</p>
+
+
+                    <h2 class="govuk-heading-m">Making changes to the file</h2>
+
+                    <p class="govuk-body">If you need to change anything on the data file, you can do that and then upload it to your account again. You can do it now, or come back and do it later.</p>
+
+                    <p class="govuk-body">You can do that as many times as you want before your organisation submits it to the regulator. 
+                    </p>
+
+                    <p class="govuk-body">You cannot store more than file on the account. </p>
+                    <p>  <a class="govuk-link" href="upload-csv.html">Upload data file again</a></p>
+                  
+
+                    <h2 class="govuk-heading-m">Submitting the file to the regulator for review</h2>
+
+                        <p class="govuk-body">When your organisation is ready to submit its 2023 data file to the regulator, details of what to do are on the dashboard. </p>
+    
+                        <p class="govuk-body">Only people with permission can submit the file. They can do it any time before the deadline.</p>
+    
+                        <p class="govuk-body">You can only submit the 2023 data file to the regulator once - you cannot make changes once it’s been submitted.  </p>
+    
+
+                    <div class="govuk-inset-text">
+                        <p class="govuk-body">The deadline to submit the file is 1 January 1900.</p>
+
+                       </div>
+                  
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                  Go to dashboard
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
