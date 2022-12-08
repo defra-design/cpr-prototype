@@ -17,7 +17,7 @@ router.post('*/registered-trade-in-uk', function (req, res) {
 router.post('*/organisation-type', function (req, res) {
     var organisationType = req.session.data['form-organisation-type']
     
-    if (organisationType == "UK limited company"){
+    if (organisationType == "Limited Company"){
         res.redirect('../limited-company/about-your-organisation/companies-house-number')
     }
     else if (organisationType == "Sole trader"){

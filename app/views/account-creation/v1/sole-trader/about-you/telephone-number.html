@@ -19,18 +19,24 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="./role-in-organisation">
+    <form method="POST" action="../check-your-answers">
       <div class="govuk-form-group">
         <h1 class="govuk-heading-l">
-            What is your work email address?
+          What is your telephone number?
         </h1>
-        <p class="govuk-body">We’ll use this to send you updates about your account, and information from the regulator.</p>
+        <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your organisation’s account.</p>
         
         <label class="govuk-label" for="personal-work-email">
-          Email address
+          UK telephone number
         </label>
-        <input class="govuk-input" id="personal-work-email" name="personal-work-email" type="email" spellcheck="false" autocomplete="email" value="{{data['personal-work-email']}}">
+        <input class="govuk-input govuk-input--width-20" id="personal-telephone-number" name="personal-telephone-number" type="tel" autocomplete="tel" value="{{data['personal-telephone-number']}}">
       </div>
+
+      <div class="govuk-inset-text">
+        We may also contact you by email, using the address registered with your GOV.UK account:
+        <span class="govuk-!-font-weight-bold">{{data['gov-email']}}</span>
+      </div>
+
       {{ govukButton({
         text: "Continue"
       })}}
