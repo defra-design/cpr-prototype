@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="task-list?file-uploaded=yes&section-two-complete=yes" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        <span class="govuk-caption-xl">Upload data for 2023</span>
+                        Upload data file                    
+                    </h1>
+
+                    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                        <div class="govuk-notification-banner__header">
+                          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                            Success
+                          </h2>
+                        </div>
+                        <div class="govuk-notification-banner__content">
+                          <h3 class="govuk-notification-banner__heading">
+                            File uploaded
+                          </h3>
+                          <p>File name</p>
+                        </div>
+                      </div>
+
+                    <p class="govuk-body">The file is now stored on your organisation’s account.</p>
+
+                    <p class="govuk-body">It has not been submitted to the regulator - there’s another step to do that.</p>
+
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can now:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>make changes to your data and <a class="govuk-link" href="upload-csv.html">upload a new file</a>
+                    </li>
+                      <li>submit your file to the regulator - details of how to do this are on the dashboard 
+                    </li>
+                    </ul>
+
+                     
+
+                    <div class="govuk-inset-text">
+                        <p class="govuk-body">The deadline to submit the file is 1 January 1900.</p>
+
+                       </div>
+                  
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                  Go to dashboard
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
