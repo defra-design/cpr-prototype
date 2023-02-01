@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    <form method="POST" action="compliance-scheme-choose-new-or-remove">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What would you like to do?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="compliance-scheme-yes" name="compliance-scheme-add" type="radio" value="yes" {{ checked("compliance-scheme", "yes") }}>
+              <label class="govuk-label govuk-radios__label" for="compliance-scheme-yes">
+                Choose new compliance scheme 
+                <div id="more-detail-hint" class="govuk-hint">
+                  You’ve changed the compliance scheme you’re using.</div>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="compliance-scheme-add" name="compliance-scheme-add" type="radio" value="no" {{ checked("compliance-scheme", "no") }}>
+              <label class="govuk-label govuk-radios__label" for="compliance-scheme-add">
+                Stop using a compliance scheme 
+                <div id="more-detail-hint" class="govuk-hint">
+                  You are no longer using a compliance scheme at all. </div>
+              </label>
+            </div>
+          </div>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            
+          </legend>
+
+          
+         
+        </fieldset> 
+        
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
