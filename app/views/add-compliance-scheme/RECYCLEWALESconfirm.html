@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="selected-yes.html" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    <form method="POST" action="manage-compliance-scheme">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Confirm your choice of compliance scheme 
+            </h1>
+            <br>
+            <p>You told us you’ll be using <strong>Recycle Wales</strong>  as your compliance scheme. <br><br>
+              
+            If you selected the wrong compliance scheme,<a class="govuk-link" href="selected-yes">you can go back and change it.
+            </a> </p>
+          </legend>
+          
+          
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Confirm"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
