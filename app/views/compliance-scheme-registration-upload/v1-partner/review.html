@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="dashboard" method="post"> 
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        <span class="govuk-caption-xl">October 2023</span>
+                        Review company details                  
+                    </h1>
+
+                   
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            File1.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 January 2023
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="company-upload">
+                              Change<span class="govuk-visually-hidden"> company</span>
+                            </a>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            File3.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 January 2023
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="partner-upload">
+                              Change<span class="govuk-visually-hidden"> partner</span>
+                            </a>
+                          </dd>
+                        </div>
+                      </dl>
+                      
+                    <br>
+                  
+
+                    <p class="govuk-body">The files have not been submitted to the regulator. There's a seperate step to do that.</p>
+
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can upload new company detials any time before the deadline.</p>
+
+                    <p class="govuk-body">Once the details are finalised, the authorised person must submit them to the reglator before the deadline.</p>
+
+                     <p class="govuk-body">The deadline to submit the company details is 1 January 1900</p>
+
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Back to dashboard
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
