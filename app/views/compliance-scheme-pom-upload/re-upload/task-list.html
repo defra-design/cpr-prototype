@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Report packaging data
+      </h1>
+
+
+      
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">2023 application incomplete</h2>
+
+        {% if (data['section-two-complete'] == "yes") %}
+            <p class="govuk-body">You have completed 2 of 4 sections.</p>
+            {% else %}
+            <p class="govuk-body">You have completed 1 of 4 sections.</p>
+        {% endif %}
+
+      <ol class="app-task-list govuk-!-margin-top-6">
+
+        <li>
+            <h2 class="app-task-list__section ">
+              <span class="app-task-list__section-number">1. </span> Prepare application
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                    Review privacy policy and declaration
+                  </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  Add contact details and organisation information
+                  </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                    Submit application
+                  </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                    View application status
+                  </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+            </ul>
+        </li>   
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Upload packaging data to account
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="./upload-csv" aria-describedby="upload-csv">
+                  Upload packaging data to account
+                </a>
+              </span>
+
+              {%  if (data['file-uploaded'] == "yes")  %}
+
+              <strong class="govuk-tag app-task-list__tag">Completed</strong>
+    
+              {% else %}
+    
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+    
+              {% endif %}
+
+
+
+            </li>
+            
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span>  Submit packaging data to regulator
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+
+                {%  if (data['file-uploaded'] == "yes")  %}
+
+                <span class="app-task-list__task-name">
+                    <a href="#" aria-describedby="read-declaration-status">
+                      Submit packaging data to regulator
+                    </a>
+                  </span>
+      
+                {% else %}
+                
+                <span class="app-task-list__task-name">
+                    Submit data file to regulator
+                  </span>
+      
+                {% endif %}
+  
+
+              {%  if (data['data-submitted'] == "yes")  %}
+
+              <strong class="govuk-tag app-task-list__tag">Completed</strong>
+    
+              {% else %}
+    
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+    
+              {% endif %}
+
+            </li>
+        </ul>
+    </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Pay fees for 2023
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                View fees and how they were calculated
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not started</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+               Pay fees
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not started</strong>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

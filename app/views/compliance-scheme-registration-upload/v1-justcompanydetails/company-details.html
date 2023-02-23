@@ -26,11 +26,11 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form action="brand-upload" method="post"> 
+        <form action="" method="post"> 
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                   
+                    
 
                     <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                         <div class="govuk-notification-banner__header">
@@ -47,28 +47,42 @@
                       </div>
 
 
-                    <h2 class="govuk-heading-m">What happens next</h2>
+                      <p class="govuk-body">Based on the file, you do not need to also report about:
 
-                    <p class="govuk-body">Based on what is in the file, you also need to report brand information.</p>
-                  
-                    <p class="govuk-body">You do not need to report partner information. This is because you did not list any of the organisation types as ‘partnership’.</p>
+                        
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>brands  - because none of the organisations supply goods to the UK market in primary, secondary, or shipment packaging under their own brand</li>
+                        <li>partners -  because none of the organisation types are ‘partnership’</li>
+                      </ul>
 
                     <p>If you think this is incorrect, you can <a class="govuk-link" href="company-upload.html">re-upload your company details</a>.</p>
 
 
+            <h2 class="govuk-heading-m">What happens next</h2>
 
+            <p class="govuk-body">You can upload new files any time before the submission deadline.</p>
+
+            <p class="govuk-body">Once the details are finalised, the authorised person must submit them to the environmental regulator before the deadline.</p>
+
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                The authorised person must submit the files by 31 October 2023.
+              </strong>
             </div>
-
-          </fieldset> 
-            <div class="govuk-button-group">
-                <button class="govuk-button" data-module="govuk-button">
-                  Upload brand information
-                </button>
-              
             
-              </div>
 
-        </form>
+            {{
+              govukButton({
+                     text: "Go to account home page"
+                   })
+                         }}
+
+              </fieldset>
+           </div>
+    </form>
 
     </div>
 </div>
