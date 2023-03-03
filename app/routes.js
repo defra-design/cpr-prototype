@@ -42,6 +42,8 @@ router.use('/account-creation/old/v2', require('./views/account-creation/old/v2/
 
 router.use('/account-creation/v1', require('./views/account-creation/v1/_routes'));
 router.use('/account-creation/v2', require('./views/account-creation/v2/_routes'));
+router.use('/account-creation/build', require('./views/account-creation/build/_routes'));
+
 
 // router.use('/account-creation/v1/general', require('./views/account-creation/v1/general/_routes'));
 
