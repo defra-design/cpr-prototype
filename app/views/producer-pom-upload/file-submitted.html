@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="uploading-csv" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+                    <div class="govuk-panel govuk-panel--confirmation">
+                        <h1 class="govuk-panel__title">
+                          Place on the market data submitted
+                        </h1>
+                        <div class="govuk-panel__body">
+                          Your reference number<br><strong>HDJ2123F</strong>
+                        </div>
+                      </div>
+                    
+
+                      <h2 class="govuk-heading-m">What happens next</h2>
+
+                      <p class="govuk-body">You can now:</p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li> A. </li>
+                        <li>B.</li>
+                      </ul>
+
+                </fieldset>
+            </div>
+
+
+            {{
+ govukButton({
+        text: "Return to home page"
+      })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
