@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - Create an account to report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+    <form method="POST" action="registered-trade-in-uk">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Is your organisation registered to trade in the UK?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registered-in-uk-yes" name="registered-in-uk" type="radio" value="yes" {{ checked("registered-in-uk", "yes") }}>
+              <label class="govuk-label govuk-radios__label" for="registered-in-uk-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registered-in-uk-no" name="registered-in-uk" type="radio" value="no" {{ checked("registered-in-uk", "no") }}>
+              <label class="govuk-label govuk-radios__label" for="registered-in-uk-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
