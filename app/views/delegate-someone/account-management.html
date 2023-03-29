@@ -52,7 +52,7 @@ Report packaging data
       </div>
 
            
-      {% if (data['added'] == "yes") %}
+      
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -60,22 +60,52 @@ Report packaging data
               <th scope="col" class="govuk-table__header" style="text-align: right;">Action</th>
             </tr>
           </thead>
+
+          {% if (data['added'] == "yes") %}
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
                 <strong>{{ data['their-email'] }} </strong>
-                <p class="govuk-body govuk-!-margin-bottom-2">Manage team and upload data</p>
-                <strong class="govuk-tag govuk-tag--blue">
-                  Pending approval
-                 </strong>
+                <p class="govuk-body govuk-!-margin-bottom-2 govuk-!-margin-top-1">Manage team and upload data</p>
+                <p class="govuk-hint govuk-!-margin-bottom-0">
+                    Permission to submit data - pending approval
+                </p>
               </th>
               <td class="govuk-table__cell" style="text-align: right;">
                 Invited
+              </td>
+            </tr>
+          </tbody>
+          {% endif %}
+
+
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Sally Smith</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Manage team and upload data</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./manage/sally-smith/manage-team-member.html">Manage</a>
             </td>
             </tr>
           </tbody>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Jane Doe</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Upload data only</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./manage/jane-doe/manage-team-member.html">Manage</a>
+            </td>
+            </tr>
+          </tbody>
+
         </table>
-      {% endif %}
+      
 
     </form>
   </div>
