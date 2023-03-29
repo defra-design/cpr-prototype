@@ -1,31 +1,31 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
- 
+  Report packaging data
 {% endset%}
 
-{% set serviceName = "" %}
+{% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-  Create an account
+  Create an account - Report packaging data
 {% endblock %}
 
 {% block beforeContent %}
 
-<!-- <a class="govuk-back-link" href="./sign-in.html">Back</a> -->
+<a class="govuk-back-link" href="./sign-in.html">Back</a>
 
 {% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row govuk-!-margin-top-4">
+<div class="govuk-grid-row ">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Create an account</h1>
     
-    <form action="your-name" method="post">
+    <form action="../accept-invite/full-name" method="post">
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="email">
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label govuk-label--" for="email">
           Email address 
         </label>
         <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['email']}}" required>
@@ -33,12 +33,12 @@
 
       <div class="govuk-form-group">
       
-        <label class="govuk-label" for="password">
+        <label class="govuk-label govuk-label--" for="password">
           Enter a password
         </label>
       
         <div id="password-hint" class="govuk-hint">
-          It must be at least 8 characters and must include letters and numbers. Do not use a very common password, such as ‘password’ or a sequence of numbers.
+          It must be at least 8 characters and must include letters and numbers.
         </div>
       
         <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
@@ -46,7 +46,7 @@
       </div>
 
       <div class="govuk-form-group govuk-!-margin-bottom-7">
-        <label class="govuk-label" for="retype-password">
+        <label class="govuk-label  govuk-label--" for="retype-password">
           Re-type password
         </label>
         <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
