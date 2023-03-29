@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Invite team member - Manage account - Report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./their-email-address.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="access-role">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <!-- <span class="govuk-caption-l">Add team member</span> -->
+            <h1 class="govuk-fieldset__heading">
+              What will they need to do in the account?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="upload" name="their-account-access" type="radio" value="Upload data only" {{ checked("their-account-access", "Upload data only") }}>
+              <label class="govuk-label govuk-radios__label" for="upload">
+                Upload data only
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="manage-upload" name="their-account-access" type="radio" value="Manage team and upload data" {{ checked("their-account-access", "Manage team and upload data") }}>
+              <label class="govuk-label govuk-radios__label" for="manage-upload">
+                Manage team and upload data 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="manage-upload-submit" name="their-account-access" type="radio" aria-describedby="access-role-hint" value="Manage team, upload data and submit data" {{ checked("their-account-access", "Manage team, upload data and submit data") }}>
+              <label class="govuk-label govuk-radios__label" for="manage-upload-submit">
+                Manage team, upload data and submit data 
+              </label>
+              <div id="access-role-hint" class="govuk-hint govuk-radios__hint">Requires approval from your environmental regulator</div>
+            </div>
+          </div>
+
+        </fieldset> 
+      </div>
+        {{ govukButton({
+          text: "Continue"
+        })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
