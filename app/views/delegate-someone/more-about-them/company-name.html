@@ -10,7 +10,36 @@ Report packaging data
  Invite team member - Manage account - Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
 
 <a class="govuk-back-link" href="../work-for-your-organisation.html">Back</a>
 
