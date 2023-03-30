@@ -7,23 +7,48 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Manage account - Report packaging data
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
 {% block beforeContent %}
-
-<div id="profile">
-  {% include "includes/account-nav-admin-individual.html" %}
-</div>
-
-<a class="govuk-back-link" href="./report-packaging-data.html">Home</a>
 
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1s">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
 
       <h1 class="govuk-heading-xl">
         Manage account details
@@ -52,7 +77,7 @@ Report packaging data
       </div>
 
            
-      
+      {% if (data['added'] == "yes") %}
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -61,7 +86,7 @@ Report packaging data
             </tr>
           </thead>
 
-          {% if (data['added'] == "yes") %}
+          
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
@@ -80,7 +105,7 @@ Report packaging data
 
 
 
-          <tbody class="govuk-table__body">
+          <!-- <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
                 <strong>Sally Smith</strong>
@@ -102,7 +127,7 @@ Report packaging data
                 <a class=" govuk-link--no-visited-state" href="./manage/jane-doe/manage-team-member.html">Manage</a>
             </td>
             </tr>
-          </tbody>
+          </tbody> -->
 
         </table>
       
