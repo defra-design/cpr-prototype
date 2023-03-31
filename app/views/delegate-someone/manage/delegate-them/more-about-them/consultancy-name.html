@@ -47,19 +47,20 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="../check-your-details?work-as=something-else">
+    <form method="POST" action="../check-your-details?work-as=consultancy">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <!-- <span class="govuk-caption-l">Add team member</span> -->
-          <label class="govuk-label govuk-label--l" for="organisation-name">
-            What’s the name of the organisation they work for?
+          <label class="govuk-label govuk-label--l" for="manage-consultancy-company">
+            What’s the name of the consultancy they work for?
           </label>
         </h1>
-        <input class="govuk-input" id="organisation-name" name="organisation-name" type="text" value="{{data['organisation-name']}}">
+        <input class="govuk-input" id="manage-consultancy-company" name="manage-consultancy-company" type="text" spellcheck="false" value="{{data['manage-consultancy-company']}}">
       </div>
         {{ govukButton({
           text: "Continue"

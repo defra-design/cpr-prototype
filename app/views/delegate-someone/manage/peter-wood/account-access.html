@@ -7,7 +7,38 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Manage team member - Manage account - Report packaging data
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +56,7 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="access-role">
+    <form method="POST" action="manage-access-role">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
 
@@ -38,19 +69,19 @@ Report packaging data
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="upload" name="their-account-access" type="radio" value="Upload data only" >
+              <input class="govuk-radios__input" id="upload" name="their-existing-account-access" type="radio" value="Upload data only" >
               <label class="govuk-label govuk-radios__label" for="upload">
                 Upload data only
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="manage-upload" name="their-account-access" type="radio" value="Manage team and upload data"  checked>
+              <input class="govuk-radios__input" id="manage-upload" name="their-existing-account-access" type="radio" value="Manage team and upload data">
               <label class="govuk-label govuk-radios__label" for="manage-upload">
                 Manage team and upload data 
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="manage-upload-submit" name="their-account-access" type="radio" aria-describedby="access-role-hint" value="Manage team, upload data and submit data" >
+              <input class="govuk-radios__input" id="manage-upload-submit" name="their-existing-account-access" type="radio" aria-describedby="access-role-hint" value="Manage team, upload data and submit data" checked >
               <label class="govuk-label govuk-radios__label" for="manage-upload-submit">
                 Manage team, upload data and submit data 
               </label>
