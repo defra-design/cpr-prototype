@@ -47,19 +47,23 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="../check-your-details?work-as=something-else">
+    <form method="POST" action="../check-your-details?work-as=employee">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <!-- <span class="govuk-caption-l">Add team member</span> -->
-          <label class="govuk-label govuk-label--l" for="organisation-name">
-            What’s the name of the organisation they work for?
+          <label class="govuk-label govuk-label--l" for="manage-job-title">
+            What is their job title?
           </label>
         </h1>
-        <input class="govuk-input" id="organisation-name" name="organisation-name" type="text" value="{{data['organisation-name']}}">
+        <div class="govuk-hint" aria-describedby="manage-job-title">
+          Include the level they work at, for example junior, senior or manager.
+        </div>
+        <input class="govuk-input" id="manage-job-title" name="manage-job-title" type="text" spellcheck="false" value="{{data['manage-job-title']}}">
       </div>
         {{ govukButton({
           text: "Continue"

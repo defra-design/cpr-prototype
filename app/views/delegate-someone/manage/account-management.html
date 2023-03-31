@@ -50,7 +50,7 @@ Report packaging data
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
 
-      {% if (data['basic-admin'] == "true") %}
+      {% if (data['statement'] == "true") %}
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -86,22 +86,12 @@ Report packaging data
         </div>
       </div>
 
-      {% if (data['added'] == "no") %}
-      <div>
-        <h2 class="govuk-heading-l ">Manage your team</h2>
-        <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state" href="./their-email-address.html">Add team member</a></p>
-      </div>
-      {% endif %}
-
-      {% if (data['added'] == "yes") %}
-      <div>
+      <div class="">
         <h2 class="govuk-heading-l ">Manage your team</h2>
         <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state" href="#">Add team member</a></p>
       </div>
-      {% endif %}
 
            
-      {% if (data['added'] == "yes") %}
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -110,75 +100,77 @@ Report packaging data
             </tr>
           </thead>
 
-          
+          <!-- <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Peter Wood</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Manage team, upload data and submit data</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./peter-wood/manage-team-member.html">Manage</a>
+            </td>
+            </tr>
+          </tbody> -->
+
+
+          {% if (data['sally-delegated'] == "no") %}
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
-                <strong>{{ data['their-email'] }}</strong>
+                <strong>Sally Williams</strong>
+                <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">Manage team and upload data</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./sally-williams/manage-team-member.html">Manage</a>
+            </td>
+            </tr>
+          </tbody>
+          {% endif %}
+
+          {% if (data['sally-delegated'] == "yes") %}
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Sally Williams</strong>
                 <p class="govuk-body govuk-!-margin-bottom-2 govuk-!-margin-top-1">Manage team and upload data</p>
                 <strong class="govuk-tag govuk-tag--yellow">Permission to submit data - pending approval</strong>
               </th>
               <td class="govuk-table__cell" style="text-align: right;">
-                Invited
-              </td>
-            </tr>
-          </tbody>
-          
-
-
-
-          <!-- <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
-                <strong>Sally Smith</strong>
-                <p class="govuk-body govuk-!-margin-bottom-0">Manage team and upload data</p>
-              </th>
-              <td class="govuk-table__cell" style="text-align: right;">
-                <a class=" govuk-link--no-visited-state" href="./manage/sally-smith/manage-team-member.html">Manage</a>
+                <a class=" govuk-link--no-visited-state" href="#">Manage</a>
             </td>
             </tr>
           </tbody>
+          {% endif %}
+          
 
-          <tbody class="govuk-table__body">
+          <!-- <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
                 <strong>Jane Doe</strong>
                 <p class="govuk-body govuk-!-margin-bottom-0">Upload data only</p>
               </th>
               <td class="govuk-table__cell" style="text-align: right;">
-                <a class=" govuk-link--no-visited-state" href="./manage/jane-doe/manage-team-member.html">Manage</a>
+                <a class=" govuk-link--no-visited-state" href="./jane-doe/manage-team-member.html">Manage</a>
             </td>
             </tr>
           </tbody> -->
 
-        </table>
-        {% endif %}
-
-        {% if (data['basic-admin'] == "true") %}
-        <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Team member</th>
-              <th scope="col" class="govuk-table__header" style="text-align: right;">Action</th>
-            </tr>
-          </thead>
-
-          
+<!-- 
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header" style="font-weight: 200;">
-                <strong>{{ data['their-email'] }}</strong>
-                <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">{{ data['their-account-access'] }}</p>
+                <strong>Christine Jones</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Upload data only</p>
               </th>
               <td class="govuk-table__cell" style="text-align: right;">
-                Invited
-              </td>
+                <a class=" govuk-link--no-visited-state" href="./christine-jones/manage-team-member.html">Manage</a>
+            </td>
             </tr>
-          </tbody>
+          </tbody> -->
+
+          
 
         </table>
-        {% endif %}
-      
 
     </form>
   </div>
