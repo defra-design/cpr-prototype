@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Account home page
+    </h1>
+
+    <div class="govuk-!-margin-bottom-6">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Valpak</h2>
+      <div class="govuk-form-group">
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="published">Valpak England</option>
+          <option value="updated" selected>Valpak Scotland</option>
+          <option value="views">Valpak Wales</option>
+        </select>
+      </div>
+    </div>
+
+    {% if (data['new-user'] == "yes") %}
+    <div class="govuk-inset-text">
+      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-3">
+        Pending approval
+      </strong>
+      <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Submitting data</h3> -->
+      <p class="govuk-body">You can now manage team members and upload data. We’ll email you when the regulator has given you permission to submit data.</p>
+    </div>
+    {% endif %}
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"><a href="../compliance-scheme-registration-upload/v1-happypath/organisation-upload" class="govuk-link--no-visited-state">Report organisation details</a></h2>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m"><a href="" class="govuk-link--no-visited-state">Report packaging data</a></h2>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

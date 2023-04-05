@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+     Report packaging data
+    </h1>
+  </div>
+
+</div>
+
+
+<div class="govuk-form-group">
+<p class="govuk-body">Upload organisations’ packaging data to your account in a CSV file. We’ll check the data is in the right format.</p> 
+
+<p class="govuk-body">You can then submit it to the environmental regulator, or make changes and upload a new file.</p>
+
+<p class="govuk-body">You need to submit to the regulator by the deadline.</p>
+
+<p class="govuk-body"> View guidance on  <a class="govuk-link" href="#">packaging data: how to create your file (opens in a new window). </a></p>
+
+<div class="govuk-!-margin-bottom-7">
+  <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Upload and submit</h2>
+  <p class="govuk-body">Valpak Enlgand</p>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"><a href="#" class="govuk-link--no-visited-state">Large organisations - Jan to Jun 23</a></h2>
+      <p class="govuk-body">Deadline: 31 Oct 2023</p>
+      <strong class="govuk-tag">
+        Not started
+      </strong>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"><a href="#" class="govuk-link--no-visited-state">Large organisations - Jul to Dec 23</a></h2>
+      <p class="govuk-body">Deadline: 24th April 2023</p>
+      <strong class="govuk-tag">
+      Cannot start yet 
+      </strong>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
