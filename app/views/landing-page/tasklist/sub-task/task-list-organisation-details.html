@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Report organisation details
+      </h1>
+
+
+      
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+
+        {% if (data['section-two-complete'] == "yes") %}
+            <p class="govuk-body">You have completed 2 of 4 sections.</p>
+            {% else %}
+            <p class="govuk-body">You have completed 0 of 4 sections.</p>
+        {% endif %}
+
+      <ol class="app-task-list govuk-!-margin-top-6">
+
+        <li>
+            <h2 class="app-task-list__section ">
+              <span class="app-task-list__section-number">1. </span> Large organisation - January to June 2023 
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">  
+                    <a href="./upload-csv" aria-describedby="upload-csv">
+                        Upload file to account
+                    </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+              </li>
+             <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  Submit file 
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+              </li>
+            </ul>
+        </li>   
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Small organisation - January to June 2023 
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">  
+                  <a href="./upload-csv" aria-describedby="upload-csv">
+                      Upload file to account
+                  </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>
+            </li>
+               <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    Submit file 
+                    </span>
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+                </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span>  Large organisation - July to December 2023
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Upload fileto account 
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Submit file to account
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+            </li>
+
+         </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span>  Small organisation - July to December 2023
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Upload fileto account 
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Submit file to account
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Cannot start yet</strong>
+            </li>
+
+         </ul>
+        </li>
+
+        
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

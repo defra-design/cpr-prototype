@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-xl">
+        Account home page
+      </h1>
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-4">Acme Org</h2>
+
+      <!-- <div class="govuk-inset-text">
+        <p class="govuk-body govuk-!-margin-bottom-2">Compliance method: Valpak Scotland</p>
+        <p class="govuk-body"><a class="govuk-link" href="#">Change Tesco Ltd.’s compliance scheme</a></p>  
+      </div> -->
+
+        <h3 class="govuk-body govuk-!-margin-bottom-2">Compliance scheme: Valpak Scotland</h3>
+        <p class="govuk-body"><a class="govuk-link" href="#">Change Acme Org’s compliance scheme</a></p>  
+        
+
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-4 govuk-!-margin-top-5">What Valpak Scotland is responsible for</h3>
+
+        <p class="govuk-body"> Welcome to your account to report packaging data for Valpak.</p>
+      <!-- <p> Tesco Ltd. is using the compliance scheme Valpak Scotland to report packaging data.</p> -->
+
+      <p class="govuk-body">For the organisations it works with, Valpak will need to upload and submit:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>packaging data</li>
+          <li>organisation details</li>
+        </ul>
+
+      <p> Valpak Scotland is not responsible for paying the waste management fee.</p>
+
+
+
+          
+
+
+  </div>
+</div>
+
+
+{% endblock %}
