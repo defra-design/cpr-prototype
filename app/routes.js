@@ -44,8 +44,7 @@ router.use('/account-creation/v1', require('./views/account-creation/v1/_routes'
 router.use('/account-creation/v2', require('./views/account-creation/v2/_routes'));
 router.use('/account-creation/build', require('./views/account-creation/build/_routes'));
 
-
-// router.use('/account-creation/v1/general', require('./views/account-creation/v1/general/_routes'));
+router.use('/delegate-someone', require('./views/delegate-someone/_routes'));
 
 router.use('/add-compliance-scheme', require('./views/add-compliance-scheme/_routes'));
 router.use('/add-compliance-scheme-v2', require('./views/add-compliance-scheme-v2/_routes'));

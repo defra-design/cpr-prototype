@@ -29,6 +29,8 @@
 {% from "govuk/components/tag/macro.njk"                 import govukTag %}
 {% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -41,13 +43,25 @@
 {% block header %}
 
   {# Set serviceName in config.js. #}
-
+  
   {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "../../app/views/delegate-someone/report-packaging-data.html",
+    navigation: [
+      {
+        href: "../../app/views/delegate-someone/report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "../../app/views/delegate-someone/account-management.html",
+        text: "Manage account details", 
+        active: true
+      }
+    ]
   }) }}
+
+
  
   {{ govukPhaseBanner({
     tag: {

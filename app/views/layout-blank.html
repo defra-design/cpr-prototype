@@ -34,51 +34,9 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
-{% block pageTitle %}
-  Report packaging data
-{% endblock %}
 
-{% block header %}
 
-  {# Set serviceName in config.js. #}
 
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
- 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
-
-{% endblock %}
-
-{% set mainClasses = mainClasses | default("govuk-!-padding-top-4") %}
-
-{% if useAutoStoreData %}
-  {% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/clear",
-            text: "Clear data"
-          }
-        ]
-      }
-    }) }}
-  {% endblock %}
-{% endif %}
 
 {% block bodyEnd %}
   {% block scripts %}

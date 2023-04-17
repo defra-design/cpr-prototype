@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      {% if (data['basic-admin'] == "true") %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              You sent an invitation to {{ data['their-email'] }}
+            </h3>
+          </div>
+        </div>
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">
+        Manage account details
+      </h1>
+
+      <div class="govuk-!-margin-bottom-7">
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Acme Org Ltd</h2>
+        <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">Organisation number: P 123 456</p>
+        <p class="govuk-body"><a href="#">View organisation details</a></p>
+      </div>
+
+
+      <div class="govuk-!-margin-bottom-7 govuk-!-padding-top-4" style="border-top: 1px solid #B1B4B6; border-bottom: 1px solid #B1B4B6; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+        <div>
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">John Smith</h3>
+          <p class="govuk-body">Manage team, upload data and submit data</p>
+        </div>
+        <div>
+          <p class="govuk-body"><a href="#">View your details</a></p>
+        </div>
+      </div>
+
+      {% if (data['added'] == "no") %}
+      <div>
+        <h2 class="govuk-heading-l ">Manage your team</h2>
+        <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state" href="./their-email-address.html">Add team member</a></p>
+      </div>
+      {% endif %}
+
+      {% if (data['added'] == "yes") %}
+      <div>
+        <h2 class="govuk-heading-l ">Manage your team</h2>
+        <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state" href="#">Add team member</a></p>
+      </div>
+      {% endif %}
+
+           
+      {% if (data['added'] == "yes") %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Team member</th>
+              <th scope="col" class="govuk-table__header" style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>{{ data['their-email'] }}</strong>
+                <p class="govuk-body govuk-!-margin-bottom-2 govuk-!-margin-top-1">Manage team and upload data</p>
+                <strong class="govuk-tag govuk-tag--yellow">Permission to submit data - pending approval</strong>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                Invited
+              </td>
+            </tr>
+          </tbody>
+          
+
+
+
+          <!-- <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Sally Smith</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Manage team and upload data</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./manage/sally-smith/manage-team-member.html">Manage</a>
+            </td>
+            </tr>
+          </tbody>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>Jane Doe</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0">Upload data only</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                <a class=" govuk-link--no-visited-state" href="./manage/jane-doe/manage-team-member.html">Manage</a>
+            </td>
+            </tr>
+          </tbody> -->
+
+        </table>
+        {% endif %}
+
+        {% if (data['basic-admin'] == "true") %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Team member</th>
+              <th scope="col" class="govuk-table__header" style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                <strong>{{ data['their-email'] }}</strong>
+                <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-1">{{ data['their-account-access'] }}</p>
+              </th>
+              <td class="govuk-table__cell" style="text-align: right;">
+                Invited
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        {% endif %}
+      
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

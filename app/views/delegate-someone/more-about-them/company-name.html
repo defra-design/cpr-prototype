@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Invite team member - Manage account - Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../work-for-your-organisation.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../check-your-details?work-as=something-else">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <!-- <span class="govuk-caption-l">Add team member</span> -->
+          <label class="govuk-label govuk-label--l" for="organisation-name">
+            What’s the name of the organisation they work for?
+          </label>
+        </h1>
+        <input class="govuk-input" id="organisation-name" name="organisation-name" type="text" value="{{data['organisation-name']}}">
+      </div>
+        {{ govukButton({
+          text: "Continue"
+        })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

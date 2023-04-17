@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Invite team member - Manage account - Report packaging data
+{% endblock %}
+
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['work-as'] == "something-else") %}
+    <a class="govuk-back-link" href="./more-about-them/company-name.html">Back</a>
+{% endif %}
+
+{% if (data['work-as'] == "compliance-scheme") %}
+    <a class="govuk-back-link" href="./more-about-them/compliance-scheme-name.html">Back</a>
+{% endif %}
+
+{% if (data['work-as'] == "consultancy") %}
+    <a class="govuk-back-link" href="./more-about-them/consultancy-name.html">Back</a>
+{% endif %}
+
+{% if (data['work-as'] == "employee") %}
+    <a class="govuk-back-link" href="./more-about-them/employee-job-title.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./confirmation">
+    <div class="govuk-form-group govuk-!-margin-bottom-7">
+      <h1 class="govuk-heading-l">Check their details and send invite</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+              Email address
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['their-email'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./their-email-address.html">
+              Change<span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+
+        </div>
+
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+            Account permissions 
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['their-account-access'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./account-access.html">
+              Change<span class="govuk-visually-hidden"> account permissions</span>
+            </a>
+          </dd>
+
+        </div>
+
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+            How they work with your organisation
+          </dt>
+
+          {% if (data['work-with-organisation'] == "Something else") %}
+            <dd class="govuk-summary-list__value">
+              {{ data['relationship-to-org'] }}
+            </dd>
+          {% endif %}
+
+          {% if (data['work-with-organisation'] == "Compliance scheme") %}
+            <dd class="govuk-summary-list__value">
+              Compliance scheme
+            </dd>
+          {% endif %}
+
+          {% if (data['work-with-organisation'] == "Employee") %}
+            <dd class="govuk-summary-list__value">
+              Employee
+            </dd>
+          {% endif %}
+
+          {% if (data['work-with-organisation'] == "Consultant") %}
+            <dd class="govuk-summary-list__value">
+              Consultant
+            </dd>
+          {% endif %}
+          
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./work-for-your-organisation.html">
+              Change<span class="govuk-visually-hidden"></span>
+            </a>
+          </dd>
+
+        </div>
+
+        {% if (data['work-as'] == "something-else") %}
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+            Name of organisation
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['organisation-name'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./more-about-them/company-name.html">
+              Change<span class="govuk-visually-hidden"> organisation-name</span>
+            </a>
+          </dd>
+
+        </div>
+        {% endif %}
+
+        {% if (data['work-as'] == "compliance-scheme") %}
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+            Name of compliance scheme
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['compliance-scheme'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./more-about-them/compliance-scheme-name.html">
+              Change<span class="govuk-visually-hidden"> job title</span>
+            </a>
+          </dd>
+
+        </div>
+        {% endif %}
+
+        {% if (data['work-as'] == "consultancy") %}
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+            Name of consultancy
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['consultancy-company'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./more-about-them/consultancy-name.html">
+              Change<span class="govuk-visually-hidden"> job title</span>
+            </a>
+          </dd>
+
+        </div>
+        {% endif %}
+
+        {% if (data['work-as'] == "employee") %}
+        <div class="govuk-summary-list__row">
+
+          <dt class="govuk-summary-list__key">
+              Job title
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+              {{ data['job-title'] }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="./more-about-them/employee-job-title.html">
+              Change<span class="govuk-visually-hidden"> job title</span>
+            </a>
+          </dd>
+
+        </div>
+        {% endif %}
+
+
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Declaration</h2>
+      <p class="govuk-body">By sending the invitation, you confirm that this person has permission to submit data for Acme Org Ltd.</p>
+      <p class="govuk-body">You also confirm that they know the regulations and have access to the information they need to submit data correctly.</p>
+
+    </div>
+      {{ govukButton({
+        text: "Confirm and send invite"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
