@@ -48,6 +48,7 @@ router.use('/delegate-someone', require('./views/delegate-someone/_routes'));
 
 router.use('/add-compliance-scheme', require('./views/add-compliance-scheme/_routes'));
 router.use('/add-compliance-scheme-v2', require('./views/add-compliance-scheme-v2/_routes'));
+router.use('/Account-Management', require('./views/Account-Management/_routes'));
 
 router.use('/v6/epr', require('./views/v6/epr/_routes'));
 router.use('/v6/defra-id', require('./views/v6/defra-id/_routes'));
