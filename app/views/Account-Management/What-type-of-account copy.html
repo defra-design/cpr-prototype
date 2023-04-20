@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="#" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    
+    <form method="POST" action="Check-team-member-details">
+      <div class="govuk-form-group">
+        
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of account user will Sally Smith be?
+            </h1><br>
+           
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="basic-user" name="basic-user" type="radio" value="basic-user" {{ checked("basic-user", "basic-user") }}>
+              <label class="govuk-label govuk-radios__label" for="basic-user">
+                Basic user 
+                <div id="more-detail-hint" class="govuk-hint">
+                  Upload data but cannot submit data to the regulator
+                </div>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Admin-user" name="Admin-user" type="radio" value="Admin-user" {{ checked("Admin-user", "Admin-user") }}>
+              <label class="govuk-label govuk-radios__label" for="Admin-user">
+                Admin user
+                <div id="more-detail-hint" class="govuk-hint">
+                  Add and remove account users. Admin users can upload data but  cannot submit data to the regulator
+                </div> 
+              </label>
+            </div>
+          </div>
+          
+          
+        </fieldset>
+        <br><br>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+{% endblock %}

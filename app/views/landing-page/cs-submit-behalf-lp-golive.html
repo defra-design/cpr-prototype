@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html",
+        text: "Manage account details",
+        active: true 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-xl">
+        Account home page
+      </h1>
+
+      <div class="govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Valpak</h2>
+        <div class="govuk-form-group">
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="published">Valpak England</option>
+            <option value="updated" selected>Valpak Scotland</option>
+            <option value="views">Valpak Wales</option>
+          </select>
+        </div>
+      </div>
+
+
+        <p class="govuk-body ">Welcome to the Valpak account to report packaging data.</p>
+        
+
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-4 govuk-!-margin-top-5">When you can start reporting</h3>
+
+        <p class="govuk-body">You’ll be able to upload data to this account in August 2023. </p>
+
+        <p class="govuk-body">Valpak will be able to submit the data to the environmental regulator in September 2023. Only people with the right account permission can do this. </p>
+
+        <p class="govuk-body">The deadline to submit data is 1 October 2023. </p>
+      <!-- <p> Tesco Ltd. is using the compliance scheme Valpak Scotland to report packaging data.</p> -->
+
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-4 govuk-!-margin-top-5">What you need to report</h3>
+
+      <p class="govuk-body">View the guidance on: </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> <a class="govuk-link" href="#">packaging data: how to create your file for extended producer responsibility (opens in a new window)</a></li>
+          <li><a class="govuk-link" href="#">how to report organisation details (opens in a new window) </a></li>
+        </ul>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
