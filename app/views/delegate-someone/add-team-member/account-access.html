@@ -17,16 +17,20 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
+    serviceUrl: "./report-packaging-data.html?basic-admin=false",
     navigation: [
       {
-        href: "./report-packaging-data.html",
+        href: "./report-packaging-data.html?basic-admin=false",
         text: "Home"
       },
       {
-        href: "./account-management.html",
+        href: "./account-management.html?basic-admin=false",
         text: "Manage account details",
         active: true 
+      },
+      {
+        href: "./account-management.html",
+        text: "Sign out"
       }
     ]
   }) }}
@@ -81,7 +85,7 @@ Report packaging data
               <label class="govuk-label govuk-radios__label" for="manage-upload-submit">
                 Manage team, upload data and submit data 
               </label>
-              <div id="access-role-hint" class="govuk-hint govuk-radios__hint">Requires approval from your environmental regulator</div>
+              <div id="access-role-hint" class="govuk-hint govuk-radios__hint">We’ll need to know more about this person, as they will be able to submit data to the environmental regulator</div>
             </div>
           </div>
 
@@ -91,6 +95,20 @@ Report packaging data
           text: "Continue"
         })}}
     </form>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What’s the difference between uploading and submitting?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">Uploading data is when you upload your file into this service. Once you’ve uploaded a file, you can change it if you need to. You do this by re-uploading a new file.</p>
+        <p class="govuk-body">Submitting data is when you send the final file to the environmental regulator. </p>
+        <p class="govuk-body">Data can only be submitted by someone whose account has been approved by the environmental regulator. </p>
+      </div>
+    </details>
+
   </div>
 </div>
 

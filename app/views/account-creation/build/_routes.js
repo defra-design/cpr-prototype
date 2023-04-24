@@ -29,6 +29,18 @@ router.post('*/organisation-type', function (req, res) {
 })
 
 // Routing for Page
+router.post('*/uk-nation', function (req, res) {
+    var userGroup = req.session.data['user-group']
+    
+    if (userGroup == "compliance-scheme") {
+        res.redirect('../about-you/role-in-organisation')
+    }
+    else {
+        res.redirect('uk-nation')
+    }
+})
+
+// Routing for Page
 router.post('*/authorised-person', function (req, res) {
     var authorisedPerson = req.session.data['form-role-in-organisation']
     

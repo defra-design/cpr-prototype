@@ -17,36 +17,23 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html"
+    serviceUrl: "./report-packaging-data.html?basic-admin=false",
+    navigation: [
+      {
+        href: "./report-packaging-data.html?basic-admin=false",
+        text: "Home"
+      },
+      {
+        href: "./account-management.html?basic-admin=false",
+        text: "Manage account details",
+        active: true 
+      },
+      {
+        href: "./account-management.html",
+        text: "Sign out"
+      }
+    ]
   }) }}
-    
-  
-  <div class="moj-primary-navigation">
-
-    <div class="moj-primary-navigation__container">
-  
-      <div class="moj-primary-navigation__nav ">
-  
-        <nav class="moj-primary-navigation" aria-label="Primary navigation">
-  
-          <ul class="moj-primary-navigation__list">
-            <li class="moj-primary-navigation__item">
-              <a class="moj-primary-navigation__link"  href="./report-packaging-data.html">Home</a>
-            </li>
-  
-            <li class="moj-primary-navigation__item">
-              <a class="moj-primary-navigation__link" aria-current="page" href="./account-management.html">Manage account</a>
-            </li>
-
-          </ul>
-  
-        </nav>
-  
-      </div>
-    
-    </div>
-  
-  </div>
 
   {{ govukPhaseBanner({
     tag: {
@@ -56,15 +43,11 @@ Report packaging data
     classes: 'govuk-width-container'
   }) }}
 
-  
-
- 
-
 {% endblock %}
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./account-access.html">Back</a>
+<a class="govuk-back-link" href="../sally-williams/account-access.html">Back</a>
 
 {% endblock %}
 
@@ -73,7 +56,7 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="work-with-organisation-routing">
+    <form method="POST" action="manage-work-with-organisation-routing">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
 
@@ -86,26 +69,26 @@ Report packaging data
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="employee" name="work-with-organisation" type="radio" value="Employee" {{ checked("work-with-organisation", "Employee") }}>
+              <input class="govuk-radios__input" id="employee" name="manage-work-with-organisation" type="radio" value="Employee" {{ checked("manage-work-with-organisation", "Employee") }}>
               <label class="govuk-label govuk-radios__label" for="employee">
                 As an employee
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="consultant" name="work-with-organisation" type="radio" value="Consultant" {{ checked("work-with-organisation", "Consultant") }}>
+              <input class="govuk-radios__input" id="consultant" name="manage-work-with-organisation" type="radio" value="Consultant" {{ checked("manage-work-with-organisation", "consultant") }}>
               <label class="govuk-label govuk-radios__label" for="consultant">
                 As a consultant 
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="compliance-scheme" name="work-with-organisation" type="radio" value="Compliance scheme" {{ checked("work-with-organisation", "Compliance scheme") }}>
+              <input class="govuk-radios__input" id="compliance-scheme" name="manage-work-with-organisation" type="radio" value="Compliance scheme" {{ checked("manage-work-with-organisation", "Compliance scheme") }}>
               <label class="govuk-label govuk-radios__label" for="compliance-scheme">
                 For a compliance scheme
               </label>
             </div>
             <div class="govuk-radios__divider">or</div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="something-else" name="work-with-organisation" type="radio" value="Something else" data-aria-controls="conditional-organisation-role" {{ checked("work-with-organisation", "Something else") }}>
+              <input class="govuk-radios__input" id="something-else" name="manage-work-with-organisation" type="radio" value="Something else" data-aria-controls="conditional-organisation-role" {{ checked("manage-work-with-organisation", "Something else") }}>
               <label class="govuk-label govuk-radios__label" for="something-else">
                 Something else - give details
               </label>

@@ -17,16 +17,20 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
+    serviceUrl: "./report-packaging-data.html?basic-admin=false",
     navigation: [
       {
-        href: "./report-packaging-data.html",
+        href: "./report-packaging-data.html?basic-admin=false",
         text: "Home"
       },
       {
-        href: "./account-management.html",
+        href: "./account-management.html?basic-admin=false",
         text: "Manage account details",
         active: true 
+      },
+      {
+        href: "./account-management.html",
+        text: "Sign out"
       }
     ]
   }) }}
@@ -62,19 +66,19 @@ Report packaging data
         Once they’ve got the email, they need to accept the invitation and create an account. 
       </p>
       <p class="govuk-body">
-        The regulator will review their request to join the account. This takes up to 28 days.
+        You’ve asked for them to have permission to submit data to the regulator. The regulator will review this request. This takes around 28 days.
       </p>
     </div>
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Return to account details",
-        href: "./account-management?added=yes"
+        text: "Go to manage account",
+        href: "../../account-management?added=yes&delegated=yes"
       }) }}
     
       {{ govukButton({
-        text: "Add a team member",
+        text: "Add another team member",
         classes: "govuk-button--secondary",
-        href: "./their-email-address?added=yes"
+        href: "../their-email-address?added=yes&delegated=yes"
       }) }}
     </div>
     </form>
