@@ -10,7 +10,16 @@
 
 {% block beforeContent %}
 
+{% if (data['user-group'] == "compliance-scheme") %}
+<a class="govuk-back-link" href="../about-your-organisation/comfirm-company-details.html">Back</a>
+{% else %}
 <a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
+{% if (data['user-group'] == "producer") %}
+<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
 
 {% endblock %}
 
@@ -24,7 +33,7 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What is your role in the organisation?
+              What is your role in the organisation, as shown on Companies House?
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
@@ -44,6 +53,12 @@
               <input class="govuk-radios__input" id="partner" name="form-role-in-organisation" type="radio" value="Partner" {{ checked("form-role-in-organisation", "Partner") }}>
               <label class="govuk-label govuk-radios__label" for="partner">
                 Partner
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="member" name="form-role-in-organisation" type="radio" value="Member" {{ checked("form-role-in-organisation", "Member") }}>
+              <label class="govuk-label govuk-radios__label" for="member">
+                Member
               </label>
             </div>
             <div class="govuk-radios__divider">or</div>

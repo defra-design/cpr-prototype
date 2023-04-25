@@ -27,14 +27,14 @@
         <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your organisation’s account.</p>
         
         <label class="govuk-label" for="personal-work-email">
-          UK telephone number
+          Telephone number
         </label>
-        <input class="govuk-input govuk-input--width-20" id="personal-telephone-number" name="personal-telephone-number" type="tel" autocomplete="tel" value="{{data['personal-telephone-number']}}">
+        <div class="govuk-hint" id="telephone-hint">For international numbers include the country code</div>
+        <input class="govuk-input govuk-input--width-20" id="personal-telephone-number" name="personal-telephone-number" aria-describedby="telephone-hint" type="tel" autocomplete="tel" value="{{data['personal-telephone-number']}}">
       </div>
 
       <div class="govuk-inset-text">
-        We may also contact you by email, using the address registered with your GOV.UK account:
-        <span class="govuk-!-font-weight-bold">polly@acme.org</span>
+        We may also contact you by email using the email address you used to create your account: <strong>{{ data['azure-email'] }}</strong>
        </div>
 
       {{ govukButton({

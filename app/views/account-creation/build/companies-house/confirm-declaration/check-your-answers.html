@@ -11,7 +11,7 @@
 {% block beforeContent %}
 
 
-    <a class="govuk-back-link" href="./about-you/telephone-number.html">Back</a>
+    <a class="govuk-back-link" href="../about-you/telephone-number.html">Back</a>
 
 
 {% endblock %}
@@ -24,40 +24,58 @@
     
     <form method="POST" action="declaration">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your details</h1>
+    <h1 class="govuk-heading-l ">Check your details</h1>
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your organisation</h2>
+    <h2 class="govuk-heading-m ">Your organisation</h2>
     
     <dl class="govuk-summary-list">
 
+        <!-- REGISTERED AS CHARITY -->
         <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-            Type of organisation
-        </dt>
-        <dd class="govuk-summary-list__value">
-            {{ data['form-organisation-type'] }}
-        </dd>
+            <dt class="govuk-summary-list__key">
+                A registered charity?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['registered-charity'] }}
+            </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="../general/type-of-organisation.html">
-                Change<span class="govuk-visually-hidden"> type of organisation</span>
+                <a class="govuk-link" href="../../general/registered-as-a-charity.html">
+                Change<span class="govuk-visually-hidden"> if you are a registered charity</span>
             </a>
             </dd>
         </div>
 
+        <!-- REGISTERED WITH COMPANIES HOUSE -->
         <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-            Companies House number
-        </dt>
-        <dd class="govuk-summary-list__value">
-            000134567
-        </dd>
+            <dt class="govuk-summary-list__key">
+                Registered with Companies House?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['registered-companies-house'] }}
+            </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./about-your-organisation/companies-house-number.html">
+                <a class="govuk-link" href="../../general/registered-with-companies-house.html">
+                Change<span class="govuk-visually-hidden"> if you are registered with companies house</span>
+            </a>
+            </dd>
+        </div>
+
+        <!-- COMPANIES HOUSE NUMBER -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+                000134567
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
                 Change<span class="govuk-visually-hidden"> Companies House number</span>
             </a>
             </dd>
         </div>
 
+        <!-- COMPANIES HOUSE DETAILS -->
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
                 Organisation details
@@ -68,7 +86,7 @@
             </dd>
         </div>
 
-
+        <!-- UK NATION -->
         {% if (data['uk-nation-question'] == "yes") %}
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -77,11 +95,11 @@
             <dd class="govuk-summary-list__value">
                 {{ data['uk-nation'] }}
             </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="../about-your-organisation/uk-nation.html">
-                    Change<span class="govuk-visually-hidden"> UK nation</span>
-                </a>
-                </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/uk-nation.html">
+                Change<span class="govuk-visually-hidden"> UK nation</span>
+            </a>
+            </dd>
         </div>
         {% endif %}
          
@@ -94,6 +112,23 @@
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You</h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+
+        <!-- ROLE -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Role
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['form-role-in-organisation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-you/role-in-organisation.html">
+                Change<span class="govuk-visually-hidden"> role in organisation</span>
+            </a>
+            </dd>
+        </div>
+
+        <!-- NAME -->
         <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
             Name
@@ -102,11 +137,13 @@
             {{ data['first-name'] }} {{ data['last-name'] }}
         </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./about-you/full-name.html">
+                <a class="govuk-link" href="../about-you/full-name.html">
                 Change<span class="govuk-visually-hidden"> name</span>
             </a>
             </dd>
         </div>
+
+        <!-- TELEPHONE -->
         <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
             Telephone
@@ -115,24 +152,12 @@
             {{ data['personal-telephone-number'] }}
         </dd>
             <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./about-you/telephone-number.html">
+                <a class="govuk-link" href="../about-you/telephone-number.html">
                 Change<span class="govuk-visually-hidden"> email</span>
             </a>
             </dd>
         </div>
-        <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-            Role
-        </dt>
-        <dd class="govuk-summary-list__value">
-            {{ data['form-role-in-organisation'] }}
-        </dd>
-            <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./about-you/role-in-organisation.html">
-                Change<span class="govuk-visually-hidden"> role in organisation</span>
-            </a>
-            </dd>
-        </div>
+        
     </dl>
 
     {{ govukButton({

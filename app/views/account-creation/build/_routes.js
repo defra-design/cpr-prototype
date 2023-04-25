@@ -2,16 +2,29 @@ const express = require('express')
 const router = express.Router()
 
 // Routing for Page
-router.post('*/registered-trade-in-uk', function (req, res) {
-    var registeredUK = req.session.data['registered-in-uk']
+router.post('*/registered-charity-question', function (req, res) {
+    var registeredCharity = req.session.data['registered-charity']
     
-    if (registeredUK == "yes"){
-        res.redirect('type-of-organisation')
+    if (registeredCharity == "Yes"){
+        res.redirect('registered-with-companies-house')
     }
-    else if (registeredUK == "no"){
-        res.redirect('../not-affected/non-uk-organisation')
+    else if (registeredCharity == "No"){
+        res.redirect('../not-affected/charity')
     }
 })
+
+// Routing for Page
+router.post('*/registered-with-companies-house', function (req, res) {
+    var registeredCH = req.session.data['registered-companies-house']
+    
+    if (registeredCH == "Yes"){
+        res.redirect('../companies-house/about-your-organisation/companies-house-number')
+    }
+    else if (registeredCH == "No"){
+        res.redirect('../non-companies-house/about-your-business/type-of-organisation')
+    }
+})
+
 
 // Routing for Page
 router.post('*/organisation-type', function (req, res) {
@@ -57,13 +70,13 @@ router.post('*/complete-account-creation', function (req, res) {
     var userGroup = req.session.data['user-group']
     
     if (userGroup == "compliance-scheme") {
-        res.redirect('../../../../landing-page/cs-submit-behalf-lp-england')
+        res.redirect('../../../../landing-page/cs-submit-behalf-lp-england?account-created-notification=true')
     }
     else if (userGroup == "producer") {
-        res.redirect('../../../../landing-page/large-producer')
+        res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
     }
     else {
-        res.redirect('../../../../landing-page/large-producer')
+        res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
     }
 })
 
