@@ -6,10 +6,10 @@ router.post('*/registered-charity-question', function (req, res) {
     var registeredCharity = req.session.data['registered-charity']
     
     if (registeredCharity == "Yes"){
-        res.redirect('registered-with-companies-house')
+        res.redirect('../not-affected/charity')
     }
     else if (registeredCharity == "No"){
-        res.redirect('../not-affected/charity')
+        res.redirect('registered-with-companies-house')
     }
 })
 
