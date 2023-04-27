@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{# {{data|dump}} #}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-submitted" method="post">
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Review and submit files</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class">File type</th>
+                <th scope="col" class="govuk-table__header app-custom-class">File name</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Date</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Person responsible</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Organisation details</td>
+                <td class=“govuk-table__cell”><a href=“/public/files/sample_validation_data.xlsx” download>org-details.csv</a></td>
+                <td class="govuk-table__cell">27th April 2023</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Partner information</td>
+                <td class=“govuk-table__cell”><a href=“/public/files/sample_validation_data.xlsx” download>partner.csv</a></td>
+                <td class="govuk-table__cell">27th April 2023</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Brand information</td>
+                <td class=“govuk-table__cell”><a href=“/public/files/sample_validation_data.xlsx” download>brand.csv</a></td>
+                <td class="govuk-table__cell">27th April 2023</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+            </tbody>
+          </table>
+
+        
+           <p>If you need to, you can <a class="govuk-link" href="../upload/organisation-upload.html">upload a new file</a>. This will remove the current files from your account.</p>
+
+
+            <h2 class="govuk-heading-m">Submit file to regulator</h2>
+
+            <p class="govuk-body">If you need to make changes after you submit the files to the regulator, you may need to pay a fee.  </p>
+
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Submit 
+                </button>
+             
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="../large-producer2" method="post"> 
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                    
+                        Files you've uploaded                  
+                    </h1>
+
+                   
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Organisation-details.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 January 2023
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="organisation-upload">
+                              Change<span class="govuk-visually-hidden"> organisation</span>
+                            </a>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Brand.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 January 2023
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="brand-upload">
+                              Change<span class="govuk-visually-hidden"> brand</span>
+                            </a>
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Partner.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 January 2023
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="partner-upload">
+                              Change<span class="govuk-visually-hidden"> partner</span>
+                            </a>
+                          </dd>
+                        </div>
+                      </dl>
+                      
+                    <br>
+                  
+
+                    <p class="govuk-body">The files have been successfully uploaded to your account.</p>
+                      
+                      <p class="govuk-body">They have not been submitted to the regulator. There's a seperate step to do that.</p>
+
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can upload new files any time before the deadline.</p>
+
+                    <p class="govuk-body">The deadline to submit the files to the regulator is 1 October 2023. Only people with the right account permission can do this.</p>
+
+                    <h2 class="govuk-heading-m">After the files have been submitted</h2>
+
+                    <p class="govuk-body">You need to report any changes to organisation details within 28 days of the changes happening. Do this by submitting updated files to the regulator.</p>
+                    
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Go to account home page
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
