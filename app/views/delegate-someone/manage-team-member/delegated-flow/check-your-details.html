@@ -18,16 +18,20 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
+    serviceUrl: "#?notification=false",
     navigation: [
       {
-        href: "./report-packaging-data.html",
+        href: "#?notification=false",
         text: "Home"
       },
       {
-        href: "./account-management.html",
-        text: "Manage account details",
+        href: "#?notification=false",
+        text: "Manage account",
         active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
       }
     ]
   }) }}
@@ -42,23 +46,23 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block beforeContent %}
 
-{% if (data['work-as'] == "something-else") %}
-    <a class="govuk-back-link" href="./more-about-them/company-name.html">Back</a>
-{% endif %}
+ <a class="govuk-back-link" href="../account-access.html">Back</a>
 
-{% if (data['work-as'] == "compliance-scheme") %}
-    <a class="govuk-back-link" href="./more-about-them/compliance-scheme-name.html">Back</a>
+
+<!-- {% if (data['work-as'] == "compliance-scheme") %}
+    <a class="govuk-back-link" href="./compliance-scheme-name.html">Back</a>
 {% endif %}
 
 {% if (data['work-as'] == "consultancy") %}
-    <a class="govuk-back-link" href="./more-about-them/consultancy-name.html">Back</a>
+    <a class="govuk-back-link" href="./consultancy-name.html">Back</a>
 {% endif %}
 
 {% if (data['work-as'] == "employee") %}
-    <a class="govuk-back-link" href="./more-about-them/employee-job-title.html">Back</a>
-{% endif %}
+    <a class="govuk-back-link" href="./employee-job-title.html">Back</a>
+{% endif %} -->
 
 {% endblock %}
 
@@ -68,11 +72,10 @@ Report packaging data
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="./confirmation">
     <div class="govuk-form-group govuk-!-margin-bottom-7">
-      <h1 class="govuk-heading-l">Check their details and send invite</h1>
+      <h1 class="govuk-heading-l">Declaration</h1>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+      <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         
-
         <div class="govuk-summary-list__row">
 
           <dt class="govuk-summary-list__key">
@@ -80,11 +83,11 @@ Report packaging data
           </dt>
 
           <dd class="govuk-summary-list__value">
-              {{ data['sally-account-access'] }}
+              {{ data['their-account-access'] }}
           </dd>
 
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="../sally-williams/account-access.html">
+            <a class="govuk-link" href="../account-access.html">
               Change<span class="govuk-visually-hidden"> account permissions</span>
             </a>
           </dd>
@@ -97,25 +100,25 @@ Report packaging data
             How they work with your organisation
           </dt>
 
-          {% if (data['manage-work-with-organisation'] == "Something else") %}
+          {% if (data['work-with-organisation'] == "Something else") %}
             <dd class="govuk-summary-list__value">
               {{ data['relationship-to-org'] }}
             </dd>
           {% endif %}
 
-          {% if (data['manage-work-with-organisation'] == "Compliance scheme") %}
+          {% if (data['work-with-organisation'] == "Compliance scheme") %}
             <dd class="govuk-summary-list__value">
               Compliance scheme
             </dd>
           {% endif %}
 
-          {% if (data['manage-work-with-organisation'] == "Employee") %}
+          {% if (data['work-with-organisation'] == "Employee") %}
             <dd class="govuk-summary-list__value">
               Employee
             </dd>
           {% endif %}
 
-          {% if (data['manage-work-with-organisation'] == "Consultant") %}
+          {% if (data['work-with-organisation'] == "Consultant") %}
             <dd class="govuk-summary-list__value">
               Consultant
             </dd>
@@ -138,7 +141,7 @@ Report packaging data
           </dt>
 
           <dd class="govuk-summary-list__value">
-              {{ data['manage-organisation-name'] }}
+              {{ data['organisation-name'] }}
           </dd>
 
           <dd class="govuk-summary-list__actions">
@@ -158,7 +161,7 @@ Report packaging data
           </dt>
 
           <dd class="govuk-summary-list__value">
-              {{ data['manage-compliance-scheme'] }}
+              {{ data['compliance-scheme'] }}
           </dd>
 
           <dd class="govuk-summary-list__actions">
@@ -178,7 +181,7 @@ Report packaging data
           </dt>
 
           <dd class="govuk-summary-list__value">
-              {{ data['manage-consultancy-company'] }}
+              {{ data['consultancy-company'] }}
           </dd>
 
           <dd class="govuk-summary-list__actions">
@@ -198,7 +201,7 @@ Report packaging data
           </dt>
 
           <dd class="govuk-summary-list__value">
-              {{ data['manage-job-title'] }}
+              {{ data['job-title'] }}
           </dd>
 
           <dd class="govuk-summary-list__actions">
@@ -211,16 +214,14 @@ Report packaging data
         {% endif %}
 
 
+      </dl> -->
 
-      </dl>
-
-      <h2 class="govuk-heading-m">Declaration</h2>
-      <p class="govuk-body">By sending the invitation, you confirm that this person has permission to submit data for Acme Org Ltd.</p>
-      <p class="govuk-body">You also confirm that they know the regulations and have access to the information they need to submit data correctly.</p>
+      <p class="govuk-body">By sending the invitation, you confirm that John Smith has your permission to submit data for the organisation.</p>
+      <p class="govuk-body">You also confirm that John Smith understands the regulations and have access to the information they need to submit data correctly.</p>
 
     </div>
       {{ govukButton({
-        text: "Confirm and send invite"
+        text: "Confirm and send"
       })}}
     </form>
   </div>

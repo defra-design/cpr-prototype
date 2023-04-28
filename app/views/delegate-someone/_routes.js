@@ -36,19 +36,20 @@ router.post('*/work-with-organisation-routing', function (req, res) {
 })
 
 // Routing for MANAGE
-router.post('*/manage-access-role', function (req, res) {
-    var accessRole = req.session.data['sally-account-access']
+router.post('*/access-role-change', function (req, res) {
+    var accessRole = req.session.data['their-account-access']
     
     if (accessRole == "Upload data only"){
-        res.redirect('./account-access')
+        res.redirect('./basic-admin-flow/check-your-details-basic-admin')
     }
     else if (accessRole == "Manage team and upload data") {
-        res.redirect('./account-access')
+        res.redirect('./basic-admin-flow/check-your-details-basic-admin')
     }
     else if (accessRole == "Manage team, upload data and submit data") {
-        res.redirect('../delegate-them/work-for-your-organisation')
+        res.redirect('./delegated-flow/check-your-details')
     }
 })
+
 
 // Routing for MANAGE
 router.post('*/manage-work-with-organisation-routing', function (req, res) {
@@ -60,7 +61,7 @@ router.post('*/manage-work-with-organisation-routing', function (req, res) {
     else if (organisationMember == "Consultant"){
         res.redirect('./more-about-them/consultancy-name')
     }
-    else if (organisationMember == "Compliance scheme"){
+    else if (organisationMember == "Consultant working for compliance scheme"){
         res.redirect('./more-about-them/compliance-scheme-name')
     }
     else if (organisationMember == "Something else"){

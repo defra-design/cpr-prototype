@@ -17,16 +17,20 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
+    serviceUrl: "#?notification=false",
     navigation: [
       {
-        href: "./report-packaging-data.html",
+        href: "#?notification=false",
         text: "Home"
       },
       {
-        href: "./account-management.html",
-        text: "Manage account details",
+        href: "#?notification=false",
+        text: "Manage account",
         active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
       }
     ]
   }) }}
@@ -40,6 +44,7 @@ Report packaging data
   }) }}
 
 {% endblock %}
+
 
 {% block beforeContent %}
 
@@ -56,22 +61,29 @@ Report packaging data
           Invitation sent to change permissions
         </h1>
       </div>
-      <p class="govuk-body">
-        We’ve sent an email invitation to Sally Williams to change their account permissions.</p>
+      <p class="govuk-body">We’ve sent an email invitation to John Smith to change their account permissions.</p>
       <h2 class="govuk-heading-m">What happens next</h2>
       <p class="govuk-body">
-        Sally Williams needs to accept and confirm the invitation to change their account permissions. If not they will not be able to submit data.
+        John Smith needs to accept and confirm the invitation to change their account permissions.
       </p>
-      <p class="govuk-body">
-        After that the regulator will review the request. This takes up to 28 days.
+      <!-- <p class="govuk-body">
+        After John Smith has accepted and confirmed the invitation, the environmental regulator will review the request. This can take up to 28 days.
       </p>
+      <p class="govuk-body" > 
+        John Smith will be able to submit data once the environmental regulator has approved the request.
+      </p> -->
     </div>
     <div class="govuk-button-group">
       {{ govukButton({
         text: "Go to manage account",
-        href: "../account-management?sally-delegated=yes"
+        href: "../../account-management-one-team-member.html?basic-admin=false&delegated=yes"
       }) }}
-
+    
+      <!-- {{ govukButton({
+        text: "Add another team member",
+        classes: "govuk-button--secondary",
+        href: "../their-email-address?basic-admin=false&delegated=yes"
+      }) }} -->
     </div>
     </form>
   </div>
