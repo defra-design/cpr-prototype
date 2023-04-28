@@ -1,4 +1,4 @@
-{% extends "layout-e2e-testing.html" %}
+{% extends "layout.html" %}
 
 {% set serviceName %}
 Report packaging data
@@ -45,6 +45,7 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block beforeContent %}
 
 {% endblock %}
@@ -90,19 +91,12 @@ Report packaging data
         </div>
       </div> -->
 
-      {% if (data['added'] == "no") %}
-      <div>
-        <h2 class="govuk-heading-l ">Manage your team</h2>
-        <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state" href="./add-team-member/their-email-address.html?notification=false">Add team member</a></p>
-      </div>
-      {% endif %}
-
-      {% if (data['added'] == "yes") %}
+      
       <div>
         <h2 class="govuk-heading-l ">Manage your team</h2>
         <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state?notification=false" href="#">Add team member</a></p>
       </div>
-      {% endif %}
+      
 
   </div>
 </div>
@@ -111,8 +105,6 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-margin-top-2">     
-      {% if (data['added'] == "yes") %}
-
 
           <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -138,22 +130,37 @@ Report packaging data
             </tbody>
             {% endif %} -->
 
-            {% if (data['basic-admin'] == "true") %}
             <tbody class="govuk-table__body">
 
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><strong>{{ data['their-email'] }}</strong></th>
+                <th scope="row" class="govuk-table__header">
+                  <p class="govuk-body govuk-!-margin-bottom-1"><strong>John Smith</strong></p>
+                  <p class="govuk-body govuk-!-margin-bottom-1">{{ data['their-email'] }}</p>
+                  
+                </th>
                 <td class="govuk-table__cell ">
+                  {% if (data['basic-admin'] == "true") %}
                   <p class="govuk-body govuk-!-margin-bottom-1">{{ data['their-account-access'] }}</p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                  <p class="govuk-body govuk-!-margin-bottom-1">Manage team and upload data</p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                    <div class="govuk-!-margin-bottom-1"><strong class="govuk-tag-new">Waiting for approval to submit data</strong></div>
+                  {% endif %}
+                  {% if (data['basic-admin'] == "true") %}
+                  <p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="./manage-team-member/account-access.html?notification=false">Change</a></p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                  <p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="#">Change</a></p>
+                  {% endif %}
                 </td>
                 <td class="govuk-table__cell"><p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="#" style="color: #d4351c;">Remove</a></p></td>
               </tr>
 
             </tbody>
-            {% endif %}
 
           </table>
-      {% endif %}
   </div>
 </div>
 

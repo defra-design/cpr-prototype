@@ -27,22 +27,7 @@ router.post('*/registered-with-companies-house', function (req, res) {
 
 
 // Routing for Page
-router.post('*/organisation-type', function (req, res) {
-    var organisationType = req.session.data['form-organisation-type']
-    
-    if (organisationType == "Limited Company"){
-        res.redirect('../limited-company/about-your-organisation/companies-house-number')
-    }
-    else if (organisationType == "Sole trader"){
-        res.redirect('../sole-trader/about-your-business/trading-name')
-    }
-    else if (organisationType == "Charity"){
-        res.redirect('../not-affected/charity')
-    }
-})
-
-// Routing for Page
-router.post('*/uk-nation', function (req, res) {
+router.post('*/uk-nation-ch', function (req, res) {
     var userGroup = req.session.data['user-group']
     
     if (userGroup == "compliance-scheme") {

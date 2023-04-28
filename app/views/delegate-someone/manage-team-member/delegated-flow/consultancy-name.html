@@ -17,16 +17,20 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
+    serviceUrl: "#?notification=false",
     navigation: [
       {
-        href: "./report-packaging-data.html",
+        href: "#?notification=false",
         text: "Home"
       },
       {
-        href: "./account-management.html",
-        text: "Manage account details",
+        href: "#?notification=false",
+        text: "Manage account",
         active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
       }
     ]
   }) }}
@@ -41,9 +45,10 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../work-for-your-organisation.html">Back</a>
+<a class="govuk-back-link" href="./work-for-your-organisation.html">Back</a>
 
 {% endblock %}
 
@@ -52,15 +57,15 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="../check-your-details?work-as=compliance-scheme">
+    <form method="POST" action="./check-your-details?work-as=consultancy">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <!-- <span class="govuk-caption-l">Add team member</span> -->
-          <label class="govuk-label govuk-label--l" for="manage-compliance-scheme">
-            What’s the name of the compliance scheme they work for?
+          <label class="govuk-label govuk-label--l" for="consultancy-company">
+            What’s the name of the consultancy they work for?
           </label>
         </h1>
-        <input class="govuk-input" id="manage-compliance-scheme" name="manage-compliance-scheme" type="text" value="{{data['manage-compliance-scheme']}}">
+        <input class="govuk-input" id="consultancy-company" name="consultancy-company" type="text" spellcheck="false" value="{{data['consultancy-company']}}">
       </div>
         {{ govukButton({
           text: "Continue"

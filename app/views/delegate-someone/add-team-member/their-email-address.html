@@ -17,19 +17,19 @@ Report packaging data
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html?basic-admin=false",
+    serviceUrl: "#?notification=false",
     navigation: [
       {
-        href: "./report-packaging-data.html?basic-admin=false",
+        href: "#?notification=false",
         text: "Home"
       },
       {
-        href: "./account-management.html?basic-admin=false",
+        href: "#?notification=false",
         text: "Manage account",
         active: true 
       },
       {
-        href: "./account-management.html",
+        href: "#?notification=false",
         text: "Sign out"
       }
     ]
@@ -45,9 +45,10 @@ Report packaging data
 
 {% endblock %}
 
+
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./account-management.html">Back</a>
+<a class="govuk-back-link" href="../account-management.html">Back</a>
 
 {% endblock %}
 
@@ -62,11 +63,11 @@ Report packaging data
           <!-- <span class="govuk-caption-l">Add team member</span> -->
 
           <label class="govuk-label govuk-label--l" for="their-email">
-          What is their email address?
+            What is their email address?
           </label>
         </h1>
         <div class="govuk-hint">
-          We will send them an email, inviting them to join your account.
+          We ask for this so we can invite them to join your team.
         </div>
         <input class="govuk-input" id="gov-signin-email" name="their-email" type="email" spellcheck="false" autocomplete="email" value="{{data['their-email']}}">
       </div>
