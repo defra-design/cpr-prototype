@@ -51,34 +51,34 @@ router.post('*/authorised-person', function (req, res) {
 })
 
 // Routing for end to end testing
-router.post('*/complete-account-creation', function (req, res) {
-    var userGroup = req.session.data['user-group']
+// router.post('*/complete-account-creation', function (req, res) {
+//     var userGroup = req.session.data['user-group']
     
-    if (userGroup == "compliance-scheme") {
-        res.redirect('../../../../landing-page/cs-submit-behalf-lp-england?account-created-notification=true')
-    }
-    else if (userGroup == "producer") {
-        res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
-    }
-    else {
-        res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
-    }
-})
+//     if (userGroup == "compliance-scheme") {
+//         res.redirect('../../../../landing-page/cs-submit-behalf-lp-england?account-created-notification=true')
+//     }
+//     else if (userGroup == "producer") {
+//         res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
+//     }
+//     else {
+//         res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
+//     }
+// })
 
 // Routing for end to end testing
-router.post('*/signing-in', function (req, res) {
-    var userGroup = req.session.data['user-group']
+// router.post('*/signing-in', function (req, res) {
+//     var userGroup = req.session.data['user-group']
     
-    if (userGroup == "compliance-scheme") {
-        res.redirect('../../../../landing-page/cs-submit-behalf-lp-england')
-    }
-    else if (userGroup == "producer") {
-        res.redirect('../../../../landing-page/large-producer')
-    }
-    else {
-        res.redirect('../../../../landing-page/large-producer')
-    }
-})
+//     if (userGroup == "compliance-scheme") {
+//         res.redirect('../../../../landing-page/cs-submit-behalf-lp-england')
+//     }
+//     else if (userGroup == "producer") {
+//         res.redirect('../../../../landing-page/large-producer')
+//     }
+//     else {
+//         res.redirect('../../../../landing-page/large-producer')
+//     }
+// })
 
 
 
