@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+{% if (data['account-created-notification'] == "true") %}
+  <div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-bottom-4" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You’ve created an account for Compliance Co
+      </h3>
+    </div>
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+   <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+      Account home - Compliance Co
+    </h1>
+  </div>
+</div>
+
+
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary govuk-!-margin-bottom-2">
+    <span class="govuk-details__summary-text">
+      What are 'reporting periods'?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+      <p>For the organisations Compliance Co works with, you need to report data that shows their packaging activities over a period of time. Each period of time is called a 'reporting period’. </p>
+      <p class="govuk-body">For each data period, Compliance Co must report:  </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>organisation details</li>
+        <li>packaging data</li>
+      
+      </ul> 
+      <p>You may need to collect some information before the period starts, and you submit the data after the period has finished. This means you’ll have tasks for more than one data period at the same time. </p>
+<p>There are different data periods for large and small organisations.</p>
+<p>You’ll also need to handle packaging recovery notes (PRNs) and packaging export recovery notes (PERNs). These are evidence that packaging waste has been recovered, reprocessed or exported. They cover all packaging activities in a calendar year - they are not linked to specific data periods.</p>
+
+    </div>
+</details>
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+      Contents
+  </h2>
+<ul class="govuk-tabs__list"> 
+  <li class="govuk-tabs__list-item govuk-tabs__list-item--selected govuk-tabs__list-item--selected-blue"> 
+    <a class="govuk-tabs__tab" href="cs-submit-behalf-lp-england.html">Compliance Co England</a> 
+  </li> 
+  <li class="govuk-tabs__list-item"> 
+    <a class="govuk-tabs__tab" href="cs-submit-behalf-lp-scotland.html?account-created-notification=false">Compliance Co Scotland</a> 
+  </li>
+  <li class="govuk-tabs__list-item"> 
+    <a class="govuk-tabs__tab" href="cs-submit-behalf-lp-wales.html?account-created-notification=false">Compliance Co Wales</a> 
+  </li> 
+</ul>
+</div>
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"><a href="cs-submit-behalf-lp-orgdetails-tasklist.html?account-created-notification=false" class="govuk-link--no-visited-state">Report organisation details</a></h2>
+      <p class="govuk-body">Reporting periods:</p>
+        <ul class="govuk-list govuk-list--bullet">
+         <li>January to June 2023</li>
+         <li>July to December 2023</li>
+        </ul> 
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m"><a href="cs-submit-behalf-lp-reportpacking-tasklist.html?account-created-notification=false" class="govuk-link--no-visited-state">Report packaging data</a></h2>
+      <p class="govuk-body">Reporting periods:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>January to June 2023</li>
+          <li>July to December 2023</li>
+        </ul> 
+    </div>
+  </div>
+</div>
+
+ <div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m" class="govuk-link--no-visited-state">Packaging waste recycling notes (PRNs) and packaging waste export recycling notes (PERNs)</h2>
+      <p class="govuk-body">No action needed now</p>
+    </div>
+  </div>
+</div>  
+
+
+ <!-- <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">View waste management fees</h2>
+      <p class="govuk-body">No action needed</p>
+    </div>
+  </div> -->
+
+{% endblock %}

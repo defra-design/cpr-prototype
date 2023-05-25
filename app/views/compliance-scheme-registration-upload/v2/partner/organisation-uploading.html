@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="organisation-details" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-grid-column-full-width">
+
+                  
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                           
+                            Uploading organisation details                    
+                        </h1>
+
+                        <p class="govuk-body">This may take a few minutes - we’ll refresh the page automatically until it is done.</p>
+
+                        <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
+
+                  <p>
+                  <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+                  </p>
+                  
+                  
+                 
+                  
+                 
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+            <a href="./organisation-details.html">Next page</a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
