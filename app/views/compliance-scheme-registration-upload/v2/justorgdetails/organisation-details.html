@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="" method="post"> 
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                        <div class="govuk-notification-banner__header">
+                          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                            Success
+                          </h2>
+                        </div>
+                        <div class="govuk-notification-banner__content">
+                          <h3 class="govuk-notification-banner__heading">
+                            Organisation details uploaded
+                          </h3>
+                          <p>File name</p>
+                        </div>
+                      </div>
+
+
+                      <p class="govuk-body">Based on the file, you do not need to report about:
+
+                        
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>brands  - because none of the organisations supply goods to the UK market in primary, secondary, or shipment packaging under their own brand</li>
+                        <li>partners -  because none of the organisation types are ‘partnership’</li>
+                      </ul>
+
+                    <p>If you think this is incorrect, you can <a class="govuk-link" href="organisation-upload.html">re-upload your organisation details</a>.</p>
+
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p class="govuk-body">You can upload new files to your account any time before the submission deadline.</p>
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                The deadline to submit the files to the environmental regulator is 1 October 2023. Only people with the right account permission can do this.
+
+
+              </strong>
+            </div> 
+
+            {{
+              govukButton({
+                     text: "Go to account home page"
+                   })
+                         }}
+
+              </fieldset>
+           </div>
+    </form>
+
+    </div>
+</div>
+
+{% endblock %}

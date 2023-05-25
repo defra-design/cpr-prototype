@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="" method="post"> 
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                    
+                        Files you've uploaded                  
+                    </h1>
+
+                    <table class="govuk-table">
+        
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header app-custom-class">File</th>
+                      
+                        <th scope="col" class="govuk-table__header app-custom-class">Date uploaded</th>
+                        <th scope="col" class="govuk-table__header app-custom-class">Uploaded by</th>
+                        <th scope="col" class="govuk-table__header app-custom-class"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Organisation details</td>
+                        <td class="govuk-table__cell">27 Apr 23</td>
+                        <td class="govuk-table__cell">Joe Bloggs</td>
+                       
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Partner information</td>
+                        <td class="govuk-table__cell">27 Apr 23</td>
+                        <td class="govuk-table__cell">Joe Bloggs</td>
+
+                        
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Brand information</td>
+                        <td class="govuk-table__cell">27 Apr 23</td>
+                        <td class="govuk-table__cell">Joe Bloggs</td>
+
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                    <br>
+                  
+
+                    <p class="govuk-body">The files have been successfully uploaded to your account.</p>
+                      
+                      <p class="govuk-body">They have not been submitted to the regulator. There's a seperate step to do that.</p>
+
+                      <h2 class="govuk-heading-m">What happens next</h2>
+
+                      <p class="govuk-body">You can now:</p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>make changes to your information and <a class="govuk-link" href="organisation-upload.html">upload new files</a> - if you do this you'll need to upload all three files again
+                      </li>
+                        <li>get an authorised person to submit the files to the environmental regulator
+                      </li>
+                      </ul>
+  
+                      <div class="govuk-warning-text">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                          <span class="govuk-warning-text__assistive">Warning</span>
+                          The deadline to submit the files to the environmental regulator is 1 October 2023. Only people with the right account permission can do this.
+  
+  
+                        </strong>
+                      </div> 
+
+
+    
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Go to account home page
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
