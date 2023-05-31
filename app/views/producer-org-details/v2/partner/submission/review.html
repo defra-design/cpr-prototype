@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="" method="post"> 
+
+          <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                  <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                  
+                      Files you've uploaded                  
+                  </h1>
+
+                  <table class="govuk-table">
+      
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header app-custom-class">File</th>
+                    
+                      <th scope="col" class="govuk-table__header app-custom-class">Date uploaded</th>
+                      <th scope="col" class="govuk-table__header app-custom-class">Uploaded by</th>
+                      <th scope="col" class="govuk-table__header app-custom-class"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Organisation details</td>
+                      <td class="govuk-table__cell">27 Apr 23</td>
+                      <td class="govuk-table__cell">Joe Bloggs</td>
+                     
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Partner information</td>
+                      <td class="govuk-table__cell">27 Apr 23</td>
+                      <td class="govuk-table__cell">Joe Bloggs</td>
+
+                      
+                    </tr>
+              
+                  </tbody>
+                </table>
+                      
+                    <br>
+                  
+
+                    <p class="govuk-body">The files have been successfully uploaded to your account.</p>
+                      
+                    <p>If you need to, you can <a class="govuk-link" href="organisation-upload.html">upload new files</a>. This will remove the current files from your account.</p>
+
+                    <p class="govuk-body">If not, you can now submit the files to the regulator.</p>
+
+                    <h2 class="govuk-heading-m">Submit files to environmental regulator</h2>
+
+                    <p class="govuk-body">This will submit your organisation details for the data period January to June 2023 to the environmental regulator. </p>
+
+
+                    <p class="govuk-body">After you submit, you need to report any changes to organisation details within 28 days of the changes happening. Do this by submitting updated files to the regulator.</p>
+                    
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Submit to regulator
+                </button>
+              
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
