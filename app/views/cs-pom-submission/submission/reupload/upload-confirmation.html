@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="upload-csv" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        
+                        Are you sure you want to replace the packaging data file on your account?                   
+                    </h1>
+
+                    <p class="govuk-body">You can only store one packaging data file on your account before you submit it to the regulator. If you upload a new file, it will replace the one that is currently stored on the account.</p>
+
+                    <p class="govuk-body">This will not affect any files that you've already submitted to the regulator.</p>
+
+                    <div class="govuk-inset-text">
+                        This is to report packaging data for the deadline on 31 October 2023. Check you’re reporting for the right deadline before you continue. 
+                      </div>
+
+                    <h2 class="govuk-heading-m">Current file on account</h2>
+
+                   
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Packaging-data.csv
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Uploaded on 14 Feb 2023
+                          </dd>
+                        </div>
+                      </dl>
+
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Upload new file
+                </button>
+                <a class="govuk-link" href="#">Cancel</a>
+              </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
