@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-submitted" method="post">
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+            Review and submit file to regulator               
+      </h1>
+
+          <p> Confirm you want to submit the new packaging data file to the environmental regulator.</p>
+
+          <p> This will replace the last packaging data file that you submitted.</p>
+           
+          <div class="govuk-summary-list__card govuk-!-margin-bottom-6">
+
+            <div class="govuk-summary-list__card-title-wrapper">
+                <h2 class="govuk-summary-list__card-title govuk-heading-s govuk-!-margin-bottom-0">File you are submitting</h2>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="../general/type-of-organisation.html">
+                  Change<span class="govuk-visually-hidden"> type of organisation</span>
+              </a>
+              </dd>
+            </div>
+      
+            <div class="govuk-summary-list__card-content">  
+                <dl class="govuk-summary-list">
+      
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                         File name 
+                      </dt>
+                      <dt class="govuk-summary-list__key">
+                        Date uploaded
+                     </dt>
+                     <dt class="govuk-summary-list__key">
+                      Uploaded by
+                     </dt>
+                    </div>
+      
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        POM.csv
+                      </dd>
+                      <dd class="govuk-summary-list__value">
+                          31 May 2023
+                      </dd>
+                      <dd class="govuk-summary-list__value">
+                        Joe Bloggs
+                       </dd>
+                      </div> 
+                </dl>
+              </div>
+          </div>
+
+          <div class="govuk-summary-list__card govuk-!-margin-bottom-6">
+
+              <div class="govuk-summary-list__card-title-wrapper">
+                <h2 class="govuk-summary-list__card-title govuk-heading-s govuk-!-margin-bottom-0">File that will be replaced</h2>
+              </div>
+      
+            <div class="govuk-summary-list__card-content">  
+                <dl class="govuk-summary-list">
+      
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                         File name 
+                      </dt>
+                      <dt class="govuk-summary-list__key">
+                        Date uploaded
+                     </dt>
+                     <dt class="govuk-summary-list__key">
+                      Uploaded by
+                     </dt>
+                    </div>
+      
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        POM.csv
+                      </dd>
+                      <dd class="govuk-summary-list__value">
+                          31 May 2023
+                      </dd>
+                      <dd class="govuk-summary-list__value">
+                        Joe Bloggs
+                       </dd>
+                      </div> 
+                </dl>
+          </div>
+        </div>
+               
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Kite Packaging can be fined if the data you submit is incorrect. 
+          </strong>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">
+              Submit to regulator
+          </button>   
+          <a class="govuk-link" href="#">Cancel</a>
+        </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

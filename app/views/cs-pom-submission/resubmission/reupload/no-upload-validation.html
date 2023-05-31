@@ -13,23 +13,20 @@ Report packaging data
 {% block header %}
 
   {# Set serviceName in config.js. #}
+  
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "#",
+    serviceUrl: "./report-packaging-data.html",
     navigation: [
       {
-        href: "#",
-        text: "Home",
+        href: "./report-packaging-data.html",
+        text: "Home", 
         active: true
       },
       {
-        href: "../../delegate-someone/account-management",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
       }
     ]
   }) }}
@@ -49,7 +46,6 @@ Report packaging data
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -58,7 +54,7 @@ Report packaging data
             href: "javascript:history.back()"
         }) }}
 
-        <form action="landing-page/v2/large-producer-reportpacking-tasklist" method="post">
+        <form action="task-list" method="post">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -85,7 +81,7 @@ Report packaging data
 
                         <p class="govuk-body">We could not validate the data - some of it is missing or in the wrong format.</p>
 
-
+                        <p class="govuk-body">The new file has not been uploaded - the current one is still stored on your account.</p>
 
             
                         <h2 class="govuk-heading-m">What happens next</h2>
@@ -100,7 +96,7 @@ Report packaging data
                 </fieldset>
                 <div class="govuk-button-group">
                   <button class="govuk-button" data-module="govuk-button">
-                    Continue
+                    Go to dashboard
                   </button>
                 
               
