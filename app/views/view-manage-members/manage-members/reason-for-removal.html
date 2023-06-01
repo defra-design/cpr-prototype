@@ -1,0 +1,165 @@
+{% extends "layout-e2e-testing.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "../../landing-page/v2/cs-submit-behalf-lp-england",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account"
+            },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./scheme-member.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <form method="POST" action="confirm-removal">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="remove-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Why do you want to remove Greggs plc from your account?
+          </h1>
+        </legend>
+        <div id="remove-hint" class="govuk-hint">
+          Select all that apply.
+        </div>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason" name="removal-reason" type="checkbox" value="Its annual turnover is now less than 1 million" {{ checked("removal-reason", "Its annual turnover is now less than 1 millions") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason">
+              Its annual turnover is now less than 1 million
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-2" name="removal-reason" type="checkbox" value="The amount of packing it supplies or imports each year is now less than 25 tonnes" {{ checked("removal-reason", "The amount of packing it supplies or imports each year is now less than 25 tonnes") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-2">
+              The amount of packing it supplies or imports each year is now less than 25 tonnes
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-3" name="removal-reason" type="checkbox" value="It is no longer legally obligated under EPR for packaging" {{ checked("removal-reason", "It is no longer legally obligated under EPR for packaging") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-3">
+              It is no longer legally obligated under EPR for packaging 
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-4" name="removal-reason" type="checkbox" value="It has gone into administration or receivership" {{ checked("removal-reason", "It has gone into administration or receivership") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-4">
+              It has gone into administration or receivership
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-5" name="removal-reason" type="checkbox" value="It has gone into liquidation" {{ checked("removal-reason", "It has gone into liquidation") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-5">
+              It has gone into liquidation
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-6" name="removal-reason" type="checkbox" value="The owner of the account (sometimes called the approved person) has left the organisation" {{ checked("The owner of the account (sometimes called the approved person) has left the organisation", "") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-6">
+              The owner of the account (sometimes called the approved person) has left the organisation
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-7" name="removal-reason" type="checkbox" value="It has closed" {{ checked("removal-reason", "It has closed") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-7">
+              It has closed
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-8" name="removal-reason" type="checkbox" value="It has gone bankrupt" {{ checked("removal-reason", "It has gone bankrupt") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-8">
+              It has gone bankrupt
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-9" name="removal-reason" type="checkbox" value="It has merged with another company" {{ checked("removal-reason", "It has merged with another company") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-9">
+              It has merged with another company
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-10" name="removal-reason" type="checkbox" value="It is now a subsidiary of another company" {{ checked("removal-reason", "It is now a subsidiary of another company") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-10">
+              It is now a subsidiary of another company
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-11" name="removal-reason" type="checkbox" value="It is not going to be able to report its organisation details by the deadline" {{ checked("removal-reason", "It is not going to be able to report its organisation details by the deadline") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-11">
+              It is not going to be able to report its organisation details by the deadline
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="reason-12" name="removal-reason" type="checkbox" value="It is not going to be able to submit its packaging data by the deadline" {{ checked("removal-reason", "It is not going to be able to submit its packaging data by the deadline") }}>
+            <label class="govuk-label govuk-checkboxes__label" for="reason-12">
+              It is not going to be able to submit its packaging data by the deadline
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    {{ govukButton({
+      text: "Continue"
+    })}}
+
+  </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

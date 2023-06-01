@@ -74,8 +74,16 @@ Report packaging data
       Account home - Compliance Co
     </h1>
 
-    <p class="govuk-body govuk-!-margin-bottom-1">Total scheme members: 850</p>
-    <p class="govuk-body"><a href="../../view-manage-members/all-scheme-members.html" class="govuk-link">View and manage scheme members</a></p>
+    {% if (data['member-removed'] == "no") %}
+      <p class="govuk-body govuk-!-margin-bottom-1">Total scheme members: 150</p>
+      <p class="govuk-body"><a href="../../view-manage-members/all-members/all-scheme-members.html" class="govuk-link">View and manage scheme members</a></p>
+    {% endif %}
+
+    {% if (data['member-removed'] == "yes") %}
+      <p class="govuk-body govuk-!-margin-bottom-1">Total scheme members: 149</p>
+      <p class="govuk-body"><a href="../../view-manage-members/all-members-updated/all-scheme-members.html?notification=no" class="govuk-link">View and manage scheme members</a></p>
+    {% endif %}
+    
   </div>
 </div>
 
