@@ -75,6 +75,9 @@ router.use('/guidance/v2', require('./views/guidance/v2/_routes'));
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
 
+router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
+
+
 // Clear all session data
 router.get('/clear', (req, res) => {
 	req.session.data = {}

@@ -20,9 +20,8 @@ Report packaging data
     serviceUrl: "#",
     navigation: [
       {
-        href: "../landing-page/v2/cs-submit-behalf-lp-england",
-        text: "Home",
-        active: true
+        href: "../../landing-page/v2/cs-submit-behalf-lp-england.html?member-removed=yes&?notification=no",
+        text: "Home"
       },
       {
         href: "#",
@@ -47,7 +46,7 @@ Report packaging data
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../landing-page/v2/cs-submit-behalf-lp-england.html">Back</a>
+<a class="govuk-back-link" href="../../landing-page/v2/cs-submit-behalf-lp-england.html?member-removed=yes&?notification=no">Home</a>
 
 {% endblock %}
 
@@ -56,9 +55,26 @@ Report packaging data
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">All scheme members (150)</h1>
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-    <form method="POST" action="./filtered-scheme-members">
+
+    {% if (data['notification'] == "yes") %}
+      {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        You’ve removed Greggs plc from your account.
+      </h3>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html,
+        type: 'success'
+      }) }}
+    {% endif %}
+    
+
+    <h1 class="govuk-heading-l">All scheme members (149)</h1>
+
+    <form method="POST" action="./filtered-scheme-members?notification=no">
       <div class="search-container" style="display: flex; align-items: end; ">
         <div class="govuk-form-group govuk-!-margin-right-2" style="flex: 1;">
           <label class="govuk-label" for="search-filter">
@@ -92,7 +108,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html" class="govuk-link govuk-link--no-visited-state">3M UK Limited</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">3M UK Limited</a></p>
           </th>
           <td class="govuk-table__cell">579 680</td>
         </tr>
@@ -164,7 +180,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html" class="govuk-link govuk-link--no-visited-state">AECOM UK Limited</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">AECOM UK Limited</a></p>
           </th>
           <td class="govuk-table__cell">203 456</td>
         </tr>
@@ -236,7 +252,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html" class="govuk-link govuk-link--no-visited-state">Allied Irish Bank plc</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">Allied Irish Bank plc</a></p>
           </th>
           <td class="govuk-table__cell">313 456</td>
         </tr>
@@ -308,7 +324,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html" class="govuk-link govuk-link--no-visited-state">Aviva plc</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">Aviva plc</a></p>
           </th>
           <td class="govuk-table__cell">425 678</td>
         </tr>
@@ -372,7 +388,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html?filtered=no" class="govuk-link govuk-link--no-visited-state">Boots UK Limited</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">Boots UK Limited</a></p>
           </th>
           <td class="govuk-table__cell">333 456</td>
         </tr>
@@ -381,7 +397,7 @@ Report packaging data
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="./manage-members/scheme-member.html" class="govuk-link govuk-link--no-visited-state">Boots Propco C Limited</a></p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="#" class="govuk-link govuk-link--no-visited-state">Boots Propco C Limited</a></p>
           </th>
           <td class="govuk-table__cell">535 678</td>
         </tr>
@@ -517,18 +533,18 @@ Report packaging data
           </a>
         </li>
         <li class="govuk-pagination__item ">
-          <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-2.html" aria-label="Page 2" >
+          <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-2.html?notification=no" aria-label="Page 2">
             2
           </a>
         </li>
         <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-3.html" aria-label="Page 3">
+          <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-3.html?notification=no" aria-label="Page 3">
             3
           </a>
         </li>
       </ul>
       <div class="govuk-pagination__next">
-        <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-2.html" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <a class="govuk-link govuk-pagination__link" href="./all-scheme-members-2.html?notification=no" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
             <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
           </svg></a>
       </div>
