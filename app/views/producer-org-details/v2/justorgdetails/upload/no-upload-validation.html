@@ -13,23 +13,20 @@ Report packaging data
 {% block header %}
 
   {# Set serviceName in config.js. #}
+  
   {{ govukHeader({
     homepageUrl: "../../index.html",
     serviceName: "Report packaging data",
-    serviceUrl: "#",
+    serviceUrl: "./report-packaging-data.html",
     navigation: [
       {
-        href: "#",
-        text: "Home",
+        href: "./report-packaging-data.html",
+        text: "Home", 
         active: true
       },
       {
-        href: "../../delegate-someone/account-management",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
       }
     ]
   }) }}
@@ -58,7 +55,7 @@ Report packaging data
             href: "javascript:history.back()"
         }) }}
 
-        <form action="landing-page/v2/large-producer-reportpacking-tasklist" method="post">
+        <form action="upload-csv" method="post">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -67,7 +64,10 @@ Report packaging data
                     <div class="govuk-grid-column-full-width">
 
                   
-                    
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                            <span class="govuk-caption-xl">Upload data for 2023</span>
+                            File not uploaded                    
+                        </h1>
 
                         <div class="govuk-notification-banner govuk-notification-banner--error" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                             <div class="govuk-notification-banner__header">
@@ -77,17 +77,14 @@ Report packaging data
                             </div>
                             <div class="govuk-notification-banner__content">
                               <h3 class="govuk-notification-banner__heading">
-                                Packaging data file not uploaded
+                                File not uploaded
                               </h3>
                               <p>File name</p>
                             </div>
                           </div>
 
-                        <p class="govuk-body">We could not validate the data - some of it is missing or in the wrong format.</p>
+                        <p class="govuk-body">Your file has not been uploaded to your organisation's account because it comtains errors.</p>
 
-
-
-            
                         <h2 class="govuk-heading-m">What happens next</h2>
 
 
@@ -95,16 +92,18 @@ Report packaging data
                   
                  
                       </div>
+                 
+                      </div>
 
 
                 </fieldset>
-                <div class="govuk-button-group">
-                  <button class="govuk-button" data-module="govuk-button">
-                    Continue
-                  </button>
-                
-              
-                </div>
+            </div>
+
+            {{
+                govukButton({
+                       text: "Upload file again"
+                     })
+                           }}
            
         </form>
 
