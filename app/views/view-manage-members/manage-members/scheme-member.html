@@ -46,7 +46,13 @@ Report packaging data
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../all-scheme-members.html">Back</a>
+{% if (data['filtered'] == "yes") %}
+  <a class="govuk-back-link" href="../filtered-scheme-members.html">Back</a>
+{% endif %}
+
+{% if (data['filtered'] == "no") %}
+  <a class="govuk-back-link" href="../all-scheme-members.html">Back</a>
+{% endif %}
 
 {% endblock %}
 
@@ -55,69 +61,57 @@ Report packaging data
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Acme Org Ltd.</h1>
+    <h1 class="govuk-heading-l">Boots UK Limited</h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Boots UK Limited
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          123 293
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Registered nation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          England
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Companies House number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          01234567
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Compliance scheme
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Compliance Co England
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of selection
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 March 2023
+        </dd>
+      </div>
+    </dl>
+
+    
+
+    <p class="govuk-body"><a href="./reason-for-removal" class="govuk-link govuk-link-destructive">Remove member</a></p>
 
 
   </div>
 </div>
-
-
-<!-- <div class="govuk-summary-list__card govuk-!-margin-bottom-6">
-
-      <div class="govuk-summary-list__card-title-wrapper">
-          <h2 class="govuk-summary-list__card-title govuk-heading-s govuk-!-margin-bottom-0">Your organisation</h2>
-      </div>
-
-      <div class="govuk-summary-list__card-content">  
-          <dl class="govuk-summary-list">
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Type of organisation
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['form-organisation-type'] }}
-                </dd>
-                  <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="../general/type-of-organisation.html">
-                      Change<span class="govuk-visually-hidden"> type of organisation</span>
-                  </a>
-                  </dd>
-              </div>
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Companies House number
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    000134567
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="./about-your-organisation/companies-house-number.html">
-                      Change<span class="govuk-visually-hidden"> Companies House number</span>
-                    </a>
-                </dd>
-              </div>
-
-              <div class="govuk-summary-list__row final">
-                  <dt class="govuk-summary-list__key">
-                      Contact details
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                      <p class="govuk-body">{{ data['organisation-telephone-number'] }}</p>
-                      <p class="govuk-body">{{ data['organisation-email'] }}</p>
-                      
-                  </dd>
-                      <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="./about-your-organisation/company-contact-details.html">
-                          Change<span class="govuk-visually-hidden"> contact details</span>
-                      </a>
-                      </dd>
-              </div>
-
-          </dl>
-      </div>
-
-    </div> -->
 
 {% endblock %}
