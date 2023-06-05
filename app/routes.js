@@ -77,6 +77,9 @@ router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_route
 
 router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
 
+//PRN
+router.use('/prn/v1', require('./views/prn/v1/_routes'));
+
 
 // Clear all session data
 router.get('/clear', (req, res) => {
