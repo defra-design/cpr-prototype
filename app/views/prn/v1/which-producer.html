@@ -1,0 +1,51 @@
+{% set serviceName = "Service name" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="reference-note" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+      <h1 class="govuk-fieldset__heading">
+Which registered producer or compliance scheme will the PRN be issued to?
+      </h1>
+    </legend>
+    <div class="govuk-form-group">
+
+
+   <input class="govuk-input" id="event-name" name="which-producer" type="text">
+    </div>
+
+
+
+</fieldset>
+</div>
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}
