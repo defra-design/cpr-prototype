@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Your Defra Account | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+      
+    <!-- Radio button routing in ../defra-id/_routes.js -->
+    <form method="POST" action="organisation-uk-choice">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Where is your organisation registered to trade?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uk1" name="defraIdUk" type="radio" value="uk">
+              <label class="govuk-label govuk-radios__label" for="uk1">
+                UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uk2" name="defraIdUk" type="radio" value="non-uk">
+              <label class="govuk-label govuk-radios__label" for="uk2">
+                Non-UK (Organisation that is not registered in the UK)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{govukButton({
+        text: "Continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

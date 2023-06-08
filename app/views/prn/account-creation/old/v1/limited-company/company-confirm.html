@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Are these the correct registered company details?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds app-column-minimum">
+
+    <h1 class="govuk-heading-l">{{title}}</h1>
+
+    <form action="company-contact" method="post">
+        <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
+
+        <h2 class="govuk-heading-m">Acme Org Ltd</h2>
+
+        <p class="govuk-body"><b>Limited Company</b></p>
+
+        <p class="govuk-body">Company number:<br>12345678  <a href="company-lookup?flowType=task" class="govuk-link">Enter a different number</a>.</p>
+
+        <p class="govuk-body">Nature of business (SIC):<br>64202 - Activities of production holding companies.</p>
+        
+        <p class="govuk-body">Registered address:<br>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
+
+        {{
+          govukDetails({
+                 summaryText: "That is not our registered office address",
+                 html: '<p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a>.</p>
+                 <p class="govuk-body">Once your details have been updated by Companies House you can return and continue your service registration providing it is within 3 days of your last login.</p>'
+               })
+                 }}
+
+
+
+
+
+        <input type="hidden" name="companyNumber" value="{{company.company_number}}">
+        <input type="hidden" name="companyName" value="{{company.title}}">
+        <input type="hidden" name="companyAddress" value="{{company.address_snippet}}">
+
+        {{
+ govukButton({
+        text: "Confirm"
+      })
+        }}
+
+    </form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

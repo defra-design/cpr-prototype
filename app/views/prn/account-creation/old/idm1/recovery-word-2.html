@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Government Gateway | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+    
+    <h1 class="govuk-heading-l">Set up a recovery word</h1>
+    <p>Make a note of this word in case you need it in the future.</p>
+    <p>The word must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>be between 6 and 12 characters</li>
+      <li>not contain spaces or special characters</li>
+      <li>not contain numbers</li>
+    </ul>
+
+    <form method="POST" action="confirmation">
+
+      {{ govukInput({
+        label: {
+          text: "Recovery word"
+        },
+        id: "govGateRecovery",
+        name: "govGateRecovery",
+        classes: "govuk-!-width-one-half"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

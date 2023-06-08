@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">You're not required to register</h1>
+
+        <p class="govuk-body">
+            As a charity, you are not required to take action to comply with the extended producer responsibility for packaging regulations. You do not need to register.
+        </p>
+
+        <p class="govuk-body">The <a href="../../guidance/v1/whitehall-guidance.html">extended producer responsibility for packaging guidance</a> explains when organisations are required to take action to comply with the regulations.</p>
+        
+<!-- <a href="../../guidance/v1/whitehall-guidance.html">        <button class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">
+            Continue
+        </button></a> -->
+
+    </div>
+</div>
+
+{% endblock %}
