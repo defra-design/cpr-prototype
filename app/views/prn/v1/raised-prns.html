@@ -84,6 +84,9 @@
       </tr>
     </thead>
     <tbody class="govuk-table__body">
+      {% if data['tesco-issued'] == 'true'%}
+
+      {% else %}
       <tr class="govuk-table__row">
 
         <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -98,6 +101,11 @@
         <td class="govuk-table__cell">40</td>
         <td class="govuk-table__cell"><a href="manage">Manage</a></td>
       </tr>
+      {% endif %}
+    {% if data['valpack-delete'] == 'true'%}
+
+
+        {% else %}
       <tr class="govuk-table__row">
 
         <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -112,6 +120,7 @@
         <td class="govuk-table__cell">40</td>
         <td class="govuk-table__cell"><a href="manage">Manage</a></td>
       </tr>
+            {% endif %}
       <tr class="govuk-table__row">
 
         <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
