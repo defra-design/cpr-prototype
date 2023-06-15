@@ -1,0 +1,104 @@
+{% set serviceName = "Service name" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "EPR for Packaging",
+      href: "/index"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+  <!-- OVERVIEW AND CONTACTS -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-xl">Prototypes</span>
+            PRN / PERNS
+        </h1>
+    </div>
+
+
+  </div>
+
+
+  <!-- RESEARCH -->
+  <div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full card card-overview">
+
+        <!-- TITLE -->
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2 govuk-!-margin-right-2">
+          In progress
+        </strong>
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Raise a PRN
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+          Prototype for raising a PRN (Glass)
+        </p>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "View prototype",
+            href: "./prn/v1/manage-prn.html"
+          }) }}
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ACCOUNT CREATION -->
+  <div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full card">
+
+        <!-- TITLE -->
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2 govuk-!-margin-right-2">
+          In progress
+        </strong>
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+            Account creation
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+          Create an account
+        </p>
+
+
+        <!-- LINK TO PROTOTYPE -->
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "View prototype",
+            href: "/prn/account-creation/build/azure-b2c/sign-in.html"
+          }) }}
+        </div>
+
+
+
+
+        <!-- HAVE A QUESTION -->
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

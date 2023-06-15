@@ -1,0 +1,97 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "manage-prn"
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style media="screen">
+  .card {
+  background-color: #f3f2f1;
+  padding: 30px 30px 10px 30px;
+
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Waste data submission</span>
+    <h1 class="govuk-heading-xl">Accreditations</h1>
+
+</div>
+</div>
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
+
+              </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+                </a><a href="manage-glass"></a>
+                <div class="govuk-card__content">
+                  <h3 class="govuk-heading-m">Glass</h3>
+                  <p class="govuk-body">Waste balance: {% if data['answers-checked'] == 'true' %}8 tonnes{% else %}12 tonnes{% endif %}</p>
+            
+
+                </div>
+              </div>
+
+
+            </div>
+
+</div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
+
+                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+                  </a><a href="manage-accreditations"></a>
+                  <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Plastic</h3>
+                    <p class="govuk-body">Waste balance: 12 tonnes</p>
+
+
+                  </div>
+                </div>
+
+
+              </div>
+
+  </div>
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
+
+              </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+                </a><a href="manage-accreditations"></a>
+                <div class="govuk-card__content">
+                  <h3 class="govuk-heading-m">Aluminum</h3>
+                  <p class="govuk-body">Waste balance: 12 tonnes</p>
+
+
+                </div>
+              </div>
+
+
+            </div>
+
+</div>
+<div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

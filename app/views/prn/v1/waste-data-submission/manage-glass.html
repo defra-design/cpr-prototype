@@ -1,0 +1,92 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "manage-prn"
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">Waste data submission</span>
+    <h1 class="govuk-heading-xl">Glass</h1>
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h2 class="govuk-heading-l">Submit your monthly data</h2>
+
+    </div>
+
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
+
+                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+                  </a><a href="select-site"></a>
+                  <div class="govuk-card__content">
+
+                    <h3 class="govuk-heading-m">Submit your monthly data</h3>
+
+
+                  </div>
+                </div>
+
+
+              </div>
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full card">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Glass waste balance
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}12 tonnes{% endif %}</strong>.
+        </p>
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+<hr class="govuk-!-margin-bottom-7">
+<div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">View your previous data submission</h2>
+  </div>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "../../../../landing-page/v2/cs-submit-behalf-lp-england",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-submitted" method="post">
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                       
+            Review and submit files                
+        </h1>
+
+
+
+
+          <table class="govuk-table">
+        
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class">File</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Date uploaded</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Uploaded by</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Organisation details new</td>
+                <td class="govuk-table__cell">27 Apr 23</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Partner information new</td>
+                <td class="govuk-table__cell">27 Apr 23</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Brand information new</td>
+                <td class="govuk-table__cell">27 Apr 23</td>
+                <td class="govuk-table__cell">Joe Bloggs</td>
+              </tr>
+            </tbody>
+          </table>
+
+        
+           <p>If you need to, you can <a class="govuk-link" href="organisation-upload.html">upload new files</a>. This will remove the current files from your account.</p>
+
+
+           <h2 class="govuk-heading-m">Declaration</h2>
+
+
+           <p class="govuk-body">By entering your name and submitting the files to the environmental regulator, you are confirming that: </p>
+           <ul class="govuk-list govuk-list--bullet">
+             <li>you can act on behalf of Acme Org</li>
+             <li>the data you are submitting is accurate</li>
+           </ul>
+
+
+           <div class="govuk-form-group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Enter your full name
+            </legend>
+             <input class="govuk-input" id="event-name" name="event-name" type="text">
+           </div>
+
+           <div class="govuk-warning-text">
+             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+             <strong class="govuk-warning-text__text">
+               <span class="govuk-warning-text__assistive">Warning</span>
+               Acme Org can be fined if the data you submit is incorrect. 
+             </strong>
+           </div>
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Submit to regulator
+                </button>
+             
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

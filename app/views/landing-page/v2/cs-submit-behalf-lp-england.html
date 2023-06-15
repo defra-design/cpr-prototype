@@ -69,16 +69,27 @@ Report packaging data
 {% endif %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
-   <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-full govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+   <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
       Account home - Compliance Co
     </h1>
+
+    {% if (data['member-removed'] == "no") %}
+      <p class="govuk-body govuk-!-margin-bottom-1">Total scheme members: 150</p>
+      <p class="govuk-body"><a href="../../view-manage-members/all-members/all-scheme-members.html" class="govuk-link">View and manage scheme members</a></p>
+    {% endif %}
+
+    {% if (data['member-removed'] == "yes") %}
+      <p class="govuk-body govuk-!-margin-bottom-1">Total scheme members: 149</p>
+      <p class="govuk-body"><a href="../../view-manage-members/all-members-updated/all-scheme-members.html?notification=no" class="govuk-link">View and manage scheme members</a></p>
+    {% endif %}
+    
   </div>
 </div>
 
 
 
-<details class="govuk-details" data-module="govuk-details">
+<!-- <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary govuk-!-margin-bottom-2">
     <span class="govuk-details__summary-text">
       What are 'reporting periods'?
@@ -97,12 +108,12 @@ Report packaging data
 <p>You’ll also need to handle packaging recovery notes (PRNs) and packaging export recovery notes (PERNs). These are evidence that packaging waste has been recovered, reprocessed or exported. They cover all packaging activities in a calendar year - they are not linked to specific data periods.</p>
 
     </div>
-</details>
+</details> -->
 
 
 <div class="govuk-tabs" data-module="govuk-tabs">
   <h2 class="govuk-tabs__title">
-      Contents
+   Contents
   </h2>
 <ul class="govuk-tabs__list"> 
   <li class="govuk-tabs__list-item govuk-tabs__list-item--selected govuk-tabs__list-item--selected-blue"> 
@@ -117,6 +128,12 @@ Report packaging data
 </ul>
 </div>
 
+
+<h2 class="govuk-heading-l">Compliance Co England</h2>
+
+<div class="govuk-inset-text">
+  <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="../v2/what-are-reporting-periods.html">What are ‘reporting periods’?</a></p>
+</div>
 
 <div class="govuk-grid-row govuk-!-margin-bottom-7">
 

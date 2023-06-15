@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "../../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-uploaded" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-grid-column-full-width">
+
+                  
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                            
+                            Uploading file and validating data                   
+                        </h1>
+                        
+
+                        <p>To see if the file has finished uploading, <a class="govuk-link" href="uploading-csv-no-js.html">refresh this page</a>.</p>
+
+
+
+                        <p class="govuk-body">It may take a few minutes - do not close the page.</p>
+                        
+                        
+
+                      
+                  
+                 
+                  
+                 
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+            <a href="./file-uploaded.html">Next page</a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
