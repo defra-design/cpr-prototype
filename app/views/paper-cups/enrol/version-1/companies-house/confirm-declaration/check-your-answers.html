@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "Create an account to report packaging data" %}
+{% set serviceName = "Create an account to report cups recycling data" %}
 
 {% set title = "Check you details" %}
 
@@ -114,6 +114,7 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-8">
 
         <!-- ROLE -->
+        {% if (data['account'] == "take-back-scheme") %}
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
                 Role
@@ -127,6 +128,7 @@
             </a>
             </dd>
         </div>
+        {% endif %}
 
         <!-- NAME -->
         <div class="govuk-summary-list__row">

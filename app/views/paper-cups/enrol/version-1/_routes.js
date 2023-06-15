@@ -25,6 +25,18 @@ router.post('*/type-of-account', function (req, res) {
     }
 })
 
+// Routing for Page
+router.post('*/approval-code-question', function (req, res) {
+    var approvalCode = req.session.data['approval-code']
+    
+    if (approvalCode == "Yes"){
+        res.redirect('../general/registered-with-companies-house')
+    }
+    else if (approvalCode == "No"){
+        res.redirect('apply-for-approval-code')
+    }
+})
+
 
 // Routing for Page
 router.post('*/registered-with-companies-house', function (req, res) {
@@ -48,6 +60,18 @@ router.post('*/uk-nation-ch', function (req, res) {
     }
     else {
         res.redirect('uk-nation')
+    }
+})
+
+// Routing for Page
+router.post('*/uk-nation-question', function (req, res) {
+    var accountHandler = req.session.data['account']
+    
+    if (accountHandler == "take-back-scheme") {
+        res.redirect('../about-you/role-in-organisation?uk-nation-question=yes')
+    }
+    else if (accountHandler == "cup-seller"){
+        res.redirect('../about-you/full-name')
     }
 })
 
