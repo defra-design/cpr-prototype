@@ -81,6 +81,8 @@ router.use('/view-manage-members', require('./views/view-manage-members/_routes'
 router.use('/prn/v1', require('./views/prn/v1/_routes'));
 router.use('/prn/account-creation/build', require('./views/prn/account-creation/build/_routes'));
 
+router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
+
 // Clear all session data
 router.get('/clear', (req, res) => {
 	req.session.data = {}

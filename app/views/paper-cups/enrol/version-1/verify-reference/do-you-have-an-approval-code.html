@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report cups data" %}
+
+{% set title = "Create an account to report cups data" %}
+
+{% block pageTitle %}
+{{title}} - Create an account to report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../general/type-of-account.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="POST" action="approval-code-question">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Do you have an approval code?
+                        </h1>
+                    </legend>
+                    <p class="govuk-body">This was sent to you by email from your environmental regulator during the approval process. This must be 8 characters, for example 12345678</p>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="registered-charity-yes" name="registered-charity" type="radio" value="Yes" {{ checked("pin-number", "Yes") }} aria-controls="conditional-contact" aria-expanded="false">
+                            <label class="govuk-label govuk-radios__label" for="contact">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional" id="conditional-contact">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-radios__label" for="pin-number-yes" style="padding: 8px 30px 5px 0px;">
+                                    Please enter your approval code
+                                </label>
+                                <input class="govuk-input govuk-!-width-one-half" id="pin-number-yes" name="contact-by-email" type="text" spellcheck="false" aria-describedby="contact-by-email-error" autocomplete="email">
+                            </div>
+                            <!--<div class="govuk-form-group govuk-form-group--error">
+                <label class="govuk-label govuk-radios__label" for="pin-number-yes">
+                    Yes
+                </label>
+                <p id="contact-by-email-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> Email address cannot be blank
+                </p>
+                <input class="govuk-input govuk-!-width-one-half govuk-input--error" id="pin-number-yes" name="contact-by-email" type="email" spellcheck="false" aria-describedby="contact-by-email-error" autocomplete="email">
+            </div>-->
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="registered-charity-no" name="registered-charity" type="radio" value="No" {{ checked("pin-number", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="registered-charity-no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <p class="govuk-body govuk-!-margin-top-4"><a href=#">I cannot find my approval code</a></p>
+                </fieldset>
+            </div>
+            {{
+ govukButton({
+        text: "Continue"
+      })
+            }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
