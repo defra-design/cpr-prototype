@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report cups recycling data" %}
+
+{% set title = "Create an account to report cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - Create an account to report cups recycling data
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./registered-as-a-charity.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    <form method="POST" action="type-of-account">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of organisation are you?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="take-back-scheme" name="account-type" type="radio" value="Take-back scheme" {{ checked("account-type", "Take-back scheme") }}>
+              <label class="govuk-label govuk-radios__label" for="take-back-scheme">
+                Take-back scheme
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cup-seller" name="account-type" type="radio" value="Cup seller" {{ checked("account-type", "Cup seller") }}>
+              <label class="govuk-label govuk-radios__label" for="cup-seller">
+                Cup seller
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
