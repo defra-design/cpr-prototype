@@ -1,0 +1,129 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "manage-prn"
+    },
+    {
+      text: "Manage your PRNs",
+      href: "manage-accreditations"
+    },
+    {
+      text: "Glass",
+      href: "manage-glass"
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<script type="text/javascript">
+           function selects(){
+               var ele=document.getElementsByName('chk');
+               for(var i=0; i<ele.length; i++){
+                   if(ele[i].type=='checkbox')
+                       ele[i].checked=true;
+               }
+           }
+           function deSelect(){
+               var ele=document.getElementsByName('chk');
+               for(var i=0; i<ele.length; i++){
+                   if(ele[i].type=='checkbox')
+                       ele[i].checked=false;
+
+               }
+           }
+       </script>
+
+
+
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <span class="govuk-caption-xl">Glass</span>
+          <h1 class="govuk-heading-xl">Issued PRNs</h1>
+
+
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-m">Filtered</h2>
+            <strong class="govuk-tag govuk-tag--red">
+        Rejected
+        </strong>
+          </div>
+
+
+          <input type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button"  onclick='selects()' value="Select all">
+
+        </input>
+
+
+
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Reference</th>
+            <th scope="col" class="govuk-table__header">Issued to</th>
+            <th scope="col" class="govuk-table__header">Date raised</th>
+            <th scope="col" class="govuk-table__header">Tonnes</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                      <a href="">PRN1003</a>
+                    </label>
+                  </div>
+                  </div></td>
+            <td class="govuk-table__cell">Tesco Ltd.</td>
+            <td class="govuk-table__cell">26 July 2023</td>
+            <td class="govuk-table__cell">40</td>
+            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+          Rejected
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                      <a href="">PRN1004</a>
+                    </label>
+                  </div>
+                  </div></td>
+            <td class="govuk-table__cell">BillPack</td>
+            <td class="govuk-table__cell">26 July 2023</td>
+            <td class="govuk-table__cell">40</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+        Rejected
+        </strong></td>
+          </tr>
+
+        </tbody>
+      </table>
+      </div>
+</div>
+
+
+{% endblock %}

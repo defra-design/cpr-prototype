@@ -1,0 +1,104 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "manage-prn"
+    },
+    {
+      text: "Manage your PRNs",
+      href: "manage-accreditations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">Manage your PRNs</span>
+    <h1 class="govuk-heading-xl">Glass</h1>
+
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full govuk-inset-text">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Glass waste balance
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}12 tonnes{% endif %}</strong>.
+        </p>
+        <!-- <p class="govuk-body govuk-!-margin-bottom-3">
+              December waste balance <strong>1 tonnes</strong>
+
+            </p> -->
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-full card">
+
+
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-5">
+                Raised and issue PRNs
+              </h2>
+              <p> You have {% if data['tesco-issued'] == 'Issue'%}<strong>3</strong>  {% else %}<strong>2</strong>  {% endif %} PRNs ready to issue
+              <p><a href="raised-prns" class="govuk-body">Issue a PRN</a></p>
+            <p>  <a href="enter-tonnes" class="govuk-body">Raise a PRN</a></p>
+
+
+
+
+        </div>
+
+</div>
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-full card">
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-5">
+              Issued PRNs
+            </h2>
+
+            <p><a href="accepted-issued-prn" class="govuk-body">Accepted (3)</a></p>
+            <p><a href="awaiting-accepted-issued-prn" class="govuk-body">Awaiting acceptance (3)</a></p>
+            <p><a href="rejected-issued-prn" class="govuk-body">Rejected (2)</a></p>
+        <p>    <a href="issued-prn" class="govuk-body-m govuk-!-margin-bottom-5">View issued PRNs (8)</a></p>
+              <a href="cancelled-prns" class="govuk-body-m">View cancelled PRNs (2)</a>
+
+
+      </div>
+
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

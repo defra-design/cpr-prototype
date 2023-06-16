@@ -19,36 +19,38 @@
 
 
 
-<form class="form" action="waste-type" method="POST">
+<form class="form" action="which-producer" method="POST">
 
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <span class="govuk-caption-l">Waste recording</span>
-      <h1 class="govuk-fieldset__heading">Where was the waste received?</h1>
+      <h1 class="govuk-fieldset__heading">
+    Did you receive all of the glass in December?
+      </h1>
     </legend>
-
+    <div id="changed-name-hint" class="govuk-hint">
+    Only answer yes if 100% of the glass was received in December
+    </div>
     <div class="govuk-radios govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value= "glass-sub-type" >
+        <input class="govuk-radios__input" id="changed-name" name="material-december" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="changed-name">
-        Onepack Ltd
+          Yes
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name-2" name="next-page" type="radio" value="glass-sub-type">
+        <input class="govuk-radios__input" id="changed-name-2" name="material-december" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="changed-name-2">
-        Wastepack Ltd
+          No
         </label>
       </div>
-
     </div>
   </fieldset>
 </div>
 
 
 
-  <input type="hidden" name="sold" value="true">
+
   <input class="govuk-button" type="submit" value="Continue"  />
 
 
@@ -56,5 +58,25 @@
 </form>
 </div>
 
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-full card">
 
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Glass waste balance for December
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current December waste balance for this accreditation is <strong>1 tonnes</strong>.
+        </p>
+
+
+
+
+
+
+      </div>
+  </div>
 {% endblock %}
