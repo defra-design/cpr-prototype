@@ -25,22 +25,26 @@
   <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <span class="govuk-caption-l">Record your waste</span>
-      <h1 class="govuk-fieldset__heading">During which month was the paper/board received?</h1>
+          <h1 class="govuk-heading-l">During which month was the paper/board received?</h1>
     </legend>
 
-    <div class="govuk-date-input" id="passport-issued">
+    {{ xGovukAutocomplete({
+          id: "country",
+          name: "month-received",
+          classes: "govuk-input--width-5",
+          allowEmpty: false,
+          items: [
+            { text: "January" },
+            { text: "February" },
+            { text: "March" },
+            { text: "April" },
+            { text: "May" },
+            { text: "June" },
+            { text: "July" }
+          ]
+        }) }}
 
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-month" name="month-received" type="text" inputmode="numeric">
-        </div>
-      </div>
 
-
-    </div>
 
   </fieldset>
 </div>
