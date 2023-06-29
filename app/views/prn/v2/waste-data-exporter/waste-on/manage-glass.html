@@ -1,0 +1,103 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "manage-prn"
+    },
+    {
+      text: "Record your waste",
+      href: "manage-accreditations"
+    }
+  ]
+}) }}
+{% endblock %}
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Record your waste</span>
+    <h1 class="govuk-heading-xl">Paper/board</h1>
+
+
+
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full govuk-inset-text">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+        Paper/board waste balance
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8.00 tonnes{% else %}5.59 tonnes{% endif %}</strong>.
+        </p>
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-card__flex-container">
+<div class="govuk-grid-column-one-third govuk-card__flex-item">
+    <div class="govuk-grid-column-full  govuk-card govuk-card--contained"">
+
+
+                  <a href="manage" class="govuk-heading-m">  <h3 >Record waste received</h3></a>
+                  <p class="govuk-body">Create a record for waste you have received. </p>
+
+
+
+              </div>
+
+
+            </div>
+
+
+
+  <div class="govuk-grid-column-one-third govuk-card__flex-item">
+      <div class="govuk-grid-column-full  govuk-card govuk-card--contained"">
+
+
+                    <a href="waste-supplied/manage" class="govuk-heading-m">  <h3 >Record waste sent to another reprocessor</h3></a>
+                    <p class="govuk-body">Create a record for waste you have sent to another reprocessor. </p>
+
+
+
+                </div>
+
+
+              </div>
+
+
+
+</div>
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p>  <a href="view-waste-records">View and edit your waste records</a></p>
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}
