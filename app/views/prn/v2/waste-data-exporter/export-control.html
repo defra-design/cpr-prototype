@@ -19,37 +19,22 @@
 
 
 
-<form class="form" action="add-source" method="POST">
+<form class="form" action="note" method="POST">
 
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <span class="govuk-caption-l">Record your waste</span>
-          <h1 class="govuk-heading-l">During which month was the paper/board exported?</h1>
+                <span class="govuk-caption-l">Record your waste</span>
+      <h1 class="govuk-fieldset__heading">Enter the export control</h1>
     </legend>
 
-    {{ xGovukAutocomplete({
-          id: "country",
-          name: "month-received",
-          classes: "govuk-input--width-5",
-          allowEmpty: false,
-          items: [
-            { text: "January" },
-            { text: "February" },
-            { text: "March" },
-            { text: "April" },
-            { text: "May" },
-            { text: "June" },
-            { text: "July" }
-          ]
-        }) }}
-
-
-
+   <input class="govuk-input" id="event-name" name="event-name" type="text">
   </fieldset>
 </div>
 
 
+
+  <input type="hidden" name="sub-type">
   <input class="govuk-button" type="submit" value="Continue"  />
 
 
