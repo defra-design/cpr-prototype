@@ -47,7 +47,7 @@
 
         <!-- DESCRIPTION -->
         <p class="govuk-body govuk-!-margin-bottom-3">
-      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8.00 tonnes{% else %}5.59 tonnes{% endif %}</strong>.
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}9.38 tonnes{% else %}8.00 tonnes{% endif %}</strong>.
         </p>
 
 
@@ -114,6 +114,24 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+          {% if data['waste-data-reprocesser'] == 'true' %}
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+            WR00013
+                </td>
+            <td class="govuk-table__cell">19 June 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Received </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">-4.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">-1.38</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+
+          {% else %}
+
+          {% endif %}
 
           <tr class="govuk-table__row">
 
