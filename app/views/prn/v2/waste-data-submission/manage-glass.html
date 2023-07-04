@@ -47,11 +47,11 @@
 
         <!-- DESCRIPTION -->
         <p class="govuk-body govuk-!-margin-bottom-3">
-      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}9.38 tonnes{% else %}8.00 tonnes{% endif %}</strong>.
+
         </p>
 
 
-
+        {% if data['waste-data-reprocesser'] == 'true' %}  Current waste balance for this accreditation is  <strong>9.38 tonnes</strong>.{% elif data['waste-date-sent-on'] == 'true' %} Current waste balance for this accreditation is  <strong>6.62 tonnes</strong>{% else %}Current waste balance for this accreditation is  <strong>8.00 tonnes</strong>.{% endif %}
 
 
 
@@ -121,17 +121,32 @@
 
             WR00013
                 </td>
-            <td class="govuk-table__cell">19 June 2023</td>
+            <td class="govuk-table__cell">4 July 2023</td>
             <td class="govuk-table__cell">June</td>
             <td class="govuk-table__cell">Received </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">1.38</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          {% endif %}
+          {% if data['waste-date-sent-on'] == 'true' %}
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+            WR00014
+                </td>
+            <td class="govuk-table__cell">4 July 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Supplied on</td>
             <td class="govuk-table__cell govuk-table__cell--numeric"">-4.00</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"">-1.38</td>
             <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
           </tr>
 
-          {% else %}
+            {% endif %}
 
-          {% endif %}
 
           <tr class="govuk-table__row">
 

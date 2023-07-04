@@ -30,18 +30,21 @@
     </legend>
 
     <div class="govuk-date-input" id="passport-issued">
-
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-month" name="month-received" type="text" inputmode="numeric">
-        </div>
-      </div>
-
-
-    </div>
+      {{ xGovukAutocomplete({
+            id: "country",
+            name: "month-received",
+            classes: "govuk-input--width-5",
+            allowEmpty: false,
+            items: [
+              { text: "January" },
+              { text: "February" },
+              { text: "March" },
+              { text: "April" },
+              { text: "May" },
+              { text: "June" },
+              { text: "July" }
+            ]
+          }) }}
 
   </fieldset>
 </div>
