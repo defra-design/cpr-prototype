@@ -96,7 +96,14 @@
           Reprocessing
           </dt>
           <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+            {% if data['suspend'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--orange">suspended</strong><br>
+            {% elif data['revoke'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--red">Revoked</strong><br>
+            {% else %}
+  <strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+
+            {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -113,7 +120,7 @@
         Exporting
           </dt>
           <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag govuk-tag--orange">Registered </strong><br>
+          <strong class="govuk-tag govuk-tag--yellow">Registered </strong><br>
 
           </dd>
           <dd class="govuk-summary-list__actions">
