@@ -3,10 +3,19 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  {{ govukBackLink ({
-      text: "Back",
-      href: "javascript:history.back()"
-	}) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-regulator"
+    },
+    {
+      text: "Find a organisation",
+      href: ""
+    }
+
+  ]
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
