@@ -3,10 +3,27 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  {{ govukBackLink ({
-      text: "Back",
-      href: "javascript:history.back()"
-	}) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-regulator"
+    },
+    {
+      text: "Find a organisation",
+      href: "find-a-company"
+    },
+    {
+      text: "MRKWRGHT LTD",
+      href: "../registered-sites"
+    },
+    {
+      text: "Paper/board",
+      href: ""
+    }
+
+  ]
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -17,7 +34,7 @@
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-
+    <span class="govuk-caption-xl">MRKWRGHT LTD</span>
         <h1 class="govuk-heading-xl">Paper/board</h1>
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -40,7 +57,7 @@
                   PRNs
                 </dt>
                 <dd class="govuk-summary-list__actions">
-                <a href="">View</a>
+                <a href="../view-prn/all-prn-list">View</a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
