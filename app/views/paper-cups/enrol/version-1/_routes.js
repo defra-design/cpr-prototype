@@ -14,7 +14,7 @@ router.post('*/registered-charity-question', function (req, res) {
 })
 
 // Routing for Page
-router.post('*/type-of-account', function (req, res) {
+router.post('*/type-of-account_question', function (req, res) {
     var accountType = req.session.data['account-type']
     
     if (accountType == "Take-back scheme"){
@@ -34,6 +34,9 @@ router.post('*/approval-code-question', function (req, res) {
     }
     else if (approvalCode == "No"){
         res.redirect('apply-for-approval-code')
+    }
+    else if (approvalCode == "Cannot-find"){
+        res.redirect('you-need-to-request-a-new-code')
     }
 })
 
@@ -86,6 +89,9 @@ router.post('*/authorised-person', function (req, res) {
         res.redirect('full-name')
     }
 })
+
+
+
 
 // Routing for end to end testing
 // router.post('*/complete-account-creation', function (req, res) {
