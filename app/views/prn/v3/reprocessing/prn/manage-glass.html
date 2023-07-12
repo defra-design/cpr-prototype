@@ -26,7 +26,29 @@
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
+{% if data['issued']  == 'true' %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+    Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+    You have issued a PRN
+    </h3>
+  <p>The reference for the PRN is <strong>PRN0000</strong>. Your PRN is now awaiting acceptance from the producer or compliance scheme you have issued it to.</p>
+  </div>
+</div>
+    </div>
+    </div>
+{% else %}
+{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -216,7 +238,7 @@
                       <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
                     <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                      <a href="PRN1003">PRN1009</a>
+                      <a href="PRN1003">PRN0000</a>
                     </label>
                   </div>
                   </div></td>
