@@ -1,0 +1,101 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<style media="screen">
+  .autocomplete__input {
+    width: 30%;
+  }
+
+
+
+.autocomplete__menu{
+    width: 30%
+}
+
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="waste-source-details" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Record your waste</span>
+      <h1 class="govuk-fieldset__heading">Waste received details</h1>
+    </legend>
+<br>
+<h2 class="govuk-heading-m">Where was the waste received?</h2>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="select-site" type="radio" value= "156 Hamilton Rd, Norwood, London SE37 9SE" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+        156 Hamilton Rd, Norwood, London SE37 9SE
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="select-site" type="radio" value="Ruby St, London SE15 1LRe">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          Ruby St, London SE15 1LR
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="select-site" type="radio" value="Ruby St, London SE15 1LRe">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          Ruby St, London SE15 1LR
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="select-site" type="radio" value="Ruby St, London SE15 1LRe">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          Ruby St, London SE15 1LR
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+<h2 class="govuk-heading-m">Which month was the waste received?</h2>
+{{ xGovukAutocomplete({
+      id: "country",
+      name: "month-received",
+      classes: "govuk-input--width-5",
+      allowEmpty: false,
+      items: [
+        { text: "January" },
+        { text: "February" },
+        { text: "March" },
+        { text: "April" },
+        { text: "May" },
+        { text: "June" },
+        { text: "July" }
+      ]
+    }) }}
+
+
+
+  <input type="hidden" name="sold" value="true">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+
+{% endblock %}
