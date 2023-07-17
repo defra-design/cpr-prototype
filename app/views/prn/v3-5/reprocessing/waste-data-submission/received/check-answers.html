@@ -1,4 +1,4 @@
-{% set serviceName = "Raise a PRN" %}
+{% set serviceName = "" %}
 
 {% extends "layout.html" %}
 
@@ -18,9 +18,9 @@
       <main class="govuk-main-wrapper " id="main-content" role="main">
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds-from-desktop">
-          <span class="govuk-caption-l">Record your waste</span>
+          <span class="govuk-caption-l">Paper/board</span>
             <h1 class="govuk-heading-l">Check your answers</h1>
-            <h2 class="govuk-heading-m">Site details</h2>
+            <h2 class="govuk-heading-m">Waste received details</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -35,15 +35,67 @@
                   </a>
                 </dd>
               </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              Which month was the waste received?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['month-received']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="select-site">
+                    Change<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd>
+              </div>
             </dl>
-            <h2 class="govuk-heading-m">Waste details</h2>
+            <h2 class="govuk-heading-m">Waste source details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+        Organisation name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                    {{data['source-name']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="source-name">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Organisation address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      {{data ['source-address-line-1']}}<br>
+                      {{data ['source-address-line-2']}}<br>
+                      {{data ['source-address-town']}}<br>
+                      {{data ['source-address-county']}}<br>
+                      {{data ['source-address-postcode']}}<br>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="source-address">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                      </dd>
+                    </div>
+            </dl>
+
+
+            <h2 class="govuk-heading-m">Waste type and weight details</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   What is the paper/board sub type?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                Sorted mixed paper/board
+                  {{data['sub-type']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="glass-sub-type">
@@ -57,7 +109,7 @@
               Enter the percentage of the paper/board
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['other-type']}}
+                {{data['other']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="other">
@@ -66,19 +118,7 @@
                 </dd>
               </div>
               {% endif %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-          Enter the total tonnes of paper/board received
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['enter-waste-tonnes']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="enter-tonnes"">
-                    Change<span class="govuk-visually-hidden"> previous application number</span>
-                  </a>
-                </dd>
-              </div>
+
 
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -95,17 +135,18 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-              During which month was the paper/board received?
+          Enter the total tonnes of paper/board received
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['month-received']}}
+                {{data['enter-waste-tonnes']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="enter-month">
+                  <a class="govuk-link" href="enter-tonnes"">
                     Change<span class="govuk-visually-hidden"> previous application number</span>
                   </a>
                 </dd>
               </div>
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
               <strong>Total</strong>
@@ -125,80 +166,14 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
-              {% if data['source'] == 'true'%}
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-              Enter the name and address of the paper/board source?
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Yes
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="note">
-                          Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-            Enter the name of the paper/board source
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                    {{data['source-name']}}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="source-name">
-                          Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-          Enter the address of the paper/board source
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                      {{data ['source-address-line-1']}}<br>
-                      {{data ['source-address-line-2']}}<br>
-                      {{data ['source-address-town']}}<br>
-                      {{data ['source-address-county']}}<br>
-                      {{data ['source-address-postcode']}}<br>
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="source-address">
-                          Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                      </dd>
-                    </div>
-                {% else %}
 
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-          Enter the name and address of the paper/board source?
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Yes
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="note">
-                      Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
-                  </dd>
-                </div>
-                {% endif %}
-              {% if data['add-note'] == 'true'%}
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-            Add note?
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                      Yes
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="note">
-                          Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                      </dd>
-                    </div>
+
+
+
+
+
+
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     Enter your note
@@ -212,21 +187,7 @@
                   </a>
                 </dd>
               </div>
-              {% else %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Add note?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  No
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="note">
-                    Change<span class="govuk-visually-hidden"> previous application number</span>
-                  </a>
-                </dd>
-              </div>
-              {% endif %}
+
 
             </dl>
 
