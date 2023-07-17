@@ -35,6 +35,19 @@
                   </a>
                 </dd>
               </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              During which month was the paper/board received?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['month-received']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="enter-month">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
             </dl>
             <h2 class="govuk-heading-m">Waste details</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -93,19 +106,7 @@
                   </a>
                 </dd>
               </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-              During which month was the paper/board received?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['month-received']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="enter-month">
-                    Change<span class="govuk-visually-hidden"> previous application number</span>
-                  </a>
-                </dd>
-              </div>
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
               <strong>Total</strong>
@@ -122,9 +123,9 @@
             </dl>
 
             <h2 class="govuk-heading-m">Additional information</h2>
+
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-
+            
               {% if data['source'] == 'true'%}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
