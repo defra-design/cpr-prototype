@@ -71,23 +71,38 @@
 </div>
 
 <h2 class="govuk-label--m">During which month was the waste received?</h2>
-{{ xGovukAutocomplete({
-      id: "country",
-      name: "month-received",
-      classes: "govuk-input--width-5",
-      allowEmpty: false,
-      items: [
-        { text: "January" },
-        { text: "February" },
-        { text: "March" },
-        { text: "April" },
-        { text: "May" },
-        { text: "June" },
-        { text: "July" }
-      ]
-    }) }}
+<div class="govuk-from-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name" name="month-received" type="radio" value= "March" >
+    <label class="govuk-label govuk-radios__label" for="changed-name">
+    March
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name-2" name="month-received" type="radio" value="April">
+    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+      April
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name-2" name="month-received" type="radio" value="June">
+    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+    June
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name-2" name="month-received" type="radio" value="July">
+    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+      July
+    </label>
+  </div>
 
-
+</div>
+  </fieldset>
+</div>
+<br>
 
   <input type="hidden" name="sold" value="true">
   <input class="govuk-button" type="submit" value="Continue"  />
