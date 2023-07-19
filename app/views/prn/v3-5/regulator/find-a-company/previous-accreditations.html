@@ -3,26 +3,29 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "manage-accreditations"
-    },
-    {
-      text: "Previous accreditations",
-      href: ""
-    }
 
-  ]
-}) }}
-</div>
-<div class="govuk-grid-column-one-third">
-  <p class="govuk-breadcrumbs"><a href="view-account-details/organisation-details" style="float:right;">View account details</a></p>
-  </div>
-</div>
+    {{ govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "../manage-regulator"
+        },
+        {
+          text: "Find a organisation",
+          href: "find-a-company"
+        },
+        {
+          text: "GREEN LTD",
+          href: "registered-sites"
+        },
+        {
+          text: "Previous accreditations",
+          href: ""
+        }
+      ]
+    }) }}
+
+
 {% endblock %}
 {% block pageTitle %}
     {{serviceName}} prototype
