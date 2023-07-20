@@ -10,12 +10,93 @@
 
 {% block beforeContent %}
 
+<a class="govuk-back-link" href="#">Back</a>
+
+
 {% endblock %}
 
 
 {% block content %}
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Acme org Ltd.</h1>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Files uploaded</h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action"> <a class="govuk-link" href="organisation-upload.html">
+              Change<span class="govuk-visually-hidden"> file </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              File name 
+            </dt> 
+            <dt class="govuk-summary-list__key">
+              Date uploaded
+            </dt>
+            <dt class="govuk-summary-list__key">
+            Uploaded by
+            </dt>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+            orgdetails.csv
+            </dd>
+            <dd class="govuk-summary-list__value">
+            20 March 2023
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Joe Bloggs
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              brandinfo.csv
+            </dd>
+            <dd class="govuk-summary-list__value">
+              20 March 2023 
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Joe Bloggs 
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              partnernfo.csv
+            </dd>
+            <dd class="govuk-summary-list__value">
+              20 March 2023 
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Joe Bloggs 
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukButton({
+          text: "Accept POM data",
+          href: "./acceptpomdata.html"
+        }) }}
+      </div>
+
+      
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <div class="govuk-grid-row">
   <a href="manage-pom-data.html" class="govuk-back-link">Back</a>
    
 
@@ -127,7 +208,7 @@
 
   
  
-</div>
+</div> -->
 
  
 {% endblock %}
