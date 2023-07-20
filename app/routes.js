@@ -78,6 +78,17 @@ router.use('/regulator-manage-pom-data', require('./views/regulator-manage-pom-d
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
 
+router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
+
+//PRN
+router.use('/prn/v1', require('./views/prn/v1/_routes'));
+router.use('/prn/v2', require('./views/prn/v2/_routes'));
+router.use('/prn/v3', require('./views/prn/v3/_routes'));
+router.use('/prn/v3-5', require('./views/prn/v3-5/_routes'));
+router.use('/prn/account-creation/build', require('./views/prn/account-creation/build/_routes'));
+
+router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
+
 
 // Clear all session data
 router.get('/clear', (req, res) => {

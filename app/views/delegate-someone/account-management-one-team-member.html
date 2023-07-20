@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#?notification=false",
+    navigation: [
+      {
+        href: "#?notification=false",
+        text: "Home"
+      },
+      {
+        href: "#?notification=false",
+        text: "Manage account",
+        active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      {% if (data['notification'] == "true") %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              You sent an invitation to {{ data['their-email'] }}
+            </h3>
+          </div>
+        </div>
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">
+        Manage account details
+      </h1>
+
+      <!-- <div class="govuk-!-margin-bottom-7">
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Acme Org Ltd</h2>
+        <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">Organisation number: P 123 456</p>
+        <p class="govuk-body"><a href="./account-details/organisation-details.html?notification=false">View organisation details</a></p>
+      </div>
+
+
+      <div class="govuk-!-margin-bottom-7 govuk-!-padding-top-4" style="border-top: 1px solid #B1B4B6; border-bottom: 1px solid #B1B4B6; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+        <div>
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">John Smith</h3>
+          <p class="govuk-body">Manage team, upload data and submit data</p>
+        </div>
+        <div>
+          <p class="govuk-body"><a href="./account-details/your-details.html?notification=false">View your details</a></p>
+        </div>
+      </div> -->
+
+      
+      <div>
+        <h2 class="govuk-heading-l ">Manage your team</h2>
+        <p class="govuk-body-l govuk-!-margin-bottom-4"><a class="govuk-link--no-visited-state?notification=false" href="#">Add team member</a></p>
+      </div>
+      
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-2">     
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class-1">Team member</th>
+                <th scope="col" class="govuk-table__header app-custom-class-2">Permissions</th>
+                <th scope="col" class="govuk-table__header app-custom-class-3">Access</th>
+              </tr>
+            </thead>
+
+            <!-- {% if (data['delegated'] == "yes") %}
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: 200;">
+                  <strong>{{ data['their-email'] }}</strong>
+                  <p class="govuk-body govuk-!-margin-bottom-2 govuk-!-margin-top-1">Manage team and upload data</p>
+                  <strong class="govuk-tag govuk-tag--yellow">Permission to submit data - pending approval</strong>
+                </th>
+                <td class="govuk-table__cell" style="text-align: right;">
+                  Invited
+                </td>
+              </tr>
+            </tbody>
+            {% endif %} -->
+
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <p class="govuk-body govuk-!-margin-bottom-1"><strong>John Smith</strong></p>
+                  <p class="govuk-body govuk-!-margin-bottom-1">{{ data['their-email'] }}</p>
+                  
+                </th>
+                <td class="govuk-table__cell ">
+                  {% if (data['basic-admin'] == "true") %}
+                  <p class="govuk-body govuk-!-margin-bottom-1">{{ data['their-account-access'] }}</p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                  <p class="govuk-body govuk-!-margin-bottom-1">Manage team and upload data</p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                    <div class="govuk-!-margin-bottom-1"><strong class="govuk-tag-new">Waiting for approval to submit data</strong></div>
+                  {% endif %}
+                  {% if (data['basic-admin'] == "true") %}
+                  <p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="./manage-team-member/account-access.html?notification=false">Change permissions</a></p>
+                  {% endif %}
+                  {% if (data['delegated'] == "yes") %}
+                  <p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="#">Change permissions</a></p>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell"><p class="govuk-!-margin-bottom-0"><a class="govuk-link--no-visited-state" href="#" style="color: #d4351c;">Remove</a></p></td>
+              </tr>
+
+            </tbody>
+
+          </table>
+  </div>
+</div>
+
+
+{% endblock %}

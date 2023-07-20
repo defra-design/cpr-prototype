@@ -1,22 +1,51 @@
 {% extends "layout.html" %}
 
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
 {% set serviceName = "Report packaging data" %}
 
-{% set title = "Report packaging data" %}
-
 {% block pageTitle %}
-    {{title}} - GOV.UK
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
 {% block beforeContent %}
-  <div id="profile">
-    {% include "includes/account-nav-admin-individual.html" %}
-  </div>
+
 {% endblock %}
 
 {% block content %}
-
-{# {{data|dump}} #}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -26,7 +55,7 @@
             href: "javascript:history.back()"
         }) }}
 
-        <form action="task-list?file-uploaded=yes&section-two-complete=yes" method="post">
+        <form action="../../landing-page/v2/cs-submit-behalf-lp-reportpacking-tasklist2" method="post">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">          
@@ -55,7 +84,7 @@
                     <ul class="govuk-list govuk-list--bullet">
                       <li>make changes to your data and <a class="govuk-link" href="upload-csv.html">upload a new file</a>
                     </li>
-                      <li>get your authorised person to submit the file to the environmental regulator - details of how to do this are on the account home page 
+                      <li>get an authorised person to submit the file to the environmental regulator
                     </li>
                     </ul>
 
@@ -63,7 +92,9 @@
                       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                       <strong class="govuk-warning-text__text">
                         <span class="govuk-warning-text__assistive">Warning</span>
-                        The deadline is 1 January 1900 - the file must be submitted by then. 
+                        The deadline to submit the file to the regulator is 1 October 2023. Only people with the right account permission can do this.
+
+
                       </strong>
                     </div> 
 
@@ -74,7 +105,7 @@
 
             <div class="govuk-button-group">
                 <button class="govuk-button" data-module="govuk-button">
-                  Go to account home page
+                  Continue
                 </button>
               
             

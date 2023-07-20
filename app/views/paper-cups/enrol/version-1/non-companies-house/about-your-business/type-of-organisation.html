@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report cups recycling data" %}
+
+{% set title = "Create an account to report cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - Create an account to report cups recycling data
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../../general/registered-with-companies-house.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form method="POST" action="trading-name">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your organisation registered as?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="organisation-type" name="organisation-type" type="radio" value="Partnership" {{ checked("organisation-type", "Partnership") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
+                Partnership
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="organisation-type-1" name="organisation-type" type="radio" value="Sole-trader" {{ checked("organisation-type", "Sole-trader") }}>
+              <label class="govuk-label govuk-radios__label" for="sole-trader">
+                Sole trader
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="organisation-type-2" name="organisation-type" type="radio" value="Unincorporated-body" {{ checked("organisation-type", "Unincorporated-body") }}>
+              <label class="govuk-label govuk-radios__label" for="unincorporated-body">
+                Unincorporated body
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="organisation-type-3" name="organisation-type" type="radio" value="Other" {{ checked("organisation-type", "Other") }}>
+              <label class="govuk-label govuk-radios__label" for="other">
+                Other
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

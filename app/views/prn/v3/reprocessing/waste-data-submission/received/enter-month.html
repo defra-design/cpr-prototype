@@ -1,0 +1,73 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<style media="screen">
+  .autocomplete__input {
+    width: 50%;
+  }
+
+
+
+.autocomplete__menu{
+    width: 50%
+}
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="glass-sub-type" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <span class="govuk-caption-l">Paper/board</span>
+          <h1 class="govuk-heading-l">During which month was the paper/board received?</h1>
+    </legend>
+
+    {{ xGovukAutocomplete({
+          id: "country",
+          name: "month-received",
+          classes: "govuk-input--width-5",
+          allowEmpty: false,
+          items: [
+            { text: "January" },
+            { text: "February" },
+            { text: "March" },
+            { text: "April" },
+            { text: "May" },
+            { text: "June" },
+            { text: "July" }
+          ]
+        }) }}
+
+
+
+  </fieldset>
+</div>
+
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+
+{% endblock %}

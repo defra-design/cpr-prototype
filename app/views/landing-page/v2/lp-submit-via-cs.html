@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management?added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-xl">
+        Account home page - Acme Org
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Organisation ID: 123 456</strong></p>
+        <p class="govuk-body govuk-!-margin-bottom-1"> Compliance scheme: Compliance Co Scotland </p>
+      </div>
+
+      <!-- <div class="govuk-inset-text">
+        <p class="govuk-body govuk-!-margin-bottom-2">Compliance method: Compliance Co Scotland</p>
+        <p class="govuk-body"><a class="govuk-link" href="#">Change Acme Org's compliance scheme</a></p>  
+      </div> -->
+
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-3">What Compliance Co Scotland is responsible for</h2>
+       
+    
+
+      
+
+      <!-- <p> Acme Org is using the compliance scheme Compliance Co Scotland to report packaging data.</p> -->
+
+      <p class="govuk-body">On behalf of Acme Org, Compliance Co Scotland is responsible for:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>submitting packaging data to the scheme administrator and the environmental regulator</li>
+          <li>reporting organisation details and keeping them up to date</li>
+          <li>handling packaging recovery notes (PRNs) and packaging export recovery notes (PERNs) - these are evidence that packaging has been recycled, recovered or exported</li>
+          <li>paying fees and charges to the environmental regulator</li>
+        </ul>
+
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-3">What Acme Org is responsible for</h2>
+
+
+      <p> Paying fees and charges to the scheme administrator.</p>
+
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-3">Change or remove compliance scheme</h2>
+
+      <p class="govuk-body">You can <a class="govuk-link" href="../../add-compliance-scheme-v2/manage-compliance-scheme-choice.html">change or remove Acme Org's compliance scheme</a>.</p> 
+          
+
+
+  </div>
+</div>
+
+
+{% endblock %}

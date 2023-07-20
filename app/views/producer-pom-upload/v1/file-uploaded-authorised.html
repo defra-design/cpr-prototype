@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-submitted" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">          
+                    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                        <div class="govuk-notification-banner__header">
+                          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                            Success
+                          </h2>
+                        </div>
+                        <div class="govuk-notification-banner__content">
+                          <h3 class="govuk-notification-banner__heading">
+                            Packaging data file uploaded 
+                          </h3>
+                          <p>File name</p>
+                        </div>
+                      </div>
+
+                    <p class="govuk-body">We’ve validated the data, and the file is now stored on your organisation’s account. </p>
+
+                    <p>It has not been submitted to the environmental regulator - there’s another step to do that.</p>
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can now:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>submit the file to the environmental regulator  
+                      </li>
+                      <li>go to the account home page without submitting the file  
+                      </li>
+                      <li>make changes to your data and <a class="govuk-link" href="upload-csv.html">upload a new file</a>
+                    </li>
+                      
+                    </ul>
+
+                    <div class="govuk-warning-text">
+                      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                      <strong class="govuk-warning-text__text">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        The deadline is 1 January 1900 - the file must be submitted by then. 
+                      </strong>
+                    </div> 
+
+                  
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Submit 
+                </button>
+                <a class="govuk-link" href="#">Go to account home page</a>
+            
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

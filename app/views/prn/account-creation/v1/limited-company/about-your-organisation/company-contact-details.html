@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./comfirm-company-details.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../about-you/full-name">
+      <h1 class="govuk-heading-l">What are the contact details for this organisation?</h1>
+      <p class="govuk-body">These should be details for the head office or management team.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="organisation-telephone-number">
+          UK telephone number
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="organisation-telephone-number" name="organisation-telephone-number" type="tel" autocomplete="tel" value="{{data['organisation-telephone-number']}}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="organisation-email">
+          Email address
+        </label>
+        <input class="govuk-input" id="organisation-email " name="organisation-email" type="email" spellcheck="false" autocomplete="email" value="{{data['organisation-email']}}">
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

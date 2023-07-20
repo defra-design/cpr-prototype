@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+ GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Business and industry</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Business and the environment</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <!-- FORM-ROUTING -->
+        <form method="POST" action="../../enrol/version-1/azure-b2c/sign-in">
+
+            <!-- HEADING -->
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">Report takeaway cups data</h1>
+                <p class="govuk-body-l">As a take-back scheme you need to create an account to help organisations report takeaway cups data.</p>
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="govuk-grid-column-full">
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            </div>
+
+            <!-- HEADING -->
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-body-s govuk-!-margin-bottom-2">
+                    From: <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">Department for Environment, Food & Rural Affairs</a> and <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">Enviroment Agency</a>
+                </p>
+                <p class="govuk-body-s">
+                    Published: 1 June 2023                
+                </p>
+
+            </div>
+            
+            <!-- START PAGE CONTENT -->
+            <div class="govuk-grid-column-two-thirds">
+
+                
+                <h2></h2>
+
+                <p>To create an account you’ll need an email address and password. Then you’ll also need your:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>approval code (this was emailed to you when you applied to be a take-back scheme)</li>
+                    <li>companies house number</li>
+                    <li>role within the organisation</li>
+                    <li>organisation address</li>
+                    <li>trading name</li>
+                    <li>UK telephone number</li>
+
+                </ul>
+
+                <p>You’ll also need to confirm what your organisation is registered as.</p>
+           
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break">
+
+                <p>After you’ve created an account, you’ll be able to:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>register your members in every nation where they have premises once per year</li>
+                    <li>submit cups data on behalf of your members twice per year</li>
+                </ul>
+
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break">
+
+                <p>You must keep any data you collect for 7 years.</p>
+
+
+                <!-- <div class="govuk-inset-text">
+                    <p class="govuk-body">If you already have one, <a href="./azure-b2c/sign-in.html">sign in to your account</a>.</p>
+                </div> -->
+
+                {{ govukButton({
+                    text: "Sign in or create an account",
+                    isStartButton: true,
+                    classes: "govuk-!-margin-top-4"
+                })}}
+
+                <div class="guidance-sidebar" style="padding-top: 15px; margin-top: 40px; border-top: #1d70b8 2px solid;">
+                    <h2 class="govuk-heading-s">Explore the topic</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Waste</a></p>
+                </div>
+            </div>
+
+            <!-- GUIDANCE SIDEBAR -->
+            <div class="govuk-grid-column-one-third" style="padding: 0px 15px;">
+                <div class="guidance-sidebar" style="padding: 15px 0px 0px 0px; border-top: #1d70b8 2px solid;">
+                    <h2 class="govuk-heading-s">Related content</h2>
+                </div>
+                <div class="guidance-sidebar" style="padding-top: 15px; border-top: #B1B4B6 1px solid;">
+                    <h2 class="govuk-body-s">Collection</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Extended producer responsibility</a></p>
+                </div>    
+            </div>
+
+        </form>
+
+</div>
+
+{% endblock %}

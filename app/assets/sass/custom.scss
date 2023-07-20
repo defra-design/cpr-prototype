@@ -285,7 +285,7 @@ ol.action-list li.action {
     position: relative;
     margin-bottom: 30px;
 }
-  
+
 ol.action-list li::before {
     content: counter(gov-speak-numbered-action);
     color: #ffffff;
@@ -306,7 +306,7 @@ ol.action-list li::before {
 ul.contents li:before
 {
     content: '—';
-    width: 20px; 
+    width: 20px;
     padding-right: 10px;   /* any design */
 }
 
@@ -387,16 +387,17 @@ p.call-to-action {
     padding:20px;
     padding-top:20px;
     padding-bottom: 0px;
-    
+
 }
+
+// PRIMARY NAVIGATION
 
 div.moj-primary-navigation {
     background-color: govuk-colour("light-grey");
     // border-bottom: 1px solid #b1b4b6;
-    margin: -1px;
-
+    margin-top: -10px;
   }
-  
+
 .moj-primary-navigation__container {
     font-size: 0; // Hide whitespace between elements
     text-align: justify; // Trick to remove the need for floats
@@ -410,36 +411,36 @@ div.moj-primary-navigation {
     }
 
 }
-  
+
   .moj-primary-navigation__nav {
     text-align: left;
     @include govuk-media-query($from: desktop) {
       display: inline-block;
       vertical-align: middle;
-      
+
     }
-  
+
   }
-  
+
   .moj-primary-navigation__list {
     font-size: 0; // Removes white space when using inline-block on child element.
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  
+
   .moj-primary-navigation__item {
     @include govuk-font($size: 19);
     display: inline-block;
     margin-right: govuk-spacing(4);
-    margin-top: 0;
-  
+    margin-top: 10px;
+
     &:last-child {
       margin-right: 0;
     }
-  
+
   }
-  
+
   .moj-primary-navigation__link {
     @include govuk-link-common;
     @include govuk-link-style-default;
@@ -448,23 +449,23 @@ div.moj-primary-navigation {
     padding-top: 15px;
     text-decoration: none;
     font-weight: bold;
-  
+
     &:link,
     &:visited {
       color: $govuk-link-colour;
     }
-  
+
     &:hover {
       color: govuk-tint($govuk-link-colour, 25);
     }
-  
+
     &:focus {
       color: govuk-colour("black"); // Focus colour on yellow should really be black.
       position: relative; // Ensure focus sits above everything else.
       z-index: 1;
       box-shadow: none;
     }
-  
+
     &:focus:before {
       background-color: govuk-colour("black");
       content: "";
@@ -473,7 +474,7 @@ div.moj-primary-navigation {
       position: absolute; bottom: 0; left: 0;
       width: 100%;
     }
-  
+
     &[aria-current] {
       color: $govuk-link-colour;
       position: relative;
@@ -487,32 +488,69 @@ div.moj-primary-navigation {
         position: absolute; bottom: 0; left: 0;
         width: 100%;
       }
-  
+
       &:focus {
         color: govuk-colour("black"); // Focus colour on yellow should really be black.
         position: relative; // Ensure focus sits above everything else.
         border: none;
-  
+
         &:before {
           background-color: govuk-colour("black");
         }
-  
+
       }
-  
+
     }
-  
+
   }
-  
+
   .moj-primary-navigation__search {
-  
+
     @include govuk-media-query($from: desktop) {
       display: inline-block;
       vertical-align: middle;
     }
-  
+
   }
 
   //ciaras scratch
   .govuk-tabs__list-item--selected-blue {
     border-top: 3px solid govuk-colour("blue") !important;
   }
+
+@media (min-width: 40.0625em) {
+
+  .app-custom-class-1 {
+    width: 25%;
+  }
+
+  .app-custom-class-2 {
+    width: 50%;
+  }
+
+  .app-custom-class-3 {
+    width: 20%;
+  }
+
+}
+
+.govuk-tag-new {
+    padding: 2px 4px;
+    background-color: #fff7bf;
+    font-weight: 500;
+    color: #594d00;
+}
+
+
+a.govuk-link.govuk-link-destructive {
+    color: govuk-colour("red");
+}
+
+a.govuk-link.govuk-link-destructive:focus {
+    color: govuk-colour("black");
+}
+
+div.members-list-item {
+    border-top: 1px solid govuk-colour("mid-grey");
+    border-bottom: 1px solid govuk-colour("mid-grey");
+}

@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- H1 and Guidance -->
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+  }) }}
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Report your members' packaging data
+    </h1>
+
+ <h2 class="govuk-heading-m">Before you start</h2>
+
+<p class="govuk-body">Read the guidance about:</p>
+   <ul class="govuk-list govuk-list--bullet">
+    <li>
+      <a href="https://www.gov.uk/guidance/how-to-collect-your-packaging-data-for-extended-producer-responsibility" target="_blank">what packaging data you need to collect (opens in a new window)</a>
+  </li>
+  <li>
+  <a href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility/packaging-data-file-specification-for-extended-producer-responsibility" target="_blank">how to build a CSV file to report your packaging data (opens in a new window)</a>
+  </li>
+  </ul>
+
+
+
+  <h2 class="govuk-heading-m">How to report</h2>
+
+
+    <ol class="govuk-list govuk-list--number">
+      <li>Upload data to your account in a CSV file. We’ll check it is in the right format. </li>
+      <li>Submit the data to the environmental regulator by the deadline - only people with the right account permission can do this.</li>
+    </ol>
+
+    <p class="govuk-body">You can upload new files to your account at any time before you submit.</p> 
+
+  
+  </div>
+
+</div>
+
+<!-- H2 and Compliance Scheme -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4 govuk-!-margin-bottom-2">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Upload packaging data</h2>
+</div>
+
+</div>
+
+<!-- Cards -->
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+
+    <div class="card" style="background-color: #F3F2F1; border-right: 1px solid #b1b4b6; border-top: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6;">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Reporting period - Jan to Jun 23</h2>
+      
+      <p class="govuk-body">Deadline: 1 Oct 2023</p>
+      <strong class="govuk-tag govuk-!-margin-bottom-3">
+        File uploaded 
+      </strong>
+    </div>
+
+    <div class="card-links" style="border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6; padding: 20px 30px 5px 30px;">
+      <p class="govuk-body"><a href="../../cs-pom-submission/v1/submission/review-submit.html">Upload file to account</a></p>
+      <p class="govuk-body"><a href="../../cs-pom-submission/v1/submission/review-submit.html">Submit file to regulator</a></p>
+    </div>
+
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-right: 1px solid #b1b4b6; border-top: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Reporting period - Jul to Dec 23</h2>
+      <p class="govuk-body">Deadline: 1 Apr 2024</p>
+      <strong class="govuk-tag govuk-!-margin-bottom-3">
+        Not started
+      </strong>
+    </div>
+
+    <div class="card-links" style="border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6; padding: 20px 30px 5px 30px;">
+      <p class="govuk-body"><a href="#">Upload file to account</a></p>
+    </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "./cs-submit-behalf-lp-england",
+        text: "Home"
+          },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../v2/cs-submit-behalf-lp-england.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <h1 class="govuk-heading-l">
+      What are ‘reporting periods’?
+    </h1>
+
+    <p class="govuk-body">You need to report data that shows your members’ packaging activities over a period of time. Each period of time is called a 'reporting period’.</p>
+  
+    <p class="govuk-body">You may need to collect some information before the period starts, and you submit the data after the period has finished. This means you’ll have tasks for more than one reporting period at the same time.</p>
+    
+    <p class="govuk-body">Each reporting period has a deadline to submit all the data by. This is called the ‘submission deadline’.</p>
+    
+    <p class="govuk-body">There are different reporting periods and submission deadlines for large and small organisations.</p>
+
+    <table class="govuk-table govuk-!-margin-top-6">
+      <caption class="govuk-table__caption govuk-table__caption--m">Large organisations </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reporting period</th>
+          <th scope="col" class="govuk-table__header">Submission deadline</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">January to June 2023</th>
+          <td class="govuk-table__cell">1 October 2023</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">July to December 2023</th>
+          <td class="govuk-table__cell">1 April 2024</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-!-margin-top-6">
+      <caption class="govuk-table__caption govuk-table__caption--m">Small organisations </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Reporting period</th>
+          <th scope="col" class="govuk-table__header">Submission deadline</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">January to December 2023</th>
+          <td class="govuk-table__cell">1 April 2024</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    </div>
+</div>
+
+{% endblock %}

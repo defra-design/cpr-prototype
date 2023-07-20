@@ -1,23 +1,51 @@
 {% extends "layout.html" %}
 
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
 {% set serviceName = "Report packaging data" %}
 
-{% set title = "Report packaging data" %}
-
 {% block pageTitle %}
-    {{title}} - GOV.UK
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "./report-packaging-data.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
 {% block beforeContent %}
-  <div id="profile">
-    {% include "includes/account-nav-admin-individual.html" %}
-  </div>
+
 {% endblock %}
 
 {% block content %}
-
-{# {{data|dump}} #}
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -32,22 +60,13 @@
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                     <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
                         
-                        Upload packaging data to your organisation’s account                   
+                        Upload packaging data to your account                   
                     </h1>
 
-                    <p class="govuk-body">Before your packaging data can be submitted to the environmental regulator, you need to upload it to your organisation’s account.</p>
-
-                    <p class="govuk-body">This is so we can check the data is in the right format (‘validation’).</p>
+                    <p class="govuk-body">Upload your organisations’ packaging data in a CSV file.</p>
 
                     <p class="govuk-body">Once we’ve validated the data, we store the file on your account. If there’s a problem, we reject the upload and tell you how to fix the file. </p>
 
-
-                    <h2 class="govuk-heading-m">Before you start</h2>
-
-                    <div class="govuk-form-group">
-                        < <p> Read the guidance on  <a class="govuk-link" href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility">packaging data: how to create your file (opens in a new window)</a>.</p>
-
-        
         
                     <h2 class="govuk-heading-m">Upload file</h2>
 

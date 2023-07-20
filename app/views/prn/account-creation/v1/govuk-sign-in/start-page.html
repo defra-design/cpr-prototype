@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  GOV.UK account
+{% endset%}
+
+{% set serviceName = "GOV.UK account" %}
+
+{% block pageTitle %}
+ GOV.UK account
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+        <!-- ROUTING NEEDED -->
+        <form method="POST" action="../govuk-sign-in/create-account/your-email-address">
+
+            <h1 class="govuk-heading-l govuk-!-margin-top-8">
+                Create a GOV.UK account or sign in
+            </h1>
+
+            <p class="govuk-body">You’ll need:</p>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li>an email address</li>
+                <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+            </ul>
+
+            {{ govukButton({
+                text: "Create a GOV.UK account"
+            })}}
+
+            <p class="govuk-body govuk-!-margin-bottom-5">If you already have a GOV.UK account you can <a href="./sign-in/email-address.html">sign in.</a></p>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    About GOV.UK accounts
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">
+                    GOV.UK accounts are new. At the moment you can only use your GOV.UK account with a few services. 
+                  </p>
+                  <p class="govuk-body">
+                    GOV.UK accounts are currently separate from other government accounts (for example Government Gateway or Universal Credit). 
+                  </p>
+                  <p class="govuk-body">
+                    In the future, you’ll be able to use your GOV.UK account to sign in to most services on GOV.UK.
+                  </p>
+                </div>
+            </details>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

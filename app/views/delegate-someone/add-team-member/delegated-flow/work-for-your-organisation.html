@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Invite team member - Manage account - Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#?notification=false",
+    navigation: [
+      {
+        href: "#?notification=false",
+        text: "Home"
+      },
+      {
+        href: "#?notification=false",
+        text: "Manage account",
+        active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../account-access.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="work-with-organisation-routing">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <!-- <span class="govuk-caption-l">Add team member</span> -->
+            <h1 class="govuk-fieldset__heading">
+              How do they work with your organisation?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="employee" name="work-with-organisation" type="radio" value="Employee" {{ checked("work-with-organisation", "Employee") }}>
+              <label class="govuk-label govuk-radios__label" for="employee">
+                As an employee
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="consultant" name="work-with-organisation" type="radio" value="Consultant" {{ checked("work-with-organisation", "Consultant") }}>
+              <label class="govuk-label govuk-radios__label" for="consultant">
+                As a consultant 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="compliance-scheme" name="work-with-organisation" type="radio" value="Compliance scheme" {{ checked("work-with-organisation", "Compliance scheme") }}>
+              <label class="govuk-label govuk-radios__label" for="compliance-scheme">
+                For a compliance scheme
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="something-else" name="work-with-organisation" type="radio" value="Something else" data-aria-controls="conditional-organisation-role" {{ checked("work-with-organisation", "Something else") }}>
+              <label class="govuk-label govuk-radios__label" for="something-else">
+                Something else
+              </label>
+            </div>
+            
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-organisation-role">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="relationship-to-org">
+                  What’s their relationship with your organisation?
+                </label>
+                <input class="govuk-input" id="relationship-to-org" name="relationship-to-org" type="text" value="{{data['relationship-to-org']}}">
+              </div>
+
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+        
+      {{ govukButton({
+          text: "Continue"
+        })}}
+        
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

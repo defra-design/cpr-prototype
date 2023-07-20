@@ -2,29 +2,39 @@ const express = require('express')
 const router = express.Router()
 
 // Routing for Page
-router.post('*/registered-trade-in-uk', function (req, res) {
-    var registeredUK = req.session.data['registered-in-uk']
+router.post('*/registered-charity-question', function (req, res) {
+    var registeredCharity = req.session.data['registered-charity']
     
-    if (registeredUK == "yes"){
-        res.redirect('type-of-organisation')
+    if (registeredCharity == "Yes"){
+        res.redirect('../not-affected/charity')
     }
-    else if (registeredUK == "no"){
-        res.redirect('../not-affected/non-uk-organisation')
+    else if (registeredCharity == "No"){
+        res.redirect('registered-with-companies-house')
     }
 })
 
 // Routing for Page
-router.post('*/organisation-type', function (req, res) {
-    var organisationType = req.session.data['form-organisation-type']
+router.post('*/registered-with-companies-house', function (req, res) {
+    var registeredCH = req.session.data['registered-companies-house']
     
-    if (organisationType == "Limited Company"){
-        res.redirect('../limited-company/about-your-organisation/companies-house-number')
+    if (registeredCH == "Yes"){
+        res.redirect('../companies-house/about-your-organisation/companies-house-number')
     }
-    else if (organisationType == "Sole trader"){
-        res.redirect('../sole-trader/about-your-business/trading-name')
+    else if (registeredCH == "No"){
+        res.redirect('../non-companies-house/about-your-business/type-of-organisation')
     }
-    else if (organisationType == "Charity"){
-        res.redirect('../not-affected/charity')
+})
+
+
+// Routing for Page
+router.post('*/uk-nation-ch', function (req, res) {
+    var userGroup = req.session.data['user-group']
+    
+    if (userGroup == "compliance-scheme") {
+        res.redirect('../about-you/role-in-organisation')
+    }
+    else {
+        res.redirect('uk-nation')
     }
 })
 
@@ -39,6 +49,36 @@ router.post('*/authorised-person', function (req, res) {
         res.redirect('full-name')
     }
 })
+
+// Routing for end to end testing
+// router.post('*/complete-account-creation', function (req, res) {
+//     var userGroup = req.session.data['user-group']
+    
+//     if (userGroup == "compliance-scheme") {
+//         res.redirect('../../../../landing-page/cs-submit-behalf-lp-england?account-created-notification=true')
+//     }
+//     else if (userGroup == "producer") {
+//         res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
+//     }
+//     else {
+//         res.redirect('../../../../landing-page/large-producer?account-created-notification=true')
+//     }
+// })
+
+// Routing for end to end testing
+// router.post('*/signing-in', function (req, res) {
+//     var userGroup = req.session.data['user-group']
+    
+//     if (userGroup == "compliance-scheme") {
+//         res.redirect('../../../../landing-page/cs-submit-behalf-lp-england')
+//     }
+//     else if (userGroup == "producer") {
+//         res.redirect('../../../../landing-page/large-producer')
+//     }
+//     else {
+//         res.redirect('../../../../landing-page/large-producer')
+//     }
+// })
 
 
 

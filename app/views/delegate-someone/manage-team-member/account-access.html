@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Invite team member - Manage account - Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#?notification=false",
+    navigation: [
+      {
+        href: "#?notification=false",
+        text: "Home"
+      },
+      {
+        href: "#?notification=false",
+        text: "Manage account",
+        active: true 
+      },
+      {
+        href: "#?notification=false",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../account-management-one-team-member.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="access-role-change">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <!-- <span class="govuk-caption-l">Add team member</span> -->
+            <h1 class="govuk-fieldset__heading">
+              What do you want them to do?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="upload" name="their-account-access" type="radio" value="Upload data only" {{ checked("their-account-access", "Upload data only") }}>
+              <label class="govuk-label govuk-radios__label" for="upload">
+                Upload data only
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="manage-upload" name="their-account-access" type="radio" value="Manage team and upload data" {{ checked("their-account-access", "Manage team and upload data") }}>
+              <label class="govuk-label govuk-radios__label" for="manage-upload">
+                Manage team and upload data 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="manage-upload-submit" name="their-account-access" type="radio" aria-describedby="access-role-hint" value="Manage team, upload data and submit data" {{ checked("their-account-access", "Manage team, upload data and submit data") }}>
+              <label class="govuk-label govuk-radios__label" for="manage-upload-submit">
+                Manage team, upload data and submit data 
+              </label>
+              <div id="access-role-hint" class="govuk-hint govuk-radios__hint">We’ll need to know more about this person, as they will be able to submit data to the environmental regulator</div>
+            </div>
+          </div>
+
+        </fieldset> 
+      </div>
+        {{ govukButton({
+          text: "Continue"
+        })}}
+    </form>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What’s the difference between uploading and submitting?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">Uploading data is when you upload your file into this service. Once you’ve uploaded a file, you can change it if you need to. You do this by re-uploading a new file.</p>
+        <p class="govuk-body">Submitting data is when you send the final file to the environmental regulator. </p>
+        <p class="govuk-body">Data can only be submitted by someone whose account has been approved by the environmental regulator. </p>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+
+{% endblock %}
