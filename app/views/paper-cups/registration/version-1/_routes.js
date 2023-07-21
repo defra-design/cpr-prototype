@@ -1,4 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-module.exports = router
+// Routing for Page
+router.post('*/contact-address-question', function (req, res) {
+    var addressOther = req.session.data['address-type'];
+    
+    if (addressOther === "other") {
+        res.redirect('../postcode-lookup');
+    } else {
+        res.redirect('./contact-telephone');
+    }
+});
+
+module.exports = router;

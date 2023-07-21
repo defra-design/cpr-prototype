@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <form method="POST" action="./contact-address">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is the primary standard industrial classification (SIC) code for your organisation?
+            </h1>
+          </legend>
+          <div id="address-hint" class="govuk-hint">
+            This code describes the nature of what your organisation does.
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="10832" name="sic-code" type="radio" value="10832" {{ checked("sic-code", "10832") }}>
+              <label class="govuk-label govuk-radios__label" for="10832">
+                Production of coffee and coffee substitutes (10832)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="56101" name="sic-code" type="radio" value="56101" {{ checked("sic-code", "56101") }}>
+              <label class="govuk-label govuk-radios__label" for="56101">
+                Licensed restaurants (56101)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
