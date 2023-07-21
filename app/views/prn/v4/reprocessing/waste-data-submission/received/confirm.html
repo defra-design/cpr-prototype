@@ -1,0 +1,45 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+Waste record created
+          </h1>
+          <div class="govuk-panel__body">
+          Reference number<br><strong>WR00012</strong>
+          </div>
+        </div>
+        <p>Your waste balance has increased by <strong>1.38</strong> tonnes to <strong> 9.38</strong> tonnes.</p>
+        <p class="govuk-body">We have sent you a confirmation email.</p>
+
+
+
+        <p><a href="../manage-glass">View and edit waste records</a></p>
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+
+
+{% endblock %}
