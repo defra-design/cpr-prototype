@@ -23,4 +23,14 @@ router.post('*/contact-person-question', function (req, res) {
     }
 });
 
+router.post('*/partners-option-question', function (req, res) {
+    var partnerOption = req.session.data['enter-partners'];
+
+    if (partnerOption === "directly") {
+        res.redirect('./partners-add-person');
+    } else {
+        res.redirect('./partners-upload-file');
+    }
+});
+
 module.exports = router;
