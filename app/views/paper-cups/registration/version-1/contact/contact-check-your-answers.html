@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./contact-preference">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your contact details</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    SIC code
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['sic-code'] }}   
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./primary-sic-code.html">
+                    Change<span class="govuk-visually-hidden"> primary sic code</span>
+                </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Main contact  address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body">Cambridge Cafe</p>
+                    <p class="govuk-body">9 Grange Road <br>Cambridge <br>United Kingdom <br>CB2 0AA</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="./contact-address.html">
+                        Change<span class="govuk-visually-hidden"> main contact address</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Main telephone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['contact-number'] }}   
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="./contact-telephone.html">
+                        Change<span class="govuk-visually-hidden"> main contact telephone number</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Main person of contact
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['contact-full-name'] }}  
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./contact-person">
+                    Change<span class="govuk-visually-hidden"> the main person of contact</span>
+                </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Preferred method of contact
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {% if (data['contact-preference'].includes('email')) %}
+                        <p class="govuk-body">jane.doe@gmail.com</p>
+                    {% endif %}
+
+                    {% if (data['contact-preference'].includes('phone')) %}
+                        <p class="govuk-body">{{ data['contact-number'] }}</p>
+                    {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./contact-preference.html">
+                    Change<span class="govuk-visually-hidden"> preferred method of contact</span>
+                </a>
+                </dd>
+            </div>
+        </dl>
+       
+        <form action="../registration-task-list?contact-complete=yes" method="post" novalidate>
+            <button class="govuk-button" data-module="govuk-button">
+                Accept and send
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

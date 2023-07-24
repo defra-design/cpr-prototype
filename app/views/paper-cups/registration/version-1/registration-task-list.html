@@ -41,7 +41,11 @@
                     Confirm contact details
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% if (data['contact-complete'] === "yes") %}
+                  <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %}
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
@@ -84,7 +88,8 @@
           
           {{ govukButton({
             text: "Review and submit",
-            preventDoubleClick: true
+            preventDoubleClick: true,
+            disabled:true
           }) }}
 
         </li>
