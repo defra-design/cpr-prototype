@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management?added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- H1 and Guidance -->
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Report your members' organisation details
+    </h1>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-10">Compliance Co England</h2>
+
+  <p class="govuk-body govuk-!-margin-top-10"><strong>How to report organisation details</strong></p>
+
+
+  <p class="govuk-body">Read the guidance on <a class="govuk-link" href="#">how to report organisation details (opens in a new window) </a></p>  
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        How to report
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+        <ol class="govuk-list govuk-list--number">
+            <li>Upload organisation details to your account in a CSV file.</li>
+            <li>Based on what’s in the CSV file, you may also need to upload files with brand and partner information.</li>
+            <li>Submit the data to the environmental regulator by the deadline. Only people with the right account permission can do this.</li>
+        </ol>
+    </div>
+  </details>
+
+ </div> 
+
+</div>
+
+<!-- H2 and Compliance Scheme -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4 govuk-!-margin-bottom-2">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Add organisation details</h2>
+</div>
+
+</div>
+
+<!-- Cards -->
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+    <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color: #Ffffff; border-right: 1px solid #b1b4b6; border-top: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6;">
+    
+         <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Report data for period  Jan to Jun 2023</h3>
+         <p><b>Large organisations</b></p>
+          <p class="govuk-body">Deadline: 11.59pm on 1 Oct 2023</p>
+          <strong class="govuk-tag govuk-!-margin-bottom-1">
+         Submitted
+          </strong>
+        </div>
+    
+        <div class="card-links" style="background-color: #Ffffff; border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6; padding: 10px 20px 10px 30px;">
+          <p class="govuk-body"><a href="resubmission/reupload/confirm-reupload.html">Re-upload then re-submit to regulator</a></p>
+        </div>
+    
+        </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #Ffffff; border-right: 1px solid #b1b4b6; border-top: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6;">
+
+     <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Report data for period  Jul to Dec 2023</h3>
+     <p><b>Large organisations</b></p>
+      <p class="govuk-body">Deadline: 11.59pm on 1 April 2023</p>
+      <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-1">
+       Cannot start yet
+      </strong>
+    </div>
+
+    <div class="card-links" style="background-color: #Ffffff; border-right: 1px solid #b1b4b6; border-bottom: 1px solid #b1b4b6; border-left: 1px solid #b1b4b6; padding: 10px 20px 55px 30px;">
+      
+    </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

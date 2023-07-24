@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% set title = "Set up recovery for your sign in details" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">You need to set up a recovery word so that you can get back into Government Gateway if you forget your password.</p>
+
+    {{ govukButton({
+      text: "Continue",
+      href: 'create-memorable-word'
+    }) }}
+
+    <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+  Government Gateway | Prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Set up recovery for your sign in details</h1>
+    <p class="govuk-body">You need to set up a recovery word so that you can get back into Government Gateway if you forget your password.</p>
+
+    <form method="POST" action="recovery-word-2">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -10,9 +10,10 @@
       href: "manage-prn"
     },
     {
-      text: "Manage your PRNs",
+      text: "Manage your PRNs or PERNs",
       href: "manage-accreditations"
     }
+
   ]
 }) }}
 {% endblock %}
@@ -31,37 +32,8 @@
     <h1 class="govuk-heading-xl">Glass</h1>
 
 </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-
-    <h2 class="govuk-heading-l">Raise and issue PRNs</h2>
-
-    </div>
-
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-
-    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
-
-                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
-                  </a><a href="raised-prns"></a>
-                  <div class="govuk-card__content">
-                    <h2 class="govuk-heading-l">12</h2>
-                    <h3 class="govuk-heading-m">Ready to issue</h3>
-
-
-                  </div>
-                </div>
-
-
-              </div>
-</div>
 <div class="govuk-grid-column-one-third" style="  float: right;">
-  <div class="govuk-grid-column-full card">
+  <div class="govuk-grid-column-full govuk-inset-text">
 
 
 
@@ -71,9 +43,12 @@
 
         <!-- DESCRIPTION -->
         <p class="govuk-body govuk-!-margin-bottom-3">
-      Current waste balance for this accreditation is <strong>12 tonnes</strong>.
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}12 tonnes{% endif %}</strong>.
         </p>
+        <!-- <p class="govuk-body govuk-!-margin-bottom-3">
+              December waste balance <strong>1 tonnes</strong>
 
+            </p> -->
 
 
 
@@ -83,84 +58,77 @@
   </div>
 </div>
 
+<h2 class="govuk-heading-l">
+  Raised PRNs
+</h2>
 
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-one-third">
-    <a href="enter-tonnes" class="govuk-body-m govuk-!-margin-bottom-5">Raise a PRN</a>
-  </div>
-  </div>
-<div class="govuk-grid-row">
-<hr class="govuk-!-margin-bottom-7">
-<div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-l">Issued PRNs</h2>
-  </div>
-  </div>
-<div class="govuk-grid-row">
+<a href="enter-tonnes" class="govuk-button">Raise a PRN</a>
 
-  <div class="govuk-grid-column-one-third">
-    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
+    <div class="govuk-grid-row govuk-card__flex-container">
 
-                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
-                  </a><a href="issued-prn"></a>
-                  <div class="govuk-card__content">
-                    <h2 class="govuk-heading-l">140</h2>
-                    <h3 class="govuk-heading-m">Accepted</h3>
+
+              <div class="govuk-grid-column-one-third govuk-card__flex-item">
+
+        <div class="govuk-grid-column-full govuk-card govuk-card--contained">
+
+
+                      <a href="issued-prns" class="govuk-heading-m">  <h3 >Issue PRNs</h3></a>
+                      <p class="govuk-body">There are <strong>3</strong> raised PRNs ready to issue.</p>
+
 
 
                   </div>
+
+
+
+                </div>
                 </div>
 
-
+                <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                <hr class="govuk-!-margin-bottom-6">
+                </div>
               </div>
 
-  </div>
+<h2 class="govuk-heading-l">
+  Issued PRNs
+</h2>
 
-  <div class="govuk-grid-column-one-third">
-    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
-
-                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
-                  </a><a href="issued-prn"></a>
-                  <div class="govuk-card__content">
-                    <h2 class="govuk-heading-l">18</h2>
-                    <h3 class="govuk-heading-m">Awaiting acceptance</h3>
-
-
+    <div class="govuk-grid-row govuk-card__flex-container">
+      <div class="govuk-grid-column-one-third  govuk-card__flex-item">
+          <div class="govuk-grid-column-full govuk-card govuk-card--contained">
+                <a href="accepted-issued-prn" class="govuk-heading-m">  <h3 >View accepted PRNs</h3></a>
+                <p class="govuk-body">There are <strong>3</strong> accepted PRNs.</p>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third  govuk-card__flex-item">
+              <div class="govuk-grid-column-full govuk-card govuk-card--contained">
+                    <a href="awaiting-accepted-issued-prn" class="govuk-heading-m">  <h3 >View PRNs awaiting acceptance</h3></a>
+                    <p class="govuk-body">There are <strong>3</strong> PRNs awaiting acceptance.</p>
+                </div>
+              </div>
+              <div class="govuk-grid-column-one-third govuk-card__flex-item">
+                  <div class="govuk-grid-column-full govuk-card govuk-card--contained">
+                        <a href="rejected-issued-prn" class="govuk-heading-m">  <h3 >View rejected PRNs</h3></a>
+                        <p class="govuk-body">There are <strong>2</strong> rejected PRNs.</p>
+                    </div>
                   </div>
-                </div>
 
 
-              </div>
 
-  </div>
-
-
-  <div class="govuk-grid-column-one-third">
-    <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
-
-                </a><div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
-                  </a><a href="issued-prn"></a>
-                  <div class="govuk-card__content">
-                    <h2 class="govuk-heading-l">2</h2>
-                    <h3 class="govuk-heading-m">Rejected</h3>
+    </div>
 
 
-                  </div>
-                </div>
+    <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+          <p class="govuk-body">  <a href="all-issued-prn">View issued PRNs (8)</a></p>
+            <p class="govuk-body"> <a href="cancelled-prns">View cancelled PRNs (2)</a></p>
+        </div>
 
 
-              </div>
+    </div>
 
-  </div>
-  </div>
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-one-third">
-  <a href="issued-prn" class="govuk-body-m govuk-!-margin-bottom-5">View issued PRNs (160)</a>
-  <br>
-  <br>
 
-  <a href="cancelled-prns" class="govuk-body-m">View cancelled PRNs (78)</a>
-  </div>
 
-</div>
 
 {% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="selected-yes.html" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    <form method="POST" action="clarify-compliance-schemeresc">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which (RESC Ltd) scheme are you using?
+            </h1>
+          </legend>
+          <div id="more-detail-hint" class="govuk-hint">
+            Some compliance scheme operators have more than one scheme, because they operate in more than one UK nation.  </div>
+          <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="clarify-cs-resc" name="clarify-resc" type="radio" value="clarify-cs1">
+              <label class="govuk-label govuk-radios__label" for="clarify-cs-resc">
+                REPIC
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="clarify-cs-resc" name="clarify-resc" type="radio" value="clarify-cs2">
+              <label class="govuk-label govuk-radios__label" for="clarify-cs-resc">
+                REPIC NI
+              </label>
+            </div>
+           
+            
+            
+            
+
+            
+            
+          </div>
+          
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

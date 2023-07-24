@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="/landing-page/v2/cs-submit-behalf-lp-reportpacking-tasklist" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-grid-column-full-width">
+
+                  
+                    
+
+                        <div class="govuk-notification-banner govuk-notification-banner--error" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                            <div class="govuk-notification-banner__header">
+                              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                                Error
+                              </h2>
+                            </div>
+                            <div class="govuk-notification-banner__content">
+                              <h3 class="govuk-notification-banner__heading">
+                                Packaging data file not uploaded
+                              </h3>
+                              <p>File name</p>
+                            </div>
+                          </div>
+
+                        <p class="govuk-body">We could not validate the data - some of it is missing or in the wrong format.</p>
+
+
+
+            
+                        <h2 class="govuk-heading-m">What happens next</h2>
+
+
+                        <p><a href="/public/files/sample_validation_data.xlsx" download >Download the error report (CSV,21KB)</a> to see how to fix the issues.</p>
+                  
+                 
+                      </div>
+
+
+                </fieldset>
+                <div class="govuk-button-group">
+                  <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                  </button>
+                
+              
+                </div>
+           
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
