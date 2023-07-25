@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report packaging data" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['manual'] == "yes") %}
+    <a class="govuk-back-link" href="../about-your-business/business-address-manual.html">Back</a>
+{% endif %}
+
+{% if (data['manual'] == "no") %}
+    <a class="govuk-back-link" href="../about-your-business/select-business-address.html">Back</a>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../about-you/full-name">
+      <h1 class="govuk-heading-l">What are the main contact details for {{ data['trading-name'] }}?</h1>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="sole-trader-telephone-number">
+          UK telephone number
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="sole-trader-telephone-number" name="sole-trader-telephone-number" type="tel" autocomplete="tel" value="{{data['sole-trader-telephone-number']}}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="sole-trader-email">
+          Email address
+        </label>
+        <input class="govuk-input" id="sole-trader-email " name="sole-trader-email" type="email" spellcheck="false" autocomplete="email" value="{{data['sole-trader-email']}}">
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

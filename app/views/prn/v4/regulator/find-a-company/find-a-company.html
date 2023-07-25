@@ -1,0 +1,84 @@
+{% set serviceName = "" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-regulator"
+    },
+    {
+      text: "Find a organisation",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="organisation-details" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+
+    </legend>
+
+{{ xGovukAutocomplete({
+      id: "country",
+      name: "which-producer",
+      allowEmpty: false,
+      label: {
+        classes: "govuk-label--l",
+        showAllValues: true,
+        isPageHeading: true,
+
+        text: "Search for an organisation"
+      },
+      items: [
+        { text: "Valpak (EA), CRN100002" },
+        { text: "MRKWRGHT LTD" },
+        { text: "GREEN LTD" },
+        { text: "Packcare" },
+        { text: "Nipak Ltd (NIEA)" },
+        { text: "BiffPack (EA)" },
+        { text: "BiffPack (GB)" },
+        { text: "Toddpak" },
+        { text: "ComplyPak (NIEA)" },
+        { text: "Co2 Compliance (SEPA)" },
+        { text: "Scotpak (SEPA)" },
+        { text: "Ecosurety Scotland" },
+        { text: "Pennine-Pack (EA)" },
+        { text: "SWS Compak" }
+      ]
+    }) }}
+
+
+
+</fieldset>
+</div>
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

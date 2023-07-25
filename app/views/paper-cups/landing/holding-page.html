@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+
+
+    {% if (data['account-created-notification'] == "true") %}
+    <div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-bottom-6" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          You’ve created an account for Cambridge Cafe
+        </h3>
+      </div>
+    </div>
+    {% endif %}
+
+    <h1 class="govuk-heading-xl">Report takeaway cups recycling</h1>
+
+    <p class="govuk-body"></p>
+
+  </div>
+</div>
+
+
+{% endblock %}

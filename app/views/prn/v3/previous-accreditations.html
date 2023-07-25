@@ -1,0 +1,141 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: ""
+    }
+
+  ]
+}) }}
+</div>
+<div class="govuk-grid-column-one-third">
+  <p class="govuk-breadcrumbs"><a href="view-account-details/organisation-details" style="float:right;">View account details</a></p>
+  </div>
+</div>
+{% endblock %}
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style media="screen">
+  .card {
+  background-color: #f3f2f1;
+  padding: 30px 30px 10px 30px;
+
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Previous accreditations</h1>
+
+</div>
+</div>
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#past-day">
+      2022
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-week">
+      2021
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-month">
+        2020
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-year">
+        2019
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="past-day">
+    <h2 class="govuk-heading-l">Reprocessing</h2>
+    <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Glass</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Plastic</a>
+  </li>
+
+</ul>
+  <h2 class="govuk-heading-l">Exporting</h2>
+  <ul class="govuk-list">
+<li>
+  <a class="govuk-link" href="#">Glass</a>
+</li>
+<li>
+  <a class="govuk-link" href="#">Plastic</a>
+</li>
+
+</ul>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+
+    <h2 class="govuk-heading-l">Reprocessing</h2>
+    <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Glass</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Plastic</a>
+  </li>
+
+</ul>
+
+
+</ul>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+
+
+      <h2 class="govuk-heading-l">Reprocessing</h2>
+      <ul class="govuk-list">
+    <li>
+      <a class="govuk-link" href="#">Glass</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#">Plastic</a>
+    </li>
+
+    </ul>
+
+
+    </ul>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+    <h2 class="govuk-heading-l">Reprocessing</h2>
+    <ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Glass</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Plastic</a>
+  </li>
+
+  </ul>
+
+
+  </ul>
+  </div>
+</div>
+
+{% endblock %}

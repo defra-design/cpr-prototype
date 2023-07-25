@@ -1,0 +1,64 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+        <form action="file-uploaded" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+
+                    <div class="govuk-grid-column-full-width">
+
+
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                                <span class="govuk-caption-l">Record your waste</span>
+                            Uploading file and validating data
+                        </h1>
+
+                        <p class="govuk-body">This may take a few minutes - we’ll refresh the page automatically until it is done.</p>
+
+                        <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
+
+                  <p>
+                  <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+                  </p>
+
+
+
+
+
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+            <a href="./file-uploaded.html">Next page</a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report cups recycling data" %}
+
+{% set title = "Create an account to report cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% if (data['account'] == "take-back-scheme") %}
+<a class="govuk-back-link" href="./role-in-organisation.html">Back</a>
+{% endif %}
+
+{% if (data['account'] == "cup-seller") %}
+<a class="govuk-back-link" href="../about-your-organisation/comfirm-company-details.html">Back</a>
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if (data['account'] == "take-back-scheme") %}
+   <form method="POST" action="./telephone-number">
+    {% endif %}
+
+   {% if (data['account'] == "cup-seller") %}
+   <form method="POST" action="../confirm-declaration/check-your-answers_v2">
+   {% endif %}
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="full-name">
+          What is your full name?
+        </label>
+      </h1>
+      <input class="govuk-input" id="full-name" name="full-name" type="text" spellcheck="false" autocomplete="name" value="{{data['full-name']}}">
+    </div>
+
+   
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
