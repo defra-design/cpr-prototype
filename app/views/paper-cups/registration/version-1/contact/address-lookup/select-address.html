@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./postcode">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Select your premises address</h1>
+      
+    <p class="govuk-body">
+      2 address found for {{ data['address-lookup-building-number'] }} and {{ data['address-lookup-postcode'] }} 
+      <a href="./postcode" class="govuk-link--no-visited-state">Change</a>
+    </p>
+    
+    <form>
+      <div class="govuk-radios govuk-!-margin-bottom-5" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="enrolled" name="address-type" type="radio" value="enrolled" {{ checked("address-type", "enrolled") }}>
+          <label class="govuk-label govuk-radios__label" for="enrolled">
+            9 Grange Road, Cambridge, United Kingdom, CB2 0AA
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="other" name="address-type" type="radio" value="other" {{ checked("address-type", "other") }}>
+          <label class="govuk-label govuk-radios__label" for="other">
+            Use a different address
+          </label>
+        </div>
+      </div>
+
+      <p class="govuk-body">
+        <a href="./business-address-manual" class="govuk-link--no-visited-state">
+          Enter the address manually
+        </a>
+      </p>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

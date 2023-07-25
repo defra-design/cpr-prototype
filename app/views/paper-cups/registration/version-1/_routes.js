@@ -6,7 +6,7 @@ router.post('*/contact-address-question', function (req, res) {
     var addressOther = req.session.data['address-type'];
     
     if (addressOther === "other") {
-        res.redirect('./postcode-lookup');
+        res.redirect('./address-lookup/postcode');
     } else {
         res.redirect('./contact-telephone');
     }
