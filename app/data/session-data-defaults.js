@@ -44,7 +44,6 @@ module.exports = {
   "dataReviewed": "no",
   "dataAccepted": "no",
 
-
   // Company information
   "sub1": "null",
   "sub2": "null",
@@ -76,9 +75,7 @@ module.exports = {
   "sub2CompanyPhone": "01423 555 787",
   "sub2CompanyEmail": "hello@subsidiarytwo.com",
 
-
-// EPR packaging category data
-
+  // EPR packaging category data
   "packagingPrimary": "yes",
   "packagingSecondary": "yes",
   "packagingTransit": "yes",
@@ -103,9 +100,7 @@ module.exports = {
   "materialsSecondary": "paper",
   "materialsTransit": "wood",
 
-
   // EPR nation data
-  
   "nationData": "yes", // toggle between 'no' or 'yes' (replaced activityNation01)
   "activityNation01": "yes",
   "activityNation02": "yes",
@@ -113,8 +108,6 @@ module.exports = {
   "activityNation04": "yes",
   "activityNation05": "yes",
   "materialsNation": "plastic,paper,steel,wood",
-  
-
 
   // DRS-specific data below
   "orgDescription": "producer,retailer",
@@ -137,5 +130,8 @@ module.exports = {
   "obCombinedDrs": "yes",
   "obCombinedEprExport": "yes",
   "obCombinedEprTonnage": "over",
-  "obDrsCheckboxes": "no"
+  "obDrsCheckboxes": "no",
+
+  // Paper-cups
+  "cups-registration-main-address": "9 Grange Road\nCambridge\nEngland\nCB2 0AA"
 }
