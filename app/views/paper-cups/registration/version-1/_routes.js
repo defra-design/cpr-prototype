@@ -8,6 +8,7 @@ router.post('*/contact-address-question', function (req, res) {
     if (addressOther === "other") {
         res.redirect('./address-lookup/postcode');
     } else {
+        req.session.data['cups-registration-main-address'] = "9 Grange Road\nCambridge\nEngland\nCB2 0AA";
         res.redirect('./contact-telephone');
     }
 });
@@ -43,6 +44,25 @@ router.post('*/premises-option-question', function (req, res) {
     } else {
         res.redirect('./premises-upload-file');
     }
+});
+
+router.post('*/select-address-question', function (req, res) {
+    var option = req.session.data['address-lookup-selection'];
+
+    if (option === "option-1") {
+        req.session.data['cups-registration-main-address'] = `${req.session.data['address-lookup-building-number']} Willow Road\nLeeds\nEngland\n${req.session.data['address-lookup-postcode']}`;
+    } else {
+        req.session.data['cups-registration-main-address'] = `${req.session.data['address-lookup-building-number']}a Willow Road\nLeeds\nEngland\n${req.session.data['address-lookup-postcode']}`;
+    }
+
+    res.redirect('../contact-telephone');
+});
+
+router.post('*/address-manual-question', function (req, res) {
+    req.session.data['cups-registration-main-address'] =
+        `${req.session.data['manual-address-line-1']}\n${req.session.data['manual-address-line-2']}\n${req.session.data['manual-address-town']}\n${req.session.data['manual-address-county']}\n${req.session.data['manual-address-country']}\n${req.session.data['manual-address-postcode']}`;
+
+    res.redirect('../contact-telephone');
 });
 
 module.exports = router;
