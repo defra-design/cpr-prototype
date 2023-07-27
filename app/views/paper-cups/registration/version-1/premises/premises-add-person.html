@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./partners-option.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add a partner</h1>
+
+    <form method="POST" action="./partner-direct-your-partners">
+
+      <div class="govuk-form-group">
+      
+        <label class="govuk-label govuk-label--m" for="partner-full-name">
+          What is their full name?
+        </label>
+        <input class="govuk-input" id="partner-full-name" name="partner-full-name" type="text" spellcheck="false" autocomplete="name" value="{{data['partner-full-name']}}">
+      </div>
+   
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

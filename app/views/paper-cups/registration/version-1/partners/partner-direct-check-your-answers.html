@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['partners-complete'] === "yes") %}
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./partner-direct-your-partners.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form method="POST" action="../registration-task-list?partners-complete=yes">
+      <div class="govuk-form-group">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+              Check your partner details
+            </h1>
+          </div>
+        </div> 
+        
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-summary-card govuk-!-margin-bottom-2">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your partners</h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action"> <a class="govuk-link" style="font-weight: 400;"href="./partner-direct-your-partners.html">
+                      Manage<span class="govuk-visually-hidden"> your partners</span>
+                    </a>
+                  </li>
+                  <!-- <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                      Withdraw<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Partners
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if (data['partner-1'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-2'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-2'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-3'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-3'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-4'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-4'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-5'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-5'] }}  </p>
+                      {% endif %}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>   
+        
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

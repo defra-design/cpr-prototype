@@ -46,8 +46,6 @@ router.use('/account-creation/build', require('./views/account-creation/build/_r
 
 router.use('/delegate-someone', require('./views/delegate-someone/_routes'));
 
-
-
 router.use('/add-compliance-scheme', require('./views/add-compliance-scheme/_routes'));
 router.use('/add-compliance-scheme-v2', require('./views/add-compliance-scheme-v2/_routes'));
 router.use('/Account-Management', require('./views/Account-Management/_routes'));
@@ -77,7 +75,6 @@ router.use('/guidance/v2', require('./views/guidance/v2/_routes'));
 router.use('/regulator-manage-pom-data', require('./views/regulator-manage-pom-data/_routes'));
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
-
 router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
 
 //PRN
@@ -90,6 +87,7 @@ router.use('/prn/add-another', require('./views/prn/add-another/_routes'));
 router.use('/prn/account-creation/build', require('./views/prn/account-creation/build/_routes'));
 
 router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
+router.use('/paper-cups/registration/version-1', require('./views/paper-cups/registration/version-1/_routes'));
 
 
 // Clear all session data
