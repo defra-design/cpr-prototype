@@ -33,4 +33,14 @@ router.post('*/partners-option-question', function (req, res) {
     }
 });
 
+router.post('*/premises-option-question', function (req, res) {
+    var partnerOption = req.session.data['enter-premises'];
+
+    if (partnerOption === "directly") {
+        res.redirect('./premises-add-person');
+    } else {
+        res.redirect('./premises-upload-file');
+    }
+});
+
 module.exports = router;

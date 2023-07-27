@@ -36,24 +36,40 @@
             </h2>
             <ul class="app-task-list__items govuk-!-padding-left-0">
               <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="./contact/primary-sic-code" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
-                    Confirm contact details
-                  </a>
-                </span>
+                
                 {% if (data['contact-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./contact/contact-check-your-answers.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                      Confirm contact details
+                    </a>
+                  </span>
                   <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
                 {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./contact/primary-sic-code" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                      Confirm contact details
+                    </a>
+                  </span>
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
                 {% endif %}
               </li>
               <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="./partners/partners-option" aria-describedby="add-partner-details" class="govuk-link--no-visited-state">
-                    Add partner details within the partnership
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="partner-information-status">Not Started</strong>
+                
+                {% if (data['partners-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./partners/partner-direct-check-your-answers.html" aria-describedby="add-partner-details" class="govuk-link--no-visited-state">
+                      Add partner details within the partnership
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./partners/partners-option" aria-describedby="add-partner-details" class="govuk-link--no-visited-state">
+                      Add partner details within the partnership
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %}
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
