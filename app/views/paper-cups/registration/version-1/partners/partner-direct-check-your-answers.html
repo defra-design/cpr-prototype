@@ -56,11 +56,21 @@
                       Partners
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <p class="govuk-body">Olivia Turner</p>
-                      <p class="govuk-body">Ethan Anderson</p>
-                      <p class="govuk-body">Liam Roberts</p>
-                      <p class="govuk-body">Ava Wilson</p>
+                      {% if (data['partner-1'] === "yes") %}
                       <p class="govuk-body">{{ data['partner-full-name'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-2'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-2'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-3'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-3'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-4'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-4'] }}  </p>
+                      {% endif %}
+                      {% if (data['partner-5'] === "yes") %}
+                      <p class="govuk-body">{{ data['partner-full-name-5'] }}  </p>
+                      {% endif %}
                     </dd>
                   </div>
                 </dl>

@@ -23,20 +23,22 @@ router.post('*/contact-person-question', function (req, res) {
     }
 });
 
-router.post('*/partners-option-question', function (req, res) {
-    var partnerOption = req.session.data['enter-partners'];
+// From old design
 
-    if (partnerOption === "directly") {
-        res.redirect('./partners-add-person');
-    } else {
-        res.redirect('./partners-upload-file');
-    }
-});
+// router.post('*/partners-option-question', function (req, res) {
+//     var partnerOption = req.session.data['enter-partners'];
+
+//     if (partnerOption === "directly") {
+//         res.redirect('./partners-add-person');
+//     } else {
+//         res.redirect('./partners-upload-file');
+//     }
+// });
 
 router.post('*/premises-option-question', function (req, res) {
-    var partnerOption = req.session.data['enter-premises'];
+    var premiseOption = req.session.data['enter-premises'];
 
-    if (partnerOption === "directly") {
+    if (premiseOption === "directly") {
         res.redirect('./premises-add-person');
     } else {
         res.redirect('./premises-upload-file');
