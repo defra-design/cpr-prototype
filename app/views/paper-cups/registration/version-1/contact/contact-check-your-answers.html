@@ -43,6 +43,8 @@
                         <div class="govuk-summary-card__content">
 
                             <dl class="govuk-summary-list">
+
+                                <!-- PRIMARY SIC CODE -->
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">
                                         SIC code
@@ -56,12 +58,13 @@
                                     </a>
                                     </dd>
                                 </div>
+
+                                <!-- MAIN CONTACT ADDRESS -->
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">
-                                        Main contact  address
+                                        Contact  address
                                     </dt>
                                     <dd class="govuk-summary-list__value">
-                                        <p class="govuk-body">Cambridge Cafe</p>
                                         <p class="govuk-body">9 Grange Road <br>Cambridge <br>United Kingdom <br>CB2 0AA</p>
                                     </dd>
                                     <dd class="govuk-summary-list__actions">
@@ -70,25 +73,14 @@
                                         </a>
                                     </dd>
                                 </div>
-                                <div class="govuk-summary-list__row">
-                                    <dt class="govuk-summary-list__key">
-                                        Main telephone number
-                                    </dt>
-                                    <dd class="govuk-summary-list__value">
-                                        {{ data['contact-number'] }}   
-                                    </dd>
-                                    <dd class="govuk-summary-list__actions">
-                                        <a class="govuk-link" href="./contact-telephone">
-                                            Change<span class="govuk-visually-hidden"> main contact telephone number</span>
-                                        </a>
-                                    </dd>
-                                </div>
+                                
+                                <!-- MAIN PERSON OF CONTACT -->
                                 <div class="govuk-summary-list__row">
                                     <dt class="govuk-summary-list__key">
                                         Main person of contact
                                     </dt>
                                     <dd class="govuk-summary-list__value">
-                                        {{ data['contact-full-name'] }}  
+                                        {{ data['contact-name'] }}  
                                     </dd>
                                     <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="./contact-person">
@@ -96,25 +88,92 @@
                                     </a>
                                     </dd>
                                 </div>
-                                <div class="govuk-summary-list__row">
-                                    <dt class="govuk-summary-list__key">
-                                        Preferred method of contact
-                                    </dt>
-                                    <dd class="govuk-summary-list__value">
-                                        {% if (data['contact-preference'].includes('email')) %}
-                                            <p class="govuk-body">jane.doe@gmail.com</p>
-                                        {% endif %}
-                    
-                                        {% if (data['contact-preference'].includes('phone')) %}
-                                            <p class="govuk-body">{{ data['contact-number'] }}</p>
-                                        {% endif %}
-                                    </dd>
-                                    <dd class="govuk-summary-list__actions">
-                                    <a class="govuk-link" href="./contact-preference.html">
-                                        Change<span class="govuk-visually-hidden"> preferred method of contact</span>
-                                    </a>
-                                    </dd>
-                                </div>
+
+                                {% if (data['contact-name'] === "Someone else") %}
+
+                                    <!-- MAIN PERSON OF CONTACT - SOMEONE ELSE - NAME -->
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                            Their name
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {{ data['someone-else-full-name'] }}  
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                        <a class="govuk-link" href="./contact-full-name.html">
+                                            Change<span class="govuk-visually-hidden"> the main person of contact</span>
+                                        </a>
+                                        </dd>
+                                    </div>
+
+                                    <!-- MAIN PERSON OF CONTACT - SOMEONE ELSE - TELEPHONE -->
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                            Their telephone number
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {{ data['someone-else-number'] }}   
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                            <a class="govuk-link" href="./someone-else-telephone.html">
+                                                Change<span class="govuk-visually-hidden">telephone number</span>
+                                            </a>
+                                        </dd>
+                                    </div>
+
+                                    <!-- MMAIN PERSON OF CONTACT - SOMEONE ELSE - EMAIL -->
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                            Their email
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {{ data['someone-else-email'] }}   
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                        <a class="govuk-link" href="./someone-else-email.html">
+                                            Change<span class="govuk-visually-hidden"> email</span>
+                                        </a>
+                                        </dd>
+                                    </div>
+
+                                {% else %}
+
+                                    <!-- MAIN PERSON OF CONTACT - TELEPHONE -->
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                            Telephone number
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {{ data['contact-number'] }}   
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                            <a class="govuk-link" href="./contact-telephone">
+                                                Change<span class="govuk-visually-hidden">telephone number</span>
+                                            </a>
+                                        </dd>
+                                    </div>
+
+                                    <!-- MAIN PERSON OF CONTACT - EMAIL -->
+                                    <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                            Email
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                            {% if (data['email-preference'] === "existing") %}
+                                                johnsmith@email.com  
+                                            {% else %}
+                                                {{ data['new-email'] }}     
+                                            {% endif %}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                        <a class="govuk-link" href="./contact-email.html">
+                                            Change<span class="govuk-visually-hidden"> email</span>
+                                        </a>
+                                        </dd>
+                                    </div>
+
+                                {% endif %}
+                                
                             </dl>
 
                         </div>
