@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report cups recycling data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+
+
+<nav class="moj-sub-navigation custom-tabs" aria-label="Sub navigation">
+
+  <ul class="moj-sub-navigation__list govuk-tabs__list">
+    <li class="moj-sub-navigation__item">
+      <a class="moj-sub-navigation__link govuk-tabs__tab" href="#register">Register</a>
+    </li>
+
+    <li class="moj-sub-navigation__item">
+      <a class="moj-sub-navigation__link govuk-tabs__tab" href="#report-cups-data">Report takeaway cups data</a>
+    </li>
+
+    <li class="moj-sub-navigation__item">
+      <a class="moj-sub-navigation__link govuk-tabs__tab" href="#useful-information">Useful information</a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- Registration 'page'-->
+  <div class="" id="register">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+    
+        <div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-bottom-6" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              You’ve created an account for Complinace Co
+            </h3>
+          </div>
+        </div>
+    
+        <h1 class="govuk-heading-xl">Register</h1>
+    
+    
+        <p class="govuk-body">Update your takeback scheme registration details so that you can report data for your members.</p>
+        <p class="govuk-body">You can change your details until 31 October 2024.</p>
+    
+        {{ govukButton({
+          text: "Update details",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
+    
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Report data 'page'-->
+  <div class="govuk-tabs__panel--hidden" id="report-cups-data">
+   
+    <h1 class="govuk-heading-xl">Report takeaway cups data</h1>
+    <p class="govuk-body">You will need data for all your members in a spreadsheet, divided by each nation of the UK.</p>
+
+    <hr class="govuk-section-break govuk-section-break--l">
+
+
+    <h2 class="govuk-heading-l">Report data for  1 October 2024 to 30 June 2025</h2>
+    <p class="govuk-body">Available from 1 January 2025.</p>
+
+    <h2 class="govuk-heading-l">Report data for  1 July 2025 to 31 December 2025</h2>
+    <p class="govuk-body">Available from 1 July 2025.</p>
+  </div>
+  
+</div>
+
+{% endblock %}

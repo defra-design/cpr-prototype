@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="#">Back</a>
+<a class="govuk-back-link" href="manage-pom-data.html">Back</a>
 
 
 {% endblock %}
@@ -20,73 +20,87 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
+    <span class="govuk-caption-xl">Manage packaging data submissions</span>
     <h1 class="govuk-heading-xl">Acme org Ltd.</h1>
 
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Files uploaded</h2>
+        <h2 class="govuk-summary-card__title">Time and date of submission: 3:15pm on 10 March 2023</h2>
         <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action"> <a class="govuk-link" href="organisation-upload.html">
-              Change<span class="govuk-visually-hidden"> file </span>
-            </a>
+          <li class="govuk-summary-card__action"> 
           </li>
         </ul>
       </div>
 
-      <div class="govuk-summary-card__content">
+      <div class="govuk-summary-card__content" style="padding-bottom: 0px;">
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-4">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              File name 
-            </dt> 
-            <dt class="govuk-summary-list__key">
-              Date uploaded
-            </dt>
-            <dt class="govuk-summary-list__key">
-            Uploaded by
-            </dt>
-          </div>
+          
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-            orgdetails.csv
+              <strong>Packaging data</strong>
             </dd>
             <dd class="govuk-summary-list__value">
-            20 March 2023
+              acme.csv
             </dd>
-            <dd class="govuk-summary-list__value">
-              Joe Bloggs
+            <dd class="ovuk-table__cell govuk-table__header--numeric">
+              <a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Download</a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              brandinfo.csv
+              <strong>Submitted by</strong>
             </dd>
             <dd class="govuk-summary-list__value">
-              20 March 2023 
+              Sally Smith
             </dd>
-            <dd class="govuk-summary-list__value">
-              Joe Bloggs 
-            </dd>
+            
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              partnernfo.csv
+              <strong>Account role</strong>
             </dd>
             <dd class="govuk-summary-list__value">
-              20 March 2023 
+              Approved person
             </dd>
-            <dd class="govuk-summary-list__value">
-              Joe Bloggs 
-            </dd>
+            
           </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <strong>Telephone</strong>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              07553 937 831
+            </dd>
+            
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <strong>Email</strong>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              sally.smith@email.com
+            </dd>
+            
+          </div>
+          
+          <div class="govuk-summary-list__row"></div>
         </dl>
-
         {{ govukButton({
-          text: "Accept POM data",
-          href: "./acceptpomdata.html"
-        }) }}
+          text: "Accept", href:"./acceptpomdata"
+          }) }}
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          
+          {{ govukButton({
+          text: "Reject",href: "./rejectpomdata",
+          classes: "govuk-button--warning" 
+          
+          }) }}
+          {{ govukButton({
+          text: "Put on hold",
+          classes: "govuk-button--secondary"
+          }) }}
+        
       </div>
 
       
@@ -136,7 +150,7 @@
           
         </dd>
       </div>
-      <div class="govuk-summary-list__row">
+     x
         <dt class="govuk-summary-list__key">
           Telephone
         </dt>

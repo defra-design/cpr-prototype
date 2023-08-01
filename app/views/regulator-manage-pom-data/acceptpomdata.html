@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set serviceName = " Report packaging data" %}
+{% set serviceName = " pEPR: Regulators' Service" %}
 
 {% set title = "Report packaging data" %}
 
@@ -9,23 +9,42 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+<a class="govuk-back-link" href="pom-data-details-acme.html">Back</a>
 {% endblock %}
 
 
 {% block content %}
-
-<div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="more-detail">
-      Do you have any feedback on this submission?
-    </label>
-  </h1>
-  <div id="more-detail-hint" class="govuk-hint">
-    We’ll use this information in an email to Sally Smith.
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+  <div class="govuk-form-group">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="with-hint">
+        Do you have any feedback on this submission?
+      </label>
+    </h1>
+    <div id="with-hint-hint" class="govuk-hint">
+      We’ll use this information in an email to Sally Smith.
+    </div>
+    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+    You can enter up to 200 characters
+  </div>
+</div>
 </div>
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
+
+</div>
+</div>
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue", href: "./manage-pom-data-acmeaccepted"
+  }) }}
+
+  <a class="govuk-link" href="pom-data-details-acme.html">Cancel</a>
+</div>
 {% endblock %}
