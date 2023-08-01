@@ -54,7 +54,6 @@
                 {% endif %}
               </li>
               <li class="app-task-list__item">
-                
                 {% if (data['partners-complete'] === "yes") %}
                   <span class="app-task-list__task-name">
                     <a href="./partners/partner-direct-check-your-answers.html" aria-describedby="add-partner-details" class="govuk-link--no-visited-state">
@@ -72,12 +71,22 @@
                 {% endif %}
               </li>
               <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="./premises-submission" aria-describedby="add-premises-details" class="govuk-link--no-visited-state">
-                    Add premises details
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="premises-information-status">Not Started</strong>
+
+                {% if (data['premises-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./premises/premises-check-your-answers.html" aria-describedby="add-premises-details" class="govuk-link--no-visited-state">
+                      Add premises details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="premises-information-status">Completed</strong>
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./premises/premises-option.html" aria-describedby="add-premises-details" class="govuk-link--no-visited-state">
+                      Add premises details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="premises-information-status">Not Started</strong>
+                {% endif %}
               </li>
             </ul>
         </li>   
@@ -88,10 +97,20 @@
           </h2>
           <ul class="app-task-list__items govuk-!-padding-left-0">
             <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                Fee calculations and how to pay them
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Cannot start yet</strong>
+
+              {% if (data['premises-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="#" aria-describedby="fee-calcultations-and-how-to-pay-them" class="govuk-link--no-visited-state">
+                      Fee calculations and how to pay them
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
+                {% else %}
+                <span class="app-task-list__task-name">
+                  Fee calculations and how to pay them
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Cannot start yet</strong>
+                {% endif %}
             </li>
           </ul>
         </li>

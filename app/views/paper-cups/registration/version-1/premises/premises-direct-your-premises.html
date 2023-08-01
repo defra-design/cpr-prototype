@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./premises-add-address/select-address.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./premises-check-your-answers">
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          Your premises
+        </h1>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+          {% if (data['premises-1'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 36%">
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./premises-add-address/postcode.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['premises-2'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 36%">
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./premises-add-address/postcode-2.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['premises-3'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 36%">
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./premises-add-address/postcode-3.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['premises-4'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 36%">
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./premises-add-address/postcode-4.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['premises-5'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 36%">
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./premises-add-address/postcode-5.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+
+
+        {% if (data['premises'] === "1") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./premises-add-address/postcode-2.html">Add a premises</a></p>
+        {% endif%}
+
+        {% if (data['premises'] === "2") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./premises-add-address/postcode-3.html">Add a premise</a></p>
+        {% endif%}
+
+        {% if (data['premises'] === "3") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./premises-add-address/postcode-4.html">Add a premise</a></p>
+        {% endif%}
+
+        {% if (data['premises'] === "4") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./premises-add-address/postcode-5.html">Add a premise</a></p>
+        {% endif%}
+
+        {% if (data['premises'] === "5") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Add a premise</a></p>
+        {% endif%}
+
+
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

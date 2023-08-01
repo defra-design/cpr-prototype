@@ -40,7 +40,7 @@ router.post('*/premises-option-question', function (req, res) {
     var premiseOption = req.session.data['enter-premises'];
 
     if (premiseOption === "directly") {
-        res.redirect('./premises-add-person');
+        res.redirect('./premises-add-address/postcode');
     } else {
         res.redirect('./premises-upload-file');
     }
