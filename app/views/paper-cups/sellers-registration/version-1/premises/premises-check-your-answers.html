@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['partners-complete'] === "yes") %}
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./partner-direct-your-partners.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form method="POST" action="../registration-task-list?premises-complete=yes">
+      <div class="govuk-form-group">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+              Check your premises
+            </h1>
+          </div>
+        </div> 
+        
+
+        {% if (data['enter-premises'] === "directly") %}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-summary-card govuk-!-margin-bottom-2">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your premises</h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action"> <a class="govuk-link" style="font-weight: 400;" href="./premises-direct-your-premises.html">
+                    Manage<span class="govuk-visually-hidden"> your premises</span>
+                  </a>
+                  </li>
+                  <!-- <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                      Withdraw<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises in England
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if (data['premises-1'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}</p>
+                      {% endif %}
+                      {% if (data['premises-2'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}</p>
+                      {% endif %}
+                      {% if (data['premises-3'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
+                      {% endif %}
+                      {% if (data['premises-4'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}</p>
+                      {% endif %}
+                      {% if (data['premises-5'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
+                      {% endif %}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises in Wales
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises in Nothern Ireland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises in Scotland
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>   
+        {% else %}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-summary-card govuk-!-margin-bottom-2">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your premises</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      File uploaded
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['premises-file'] }}
+                    </dd>
+                    <dd class="govuk-summary-card__action">
+                      <a class="govuk-link" href="./premises-upload-file.html">
+                        Change<span class="govuk-visually-hidden"> your premises file</span>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Number of premises
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      80
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>  
+        {% endif %}
+        
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

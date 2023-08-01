@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./contact-person.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    <form method="POST" action="./contact-email">
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">
+          Which telephone number should we use to contact you?
+        </h1>
+        <p class="govuk-body">
+          We need this to contact you about any important legal information or updates about your organisation.
+        </p>
+        <label class="govuk-label" for="contact-number">
+          UK telephone number
+        </label>
+        <input 
+            class="govuk-input govuk-input--width-20"
+            id="contact-number" 
+            name="contact-number" 
+            aria-describedby="contact-telephone" 
+            type="tel" 
+            autocomplete="tel" 
+            value="{{data['contact-number']}}"
+            />
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

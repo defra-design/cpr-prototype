@@ -9,18 +9,18 @@ router.post('*/contact-address-question', function (req, res) {
         res.redirect('./address-lookup/postcode');
     } else {
         req.session.data['cups-registration-main-address'] = "9 Grange Road\nCambridge\nEngland\nCB2 0AA";
-        res.redirect('./contact-telephone');
+        res.redirect('./contact-person');
     }
 });
 
 router.post('*/contact-person-question', function (req, res) {
     var contactOther = req.session.data['contact-name'];
 
-    if (contactOther === "other") {
+    if (contactOther === "Someone else") {
         res.redirect('./contact-full-name');
     } else {
         req.session.data['contact-full-name'] = contactOther;
-        res.redirect('./contact-preference?other-contact=no');
+        res.redirect('./contact-telephone?other-contact=no');
     }
 });
 
@@ -40,7 +40,7 @@ router.post('*/premises-option-question', function (req, res) {
     var premiseOption = req.session.data['enter-premises'];
 
     if (premiseOption === "directly") {
-        res.redirect('./premises-add-person');
+        res.redirect('./premises-add-address/postcode');
     } else {
         res.redirect('./premises-upload-file');
     }
@@ -55,14 +55,14 @@ router.post('*/select-address-question', function (req, res) {
         req.session.data['cups-registration-main-address'] = `${req.session.data['address-lookup-building-number']}a Willow Road\nLeeds\nEngland\n${req.session.data['address-lookup-postcode']}`;
     }
 
-    res.redirect('../contact-telephone');
+    res.redirect('../contact-person');
 });
 
 router.post('*/address-manual-question', function (req, res) {
     req.session.data['cups-registration-main-address'] =
         `${req.session.data['manual-address-line-1']}\n${req.session.data['manual-address-line-2']}\n${req.session.data['manual-address-town']}\n${req.session.data['manual-address-county']}\n${req.session.data['manual-address-country']}\n${req.session.data['manual-address-postcode']}`;
 
-    res.redirect('../contact-telephone');
+    res.redirect('../contact-person');
 });
 
 module.exports = router;

@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../../landing/holding-page.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Register your takeback scheme and member details</h1>
+      
+      <p>You must register your takeback scheme and your members by 31st July 2024.</p>
+
+      <ol class="app-task-list govuk-!-margin-top-6">
+
+        <li>
+            <h2 class="app-task-list__section ">
+              Your takeback scheme details
+            </h2>
+            <ul class="app-task-list__items govuk-!-padding-left-0">
+              <li class="app-task-list__item">
+                
+                {% if (data['contact-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./contact/contact-check-your-answers.html"  class="govuk-link--no-visited-state">
+                      Confirm contact details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./contact/primary-sic-code" class="govuk-link--no-visited-state">
+                      Confirm contact details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %}
+              </li>
+              <li class="app-task-list__item">
+                {% if (data['partners-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./partners/partner-direct-check-your-answers.html" class="govuk-link--no-visited-state">
+                      Add partner details within the partnership
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./partners/partners-before-you-start.html" class="govuk-link--no-visited-state">
+                      Add partner details within the partnership
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %}
+              </li>
+              <li class="app-task-list__item">
+                {% if (data['documents-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./documents/documents-check-your-answers.html" class="govuk-link--no-visited-state">
+                      Upload takeback scheme documents
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="premises-information-status">Completed</strong>
+                {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./documents/before-you-start.html"  class="govuk-link--no-visited-state">
+                      Upload takeback scheme documents
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="premises-information-status">Not Started</strong>
+                {% endif %}
+              </li>
+            </ul>
+        </li>   
+
+        <li>
+          <h2 class="app-task-list__section">
+            Your member details
+          </h2>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+
+              {% if (data['members-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="./members/before-you-start.html" class="govuk-link--no-visited-state">
+                      Upload member details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="payment-information-status">Completed</strong>
+                {% else %}
+                <span class="app-task-list__task-name">
+                  <a href="./members/before-you-start.html" class="govuk-link--no-visited-state">
+                    Upload member details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
+                {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Your payment
+          </h2>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+
+              {% if (data['members-complete'] === "yes") %}
+                  <span class="app-task-list__task-name">
+                    <a href="#" aria-describedby="fee-calcultations-and-how-to-pay-them" class="govuk-link--no-visited-state">
+                      Fee calculations and how to pay them
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
+                {% else %}
+                <span class="app-task-list__task-name">
+                  Fee calculations and how to pay them
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Cannot start yet</strong>
+                {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Check your details
+          </h2>
+          <p>Review a summary of your registration details before submitting them.</p>
+          
+          {{ govukButton({
+            text: "Review details",
+            preventDoubleClick: true,
+            href: '#'
+          }) }}
+
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}
