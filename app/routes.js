@@ -85,7 +85,9 @@ router.use('/prn/v3-5', require('./views/prn/v3-5/_routes'));
 router.use('/prn/account-creation/build', require('./views/prn/account-creation/build/_routes'));
 
 router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
-router.use('/paper-cups/registration/version-1', require('./views/paper-cups/registration/version-1/_routes'));
+router.use('/paper-cups/sellers-registration/version-1', require('./views/paper-cups/sellers-registration/version-1/_routes'));
+router.use('/paper-cups/takeback-scheme-registration/version-1', require('./views/paper-cups/takeback-scheme-registration/version-1/_routes'));
+
 
 
 // Clear all session data
