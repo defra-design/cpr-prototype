@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../registration-task-list?fees-complete=yes">
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          Paying your registration fees
+        </h1>
+
+        <p class="govuk-body">The annual registration fee per nation is £74.</p>
+
+        <p class="govuk-body">You must pay  this to the environmental regulator in each nation where you have premises. </p>
+        
+        <p class="govuk-body">This payment must be completed before you can submit your registration.</p>
+
+        <h2 class="govuk-heading-m">Summary of your fees</h2>
+
+        <p class="govuk-body">Your total: £74</p>
+        
+        <p class="govuk-body">To complete your payment, you must contact your environmental regulator directly.</p>
+
+        {{ govukWarningText({
+          text: "You will have to pay a late registration fee if you do not register before 30th September 2024.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
