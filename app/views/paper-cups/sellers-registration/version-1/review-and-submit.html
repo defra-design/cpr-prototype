@@ -221,105 +221,113 @@
 
             <!-- PREMISES -->
             {% if (data['enter-premises'] === "directly") %}
-
-            <div class="govuk-summary-card govuk-!-margin-bottom-8">
-              <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Your premises</h2>
-                <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action"> <a class="govuk-link" style="font-weight: 400;" href="./premises/premises-direct-your-premises.html?review-submit=yes">
-                    Change your premises
-                  </a>
-                  </li>
-                  <!-- <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
-                      Withdraw<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
-                    </a>
-                  </li> -->
-                </ul>
+            <div class="govuk-grid-row govuk-!-margin-bottom-6">
+              <div class="govuk-grid-column-full">
+                <div class="govuk-summary-card govuk-!-margin-bottom-2">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Your premises</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action"> <a class="govuk-link" href="./premises/premises-direct-your-premises.html">
+                        Manage your premises
+                      </a>
+                      </li>
+                      <!-- <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                          Withdraw<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+                        </a>
+                      </li> -->
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Premises in England
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {% if (data['premises-1'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-2'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-3'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-4'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-5'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
+                          {% endif %}
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Premises in Wales
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          None
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Premises in Nothern Ireland
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          None
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Premises in Scotland
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          None
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
               </div>
-              <div class="govuk-summary-card__content">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Premises in England
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {% if (data['premises-1'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}</p>
-                      {% endif %}
-                      {% if (data['premises-2'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}</p>
-                      {% endif %}
-                      {% if (data['premises-3'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
-                      {% endif %}
-                      {% if (data['premises-4'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}</p>
-                      {% endif %}
-                      {% if (data['premises-5'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
-                      {% endif %}
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Premises in Wales
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      None
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Premises in Nothern Ireland
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      None
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Premises in Scotland
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      None
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-
+            </div>   
             {% else %}
-
-            <div class="govuk-summary-card govuk-!-margin-bottom-6">
-              <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Your premises</h2>
-              </div>
-              <div class="govuk-summary-card__content">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      File uploaded
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{ data['premises-file'] }}
-                    </dd>
-                    <dd class="govuk-summary-card__action">
-                      <a class="govuk-link" href="./premises-upload-file.html">
-                        Change<span class="govuk-visually-hidden"> your premises file</span>
-                    </dd>
+            <div class="govuk-grid-row govuk-!-margin-bottom-6">
+              <div class="govuk-grid-column-full">
+                <div class="govuk-summary-card govuk-!-margin-bottom-2">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Your premises</h2>
                   </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Number of premises
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      80
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
 
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          File uploaded
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {{ data['file-upload-premises'] }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./premises/premises-upload-file.html">
+                            Change<span class="govuk-visually-hidden"> your premises file</span>
+                          </a>
+                        </dd>
+                      </div>
+
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Number of premises
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          80
+                        </dd>
+                      </div>
+
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>  
             {% endif %}
          
           </div>

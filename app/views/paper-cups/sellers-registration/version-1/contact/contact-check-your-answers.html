@@ -13,7 +13,11 @@
 {% if (data['contact-complete'] === "yes") %}
 <a class="govuk-back-link" href="../registration-task-list.html">Back</a>
 {% else %}
-<a class="govuk-back-link" href="./contact-preference.html">Back</a>
+{% if (data['contact-name'] === "Someone else") %}
+<a class="govuk-back-link" href="./someone-else-email.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./contact-email.html">Back</a>
+{% endif %}
 {% endif %}
 
 {% endblock %}
@@ -36,6 +40,8 @@
                 
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-full">
+
+                    <!-- CONTACT DETAILS -->
                     <div class="govuk-summary-card govuk-!-margin-bottom-2">
                         <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Your contact details</h2>
@@ -178,6 +184,7 @@
 
                         </div>
                     </div>
+
                     </div>
                 </div>         
             

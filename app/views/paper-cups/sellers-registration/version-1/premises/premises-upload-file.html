@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./partners-option.html">Back</a>
+<a class="govuk-back-link" href="./premises-option.html">Back</a>
 
 {% endblock %}
 
@@ -19,19 +19,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="POST" action="./partner-spreadsheet-check-your-answers">
+    <form method="POST" action="./premises-confirm-upload">
 
       <div class="govuk-form-group">
 
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="file-upload-partners" aria-describedby="partner-upload-hint">
-            Upload partner names
+          <label class="govuk-label govuk-label--l" for="file-upload-premises" aria-describedby="premises-upload-hint">
+            Upload your premises details
           </label>
         </h1>
-        <div id="partner-upload-hint" class="govuk-hint">
-          You must include the full names of all the partners within your partnership.
+        <div id="premises-upload-hint" class="govuk-hint">
+          All your premises details should be listed in the spreadsheet template and uploaded as a CSV file
         </div>
-        <input class="govuk-file-upload" id="file-upload-partners" name="file-upload-partners" type="file">
+        <input class="govuk-file-upload" id="file-upload-premises" name="file-upload-premises" type="file" value="{{data['file-upload-premises']}}">
       </div>
    
       {{ govukButton({

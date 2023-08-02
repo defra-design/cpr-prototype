@@ -13,7 +13,11 @@
 {% if (data['premises-complete'] === "yes") %}
 <a class="govuk-back-link" href="../registration-task-list.html">Back</a>
 {% else %}
+{% if (data['enter-premises'] === "directly") %}
 <a class="govuk-back-link" href="./partner-direct-your-partners.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./premises-confirm-upload.html">Back</a>
+{% endif %}
 {% endif %}
 
 {% endblock %}
@@ -113,18 +117,21 @@
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
+
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       File uploaded
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['premises-file'] }}
+                      {{ data['file-upload-premises'] }}
                     </dd>
-                    <dd class="govuk-summary-card__action">
+                    <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="./premises-upload-file.html">
                         Change<span class="govuk-visually-hidden"> your premises file</span>
+                      </a>
                     </dd>
                   </div>
+
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Number of premises
@@ -133,6 +140,7 @@
                       80
                     </dd>
                   </div>
+
                 </dl>
               </div>
             </div>
