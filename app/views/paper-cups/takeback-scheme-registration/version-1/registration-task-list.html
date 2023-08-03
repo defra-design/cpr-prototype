@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../../landing/holding-page.html">Home</a>
+<a class="govuk-back-link" href="../../landing/version-1/landing-page-tbs.html">Home</a>
 
 {% endblock %}
 
@@ -40,7 +40,7 @@
                   <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Completed</strong>
                 {% else %}
                   <span class="app-task-list__task-name">
-                    <a href="./contact/primary-sic-code" class="govuk-link--no-visited-state">
+                    <a href="./contact/contact-address-selection.html" class="govuk-link--no-visited-state">
                       Confirm contact details
                     </a>
                   </span>
@@ -74,7 +74,7 @@
                   <strong class="govuk-tag app-task-list__tag" id="premises-information-status">Completed</strong>
                 {% else %}
                   <span class="app-task-list__task-name">
-                    <a href="./documents/before-you-start.html"  class="govuk-link--no-visited-state">
+                    <a href="./documents/documents-before-you-start.html"  class="govuk-link--no-visited-state">
                       Upload takeback scheme documents
                     </a>
                   </span>
@@ -91,16 +91,16 @@
           <ul class="app-task-list__items govuk-!-padding-left-0">
             <li class="app-task-list__item">
 
-              {% if (data['members-complete'] === "yes") %}
+              {% if (data['documents-complete'] === "yes") %}
                   <span class="app-task-list__task-name">
-                    <a href="./members/before-you-start.html" class="govuk-link--no-visited-state">
+                    <a href="./member/member-check-your-answers.html" class="govuk-link--no-visited-state">
                       Upload member details
                     </a>
                   </span>
                   <strong class="govuk-tag app-task-list__tag" id="payment-information-status">Completed</strong>
                 {% else %}
                 <span class="app-task-list__task-name">
-                  <a href="./members/before-you-start.html" class="govuk-link--no-visited-state">
+                  <a href="./member/member-before-you-start.html" class="govuk-link--no-visited-state">
                     Upload member details
                   </a>
                 </span>
@@ -117,19 +117,28 @@
           <ul class="app-task-list__items govuk-!-padding-left-0">
             <li class="app-task-list__item">
 
-              {% if (data['members-complete'] === "yes") %}
+              {% if (data['member-complete'] === "yes") %}
+                {% if (data['fees-complete'] === "yes") %}
                   <span class="app-task-list__task-name">
-                    <a href="#" aria-describedby="fee-calcultations-and-how-to-pay-them" class="govuk-link--no-visited-state">
+                    <a href="./fees/understanding-fees.html" class="govuk-link--no-visited-state">
+                      Fee calculations and how to pay them
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="payment-information-status">Completed</strong>
+                  {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./fees/understanding-fees.html" class="govuk-link--no-visited-state">
                       Fee calculations and how to pay them
                     </a>
                   </span>
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
-                {% else %}
+                {% endif %}  
+              {% else %}
                 <span class="app-task-list__task-name">
                   Fee calculations and how to pay them
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Cannot start yet</strong>
-                {% endif %}
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -139,12 +148,21 @@
             Check your details
           </h2>
           <p>Review a summary of your registration details before submitting them.</p>
+
           
+          {% if (data['contact-complete'] === "yes" and data['partners-complete'] === "yes" and data['documents-complete'] === "yes" and data['member-complete'] === "yes" and data['fees-complete'] === "yes") %}
+          {{ govukButton({
+            text: "Review details",
+            preventDoubleClick: true,
+            href: './review-and-submit.html'
+          }) }}
+          {% else %}
           {{ govukButton({
             text: "Review details",
             preventDoubleClick: true,
             href: '#'
           }) }}
+          {% endif %}
 
         </li>
       </ol>

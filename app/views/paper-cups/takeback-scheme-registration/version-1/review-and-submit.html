@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+<a class="govuk-back-link" href="./registration-task-list.html">Back</a>
 
 
 {% endblock %}
@@ -40,21 +40,6 @@
               <div class="govuk-summary-card__content">
 
                   <dl class="govuk-summary-list">
-
-                      <!-- PRIMARY SIC CODE -->
-                      <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                              SIC code
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data['sic-code'] }}   
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="./primary-sic-code">
-                              Change<span class="govuk-visually-hidden"> primary sic code</span>
-                          </a>
-                          </dd>
-                      </div>
 
                       <!-- MAIN CONTACT ADDRESS -->
                       <div class="govuk-summary-list__row">
@@ -219,116 +204,85 @@
               </div>
             </div>
 
-            <!-- PREMISES -->
-            {% if (data['enter-premises'] === "directly") %}
-            <div class="govuk-grid-row govuk-!-margin-bottom-6">
-              <div class="govuk-grid-column-full">
-                <div class="govuk-summary-card govuk-!-margin-bottom-2">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Your premises</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action"> <a class="govuk-link" href="./premises/premises-direct-your-premises.html">
-                        Manage your premises
+            <!-- DOCUMENTS -->
+            <div class="govuk-summary-card govuk-!-margin-bottom-8">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your takeback scheme documents</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Constitution
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['scheme-constitution-upload'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./documents/member-constitution-upload.html">
+                        Change<span class="govuk-visually-hidden"> your schemes constitution file</span>
                       </a>
-                      </li>
-                      <!-- <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
-                          Withdraw<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
-                        </a>
-                      </li> -->
-                    </ul>
+                    </dd>
                   </div>
-                  <div class="govuk-summary-card__content">
-                    <dl class="govuk-summary-list">
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Premises in England
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          {% if (data['premises-1'] === "yes") %}
-                          <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}</p>
-                          {% endif %}
-                          {% if (data['premises-2'] === "yes") %}
-                          <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}</p>
-                          {% endif %}
-                          {% if (data['premises-3'] === "yes") %}
-                          <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
-                          {% endif %}
-                          {% if (data['premises-4'] === "yes") %}
-                          <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}</p>
-                          {% endif %}
-                          {% if (data['premises-5'] === "yes") %}
-                          <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
-                          {% endif %}
-                        </dd>
-                      </div>
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Premises in Wales
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          None
-                        </dd>
-                      </div>
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Premises in Nothern Ireland
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          None
-                        </dd>
-                      </div>
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Premises in Scotland
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          None
-                        </dd>
-                      </div>
-                    </dl>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Operational plan
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['scheme-operation-plan-upload'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./documents/member-operation-plan-upload.html">
+                        Change<span class="govuk-visually-hidden"> your schemes operational plan file</span>
+                      </a>
+                    </dd>
                   </div>
-                </div>
+
+                </dl>
               </div>
-            </div>   
-            {% else %}
-            <div class="govuk-grid-row govuk-!-margin-bottom-6">
-              <div class="govuk-grid-column-full">
-                <div class="govuk-summary-card govuk-!-margin-bottom-2">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Your premises</h2>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <dl class="govuk-summary-list">
+            </div>
 
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          File uploaded
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          {{ data['file-upload-premises'] }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="./premises/premises-upload-file.html">
-                            Change<span class="govuk-visually-hidden"> your premises file</span>
-                          </a>
-                        </dd>
-                      </div>
-
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Number of premises
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          80
-                        </dd>
-                      </div>
-
-                    </dl>
-                  </div>
-                </div>
+            <!-- MEMBERS -->
+            <div class="govuk-summary-card govuk-!-margin-bottom-6">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Members details</h2>
               </div>
-            </div>  
-            {% endif %}
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Organisation details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['member-organisation-upload'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member/member-organisation-details-upload.html">
+                        Change<span class="govuk-visually-hidden"> your members organisation details file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['member-premises-upload'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member/member-premises-upload.html">
+                        Change<span class="govuk-visually-hidden"> your members premises file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                </dl>
+              </div>
+            </div>
          
           </div>
         </div>    
@@ -338,6 +292,10 @@
         <div class="govuk-grid-column-two-thirds">
           <p class="govuk-body">By confirming your details, you agree that the information you’ve given is complete and correct. </p>
           
+          {{ govukWarningText({
+            text: "You can be fined or prosecuted if you give the wrong information.",
+            iconFallbackText: "Warning"
+          }) }}
           
         </div>
       </div> 

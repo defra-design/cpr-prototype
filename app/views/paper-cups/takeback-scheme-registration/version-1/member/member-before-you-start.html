@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./member-organisation-details-upload">
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          Uploading details about your members
+        </h1>
+        <p class="govuk-body">
+          As a takeback scheme you will need to register information about your members.
+        </p>
+        <p class="govuk-body">
+          There are 2 spreadsheets you must upload.
+        </p>
+
+        <h2 class="govuk-heading-m">1.  Members organisation details</h2>
+        <p class="govuk-body">You’ll need to upload a spreadsheet which includes information about their:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>organisation name and registered address</li>
+          <li>contact details</li>
+          <li>partners if they are in a partnership</li>
+          <li>main standard industrial classification (SIC) code</li>
+        </ul>
+        <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View the spreadsheet template for members organisation details</a>.</p>
+    
+
+        <h2 class="govuk-heading-m">2.  Members premises</h2>
+        <p class="govuk-body">You’ll need to provide details about the individual premises for each member.</p>
+
+        <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View the spreadsheet template for members premises</a>.</p>
+
+
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
