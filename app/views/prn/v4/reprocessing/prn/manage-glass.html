@@ -100,7 +100,7 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
 
-      <th scope="col" class="govuk-table__header">Issued to</th>
+      <th scope="col" class="govuk-table__header">Issue to</th>
       <th scope="col" class="govuk-table__header">Date raised</th>
       <th scope="col" class="govuk-table__header">Tonnes</th>
       <th scope="col" class="govuk-table__header">Action</th>
@@ -108,21 +108,23 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
+
 {% if data['issued']  == 'true' %}
 {% else %}
-      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <td class="govuk-table__cell"> <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
               <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                  John Lewis Ltd.
+                  {{data['which-producer']}}
               </label>
             </div>
             </div></td>
 
-      <td class="govuk-table__cell">26 July 2023</td>
-      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">7 July 2023</td>
+      <td class="govuk-table__cell">{{data['tonnes']}}</td>
       <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
     </tr>
+  {% endif %}
     <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -139,7 +141,7 @@
       <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
 
     </tr>
-    {% endif %}
+
     <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -242,9 +244,9 @@
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">John Lewis.</td>
-            <td class="govuk-table__cell">26 July 2023</td>
-            <td class="govuk-table__cell">40</td>
+            <td class="govuk-table__cell">    {{data['which-producer']}}</td>
+            <td class="govuk-table__cell"> 7 August 2023</td>
+            <td class="govuk-table__cell"> {{data['tonnes']}}/td>
             <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--blue">
         Awaiting acceptance
         </strong></td>
