@@ -40,9 +40,9 @@
   </div>
   <div class="govuk-notification-banner__content">
     <h3 class="govuk-notification-banner__heading">
-    You have issued a PRN
+    You have sent a PRN
     </h3>
-  <p>The reference for the PRN is <strong>PRN0000</strong>. Your PRN is now awaiting acceptance from the producer or compliance scheme you have issued it to.</p>
+  <p>The reference for the PRN is <strong>PRN0000</strong>. Your PRN is now waiting to be accepted by {{data['which-producer']}}.</p>
   </div>
 </div>
     </div>
@@ -86,10 +86,12 @@
 <h2 class="govuk-heading-l">
   Draft PRNs
 </h2>
-<p class="govuk-body">Draft PRNs that are waiting to be issued. You can view, change and delete draft PRNs. </p>
+<p class="govuk-body">
+
+Draft PRNs that are ready to be sent. You can view, change and delete draft PRNs. </p>
 
 <a class="govuk-button govuk-button--secondary" href="issue" data-module="govuk-button">
-  Issue PRNs
+Send PRNs
 </a>
 <a class="govuk-button govuk-button--secondary" href="delete"  data-module="govuk-button">
   Delete PRNs
@@ -100,7 +102,7 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
 
-      <th scope="col" class="govuk-table__header">Issue to</th>
+      <th scope="col" class="govuk-table__header">Send to</th>
       <th scope="col" class="govuk-table__header">Date raised</th>
       <th scope="col" class="govuk-table__header">Tonnes</th>
       <th scope="col" class="govuk-table__header">Action</th>
@@ -126,72 +128,11 @@
     </tr>
   {% endif %}
 {% endif %}
-    <tr class="govuk-table__row">
 
-      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                Valpak
-              </label>
-            </div>
-            </div></td>
-
-      <td class="govuk-table__cell">26 July 2023</td>
-      <td class="govuk-table__cell">40</td>
-      <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
-
-    </tr>
-
-    <tr class="govuk-table__row">
-
-      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                Biffpack
-              </label>
-            </div>
-            </div></td>
-      <td class="govuk-table__cell">26 July 2023</td>
-      <td class="govuk-table__cell">40</td>
-      <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
-
-    </tr>
-    <tr class="govuk-table__row">
-
-      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                Biffpack
-              </label>
-            </div>
-            </div></td>
-      <td class="govuk-table__cell">26 July 2023</td>
-      <td class="govuk-table__cell">40</td>
-      <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
-
-    </tr>
-    <tr class="govuk-table__row">
-
-      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                Biffpack
-              </label>
-            </div>
-            </div></td>
-      <td class="govuk-table__cell">26 July 2023</td>
-      <td class="govuk-table__cell">40</td>
-      <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
-
-    </tr>
   </tbody>
 </table>
 
-    <a  class="govuk-body" href="raised-prns">View all draft PRNs</a>
+    <!-- <a  class="govuk-body" href="raised-prns">View all draft PRNs</a> -->
 
                 <div class="govuk-grid-row">
                 <div class="govuk-grid-column-full">
@@ -200,9 +141,9 @@
               </div>
 
 <h2 class="govuk-heading-l">
-  Issued PRNs
+  Sent PRNs
 </h2>
-<p class="govuk-body">All issued PRNs. To print or send the PRN, click on the reference.</p>
+<p class="govuk-body">All sent PRNs. To view or print the PRN, click on the reference.</p>
 
 
 
@@ -227,7 +168,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Reference</th>
-            <th scope="col" class="govuk-table__header">Issued to</th>
+            <th scope="col" class="govuk-table__header">Sent to</th>
             <th scope="col" class="govuk-table__header">Date created</th>
             <th scope="col" class="govuk-table__header">Tonnes</th>
             <th scope="col" class="govuk-table__header">Status</th>
@@ -348,7 +289,7 @@
         </tbody>
       </table>
 
-    <a  class="govuk-body" href="issued-prns">View all issued PRNs</a>
+    <a  class="govuk-body" href="issued-prns">View all sent PRNs</a>
 
 
     </div>
