@@ -108,7 +108,7 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-
+{% if data['answers-checked'] == 'true' %}
 {% if data['issued']  == 'true' %}
 {% else %}
       <td class="govuk-table__cell"> <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -120,11 +120,12 @@
             </div>
             </div></td>
 
-      <td class="govuk-table__cell">7 July 2023</td>
+      <td class="govuk-table__cell">7 August 2023</td>
       <td class="govuk-table__cell">{{data['tonnes']}}</td>
       <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
     </tr>
   {% endif %}
+{% endif % }
     <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
