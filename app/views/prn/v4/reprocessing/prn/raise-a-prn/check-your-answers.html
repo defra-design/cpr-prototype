@@ -48,6 +48,9 @@
                   </a>
                 </dd>
               </div>
+              {% if data['no-december'] == 'true' %}
+
+              {% else %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Was the paper/board received in December
@@ -61,8 +64,9 @@
                   </a>
                 </dd>
               </div>
-            </dl>
 
+            {% endif %}
+  </dl>
 
             <form action="issue-prn" method="post" novalidate>
               <input type="hidden" name="answers-checked" value="true">

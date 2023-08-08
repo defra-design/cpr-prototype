@@ -29,9 +29,11 @@
   <div class="govuk-grid-column-two-thirds">
 
 <h1 class="govuk-heading-xl">PRN details</h1>
-
+{% if data['no-december'] == 'true' %}
+<form class="form" action="check-your-answers" method="POST">
+{% else %}
 <form class="form" action="material-december" method="POST">
-
+{% endif %}
     <div class="govuk-form-group">
 <fieldset class="govuk-fieldset">
 
