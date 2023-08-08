@@ -20,7 +20,7 @@ router.post('*/type-of-account_question', function (req, res) {
     if (accountType == "Take-back scheme"){
         res.redirect('../verify-reference/do-you-have-an-approval-code?account=take-back-scheme')
     }
-    else if (accountType == "Cup seller"){
+    else if (accountType == "Takeaway drinks seller"){
         res.redirect('registered-with-companies-house?account=cup-seller')
     }
 })
