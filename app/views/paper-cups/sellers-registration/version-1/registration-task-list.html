@@ -130,7 +130,7 @@
               </span>
               {% if (data['england-paid'] === "yes") %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="payment-information-england">Completed</strong>
-              {% else%}
+              {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-england">Not started</strong>
               {% endif %}
             </li>
@@ -140,7 +140,11 @@
                   How to pay fees for Wales
                 </a>
               </span>
+              {% if (data['wales-paid'] === "yes") %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="payment-information-england">Completed</strong>
+              {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
+              {% endif %}
             </li>
           {% endif %}
           </ul>

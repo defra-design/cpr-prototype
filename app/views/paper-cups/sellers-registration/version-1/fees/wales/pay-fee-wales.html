@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+<a class="govuk-back-link" href="./payment-method-wales">Back</a>
 
 {% endblock %}
 
@@ -18,43 +18,82 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="../payment-method-england-question">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              How will you pay the Environment Agency in England?
-            </h1>
-          </legend>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="bacs" name="reg-payment-method-england" type="radio" value="Bacs" {{ checked("reg-payment-method-england", "Bacs") }}>
-              <label class="govuk-label govuk-radios__label" for="bacs">
-                By Bacs (Bacs Bankers Automated Clearing System)
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="telephone" name="reg-payment-method-england" type="radio" value="Telephone" {{ checked("reg-payment-method-england", "Telephone") }}>
-              <label class="govuk-label govuk-radios__label" for="telephone">
-                By telephone
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cheque" name="reg-payment-method-england" type="radio" value="Cheque" {{ checked("reg-payment-method-england", "Cheque") }}>
-              <label class="govuk-label govuk-radios__label" for="cheque">
-                By cheque
-              </label>
-            </div>
-          </div>
+          
+      <h1 class="govuk-heading-l">Pay fees for Wales</h1>
+      <h2 class="govuk-heading-m">What you need to pay</h2>    
       
-        </fieldset>
-      </div>
+      <p class="govuk-body">Your total amount to pay is <strong>£141</strong></p>
+      <p class="govuk-body">Your reference number is is <strong>AC123JA</strong></p>
+
       {{ govukButton({
-        text: "Continue"
-      })}}
+        text: "Copy reference number",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% if (data['reg-payment-method-wales'] === "Bacs") %}
+
+      <h2 class="govuk-heading-m">Pay by Bacs</h2>    
+      <p class="govuk-body">You’ll need to make a payment to the Environment Agency in England. You’ll need to use your reference number.</p>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-0">Environment Agency</p>
+        <p class="govuk-!-margin-0">00998900</p>
+        <p class="govuk-!-margin-0">12 34 56</p>
+      </div>
+
+      {{ govukButton({
+        text: "Copy payment details",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% else %}
+      
+      <h2 class="govuk-heading-m">Pay by telephone</h2>    
+      <p class="govuk-body">You’ll need to call the Environment Agency in England. You’ll need to use your reference number.</p>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-0">Telephone: 03708 506 506</p>
+        <p class="govuk-!-margin-0">Open Monday to Friday 9am to 5pm</p>
+      </div>
+      
+      {{ govukButton({
+        text: "Copy telephone number",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% endif %}
+
+      <form method="POST" action="./payment-made-question-wales">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Tell us if you’ve paid
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="payment-made-wales" type="radio" value="yes" {{ checked("payment-made-wales", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  I have  paid
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="payment-made-wales" type="radio" value="no" {{ checked("payment-made-wales", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="no">
+                  I’ll do this later
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      
+        {{ govukButton({
+            text: "Continue"
+        }) }}
     </form>
   </div>
 </div>
-
 
 {% endblock %}

@@ -73,4 +73,12 @@ router.post('*/payment-made-question', function (req, res) {
     }
 });
 
+router.post('*/payment-made-question-wales', function (req, res) {
+    if (req.session.data['payment-made-wales'] === "yes") {
+        res.redirect('./payment-confirmation-wales');
+    } else {
+        res.redirect('../../registration-task-list');
+    }
+});
+
 module.exports = router;
