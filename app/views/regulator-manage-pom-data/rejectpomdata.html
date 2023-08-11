@@ -16,23 +16,46 @@
 {% block content %}
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
-<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
   <div class="govuk-form-group">
     <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--l" for="with-hint">
-        Why are you rejecting this submission?
+        Reject submission
       </label>
+      <br>
     </h1>
+    <label class="govuk-label govuk-label--m" for="passport-number">
+      Why are you rejecting this submission?
+    </label>
     <div id="with-hint-hint" class="govuk-hint">
-      We’ll use this information in an email to Sally Smith.
+      We’ll use this information in an email to Sally Smith and add it to the submission details.
     </div>
-    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-  </div>
+    <textarea class="govuk-textarea govuk-js-character-count"  id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+
+    <label class="govuk-label govuk-label--m" for="passport-number" style="margin-top: 30px;">
+      Do you require a resubmission?
+    </label>
+   
   <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-    You can enter up to 200 characters
+    You can enter up to 500 characters
   </div>
+  <div class="govuk-radios__item" style="margin-top: 30px;">
+    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+    <label class="govuk-label govuk-radios__label" for="changed-name">
+      Yes
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+    <label class="govuk-label govuk-radios__label" for="changed-name">
+      No
+    </label>
+  </div>
+ 
+  
 </div>
+
 </div>
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
