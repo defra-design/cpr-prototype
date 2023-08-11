@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../payment-method-england-question">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              How will you pay the Environment Agency in England?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="bacs" name="reg-payment-method-england" type="radio" value="Bacs" {{ checked("reg-payment-method-england", "Bacs") }}>
+              <label class="govuk-label govuk-radios__label" for="bacs">
+                By Bacs (Bacs Bankers Automated Clearing System)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="telephone" name="reg-payment-method-england" type="radio" value="Telephone" {{ checked("reg-payment-method-england", "Telephone") }}>
+              <label class="govuk-label govuk-radios__label" for="telephone">
+                By telephone
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cheque" name="reg-payment-method-england" type="radio" value="Cheque" {{ checked("reg-payment-method-england", "Cheque") }}>
+              <label class="govuk-label govuk-radios__label" for="cheque">
+                By cheque
+              </label>
+            </div>
+          </div>
+      
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -93,7 +93,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            Your payment
+            Your payments
           </h2>
           <ul class="app-task-list__items govuk-!-padding-left-0">
             <li class="app-task-list__item">
@@ -102,25 +102,47 @@
                 {% if (data['fees-complete'] === "yes") %}
                   <span class="app-task-list__task-name">
                     <a href="./fees/understanding-fees.html" class="govuk-link--no-visited-state">
-                      Fee calculations and how to pay them
+                      Fees summary
                     </a>
                   </span>
                   <strong class="govuk-tag app-task-list__tag" id="payment-information-status">Completed</strong>
                   {% else %}
                   <span class="app-task-list__task-name">
                     <a href="./fees/understanding-fees.html" class="govuk-link--no-visited-state">
-                      Fee calculations and how to pay them
+                      Fees summary
                     </a>
                   </span>
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
                 {% endif %}  
               {% else %}
                 <span class="app-task-list__task-name">
-                  Fee calculations and how to pay them
+                  Fees summary
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Cannot start yet</strong>
               {% endif %}
             </li>
+          {% if (data['premises-complete'] === "yes") %}
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="./fees/england/payment-method-england" class="govuk-link--no-visited-state">
+                  How to pay fees for England
+                </a>
+              </span>
+              {% if (data['england-paid'] === "yes") %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="payment-information-england">Completed</strong>
+              {% else%}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-england">Not started</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="./fees/wales/payment-method-wales" class="govuk-link--no-visited-state">
+                  How to pay fees for Wales
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="payment-information-status">Not started</strong>
+            </li>
+          {% endif %}
           </ul>
         </li>
 
