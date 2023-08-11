@@ -14,37 +14,36 @@
 
 
 {% block content %}
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">
-<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-  <div class="govuk-form-group">
-    <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="with-hint">
-        Do you have any feedback on this submission?
-      </label>
-    </h1>
-    <div id="with-hint-hint" class="govuk-hint">
-      We’ll use this information in an email to Sally Smith.
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to accept this<br> submission?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          No
+        </label>
+      </div>
+      
+      
     </div>
-    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-  </div>
-  <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-    You can enter up to 200 characters
-  </div>
-</div>
-</div>
-
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-
-</div>
+  </fieldset>
 </div>
 <div class="govuk-button-group">
   {{ govukButton({
     text: "Continue", href: "./manage-pom-data-acmeaccepted"
   }) }}
 
-  <a class="govuk-link" href="pom-data-details-acme.html">Cancel</a>
+  
 </div>
 {% endblock %}
