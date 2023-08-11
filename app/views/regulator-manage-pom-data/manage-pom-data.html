@@ -22,6 +22,8 @@
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Environment Agency</span>
     <h1 class="govuk-heading-xl">Manage packaging data submissions</h1>
+
+    <p class="govuk-body-m"> This list shows the current pending submissions and the actioned submissions for the last 6 months. To view older submissions<a href="#" class="govuk-link govuk-link--no-visited-state"> log in to Power-BI.</a></p>
     <div class="moj-filter" style="box-shadow: none;" >
 
       
@@ -45,23 +47,31 @@
              Organisation name
             </label>
     
+            <input class="govuk-input " id="keywords" name="keywords" type="text">
+    
+          </div>
+          <div class="govuk-form-group" >
+            <label class="govuk-label govuk-label--m" for="keywords">
+             Organisation ID
+            </label>
+    
             <input class="govuk-input" id="keywords" name="keywords" type="text">
     
           </div>
     
-          <div class="govuk-form-group">
+          <div class="govuk-form-group" >
     
             <fieldset class="govuk-fieldset">
     
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m" >
     
                 Organisation type
     
               </legend>
     
-              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
     
-                <div class="govuk-checkboxes__item">
+                <div class="govuk-checkboxes__item" style="margin-right: 0px;">
                   <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" >
                   <label class="govuk-label govuk-checkboxes__label" for="type">
                     Direct producer
@@ -91,16 +101,30 @@
       
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       
-                  Status
+                  Submission status
       
                 </legend>
       
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
       
+                  <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                    <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" >
+                    <label class="govuk-label govuk-checkboxes__label" for="status">
+                    Pending
+                    </label>
+      
+                  </div>
+                  <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                    <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" >
+                    <label class="govuk-label govuk-checkboxes__label" for="status">
+                    Accepted
+                    </label>
+      
+                  </div>
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" >
                     <label class="govuk-label govuk-checkboxes__label" for="status">
-                    On hold
+                    Rejected
                     </label>
       
                   </div>
@@ -136,144 +160,205 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" style="text-align: center;" >Date of submission </th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" style="text-align: center;">Status</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric">Action</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"  >Organisation ID </th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" >Date of submission</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"  >Status</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row" id="org1">
-          <th scope="row" class="govuk-table__header">Acme org Ltd.<br> <p>Direct producer </p> </th>
-          <td class="govuk-table__cell" style="text-align: center;">10 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Acme org Ltd.</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >213 146</td>
+          <td class="govuk-table__cell">10 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
         </tr>
-        <tr class="govuk-table__row" id="org2">
-          <th scope="row" class="govuk-table__header">Beta Packaging Ltd.<p>Compliance scheme</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">10 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link govuk-link--no-visited-state">Beta Comply </a><br> <p>Compliance scheme </p> </th>
+          <td class="govuk-table__cell" >415 146</td>
+          <td class="govuk-table__cell">15 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
+        </tr> 
+
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Oasis Packing Ltd </a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >033 141</td>
+          <td class="govuk-table__cell">18 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Division Packing Ltd</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >743 141</td>
+          <td class="govuk-table__cell">1 April 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Cure Packaging Ltd</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >093 141</td>
+          <td class="govuk-table__cell">22 April 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Zeppelin Packaging Ltd</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >673 145</td>
+          <td class="govuk-table__cell">19 May 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Pending
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Pink org Ltd</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >033 141</td>
+          <td class="govuk-table__cell">17 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+          Rejected
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Pixies Packaging  Ltd</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >953 149</td>
+          <td class="govuk-table__cell">19 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+          Rejected
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Varpak</a><br> <p>Compliance scheme</p> </th>
+          <td class="govuk-table__cell" >583 142</td>
+          <td class="govuk-table__cell">4 April 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+          Rejected
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Lattice Lumia Ltd.</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >983 143</td>
+          <td class="govuk-table__cell">10 April 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+          Rejected
+            </strong>
+          </td>
+        </tr> 
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Nova </a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >763 141</td>
+          <td class="govuk-table__cell">2 May 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red">
+          Rejected
+            </strong>
+          </td>
         </tr>
-        <tr class="govuk-table__row" id="org3">
-          <th scope="row" class="govuk-table__header">Oasis Packing Ltd<p>Compliance scheme</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">11 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Nexus org Ltd.</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >033 144</td>
+          <td class="govuk-table__cell">13 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">
+          Accepted
+            </strong>
+          </td>
         </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Division Packing Ltd<p>Direct producer</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">11 March 2023</td>
-          <td class="govuk-table__cell" style="text-align: center;"><strong class="govuk-tag govuk-tag--yellow">
-            On hold
-          </strong></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Omni org Ltd.</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >683 144</td>
+          <td class="govuk-table__cell">19 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">
+          Accepted
+            </strong>
+          </td>
         </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Cure Packaging Ltd<p>Direct producer</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">11 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Orbit org Ltd.</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >943 176</td>
+          <td class="govuk-table__cell">29 March 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">
+          Accepted
+            </strong>
+          </td>
         </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Zeppelin Packaging Ltd<p>Direct producer</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">13 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Pixies Packaging Ltd<p>Compliance scheme</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">14 March 2023</td>
-          <td class="govuk-table__cell" style="text-align: center;"><strong class="govuk-tag govuk-tag--yellow">
-            On hold
-          </strong></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Pink org Ltd<p>Compliance scheme</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">15 March 2023</td>
-          <td class="govuk-table__cell" style="text-align: center;"><strong class="govuk-tag govuk-tag--yellow">
-            On hold
-          </strong></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Smiths Packaging Ltd<p>Direct producer</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">16 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Lattice Lumia Ltd.<p>Direct producer</p></th>
-          <td class="govuk-table__cell"style="text-align: center;">17 March 2023</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Nova <p>Direct producer</p></th>
-          <td class="govuk-table__cell"style="text-align: center;">18 March 2023</td>
-          <td class="govuk-table__cell" style="text-align: center;"><strong class="govuk-tag govuk-tag--yellow">
-            On hold
-          </strong></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Nexus org Ltd<p>Compliance scheme</p></th>
-          <td class="govuk-table__cell" style="text-align: center;">19 March 2023</td>
-          <td class="govuk-table__cell" style="text-align: center;"><strong class="govuk-tag govuk-tag--yellow">
-            On hold
-          </strong></td>
-          <td class="govuk-table__cell govuk-table__header--numeric"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">View</a></td>
+        <tr class="govuk-table__row" id="org1">
+          <th scope="row" class="govuk-table__header"><a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">ZetaZephyr</a><br> <p>Direct producer </p> </th>
+          <td class="govuk-table__cell" >743 147</td>
+          <td class="govuk-table__cell">7 April 2023</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">
+          Accepted
+            </strong>
+          </td>
         </tr>
 
       </tbody>
       
     </table>
+  
     <nav class="govuk-pagination" role="navigation" aria-label="results">
-      <div class="govuk-pagination__prev">
-        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
-          <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-          </svg>
-          <span class="govuk-pagination__link-title">Previous</span></a>
-      </div>
+      
       <ul class="govuk-pagination__list">
-        <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"aria-current="page">
             1
           </a>
         </li>
-        <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+      
         <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 6">
-            6
-          </a>
-        </li>
-        <li class="govuk-pagination__item govuk-pagination__item--current">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 7" aria-current="page">
-            7
+          <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+            2
           </a>
         </li>
         <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 8">
-            8
+          <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+            3
           </a>
         </li>
         <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+       
+        
         <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 42">
-            42
+          <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
+            10
           </a>
         </li>
       </ul>
       <div class="govuk-pagination__next">
-        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
             <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
           </svg></a>
       </div>
     </nav>
 
-
-
+  </div>
+</div>
   <!-- <form method="POST" action="using-a-compliance-scheme">
 
         <div>
@@ -477,8 +562,7 @@
     </div>
   </nav> -->
 
-  </div>
-</div>
+ 
 
 
 

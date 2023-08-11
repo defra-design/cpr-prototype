@@ -21,11 +21,22 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Manage packaging data submissions</span>
-    <h1 class="govuk-heading-xl">Acme org Ltd.</h1>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
+    <h3 class="govuk-heading-s" >Organisation type<br>
+       <p>Direct producer</p></h3>
+       <h3 class="govuk-heading-s">Organisation ID<br>
+        <p>213 146</p></h3>
 
+        <p> <a href="#" class="govuk-link govuk-link--no-visited-state">Log in to Power-BI</a> to view summary of the packaging data.</p>
     <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Time and date of submission: 3:15pm on 10 March 2023</h2>
+      <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+        <h2 class="govuk-summary-card__title">Time and date of submission: 3:15pm on 10 March 2023</h2> 
+        <strong class="govuk-tag govuk-tag--blue" style="margin-left: 323px; justify-content: none">
+          Pending
+        </strong>
+        
+
+
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action"> 
           </li>
@@ -36,17 +47,7 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-4">
           
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              <strong>Packaging data</strong>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              acme.csv
-            </dd>
-            <dd class="ovuk-table__cell govuk-table__header--numeric">
-              <a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Download</a>
-            </dd>
-          </div>
+         
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
               <strong>Submitted by</strong>
@@ -83,9 +84,23 @@
             </dd>
             
           </div>
-          
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <strong>Packaging data</strong>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              acme.csv
+            </dd>
+            <dd class="ovuk-table__cell govuk-table__header--numeric">
+              <a href="./pom-data-details-acme.html" class="govuk-link govuk-link--no-visited-state">Download</a>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row"></div>
+        
         </dl>
+        <div class="govuk-inset-text">
+          Acme org Ltd. cannot resubmit until this submission has been actioned. 
+        </div>
         {{ govukButton({
           text: "Accept", href:"./acceptpomdata"
           }) }}
@@ -96,10 +111,7 @@
           classes: "govuk-button--warning" 
           
           }) }}
-          {{ govukButton({
-          text: "Put on hold",
-          classes: "govuk-button--secondary"
-          }) }}
+         
         
       </div>
 
