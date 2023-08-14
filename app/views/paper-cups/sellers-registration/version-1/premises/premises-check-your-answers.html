@@ -65,17 +65,11 @@
                       {% if (data['premises-1'] === "yes") %}
                       <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}</p>
                       {% endif %}
-                      {% if (data['premises-2'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}</p>
-                      {% endif %}
                       {% if (data['premises-3'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
-                      {% endif %}
-                      {% if (data['premises-4'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}</p>
+                      <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-3'] }}</p>
                       {% endif %}
                       {% if (data['premises-5'] === "yes") %}
-                      <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
+                      <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-5'] }}</p>
                       {% endif %}
                     </dd>
                   </div>
@@ -84,7 +78,12 @@
                       Premises in Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      None
+                      {% if (data['premises-2'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Willow Close, Cardiff, {{ data['address-lookup-postcode-2'] }}</p>
+                      {% endif %}
+                      {% if (data['premises-4'] === "yes") %}
+                      <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Chestnut Grove, Cardiff, {{ data['address-lookup-postcode-4'] }}</p>
+                      {% endif %}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
@@ -123,7 +122,7 @@
                       File uploaded
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['file-upload-premises'] }}
+                      your-premises.csv
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="./premises-upload-file.html">

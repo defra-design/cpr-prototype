@@ -35,6 +35,7 @@
               Your organisation details
             </h2>
             <ul class="app-task-list__items govuk-!-padding-left-0">
+
               <li class="app-task-list__item">
                 
                 {% if (data['contact-complete'] === "yes") %}
@@ -53,7 +54,8 @@
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
                 {% endif %}
               </li>
-              <li class="app-task-list__item">
+
+              <!-- <li class="app-task-list__item">
                 {% if (data['partners-complete'] === "yes") %}
                   <span class="app-task-list__task-name">
                     <a href="./partners/partner-direct-check-your-answers.html" aria-describedby="add-partner-details" class="govuk-link--no-visited-state">
@@ -69,7 +71,8 @@
                   </span>
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
                 {% endif %}
-              </li>
+              </li> -->
+
               <li class="app-task-list__item">
 
                 {% if (data['premises-complete'] === "yes") %}
@@ -88,6 +91,7 @@
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="premises-information-status">Not Started</strong>
                 {% endif %}
               </li>
+
             </ul>
         </li>   
 
@@ -157,7 +161,7 @@
           <p>Review a summary of your registration details before submitting them.</p>
 
           
-          {% if (data['contact-complete'] === "yes" and data['partners-complete'] === "yes" and data['premises-complete'] === "yes" and data['fees-complete'] === "yes") %}
+          {% if (data['contact-complete'] === "yes" and data['premises-complete'] === "yes" and data['fees-complete'] === "yes" and data['england-paid'] === "yes" and data['wales-paid'] === "yes") %}
           {{ govukButton({
             text: "Review details",
             preventDoubleClick: true,
