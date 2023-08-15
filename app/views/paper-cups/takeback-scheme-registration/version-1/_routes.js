@@ -65,4 +65,20 @@ router.post('*/address-manual-question', function (req, res) {
     res.redirect('../contact-person');
 });
 
+router.post('*/payment-made-question', function (req, res) {
+    if (req.session.data['payment-made-england'] === "yes") {
+        res.redirect('./payment-confirmation-england');
+    } else {
+        res.redirect('../../registration-task-list');
+    }
+});
+
+router.post('*/payment-made-question-wales', function (req, res) {
+    if (req.session.data['payment-made-wales'] === "yes") {
+        res.redirect('./payment-confirmation-wales');
+    } else {
+        res.redirect('../../registration-task-list');
+    }
+});
+
 module.exports = router;
