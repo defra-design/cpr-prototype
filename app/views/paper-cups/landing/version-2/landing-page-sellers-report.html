@@ -1,0 +1,71 @@
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{% include "./cups-header.html" %}
+
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
+    {
+      text: 'Home',
+      href: './landing-page-sellers-home'
+    },
+    {
+      text: 'Registration details',
+      href: './landing-page-sellers-registration'
+    },
+    {
+      text: 'Report cups',
+      href: './landing-page-sellers-report',
+      active: true
+    },
+    {
+      text: 'Manage your account',
+      href: '#3'
+    },
+    {
+      text: 'Contact us',
+      href: '#3'
+    }
+  ]
+}) }}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+    
+      <h1 class="govuk-heading-xl">Report takeaway cups data</h1>
+      <p class="govuk-body">You will need your data in a spreadsheet, organised by each nation of the UK.</p>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <h2 class="govuk-heading-l">Report data for  1 October 2024 to 30 June 2025</h2>
+      <p class="govuk-body">Available from 1 January 2025.</p>
+
+      <h2 class="govuk-heading-l">Report data for  1 July 2025 to 31 December 2025</h2>
+      <p class="govuk-body">Available from 1 July 2025.</p>
+    
+    </div>
+  </div>
+{% endblock %}
