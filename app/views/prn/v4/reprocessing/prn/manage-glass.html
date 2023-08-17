@@ -101,11 +101,10 @@ Send PRNs
 
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-
+        <th scope="col" class="govuk-table__header">PRN number</th>
       <th scope="col" class="govuk-table__header">Assigned to</th>
       <th scope="col" class="govuk-table__header">Date created</th>
       <th scope="col" class="govuk-table__header">Tonnes</th>
-      <th scope="col" class="govuk-table__header">Action</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -113,18 +112,23 @@ Send PRNs
 {% if data['answers-checked'] == 'true' %}
 {% if data['issued']  == 'true' %}
 {% else %}
-      <td class="govuk-table__cell"> <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                  <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="hmrc">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                      <a href="change-prn/change-check-answers">    PRN10000</a>
+                  </label>
+              </div>
+          </div>
+        </td>
+          <td class="govuk-table__cell">
                   {{data['which-producer']}}
-              </label>
-            </div>
-            </div></td>
+            </td>
 
       <td class="govuk-table__cell">7 August 2023</td>
       <td class="govuk-table__cell">{{data['tonnes']}}</td>
-      <td class="govuk-table__cell"><a href="change-prn/change-check-answers">View</a></td>
+
     </tr>
   {% endif %}
 {% endif %}
@@ -167,7 +171,7 @@ Send PRNs
 
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Reference</th>
+            <th scope="col" class="govuk-table__header">PRN number</th>
             <th scope="col" class="govuk-table__header">Sent to</th>
             <th scope="col" class="govuk-table__header">Date created</th>
             <th scope="col" class="govuk-table__header">Tonnes</th>
