@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report cups recycling data" %}
+
+{% set title = "Create an account to report cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - Create an account to report cups recycling data
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./business-address-postcode.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {% if (data['account'] == "take-back-scheme") %}
+      <form method="POST" action="./uk-nation?manual=no">
+       {% endif %}
+   
+      {% if (data['account'] == "cup-seller") %}
+      <form method="POST" action="../about-you/full-name">
+      {% endif %}
+
+      <h1 class="govuk-heading-l">What is your organisation address?</h1>
+      
+      <p class="govuk-body govuk-!-margin-bottom-1">Postcode</p>
+      <p class="govuk-body"><strong style="text-transform: uppercase;">{{ data['address-postcode'] }}</strong><a class="govuk-!-margin-left-3" href="./business-address-postcode.html">Change</a></p>
+
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="select-address">
+          Select address
+        </label>
+        <select class="govuk-select" id="select-address" name="select-address">
+          <option value="addresses-found">10 addresses found</option>
+          <option value="1">Flat 1, 1, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="2">Flat 2, 3, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="3">Flat 5, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="4">7, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="5">9, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="6">11, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="7">15, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="8">17, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="9">19, Grange Road, Cambridge, CB2 0AA</option>
+          <option value="10">21, Grange Road, Cambridge, CB2 0AA</option>
+        </select>
+      </div>
+
+      <p class="govuk-body">
+        <a href="./business-address-manual.html">
+          I cannot find the address in the list
+        </a>
+      </p>
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+      </form>
+  </div>
+</div>
+
+
+{% endblock %}

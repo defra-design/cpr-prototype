@@ -86,7 +86,9 @@ router.use('/prn/v4', require('./views/prn/v4/_routes'));
 router.use('/prn/add-another', require('./views/prn/add-another/_routes'));
 router.use('/prn/account-creation/build', require('./views/prn/account-creation/build/_routes'));
 
+//Cups
 router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
+router.use('/paper-cups/enrol/version-2', require('./views/paper-cups/enrol/version-2/_routes'));
 router.use('/paper-cups/sellers-registration/version-1', require('./views/paper-cups/sellers-registration/version-1/_routes'));
 router.use('/paper-cups/takeback-scheme-registration/version-1', require('./views/paper-cups/takeback-scheme-registration/version-1/_routes'));
 
