@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./contact-address-selection.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <form method="POST" action="./contact-person-question">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Who is the main contact for your organisation?
+            </h1>
+          </legend>
+          <div id="address-hint" class="govuk-hint">
+            This should be the person we can contact directly with about any important legal information or updates.
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="user" name="contact-name" type="radio" value="John Smith (you)" {{ checked("contact-name", "John Smith (you)") }}>
+              <label class="govuk-label govuk-radios__label" for="user">
+                John Smith (you)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="contact-name" type="radio" value="Someone else" {{ checked("contact-name", "Someone else") }}>
+              <label class="govuk-label govuk-radios__label" for="other">
+                Someone else
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

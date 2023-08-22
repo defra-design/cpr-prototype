@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./payment-method-england">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+          
+      <h1 class="govuk-heading-l">Pay fees for England</h1>
+      <p class="govuk-body">The environmental regulator for England is the Environment Agency.</p>
+
+      <h2 class="govuk-heading-m">What you need to pay</h2>    
+      <p class="govuk-body">Your total amount to pay is <strong>£4,466</strong></p>
+      <p class="govuk-body">Your reference number is <strong>AC123JA</strong></p>
+
+      {{ govukButton({
+        text: "Copy reference number",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% if (data['reg-payment-method-england'] === "Bacs") %}
+
+      <h2 class="govuk-heading-m">Pay by Bacs</h2>    
+      <p class="govuk-body">You’ll need to provide your reference number to complete the payment.</p>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-0">Environment Agency</p>
+        <p class="govuk-!-margin-0">00998900</p>
+        <p class="govuk-!-margin-0">12 34 56</p>
+      </div>
+
+      {{ govukButton({
+        text: "Copy payment details",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% elseif (data['reg-payment-method-england'] === "Telephone") %}
+      
+      <h2 class="govuk-heading-m">Pay by telephone</h2>    
+      <p class="govuk-body">You’ll need to provide your reference number to complete the payment.</p>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-0">Telephone: 03708 506 506</p>
+        <p class="govuk-!-margin-0">Open Monday to Friday 9am to 5pm</p>
+      </div>
+      
+      {{ govukButton({
+        text: "Copy telephone number",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% else %}
+
+      <h2 class="govuk-heading-m">Pay by cheque</h2>    
+      <p class="govuk-body">You’ll need to provide your reference number to complete the payment.</p>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-0">Environment Agency</p>
+        <p class="govuk-!-margin-0">Orchard House Endeavour Park </p>
+        <p class="govuk-!-margin-0">London Road </p>
+        <p class="govuk-!-margin-0">Addington</p>
+        <p class="govuk-!-margin-0">West Malling </p>
+        <p class="govuk-!-margin-0">Kent</p>
+        <p class="govuk-!-margin-0">ME19 5SH</p>
+      </div>
+      
+      {{ govukButton({
+        text: "Copy address",
+        classes: "govuk-button--secondary"
+      }) }}
+
+      {% endif %}
+
+      <form method="POST" action="./payment-made-question">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Tell us if you’ve paid
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="payment-made-england" type="radio" value="yes" {{ checked("payment-made-england", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  I have paid
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="payment-made-england" type="radio" value="no" {{ checked("payment-made-england", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="no">
+                  I’ll do this later
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

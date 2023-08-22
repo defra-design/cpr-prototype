@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./member-before-you-start.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="./check-member-organisation-details">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="member-organisation-upload" aria-describedby="member-organisation-upload-hint">
+            Upload organisation details for your members
+          </label>
+        </h1>
+        <div id="member-organisation-upload-hint" class="govuk-hint">
+          You must upload the spreadsheet as a CSV file.
+        </div>
+        <input class="govuk-file-upload" id="member-organisation-upload" name="member-organisation-upload" type="file" value="{{data['member-organisation-upload']}}">
+      </div>
+   
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
