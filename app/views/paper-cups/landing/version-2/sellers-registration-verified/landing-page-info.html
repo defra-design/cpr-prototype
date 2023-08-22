@@ -1,0 +1,88 @@
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling" %}
+
+{% set title = "Report takeaway cups recycling" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{% include "../cups-header.html" %}
+
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
+    {
+      text: 'Home',
+      href: './landing-page-home'
+    },
+    {
+      text: 'Registration details',
+      href: './landing-page-registration'
+    },
+    {
+      text: 'Report cups data',
+      href: './landing-page-report'
+    },
+    {
+      text: 'Useful information',
+      href: './landing-page-info',
+      active: true
+    },
+    {
+      text: 'Manage your account',
+      href: '#2'
+    },
+    {
+      text: 'Contact us',
+      href: '#3'
+    }
+  ]
+}) }}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+    
+      <h1 class="govuk-heading-xl">Useful information</h1>
+
+      <h2 class="govuk-heading-m">Guidance on takeaway cups recycling</h2>
+      <p class="govuk-body">Read an overview of all the steps you need to take to
+        <a href="#" class="govuk-link">
+        takeaway cups data (open in a new window)</a>.
+      </p>
+      
+      <p class="govuk-body">Read guidance:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="#" class="govuk-link">
+          find out how to register organisation details (opens in a new window)
+          </a>
+        </li>
+        <li>
+          <a href="#" class="govuk-link">
+          find out how to create your cups data file for extended producer responsibility (EPR)(opens in a new window)
+          </a>
+        </li>
+
+      </ul>
+      
+    
+    </div>
+  </div>
+{% endblock %}
