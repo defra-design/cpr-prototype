@@ -11,27 +11,31 @@
 {% endblock %}
 
 {% block header %}
-{% include "./cups-header.html" %}
+{% include "../cups-header.html" %}
 
 {{ mojPrimaryNavigation({
   label: 'Primary navigation',
   items: [
     {
       text: 'Home',
-      href: './landing-page-sellers-home',
+      href: './landing-page-home',
       active: true
     },
     {
       text: 'Registration details',
-      href: './landing-page-sellers-registration'
+      href: './landing-page-registration'
     },
     {
-      text: 'Report cups',
-      href: './landing-page-sellers-report'
+      text: 'Report cups data',
+      href: './landing-page-report'
+    },
+    {
+      text: 'Useful information',
+      href: './landing-page-info'
     },
     {
       text: 'Manage your account',
-      href: '#3'
+      href: '#2'
     },
     {
       text: 'Contact us',
@@ -73,16 +77,33 @@
         </div>
       </div>
   
-      <h1 class="govuk-heading-xl">Your Tasks</h1>
+      <h1 class="govuk-heading-xl">Account - Cambridge Cafe</h1>
+      <p class="govuk-body">Register your organisation details, report takeaway cups data and manage your account.</p>
       
-      <p class="govuk-body">Register  your organisation details so that you can start reporting data.</p>
+      <h2 class="govuk-heading-l">Account tasks</h2>
+      <p class="govuk-body">Your account contains the tasks below.</p>
+
+      <h3 class="govuk-heading-m">
+        <a href="landing-page-registration.html" class="govuk-link">
+          Register your organisation details
+        </a>
+      </h3>
+      <p class="govuk-body">You must do this once a year by the deadlines.You can also update the details between the deadlines.</p>
+
+      <h3 class="govuk-heading-m">
+        <a href="landing-page-report.html" class="govuk-link">
+          Report cups data
+        </a>
+      </h3>
+      <p class="govuk-body">You must do this twice a year by the deadlines.</p>
+
+      <h2 class="govuk-heading-l">Your upcoming task</h2>
+
+
+      <p class="govuk-body"><a href="landing-page-registration.html" class="govuk-link">
+        Register your organisation details</a>, so that you can start reporting data.</p>
       <p class="govuk-body">Complete by 30 September 2024.</p>
-  
-      {{ govukButton({
-        text: "Register",
-        href: "./../.././sellers-registration/version-1/registration-task-list"
-      }) }}
-  
+
     </div>
   </div>
     
