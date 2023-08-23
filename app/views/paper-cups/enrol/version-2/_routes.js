@@ -99,10 +99,10 @@ router.post('*/which-account-landing-page', function (req, res) {
     var accountType = req.session.data['account-type']
     
     if (accountType == "Take-back scheme"){
-        res.redirect('../../../../landing/version-2/takeback-scheme/landing-page-home')
+        res.redirect('../../../../landing/version-2/takeback-scheme/landing-page-home?account-created-notification=true')
     }
     else if (accountType == "Takeaway drinks seller"){
-        res.redirect('../../../../landing/version-2/sellers/landing-page-home')
+        res.redirect('../../../../landing/version-2/sellers/landing-page-home?account-created-notification=true')
     }
 })
 
