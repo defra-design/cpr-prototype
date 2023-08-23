@@ -92,6 +92,7 @@ router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/vers
 router.use('/paper-cups/enrol/version-2', require('./views/paper-cups/enrol/version-2/_routes'));
 router.use('/paper-cups/sellers-registration/version-1', require('./views/paper-cups/sellers-registration/version-1/_routes'));
 router.use('/paper-cups/takeback-scheme-registration/version-1', require('./views/paper-cups/takeback-scheme-registration/version-1/_routes'));
+router.use('/paper-cups/takeback-scheme-registration/version-2', require('./views/paper-cups/takeback-scheme-registration/version-2/_routes'));
 
 
 

@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['documents-complete'] === "yes") %}
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./check-member-operation-plan-upload.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form method="POST" action="../registration-task-list?documents-complete=yes">
+      <div class="govuk-form-group">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+              Check your document details
+            </h1>
+          </div>
+        </div> 
+        
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+            <!-- DOCUMENTS -->
+            <div class="govuk-summary-card govuk-!-margin-bottom-2">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your takeback scheme documents</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Constitution
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <!-- {{ data['scheme-constitution-upload'] }} -->
+                      <a class="govuk-link govuk-link--no-visisted-state" href="#">scheme-constitution.pdf</a>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member-constitution-upload.html">
+                        Change<span class="govuk-visually-hidden"> your schemes constitution file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Operational plan
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <!-- {{ data['scheme-operation-plan-upload'] }} -->
+                      <a class="govuk-link govuk-link--no-visisted-state" href="#">scheme-operation-plan.pdf</a>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member-operation-plan-upload.html">
+                        Change<span class="govuk-visually-hidden"> your schemes operational plan file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                </dl>
+              </div>
+            </div>
+
+          </div>
+        </div>  
+        
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['member-complete'] === "yes") %}
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./check-member-premises.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form method="POST" action="../registration-task-list?member-complete=yes">
+      <div class="govuk-form-group">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+              Check the details of your members
+            </h1>
+          </div>
+        </div> 
+        
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+            <!-- MEMBERS -->
+            <div class="govuk-summary-card govuk-!-margin-bottom-2">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Your members’ files</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Organisation details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <!-- {{ data['member-organisation-upload'] }} -->
+                      
+                      <a class="govuk-link govuk-link--no-visisted-state" href="#">member-organisation-details.csv</a>
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member-organisation-details-upload.html">
+                        Change<span class="govuk-visually-hidden"> your members organisation details file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Premises
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <!-- {{ data['member-premises-upload'] }} -->
+                      <a class="govuk-link govuk-link--no-visisted-state" href="#">member-premises-details.csv</a>
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./member-premises-upload.html">
+                        Change<span class="govuk-visually-hidden"> your members premises file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                </dl>
+              </div>
+            </div>
+
+          </div>
+        </div>  
+        
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

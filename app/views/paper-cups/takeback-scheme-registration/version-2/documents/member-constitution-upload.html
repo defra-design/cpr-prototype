@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./documents-before-you-start.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="./check-member-constitution-upload">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="scheme-constitution-upload" aria-describedby="scheme-constitution-upload-hint">
+            Upload your takeback scheme constitution
+          </label>
+        </h1>
+        <div id="scheme-constitution-upload-hint" class="govuk-hint">
+          You need to upload this as a PDF or Word file.
+        </div>
+        <input class="govuk-file-upload" id="scheme-constitution-upload" name="scheme-constitution-upload" type="file" value="{{data['scheme-constitution-upload']}}">
+      </div>
+   
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
