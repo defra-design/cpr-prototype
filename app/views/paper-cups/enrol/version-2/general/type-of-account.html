@@ -17,7 +17,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds ">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
 
     <h1 class="govuk-heading-l">
       Check if you’re a takeaway drinks seller or a takeback scheme
@@ -40,26 +40,25 @@
       <li>collect the cups from their premises</li>
       <li>weigh the cups</li>
       <li>arrange the recycling</li>
-      <li>report the data</li>
     </ul>
     
     <form method="POST" action="type-of-account_question">
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-!-margin-top-6">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             What type of organisation are you?
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="take-back-scheme" name="account-type" type="radio" value="Take-back scheme" {{ checked("account-type", "Take-back scheme") }}>
-              <label class="govuk-label govuk-radios__label" for="take-back-scheme">
-                Takeback scheme
-              </label>
-            </div>
-            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="cup-seller" name="account-type" type="radio" value="Takeaway drinks seller" {{ checked("account-type", "Takeaway drinks seller") }}>
               <label class="govuk-label govuk-radios__label" for="cup-seller">
                 Takeaway drinks seller
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="take-back-scheme" name="account-type" type="radio" value="Take-back scheme" {{ checked("account-type", "Take-back scheme") }}>
+              <label class="govuk-label govuk-radios__label" for="take-back-scheme">
+                Takeback scheme
               </label>
             </div>
           </div>
