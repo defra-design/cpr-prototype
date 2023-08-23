@@ -37,22 +37,22 @@
 
 </div>
 <div class="govuk-grid-column-one-third" style="  float: right;">
-  <div class="govuk-grid-column-full govuk-inset-text">
+  <div class="govuk-grid-column-full gem-c-related-navigation">
 
 
 
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
-        Paper/board waste balance
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Accreditation details
         </h2>
-
-        <!-- DESCRIPTION -->
-        <p class="govuk-body govuk-!-margin-bottom-3">
-
+          <p class="govuk-body-s ">
+            Total accreditation: <strong>340 tonnes</strong>
+          </p>
+        <p class="govuk-body-s">
+          Remaining accreditation: <strong>{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
         </p>
-
-
-        {% if data['waste-date-sent-on'] == 'true' %}  Current waste balance for this accreditation is  <strong>6.62 tonnes</strong>.{% elif data['waste-data-reprocesser'] == 'true' %} Current waste balance for this accreditation is  <strong>9.38 tonnes</strong>{% else %}Current waste balance for this accreditation is  <strong>8.00 tonnes</strong>.{% endif %}
-
+        <p class="govuk-body-s">
+      Current waste balance: <strong>{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+        </p>
 
 
       </div>
