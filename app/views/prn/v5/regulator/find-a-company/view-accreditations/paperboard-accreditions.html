@@ -34,8 +34,21 @@
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-xl">GREEN LTD</span>
+    <span class="govuk-caption-xl">GREEN LTD -  Ruby St, London SE15 1LR</span>
         <h1 class="govuk-heading-xl">Paper/board reprocessing</h1>
+              {% if data['accreditation-limit'] == 'true' %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Green Ltd has recorded waste above its accreditation limit. <a href="../users-details">Contact Green Ltd</a>.
+          </strong>
+        </div>
+        {% else %}
+        <br><br><br>
+
+        {% endif %}
+
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">Paper/board reprocessing</h2>
@@ -103,42 +116,59 @@
             </dl>
           </div>
         </div>
-        <div class="dwp-timeline">
-        <h2 class="govuk-heading-m">Accreditation history</h2>
-        <ol class="dwp-timeline__events">
-          {% if data['revoke'] == 'true' %}
-          <li class="dwp-timeline__events--entry">
-  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation cancelled</h2>
-              <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
-              <p class="govuk-caption-m">11 July 2021</p>
-          </li>
-          {% endif %}
-          {% if data['suspend'] == 'true' %}
-          <li class="dwp-timeline__events--entry">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation suspended</h2>
-              <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
-              <p class="govuk-caption-m">11 July 2021</p>
-          </li>
-          {% endif %}
-        <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation active</h2>
-            <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
-            <p class="govuk-caption-m">10 July 2021</p>
-        </li>
 
-        <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation granted</h2>
-            <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
-            <p class="govuk-caption-m">10 July 2021</p>
-        </li>
-        <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application for accreditation received</h2>
-            <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
-            <p class="govuk-caption-m">10 July 2021</p>
-        </li>
-        </ol>
-        </div>
       </div>
+      <div class="govuk-grid-column-one-third gem-c-related-navigation">
+            <h2 class="govuk-heading-m govuk-!-margin-top-3">
+            Accreditation details
+            </h2>
+              <p class="govuk-body-s">
+                Total accreditation: <strong style="float: right;">340 tonnes</strong>
+              </p>
+            <p class="govuk-body-s">
+              Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}260 tonnes{% endif %}</strong>
+            </p>
+            <p class="govuk-body-s">
+          Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}0 tonnes{% endif %}</strong>
+            </p>
+
+            <div class="dwp-timeline  gem-c-related-navigation">
+            <h2 class="govuk-heading-m govuk-!-margin-top-3">Accreditation history</h2>
+            <ol class="dwp-timeline__events">
+              {% if data['revoke'] == 'true' %}
+              <li class="dwp-timeline__events--entry">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation cancelled</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
+                  <p class="govuk-caption-m">11 July 2021</p>
+              </li>
+              {% endif %}
+              {% if data['suspend'] == 'true' %}
+              <li class="dwp-timeline__events--entry">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation suspended</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
+                  <p class="govuk-caption-m">11 July 2021</p>
+              </li>
+              {% endif %}
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation active</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
+                <p class="govuk-caption-m">10 July 2021</p>
+            </li>
+
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Accreditation granted</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
+                <p class="govuk-caption-m">10 July 2021</p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Application for accreditation received</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by John Smith</p>
+                <p class="govuk-caption-m">10 July 2021</p>
+            </li>
+            </ol>
+            </div>
+          </div>
+
       </div>
 
 
