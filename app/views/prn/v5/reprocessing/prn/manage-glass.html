@@ -57,7 +57,12 @@
 
             <span class="govuk-caption-l">GREEN LTD -  Ruby St, London SE15 1LR</span>
     <h1 class="govuk-heading-xl">Manage your PRNs</h1>
-    <a href="raise-a-prn/raise-a-prn" class="govuk-button">Create a PRN</a>
+
+    {% if data['accreditation-limit'] == 'true' %}
+  <a href="raise-a-prn/accreditation-limit" class="govuk-button">Create a PRN</a>
+    {% else %}
+      <a href="raise-a-prn/raise-a-prn" class="govuk-button">Create a PRN</a>
+    {% endif %}
 </div>
 <div class="govuk-grid-column-one-third" style="float: right;">
   <div class="govuk-grid-column-full gem-c-related-navigation">

@@ -1,0 +1,63 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="check-your-answers" method="POST">
+
+
+          <span class="govuk-caption-l">Paper/board - Ruby St, London SE15 1LR</span>
+            <h1 class="govuk-heading-xl">
+                You are unable to create a PRN
+            </h1>
+
+<p class="govuk-body-m">You have recorded waste above your accreditation limit. To be able to create PRNs you will need to <a href="">upgrade your accreditation</a>.</p>
+
+
+
+
+
+
+
+
+
+</form>
+</div>
+<div class="govuk-grid-column-one-third gem-c-related-navigation">
+      <h2 class="govuk-heading-m govuk-!-margin-top-3">
+      Accreditation details
+      </h2>
+        <p class="govuk-body-s">
+          Total accreditation: <strong style="float: right;">340 tonnes</strong>
+        </p>
+      <p class="govuk-body-s">
+        Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}260 tonnes{% endif %}</strong>
+      </p>
+      <p class="govuk-body-s">
+    Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}0 tonnes{% endif %}</strong>
+      </p>
+    </div>
+
+
+
+
+
+</div>
+  </div>
+{% endblock %}

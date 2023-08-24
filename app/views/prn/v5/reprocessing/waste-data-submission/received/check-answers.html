@@ -16,6 +16,7 @@
 
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper " id="main-content" role="main">
+
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds-from-desktop">
           <span class="govuk-caption-l">Paper/board</span>
@@ -141,6 +142,15 @@
 
 
             </dl>
+    {% if data['accreditation-limit'] == 'true' %}
+            <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+  You have recorded waste above your accreditation limit. You will not be able to create a PRN unless you <a href="">upgrade your accreditation</a>.
+  </strong>
+</div>
+{% endif %}
 
             <form action="confirm" method="post" novalidate>
               <input type="hidden" name="answers-checked" value="true">
@@ -149,6 +159,27 @@
                 Continue
               </button>
             </form>
+          </div>
+        <div class="govuk-grid-column-one-third" style="  float: right;">
+          <div class="govuk-grid-column-full gem-c-related-navigation">
+
+
+
+                <h2 class="govuk-heading-m govuk-!-margin-top-3">
+                Accreditation details
+                </h2>
+                  <p class="govuk-body-s ">
+                    Total accreditation: <strong style="float: right;">340 tonnes</strong>
+                  </p>
+                <p class="govuk-body-s">
+                  Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+                </p>
+                <p class="govuk-body-s">
+              Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+                </p>
+
+
+              </div>
           </div>
         </div>
       </main>
