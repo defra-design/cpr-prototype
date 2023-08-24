@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Submitting your premises details
+    </h1>
+    <p class="govuk-body">
+      You must provide the details of all the premises in your organisation. Your premises includes any location you sell drinks in takeaway cups. 
+    </p>
+    <p class="govuk-body">
+    Your premises details are needed to identify which nations you operate in. These are the nations you will need to report to.
+    </p>
+    <p class="govuk-body">
+      If you have a lot of premises, you may prefer to use the <a href="#" class="govuk-link--no-visisted-state">premises spreadsheet template (opens in a new tab)</a>.
+    </p>
+    
+    <form method="POST" action="premises-option-question">
+      <div class="govuk-form-group govuk-!-margin-top-6">
+        <!-- aria-describedby="partner-hint" -->
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            How would you like to enter your premises details?
+          </legend>
+          <!-- <div id="partner-hint" class="govuk-hint">
+            Hint
+          </div> -->
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="speadsheet" name="enter-premises" type="radio" value="spreadsheet" {{ checked("enter-premises", "spreadsheet") }}>
+              <label class="govuk-label govuk-radios__label" for="speadsheet">
+                Spreadsheet
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="directly" name="enter-premises" type="radio" value="directly" {{ checked("enter-premises", "directly") }}>
+              <label class="govuk-label govuk-radios__label" for="directly">
+                Directly into the service
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

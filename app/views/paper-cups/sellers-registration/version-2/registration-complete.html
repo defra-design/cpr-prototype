@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../../landing/version-1/landing-page-sellers-after-registration.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+              Registration details
+            </h1>
+            
+            <strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-4">
+              submitted
+            </strong>
+
+           
+
+            <p class="govuk-body">
+              If there are any changes to your organisation details, you must update these in your account within 28 days. 
+            </p>  
+
+            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/">Edit details</a></p>
+
+
+            <p class="govuk-body-s" style="color: #505a5f;">Last updated: 12 Septmeber 2023</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      <div class="govuk-grid-column-full">
+
+        <nav class="secondary-nav" aria-label="" ">
+          <ul class="secondary-nav-ul govuk-list govuk-!-padding-0 govuk-!-margin-0" style="display: inline-block;">
+            
+            <li class="secondary-nav-ul--item govuk-list govuk-!-margin-right-4 govuk-!-margin-0 govuk-!-font-weight-bold" aria-current="page" style="display: inline-block;">
+                Premises
+            </li>
+
+            <li class="secondary-nav-ul--item govuk-list govuk-!-margin-right-4 govuk-!-margin-0" style="display: inline-block;">
+                <a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-weight-bold"  href="./registration-complete-contact.html">Contact details</a>
+            </li>
+
+            <li class="secondary-nav-ul--item govuk-list govuk-!-margin-0" govuk-list style="display: inline-block;">
+                <a class="secondary-nav-ul--item-link govuk-likgovuk-link govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-weight-bold"  href="./registration-complete-partners.html">Partners</a>
+            </li>
+          </ul>
+        </nav>
+        
+      </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-m">Your premises</h2>
+
+          <!-- <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Edit premises</a></p> -->
+
+          <!-- {{ govukButton({
+            text: "Edit premises",
+            preventDoubleClick: true,
+            href: '#'
+          }) }} -->
+          
+          {% if (data['enter-premises'] === "directly") %}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+             
+              {% if (data['premises-1'] === "yes") %}
+              <div class="govuk-summary-list__row ">
+                <dt class="govuk-summary-list__value">
+                  {{ data['address-lookup-building-number'] }}, Oak Street, Bristol, {{ data['address-lookup-postcode'] }}
+                </dt>
+                <!-- <dd class="govuk-summary-list__actions" style="width: 36%">
+                  <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                    <li style="display: inline-block;">
+                      <a class="govuk-link" href="./premises-add-address/postcode.html">
+                        Edit<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                    <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                      <a class="govuk-link" href="#" >
+                        Remove<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                  </ul>
+                </dd> -->
+              </div>
+              {% endif %}
+
+              {% if (data['premises-2'] === "yes") %}
+              <div class="govuk-summary-list__row ">
+                <dt class="govuk-summary-list__value">
+                  {{ data['address-lookup-building-number-2'] }}, Ashfield Road, Bristol, {{ data['address-lookup-postcode-2'] }}
+                </dt>
+                <!-- <dd class="govuk-summary-list__actions" style="width: 36%">
+                  <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                    <li style="display: inline-block;">
+                      <a class="govuk-link" href="./premises-add-address/postcode-2.html">
+                        Edit<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                    <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                      <a class="govuk-link" href="#" >
+                        Remove<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                  </ul>
+                </dd> -->
+              </div>
+              {% endif %}
+              
+              {% if (data['premises-3'] === "yes") %}
+              <div class="govuk-summary-list__row ">
+                <dt class="govuk-summary-list__value">
+                  {{ data['address-lookup-building-number-3'] }}, Birch Road, Bristol, {{ data['address-lookup-postcode-3'] }}
+                </dt>
+                <!-- <dd class="govuk-summary-list__actions" style="width: 36%">
+                  <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                    <li style="display: inline-block;">
+                      <a class="govuk-link" href="./premises-add-address/postcode-3.html">
+                        Edit<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                    <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                      <a class="govuk-link" href="#" >
+                        Remove<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                  </ul>
+                </dd> -->
+              </div>
+              {% endif %}
+              
+              {% if (data['premises-4'] === "yes") %}
+              <div class="govuk-summary-list__row ">
+                <dt class="govuk-summary-list__value">
+                  {{ data['address-lookup-building-number-4'] }}, Willow Close, Bristol, {{ data['address-lookup-postcode-4'] }}
+                </dt>
+                <!-- <dd class="govuk-summary-list__actions" style="width: 36%">
+                  <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                    <li style="display: inline-block;">
+                      <a class="govuk-link" href="./premises-add-address/postcode-4.html">
+                        Edit<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                    <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                      <a class="govuk-link" href="#" >
+                        Remove<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                  </ul>
+                </dd> -->
+              </div>
+              {% endif %}
+    
+              {% if (data['premises-5'] === "yes") %}
+              <div class="govuk-summary-list__row ">
+                <dt class="govuk-summary-list__value">
+                  {{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Bristol, {{ data['address-lookup-postcode-5'] }}
+                </dt>
+                <!-- <dd class="govuk-summary-list__actions" style="width: 36%">
+                  <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                    <li style="display: inline-block;">
+                      <a class="govuk-link" href="./premises-add-address/postcode-5.html">
+                        Edit<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                    <li class="govuk-!-margin-left-3"  style="display: inline-block; padding-left: 15px; border-left: 1px solid #b1b4b6;">
+                      <a class="govuk-link" href="#" >
+                        Remove<span class="govuk-visually-hidden"> partner</span>
+                      </a>
+                    </li>
+                  </ul>
+                </dd> -->
+              </div>
+              {% endif %}
+
+            </dl>
+          </div>
+        </div>   
+
+        {% else %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+                <dl class="govuk-summary-list">
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      File uploaded
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['file-upload-premises'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="./premises-upload-file.html">
+                        Change<span class="govuk-visually-hidden"> your premises file</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Number of premises
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      80
+                    </dd>
+                  </div>
+
+                </dl>
+          </div>
+        </div>
+
+        {% endif %}
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}

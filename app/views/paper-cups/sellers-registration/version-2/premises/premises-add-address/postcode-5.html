@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../premises-option.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./select-address-5">
+      <h1 class="govuk-heading-l">Add a premises</h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="building-number">
+          Building number or name
+        </label>
+        <div id="number-hint" class="govuk-hint">
+          For example, 47, Flat 2a or Rose Cottage
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="building-number" name="address-lookup-building-number-5" type="text" for="address" value="{{data['address-lookup-building-number-5']}}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="address-postcode">
+          Postcode
+        </label>
+        <div id="postcode-hint" class="govuk-hint">
+          For example, WA4 1AB
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-lookup-postcode-5" type="text" autocomplete="postal-code" value="{{data['address-lookup-postcode-5']}}">
+      </div>
+
+      {{ govukButton({
+        text: "Find address"
+      })}}
+    </form>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link--no-visited-state">
+        Enter the address manually
+      </a>
+    </p>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a class="govuk-back-link" href="../registration-task-list.html">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+    <form method="POST" action="../../landing/version-2/sellers-registration-done/landing-page-home">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+        <h1 class="govuk-panel__title">
+          Registration application complete
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference number is<br><strong>AC123JA</strong>
+        </div>
+      </div>  
+
+      {% if (data['contact-name'] === "Someone else") %} 
+      <p class="govuk-body">
+        A receipt of your registration details will be sent to <strong>{{ data['someone-else-email'] }}</strong>.
+      </p>
+      {% else %}
+      <p class="govuk-body">
+        A receipt of your registration details will be sent to
+        <strong>
+          {% if (data['email-preference'] === "existing") %}
+            johnsmith@email.com
+          {% else %}
+            {{ data['new-email'] }}
+          {% endif %}
+        </strong>
+      </p>
+      {% endif %}
+
+      <p class="govuk-body">
+        You can <a class="govuk-link govuk-link--no-visisted-state" href="#">view a summary of the registration details you have submitted</a> in your account.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        The environmental regulator from each nation you have applied to will verify the registration and payment details you have submitted.
+      </p>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">
+        You’ll receive a response from each nation you’ve applied to within 28 days. 
+      </p>
+
+      {{ govukButton({
+        text: "Go back to account"
+      })}}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">Print this page</a> 
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

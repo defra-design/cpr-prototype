@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./contact-telephone">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    <form method="POST" action="./contact-check-your-answers">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Which email should we use to contact you?
+              </h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              We need this to contact you about any important legal information or updates about your organisation.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="existing-email" name="email-preference" type="radio" value="existing" {{ checked("email-preference", "existing") }}>
+                <label class="govuk-label govuk-radios__label" for="existing-email" >
+                  johnsmith@email.com
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="different-email" name="email-preference" type="radio" data-aria-controls="new-email" value="different" {{ checked("email-preference", "different") }}>
+                <label class="govuk-label govuk-radios__label" for="different-email">
+                  Use a different email
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="new-email">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="new-email">
+                    Email
+                  </label>
+                  <input class="govuk-input" id="new-email" name="new-email" type="email" autocomplete="email" value="{{data['new-email']}}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

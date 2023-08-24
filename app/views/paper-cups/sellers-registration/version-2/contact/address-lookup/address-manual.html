@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./select-address">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="./address-manual-question" method="post">
+  
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            What is your organisation address?
+          </h1>
+        </legend>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Address line 1
+          </label>
+          <input class="govuk-input" id="address-line-1" name="manual-address-line-1" type="text" autocomplete="address-line1" value="{{data['manual-address-line-1']}}">
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">
+            Address line 2 (optional)
+          </label>
+          <input class="govuk-input" id="address-line-2" name="manual-address-line-2" type="text" autocomplete="address-line2" value="{{data['manual-address-line-2']}}">
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-town">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="manual-address-town" name="manual-address-town" type="text" autocomplete="address-level2" value="{{data['manual-address-town']}}">
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-county">
+            County (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="manual-address-county" name="manual-address-county" type="text" value="{{data['manual-address-county']}}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-country">
+            Country
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="manual-address-country" name="manual-address-country" type="text" value="{{data['manual-address-country']}}">
+        </div>
+      
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="manual-address-postcode" type="text" autocomplete="postal-code" value="{{data['manual-address-postcode']}}">
+        </div>
+      
+      </fieldset>
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+  
+    </form>
+  </div>
+</div>
+
+{% endblock %}

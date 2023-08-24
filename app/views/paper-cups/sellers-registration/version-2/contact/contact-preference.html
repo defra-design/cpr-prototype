@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['other-contact'] === "yes") %} 
+<a class="govuk-back-link" href="./contact-full-name">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./contact-person">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <form method="POST" action="./contact-check-your-answers">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              How would
+              {% if (data['other-contact'] === "yes") %} 
+              they
+              {% else %}
+              you
+              {% endif %}
+               like to be contacted?
+            </h1>
+          </legend>
+          <div id="contact-hint" class="govuk-hint">
+            Select all preferred options.
+          </div>
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="email" name="contact-preference" type="checkbox" value="email" {{ checked("contact-preference", "email") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="email">
+                Email
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="phone" name="contact-preference" type="checkbox" value="phone" {{ checked("contact-preference", "phone") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="phone">
+                Phone
+              </label>
+            </div>
+        
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
