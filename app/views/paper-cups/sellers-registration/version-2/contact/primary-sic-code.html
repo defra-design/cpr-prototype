@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../registration-task-list">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+
+    <h1 class="govuk-heading-l">What is the main standard industrial classification (SIC) code for your organisation?</h1>
+
+    <p class="govuk-body">This is a 5 digit code from companies house. We need this for waste tracking purposes.</p>
+    <p class="govuk-body">You may have several SIC codes but we only need the one which best describes the nature of what your organisation does.</p>
+    <p class="govuk-body"><a href="https://find-and-update.company-information.service.gov.uk" target="_blank">Find your SIC code on Companies House (opens in a new tab)</a></p>
+
+    <form method="POST" action="./contact-address-selection">
+      <div class="govuk-form-group">
+        
+        <label class="govuk-label govuk-label--m" for="sic-code">
+          SIC code
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="sic-code" name="sic-code" type="text" spellcheck="false" autocomplete="off" value="{{data['sic-code']}}">
+
+      </div>
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

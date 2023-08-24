@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./postcode">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Confirm premises address</h1>
+      
+    <p class="govuk-body">
+      1 address found for <strong>{{ data['address-lookup-building-number-5'] }}</strong> and <strong>{{ data['address-lookup-postcode-5'] }}</strong>.
+      <a href="./postcode-5" class="govuk-link--no-visited-state govuk-!-margin-left-1">Search again</a>
+    </p>
+    
+    <form method="POST" action="../premises-direct-your-premises?premises-5=yes&premises=5">
+      <!-- <div class="govuk-form-group govuk-!-margin-top-6">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Select the address for your premises
+          </legend>
+        
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-1" name="address-lookup-selection" type="radio" value="option-1" {{ checked("address-lookup-selection", "option-1") }}>
+              <label class="govuk-label govuk-radios__label" for="option-1">
+                {{ data['address-lookup-building-number'] }} Oak Street, Bristol, {{ data['address-lookup-postcode'] }}
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="option-2" name="address-lookup-selection" type="radio" value="option-2" {{ checked("address-lookup-selection", "option-2") }}>
+              <label class="govuk-label govuk-radios__label" for="option-2">
+                {{ data['address-lookup-building-number'] }}a Willow Road, Leeds, England, {{ data['address-lookup-postcode'] }}
+              </label>
+            </div>  
+          </div>
+
+        </fieldset>
+
+      </div> -->
+
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, <br>Chestnut Grove,<br> Bristol,<br> {{ data['address-lookup-postcode-5'] }}</p>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link--no-visited-state">
+        Enter the address manually
+      </a>
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

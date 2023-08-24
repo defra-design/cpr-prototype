@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./premises-option.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="./premises-confirm-upload">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="file-upload-premises" aria-describedby="premises-upload-hint">
+            Upload your premises details
+          </label>
+        </h1>
+        <div id="premises-upload-hint" class="govuk-hint">
+          All your premises details should be added to the spreadsheet template and uploaded as a CSV file.
+        </div>
+        <input class="govuk-file-upload" id="file-upload-premises" name="file-upload-premises" type="file" value="{{data['file-upload-premises']}}">
+      </div>
+   
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

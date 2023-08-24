@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./partners-add-person.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./partner-direct-check-your-answers">
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          Your partners
+        </h1>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+          <!-- ROW -->
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['partner-full-name'] }}  
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 40%">
+
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./partners-add-person.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-2"  style="display: inline-block; padding-left: 10px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+
+            </dd>
+          </div>
+
+          {% if (data['partner-2'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['partner-full-name-2'] }}  
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 40%">
+
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./partners-add-person-2.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-2"  style="display: inline-block; padding-left: 10px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['partner-3'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['partner-full-name-3'] }}  
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 40%">
+
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./partners-add-person-3.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-2"  style="display: inline-block; padding-left: 10px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['partner-4'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['partner-full-name-4'] }}  
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 40%">
+
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./partners-add-person-4.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-2"  style="display: inline-block; padding-left: 10px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['partner-5'] === "yes") %}
+          <div class="govuk-summary-list__row ">
+            <dt class="govuk-summary-list__value">
+              {{ data['partner-full-name-5'] }}  
+            </dt>
+            <dd class="govuk-summary-list__actions" style="width: 40%">
+
+              <ul class="govuk-summary-list__actions-list " style="display: inline-block; ">
+                <li style="display: inline-block;">
+                  <a class="govuk-link" href="./partners-add-person-5.html">
+                    Edit<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+                <li class="govuk-!-margin-left-2"  style="display: inline-block; padding-left: 10px; border-left: 1px solid #b1b4b6;">
+                  <a class="govuk-link" href="#" >
+                    Remove<span class="govuk-visually-hidden"> partner</span>
+                  </a>
+                </li>
+              </ul>
+
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
+
+        {% if (data['partner'] === "1") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./partners-add-person-2.html">Add a partner</a></p>
+ 
+        {% endif%}
+
+        {% if (data['partner'] === "2") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./partners-add-person-3.html">Add a partner</a></p>
+       
+        {% endif%}
+
+        {% if (data['partner'] === "3") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./partners-add-person-4.html">Add a partner</a></p>
+       
+        {% endif%}
+
+        {% if (data['partner'] === "4") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="./partners-add-person-5.html">Add a partner</a></p>
+      
+        {% endif%}
+
+        {% if (data['partner'] === "5") %}
+        <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="#">Add a partner</a></p>
+
+        {% endif%}
+
+      </div>
+      
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

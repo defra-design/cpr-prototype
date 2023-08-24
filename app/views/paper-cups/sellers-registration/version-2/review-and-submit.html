@@ -10,7 +10,7 @@
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./registration-task-list.html">Back</a>
+<a class="govuk-back-link" href="registration-task-list.html">Back</a>
 
 
 {% endblock %}
@@ -41,6 +41,21 @@
 
                   <dl class="govuk-summary-list">
 
+                      <!-- PRIMARY SIC CODE -->
+                      <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                              SIC code
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data['sic-code'] }}   
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./primary-sic-code">
+                              Change<span class="govuk-visually-hidden"> primary sic code</span>
+                          </a>
+                          </dd>
+                      </div>
+
                       <!-- MAIN CONTACT ADDRESS -->
                       <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
@@ -50,7 +65,7 @@
                               <p class="govuk-body">9 Grange Road <br>Cambridge <br>United Kingdom <br>CB2 0AA</p>
                           </dd>
                           <dd class="govuk-summary-list__actions">
-                              <a class="govuk-link" href="./contact/contact-address-selection">
+                              <a class="govuk-link" href="./contact-address-selection">
                                   Change<span class="govuk-visually-hidden"> main contact address</span>
                               </a>
                           </dd>
@@ -65,7 +80,7 @@
                               {{ data['contact-name'] }}  
                           </dd>
                           <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="./contact/contact-person">
+                          <a class="govuk-link" href="./contact-person">
                               Change<span class="govuk-visually-hidden"> the main person of contact</span>
                           </a>
                           </dd>
@@ -82,7 +97,7 @@
                                   {{ data['someone-else-full-name'] }}  
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                              <a class="govuk-link" href="./contact/contact-full-name.html">
+                              <a class="govuk-link" href="./contact-full-name.html">
                                   Change<span class="govuk-visually-hidden"> the main person of contact</span>
                               </a>
                               </dd>
@@ -97,7 +112,7 @@
                                   {{ data['someone-else-number'] }}   
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="./contact/someone-else-telephone.html">
+                                  <a class="govuk-link" href="./someone-else-telephone.html">
                                       Change<span class="govuk-visually-hidden">telephone number</span>
                                   </a>
                               </dd>
@@ -112,7 +127,7 @@
                                   {{ data['someone-else-email'] }}   
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                              <a class="govuk-link" href="./contact/someone-else-email.html">
+                              <a class="govuk-link" href="./someone-else-email.html">
                                   Change<span class="govuk-visually-hidden"> email</span>
                               </a>
                               </dd>
@@ -129,7 +144,7 @@
                                   {{ data['contact-number'] }}   
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="./contact/contact-telephone">
+                                  <a class="govuk-link" href="./contact-telephone">
                                       Change<span class="govuk-visually-hidden">telephone number</span>
                                   </a>
                               </dd>
@@ -148,7 +163,7 @@
                                   {% endif %}
                               </dd>
                               <dd class="govuk-summary-list__actions">
-                              <a class="govuk-link" href="./contact/contact-email.html">
+                              <a class="govuk-link" href="./contact-email.html">
                                   Change<span class="govuk-visually-hidden"> email</span>
                               </a>
                               </dd>
@@ -200,40 +215,170 @@
               </div>
             </div> -->
 
-            <!-- DOCUMENTS -->
-            <div class="govuk-summary-card govuk-!-margin-bottom-8">
+            <!-- PREMISES -->
+            {% if (data['enter-premises'] === "directly") %}
+            <div class="govuk-grid-row govuk-!-margin-bottom-8">
+              <div class="govuk-grid-column-full">
+                <div class="govuk-summary-card govuk-!-margin-bottom-2">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Your premises</h2>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      
+                      <!-- HOW YOU ENTERED PREMISES -->
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          How would you like to enter your premises details?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {% if (data['enter-premises'] === "directly") %}
+                            Directly into the service
+                          {% else %}
+                            Spreadsheet
+                          {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./premises/premises-option.html">
+                            Change<span class="govuk-visually-hidden"> how would you like to enter your premises details</span>
+                          </a>
+                        </dd>
+                      </div>
+
+                      <!-- HOW YOU ENTERED PREMISES -->   
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Premises
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {% if (data['premises-1'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number'] }}, Willow Close, Cardiff, {{ data['address-lookup-postcode'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-2'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-2'] }}, Willow Close, Cardiff, {{ data['address-lookup-postcode-2'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-3'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-3'] }}, Willow Close, Cardiff, {{ data['address-lookup-postcode-3'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-4'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-4'] }}, Chestnut Grove, Cardiff, {{ data['address-lookup-postcode-4'] }}</p>
+                          {% endif %}
+                          {% if (data['premises-5'] === "yes") %}
+                          <p class="govuk-body">{{ data['address-lookup-building-number-5'] }}, Chestnut Grove, Cardiff, {{ data['address-lookup-postcode-5'] }}</p>
+                          {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./premises/premises-direct-your-premises.html">
+                            Change<span class="govuk-visually-hidden"> your premises</span>
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>   
+            {% else %}
+            <div class="govuk-grid-row govuk-!-margin-bottom-8">
+              <div class="govuk-grid-column-full">
+                <div class="govuk-summary-card govuk-!-margin-bottom-2">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Your premises</h2>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      
+                      <!-- HOW YOU ENTERED PREMISES -->
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          How would you like to enter your premises details?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {% if (data['enter-premises'] === "directly") %}
+                            Directly into the service
+                          {% else %}
+                            Spreadsheet
+                          {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./premises/premises-option.html">
+                            Change<span class="govuk-visually-hidden"> how would you like to enter your premises details</span>
+                          </a>
+                        </dd>
+                      </div>
+
+                      <!-- HOW YOU ENTERED PREMISES -->   
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          File uploaded
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <a class="govuk-link govuk-link--no-visisted-state" href="#">premises-details.csv</a>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="./premises/premises-upload-file.html">
+                            Change<span class="govuk-visually-hidden"> your uploaded file</span>
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>  
+            {% endif %}
+
+            <!-- FEES -->
+            <div class="govuk-summary-card govuk-!-margin-bottom-6">
               <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Your takeback scheme documents</h2>
+              <h2 class="govuk-summary-card__title">Your fees</h2>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Fees for England
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      £141  
+                    </dd>
+                  </div>
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Constitution
+                      Payment method
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <!-- {{ data['scheme-constitution-upload'] }} -->
-                      <a class="govuk-link govuk-link--no-visisted-state" href="#">scheme-constitution.pdf</a>
+                        {{ data['reg-payment-method-england'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="./documents/member-constitution-upload.html">
-                        Change<span class="govuk-visually-hidden"> your schemes constitution file</span>
+                      <a class="govuk-link" href="./fees/england/payment-method-england">
+                          Change<span class="govuk-visually-hidden"> payment method for england</span>
                       </a>
                     </dd>
                   </div>
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Operational plan
+                      Fees for Wales
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <!-- {{ data['scheme-operation-plan-upload'] }} -->
-                      <a class="govuk-link govuk-link--no-visisted-state" href="#">scheme-operation-plan.pdf</a>
+                        £141
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Payment method
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['reg-payment-method-wales'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="./documents/member-operation-plan-upload.html">
-                        Change<span class="govuk-visually-hidden"> your schemes operational plan file</span>
+                      <a class="govuk-link" href="./fees/wales/payment-method-wales">
+                          Change<span class="govuk-visually-hidden"> payment method for wales</span>
                       </a>
                     </dd>
                   </div>
@@ -241,106 +386,6 @@
                 </dl>
               </div>
             </div>
-
-            <!-- MEMBERS -->
-            <div class="govuk-summary-card govuk-!-margin-bottom-8">
-              <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Your members’ files</h2>
-              </div>
-              <div class="govuk-summary-card__content">
-                <dl class="govuk-summary-list">
-
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Organisation details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <!-- {{ data['member-organisation-upload'] }} -->
-                      <a class="govuk-link govuk-link--no-visisted-state" href="#">member-organisation-details.csv</a>
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="./member/member-organisation-details-upload.html">
-                        Change<span class="govuk-visually-hidden"> your members organisation details file</span>
-                      </a>
-                    </dd>
-                  </div>
-
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Premises
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <!-- {{ data['member-premises-upload'] }} -->
-                      <a class="govuk-link govuk-link--no-visisted-state" href="#">member-premises-details.csv</a>
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="./member/member-premises-upload.html">
-                        Change<span class="govuk-visually-hidden"> your members premises file</span>
-                      </a>
-                    </dd>
-                  </div>
-
-                </dl>
-              </div>
-            </div>
-
-              <!-- FEES -->
-              <div class="govuk-summary-card govuk-!-margin-bottom-6">
-                <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Your fees</h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Fees for England
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £4,466 
-                      </dd>
-                    </div>
-  
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Payment method
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                          {{ data['reg-payment-method-england'] }}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="./fees/england/payment-method-england">
-                            Change<span class="govuk-visually-hidden"> payment method for england</span>
-                        </a>
-                      </dd>
-                    </div>
-  
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Fees for Wales
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £4,096
-                      </dd>
-                    </div>
-  
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Payment method
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                          {{ data['reg-payment-method-wales'] }}
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="./fees/wales/payment-method-wales">
-                            Change<span class="govuk-visually-hidden"> payment method for wales</span>
-                        </a>
-                      </dd>
-                    </div>
-  
-                  </dl>
-                </div>
-              </div>
-         
           </div>
         </div>    
 
@@ -349,10 +394,6 @@
         <div class="govuk-grid-column-two-thirds">
           <p class="govuk-body">By confirming your details, you agree that the information you’ve given is complete and correct. </p>
           
-          {{ govukWarningText({
-            text: "You can be fined or prosecuted if you give the wrong information.",
-            iconFallbackText: "Warning"
-          }) }}
           
         </div>
       </div> 

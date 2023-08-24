@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./postcode">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Select your organisation address</h1>
+      
+    <p class="govuk-body">
+      2 addresses found for {{ data['address-lookup-building-number'] }} and {{ data['address-lookup-postcode'] }}
+      <a href="./postcode" class="govuk-link--no-visited-state">Change</a>
+    </p>
+    
+    <form method="POST" action="./select-address-question">
+      <div class="govuk-radios govuk-!-margin-bottom-5" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="option-1" name="address-lookup-selection" type="radio" value="option-1" {{ checked("address-lookup-selection", "option-1") }}>
+          <label class="govuk-label govuk-radios__label" for="option-1">
+            {{ data['address-lookup-building-number'] }} Willow Road, Leeds, England, {{ data['address-lookup-postcode'] }}
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="option-2" name="address-lookup-selection" type="radio" value="option-2" {{ checked("address-lookup-selection", "option-2") }}>
+          <label class="govuk-label govuk-radios__label" for="option-2">
+            {{ data['address-lookup-building-number'] }}a Willow Road, Leeds, England, {{ data['address-lookup-postcode'] }}
+          </label>
+        </div>
+      </div>
+
+      <p class="govuk-body">
+        <a href="./address-manual" class="govuk-link--no-visited-state">
+          Enter the address manually
+        </a>
+      </p>
+
+      {{ govukButton({
+        text: "Save and continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
