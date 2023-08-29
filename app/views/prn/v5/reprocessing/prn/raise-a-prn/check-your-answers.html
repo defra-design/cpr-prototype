@@ -22,6 +22,24 @@
             <h1 class="govuk-heading-xl">Check your answers</h1>
             <h2 class="govuk-heading-m">PRN details</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              {% if data['no-december'] == 'true' %}
+
+              {% else %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Was the paper/board received in December
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['material-december']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden"> date of birth</span>
+                  </a>
+                </dd>
+              </div>
+
+            {% endif %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Tonnage amount
@@ -49,24 +67,7 @@
                   </a>
                 </dd>
               </div>
-              {% if data['no-december'] == 'true' %}
 
-              {% else %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Was the paper/board received in December
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['material-december']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="">
-                    Change<span class="govuk-visually-hidden"> date of birth</span>
-                  </a>
-                </dd>
-              </div>
-
-            {% endif %}
   </dl>
 
             <form action="issue-prn" method="post" novalidate>
