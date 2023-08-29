@@ -56,7 +56,7 @@
   <div class="govuk-grid-column-two-thirds">
 
               <span class="govuk-caption-l">GREEN LTD – Ruby St, London SE15 1LR</span>
-    <h1 class="govuk-heading-xl">Manage your PRNs</h1>
+    <h1 class="govuk-heading-xl">Manage your paper or board PRNs</h1>
 
     {% if data['accreditation-limit'] == 'true' %}
   <a href="raise-a-prn/accreditation-limit" class="govuk-button">Create a PRN</a>
@@ -72,15 +72,20 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-3">
         Accreditation details
         </h2>
-          <p class="govuk-body-s">
-            Total accreditation: <strong style="float: right;">340 tonnes</strong>
+          <p class="govuk-body-s ">
+            Total accreditation limit: <strong style="float: right;">400 tonnes</strong>
           </p>
         <p class="govuk-body-s">
-          Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
+          Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
         </p>
         <p class="govuk-body-s">
-      Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
         </p>
+        {% if data['accreditation-limit']%}
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+        {% endif %}
 
 
       </div>
@@ -139,7 +144,7 @@ Send PRNs
 
   </tbody>
 </table>
-
+<!-- only after 5 draft prns -->
     <!-- <a  class="govuk-body" href="raised-prns">View all draft PRNs</a> -->
 
                 <div class="govuk-grid-row">
