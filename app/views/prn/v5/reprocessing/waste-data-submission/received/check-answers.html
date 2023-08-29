@@ -143,13 +143,14 @@
 
             </dl>
     {% if data['accreditation-limit'] == 'true' %}
-            <div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-warning-text__assistive">Warning</span>
-  You have recorded waste above your accreditation limit. You will not be able to create a PRN unless you <a href="">upgrade your accreditation</a>.
-  </strong>
+    <div class="govuk-warning-text">
+<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+<strong class="govuk-warning-text__text">
+<span class="govuk-warning-text__assistive">Warning</span>
+You are recording waste above your accreditation limit. This waste amount will be added to your excess waste balance. Upgrade to use this excess waste balance to create PRNs. <a href="">How to upgrade your accreditation</a>.
+</strong>
 </div>
+
 {% endif %}
 
             <form action="confirm" method="post" novalidate>
@@ -164,19 +165,44 @@
           <div class="govuk-grid-column-full gem-c-related-navigation">
 
 
+  {% if data['accreditation-limit'] == 'true' %}
+  <h2 class="govuk-heading-m govuk-!-margin-top-3">
+  Accreditation details
+  </h2>
+    <p class="govuk-body-s ">
+      Total accreditation limit: <strong style="float: right;">400 tonnes</strong>
+    </p>
+  <p class="govuk-body-s">
+    Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+  </p>
+  <p class="govuk-body-s">
+Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+  </p>
 
-                <h2 class="govuk-heading-m govuk-!-margin-top-3">
-                Accreditation details
-                </h2>
-                  <p class="govuk-body-s ">
-                    Total accreditation: <strong style="float: right;">340 tonnes</strong>
-                  </p>
-                <p class="govuk-body-s">
-                  Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
-                </p>
-                <p class="govuk-body-s">
-              Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
-                </p>
+  <p class="govuk-body-s">
+Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
+  </p>
+
+
+{% else %}
+<h2 class="govuk-heading-m govuk-!-margin-top-3">
+Accreditation details
+</h2>
+  <p class="govuk-body-s ">
+    Total accreditation: <strong style="float: right;">340 tonnes</strong>
+  </p>
+<p class="govuk-body-s">
+  Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+</p>
+<p class="govuk-body-s">
+Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+</p>
+
+
+
+
+
+{% endif %}
 
 
               </div>

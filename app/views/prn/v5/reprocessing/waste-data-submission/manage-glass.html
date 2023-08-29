@@ -30,8 +30,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-            <span class="govuk-caption-l">GREEN LTD -  Ruby St, London SE15 1LR</span>
-    <h1 class="govuk-heading-xl">Record your waste</h1>
+        <span class="govuk-caption-l">GREEN LTD – Ruby St, London SE15 1LR</span>
+    <h1 class="govuk-heading-xl">Record your paper or board waste</h1>
 
 
 
@@ -45,14 +45,19 @@
         Accreditation details
         </h2>
           <p class="govuk-body-s ">
-            Total accreditation: <strong style="float: right;">340 tonnes</strong>
+            Total accreditation limit: <strong style="float: right;">340 tonnes</strong>
           </p>
         <p class="govuk-body-s">
-          Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
+          Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
         </p>
         <p class="govuk-body-s">
-      Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
         </p>
+        {% if data['accreditation-limit']%}
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+        </p>
+        {% endif %}
 
 
       </div>
@@ -88,6 +93,7 @@
 
                   <th scope="col" class="govuk-table__header">Reference</th>
                   <th scope="col" class="govuk-table__header">Date created</th>
+                    <th scope="col" class="govuk-table__header">Date changed</th>
                  <th scope="col" class="govuk-table__header">Month</th>
                   <th scope="col" class="govuk-table__header">Record type</th>
 
@@ -113,6 +119,7 @@
                         </td>
 
                   <td class="govuk-table__cell">4 July 2023</td>
+                        <td class="govuk-table__cell">29 August 2023</td>
                   <td class="govuk-table__cell">June</td>
                   <td class="govuk-table__cell">Supplied on</td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">-4.00</td>
@@ -137,6 +144,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">4 July 2023</td>
+                            <td class="govuk-table__cell">29 August 2023</td>
                   <td class="govuk-table__cell">June</td>
                   <td class="govuk-table__cell">Received </td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
@@ -160,6 +168,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">19 June 2023</td>
+                            <td class="govuk-table__cell">29 July 2023</td>
                   <td class="govuk-table__cell">June</td>
                   <td class="govuk-table__cell">Supplied on </td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
@@ -180,6 +189,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">25 June 2023</td>
+                            <td class="govuk-table__cell"> </td>
                   <td class="govuk-table__cell">June</td>
                   <td class="govuk-table__cell">Received</td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
@@ -200,6 +210,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">01 June 2023</td>
+                            <td class="govuk-table__cell"></td>
                   <td class="govuk-table__cell">June</td>
                   <td class="govuk-table__cell">Received</td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
@@ -220,6 +231,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">27 May 2023</td>
+                    <td class="govuk-table__cell">19 June 2023  </td>
                   <td class="govuk-table__cell">May</td>
                   <td class="govuk-table__cell">Supplied on</td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
@@ -240,6 +252,7 @@
                         </div>
                       </td>
                   <td class="govuk-table__cell">20 May 2023</td>
+                                <td class="govuk-table__cell">19 June 2023  </td>
                     <td class="govuk-table__cell">May</td>
                   <td class="govuk-table__cell">Received</td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>

@@ -43,7 +43,7 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Unsorted mixed paper.boards" >
         <label class="govuk-label govuk-radios__label" for="changed-name">
-          Unsorted mixed paper/board
+          Unsorted mixed paper.board
         </label>
       </div>
       <div class="govuk-radios__item">
@@ -116,20 +116,23 @@
   </div>
   </fieldset>
   </div>
-
-  {% if data['accreditation-limit'] == 'true' %}
   <a class="govuk-button govuk-button--secondary" href="waste-details-limit-reached">
   Calculate
   </a>
-  {% else %}
-  <a class="govuk-button govuk-button--secondary" href="waste-details-total">
-  Calculate
-  </a>
-  {% endif %}
+
 
 <hr class="govuk-!-margin-bottom-5">
-<p class="govuk-body">Net Total: <strong>0 tonnes</strong></p>
+<p class="govuk-body">Net Total: <strong>100.3 tonnes</strong></p>
 <hr  class="govuk-!-margin-bottom-5">
+
+
+        <div class="govuk-warning-text">
+<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+<strong class="govuk-warning-text__text">
+<span class="govuk-warning-text__assistive">Warning</span>
+You are recording waste above your accreditation limit. This waste amount will be added to your excess waste balance. Upgrade to use this excess waste balance to create PRNs. <a href="">How to upgrade your accreditation</a>.
+</strong>
+</div>
 
 
 
@@ -156,6 +159,10 @@
         </p>
         <p class="govuk-body-s">
       Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
         </p>
 
 
