@@ -34,7 +34,7 @@
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-xl">GREEN LTD -  Ruby St, London SE15 1LR</span>
+    <span class="govuk-caption-xl">GREEN LTD – Ruby St, London SE15 1LR</span>
         <h1 class="govuk-heading-xl">Paper/board reprocessing</h1>
               {% if data['accreditation-limit'] == 'true' %}
         <div class="govuk-warning-text">
@@ -122,15 +122,20 @@
             <h2 class="govuk-heading-m govuk-!-margin-top-3">
             Accreditation details
             </h2>
-              <p class="govuk-body-s">
-                Total accreditation: <strong style="float: right;">340 tonnes</strong>
-              </p>
-            <p class="govuk-body-s">
-              Remaining accreditation: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}260 tonnes{% endif %}</strong>
+            <p class="govuk-body-s ">
+              Total accreditation limit: <strong style="float: right;">340 tonnes</strong>
             </p>
-            <p class="govuk-body-s">
-          Current waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}0 tonnes{% endif %}</strong>
-            </p>
+          <p class="govuk-body-s">
+            Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
+          </p>
+          <p class="govuk-body-s">
+        Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+          </p>
+          {% if data['accreditation-limit']%}
+          <p class="govuk-body-s">
+      Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+          </p>
+          {% endif %}
 
             <div class="dwp-timeline  gem-c-related-navigation">
             <h2 class="govuk-heading-m govuk-!-margin-top-3">Accreditation history</h2>
