@@ -29,9 +29,12 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Paper/board – Ruby St, London SE15 1LR</span>
 <h1 class="govuk-heading-xl">PRN details</h1>
-
+{% if data['no-december'] == 'true' or data['over-usable'] == 'true' %}
 <form class="form" action="raise-a-prn-usable" method="POST">
+{% else %}
 
+<form class="form" action="check-your-answers" method="POST">
+{% endif %}
 
 
 
