@@ -29,17 +29,13 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Paper/board – Ruby St, London SE15 1LR</span>
 <h1 class="govuk-heading-xl">PRN details</h1>
-{% if data['over-usable']%}
+
 <form class="form" action="raise-a-prn-usable" method="POST">
-{% else %}
-<form class="form" action="check-your-answers" method="POST">
-{% endif %}
+
+
 
 
 {% if data['no-december'] == 'true' %}
-
-
-{% else %}
 <div class="govuk-form-group">
 <label class="govuk-label govuk-label--m" for="event-name">
   Did you receive all of the  paper/board in December?
@@ -62,6 +58,9 @@ Only answer yes if 100% of the  paper/board was received in December
   </div>
 </div>
 </div>
+
+{% else %}
+
 {% endif %}
     <div class="govuk-form-group">
 <fieldset class="govuk-fieldset">
@@ -136,11 +135,11 @@ Tonnage amount
       Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3tonnes{% endif %}</strong>
         </p>
         {% if data['no-december'] == 'true' %}
-
-        {% else %}
         <p class="govuk-body-s">
       December waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
         </p>
+        {% else %}
+
         {% endif %}
       {% if data['accreditation-limit']%}
         <p class="govuk-body-s">

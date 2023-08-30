@@ -34,9 +34,11 @@
     </h2>
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
+        {% if data['over-usable']%}
         <li>
           <a href="#">The PRN tonnage entered is more than your usable waste balance.</a>
         </li>
+        {% endif%}
         <li>
           <a href="#">The PRN tonnage entered is more than your December waste balance. </a>
         </li>
@@ -51,9 +53,6 @@
 
 
 {% if data['no-december'] == 'true' %}
-
-
-{% else %}
 <div class="govuk-form-group govuk-form-group--error">
 <label class="govuk-label govuk-label--m" for="event-name">
   Did you receive all of the  paper/board in December?
@@ -80,7 +79,12 @@ Only answer yes if 100% of the  paper/board was received in December
   </div>
 </div>
 </div>
+
+
+{% else %}
+
 {% endif %}
+        {% if data['over-usable']%}
     <div class="govuk-form-group govuk-form-group--error">
 <fieldset class="govuk-fieldset">
 
@@ -99,6 +103,26 @@ Tonnage amount
 
   </fieldset>
   </div>
+  {% else %}
+
+  <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <label class="govuk-label govuk-label--m" for="event-name">
+Tonnage amount
+    </label>
+
+
+
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="tonnes" type="text" spellcheck="false">
+      <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+    </div>
+
+</fieldset>
+</div>
+
+  {% endif %}
 
 
     {{ xGovukAutocomplete({
@@ -134,7 +158,7 @@ Tonnage amount
         }) }}
 
 
-
+      {% if data['over-usable']%}
         <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
@@ -144,7 +168,7 @@ Tonnage amount
   Upgrade to continue creating PRNs. <a href="">How to upgrade your accreditation</a>.
         </strong>
         </div>
-
+        {% endif %}
 
   <input class="govuk-button" type="submit" value="Continue"  />
 
