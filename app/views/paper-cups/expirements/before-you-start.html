@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./payment-method-wales">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Your organisations premises
+      </h1>
+
+    <p class="govuk-body">
+        You will need to provide the address for every premise in your organisation.    
+    </p>
+    
+    <p class="govuk-body">
+        There are two ways you can submit this information depending on how many premises you have:
+    </p>
+
+    <h2 class="govuk-heading-m">Recording premises on a spreadsheet</h2>
+    <p class="govuk-body">
+        You should use the spreadsheet if you have three or more premises as this is a quicker way to submit a larger amount of detail. You can <a class="govuk-link" href="#">download the premises spreadsheet template here</a>.
+    </p>
+
+    <h2 class="govuk-heading-m">Recording premises manually</h2>
+    <p class="govuk-body">
+        If you have one to two premises, it may be quicker to submit your premises details manually.    
+    </p>
+
+    <form method="POST" action="../../registration-task-list?wales-paid=yes">
+      {{ govukButton({
+          text: "Save and confirm"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}
