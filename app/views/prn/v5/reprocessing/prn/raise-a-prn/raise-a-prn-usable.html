@@ -39,9 +39,11 @@
           <a href="#">The PRN tonnage entered is more than your usable waste balance.</a>
         </li>
         {% endif%}
+      {% if data['no-december'] == 'true' %}
         <li>
           <a href="#">The PRN tonnage entered is more than your December waste balance. </a>
         </li>
+        {% endif %}
       </ul>
     </div>
   </div>
@@ -62,7 +64,7 @@
 </p>
 
 <div id="changed-name-hint" class="govuk-hint">
-Only answer yes if 100% of the  paper/board was received in December
+Only answer yes if 100% of the  paper/board was received in December.
 </div>
 <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
   <div class="govuk-radios__item">
