@@ -40,6 +40,8 @@
 
 {% if data['no-december'] == 'true' %}
 <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-visually-hidden"> Did you receive all of the  paper/board in December?</legend>
 <label class="govuk-label govuk-label--m" for="event-name">
   Did you receive all of the  paper/board in December?
 </label>
@@ -48,18 +50,19 @@ Only answer yes if 100% of the  paper/board was received in December.
 </div>
 <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
   <div class="govuk-radios__item">
-    <input class="govuk-radios__input" id="changed-name" name="material-december" type="radio" value="Yes">
-    <label class="govuk-label govuk-radios__label" for="changed-name">
+    <input class="govuk-radios__input" id="december-yes" name="material-december" type="radio" value="Yes">
+    <label class="govuk-label govuk-radios__label" for="december-yes">
       Yes
     </label>
   </div>
   <div class="govuk-radios__item">
-    <input class="govuk-radios__input" id="changed-name-2" name="material-december" type="radio" value="No">
-    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+    <input class="govuk-radios__input" id="december-no name="material-december" type="radio" value="No">
+    <label class="govuk-label govuk-radios__label" for="december-no">
       No
     </label>
   </div>
 </div>
+</fieldset>
 </div>
 
 {% else %}
@@ -67,15 +70,15 @@ Only answer yes if 100% of the  paper/board was received in December.
 {% endif %}
     <div class="govuk-form-group">
 <fieldset class="govuk-fieldset">
+<legend class="govuk-visually-hidden">What is the tonnage amount?</legend>
 
-
-      <label class="govuk-label govuk-label--m" for="event-name">
+      <label class="govuk-label govuk-label--m" for="tonnage-amount">
 Tonnage amount
       </label>
 
 
 
-      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="tonnes" type="text" spellcheck="false">
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="tonnage-amount" name="tonnes" type="text" spellcheck="false">
         <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
       </div>
 
@@ -124,7 +127,7 @@ Tonnage amount
 
 </div>
 
-  <div class="govuk-grid-column-one-third gem-c-related-navigation">
+  <aside class="govuk-grid-column-one-third gem-c-related-navigation">
         <h2 class="govuk-heading-m govuk-!-margin-top-3">
         Accreditation details
         </h2>
@@ -149,7 +152,9 @@ Tonnage amount
       Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
         </p>
         {% endif %}
-      </div>
+
+
+      </aside>
 
   </div>
 {% endblock %}

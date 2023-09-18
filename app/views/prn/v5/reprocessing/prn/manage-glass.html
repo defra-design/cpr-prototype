@@ -65,7 +65,7 @@
     {% endif %}
 </div>
 <div class="govuk-grid-column-one-third" style="float: right;">
-  <div class="govuk-grid-column-full gem-c-related-navigation">
+  <aside class="govuk-grid-column-full gem-c-related-navigation">
 
 
 
@@ -88,7 +88,7 @@
         {% endif %}
 
 
-      </div>
+      </aside>
   </div>
 </div>
 
@@ -99,6 +99,9 @@
 
 Draft PRNs that are ready to be sent. You can view, change and delete draft PRNs. </p>
 
+{% if data['answers-checked'] == 'true' %}
+{% if data['issued']  == 'true' %}
+{% else %}
 <a class="govuk-button govuk-button--secondary" href="issue" data-module="govuk-button">
 Send PRNs
 </a>
@@ -118,9 +121,7 @@ Send PRNs
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-{% if data['answers-checked'] == 'true' %}
-{% if data['issued']  == 'true' %}
-{% else %}
+
       <td class="govuk-table__cell">
         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
@@ -165,8 +166,8 @@ Send PRNs
           Cancel PRNs
     </a>
     <div class="govuk-form-group" style="float:right">
-
-  <select class="govuk-select" id="sort" name="sort">
+      <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+  <select class="govuk-select" id="select-status" name="sort">
     <option  selected>View all </option>
     <option value="published">Accepted </option>
     <option value="updated">Awaiting acceptance</option>
