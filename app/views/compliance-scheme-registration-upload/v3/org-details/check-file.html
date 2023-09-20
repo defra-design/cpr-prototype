@@ -7,40 +7,40 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "#",
-        text: "Home"
-      },
-      {
-        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 
@@ -52,39 +52,52 @@ Report packaging data
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
-      <h1 class="govuk-heading-l">File uploaded</h1>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Organisation details uploaded</h1>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
-        <!-- ORGANISAITON DETAILS -->
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Organisation details
-            </dt>
-            <dd class="govuk-summary-list__value">
-              org-details-details.csv
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./upload-file.html">
-                Change<span class="govuk-visually-hidden"> organisation details file</span>
-            </a>
-            </dd>
-        </div>
-      </dl>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+            <!-- ORGANISAITON DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your uploaded file
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link govuk-link--no-visited-state" href="#">
+                        org-details-details.csv
+                    </a>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="./upload-file.html">
+                        Change<span class="govuk-visually-hidden"> organisation details file</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
 
-      <p class="govuk-body govuk-!-margin-bottom-6">This file has details for 150 of your members. </p>
-      
-      
-      {{ govukButton({
+        <p class="govuk-body">This file has details for 150 of your members. </p>
+
+        <h2 class="govuk-heading-m">
+            Upload additional information
+        </h2>
+        
+        <p class="govuk-body">Based on your file, you also need to report about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>brand details</li>
+          <li>partner details</li>
+        </ul>
+
+
+        {{ govukButton({
         text: "Continue",
         preventDoubleClick: true,
-        href: '../report-org-details-task-list?org-detail-complete=yes'
-      }) }}
-      
-          
+        href: '../report-org-details-task-list?org-detail-complete=yes',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+
 
     </div>
-  </div>
+</div>
 
 {% endblock %}
