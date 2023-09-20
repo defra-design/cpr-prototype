@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./upload-file.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
+
+      <!-- <div class="govuk-error-summary govuk-!-margin-bottom-6" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title govuk-!-margin-bottom-0">
+            There are errors in your file
+          </h2>
+        </div>
+      </div> -->
+
+      <form method="POST" action="./loading-success">
+        <!-- RADIOS -->
+        <div class="govuk-form-group ">
+
+          <h1 class="govuk-heading-l">File not uploaded – contains errors</h1>
+
+          <p class="govuk-body">There are 5 errors in your file.</p>
+          <p class="govuk-body">You need to fix these and then upload the file again.</p>
+
+          <h2 class="govuk-heading-m">Fix the errors</h2>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="#" class="govuk-link govuk-!-link--no-visited-state">Download error report (CSV, 120KB)</a></p>
+          <!-- <p class="govuk-body">Once you’ve corrected the errors you can re-upload the file.</p>         -->
+        
+        
+
+          <label class="govuk-label govuk-label--m" for="org-details" aria-describedby="organisation-file-hint">
+            Upload the file again
+          </label>
+          <div id="organisation-file-hint" class="govuk-hint">
+            You should upload as CSV file
+          </div>
+          <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+
+        </div>
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -78,6 +78,10 @@ router.use('/regulator-manage-pom-data', require('./views/regulator-manage-pom-d
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
 router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
 
+
+router.use('/compliance-scheme-registration-upload/v3', require('./views/compliance-scheme-registration-upload/v3/_routes'));
+
+
 //PRN
 router.use('/prn/v1', require('./views/prn/v1/_routes'));
 router.use('/prn/v2', require('./views/prn/v2/_routes'));
