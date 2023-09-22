@@ -1,29 +1,143 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "Report takeaway cups recycling data" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
-{% set title = "Report takeaway cups recycling data" %}
+{% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-    {{title}} - GOV.UK
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
 {% endblock %}
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="../../landing-page/v2/cs-submit-behalf-lp-england.html">Back</a>
+<a class="govuk-back-link" href="#">Home</a>
 
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row ">
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-panel__title">
-      All submitted
-    </h1>
+        <h1 class="govuk-panel__title">
+            Report your members’ organisation details 
+        </h1>
 
-  </div>
+        <h2 class="govuk-heading-m">Most recent submission</h2>
+
+        <p class="govuk-body">
+            Submitted on 28 September 2023 by John Doe.
+        </p>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+            <!-- ORGANISAITON DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link--no-visited-state govuk-link" href="#" >org-details.csv
+                    </a>
+                </dd>
+                <!--
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="./org-details/upload-file.html">
+                        Change<span class="govuk-visually-hidden"> organisation details file</span>
+                    </a>
+                </dd>
+-->
+            </div>
+
+            <!-- BRAND OWNER DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Brand details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link--no-visited-state govuk-link" href="#" >brand-details.csv
+                    </a>
+                </dd>
+                <!--
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="./brand-owner-details/upload-file.html">
+                        Change<span class="govuk-visually-hidden"> brand owner details file</span>
+                    </a>
+                </dd>
+-->
+            </div>
+
+            <!-- PARTNER DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Partner details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <a class="govuk-link--no-visited-state govuk-link" href="#" >partner-details.csv
+                    </a>
+                </dd>
+                <!--
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-link--no-visited-state" href="./partner-details/upload-file.html">
+                        Change<span class="govuk-visually-hidden"> the main person of contact</span>
+                    </a>
+                </dd>
+-->
+            </div>
+
+
+        </dl>
+        
+        <h2 class="govuk-heading-m">You need to keep these details up to date</h2>
+
+        <p class="govuk-body">
+            You need to report any changes to your members’ organisation details within 28 days.
+        </p>
+        
+        <p class="govuk-body">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Update organisation details
+            </a>
+        </p>
+
+    </div>
 </div>
 
 

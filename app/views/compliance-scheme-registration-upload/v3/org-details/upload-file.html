@@ -46,7 +46,17 @@ Report packaging data
 
 {% block beforeContent %}
 
+{% if (data['org-detail-complete'] === "yes") %}
+{% if (data['review'] === "yes") %}
+<a class="govuk-back-link" href="../review-and-submit.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="../report-org-details-task-list.html">Back</a>
+{% endif %}
+{% else %}
 <a class="govuk-back-link" href="../before-you-start.html">Back</a>
+{% endif %}
+
+
 
 {% endblock %}
 
@@ -74,7 +84,7 @@ Report packaging data
               </label>
             </h1>
             <div id="organisation-file-hint" class="govuk-hint">
-              Your uploaded file must be a CSV file
+              You should upload as CSV file
             </div>
             <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
           </div>

@@ -5,7 +5,7 @@
 {% set title = "Report takeaway cups recycling data" %}
 
 {% block pageTitle %}
-    {{title}} - GOV.UK
+{{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,82 +18,86 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <form method="POST" action="./confirmation">
+    <div class="govuk-grid-column-full">
+        <form method="POST" action="./confirmation">
 
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            
-            <h1 class="govuk-heading-l">Check files and submit</h1>
-          
-            <h2 class="govuk-heading-m">Your files</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
 
-                <!-- ORGANISAITON DETAILS -->
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Organisation details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      org-details-details.csv
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="./org-details/upload-file.html">
-                        Change<span class="govuk-visually-hidden"> organisation details file</span>
-                    </a>
-                    </dd>
+                    <h1 class="govuk-heading-l">Check files and submit</h1>
+
+                    <h2 class="govuk-heading-m">Your files</h2>
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+                        <!-- ORGANISAITON DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Organisation details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >org-details.csv
+                                </a>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="./org-details/upload-file.html?review=yes">
+                                    Change<span class="govuk-visually-hidden"> organisation details file</span>
+                                </a>
+                            </dd>
+                        </div>
+
+                        <!-- BRAND OWNER DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Brand details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >brands-details.csv
+                                </a>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="./brand-owner-details/upload-file.html?review=yes">
+                                    Change<span class="govuk-visually-hidden"> brand owner details file</span>
+                                </a>
+                            </dd>
+                        </div>
+
+                        <!-- PARTNER DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Partner details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >partner-details.csv
+                                </a> 
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="./partner-details/upload-file.html?review=yes">
+                                    Change<span class="govuk-visually-hidden"> the main person of contact</span>
+                                </a>
+                            </dd>
+                        </div>
+
+
+                    </dl>    
+
+                    <h2 class="govuk-heading-m">Submit files to the environmental regulator</h2>
+                    <!-- FOR COMPLIANCE SCHEMES ONLY-->
+                    <!--<p class="govuk-body">This will submit for 150 of your members.</p>-->
+
+                    {{ govukWarningText({
+                    text: "Your organisation may face enforcement action if the data you submit is inaccurate.",
+                    iconFallbackText: "Warning"
+                    }) }}
                 </div>
+            </div> 
 
-                <!-- BRAND OWNER DETAILS -->
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Brand details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      brand-owner-details.csv
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="./brand-owner-details/upload-file.html">
-                            Change<span class="govuk-visually-hidden"> brand owner details file</span>
-                        </a>
-                    </dd>
-                </div>
-                
-                <!-- PARTNER DETAILS -->
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Partner details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      partner-details.csv 
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="./partner-details/upload-file.html">
-                        Change<span class="govuk-visually-hidden"> the main person of contact</span>
-                    </a>
-                    </dd>
-                </div>
+            {{ govukButton({
+            text: "Submit to regulator"
+            })}}
 
+        </form>
 
-            </dl>    
-                
-            <h2 class="govuk-heading-m">Submit files to the environmental regulator</h2>
-            <p class="govuk-body">This will submit for all your members.</p>
-          
-          {{ govukWarningText({
-            text: "Your organisation may face enforcement action if the data you submit is inaccurate.",
-            iconFallbackText: "Warning"
-          }) }}
-        </div>
-      </div> 
-      
-      {{ govukButton({
-        text: "Submit to regulator"
-      })}}
-
-    </form>
-
-  </div>
+    </div>
 </div>
 
 

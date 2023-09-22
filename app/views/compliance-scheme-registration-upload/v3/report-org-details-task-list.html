@@ -151,10 +151,10 @@ Report packaging data
           <h2 class="app-task-list__section">
             Check files and then submit
           </h2>
-          <p>Review a summary of your files before submitting them.</p>
+          <p>Review a summary of your files before submitting them to the environmental regulator.</p>
 
           
-          {% if (data['contact-complete'] === "yes" and data['premises-complete'] === "yes" and data['fees-complete'] === "yes" and data['england-paid'] === "yes" and data['wales-paid'] === "yes") %}
+          {% if (data['org-detail-complete'] === "yes" and data['brand-detail-complete'] === "yes" and data['partner-detail-complete'] === "yes") %}
           {{ govukButton({
             text: "Review files",
             preventDoubleClick: true,
@@ -164,7 +164,7 @@ Report packaging data
           {{ govukButton({
             text: "Review files",
             preventDoubleClick: true,
-            href: './review-and-submit.html'
+            href: '#'
           }) }}
           {% endif %}
 

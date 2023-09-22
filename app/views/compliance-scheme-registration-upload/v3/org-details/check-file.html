@@ -46,7 +46,11 @@ classes: 'govuk-width-container'
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./errors.html">Back</a>
+{% if (data['org-detail-complete'] === "yes") %}
+<a class="govuk-back-link" href="../report-org-details-task-list.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="./upload-file.html">Back</a>
+{% endif %}
 
 {% endblock %}
 
@@ -60,7 +64,7 @@ classes: 'govuk-width-container'
             <!-- ORGANISAITON DETAILS -->
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Your uploaded file
+                    File uploaded
                 </dt>
                 <dd class="govuk-summary-list__value">
                     <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -69,7 +73,7 @@ classes: 'govuk-width-container'
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link govuk-link--no-visited-state" href="./upload-file.html">
-                        Change<span class="govuk-visually-hidden"> organisation details file</span>
+                        Change<span class="govuk-visually-hidden">organisation details file</span>
                     </a>
                 </dd>
             </div>
@@ -78,13 +82,13 @@ classes: 'govuk-width-container'
         <p class="govuk-body">This file has details for 150 of your members. </p>
 
         <h2 class="govuk-heading-m">
-            Upload additional information
+            You need to upload additional information 
         </h2>
-        
-        <p class="govuk-body">Based on your file, you also need to report about:</p>
+
+        <p class="govuk-body">Based on the information in this file, you also need to report:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>brand details</li>
-          <li>partner details</li>
+            <li>brand details</li>
+            <li>partner details</li>
         </ul>
 
 
