@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['review'] === "yes") %}
+<a class="govuk-back-link" href="../review-and-submit.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="../report-org-details-task-list.html">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <h1 class="govuk-heading-l">Upload your members’ brand details</h1>
+      
+      <h2 class="govuk-heading-m">How to build your file</h2>
+      <p class="govuk-body"><a target="_blank" class="govuk-link govuk-link--no-visisted-state" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1169572/epr_brand_details_template.csv/preview">Template for brand details file (opens in a new tab)</a></p>
+
+      <p class="govuk-body"><a target="_blank" class="govuk-link govuk-link--no-visisted-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging/organisation-details-file-specification-for-extended-producer-responsibility">What to include in your file (opens in a new tab)</a></p> -->
+
+      {% if (data['re-upload'] === "yes") %}
+      <form method="POST" action="./loading-success">
+      {% else %}
+      <form method="POST" action="./loading-success">
+      {% endif %} 
+          <!-- FILE UPLOAD -->
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="org-details" aria-describedby="organisation-file-hint">
+                Upload your brand details file
+              </label>
+            </h1>
+<!--
+            <div id="organisation-file-hint" class="govuk-hint">
+              Your uploaded file must be a CSV file
+            </div>
+-->
+            <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+        {{ govukButton({
+          text: "Continue"
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

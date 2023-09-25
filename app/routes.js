@@ -79,7 +79,7 @@ router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_route
 router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
 
 
-router.use('/compliance-scheme-registration-upload/v3', require('./views/compliance-scheme-registration-upload/v3/_routes'));
+router.use('/report-organisation-details/producers/version-3', require('./views/report-organisation-details/producers/version-3/_routes'));
 
 
 //PRN

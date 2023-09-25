@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="POST" action="./org-details/upload-file">
+
+            <div class="govuk-form-group">
+                <h1 class="govuk-heading-xl">
+                    Report organisation details
+                </h1>
+
+                <h2 class="govuk-heading-m">Before you start</h2>
+                
+                <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to create your organisation data files (opens in a new window)</a>. There are template documents you can use.</p>
+                
+                <p class="govuk-body">Upload the files and we’ll check everything is in the right format. Then you can submit them to the regulator.</p>
+
+
+                <h2 class="govuk-heading-m">Make sure you have all the files ready</h2>
+
+                <p class="govuk-body govuk-!-margin-bottom-6">Make sure you have the CSV files ready, including the brand and partner information if you need them. If you’re not sure, check the guidance. </p>
+
+            </div>
+
+            {{ govukButton({
+            text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
