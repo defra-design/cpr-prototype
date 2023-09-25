@@ -83,13 +83,13 @@ router.use('/compliance-scheme-registration-upload/v3', require('./views/complia
 
 
 //PRN
-router.use('/prn/v1', require('./views/prn/v1/_routes'));
-router.use('/prn/v2', require('./views/prn/v2/_routes'));
-router.use('/prn/v3', require('./views/prn/v3/_routes'));
-router.use('/prn/v3-5', require('./views/prn/v3-5/_routes'));
-router.use('/prn/v4', require('./views/prn/v4/_routes'));
-router.use('/prn/v5', require('./views/prn/v5/_routes'));
-router.use('/prn/add-another', require('./views/prn/add-another/_routes'));
+router.use('/prn/v1', require('./views/packing-recovery-notes/v1/_routes'));
+router.use('/prn/v2', require('./views/packing-recovery-notes/v2/_routes'));
+router.use('/prn/v3', require('./views/packing-recovery-notes/v3/_routes'));
+router.use('/prn/v3-5', require('./views/packing-recovery-notes/v3-5/_routes'));
+router.use('/prn/v4', require('./views/packing-recovery-notes/v4/_routes'));
+router.use('/prn/v5', require('./views/packing-recovery-notes/v5/_routes'));
+
 
 
 //Cups
