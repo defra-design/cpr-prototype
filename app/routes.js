@@ -73,7 +73,10 @@ router.use('/obligation-checker/v5', require('./views/obligation-checker/v5/_rou
 router.use('/guidance/v1', require('./views/guidance/v1/_routes'));
 router.use('/guidance/v2', require('./views/guidance/v2/_routes'));
 
-router.use('/regulator-manage-pom-data', require('./views/regulator-manage-pom-data/_routes'));
+router.use('/regulator-manage-pom-data', require('./views/regulator-manage-pom-data/_routes'))
+
+
+
 
 router.use('/e2e/reporting-method', require('./views/e2e/reporting-method/_routes'));
 router.use('/view-manage-members', require('./views/view-manage-members/_routes'));
