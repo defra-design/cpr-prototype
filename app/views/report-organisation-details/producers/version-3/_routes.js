@@ -12,6 +12,17 @@ router.post('*/re-upload-org-details-question', function (req, res) {
     }
 });
 
+// Routing for Page
+router.post('*/ready-or-not', function (req, res) {
+    var readyOrNot = req.session.data['files-ready'];
+    
+    if (readyOrNot === "yes") {
+        res.redirect('./org-details/upload-file');
+    } else {
+        res.redirect('./before-you-start');
+    }
+});
+
 // ?brand-detail-complete=yes
 // ?brand-detail-complete=no&brand-details-errors=yes
 // ?brand-detail-complete=no&brand-details-errors=no
