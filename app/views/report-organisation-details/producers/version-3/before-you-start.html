@@ -46,7 +46,7 @@ classes: 'govuk-width-container'
 
 {% block beforeContent %}
 
-<a class="govuk-back-link" href="./home.html">Back</a>
+<a class="govuk-back-link" href="./home.html">Home</a>
 
 {% endblock %}
 
@@ -58,48 +58,38 @@ classes: 'govuk-width-container'
 
             <div class="govuk-form-group">
                 <h1 class="govuk-heading-l">
-                    Before you start
+                    Report organisation details
                 </h1>
 
-                <!-- <h2 class="govuk-heading-m">Before you start</h2> -->
+                <h2 class="govuk-heading-m">Before you start - read the guidance</h2>
                 
-                <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to create your organisation details files (opens in a new window)</a>. There are template documents you can use.</p>
+                <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to report organisation details (opens in a new window)</a>. There are template documents you can use to build your files.</p>
 
-                <!-- <h2 class="govuk-heading-m">Make sure you have all the files ready</h2> -->
+                <h2 class="govuk-heading-m">Make sure you have all the files ready</h2>
 
-                <p class="govuk-body govuk-!-margin-bottom-6">Make sure you have the CSV files ready, including the brand and partner information if you need them. If you’re not sure, check the guidance. </p>
-
-                <!-- <p class="govuk-body">Upload the files and we’ll check everything is in the right format. Then you can submit them to the regulator.</p> -->
-
-
-                {{ govukRadios({
-                    idPrefix: "files-ready",
-                    name: "files-ready",
-                    fieldset: {
-                        legend: {
-                            text: "Do you have your files ready?",
-                            isPageHeading: false,
-                            classes: "govuk-fieldset__legend--m"
-                        }
-                    },
-                    items: [
-                        {
-                            value: "yes",
-                            text: "Yes – upload now" 
-                        },
-                        {
-                            value: "no",
-                            text: "No"
-                        }
-                    ]
-                }) }}
+                <p class="govuk-body govuk-!-margin-bottom-6">Have all the files ready before you start, including the brand and partner information if you need them. </p>
             </div>
 
+
             {{ govukButton({
-            text: "Continue"
-            })}}
+            text: "Start now",
+            isStartButton: true,
+            classes: "govuk-!-margin-bottom-7"
+            }) }}
 
         </form>
+
+
+        <h2 class="govuk-heading-m">Get help</h2>
+
+        <p class="govuk-body">If you cannot find what you need in the guidance, contact the helpdesk.</p>
+
+        <p class="govuk-body">Email: <a class="govuk-link govuk-link--no-visited-state" href="mailto:eprcustomerservice@defra.gov.uk">eprcustomerservice@defra.gov.uk</a></p>
+
+        <p class="govuk-body govuk-!-margin-bottom-2">Telephone: 0300 060 0002</p>
+
+        <p class="govuk-body">Monday to Friday, 8am to 4:30pm</p>
+
 
     </div>
 </div>
