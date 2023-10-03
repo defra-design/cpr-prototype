@@ -1,0 +1,163 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+            Report your members’ organisation details 
+        </h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        
+        <h2 class="govuk-heading-m">Next deadline – 1 October 2024</h2>
+    
+        <p class="govuk-body">
+            The next deadline to report organisation details is 11:59pm on 1 October. You can do it any time from 1 July.
+        </p>
+    
+        <p class="govuk-body">
+            If the details change before then, you need to update them within 28 days. 
+        </p>
+    
+        <p class="govuk-body">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+                Update organisation details
+            </a>
+        </p>
+    
+    
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Most recent submission for COMPLIANCE (EA)</h2>
+    
+        <p class="govuk-body govuk-hint">
+            Submitted at 12:00pm on 5 October 2023 by John Smith.
+        </p>
+    
+        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+    
+            <!-- ORGANISAITON DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    member-org-details.csv
+                    <!-- <a class="govuk-link--no-visited-state govuk-link" href="#">
+                        {{data['organisation-details-file']}} 
+                    </a> -->
+                </dd>
+            </div>
+    
+            <!-- BRAND OWNER DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Brand details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    member-brand-details.csv
+                    <!-- <a class="govuk-link--no-visited-state govuk-link" href="#">01-acme-brand.csv
+                    </a> -->
+                </dd>
+                <!--
+    <dd class="govuk-summary-list__actions">
+    <a class="govuk-link govuk-link--no-visited-state" href="./brand-owner-details/upload-file.html">
+    Change<span class="govuk-visually-hidden"> brand owner details file</span>
+    </a>
+    </dd>
+    -->
+            </div>
+    
+            <!-- PARTNER DETAILS -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Partner details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    member-partner-details.csv
+                    <!-- <a class="govuk-link--no-visited-state govuk-link" href="#" >01-acme-partner.csv
+                    </a> -->
+                </dd>
+                <!--
+    <dd class="govuk-summary-list__actions">
+    <a class="govuk-link govuk-link--no-visited-state" href="./partner-details/upload-file.html">
+    Change<span class="govuk-visually-hidden"> the main person of contact</span>
+    </a>
+    </dd>
+    -->
+            </div>
+    
+    
+        </dl>
+    
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        <div class="related-content" style="border-top: 3px solid #1D70B8;">
+            <h3 class="govuk-heading-s govuk-!-margin-top-4">Guidance on GOV.UK</h3>
+    
+            <p class="govuk-body"><a href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank" class="govuk-link govuk-link--no-visited-state">How to report organisation details (opens in new window)</a></p>
+  
+        </div>  
+    </div>
+</div>
+
+
+
+
+{% endblock %}
