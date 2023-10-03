@@ -95,17 +95,25 @@ classes: 'govuk-width-container'
 
             
             {% if (data['submitted'] === "yes") %}
-            <h2 class="govuk-heading-m govuk-link-">
+            <h2 class="govuk-heading-m ">
                 <a href="./report-org-details-submitted-all.html" class="govuk-link--no-visited-state">
                     Report your members’ organisation details
                 </a>
             </h2>
             {% else %}
-            <h2 class="govuk-heading-m govuk-link-">
+            {% if (data['valid-org-file'] === "yes") %}
+            <h2 class="govuk-heading-m">
+                <a href="./report-org-details-task-list.html" class="govuk-link--no-visited-state">
+                    Report your members’ organisation details
+                </a>
+            </h2>
+            {% else %}
+            <h2 class="govuk-heading-m">
                 <a href="./before-you-start.html" class="govuk-link--no-visited-state">
                     Report your members’ organisation details
                 </a>
             </h2>
+            {% endif %}
             {% endif %}
 
 
