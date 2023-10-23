@@ -85,7 +85,7 @@ router.use('/view-manage-members', require('./views/view-manage-members/_routes'
 router.use('/report-organisation-details/producers/version-3', require('./views/report-organisation-details/producers/version-3/_routes'));
 
 router.use('/report-packaging-data-soft-validation/compliance-scheme', require('./views/report-packaging-data-soft-validation/compliance-scheme/_routes'));
-
+router.use('/report-packaging-data-soft-validation/producer', require('./views/report-packaging-data-soft-validation/producer/_routes'));
 
 //PRN
 router.use('/packing-recovery-notes/v1', require('./views/packing-recovery-notes/v1/_routes'));
