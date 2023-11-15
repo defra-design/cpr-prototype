@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
 Report packaging data
@@ -7,37 +7,40 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "./report-packaging-data.html",
-    navigation: [
-      {
-        href: "../../../../landing-page/v2/cs-submit-behalf-lp-england.html",
-        text: "Home", 
-        active: true
-      },
-      {
-        href: "../Account-Management/start.html",
-        text: "Manage account details" 
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 
@@ -46,6 +49,7 @@ Report packaging data
 {% endblock %}
 
 {% block content %}
+
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
