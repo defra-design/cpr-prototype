@@ -56,9 +56,9 @@ Report packaging data
     <div class="govuk-grid-column-two-thirds">
      <h1 class="govuk-heading-l">Check packaging data and resubmit to the environmental regulator</h1>
 
-     <p class="govuk-body">Confirm you want to submit the new packaging data file to the environmental regulator.</p>
+     <p class="govuk-body">Submiting the new packaging data file will replace the last one that you submitted.</p>
 
-     <p class="govuk-body">This will replace the last packaging data file that you have submitted.</p>
+     <p class="govuk-body">Once you have submitted your new file you can only make changes after the environmental regulator has rejected or accepted it.</p>
 
   <div class="govuk-summary-card">
     <div class="govuk-summary-card__title-wrapper">
@@ -78,14 +78,14 @@ Report packaging data
             <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">File name</th>
-                <th scope="col" class="govuk-table__header">Date uploaded</th>
+                <th scope="col" class="govuk-table__header">Date and time uploaded</th>
                 <th scope="col" class="govuk-table__header">Uploaded by</th>
             </tr>
             </thead>
             <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-                <td class="govuk-table__cell border-bottom-0">packaging-data-Jan-Jun-2023.csv</td>
-                <td class="govuk-table__cell">10 October 2023</td>
+                <td class="govuk-table__cell border-bottom-0">packaging-data-2023.csv</td>
+                <td class="govuk-table__cell">10 October 2023, 2:00pm</td>
                 <td class="govuk-table__cell">Jane Doe</td>
             </tr>
             </tbody>
@@ -106,14 +106,14 @@ Report packaging data
           <thead class="govuk-table__head">
           <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">File name</th>
-              <th scope="col" class="govuk-table__header">Date submitted</th>
+              <th scope="col" class="govuk-table__header">Date and time submitted</th>
               <th scope="col" class="govuk-table__header">Submitted by</th>
           </tr>
           </thead>
           <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
               <td class="govuk-table__cell border-bottom-0">packaging-data-2023.csv</td>
-              <td class="govuk-table__cell">10 September 2023</td>
+              <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
               <td class="govuk-table__cell">Jane Doe</td>
           </tr>
           </tbody>
@@ -121,37 +121,16 @@ Report packaging data
   </div>
 </div>
   
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h2 class="govuk-heading-m">
-        Are you sure you want to submit your packaging data file?
-      </h2>
-    </legend>
-      <div id="changedName-hint" class="govuk-hint">
-        Once you have submitted your new file you can only make changes after the environmental regulator has rejected or accepted it.
-      </div>
-
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-          Yes, I'd like to submit
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-          No, I don't want to do this right now 
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Your organisation may face enforcement action if the data you submit is inaccurate.
+  </strong>
+</div>    
       
 {{ govukButton({
-  text: "Continue"
+  text: "Submit"
 })}}
 </form>
     </div>
