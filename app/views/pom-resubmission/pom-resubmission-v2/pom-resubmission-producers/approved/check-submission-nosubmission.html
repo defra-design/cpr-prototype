@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "./report-packaging-data.html",
+    navigation: [
+      {
+        href: "landing-page.html",
+        text: "Home", 
+        active: true
+      },
+      {
+        href: "../Account-Management/start.html",
+        text: "Manage account details" 
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="../upload-file" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                      Update packaging data              
+                    </h1>
+
+                    <p class="govuk-body">You’ve already submitted a file to the environmental regulator. You can upload and submit a new file. </p>
+                  
+
+                    <div class="govuk-summary-card">
+                        <div class="govuk-summary-card__title-wrapper">
+                            <h2 class="govuk-summary-card__title">
+                                File already submitted
+                            </h2>
+                            
+                        </div>
+                        
+                    <div class="govuk-summary-card__content">
+                        <table class="govuk-table govuk-!-margin-bottom-0">
+                            <caption class="govuk-visually-hidden">Detail regarding the latest valid file submitted</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">File name</th>
+                                <th scope="col" class="govuk-table__header">Date submitted</th>
+                                <th scope="col" class="govuk-table__header">Submitted by</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">packaging-data-Jan-Jun-2023.csv</td>
+                                <td class="govuk-table__cell">10 September 2023</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                Upload new file
+                </button>
+                <a class="govuk-link" href="#">Cancel</a>
+              </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
