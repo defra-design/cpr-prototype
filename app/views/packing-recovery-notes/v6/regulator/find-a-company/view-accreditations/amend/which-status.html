@@ -1,0 +1,84 @@
+{% set serviceName = "" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+What would you like to do with this accreditation?
+      </h1>
+    </legend>
+
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      {% if data['suspend'] == 'true' %}
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="activate-confirm">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+      Activate
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="next-page" type="radio" value="revoke/add-note">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          Cancel
+        </label>
+      </div>
+    {% elif data['revoke'] == 'true' %}
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="activate-confirm">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+      Activate
+      </label>
+    </div>
+    {% else %}
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-2" name="next-page" type="radio" value="revoke/add-note">
+      <label class="govuk-label govuk-radios__label" for="changed-name-2">
+            Cancel
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-2" name="next-page" type="radio" value="suspend/add-note">
+      <label class="govuk-label govuk-radios__label" for="changed-name-2">
+      Suspend
+      </label>
+    </div>
+    {% endif %}
+
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+
+{% endblock %}
