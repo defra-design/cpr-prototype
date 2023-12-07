@@ -1,34 +1,16 @@
-{% set serviceName = "Record waste" %}
+{% set serviceName = "Create a PRN" %}
 
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "../../home"
-    }
-      ,
-      {
-      text: "Record your waste",
-      href: ""
-      }
-
-  ]
-
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
 }) }}
-</div>
-<div class="govuk-grid-column-one-third">
-
-  </div>
-</div>
 {% endblock %}
 
 {% block pageTitle %}
-    {{serviceName}} prototype
+{{serviceName}} prototype
 {% endblock %}
 {% block content %}
 
@@ -117,37 +99,52 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-      <span class="govuk-caption-l">Green LTD</span>
-      <h1 class="govuk-heading-l">Record waste</h1>
-      <h2 class="govuk-body-m"> Choose an accreditation to record waste.</h2>
+      <span class="govuk-caption-l">Create a PRN for: paper/board</span>
+      <h1 class="govuk-heading-l">Tonnage for this PRN</h1>
+      <h2 class="govuk-body-m">Your waste balance is <strong>0.00 tonnes.</strong> <br><br>
 
-        <h2 class="govuk-heading-s"> Accreditations for: 23 Ruby Street, London SE15 1LR</h2>
-        <table class="govuk-table">
-
-            <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Material</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
-            </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Paper/board</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="receivedorsent.html">Choose</a> </td>
-            </tr>
-           
-            </tbody>
-        </table>
+          Round this to the nearest whole tonne to determine the amount available for creating the PRN.</h2>
 
 
 
 
 
+              <form class="form" action="name" method="POST">
 
-</div>
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+                              <h1 class="govuk-heading-m">
+                                  How many tonnes is this PRN for?
+                              </h1>
+                          </legend>
+                          <div class="govuk-form-group">
+
+                              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="enter-waste-tonnes"  type="text" spellcheck="false">
+                                  <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                              </div>
+                          </div>
+
+
+
+                      </fieldset>
+                  </div>
+
+                  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+              </form>
+
+          </div>
+
+
+
+
+
+
+      </div>
 </div>
 
     <section>
