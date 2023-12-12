@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent  %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+   <h1 class="govuk-heading-l">Large organisations found - download your report</h1>
+  
+
+   {{ govukSummaryList({
+    card: {
+      title: {
+        text: "What you searched for"
+      },
+      actions: {
+        items: [
+         
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "from University of Gloucestershire"
+          }
+        ]
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "UK nation"
+        },
+        value: {
+          html: "English (3DMD)"
+        }
+      },
+      {
+        key: {
+          text: "Compliance year"
+        },
+        value: {
+          html: "School name"
+        }
+        
+      },
+      {
+        key: {
+          text: "Compliance year"
+        },
+        value: {
+          html: "School name"
+        }
+        
+      } ,
+      {
+        key: {
+          text: "Compliance year"
+        },
+        value: {
+          html: "School name"
+        }
+        
+      }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Download report"
+  }) }}
+
+
+
+
+
+
+
+
+
+
+
+ 
+  </div>
+ 
+
+
+{% endblock %}
