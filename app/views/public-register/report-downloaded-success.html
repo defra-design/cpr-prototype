@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent  %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="organisation-details" method="post">
+
+          <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                  
+
+                  <div class="govuk-grid-column-full-width">
+                   
+
+                    {% set html %}
+                      <h3 class="govuk-notification-banner__heading">
+                        Training outcome recorded and trainee withdrawn
+                      </h3>
+                      <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
+                    {% endset %}
+                    
+                    {{ govukNotificationBanner({
+                      html: html,
+                      type: "success"
+                    }) }}
+                
+                      <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                         
+                          Uploading organisation details                    
+                      </h1>
+
+                      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "UK nation"
+      },
+      value: {
+        text: "Sarah Philips"
+      }
+    },
+    {
+      key: {
+        text: "Compliance year"
+      },
+      value: {
+        text: "5 January 1978"
+      }
+    },
+    {
+      key: {
+        text: "Organisation name"
+      },
+      value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      }
+    },
+    {
+      key: {
+        text: "Companies House number "
+      },
+      value: {
+        html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+      }
+    }
+  ]
+}) }}
+
+                      
+                
+                
+               
+                
+               
+                    </div>
+
+
+              </fieldset>
+          </div>
+
+         
+
+      </form>
+
+  </div>
+</div>
+ 
+
+
+{% endblock %}
