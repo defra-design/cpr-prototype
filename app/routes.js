@@ -117,5 +117,7 @@ router.get('/clear', (req, res) => {
 	req.session.data = {}
 	res.redirect('/index')
 })
+//public register
 
+router.use('/public-register' , require ('./views/public-register/_routes'));
 module.exports = router
