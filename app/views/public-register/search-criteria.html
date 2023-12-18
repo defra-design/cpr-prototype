@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Public register" %}
+
+{% set title = "Public register" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent  %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock%}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    <h1 class="govuk-heading-l">Public register of large organisations on the ‘report packaging data’ service</h1>
+  <h1 class="govuk-heading-m">Create and download report </h1>
+<p>Enter search criteria and create a list to download as a CSV file. <br><br>
+
+  For anything before reporting year 2023, use the <a href="#">Public Register of Registered Producers on the National Packaging Waste Database.</a></p>
+
+
+
+  <form novalidate method="post">
+
+
+
+{{ govukSelect({
+  id: "[public-register][year]",
+  name: "[public-register][year]",
+  label: {
+    text: "Reporting year",
+    
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: " The year the organisation is reporting about ‘Registration year’ on NPWD."
+  },
+  value: data.public-register.year,
+  items: [
+    {
+      value: "year",
+      text: "2023"
+    }
+  ]
+}) }}
+
+{{ govukSelect({
+  id: "[public-register][nation]",
+  name: "[public-register][nation]",
+  label: {
+    text: "UK nation where organisation is based",
+    isPageHeading: true,
+    classes: "govuk-label--s"
+  },
+ 
+  value: data.public-register.nation,
+  items: [
+  {
+    value: "All",
+    text: "All"
+  }, {
+      value: "One",
+      text: "England"
+    },
+    {
+      value: "Two",
+      text: "Nothern Ireland"
+    },
+    {
+      value: "Three",
+      text: "Scotland"
+    },
+    {
+      value: "Three",
+      text: "Wales"
+    }
+
+  ]
+}) }}
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="event-name">
+      Organisation name (optional)
+    </label>
+  </h1>
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="event-name">
+      Companies House number (optional)
+    </label>
+  </h1>
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+</div>
+
+<br><br>
+{{ govukButton({
+  text: "Create report" , 
+  href:"/public-register/download"
+}) }}
+
+
+</form>
+
+
+
+    </div>
+    </div>
+
+  
+
+
+
+{% endblock %}

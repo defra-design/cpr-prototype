@@ -1,0 +1,133 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "rejected/landing-page.html",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="uploading-file.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="declaration">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-width-container">
+       <h1 class="govuk-heading-l">Your submission history</h1>
+
+       <a href="past-history.html">View previous history data submissions</a>
+
+       <h2 class="govuk-heading-m govuk-!-margin-top-3">Most recent packaging data files</h2>
+  
+       <table class="govuk-table">
+         <caption class="govuk-table__caption govuk-table__caption--m">January to June 2023</caption>
+         <thead class="govuk-table__head">
+           <tr class="govuk-table__row">
+             <th scope="col" class="govuk-table__header">File name</th>
+             <th scope="col" class="govuk-table__header">Date and time submitted</th>
+             <th scope="col" class="govuk-table__header">Submitted by</th>
+             <th scope="col" class="govuk-table__header">Status</th>
+           </tr>
+         </thead>
+
+  
+         <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">orgdetails.csv <br> brandinfo.csv <br> partnerinfo.csv </td>
+            <td class="govuk-table__cell"> 10 October 2023, 2:00pm</td>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">Submitted on 10 October 2023, 2:00pm</td>
+          </tr>
+        </tbody>
+        
+         <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">orgdetails.csv <br> brandinfo.csv <br> partnerinfo.csv </td>
+             <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+             <td class="govuk-table__cell">Jane Doe</td>
+             <td class="govuk-table__cell">Rejected on 8 October 2023, 3:00pm</td>
+           </tr>
+         </tbody>
+       </table>
+
+       <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">July to December 2023</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">File name</th>
+            <th scope="col" class="govuk-table__header">Date and time submitted</th>
+            <th scope="col" class="govuk-table__header">Submitted by</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+
+ 
+        <tbody class="govuk-table__body">
+         <tr class="govuk-table__row">
+           <td class="govuk-table__cell">orgdetails.csv <br> brandinfo.csv <br> partnerinfo.csv </td>
+           <td class="govuk-table__cell"> 10 April 2023, 2:00pm</td>
+           <td class="govuk-table__cell">Jane Doe</td>
+           <td class="govuk-table__cell">Submitted on 10 April 2023, 2:00pm</td>
+         </tr>
+       </tbody>
+       
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+           <td class="govuk-table__cell">orgdetails.csv <br> brandinfo.csv <br> partnerinfo.csv </td>
+            <td class="govuk-table__cell">10 March 2023, 3:00pm</td>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">Rejected on 8 March 2023, 3:00pm</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+  </div>
+  
+ 
+  
+</form>
+    </div>
+  </div>
+
+{% endblock %}
