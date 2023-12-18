@@ -1,0 +1,147 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "home.html",
+    text: "Home"
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account",
+    active: true
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-full">
+      <div class="govuk-!dispaly-inline-block">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+              Manage account
+          </h1>
+      </div>
+      <div class="">
+           <span class="govuk-caption-l">
+              {{ data['which-producer'] }}
+              <a href="choose-organisation-manage-account.html" class="govuk-link govuk-!-margin-left-2">
+                  Change
+                  <span class="govuk-visually-hidden">Organisation name</span>
+              </a>
+          </span>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">You details</th>
+          <th scope="col" class="govuk-table__header">Permissions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Joe Doe <br>Sarah’s delegate</td>
+          <td class="govuk-table__cell">Submit data, manage the team</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Your team</h2>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Add team member
+    </button>
+   
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Team member</th>
+          <th scope="col" class="govuk-table__header">Permissions</th>
+          <th scope="col" class="govuk-table__header">Access</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Sarah Rogers</a><br>Approved person</th>
+          <td class="govuk-table__cell">Submit data, manage the team</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link" style="color: #d4351c"></td>
+        </tr>
+      </tbody>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Joanne Wilson</a></th>
+          <td class="govuk-table__cell">Manage team, upload data</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link" style="color: #d4351c">Remove</td>
+        </tr>
+      </tbody>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Robert Smith</a></th>
+          <td class="govuk-table__cell">Upload data only</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link" style="color: #d4351c">Remove</td>
+        </tr>
+      </tbody>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">sonia.jones@email.com</th>
+          <td class="govuk-table__cell">Submit data, manage the team</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link" style="color: #d4351c">Remove</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+
+
+  </div>
+</div>
+
+{% endblock %}

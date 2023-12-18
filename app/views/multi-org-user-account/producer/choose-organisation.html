@@ -1,0 +1,104 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+  Sign in or create an account - Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+  
+
+<form class="form" action="home" method="POST">
+
+    <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    </legend>
+
+{{ xGovukAutocomplete({
+      id: "producer",
+      name: "which-producer",
+      allowEmpty: false,
+      label: {
+        classes: "govuk-label--l",
+        showAllValues: true,
+        isPageHeading: true,
+        text: "Which organisation’s account do you want to view?"
+      },
+      hint: {
+        text: "Enter the organisation name"
+      },
+      items: [
+        { text: "Acme org Ltd." },
+        { text: "Beta Comply" },
+        { text: "Cure Packaging Ltd" },
+        { text: "Division Packing Ltd" },
+        { text: "Ecosurety Scotland" },
+        { text: "Nexus org Ltd." },
+        { text: "Nova" },
+        { text: "Omni org Ltd." },
+        { text: "Orbit org Ltd." },
+        { text: "Oasis Packaging Ltd" },
+        { text: "Pixies Packaging Ltd" },
+        { text: "Zeppelin Packaging Ltd" },
+        { text: "ZetaZephyr" }
+      ]
+    }) }}
+
+
+
+</fieldset>
+</div>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I cannot find an organisation I am looking for
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    If you do not see the organisation in the list, you may not have permission to view their account.
+  </div>
+  <div class="govuk-details__text">
+    Contact the account owner and ask them to invite you to their team on the ‘report packaging data’ service.   
+  </div>
+</details>
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+</div>
+
+{% endblock %}
