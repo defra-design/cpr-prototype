@@ -44,10 +44,6 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="home.html">Home</a>
-{% endblock %}
-
 {% block content %}
 
 <form action="check-status-of-file" method="post">
@@ -55,6 +51,11 @@ classes: 'govuk-width-container'
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
       
+      {{ govukBackLink({
+        text: "Home",
+        href: "javascript:history.back()"
+    }) }}
+
       <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
         Report your organisation details 
       </h1>
