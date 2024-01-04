@@ -44,19 +44,19 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="uploading-file.html">Back</a>
-{% endblock %}
-
 {% block content %}
 
 <form method="POST" action="declaration">
     
     <div class="govuk-grid-row">
       <div class="govuk-width-container">
-       <h1 class="govuk-heading-l">Your submission history</h1>
 
-       <a href="past-history.html">View previous history data submissions</a>
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
+       <h1 class="govuk-heading-l">Your submission history</h1>
   
        <table class=govuk-table style="background-color:#ffffff; border: 1px solid #b1b4b6;">
          <caption class="govuk-table__caption govuk-table__caption--m">January to June 2022</caption>
@@ -123,7 +123,7 @@ Report packaging data
       </table>
    </div>
   </div>
-  
+
  
   
 </form>

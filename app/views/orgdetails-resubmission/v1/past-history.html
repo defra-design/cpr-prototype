@@ -44,16 +44,18 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="current-history.html">Back</a>
-{% endblock %}
-
 {% block content %}
 
 <form method="POST" action="declaration">
     
     <div class="govuk-grid-row">
       <div class="govuk-width-container">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.back()"
+      }) }}
+
        <h1 class="govuk-heading-l">Your submission history</h1>
 
 
