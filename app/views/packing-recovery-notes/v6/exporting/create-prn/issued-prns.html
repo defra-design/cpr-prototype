@@ -1,0 +1,302 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../../manage-accreditations"
+    },
+    {
+      text: "Paper/board - Ruby St, London SE15 1LR",
+      href: "../manage-prn"
+    },
+    {
+      text: "Manage your PRNs",
+      href: "manage-glass"
+    },
+    {
+      text: "Issued PRNs",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<script type="text/javascript">
+           function selects(){
+               var ele=document.getElementsByName('chk');
+               for(var i=0; i<ele.length; i++){
+                   if(ele[i].type=='checkbox')
+                       ele[i].checked=true;
+               }
+           }
+           function deSelect(){
+               var ele=document.getElementsByName('chk');
+               for(var i=0; i<ele.length; i++){
+                   if(ele[i].type=='checkbox')
+                       ele[i].checked=false;
+
+               }
+           }
+       </script>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">Paper/board</span>
+    <h1 class="govuk-heading-xl">  Sent PRNs</h1>
+<p class="govuk-body">All sent PRNs. To view or print the PRN, click on the reference.</p>
+</div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+    <input type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button"  onclick='selects()' value="Select All">
+
+  </input>
+  <div class="govuk-form-group" style="float:right">
+
+<select class="govuk-select" id="sort" name="sort">
+  <option  selected>View all </option>
+  <option value="published">Accepted </option>
+  <option value="updated">Awaiting acceptance</option>
+  <option value="views">Rejected</option>
+      <option value="views">Awaiting cancellation</option>
+  <option value="comments">Cancelled</option>
+</select>
+</div>
+
+<a class="govuk-button govuk-button--secondary" href="cancel" data-module="govuk-button">
+    Cancel PRNs
+</a>
+<table class="govuk-table">
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">PRN number</th>
+      <th scope="col" class="govuk-table__header">Issued to</th>
+      <th scope="col" class="govuk-table__header">Date raised</th>
+      <th scope="col" class="govuk-table__header">Tonnes</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% if data['cancel'] == 'Yes' %}
+
+    {% else %}
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1003</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Tesco Ltd.</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--blue">
+  Awaiting acceptance
+  </strong></td>
+    </tr>
+
+    {% endif %}
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1004</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">BillPack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+  Rejected
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">   <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <a href="PRN1003">PRN1005</a>
+              </label>
+            </div>
+            </div></td>
+      <td class="govuk-table__cell">Valpack</td>
+      <td class="govuk-table__cell">26 July 2023</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+  Accepted
+  </strong></td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="grid-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <nav class="govuk-pagination" role="navigation" aria-label="results">
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item ">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg></a>
+  </div>
+</nav>
+</div>
+</div>
+
+{% endblock %}
