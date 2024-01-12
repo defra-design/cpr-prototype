@@ -25,6 +25,7 @@
       <h3 class="govuk-notification-banner__heading">
         File downloaded
       </h3>
+      <p>[filename]</p>
       
     {% endset %}
     
@@ -32,9 +33,12 @@
       html: html,
       type: "success"
     }) }}
-    <h1 class="govuk-heading-l">Public register of large organisations on the ‘report packaging data’ service</h1>
-  <h1 class="govuk-heading-m">Create and download report </h1>
-<p>Enter search criteria and create a list to download as a CSV file. <br><br>
+    <h1 class="govuk-heading-l">Large organisations on the ‘report packaging data’ service</h1>
+    <p>Before you start,
+
+ <a href="#">find out what this is for and how to use it.</a></p>
+  <h1 class="govuk-heading-m">List of organisations - create and download CSV file </h1>
+<p>Use the search criteria to create a list, and download it as a CSV file. <br><br>
 
   For anything before reporting year 2023, use the <a href="#">Public Register of Registered Producers on the National Packaging Waste Database.</a></p>
 
@@ -53,7 +57,7 @@
     classes: "govuk-label--s"
   },
   hint: {
-    text: " The year the organisation is reporting about ‘Registration year’ on NPWD."
+    text: " The year the organisation is reporting about. Called ‘Registration year’ on NPWD."
   },
   value: data.public-register.year,
   items: [
@@ -68,9 +72,11 @@
   id: "[public-register][nation]",
   name: "[public-register][nation]",
   label: {
-    text: "UK nation where organisation is based",
+    text: "Environmental regulator ",
     isPageHeading: true,
     classes: "govuk-label--s"
+  },hint: {
+    text: "Who the organisation is reporting to. Called ‘Agency’ on NPWD."
   },
  
   value: data.public-register.nation,
@@ -80,15 +86,15 @@
     text: "All"
   }, {
       value: "One",
-      text: "England"
+      text: "Environment Agency"
     },
     {
       value: "Two",
-      text: "Nothern Ireland"
+      text: "Northern Ireland Environment Agency "
     },
     {
       value: "Three",
-      text: "Scotland"
+      text: "Scottish Environment Protection Agency"
     },
     {
       value: "Three",
@@ -103,6 +109,9 @@
       Organisation name (optional)
     </label>
   </h1>
+  <div id="passport-issued-hint" class="govuk-hint">
+    Does not need to be complete or exact.
+  </div>
   <input class="govuk-input" id="event-name" name="eventName" type="text">
 </div>
 
@@ -112,12 +121,13 @@
       Companies House number (optional)
     </label>
   </h1>
+  
   <input class="govuk-input" id="event-name" name="eventName" type="text">
 </div>
 
 <br><br>
 {{ govukButton({
-  text: "Create report" , 
+  text: "Create and download file" , 
   href:"/public-register/download"
 }) }}
 
