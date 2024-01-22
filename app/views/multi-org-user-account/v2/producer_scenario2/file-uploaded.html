@@ -1,0 +1,118 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "home.html",
+    text: "Home"
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="fix-warnings.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-full">
+      <div class="govuk-!dispaly-inline-block">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+            Packaging data uploaded – check and submit
+          </h1>
+      </div>
+      <div class="">
+           <span class="govuk-caption-l">
+              {{ data['which-producer'] }}
+                  <span class="govuk-visually-hidden">Organisation name</span>
+
+          </span>
+      </div>
+  </div>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+            File uploaded
+        </h2>
+        
+        <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="upload-file.html">Change</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="govuk-summary-card__content">
+        <table class="govuk-table govuk-!-margin-bottom-2">
+            <caption class="govuk-visually-hidden">Detail regarding the latest valid file uploaded</caption>
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">File name</th>
+                <th scope="col" class="govuk-table__header">Date uploaded</th>
+                <th scope="col" class="govuk-table__header">Uploaded by</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell-no-border">packaging-data-Jan-Jun-2023.csv</td>
+                <td class="govuk-table__cell-no-border">2 January 2024</td>
+                <td class="govuk-table__cell-no-border">Jane Doe</td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+      <h2 class="govuk-heading-m">How to submit your files</h2>
+
+      <p class="govuk-body">You do not have permission to submit files.</p>
+      <p class="govuk-body">Someone in your team with the right account permissions must submit these files to the environmental regulator.</p>
+
+      <p class="govuk-body"><a href="home.html">Go to your account homepage</a></p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
