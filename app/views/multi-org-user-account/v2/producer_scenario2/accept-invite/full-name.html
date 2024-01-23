@@ -1,0 +1,83 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "my-profile.html",
+text: "My profile" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="telephone-number.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+    <form method="POST" action="../home-after">
+      <h1 class="govuk-heading-l">Confirm you want permission to submit data to the environmental regulator</h1>
+
+      <p class="govuk-body">By entering your name and confirming, you’re agreeing that you:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>are able to act on behalf of Sarah Rogers to submit packaging data to the environmental regulator for Better Packaging Ltd.</li>
+        <li>understand the regulations</li>
+        <li>understand the regulations</li>
+      </ul>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="last-name">
+          Enter your full name        
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name" type="text" spellcheck="false" autocomplete="family-name" value="{{data['last-name']}}">
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
