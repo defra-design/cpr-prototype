@@ -1,0 +1,69 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "landing-page-2.html",
+    text: "Home"
+    },
+    {
+    href: "manage-account-invited-2.html",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile"
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="#" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    
+    <h1 class="govuk-heading-l">Cancel your invitation to sonia.webb@best.foods.com</h1>
+
+    <p class="govuk-body">By cancelling this invitation, they will not be able to join your organisation’s account.</p>
+
+    <p class="govuk-body">If you need them to work on the account in the future, you must invite them again.</p>
+
+        <br><br>
+        {{ govukButton({
+          text: "Cancel invitation",
+          classes: "govuk-button--warning",
+          href: "/cancel-invitation/scenario-2/manage-account-cancelled"
+        }) }}
+{% endblock %}
