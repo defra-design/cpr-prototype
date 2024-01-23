@@ -1,0 +1,76 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "my-profile.html",
+text: "My profile" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="../home.html">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="telephone-number">
+    <div class="govuk-form-group govuk-!-margin-bottom-7">
+      <h1 class="govuk-heading-l">Invitation to change account permissions</h1>
+      <p class="govuk-body">Sarah Rogers has invited you to change your account permission. This means you’ll be able to submit packaging data to the environmental regulator, on behalf of Better Packaging Ltd.</p>
+
+      <p class="govuk-body">You need to accept this invitation and give us some more information.</p>
+
+      <h2 class="govuk-heading-m">How long it takes</h2>
+      <p class="govuk-body">It can take up to 28 days for the environmental regulator to approve this request.</p>
+      
+      <p class="govuk-body">Once they’ve approved the request, you will be able to submit data. We’ll let you know when they’ve approved the request.</p>
+
+    </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "my-profile.html",
+text: "My profile" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="invitation.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="full-name">
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">
+          What is your telephone number?
+        </h1>
+        <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your organisation’s account.</p>
+        
+        <label class="govuk-label" for="personal-work-email" >
+          Telephone number
+        </label>
+        <div class="govuk-hint" id="telephone-hint">
+          For international numbers include the country code
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="personal-telephone-number" aria-describedby="telephone-hint" name="personal-telephone-number" type="tel" autocomplete="tel" value="{{data['personal-telephone-number']}}">
+      </div>
+
+      <div class="govuk-inset-text">
+        We may also contact you by email using the address you used to create your account: <strong>joe.doe@email.com</strong>.
+       </div>
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
