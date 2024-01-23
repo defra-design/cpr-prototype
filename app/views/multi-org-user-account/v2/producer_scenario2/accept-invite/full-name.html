@@ -54,15 +54,19 @@ classes: 'govuk-width-container'
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="../home-after">
-      <h1 class="govuk-heading-l">Confirm you want permission to submit data to the environmental regulator</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Accept permissions to be a delegate</h1>
+      <div class="govuk-!-margin-bottom-6">
+        <span class="govuk-caption-l">
+           {{ data['which-producer'] }}
+        </span>
+      </div>
 
-      <p class="govuk-body">By entering your name and confirming, you’re agreeing that you:</p>
+      <p class="govuk-body">By entering your name and accepting, you’re agreeing that you:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>are able to act on behalf of Sarah Rogers to submit packaging data to the environmental regulator for Better Packaging Ltd.</li>
-        <li>understand the regulations</li>
-        <li>understand the regulations</li>
+        <li>are able to act on behalf of {{ data['which-producer'] }} to submit data to the environmental regulator</li>
+        <li>will make sure the data you submit is as accurate as reasonably possible</li>
       </ul>
 
       <div class="govuk-form-group">
@@ -73,7 +77,7 @@ classes: 'govuk-width-container'
       </div>
 
       {{ govukButton({
-        text: "Continue"
+        text: "Accept and send"
       })}}
     </form>
   </div>
