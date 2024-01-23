@@ -51,19 +51,39 @@ classes: 'govuk-width-container'
 
 {% block content %}
 
+<div class="govuk-grid-row govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-full">
+      <div class="govuk-!dispaly-inline-block">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+            Changing your permissions to a delegate
+          </h1>
+      </div>
+      <div class="">
+           <span class="govuk-caption-l">
+              {{ data['which-producer'] }}
+          </span>
+      </div>
+  </div>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="telephone-number">
     <div class="govuk-form-group govuk-!-margin-bottom-7">
-      <h1 class="govuk-heading-l">Invitation to change account permissions</h1>
-      <p class="govuk-body">Sarah Rogers has invited you to change your account permission. This means you’ll be able to submit packaging data to the environmental regulator, on behalf of Better Packaging Ltd.</p>
-
-      <p class="govuk-body">You need to accept this invitation and give us some more information.</p>
-
+      <p class="govuk-body">Sarah Rogers wants to change your permissions so you can become a delegate for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ data['which-producer'] }}</li>
+        <li>Organisation ID: 987 654</li>
+      </ul>
+      <p class="govuk-body">If you become a delegate, you’ll be able to act on behalf of {{ data['which-producer'] }} and:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>upload data</li>
+        <li>submit data to the environmental regulator</li>
+        <li>add or remove team members</li>
+      </ul>
       <h2 class="govuk-heading-m">How long it takes</h2>
-      <p class="govuk-body">It can take up to 28 days for the environmental regulator to approve this request.</p>
-      
-      <p class="govuk-body">Once they’ve approved the request, you will be able to submit data. We’ll let you know when they’ve approved the request.</p>
+      <p class="govuk-body">If you accept this change, the environmental regulator will need to approve it. This can take up to 28 days.</p>
+      <p class="govuk-body">To accept this change, you need to give us some more information.</p>
 
     </div>
       {{ govukButton({
