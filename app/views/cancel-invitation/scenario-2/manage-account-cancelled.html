@@ -1,0 +1,139 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home"
+    },
+    {
+    href: "#",
+    text: "Manage account",
+    active: true
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      You cancelled an invitation to sonia.webb@email.com
+    </h3>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-full">
+      <div class="govuk-!dispaly-inline-block">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+              Manage account
+          </h1>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Your details</th>
+          <th scope="col" class="govuk-table__header">Permissions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="my-profile.html" class="govuk-link">James Cason </a><br>Sarah’s delegate</td>
+          <td class="govuk-table__cell">Submit data, manage the team</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Your team</h2>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Add a team member
+    </button>
+   
+    
+    <br>
+    <h3 class="govuk-heading-s">Team members</h3>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Permissions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Sarah Rogers</a><br>Approved person</th>
+          <td class="govuk-table__cell">Submit data, manage the team</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Joanne Wilson</a></th>
+          <td class="govuk-table__cell">Manage team, upload data</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="#" class="govuk-link">Robert Smith</a></th>
+          <td class="govuk-table__cell">Upload data only</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+
+
+  </div>
+</div>
+
+{% endblock %}

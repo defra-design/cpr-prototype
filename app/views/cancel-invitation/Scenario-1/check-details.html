@@ -1,0 +1,110 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "landing-page.html",
+    text: "Home"
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile"
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="#" class="govuk-back-link">Back</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    
+    <form method="POST" action="manage-account-invited">
+      <div class="govuk-form-group">
+        
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Check invitation details before sending
+            </h1><br>
+           
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['invite-email'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-team-member-email?invite-email={{ data['invite-email'] }}">
+                    Change<span class="govuk-visually-hidden"> email address</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Account permissions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['account-type'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="type-of-account?account-type={{ data['account-type'] }}">
+                    Change<span class="govuk-visually-hidden"> account permissions</span>
+                  </a>
+                </dd>
+              </div>
+             
+            </dl>
+            <br>
+            <h2 class="govuk-heading-m">Accept and send</h2>
+            <p class="govuk-body">Your invitation will expire on 24 February 2024. </p>
+            <p class="govuk-body">You can:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>check the invitation status in your team members list</li>
+              <li>cancel the invitation if you need to</li>
+            </ul>   
+            <div class="govuk-button-group">
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Send invitation
+              </button>
+              <a class="govuk-link" href="manage-account.html">Cancel and return to manage account</a>
+            </div>
+
+{% endblock %}
