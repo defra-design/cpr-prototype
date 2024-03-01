@@ -1,4 +1,4 @@
-{% set serviceName = "Record waste" %}
+{% set serviceName = "Accreditation" %}
 
 {% extends "layout.html" %}
 
@@ -22,31 +22,35 @@
 
 
       How many tonnes of PRNs do you plan to issue?
+
+<div id="event-name-hint" class="govuk-hint" style="margin-top: 15px;">
+  The tonnage you plan to issue determines the charge for your application. We'll ask you to pay at the end of your application.  </div>
 </h1>
 
 </div>
 </div>
 
-<form class="form" action="" method="POST">
+<form class="form" action="authority-issue" method="POST">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="where-do-you-live" name="next-page" type="radio" value="reprocessor/tasklist">
+        <input class="govuk-radios__input" id="where-do-you-live" name="price" type="radio" value="Up to 400 tonnes: £505.00">
         <label class="govuk-label govuk-radios__label" for="where-do-you-live">
           Up to 400 tonnes: £505.00
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="where-do-you-live-2" name="next-page" type="radio" value="sent/name">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="price2" type="radio" value="Over 400 tonnes: £2,616.00">
         <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
           Over 400 tonnes: £2,616.00
         </label>
       </div>
 </div>
 <br>
-  <input class="govuk-button" type="submit" value="Continue"  />
+<input type="hidden" name="price">
+   <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
 
 </form>
 

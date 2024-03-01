@@ -1,0 +1,106 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="address" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-fieldset__heading">
+        Apply for accreditation for: 23 Ruby Street
+      </h1>
+<br>
+      <h2 class="govuk-body-s">This is your application task list. You can save your progress and come back to it at any time.</h2>
+  
+   
+<h1 class="govuk-heading-m"> Waste licences, PRNs and business plan</h1>
+
+</legend>
+
+    <ul class="govuk-task-list">
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="waste-licences-permits.html" aria-describedby="company-details-1-status">
+            Waste licences, exemptions and PRNs
+          </a>
+        </div>
+        <div class="govuk-task-list__status" id="company-details-1-status">
+       Not started
+        </div>
+      </li>
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="file-upload" aria-describedby="company-details-2-status">
+            Upload your business plan
+          </a>
+        </div>
+        <div class="govuk-task-list__status" id="company-details-2-status">
+          <strong class="govuk-tag govuk-tag--blue">
+            Incomplete
+          </strong>
+        </div>
+      </li>  
+    </ul>
+
+ </legend>
+    <h1 class="govuk-heading-m"> About the waste you reprocess</h1>
+
+    <h2 class="govuk-body-s">Once you’ve completed one material you can add more materials.</h2>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="choose-material" aria-describedby="company-details-1-status">
+              About the material
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+              Upload supporting documents for this material
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+            Cannot started yet
+            </strong>
+          </div>
+        </li>  
+      </ul>
+
+
+</fieldset>
+</div>
+
+  <!-- <input class="govuk-button" type="submit" value="Find address"  /> -->
+
+
+
+</form>
+
+</div>
+
+{% endblock %}
