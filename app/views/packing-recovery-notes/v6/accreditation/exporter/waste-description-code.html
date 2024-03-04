@@ -1,0 +1,95 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="overseas-agent" method="POST">
+
+    <div class="govuk-form-group">
+      
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <span class="govuk-caption-l">For: paper/board</span>
+    </legend>
+
+    
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="country">
+          Waste description code
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Describe waste using the description codes in the relevant regulations. You can use a <a href="">consolidated waste list (opens in new tab)</a> to check how you should describe your waste.  
+      </div>
+      <h1 class="govuk-heading-m">
+        What is the waste description code for this waste? 
+      </h1>
+      <div id="event-name-hint" class="govuk-hint">
+        For example, B3020.
+      </div>
+      <select class="govuk-select" id="country" name="country"
+        data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+        <option value="" selected disabled>Select an option</option>
+        <option value="Austria">Austria</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Croatia">Croatia</option>
+        <option value="Republic of Cyprus">Republic of Cyprus</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Estonia">Estonia</option>
+        <option value="Finland">Finland</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="Greece">Greece</option>
+        <option value="Hungary">Hungary</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Italy">Italy</option>
+        <option value="Latvia">Latvia</option>
+        <option value="Lithuania">Lithuania</option>
+        <option value="Luxembourg">Luxembourg</option>
+        <option value="Malta">Malta</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Poland">Poland</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Romania">Romania</option>
+        <option value="Slovakia">Slovakia</option>
+        <option value="Slovenia">Slovenia</option>
+        <option value="Spain">Spain</option>
+        <option value="Sweden">Sweden</option>
+      </select>
+    </div>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Add another</a>
+    </p>
+
+</fieldset>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+    </div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}
