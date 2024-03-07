@@ -1,0 +1,131 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form action="file-uploaded-2" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Upload supporting documents
+            </h1>
+
+
+            <div class="govuk-body-m">
+            <p>The selected file must:</p>
+              <li> be smaller than xxMB</li>
+               <li>not be password protected</li> 
+</div>
+
+
+<!--<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Flow charts </th>
+        <th scope="col" class="govuk-table__header"></th>
+        
+          <th scope="col" class="govuk-table__header">  </th>
+      
+      </tr>
+    </thead>
+    
+</table>
+ <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+
+<br><br>
+    </tbody>
+</table>
+        
+          
+
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Recordings of deliveries  and outputs </th>
+        <th scope="col" class="govuk-table__header"></th>
+        
+          <th scope="col" class="govuk-table__header">  </th>
+      
+      </tr>
+    </thead>
+    
+</table>
+ <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+
+<br><br>
+    </tbody>
+</table>
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">A list of plants and equipment at your site</th>
+        <th scope="col" class="govuk-table__header"></th>
+        
+          <th scope="col" class="govuk-table__header">  </th>
+      
+      </tr>
+    </thead>
+    
+</table>
+ <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+
+<br><br>
+    </tbody>
+</table>
+
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Sampling and inspection plan </th>
+        <th scope="col" class="govuk-table__header"></th>
+        
+          <th scope="col" class="govuk-table__header">  </th>
+      
+      </tr>
+    </thead>
+    
+</table>
+ <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+
+<br><br>
+    </tbody>
+</table>
+
+
+        </fieldset>
+    </div>
+
+
+    {{
+govukButton({
+text: "Upload file"
+})
+    }}
+
+</form>
+</div>
+</div>
+
+{% endblock %}
