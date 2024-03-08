@@ -1,0 +1,136 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="confirmation" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-fieldset__heading">
+        Apply for accreditation as an exporter
+      </h1>
+<br>
+      <h2 class="govuk-body-s">This is your application task list. You can save your progress and come back to it at any time.</h2>
+  
+<h1 class="govuk-heading-m"> Waste licences, PRNs and business plan</h1>
+
+</legend>
+
+    <ul class="govuk-task-list">
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="waste-licences-permits" aria-describedby="company-details-1-status">
+            Waste licences, exemptions and PRNs
+          </a>
+        </div>
+        <span class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </strong>
+        </span>
+      </li>
+
+   <!--   <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="waste-licences-permits.html" aria-describedby="company-details-1-status">
+            Waste licences, exemptions and PRNs
+          </a>
+        </div>
+        <div class="govuk-task-list__status" id="company-details-1-status">
+       Not started
+        </div>
+      </li> -->
+
+      <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <div class="govuk-task-list__name-and-hint">
+          <a class="govuk-link govuk-task-list__link" href="file-upload" aria-describedby="company-details-2-status">
+            Upload your business plan
+          </a>
+        </div>
+        <div class="govuk-task-list__status" id="company-details-2-status">
+            Completed
+          </strong>
+        </div>
+      </li>  
+    </ul>
+
+ </legend>
+    <h1 class="govuk-heading-m"> About the waste you reprocess</h1>
+
+   <!-- <h2 class="govuk-body-s">Once you’ve completed one material you can add more materials.</h2> -->
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="choose-material" aria-describedby="company-details-1-status">
+              About the material
+            </a>
+            <div id="company-details-3-hint" class="govuk-task-list__hint">
+              Once you’ve completed one material you can add more materials.
+            </div>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+              Completed
+              </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="upload-sampling-plan-record" aria-describedby="company-details-2-status">
+              Upload sampling plan and recording system for this material
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Cannot start yet
+            </strong>
+          </div>
+        </li>  
+      </ul>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Overseas reprocessing sites</h2>
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="overseas-reprocessor" aria-describedby="prepare-application-1-status">
+              Overseas reprocessing sites
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="prepare-application-1-status">
+            Cannot start yet
+          </div>
+        </li>
+
+      </ul>
+      
+    </div>
+  </div>
+
+
+</fieldset>
+</div>
+
+<input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+  <!-- <input class="govuk-button" type="submit" value="Find address"  /> -->
+
+</form>
+
+</div>
+
+{% endblock %}

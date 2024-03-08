@@ -1,0 +1,70 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="check-answers-2" method="POST">
+
+    <div class="govuk-form-group">
+      
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <span class="govuk-caption-l">For: paper/board</span>
+    </legend>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Look up commodity codes (opens in new tab)
+    </a>
+    </p>
+{{ xGovukAutocomplete({
+      id: "country",
+      name: "which-producer",
+      allowEmpty: false,
+      label: {
+        classes: "govuk-label--l",
+        showAllValues: true,
+        isPageHeading: true,
+        text: "What are the commodity codes for this waste?"
+      },
+      items: [
+    { text: "4808 1000 00" },
+    { text: "4808 4000 00" },
+    { text: "4808 9000 00" },
+    { text: "4821 10" },
+    { text: "4821 1010 00" },
+    { text: "4821 1090 00" }
+      ]
+    }) }}
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Add another commodity code</a>
+    </p>
+
+</fieldset>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+    </div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}
