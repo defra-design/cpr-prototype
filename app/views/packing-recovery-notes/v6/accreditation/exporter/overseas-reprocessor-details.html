@@ -1,4 +1,4 @@
-2{% set serviceName = "Accreditation" %}
+{% set serviceName = "Accreditation" %}
 
 {% extends "layout.html" %}
 
@@ -19,14 +19,14 @@
 
 
 
-<form class="form" action="agent-to-contact" method="POST">
+<form class="form" action="person-to-contact" method="POST">
 
     <div class="govuk-form-group">
 <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                
       <h1 class="govuk-heading-l">
-        Overseas agent name and address
+        Overseas reprocessor details
       </h1>
     
     </legend>
@@ -38,16 +38,28 @@
       </legend>
       <div class="govuk-form-group">
         <label class="govuk-label" for="address-line-1">
-          Agent name
+          Organisation name
         </label>
-        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        <input class="govuk-input" id="address-line-1" name="orgname" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="sort">
+          Select country
+        </label>
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="France">France</option>
+          <option value="Albania" selected>Albania</option>
+          <option value="Holland">Holland</option>
+          <option value="Spain">Spain</option>
+        </select>
       </div>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="more-detail">
           Address
         </label>
-        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+        <textarea class="govuk-textarea" id="more-detail" name="addressinfo" rows="5"></textarea>
       </div>
 
       <!--<div class="govuk-form-group">
