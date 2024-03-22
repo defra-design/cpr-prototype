@@ -1,0 +1,98 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "rejected/landing-page.html",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="summary-of-uploads" method="post"> 
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+
+                    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                        <div class="govuk-notification-banner__header">
+                          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                            Success
+                          </h2>
+                        </div>
+                        <div class="govuk-notification-banner__content">
+                          <h3 class="govuk-notification-banner__heading">
+                            Partner details uploaded
+                          </h3>
+                          <p>partnerdetails1.csv</p>
+                        </div>
+                      </div>
+
+
+                    <h2 class="govuk-heading-m">What happens next</h2>
+
+                    <p class="govuk-body">You can now check and submit your files.</p> 
+              
+                  
+              
+            </div>
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue to check and submit
+                </button>
+              </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
