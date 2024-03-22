@@ -1,0 +1,127 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="../upload-orgdetails" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                        You do not need to resubmit  members’ organisation details 
+                    </h1>
+                    
+                    <p class="govuk-body">The environmental regulator has updated the status of your organisation details files.</p> 
+                   
+                    <h2 class="govuk-heading-m govuk-!-margin-top-4">Status of your files</h2>
+
+                    <p> Your files have been accepted.</p>
+                    
+
+                    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+                        <div class="govuk-summary-card__title-wrapper">
+                            <h2 class="govuk-summary-card__title">
+                                Files you've already submitted
+                            </h2>
+                            
+                        </div>
+                        
+                    <div class="govuk-summary-card__content">
+                        <table class="govuk-table govuk-!-margin-bottom-0">
+                            <caption class="govuk-visually-hidden">Detail regarding the latest valid file submitted</caption>
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">File name</th>
+                                <th scope="col" class="govuk-table__header">Date and time submitted</th>
+                                <th scope="col" class="govuk-table__header">Submitted by</th>
+                               
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">orgdetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">branddetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">partnerdetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <h3 class="govuk-heading-m">What happens next</h3>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">Your files have been accepted and you do not need to resubmit.</p>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

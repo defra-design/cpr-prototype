@@ -1,0 +1,154 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<form action="check-status-of-file" method="post">
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+      
+      {{ govukBackLink({
+        text: "Home",
+        href: "javascript:history.back()"
+    }) }}
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Organisation details 
+      </h1>
+
+      <p> Producer: ACME ORG</p>
+
+      
+
+        <h2 class="govuk-heading-m">
+            Before you start
+        </h2>
+
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Read the guidance and check what to do if you’ve missed a deadline
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p class="govuk-body govuk-!-margin-bottom-4">Read the guidance on:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/guidance/how-to-collect-your-packaging-data-for-extended-producer-responsibility">what packaging data you need to collect (opens in a new window)</a></li>
+            <li><a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility/packaging-data-file-specification-for-extended-producer-responsibility">how to build a CSV file to report your packaging data (opens in a new window) </a></li>
+        </ul>
+
+        <h2 class="govuk-heading-m">
+            If you’ve missed a deadline to submit
+        </h2>
+
+        <p class="govuk-body govuk-!-margin-bottom-4">You need to submit for both periods. </p>
+
+        <p class="govuk-body govuk-!-margin-bottom-4">If you’ve missed a deadline, you may still be able to report without facing enforcement action. <a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility/packaging-data-file-specification-for-extended-producer-responsibility">Check the GOV.UK guidance (opens in a new window) </a> </p>
+
+            </div>
+          </details>
+
+    </div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+    <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+            <h2 class="govuk-heading-m ">Your submission for January to June 2023</h2>
+
+            <strong class="govuk-tag govuk-tag--red">
+              Rejected by regulator
+            </strong>
+<br/>
+<br/>
+            <p class="govuk-body">
+              <a href="rejected" class="govuk-link">Find out about your rejected files</a>.
+            </p>
+
+              <h3 class="govuk-heading-s">Update the regulator about changes </h3>
+
+              <p class="govuk-body">Update your members’ organisation details within 28 days if they change. </p>
+            <p class="govuk-body"><a href="../report-changes.html">Tell the regulator about changes to your members’ organisation details</a></p>
+        </div>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+            <h2 class="govuk-heading-m">Report for July to December 2023</h2>
+           
+            <p class="govuk-body">Deadline: 11:59pm on 1 April 2024</p>
+            
+            <strong class="govuk-tag govuk-tag--grey">
+              Cannot start yet
+            </strong>
+          
+            
+            <p class="govuk-body govuk-!-margin-bottom-9"><a href="#"></a></p>
+
+        </div>
+    </div>
+    </div>
+
+     <h2 class="govuk-heading-m">
+     Your submission history 
+    </h2>
+    
+    <p class="govuk-body govuk-!-margin-bottom-4">View your organisation details files.</p>
+    
+    <p class="govuk-body"><a href="../../current-history.html">View submision history</a></p>
+         
+
+    
+</div>
+ 
+</form>
+
+{% endblock %}
