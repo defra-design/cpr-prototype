@@ -44,8 +44,10 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
+
 {% block content %}
-<form method="POST" action="check-status-of-file">
+
+<form action="check-status-of-file" method="post">
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
@@ -55,7 +57,19 @@ classes: 'govuk-width-container'
         href: "javascript:history.back()"
     }) }}
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+     <!--- <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Organisation details 
+      </h1>
+
+      <p> Producer: ACME ORG</p>
+
+      <span class="govuk-caption-l">ACME ORG</span>
+      <h1 class="govuk-heading-l">Organisation details </h1>
+
+    -->
+
+
+           <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
         Members' organisation details 
       </h1>
 
@@ -64,10 +78,9 @@ classes: 'govuk-width-container'
       <p>Regulator: Environment Agency (England)</p>
       
 
-        <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-m">
             Before you start
         </h2>
-
         <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -93,6 +106,7 @@ classes: 'govuk-width-container'
             </div>
           </details>
 
+         
     </div>
 
 <div class="govuk-grid-row govuk-!-margin-bottom-7">
@@ -100,15 +114,18 @@ classes: 'govuk-width-container'
     <div class="govuk-grid-column-one-half">
         <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
 
-            <h2 class="govuk-heading-m ">You’ve got an update for January to June 2023</h2>
+            <h2 class="govuk-heading-m ">Your submission for January to June 2023</h2>
 
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-                Check status
-              </button>
+            <strong class="govuk-tag govuk-tag--red">
+              Rejected by regulator
+            </strong>
+<br/>
+<br/>
+            <p class="govuk-body">
+              <a href="rejected" class="govuk-link">Find out about your rejected files</a>
+            </p>
 
-              <h3 class="govuk-heading-s">If your circumstances change</h3>
-
-            <p class="govuk-body">You have 28 days to <a href="../report-changes.html">report changes to your member' organisation details</a></p>
+             
         </div>
     </div>
 
@@ -119,29 +136,49 @@ classes: 'govuk-width-container'
            
             <p class="govuk-body">Deadline: 11:59pm on 1 April 2024</p>
             
-            <p>Cannot start yet</p>
-            
+            <strong class="govuk-tag govuk-tag--grey">
+              Cannot start yet
+            </strong>
           
+            
+        
 
         </div>
     </div>
     </div>
 
-     <h2 class="govuk-heading-m">
-     Your submission history 
-    </h2>
-    
-    <p class="govuk-body govuk-!-margin-bottom-4">View your organisation details files.</p>
-    
-    <p class="govuk-body"><a href="../../current-history.html">View submission history</a></p>
-         
+   
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">If your members’ organisation details change </h2>
 
-    
+    <p class="govuk-body">If your members’ organisation details change, you must tell the regulator within 28 days.  </p>
+  <p class="govuk-body"><a href="../report-changes.html">Tell the regulator about changes to your members’ organisation details</a></p>
+
+  </div>
 </div>
-
-</form>
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
  
-  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     <h2 class="govuk-heading-m">
+      Your history 
+    </h2>
+    
+    <p class="govuk-body govuk-!-margin-bottom-4">You can view your most recent organisation details files and a history of earlier submissions to the environmental regulator.</p>
+    
+    <p class="govuk-body"><a href="../../current-history.html">View your history</a></p>
+         
+</div>
+    </div>
+    </div>
+</div>
+ 
+</form>
 
+<style>
+.card {
+    min-height: 180px
+</style>
 {% endblock %}
