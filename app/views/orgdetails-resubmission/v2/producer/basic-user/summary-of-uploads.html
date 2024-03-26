@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
 Report packaging data
@@ -13,18 +13,18 @@ Report packaging data
 {% block header %}
 
   {# Set serviceName in config.js. #}
+  
   {{ govukHeader({
-    homepageUrl: "../../index.html",
+    homepageUrl: "../../../index.html",
     serviceName: "Report packaging data",
     serviceUrl: "#",
     navigation: [
       {
-        href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
-        text: "Home",
-        active: true
+        href: "rejected/landing-page.html",
+        text: "Home"
       },
       {
-        href: "../../delegate-someone/account-management",
+        href: "#",
         text: "Manage account" 
       },
       {
@@ -43,11 +43,6 @@ Report packaging data
   }) }}
 
 {% endblock %}
-
-{% block beforeContent %}
-
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -58,15 +53,17 @@ Report packaging data
             href: "javascript:history.back()"
         }) }}
 
-        <form action="file-submitted" method="post">
+        <form action="file-resubmitted" method="post">
 
           <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
-            Organisation details files uploaded – check and submit           
+            Check and submit your organisation details files         
       </h1>
 
 
-    <p> The files you've uploaded have saved. </p>
-   
+    <p> You have uploaded and saved new organisation details files.</p>
+
+    
+    
     <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Files uploaded</h2>
@@ -117,7 +114,7 @@ Report packaging data
                 partnerdetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                10 October 2023, 2:00pm
+               10 October 2023, 2:00pm
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith 
@@ -129,7 +126,7 @@ Report packaging data
 
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Files already submitted</h2>
+                <h2 class="govuk-summary-card__title">Files to be replaced</h2>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
@@ -181,15 +178,15 @@ Report packaging data
               </div>
             </div>
 
-            <h3 class="govuk-heading-m">How to submit files</h3>
+            <h2 class="govuk-heading-m">How to submit files</h2>
+          
+            
+            <p>You do not have permission to submit files to the environmental regulator. Someone on your team with the correct account permissions must do this.</p>
 
-            <p>You don’t have permission to submit files.</p>
 
-            <p class="govuk-body govuk-!-margin-bottom-6">Someone in your team with the right account permissions must submit these files to the environmental regulator. </p>
-      
-
-        <div> 
-            <a href="../landing.html">Go to account homepage</a>
+       
+       
+           <p><a class="govuk-link" href="./landing-page.html">Go to account homepage</a></p>
         </div>
         </form>
 
