@@ -36,23 +36,21 @@
                   </a>
                 </dd>
               </div>
-            <!--  {% if  data['sub-type'] == 'other' %} -->
-             
-             <!-- {% endif %} -->
-
-             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Type of material
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Paper/board
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="tonnage">
-                      Change<span class="govuk-visually-hidden"> previous application number</span>
+              {% if  data['sub-type'] == 'other' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Type of material
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="other">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
                   </a>
-              </dd>
-          </div>
+                </dd>
+              </div>
+              {% endif %}
 
                   <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -88,7 +86,7 @@
 
                   <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                          Note
+                          Note (optional)
                       </dt>
                       <dd class="govuk-summary-list__value">
                           {{data['note']}}
@@ -101,24 +99,19 @@
                   </div>
             </dl>
 
-            <h1 class="govuk-heading-m">
-              Now raise this PRN
-          </h1>
-          <div class="govuk-body-m">
-          <p>After you’ve raised it you can:</p>
-          <li>authorise and issue it to the producer or compliance scheme</li>
-           <li>download it</li> 
-</div>
 
 
 
 
 
-            <form action="confirm" method="post" novalidate>
+
+
+
+            <form action="prn-created" method="post" novalidate>
               <input type="hidden" name="answers-checked" value="true">
              <input type="hidden" name="waste-data-reprocesser" value="true">
               <button class="govuk-button" data-module="govuk-button">
-                 Raise this PRN
+                  Create this PRN
               </button>
             </form>
           </div>
