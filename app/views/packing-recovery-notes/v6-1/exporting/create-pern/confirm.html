@@ -9,29 +9,142 @@
 {% endblock %}
 {% block content %}
 
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-              PERN sent to:<br>
-              {{data['which-producer']}}
-          </h1>
-          <div class="govuk-panel__body">
-          PERN number<br><strong>PERN222019EFGF</strong>
+        <form class="form" action="confirm-2" method="POST">
+       
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+             Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+              PERN raised. We’ve saved it in
+              
+              <a class="" href="#">draft PERNs</a>.</p>
+
+           <p class="govuk-body-m">   If you want to issue it to the producer or compliance scheme now select ‘authorise and issue this PERN’.
+            </p>
           </div>
         </div>
 
-          <p><a href="../record-waste">Download this PERN</a></p>
-          <h1 class="govuk-heading-l">What happens next</h1>
+        
 
-<h2 class="govuk-body-m">We’ll send you an email as soon as the producer or compliance scheme accepts or rejects this PERN. </h2>
+        <h1 class="govuk-heading-l">PERN number: 9876543</h1>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status            </dt>
+              <td class="govuk-table__cell" style="font-size:small"> <strong class="govuk-tag govuk-tag--grey">
+                Awaiting authorisation
+                </strong></td>
+            
+          </div>
+         
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status meaning
+            </dt>
+            <dd class="govuk-summary-list__value">
+              The reprocessor who raised this PERN has not yet authorised it. Authorising it will issue it to the producer or compliance scheme.
+            </dd>
+            
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Raised by            </dt>
+            <dd class="govuk-summary-list__value">
+              Name of reproccessor            </dd>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reprocessing site            </dt>
+            <dd class="govuk-summary-list__value">
+              Address of reprocessing site            </dd>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Accreditation number            </dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+            
+          </div>
+
 <br>
+        
 
-          <input class="govuk-button" type="submit" value="View sent PERNs" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Create another PERN"  />
-      </div>
+        <h1 class="govuk-heading-m">PERN details</h1>
+
+
+      
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date raised</dt>
+              <td class="govuk-table__cell" style="font-size:small"> 20 March 2024</td>
+            
+          </div>
+
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              December waste balance used            </dt>
+              <td class="govuk-table__cell" style="font-size:small"> No</td>
+            
+          </div>
+
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Material           </dt>
+              <td class="govuk-table__cell" style="font-size:small">Paper/board</td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount    </dt>
+              <td class="govuk-table__cell" style="font-size:small">  {{data['enter-waste-tonnes']}} tonnes</td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging producer or compliance scheme          </dt>
+              <td class="govuk-table__cell" style="font-size:small"> 
+                {{data['which-producer']}}
+                </td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Note           </dt>
+              <td class="govuk-table__cell" style="font-size:small"> 
+                {{data['note']}}
+             </td>
+            
+          </div>
+    
+
+          </dl>
+
+
+          <button class="govuk-button" formaction="confirm-2">Authorise and issue this PERN</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download this PERN</button>
     </div>
+  </form>
   </main>
 </div>
 </div>
