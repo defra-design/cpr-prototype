@@ -1,0 +1,224 @@
+{% set serviceName = "" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-regulator"
+    },
+    {
+      text: "Find a organisation",
+      href: "find-a-company"
+    },
+    {
+      text: "GREEN LTD",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Company number 1234567</span>
+        <h1 class="govuk-heading-xl">GREEN LTD</h1>
+
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item ">
+              <a href="organisation-details" aria-current="location">Organisation details</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+              <a href="users-details">User details</a>
+            </li>
+
+            <li class="moj-side-navigation__item moj-side-navigation__item--active">
+              <a href="registered-sites">Accredited sites</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-l">Accredited sites</h2>
+                <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-heading-m">Ruby St, London SE15 1LR</h2>
+
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list  govuk-summary-list--no-border ">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+        Code
+          </dt>
+          <dd class="govuk-summary-list__value">
+        12345667
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+        Site address
+          </dt>
+          <dd class="govuk-summary-list__value">
+          309 Brighton Road<br>
+          Newcastle<br>
+          NE8 4SA
+
+          </dd>
+        </div>
+      </dl>
+        <br>
+      <h2 class="govuk-heading-m">Materials</h2>
+  <dl class="govuk-summary-list  ">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+        Paper/board
+          </dt>
+          <dt class="govuk-summary-list">
+          Reprocessing
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['suspend'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--orange">suspended</strong><br>
+            {% elif data['revoke'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--red">Cancelled</strong><br>
+            {% elif data['accreditation-limit'] == 'true' %}
+              <strong class="govuk-tag govuk-tag--yellow">Over limit</strong><br>
+
+            {% else %}
+  <strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="view-accreditations/paperboard-accreditions">View</a>
+
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+      Paper/board
+          </dt>
+          <dt class="govuk-summary-list">
+        Exporting
+          </dt>
+          <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="">View</a>
+
+          </dd>
+
+        </div>
+
+
+      </dl>
+      <br>
+      <a href="previous-accreditations" class="govuk-link">View previous accreditations</a>
+    </div>
+  </div>
+
+  <div class="govuk-summary-card">
+<div class="govuk-summary-card__title-wrapper">
+<h2 class="govuk-heading-m">156 Hamilton Rd, Norwood, London SE37 9SE
+</h2>
+
+</div>
+
+<div class="govuk-summary-card__content">
+<dl class="govuk-summary-list  govuk-summary-list--no-border ">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+  Code
+    </dt>
+    <dd class="govuk-summary-list__value">
+  12345667
+    </dd>
+  </div>
+
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Site address
+</dt>
+<dd class="govuk-summary-list__value">
+309 Brighton Road<br>
+Newcastle<br>
+NE8 4SA
+
+</dd>
+</div>
+</dl>
+<br>
+<h2 class="govuk-heading-m">Materials</h2>
+<dl class="govuk-summary-list  ">
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Paper/board
+</dt>
+<dt class="govuk-summary-list">
+Reprocessing
+</dt>
+<dd class="govuk-summary-list__value">
+<strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+
+</dd>
+<dd class="govuk-summary-list__actions">
+<a href="">View</a>
+
+</dd>
+
+</div>
+<div class="govuk-summary-list__row">
+<dt class="govuk-summary-list__key">
+Glass
+</dt>
+<dt class="govuk-summary-list">
+Exporting
+</dt>
+<dd class="govuk-summary-list__value">
+<strong class="govuk-tag govuk-tag--green">Accredited</strong><br>
+
+</dd>
+<dd class="govuk-summary-list__actions">
+<a href="">View</a>
+
+</dd>
+
+</div>
+
+</dl>
+<br>
+<a href="previous-accreditations" class="govuk-link">View previous accreditations</a>
+</div>
+</div>
+
+
+
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

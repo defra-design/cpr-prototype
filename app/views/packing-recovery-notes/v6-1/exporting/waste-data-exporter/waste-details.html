@@ -1,0 +1,101 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="enter-tonnes" method="POST">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Recording for: paper/board</span>
+                <h1 class="govuk-fieldset__heading">What type of waste was it?</h1>
+
+            </legend>
+            <div id="event-name-hint" class="govuk-hint">
+                Select ‘other’ if you’re accredited for a waste type not listed here.
+            </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Sorted mixed paper/board"  >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+        Sorted mixed paper/board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Unsorted mixed paper.boards" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Unsorted mixed paper/board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Grades 1.04.00, 1.05.00 & 1.05.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+      Grades 1.04.00, 1.05.00 and 1.05.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Grade 1.04.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="  Grade 1.04.02">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.02
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-6" name="sub-type" type="radio" value="other" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="changed-name-6">
+          Other
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+          <div id="event-name-hint" class="govuk-hint">
+              Enter the percentage of packaging content agreed with your local agency.</div>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="other" type="text" spellcheck="false">
+
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+      </div>
+      </div>
+
+    </div>
+   </fieldset>
+    </div>
+            <p></p>
+
+  <input type="hidden" name="sub-type">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+</div>
+
+{% endblock %}

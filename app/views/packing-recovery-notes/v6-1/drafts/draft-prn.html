@@ -1,0 +1,85 @@
+{% set serviceName = "Draft PRNs" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l">DraftPRN1</h2>
+    <p class="govuk-body">23 Ruby Street,<br>
+      London,<br>
+      SE15 1LR,<br>
+      United Kingdom</p>
+<p>Date issued: 20 November 2023</p>
+
+<!-- <h2 class="govuk-heading-s">PRN details</h2> -->
+<br>
+
+    <form class="form" action="../reprocessing/create-prn/tonnage" method="POST">
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">PRN details</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">December waste balance used</th>
+        <td class="govuk-table__cell">Yes</td>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Paper/board tonnage</th>
+        <td class="govuk-table__cell">100</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Packaging producer or compliance scheme</th>
+        <td class="govuk-table__cell">Tesco</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Note</th>
+        <td class="govuk-table__cell">Note with a very long text will have to fit in <br>here with about three lines for test purpose.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+         Draft PRN history
+        </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <div class="dwp-timeline">
+            <ol class="dwp-timeline__events">
+              <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">PRN created</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1"> John Watson - Green Ltd</p>
+                <p class="govuk-caption-m">19 July 2023</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+    <input class="govuk-button" type="submit" value="Send PRN" style="margin-right: 20px;"  />
+    </form>
+
+
+
+
+{% endblock %}

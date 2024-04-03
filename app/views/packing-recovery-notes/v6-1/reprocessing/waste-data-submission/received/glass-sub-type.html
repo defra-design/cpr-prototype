@@ -1,0 +1,90 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="paper-sub-type" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Record your waste</span>
+      <h1 class="govuk-fieldset__heading">What is the paper/board sub type?</h1>
+    </legend>
+
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="enter-tonnes" data-value="Sorted mixed paper/board" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+
+        Sorted mixed paper/board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="enter-tonnes" data-value="Unsorted mixed paper.board" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Unsorted mixed paper.board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="enter-tonnes" data-value="Grades 1.04.00, 1.05.00 & 1.05.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+        Grades 1.04.00, 1.05.00 & 1.05.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="enter-tonnes" data-value="  Grade 1.04.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="enter-tonnes" data-value="
+          Grade 1.04.02">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.02
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="other" data-value="Other">
+        <label class="govuk-label govuk-radios__label" for="changed-name-6">
+          Other
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+
+
+  <input type="hidden" name="sub-type">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+
+{% endblock %}
