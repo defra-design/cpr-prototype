@@ -1,0 +1,179 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+          <span class="govuk-caption-l">Recording for: paper/board</span>
+            <h1 class="govuk-heading-l">Check your answers before creating this waste record</h1>
+
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Name of the reprocessor where the waste was sent
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['name']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="name">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Address of the reprocessor where the waste was sent
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['addressLine1']}}<br>
+                          {{data['addressLine2']}}<br>
+                          {{data['addressTown']}}<br>
+                          {{data['addressCounty']}}<br>
+                          {{data['addressPostcode']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="address">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Type of waste
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['sub-type']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+              {% if  data['sub-type'] == 'other' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              Enter the percentage of the paper/board
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['other']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="other">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+              {% endif %}
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Baled with wire
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['baled-allowance']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="bailing-allowance">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+          Tonnage of waste
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['enter-waste-tonnes']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="enter-tonnes"">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Tonnage adjusted for deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href=""">
+                          <span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Month the waste was received
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['month-received']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="select-month">
+                              Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                      </dd>
+                  </div>
+
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Note (optional)
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['note']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="add-note">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+            </dl>
+
+
+
+
+
+
+
+
+
+            <form action="confirm" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+             <input type="hidden" name="waste-data-reprocesser" value="true">
+              <button class="govuk-button" data-module="govuk-button">
+                  Create waste record
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

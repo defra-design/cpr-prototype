@@ -1,0 +1,117 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Waste licences and permits
+      </h1>
+     
+      <h2 class="govuk-body-s">Enter the reference numbers for the licences and permits you have.</h2>
+
+    </legend>
+
+    <h1 class="govuk-heading-m">
+      Waste carrier, broker or dealer registration number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      Leave blank if you do not have one.    </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number1"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    
+    <h1 class="govuk-heading-m">
+      Waste management licence  or environmental permit number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      Leave blank if you do not have one.    </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number2"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    
+    <h1 class="govuk-heading-m">
+      PPC ‘Part A’ or non-waste EPR ‘Part A1’ activity reference number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      Leave blank if you do not have one.    </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number3"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    <h1 class="govuk-heading-m">
+      PPC ‘Part B or C’ or non-waste EPR ‘Part A2 or B’ activity reference number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      Leave blank if you do not have one.    </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number4"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+
+    <h1 class="govuk-heading-m">
+      Discharge consent number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      Leave blank if you do not have one.    </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number5"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+
+
+
+</fieldset>
+</div>
+<div id="codemain">
+<div id="code" style="float: left;">
+<form class="form" action="permit-exemption" method="POST">
+          <input class="govuk-button" type="submit" value="Save and continue"  />
+</form>
+</div>
+
+
+ 
+  <a href="application-saved" style="float: right;"> <input class="govuk-button govuk-button--secondary"  type="submit" value="Save and come back later"  /></a>
+</div>
+</div>
+
+{% endblock %}
