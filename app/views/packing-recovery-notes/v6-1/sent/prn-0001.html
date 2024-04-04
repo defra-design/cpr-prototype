@@ -1,4 +1,4 @@
-{% set serviceName = "Create a PRN" %}
+{% set serviceName = "Manage PRNs/PERNs" %}
 
 {% extends "layout.html" %}
 
@@ -11,7 +11,7 @@
 
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
         <form class="form" action="confirm-2" method="POST">
        
         
@@ -27,7 +27,7 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Status            </dt>
-              <td class="govuk-table__cell" style="font-size:small"> <strong class="govuk-tag govuk-tag--grey">
+              <td class="govuk-table__cell" style="font-size:small"> <strong class="govuk-tag govuk-tag--blue">
                 Issued and awaiting acceptance
                 </strong></td>
             
@@ -125,6 +125,40 @@
     
 
           </dl>
+
+          <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               PRN history
+              </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                <div class="dwp-timeline">
+                  <ol class="dwp-timeline__events">
+                    <li class="dwp-timeline__events--entry">
+                      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">PRN awaiting acceptance</h2>
+                      <p class="govuk-caption-m govuk-!-margin-bottom-1">Tesco</p>
+                     
+                      <p class="govuk-caption-m">20 March 2024</p>
+                    </li>
+                    <li class="dwp-timeline__events--entry">
+                      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Sent to Tesco</h2>
+                      <p class="govuk-caption-m govuk-!-margin-bottom-1">Received</p>
+                      <p class="govuk-caption-m">20 March 2024</p>
+                    </li>
+                    <li class="dwp-timeline__events--entry">
+                      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">PRN created</h2>
+                      <p class="govuk-caption-m govuk-!-margin-bottom-1"> John Watson - Green Ltd</p>
+                      <p class="govuk-caption-m">20 November 2023</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
           <button class="govuk-button" formaction="confirm-2">Download this PRN</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Cancel this PRN</button>
