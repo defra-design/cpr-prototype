@@ -1,4 +1,4 @@
-{% set serviceName = "Create a PERN" %}
+{% set serviceName = "Manage PRNs/PERNs" %}
 
 {% extends "layout.html" %}
 
@@ -9,11 +9,11 @@
   items: [
     {
       text: "Home",
-      href: "../home-4"
+      href: "../home-5"
     }
       ,
       {
-      text: "Create a PERN",
+      text: "Raise a PERN",
       href: ""
       }
 
@@ -117,58 +117,90 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">Create PERN</h1>
-      <h2 class="govuk-body-m">Choose a material to create your PERN. <br><br>
+      <h1 class="govuk-heading-xl">Raise a PERN</h1>
 
-          Round the balance to the nearest whole tonne to determine the amount available for creating the PERN.</h2>
+     
 
-        <h2 class="govuk-heading-s"> Materials for: 23 Ruby Street, London, SE15 1LR</h2>
-        <table class="govuk-table">
 
-            <thead class="govuk-table__head">
+<br>
+      <div class="govuk-form-group" style="float:right">
+          <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+          <select class="govuk-select" id="select-status" name="sort">
+              <option  selected>Filter by </option>
+              <option value="published">Reprocessor</option>
+              <option value="updated">Exporter</option>
+
+          </select>
+      </div>
+
+     
+     
+      <h1 class="govuk-heading-l"> Exporting</h1>
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Material</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Tonnage available to create PERNs</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Number of draft PERNs</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Current balance </th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Balance of PERNs awaiting authorisation</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Available balance to raise PERNs</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left"></th>
             </tr>
             </thead>
             <tbody class="govuk-table__body">
 
+           
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Aluminium</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">260</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">3</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Choose</a> </td>
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Paper/board</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">500.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">200 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">300.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="../exporting/create-pern/tonnage.html">Raise PERN for paper/board</a> </td>
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Glass</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">369</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">3</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Choose</a> </td>
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Paper/board</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">130</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">1</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="../exporting/create-pern/tonnage">Choose</a> </td>
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Glass</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">260.01 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">260.01 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Raise PERN for glass </a> </td>
             </tr>
 
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Aluminium</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">399.00 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">1 tonne</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">398 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Raise PERN for aluminium</a> </td>
+            </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Steel</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">250</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">3</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Choose</a> </td>
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Wood</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">50.33 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">50.33  tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="#">Raise PERN for wood</a> </td>
             </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Steel</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0.49 tonne</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">No available balance</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Plastics</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">100 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">100 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">0</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">No available balance </td>
+            </tr>
+            
 
             </tbody>
-        </table>
-
-
-
-
+      </table>
 
 
 </div>
