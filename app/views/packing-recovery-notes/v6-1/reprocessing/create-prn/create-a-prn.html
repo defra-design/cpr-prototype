@@ -1,4 +1,4 @@
-{% set serviceName = "Create a PRN" %}
+{% set serviceName = "Manage PRNs/PERNs" %}
 
 {% extends "layout.html" %}
 
@@ -9,11 +9,11 @@
   items: [
     {
       text: "Home",
-      href: "../../home"
+      href: "../home-5"
     }
       ,
       {
-      text: "Create a PRN",
+      text: "Raise a PRN",
       href: ""
       }
 
@@ -117,38 +117,52 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">Create PRN</h1>
-      <h2 class="govuk-body-m">Choose a material to create your PRN. <br><br>
+      <h1 class="govuk-heading-xl">Raise a PRN/PERN</h1>
 
-          Round the balance to the nearest whole tonne to determine the amount available for creating the PRN.</h2>
+     
 
 
-        <h2 class="govuk-heading-s"> Material for: 23 Ruby Street, London, SE15 1LR</h2>
+<br>
+      <div class="govuk-form-group" style="float:right">
+          <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+          <select class="govuk-select" id="select-status" name="sort">
+              <option  selected>Filter by </option>
+              <option value="published">Reprocessor</option>
+              <option value="updated">Exporter</option>
+
+          </select>
+      </div>
+
+      <h1 class="govuk-heading-l"> Reprocessing</h1>
+        <h2 class="govuk-heading-s"> Materials for: 23 Ruby Street, London, SE15 1LR</h2>
         <table class="govuk-table">
 
             <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Material</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Tonnage available to create PRNs</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Number of draft PRNs</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Current balance </th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Balance of PRNs awaiting authorisation</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Available balance to raise PRNs</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left"></th>
             </tr>
             </thead>
             <tbody class="govuk-table__body">
 
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="font-weight: normal">Paper/board</th>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">260</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">1</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="tonnage.html">Choose</a> </td>
-            </tr>
            
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Paper/board</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">500.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">200 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">300.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="../create-prn/tonnage">Raise PRN for paper/board</a> </td>
+            </tr>
+
+           
+
             </tbody>
         </table>
 
-
-
-
+     
 
 
 </div>
