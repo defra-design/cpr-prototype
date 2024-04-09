@@ -1,85 +1,144 @@
-{% set serviceName = "Draft PRNs" %}
+{% set serviceName = "Manage PRNs/PERNs" %}
 
 {% extends "layout.html" %}
 
 
 
 {% block pageTitle %}
-{{serviceName}} prototype
+    {{serviceName}} prototype
 {% endblock %}
 {% block content %}
 
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form class="form" action="confirm-2" method="POST">
+       
+        
+        
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Draft PRN number: 000001</h1>
 
-    <h2 class="govuk-heading-l">DraftPRN1</h2>
-    <p class="govuk-body">23 Ruby Street,<br>
-      London,<br>
-      SE15 1LR,<br>
-      United Kingdom</p>
-<p>Date issued: 20 November 2023</p>
+       
 
-<!-- <h2 class="govuk-heading-s">PRN details</h2> -->
-<br>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-    <form class="form" action="../reprocessing/create-prn/tonnage" method="POST">
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">PRN details</caption>
-      <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">December waste balance used</th>
-        <td class="govuk-table__cell">Yes</td>
-      </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">Paper/board tonnage</th>
-        <td class="govuk-table__cell">100</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">Packaging producer or compliance scheme</th>
-        <td class="govuk-table__cell">Tesco</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">Note</th>
-        <td class="govuk-table__cell">Note with a very long text will have to fit in <br>here with about three lines for test purpose.</td>
-      </tr>
-      </tbody>
-    </table>
 
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-         Draft PRN history
-        </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-          <div class="dwp-timeline">
-            <ol class="dwp-timeline__events">
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">PRN created</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1"> John Watson - Green Ltd</p>
-                <p class="govuk-caption-m">19 July 2023</p>
-              </li>
-            </ol>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status            </dt>
+              <td class="govuk-table__cell" style="font-size:small"> <strong class="govuk-tag govuk-tag--grey">
+                Issued and awaiting acceptance
+                </strong></td>
+            
           </div>
-        </div>
-      </div>
+         
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status meaning
+            </dt>
+            <dd class="govuk-summary-list__value">
+              The reprocessor issued the PRN to the producer or compliance scheme. The producer or compliance scheme has not yet accepted the PRN.            </dd>
+            
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Raised by      </dt>
+            <dd class="govuk-summary-list__value">
+              Name of reproccessor            </dd>
+            
+          </div>
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reproccessing site       </dt>
+            <dd class="govuk-summary-list__value">
+              Address of site   </dd>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Accreditation number            </dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+            
+          </div>
+
+<br>
+        
+
+        <h1 class="govuk-heading-m">PRN details</h1>
+
+
+      
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date raised</dt>
+              <td class="govuk-table__cell" style="font-size:small"> 20 March 2024</td>
+             <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#" style="margin: 40px;">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd> -->
+          </div>
+
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              December waste balance used            </dt>
+              <td class="govuk-table__cell" style="font-size:small"> No</td>
+            
+          </div>
+
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Material           </dt>
+              <td class="govuk-table__cell" style="font-size:small">Paper/board</td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount    </dt>
+              <td class="govuk-table__cell" style="font-size:small">  170 tonnes</td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging producer or compliance scheme          </dt>
+              <td class="govuk-table__cell" style="font-size:small"> 
+                Tesco
+                </td>
+            
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Note           </dt>
+              <td class="govuk-table__cell" style="font-size:small"> 
+                Purchase order number 12354
+             </td>
+            
+          </div>
+    
+
+          </dl>
+
+         
+
+
+          <button class="govuk-button" formaction="#">Authorise and issue this PRN</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download this PRN</button>
     </div>
-
-
-  </div>
-
-    <input class="govuk-button" type="submit" value="Send PRN" style="margin-right: 20px;"  />
-    </form>
-
-
+  </form>
+  </main>
+</div>
+</div>
 
 
 {% endblock %}
