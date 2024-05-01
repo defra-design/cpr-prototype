@@ -1,0 +1,77 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="manage-glass" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Check these details and send the PRN</h1>
+    </legend>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+        Date created
+        </dt>
+        <dd class="govuk-summary-list__value">
+        7 August 2023
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Sent to
+        </dt>
+        <dd class="govuk-summary-list__value">
+        {{data['which-producer']}}
+        </dd>
+
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+    Tonnes
+        </dt>
+        <dd class="govuk-summary-list__value">
+      {{data['tonnes']}}
+        </dd>
+
+      </div>
+
+    </dl>
+
+
+  </fieldset>
+</div>
+
+<div class="govuk-button-group">
+ <input class="govuk-button" type="hidden"  name="issued" value="true" />
+  <input class="govuk-button" type="submit"  value="Send" />
+
+  <p><a class="govuk-link" href="manage-glass">Cancel</a></p>
+  </div>
+</form>
+</div>
+
+
+{% endblock %}
