@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            
+      <span class="govuk-caption-xl">Using R, Python and SQL in Databricks</span><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        3. Load your data
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+
+    
+  <h2 class="govuk-heading-m">Find the path to your data</h2>
+  
+<p>Before you start - you will need to know the path to your data to be able to load it. <br>This will be a three part name with a catalog, schema and table.</p> 
+<p>Example: <STRONG>preprod_catalog_p02.ada_demo.csc_data</STRONG></p>
+<p><img src="/public/images/data-path4.png" class="app-notebook-image"></p>
+<p>Select <STRONG>Data</STRONG> from the left side menu.</p>
+
+<p><img src="/public/images/menu-data.png" class="app-walkthrough-image"></p>
+
+<br>
+
+
+<ol class="govuk-list govuk-list--number">
+  <li>The data you have access to will be displayed here.</li>
+  
+  <p><img src="/public/images/load-data2.png" class="app-walkthrough-image"></p><br>
+  
+  
+<li>Find your data and select it.</li>
+<li>Click on the <STRONG>Create</STRONG> dropdown button <img src="/public/images/create-button.png" class="app-walkthrough-icon"> and select <STRONG>Notebook</STRONG></li>
+<p><img src="/public/images/new-data.png" class="app-walkthrough-image"></p><br>
+
+<li>Type in the load commands related to your language.</li>
+<p><img src="/public/images/new-note3.png" class="app-walkthrough-image"></p><br>
+
+
+
+    <li>Run your code.</li>
+</ol>
+
+
+<br>
+
+<link rel="stylesheet"
+
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script src="~/js/Support/code-highlight.js" asp-append-version="true"></script>
+
+ 
+
+<form action="/form-handler" method="post" novalidate="">
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+
+     <h2 class="govuk-tabs__title">
+
+        Contents
+
+     </h2>
+
+     <ul class="govuk-tabs__list" role="tablist">
+
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+
+           <a class="govuk-tabs__tab" href="#past-day" id="tab_past-day" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+
+           Python
+
+           </a>
+
+        </li>
+
+        <li class="govuk-tabs__list-item" role="presentation">
+
+           <a class="govuk-tabs__tab" href="#past-week" id="tab_past-week" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+
+           R
+
+           </a>
+
+        </li>
+
+        <li class="govuk-tabs__list-item" role="presentation">
+
+           <a class="govuk-tabs__tab" href="#past-month" id="tab_past-month" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+
+           SQL
+
+           </a>
+
+        </li>
+
+     </ul>
+
+     <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_past-day">
+
+        
+
+        <div class="app-example__code" data-module="app-copy">
+
+           <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+           <pre>
+
+               <code tabindex="0" class="python">#Load sample data
+spark_df = spark.read.table('samples.nyctaxi.trips')
+
+# Display the final DataFrame
+display(spark_df)
+</code>
+
+           </pre>
+
+        </div>
+
+     </div>
+
+     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
+
+        
+
+        <div class="app-example__code" data-module="app-copy">
+
+           <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+           <pre>
+
+               <code tabindex="0" class="r"># Import required libraries
+library(SparkR)
+                
+# Convert table to DataFrame
+spark_df <- tableToDF("samples.nyctaxi.trips")
+
+# Display the final DataFrame
+display(spark_df)</code>
+
+           </pre>
+
+        </div>
+
+     </div>
+
+     <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
+
+        
+
+        <div class="app-example__code" data-module="app-copy">
+
+           <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+           <pre>
+
+               <code tabindex="0" class="javascript">SELECT * FROM samples.nyctaxi.trips</code>
+
+           </pre>
+
+        </div>
+
+     </div>
+
+  </div>
+
+</form>
+
+
+<div class="govuk-button-group">
+            
+  <a href="notebooks-analyse" class="govuk-button show-continue" style="display: inline;">
+    Next - analyse your data
+  </a>
+  
+  <a href="notebooks-learning" class="govuk-button govuk-button--secondary" style="display: inline;">
+    Back to Using R, Python and SQL
+  </a>
+  
+  
+
+</div>
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
