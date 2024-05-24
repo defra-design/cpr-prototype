@@ -1,11 +1,20 @@
+
 {% set serviceName = "Run the service administrator calculator" %}
  
 {% extends "layout.html" %}
+ 
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+  }) }}
+{% endblock %}
  
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-body account-info">
@@ -53,7 +62,7 @@
 
 
           <a href="la-data" class="govuk-button show-continue" style="display: inline;">
-            Save and continue
+            Continue
           </a>
        
       </div>
