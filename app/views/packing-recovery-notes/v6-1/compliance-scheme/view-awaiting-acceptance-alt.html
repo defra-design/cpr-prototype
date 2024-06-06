@@ -1,4 +1,4 @@
-{% set serviceName = "Manage PRNs" %}
+{% set serviceName = "Manage PRNs/PERNs" %}
 
 {% extends "layout.html" %}
 
@@ -14,8 +14,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <h2 class="govuk-heading-l">View PRNs/PERNs awaiting acceptance</h2>
-    <p class="govuk-body">These PRNs have not been authorised and issued to the producer or compliance scheme.</p>
+    <form class="form" action="accept-prn" method="POST">
+
+
+    <h2 class="govuk-heading-l">Accept or reject PRNs/PERNs</h2>
+    <p class="govuk-body">To deduct the tonnage from your obligation you need to accept the PRN/PERN</p>
 
    
 
@@ -24,12 +27,12 @@
 
       
 
-      <div class="govuk-inset-text app-inset-text">
+   <!--   <div class="govuk-inset-text app-inset-text">
           23 Ruby Street
  <br> XX YY 
  <br> Birmingham, UK
  <br>
-      </div>
+      </div>-->
 
 
 
@@ -59,7 +62,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="selected-prn">ER454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -76,7 +79,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">EX454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -94,7 +97,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">ER454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -111,7 +114,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">ER454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -162,7 +165,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">ER454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -179,7 +182,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">EX454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -196,7 +199,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">EX454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -214,7 +217,7 @@
               <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                   <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                      <a href="prn-0001">PRN0001</a>
+                      <a href="prn-0001">ER454545540M</a>
                   </label>
                 </div>
                 </div></td>
@@ -229,10 +232,11 @@
 
       </tbody>
     </table>
-    <input class="govuk-button" type="submit" value="Accept selected PRN" style="margin-right: 20px;"  />
+
+    <input class="govuk-button" type="submit" value="Accept selected PRN" style="margin-right: 20px;"  />  <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Reject selected PRN</button>
+
     </form>
 
-    <a href="./delete-draft"><input class="govuk-button govuk-button--secondary" type="submit" value="Reject selected PRN"  /></a>
 
   </div>
 
