@@ -32,7 +32,7 @@
 
     <h1 class="govuk-heading-xl">View accepted and rejected PRNs</h1>
 
-    <div class="govuk-grid-column-two-thirds card">
+    <div class="govuk-grid-column-full card">
 
       <form class="form" action="#" method="POST">
 
@@ -112,18 +112,21 @@
     <select class="govuk-select" id="select-status" name="sort">
         <option  selected>Filter by </option>
         <option value="published">Accepted </option>
-        <option value="updated">Awaiting acceptance</option>
         <option value="views">Rejected</option>
-        <option value="views">Awaiting cancellation</option>
         <option value="comments">Cancelled</option>
+      <!--  <option value="updated">Awaiting acceptance</option>
+        <option value="views">Awaiting cancellation</option>-->
+
+
     </select>
 </div>
     <div class="govuk-form-group" style="float:right">
       <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
   <select class="govuk-select" id="select-status" name="sort">
     <option  selected>Sort by </option>
-    <option value="published">Material</option>
-    <option value="updated">Sent to</option>
+    <option value="published">Date issued</option>
+    <option value="updated">Issued by</option>
+    <option value="updated">Tonnage</option>
 
   </select>
 </div>
@@ -134,12 +137,13 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">PRN number</th>
-            <th scope="col" class="govuk-table__header">Material</th>
             <th scope="col" class="govuk-table__header">Date issued</th>
               <th scope="col" class="govuk-table__header">December waste</th>
             <th scope="col" class="govuk-table__header">Issued by</th>
             <th scope="col" class="govuk-table__header">Tonnage</th>
             <th scope="col" class="govuk-table__header">Note</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -149,16 +153,38 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
+          <!--  <td class="govuk-table__cell">Paper/board</td>-->
+            <td class="govuk-table__cell"> 20/11/2024</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">XYZ Reprocessing</td>
+              <td class="govuk-table__cell">65</td>
+              <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                        <a href="prn-0001">EX3484743570M</a>
+                    </label>
+                  </div>
+                  </div></td>
             <td class="govuk-table__cell"> 20/11/2024</td>
             <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+              <td class="govuk-table__cell">Exporting International </td>
+              <td class="govuk-table__cell">151</td>
+              <td class="govuk-table__cell"> T2E reference 5689344....</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
             
           </tr>
 
@@ -167,16 +193,18 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
-            <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">20</td>
+              <td class="govuk-table__cell">Not provided</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+                Rejected
+        </strong></td>
             
           </tr>
 
@@ -185,16 +213,37 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
-            <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell">Not provided</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Cancelled
+        </strong></td>
+            
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                        <a href="prn-0001">ER3484743570M</a>
+                    </label>
+                  </div>
+                  </div></td>
+            <td class="govuk-table__cell"> 20/11/2024</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">60</td>
+              <td class="govuk-table__cell">Not provided</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
             
           </tr>
 
@@ -203,51 +252,18 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">EX3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
             <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
-            
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
-                    </label>
-                  </div>
-                  </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
-            <td class="govuk-table__cell"> 20/11/2024</td>
-            <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
-            
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                    <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
-                    </label>
-                  </div>
-                  </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
-            <td class="govuk-table__cell"> 20/11/2024</td>
-            <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell">Ref 345678F</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
             
           </tr>
 
@@ -257,16 +273,18 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
             <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">80</td>
+              <td class="govuk-table__cell">Ref 345678F</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
             
           </tr>
 
@@ -276,16 +294,18 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
             <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">65</td>
+              <td class="govuk-table__cell">Not provided</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+               Rejected
+        </strong></td>
             
           </tr>
 
@@ -294,16 +314,18 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                     <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                        <a href="prn-0001">PRN0001</a>
+                        <a href="prn-0001">ER3484743570M</a>
                     </label>
                   </div>
                   </div></td>
-            <td class="govuk-table__cell">Paper/board</td>
             <td class="govuk-table__cell"> 20/11/2024</td>
             <td class="govuk-table__cell">Yes</td>
-              <td class="govuk-table__cell">Tony Stark</td>
-              <td class="govuk-table__cell">1000</td>
-              <td class="govuk-table__cell">This is just a test for a very very long name</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell">Not provided</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
             
           </tr>
 
