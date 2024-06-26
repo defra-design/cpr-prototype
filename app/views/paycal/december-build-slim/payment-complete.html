@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% if data['licence-type'] == "full" %}
+  {% set title = "Payment complete" %}
+{% else %}
+  {% set title = "Application complete" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        {% if data['licence-type'] == "full" %}
+          <span class="govuk-panel__title">£30</span>
+        {% endif %}
+
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your licence number is <br><strong>16130122-2WC3JDD-AJ2H17</strong>
+          <br>
+          <br>
+          Starts from <br>7:30am on 5 May 2022
+        </div>
+      </div>
+
+      {% if data['licence-option'] == "digital" %}
+
+        {% if data['licenceBy'] == "email" %}
+          <p class="govuk-body">
+            We have sent the licence by email.
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            We have sent the licence by text message.
+          </p>
+        {% endif %}
+
+        <p class="govuk-body">
+          Take it with you when you go fishing.
+        </p>
+      {% else %}
+
+        {% if data['licenceBy'] == "email" %}
+          <p class="govuk-body">
+            We have sent confirmation of the licence by email.
+          </p>
+        {% elif data['licenceBy'] == "phone" %}
+          <p class="govuk-body">
+            We have sent confirmation of the licence by text message.
+          </p>
+        {% endif %}
+
+        <p class="govuk-body">
+          Licence cards will arrive in the post within 15 working days.
+        </p>
+
+        
+
+      {% endif %}
+
+     
+
+      <div class="govuk-!-margin-bottom-6"> 
+        <div class="govuk-!-margin-bottom-3">
+
+          {% if data['licence-option'] == "digital" %}
+
+          {% else %}
+            <p class="govuk-body">
+              Make a note of your licence number to take with you.
+            </p>
+          {% endif %}
+
+          <p class="govuk-body">
+            You must give your licence number to an enforcement officer if they ask for it.
+          </p>
+
+         
+
+          <form action="licence-details">
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              View your licence details
+            </button>
+          </form>
+
+        </div>
+
+        {% if data['rcr'] == "true" %}
+
+          <h2 class="govuk-heading-l">
+            Report your yearly catch return
+          </h2>
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              By law you must <a href="#">report a catch return</a> of your yearly salmon and sea trout fishing activity in England and Wales, even if you do not catch anything or do not fish.
+            </strong>
+          </div>
+
+        
+
+        {% endif %}
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">
+            Read the licence conditions (opens in new tab)
+          </a>
+        </p>
+
+        <p class="govuk-body">
+          You must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+
+        <p class="govuk-body">
+          <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link govuk-link--no-visited-state">Tell us what you think of the service</a> (takes 30 seconds)
+        </p>
+
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Need another licence?
+      </h2>
+
+      <p class="govuk-body">
+        {% if data['licence-confirmation'] === "note" %}
+          <a href="check-restart">
+        {% else %}
+          <a href="date-of-birth">
+        {% endif %}
+          Get another rod fishing licence
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
