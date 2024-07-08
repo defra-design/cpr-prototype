@@ -1,0 +1,72 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="../check-answers" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+      <h1 class="govuk-fieldset__heading">
+    Enter the amount of glass to be included in this PRN
+      </h1>
+    </legend>
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="tonnes" value="{{data['tonnes']}}" type="text" spellcheck="false">
+        <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+      </div>
+    </div>
+
+
+
+</fieldset>
+</div>
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-full govuk-inset-text">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Glass waste balance
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}12 tonnes{% endif %}</strong>.
+        </p>
+
+
+
+
+
+
+      </div>
+  </div>
+{% endblock %}

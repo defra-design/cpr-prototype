@@ -1,0 +1,227 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            
+      <span class="govuk-caption-l">Using R, Python and SQL in Databricks</span><br><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        2. Create a notebook
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+
+    
+  
+
+
+<p>Select <STRONG>Workspace</STRONG> from the side menu and select <STRONG>Workspace</STRONG> and <STRONG>Users</STRONG>. </p>
+<p><img src="/public/images/home-new.png" class="app-walkthrough-image"></p>
+<p>This is your personal folder - no one else will have access to it. Use this area to test things out.</p>
+<p><img src="/public/images/users.png" class="app-walkthrough-image"></p> 
+
+
+
+
+<p></p>
+<p>Create a notebook in this folder.</p><br>
+<h2 class="govuk-heading-m">Create a notebook in your workspace</h2>
+<ol class="govuk-list govuk-list--number">
+  <li>Click on the dropdown <img src="/public/images/add-button.png" class="app-walkthrough-icon"> button on the right and select <STRONG>Notebook</STRONG>.</li>
+  
+  <p><img src="/public/images/add-notebook.png" class="app-walkthrough-image"></p><br>
+  
+  
+    <li>Your new notebook will be called 'untiltled' and will have a default coding language. Click on the name to change it to a more meaningful one. Select the language you want to work in by clicking on the dropdown <img src="/public/images/code-name.png" class="app-walkthrough-icon"></li>
+
+
+<p><img src="/public/images/notebook-name.png" class="app-walkthrough-image"></p>
+<br>
+<li>Click on the dropdown on the top right - to select a cluster. It might say <STRONG>Connect</STRONG> or <STRONG>Terminated</STRONG>.</li>
+<p><img src="/public/images/connect.png" class="app-walkthrough-image"></p>
+<p>If you're using Python or SQL - you can use a shared cluster. <br>If you're using R it's a bit more complicated. You will need to create a personal cluster.</p>
+
+<div class="govuk-inset-text">
+  It's important to know <a class="govuk-link" href="clusters">how clusters work</a>
+</div>
+
+  
+    
+<li>When you've connected to a cluster - type your code in the command cell.</li>
+<p><img src="/public/images/new-note3.png" class="app-walkthrough-image"></p><br>
+
+<li>To use the helpful 'copy code' function below. Select the language tab and click on the copy code button. Paste this in to your command cell.</li><br>
+
+<link rel="stylesheet"
+
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script src="~/js/Support/code-highlight.js" asp-append-version="true"></script>
+
+ 
+
+<form action="/form-handler" method="post" novalidate="">
+
+           <div class="govuk-tabs" data-module="govuk-tabs">
+
+              <h2 class="govuk-tabs__title">
+
+                 Contents
+
+              </h2>
+
+              <ul class="govuk-tabs__list" role="tablist">
+
+                 <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-day" id="tab_past-day" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+
+                    Python
+
+                    </a>
+
+                 </li>
+
+                 <li class="govuk-tabs__list-item" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-week" id="tab_past-week" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+
+                    R
+
+                    </a>
+
+                 </li>
+
+                 <li class="govuk-tabs__list-item" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-month" id="tab_past-month" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+
+                    SQL
+
+                    </a>
+
+                 </li>
+
+              </ul>
+
+              <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_past-day">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="python">print("Hello World")</code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="r">print("Hello World")</code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="javascript">SELECT "Hello World"</code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+           </div>
+
+        </form>
+
+
+<br>
+<li>Click on the <STRONG>Run all</STRONG> button on the top bar to run your code.</li>
+
+<p>You may need to wait for your cluster to run.</p>
+
+<p><img src="/public/images/run-all.png" class="app-walkthrough-image"></p>
+<br>
+<li>You can add code cells if you hover near the bottom of a cell and click on the plus icon. This will help to structure large amounts of code and make it easier to navigate.</li><br>
+<p><img src="/public/images/new-cell2.png" class="app-walkthrough-image"></p>
+
+
+</ol>
+
+<br>
+
+<div class="govuk-button-group">
+            
+  <a href="notebooks-loading-data" class="govuk-button show-continue" style="display: inline;">
+    Next - load your data
+  </a>
+  
+  <a href="notebooks-learning" class="govuk-button govuk-button--secondary" style="display: inline;">
+    Back to Using R, Python and SQL
+  </a>
+  
+  
+
+</div>
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
