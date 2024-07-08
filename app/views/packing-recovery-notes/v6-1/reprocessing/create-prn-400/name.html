@@ -1,0 +1,78 @@
+{% set serviceName = "Manage PRNs/PERNs" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="add-note" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Raise a PRN for: paper/board</span>
+
+    </legend>
+
+{{ xGovukAutocomplete({
+      id: "country",
+      name: "which-producer",
+      allowEmpty: false,
+      label: {
+        classes: "govuk-label--l",
+        showAllValues: true,
+        isPageHeading: true,
+
+        text: "Which packaging producer or compliance scheme is this for?"
+      },
+      items: [
+    { text: "ComplyPak (NIEA)" },
+    { text: "Co2 Compliance (SEPA)" },
+    { text: "Scotpak (SEPA)" },
+    { text: "Ecosurety Scotland" },
+    { text: "Pennine-Pack (EA)" },
+    { text: "SWS Compak" }
+      ]
+    }) }}
+<br>
+
+    <p class="govuk-hint">Must be whole tonnes and not exceed 300 tonnes</p>
+</fieldset>
+</div>
+
+   <!-- <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      The producer or compliance scheme is not in this list
+    </span>
+        </summary>
+        <div class="govuk-details__text">
+           <a href="#">Contact your environment agency</a>  for help.
+        </div>
+    </details> -->
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

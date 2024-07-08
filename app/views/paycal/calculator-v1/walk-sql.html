@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+            
+        <span class="govuk-caption-l">Using SQL in Databricks SQL Editor</span><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Create a query in SQL Editor
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+    
+<ol class="govuk-list govuk-list--number">
+<li>On the left menu click on SQL to expand - and select <STRONG>SQL Editor</STRONG>.</li>
+<p><img src="/public/images/sql-editor.png" class="app-walkthrough-image"></p>
+
+ <br>
+
+ <li>In the data warehouse dropdown - select the cluster <STRONG>SQL Warehouse Compute</STRONG>. <br>If you can't see a cluster - it is because you haven't been given access by the Databricks administrator. </li>
+ <p><img src="/public/images/sql-warehouse.png" class="app-walkthrough-image"></p>
+ <br>
+ 
+ <li>Enter your query and click on the <STRONG>Run</STRONG> button <img src="/public/images/run-button.png" class="app-walkthrough-icon"></li>
+ <p>The icon next to the <STRONG>SQL Warehouse Compute</STRONG> shows the status.</p>
+ <p>Running <img src="/public/images/sql-warehouse-compute-running-icon.png" class="app-walkthrough-icon"> &nbsp; Starting <img src="/public/images/start.png" class="app-walkthrough-icon"> &nbsp;Stopped <img src="/public/images/sql-warehouse-select-icon.png" class="app-walkthrough-icon"></p>
+
+ <p><img src="/public/images/sql-result.png" class="app-walkthrough-image"></p>
+ 
+ 
+ 
+ 
+ 
+
+ <li>Click on the <STRONG>Results</STRONG> dropdown to edit and save your query results. </li>
+ <p><img src="/public/images/results.png" class="app-walkthrough-image"></p>
+
+ 
+ 
+ 
+ <br>
+ <h2 class="govuk-heading-m">Start a warehouse</h2>
+
+
+ <p>To manually start a stopped SQL warehouse click on <STRONG>SQL Warehouses</STRONG> in the left sidebar.</p>
+ <p><img src="/public/images/sql-warehouse2.png" class="app-walkthrough-image"></p>
+
+ <p>Click on the start icon in the <STRONG>Status</STRONG> column - next to the warehouse.</p>
+
+<p>If a SQL warehouse is stopped and you attempt to run a job or query that uses it - Databricks starts the warehouse automatically.<br>
+  <p><img src="/public/images/sql-1.png" class="app-walkthrough-image"></p>
+  
+  <br>
+  <p>A warehouse also restarts automatically if you open a query in the SQL editor that is saved to a stopped warehouse or if you open a dashboard that is saved with a dashboard-level warehouse assigned to it.</p><br>
+  <p><img src="/public/images/sql-2.png" class="app-walkthrough-image"></p>
+  
+  <br>
+   <p>Auto-restart works for all types of SQL warehouses, including serverless SQL warehouses, which start very quickly.</p>
+  </ol>
+   <br>
+   
+   <div class="govuk-button-group">
+            
+    <a href="walk-sql-edit" class="govuk-button show-continue" style="display: inline;">
+      Next - edit multiple queries
+    </a>
+    
+    <a href="sql-learning" class="govuk-button govuk-button--secondary" style="display: inline;">
+      Back to Using SQL Editor
+    </a>
+    
+    
+  
+  </div>
+
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

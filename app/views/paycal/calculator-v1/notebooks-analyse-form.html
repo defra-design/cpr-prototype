@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            
+      <span class="govuk-caption-xl">Using R, Python and SQL in Databricks</span><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Analyse your data
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+
+    
+  
+<h2 class="govuk-heading-m"></h2>
+<p>Before you start - you will need your data loaded in to your Notebook.</p> 
+<p>If you haven't loaded it - this is explained in <a href="notebooks-loading-data">Load your data</a></p> 
+<br>
+
+
+<h2 class="govuk-heading-m">Filter your data</h2>
+<p>Filtering your data first - will improve your performance.</p>
+
+<link rel="stylesheet"
+
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script src="~/js/Support/code-highlight.js" asp-append-version="true"></script>
+
+ 
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#python1">
+        Python
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#r1">
+        R
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#sql1">
+        SQL
+      </a>
+    </li>
+    
+  </ul>
+  <div class="govuk-tabs__panel" id="filter-python">
+    <div class="govuk-tabs__panel" id="filter-python" role="tabpanel" aria-labelledby="tab_python1">
+      
+
+      <div class="app-example__code" data-module="app-copy">
+        <h2 class="govuk-heading-m">Python</h2>
+        
+    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+  <pre>
+
+    <code tabindex="0" class="python">spark_df = spark.read.table('samples.nyctaxi.trips')
+      display(spark_df)
+      
+      #Filter trips start in zip 10001
+      filter_df = spark_df[spark_df['pickup_zip']=='10001']
+                                 
+      #Filter trips less than 5 miles
+      filter_df = spark_df[spark_df['trip_distance']<5]
+      
+      #Filter fares between 20 and 30 dollars
+      filter_df = spark_df[(spark_df['fare_amount']>20.0) & (spark_df['fare_amount']<=30.0)]
+      display(filter_df)</code>
+
+</pre>
+
+</div>
+
+</div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="r1">
+    <h2 class="govuk-heading-l">R</h2>
+    <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_python1">
+      
+
+      <div class="app-example__code" data-module="app-copy">
+        <h2 class="govuk-heading-m">Python</h2>
+        
+        <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+        <pre>
+      
+          <code tabindex="0" class="python">library(SparkR)
+            spark_df <- tableToDF("samples.nyctaxi.trips")
+            display(spark_df)</code>
+          
+        <pre>
+      
+    
+  </div>
+  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="sql1">
+    <h2 class="govuk-heading-l">SQL</h2>
+    <table class="govuk-table">
+      
+      <tbody class="govuk-table__body">
+        
+          <td class="govuk-table__cell">Content for SQL</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+  
+
+
+   
+
+
+
+
+ 
+
+
+
+   
+
+ 
+
+
+
+<br>
+
+<div class="govuk-button-group">
+            
+  <a href="notebooks-visualise" class="govuk-button show-continue" style="display: inline;">
+    Next - visualise your data
+  </a>
+
+  <a href="notebooks-learning" class="govuk-button govuk-button--secondary" style="display: inline;">
+    Back to Using R, Python and SQL
+  </a>
+  
+  
+  
+  
+
+</div>
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+            
+      <span class="govuk-caption-xl">Using R, Python and SQL in Databricks</span><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        6. Visualize your data
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+
+    
+  
+
+<p>Before you start - you will need your data loaded in to your Notebook.</p> 
+<p>If you haven't loaded it - this is explained in <a href="notebooks-loading-data">Load your data</a></p> 
+<br>
+<p>Databricks offers a quick way to visualize your data for recognised data types. <br>This includes most tabular data types including data frames or similar.</p>
+<p>Use the built in display() function to show your data in an interactive tabular form. This function is available in Python and R.<br> <br>If you're using SQL - your data will automatically be displayed when you execute a query.</p>
+<br>
+<link rel="stylesheet"
+
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script src="~/js/Support/code-highlight.js" asp-append-version="true"></script>
+
+ 
+
+<form action="/form-handler" method="post" novalidate="">
+
+           <div class="govuk-tabs" data-module="govuk-tabs">
+
+              <h2 class="govuk-tabs__title">
+
+                 Contents
+
+              </h2>
+
+              <ul class="govuk-tabs__list" role="tablist">
+
+                 <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-day" id="tab_past-day" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+
+                    Python
+
+                    </a>
+
+                 </li>
+
+                 <li class="govuk-tabs__list-item" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-week" id="tab_past-week" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+
+                    R
+
+                    </a>
+
+                 </li>
+
+                 <li class="govuk-tabs__list-item" role="presentation">
+
+                    <a class="govuk-tabs__tab" href="#past-month" id="tab_past-month" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+
+                    SQL
+
+                    </a>
+
+                 </li>
+
+              </ul>
+
+              <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_past-day">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="python">
+spark_df = spark.read.table('samples.nyctaxi.trips')
+display(spark_df)
+                        </code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="r">
+library(SparkR)
+spark_df <- tableToDF("samples.nyctaxi.trips")
+display(spark_df)
+                        </code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+              <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
+
+                 
+
+                 <div class="app-example__code" data-module="app-copy">
+
+                    <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+
+                    <pre>
+
+                        <code tabindex="0" class="javascript">SELECT 
+  * 
+FROM 
+  samples.nyctaxi.trips</code>
+
+                    </pre>
+
+                 </div>
+
+              </div>
+
+           </div>
+
+        </form>
+    <br>
+    <p>To see a graphic display of your data - click on the plus icon in the tab and select <strong>Visualization</strong>.</p>
+    <p><img src="/public/images/select-visualization.png" class="app-notebook-image"></p>
+<p>In the visualization editor - choose your visualization type and associated parameters and click on the <STRONG>Save</STRONG> button.
+That will save your graphic in to your notebook.</p>
+<p><img src="/public/images/scatter.png" class="app-walkthrough-image"></p><br>
+<p>The generated plot is interactive. If you hover over a plot - additional information is displayed.</p>
+<p><img src="/public/images/scatter-diagram.png" class="app-walkthrough-image"></p><br>
+<p>If you need to edit the plot - click on the <strong>Edit visualization</strong> button to edit the graph in the previous screen.</p>
+<br>
+
+<div class="govuk-button-group">
+            
+  <a href="get-started" class="govuk-button show-continue" style="display: inline;">
+    Finish
+  </a>
+  
+  
+
+</div>
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
