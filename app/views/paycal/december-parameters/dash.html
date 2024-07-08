@@ -1,0 +1,348 @@
+{% set serviceName = "Run the service administrator calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+  
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-full">
+  <div class="govuk-body account-info">
+    <div>
+        <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+  </div><br>
+
+
+
+    <h1 class="govuk-heading-xl">Calculate packaging payments</h1>
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+        <div class="govuk-grid-column-one-half">
+          <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+            <h2 class="govuk-heading-m govuk-link-"><a href="default-settings" class="govuk-link--no-visited-state">Default parameter settings</a></h2>
+            <p class="govuk-body">New runs will use these settings unless they are manually changed. Upload a file with the default values for payment calculations.</p>
+              
+          </div>
+        </div>
+      
+        <div class="govuk-grid-column-one-half">
+          <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+            <h2 class="govuk-heading-m"><a href="#" class="govuk-link--no-visited-state">Run a new calculation</a></h2>
+            <p class="govuk-body">The calculation will use the parameter settings that your account administrator set up, unless you upload a file to change them.
+              </p>
+              
+          </div>
+        </div>
+      </div>
+
+      
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <h2 class="govuk-heading-m">Filters</h2>
+
+    <form action="/form-handler" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <a href="#" class="govuk-button show-continue">
+     Apply filters
+</a>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="width-20">
+    Run name or ID 
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+</div>
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Classification
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+             Unclassified
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+              Play
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+              Error
+            </label>
+          </div>
+          
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Designated run
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="govuk-grid-column-three-quarters">  
+  
+          <h2 class="govuk-heading-m"></h2>
+          
+  
+  
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col"> </th>
+                <th class="govuk-table__header" scope="col"> </th>
+              </tr>
+            </thead>
+            
+            
+            
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+                    <a href="#" class="govuk-link govuk-link--no-visited-state">
+                      Alteration check
+                    </a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--grey">
+                    Unclassified
+                  </strong>
+          
+                </td>
+              </tr>
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+                    <a href="run" class="govuk-link govuk-link--no-visited-state">
+                      Test 10
+                    </a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+           Play
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    June check</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                   
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+            Play
+          </strong>
+          
+                </td>
+
+              </td>
+            </tr>
+           
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-3"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Pre June check</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+           Play
+          </strong>
+          
+                </td>
+              </tr>
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Local Authority data check 5</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Play
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Local Authority data check 4</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Play
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Local Authority data check 3</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Play
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Local Authority data check 2</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Play
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“#”>
+                    Local Authority data check</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Play
+          </strong>
+          
+                </td>
+              </tr>
+          
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“one”>
+                    Fee ajustment check</a></h3>
+                    <p>Run ID: 240009<br>
+                      Date: 28 June 2025 - 10:01<br>
+                    Run by: J Roberts<br>
+                  Status: Completed</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--yellow">
+            Error
+          </strong>
+          
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav class="govuk-pagination" aria-label="Pagination">
+            <ul class="govuk-pagination__list">
+              <li class="govuk-pagination__item govuk-pagination__item--current">
+                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                  1
+                </a>
+              </li>
+              <li class="govuk-pagination__item">
+                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                  2
+                </a>
+              </li>
+              <li class="govuk-pagination__item">
+                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                  3
+                </a>
+              </li>
+            </ul>
+            <div class="govuk-pagination__next">
+              <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                <span class="govuk-pagination__link-title">
+                  Next<span class="govuk-visually-hidden"> page</span>
+                </span>
+                <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                  <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg>
+              </a>
+            </div>
+          </nav>
+  
+        
+          
+  
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+  
+
+         
+      
+
+
+{% endblock %}

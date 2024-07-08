@@ -1,0 +1,58 @@
+{% set serviceName = "Run the service administrator calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="upload-file.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./loading-success">
+        <div class="govuk-form-group ">
+
+        <h1 class="govuk-heading-l">Default parameters file not uploaded – fix the errors and try again</h1>
+
+        <p class="govuk-body">Your data file has not been uploaded. This is because some of the data in your file is missing or in the wrong format.</p>
+
+        <h2 class="govuk-heading-m">
+            How to fix errors</h2>
+
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li><a href="../../../../../../public/files/packaging-data-Jan-Jun-2023-error-report.csv">Download your error report (CSV, 120KB)</a>. This tells you where the errors are in your file. </li>
+            <li>Use the report to fix the errors. You may also need the <a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility/packaging-data-file-specification-for-extended-producer-responsibility">file specification guidance (opens in a new window)</a>.</li>
+            <li>Upload the file again.</li>
+        </ol>
+
+        <h2 class="govuk-heading-m">
+            How the error report works</h2>
+
+        <p class="govuk-body">You should fix these errors and re-upload the file. If there are more errors, you may get another error report when you re-upload the file.</p>
+
+        <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+            Upload the file again
+        </label>
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+    </div>
+
+        {{ govukButton({
+        text: "Upload file",
+        preventDoubleClick: true,
+        href: 'confirmation',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

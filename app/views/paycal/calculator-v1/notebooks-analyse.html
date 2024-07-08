@@ -1,0 +1,460 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+            
+      <span class="govuk-caption-xl">Using R, Python and SQL in Databricks</span><br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        5. Analyse your data
+      </h1>
+    </legend>
+  </fieldset>
+
+
+    
+  
+<h2 class="govuk-heading-m"></h2>
+<p>Before you start - you will need your data loaded in to your Notebook.</p> 
+<p>If you haven't loaded it - this is explained in <a href="notebooks-loading-data">Load your data</a></p> 
+<br>
+
+
+
+<h2 class="govuk-heading-m">Filter your data</h2>
+<p>Filtering your data first - will improve your performance.</p>
+
+<link rel="stylesheet"
+
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script src="~/js/Support/code-highlight.js" asp-append-version="true"></script>
+
+ 
+<form action="/form-handler" method="post" novalidate="">
+   <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+         Contents
+      </h2>
+      <ul class="govuk-tabs__list" role="tablist">
+         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-day" id="tab_past-day" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+            Python
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-week" id="tab_past-week" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+            R
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-month" id="tab_past-month" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+            SQL
+            </a>
+         </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="past-day" role="tabpanel" aria-labelledby="tab_past-day">
+         <h2 class="govuk-heading-m">Python</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+               <code tabindex="0" class="python">
+#Load sample data
+spark_df = spark.read.table('samples.nyctaxi.trips')
+               
+#Filter trips starting zip 10001
+filter_df = spark_df[spark_df['pickup_zip']=='10001']
+                                          
+#Filter trips less than 5 miles
+filter_df = filter_df[filter_df['trip_distance']<5]
+               
+#Filter fares between 20 and 30 dollars
+filter_df = filter_df[(filter_df['fare_amount']>20.0) & (filter_df['fare_amount']<=30.0)]
+display(filter_df)</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week" role="tabpanel" aria-labelledby="tab_past-week">
+         <h2 class="govuk-heading-m">R</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="r">
+# Import required libraries
+library(SparkR)
+
+# Convert table to DataFrame
+spark_df <- tableToDF("samples.nyctaxi.trips")
+
+# Collect the DataFrame to the driver node
+df <- collect(spark_df)
+
+# Import required libraries
+library(dplyr)
+ 
+# Filter the DataFrame based on pickup_zip equals "10001"
+filter_df <- filter(df, pickup_zip == "10001")
+
+# Filter trips with distance less than 5 miles
+filter_df <- filter(filter_df, trip_distance < 5) 
+
+# Filter fares between 20 and 30 dollars
+filter_df <- filter(filter_df, fare_amount > 20.0 & fare_amount <= 30.0)
+
+# Display the final filtered DataFrame
+display(filter_df)
+</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month" role="tabpanel" aria-labelledby="tab_past-month">
+         <h2 class="govuk-heading-m">SQL</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="javascript">
+SELECT 
+   * 
+FROM 
+   samples.nyctaxi.trips
+WHERE
+   pickup_zip = '10001' 
+AND 
+   trip_distance < 5 
+AND 
+   fare_amount > 20.0
+AND
+   fare_amount <= 30.0
+</code>
+            </pre>
+         </div>
+      </div>
+   </div>
+</form>
+
+<br>
+
+<br>
+
+
+<h2 class="govuk-heading-m">Sort your data</h2>
+<p>Sorting your data will help you view the records most important to you.</p>
+<form action="/form-handler" method="post" novalidate="">
+   <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+         Contents
+      </h2>
+      <ul class="govuk-tabs__list" role="tablist">
+         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-day1" id="tab_past-day1" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+            Python
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-week1" id="tab_past-week1" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+            R
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-month1" id="tab_past-month1" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+            SQL
+            </a>
+         </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="past-day1" role="tabpanel" aria-labelledby="tab_past-day">
+         <h2 class="govuk-heading-m">Python</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+               <code tabindex="0" class="python">#Sort trips by distance (Lowest First)
+sort_df = spark_df.sort('trip_distance')
+                  
+#Sort trips by fare (Highest First)
+sort_df = spark_df.sort('fare_amount', ascending=False)
+                  
+#Sort trips by Pickup Zip (Highest first) then Date (Earliest first)
+sort_df = spark_df.sort(['pickup_zip', 'tpep_pickup_datetime'], ascending=[False, True])
+display(sort_df)</code>
+                  
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week1" role="tabpanel" aria-labelledby="tab_past-week">
+         <h2 class="govuk-heading-m">R</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="r">library(dplyr)
+                  
+# Sort trips by distance (Lowest First)
+sort_df <- arrange(df, trip_distance)
+                  
+# Sort trips by fare (Highest First)
+sort_df <- arrange(df, desc(fare_amount))
+                  
+# Sort trips by Pickup Zip (Highest first) then Date (Earliest first)
+sort_df <- arrange(df, desc(pickup_zip), tpep_pickup_datetime)
+                  
+# Display the sorted DataFrame
+display(sort_df)</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month1" role="tabpanel" aria-labelledby="tab_past-month">
+         <h2 class="govuk-heading-m">SQL</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="javascript">-- First Example: Order by trip distance
+SELECT 
+   * 
+FROM 
+   samples.nyctaxi.trips 
+ORDER BY 
+   trip_distance 
+;
+
+-- Second Example: Order by fare amount decending
+SELECT 
+   * 
+FROM
+samples.nyctaxi.trips 
+ORDER BY 
+   fare_amount DESC
+; 
+
+-- Third Example: Order by pickup zone followed by pickup datetime in decending order
+SELECT 
+   * 
+FROM
+samples.nyctaxi.trips 
+ORDER BY
+   pickup_zip,
+   tpep_dropoff_datetime asc
+;</code>
+            </pre>
+         </div>
+      </div>
+   </div>
+</form>
+
+<br>
+
+<br>
+
+
+<h2 class="govuk-heading-m">Aggregate your data</h2>
+<p>Aggregating your data will help to get a broader perspective.</p>
+
+<form action="/form-handler" method="post" novalidate="">
+   <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+         Contents
+      </h2>
+      <ul class="govuk-tabs__list" role="tablist">
+         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-day2" id="tab_past-day2" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+            Python
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-week2" id="tab_past-week2" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+            R
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-month2" id="tab_past-month2" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+            SQL
+            </a>
+         </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="past-day2" role="tabpanel" aria-labelledby="tab_past-day2">
+         <h2 class="govuk-heading-m">Python</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+               <code tabindex="0" class="python">
+#Get mean of all fields per Pickup Zip
+agg_df = spark_df.groupby('pickup_zip').mean()
+                  
+#Get count of all fields per Pickup Zip to Drop off zone
+agg_df = spark_df.groupby(['pickup_zip', 'dropoff_zip']).count()
+display(agg_df)</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week2" role="tabpanel" aria-labelledby="tab_past-week2">
+         <h2 class="govuk-heading-m">R</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="r">
+#Load dplyr library
+library(dplyr)
+                  
+#Get the mean of all fields per Pickup zip
+mean_spark_df <- spark_df %>%
+   group_by(pickup_zip) %>%
+   summarise(avg_fare_amount = mean(fare_amount, na.rm = TRUE),
+      avg_dropoff_zip = mean(dropoff_zip, na.rm = TRUE),
+      avg_trip_distance = mean(trip_distance, na.rm = TRUE))
+                  
+#Get count of all fields per Pickup Zip to Drop off zone
+count_spark_df <- spark_df %>%
+   group_by(pickup_zip, dropoff_zip) %>%
+   count()</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month2" role="tabpanel" aria-labelledby="tab_past-month2">
+         <h2 class="govuk-heading-m">SQL</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="javascript">SELECT 
+   pickup_zip, 
+   dropoff_zip,
+   COUNT(*)
+FROM
+   samples.nyctaxi.trips
+GROUP BY 
+   pickup_zip,
+   dropoff_zip</code>
+            </pre>
+         </div>
+      </div>
+   </div>
+</form>
+<br>
+
+<br>
+
+
+<h2 class="govuk-heading-m">Join your data</h2>
+<p>You will be able to join multiple datasets together.</p>
+
+<form action="/form-handler" method="post" novalidate="">
+   <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+         Contents
+      </h2>
+      <ul class="govuk-tabs__list" role="tablist">
+         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-day3" id="tab_past-day3" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">
+            Python
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-week3" id="tab_past-week3" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">
+            R
+            </a>
+         </li>
+         <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#past-month3" id="tab_past-month3" role="tab" aria-controls="past-month" aria-selected="false" tabindex="-1">
+            SQL
+            </a>
+         </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="past-day3" role="tabpanel" aria-labelledby="tab_past-day3">
+         <h2 class="govuk-heading-m">Python</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+               <code tabindex="0" class="python">#Append two data sets together (Combining the filtered dataframes of Zip=10065 and 10009)
+part_1_df = spark_df[spark_df['pickup_zip']=='10065']
+part_2_df = spark_df[spark_df['pickup_zip']=='10009']
+merge_df = part_1_df.union(part_2_df)
+                  
+#Join two datasets (Joining the maximum fare found with the full listing of fares)
+max_df = spark_df.groupby('pickup_zip').max().select(['pickup_zip', 'max(fare_amount)'])
+join_df = spark_df.join(max_df, on='pickup_zip', how='inner')
+display(join_df)</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week3" role="tabpanel" aria-labelledby="tab_past-week">
+         <h2 class="govuk-heading-m">R</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+               <code tabindex="0" class="join-r">#Load dplyr library
+library(dplyr)
+                  
+#Append two data sets together (Combining the filtered dataframes of pickup zips =10065 and 10009)
+part_1_df <- spark_df %>%
+   filter(pickup_zip == "10065")
+part_2_df <- spark_df %>%
+   filter(pickup_zip == "10009")
+merge_df <- union(part_1_df, part_2_df)</code>
+            </pre>
+         </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month3" role="tabpanel" aria-labelledby="tab_past-month">
+         <h2 class="govuk-heading-m">SQL</h2>
+         <div class="app-example__code" data-module="app-copy">
+            <button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>
+            <pre>
+                <code tabindex="0" class="javascript">SELECT
+   T1.pickup_zip, 
+   MAX(T1.fare_amount)
+FROM
+   samples.nyctaxi.trips T1
+INNER JOIN
+   samples.nyctaxi.trips 
+USING 
+   (pickup_zip)
+GROUP BY 
+   pickup_zip</code>
+            </pre>
+         </div>
+      </div>
+   </div>
+</form>
+
+
+<br>
+
+<div class="govuk-button-group">
+            
+  <a href="notebooks-visualise" class="govuk-button show-continue" style="display: inline;">
+    Next - visualise your data
+  </a>
+
+  <a href="notebooks-learning" class="govuk-button govuk-button--secondary" style="display: inline;">
+    Back to Using R, Python and SQL
+  </a>
+  
+</div>
+       
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
