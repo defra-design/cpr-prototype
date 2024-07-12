@@ -2,7 +2,12 @@
 
 {% extends "layout.html" %}
 
-
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
 
 {% block pageTitle %}
     {{serviceName}} prototype
@@ -10,7 +15,11 @@
 {% block content %}
 
 
-
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form class="form" action="accept-prn" method="POST">
+       
+        
        
           <svg width="650" height="80" viewBox="0 0 650 80" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0003 57C7.61682 57 0 49.3825 0 40.0003C0 30.6168 7.61682 23 17.0003 23C26.3832 23 34 30.6168 34 40.0003C33.9993 49.3825 26.3825 57 17.0003 57Z" fill="#7D9B21"/>
@@ -105,64 +114,55 @@
             </defs>
             </svg>
 
-            
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="confirm-2" method="POST">
-       
-          <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-            <div class="govuk-notification-banner__header">
-              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-                Success
-              </h2>
-            </div>
-            <div class="govuk-notification-banner__content">
-              <h3 class="govuk-notification-banner__heading">
-                PERN accepted.
-              </h3>
-              <p class="govuk-body">170 tonnes credited towards your paper and board recycling obligation.</p>
-              <!--<p class="govuk-body">1900 tonnes left to meet your paper and board obligation.</p>-->
-            </div>
-          </div>
-
-        <h1 class="govuk-heading-l">Packaging Export Recycling Note</h1>
+        <h1 class="govuk-heading-l">Packaging Recycling Note</h1>
 
         <div class="govuk-inset-text app-inset-text">
           <div class="govuk-heading-m">
-            PERN number: <strong>EX4545452025</strong></div>
+            PRN number: <strong>ER454545540M</strong></div>
           <div class="govuk-heading-m">
-          Year: <strong>2025</strong></div>
+          Year: <strong>2024</strong></div>
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              This PRN relates to waste received in December 2025. It can count towards your 2024 or 2025 obligation.
+            </strong>
+          </div>
         </div>
        
-
         <table class="govuk-table">
-        <!--  <caption class="govuk-table__caption govuk-table__caption--m">{H2 Title}</caption>-->
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
           <tbody class="govuk-table__body">
     
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Status</td>
-              <th scope="row" class="govuk-table__header"><strong class="govuk-tag govuk-tag--green">
-                Accepted
+              <th scope="row" class="govuk-table__header"><strong class="govuk-tag govuk-tag--grey">
+                Awaiting acceptance
                 </strong>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Status meaning </td>
-              <th scope="row" class="govuk-table__header">The producer or compliance scheme accepted the PERN. </th>
+              <td class="govuk-table__cell">Status meaning</td>
+              <th scope="row" class="govuk-table__header">The reprocessor issued the PRN to the producer or compliance scheme. The producer or compliance scheme has not yet accepted the PRN.
+              </th>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Issued by</td>
               <th scope="row" class="govuk-table__header">Recycling Ltd
               </th>
             </tr>
-           
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Reproccessing site</td>
+              <th scope="row" class="govuk-table__header">23 Ruby Street, London, NW N32
+              </th>
+            </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Authorised by	</td>
               <th scope="row" class="govuk-table__header">John Smith
               </th>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Packaging producer or compliance scheme	</td>
-              <th scope="row" class="govuk-table__header">EX123452025
+              <td class="govuk-table__cell">Accreditation number</td>
+              <th scope="row" class="govuk-table__header">ER123456789
               </th>
             </tr>
            
@@ -172,18 +172,18 @@
         <br>
 
 <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">PERN details</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">PRN details</caption>
   <tbody class="govuk-table__body">
 
   
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Date issued</td>
-      <th scope="row" class="govuk-table__header">20 November 2025
+      <th scope="row" class="govuk-table__header">01 December 2025
       </th>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Relates to waste received in December</td>
-      <th scope="row" class="govuk-table__header">No
+      <td class="govuk-table__cell">Relates to waste received in December?</td>
+      <th scope="row" class="govuk-table__header">Yes, can count towards 2024 or  2025 obligations
       </th>
     </tr>
     <tr class="govuk-table__row">
@@ -213,10 +213,10 @@
 <br>
 <br>
 
-         
+       
 
-          <button class="govuk-button" formaction="view-awaiting-acceptance-alt">Accept or reject more PRNs and PERNs</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download this PERN</button>
-          <p><a href="manage-prn-home">Manage obligation home</a></p>
+          <button class="govuk-button" formaction="accredit-address">Accept this PRN</button> <button class=" govuk-button govuk-button--secondary" formaction="reject-prn" style="margin-left: 20px;">Reject this PRN</button>
+          <p><a href="#">Download this PRN</a></p>
     </div>
   </form>
   </main>
