@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Where does your organisation trade?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="org-type" onsubmit="return myFunction()" method="post">
+
+            <script>
+                const form = document.querySelector('.org-type')
+
+                function myFunction() {
+                    const checked = document.querySelector('[name="businessType"]:checked')
+                    const checkedValue = checked.value
+
+                    switch (checkedValue) {
+                        case 'UK Organisation':
+                            form.action = 'company-registered-question'
+
+                            break;
+                        case 'Non-UK Organisation':
+                            form.action = 'non-uk-organisation'
+                            break;
+
+                        default:
+                            form.action = 'company-registered-question'
+                    }
+                    return true
+                }
+            </script>
+
+
+            {{
+ govukRadios({
+        idPrefix: "businessType",
+        name: "businessType",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+            text: "If you work for a multi-national organisation, register the office which will be responsible for this service."
+          },
+        items: [
+          {
+            value: "UK Organisation",
+            text: "UK (registered in England, Wales, Scotland or Northern Ireland)",
+            checked:  checked('businessType','UK Organisation')
+          },
+          {
+            value: "Non-UK Organisation",
+            text: "Non-UK (not registered in the UK)",
+            checked:  checked('businessType', 'Non-UK Organisation')
+          }
+        ]
+      })
+            }}
+
+            {{
+ govukButton({
+        text: "Continue"
+      })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
