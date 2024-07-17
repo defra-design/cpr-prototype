@@ -1,31 +1,39 @@
-{% set serviceName = "Run the service administrator calculator" %}
+{% set serviceName = "Run the fees and payments calculator" %}
  
 {% extends "layout.html" %}
  
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <div class="govuk-body account-info">
-      <div>
-          <span class="your-name" id="bannerUserName">Franklin Bridger-Curtis</span><a class="account-link" href="details" id="signout-link">Sign out</a>
-      </div>
-    </div><br> 
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="upload-file.html">Back</a>
+    </div>
 
-        
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-    <span class="govuk-caption-l">F Bridger-Curtis 11 July 2025 9:35</span>
-    </legend>
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+   </div>
+<br><br>
+
+
 
   
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-heading-xl">New default parameter settings</h1>
-
+        <span class="govuk-caption-l">Last updated by Jamie Roberts at <strong>10:31</strong> on <strong>28 June 2025</strong></span><br>
+        <h1 class="govuk-heading-xl">Default calculator parameters</h1>
+ 
         <h2 class="govuk-heading-l">Operating costs</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -37,7 +45,7 @@
               £250.00
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="ch-operating-costs">
+              <a class="govuk-link" href="up-operating-costs">
                 <span class="govuk-visually-hidden"> address</span>
               </a>
             </dd>
@@ -114,7 +122,7 @@
              £115.00
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="ch-la-data">
+             <a class="govuk-link" href="up-la-data">
                <span class="govuk-visually-hidden"> address</span>
              </a>
            </dd>
@@ -189,7 +197,7 @@
              £325.00
            </dd>
            <dd class="govuk-summary-list__actions">
-             <a class="govuk-link" href="ch-scheme-costs">
+             <a class="govuk-link" href="up-scheme-costs">
                <span class="govuk-visually-hidden"> address</span>
              </a>
            </dd>
@@ -267,7 +275,7 @@
          5.25%
      </dd>
      <dd class="govuk-summary-list__actions">
-       <a class="govuk-link" href="ch-bad-debt">
+       <a class="govuk-link" href="up-bad-debt">
          <span class="govuk-visually-hidden"> address</span>
        </a>
      </dd>
@@ -288,7 +296,7 @@
      £2210.00
    </dd>
    <dd class="govuk-summary-list__actions">
-     <a class="govuk-link" href="ch-communication-costs">
+     <a class="govuk-link" href="up-communication-costs">
        <span class="govuk-visually-hidden"> address</span>
      </a>
    </dd>
@@ -415,7 +423,7 @@
 </dl> 
 
 
-<h2 class="govuk-heading-l">Ghost tonnage</h2>
+<h2 class="govuk-heading-l">Late reporting tonnage</h2>
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
    <dt class="govuk-summary-list__key">
@@ -425,7 +433,7 @@
      70
    </dd>
    <dd class="govuk-summary-list__actions">
-     <a class="govuk-link" href="ch-ghost">
+     <a class="govuk-link" href="up-ghost">
        <span class="govuk-visually-hidden"> address</span>
      </a>
    </dd>
@@ -530,83 +538,11 @@
     </a>
   </dd>
 </div>
+
+
 </dl>
 
-<h2 class="govuk-heading-l">Levy costs</h2>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              England
-              </dt>
-            <dd class="govuk-summary-list__value">
-              £250.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="up-operating-costs">
-                <span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Wales
-              </dt>
-            <dd class="govuk-summary-list__value">
-              £140.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                <span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-
-        
-          <div class="govuk-summary-list__row"> 
-            <dt class="govuk-summary-list__key">
-              Scotland
-              </dt>
-            <dd class="govuk-summary-list__value">
-              £170.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                <span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            
-            <dt class="govuk-summary-list__key">
-              Northern Ireland
-              </dt>
-            <dd class="govuk-summary-list__value">
-                £90.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                <span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            
-            
-            <dt class="govuk-summary-list__key">
-              Total
-              </dt>
-            <dd class="govuk-summary-list__value">
-              £650.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                <span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
 
         <h2 class="govuk-heading-l">Materiality trigger</h2>
 
@@ -678,24 +614,17 @@
           
         </dl>
 
-
-
+<form action="/form-handler" method="post" novalidate>
+  <input type="hidden" name="answers-checked" value="true">
 <div class="govuk-button-group">
-  <a href="confirmation" class="govuk-button" type="submit">Save new settings</a>
-  <a class="govuk-link" href="list-full2">Cancel</a>
+  <a href="upload-file" class="govuk-button" type="submit">Upload new default parameters</a>
+  <a class="govuk-link" href="dash">Return to the dashboard</a>
 </div>
+</form>
+
       </div>
     </div>
-  </main>
+  
 </div>
-
-</fieldset>
-
- 
-      </div>
-    </div>
-  </main>
-</div>
-
 
 {% endblock %}

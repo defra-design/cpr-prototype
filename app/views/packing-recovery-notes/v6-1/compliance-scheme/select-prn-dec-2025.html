@@ -3,18 +3,13 @@
 {% extends "layout.html" %}
 
 
-
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <form class="form" action="accept-prn" method="POST">
-       
-        
+
        
           <svg width="650" height="80" viewBox="0 0 650 80" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0003 57C7.61682 57 0 49.3825 0 40.0003C0 30.6168 7.61682 23 17.0003 23C26.3832 23 34 30.6168 34 40.0003C33.9993 49.3825 26.3825 57 17.0003 57Z" fill="#7D9B21"/>
@@ -108,111 +103,123 @@
             <image id="image1_7432_85976" width="300" height="51" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAzCAYAAAAtijWPAAAgAElEQVR4Ae1dDZxdRXW/6wfFr1oVtSqwwVrxq1q11lalxob3FhQiye7bOTOzwbQUtH5VNCiIypdFa+tXVRQkQT4Es5sAfmFVICG7waCIUq18EwT5pkLISwKYZMv/zJz7zr1739v33r5dqN79/fY3992ZOTP33Ln/OXPmnDNJMst//RNb9p83Xv9e/0R9y7yJ+k39E1u+8LwNW3ef5WZL8iUHSg6UHGifA3tNPLD3vPHNa+dN1Cen/I/Xt/Wv33zCcy+ffGL7FMuSJQdKDpQc6DEHdr908un9E1u+2D9e3z4FqHLg1T9R/82e4/UlyeRkX4+7UZIrOVByoORACw5MTj62f2Lzu/snNv/vdECVz+8fr1+++6Vb/7oF9TKr5EDJgZIDveHAHuu3/d28ic1X5YGok9/9E/Wd/RP1s/rXbXlOb3pVUik5UHKg5IDiwF7rt/XPG998XifANF1ZVs6v33LMvDWTu6qmysuSAyUHSg50x4FnXzn5pHkT9U/MG68/MB0AdZ0/Xr953njddtfDslbJgZIDJQcmJ/v2HK8f3D9ev61rIMop3qelM17f0P+jLa8qmV9yoORAyYG2OQDQgHJ8WoDpFJDaKA/91ryJ+tceCf1WrVZ7MhH9FdHIfGPMC9tmWBsFjfEHGHInk3UXGev+yxjzsjaqzUkRY/3HyLq1Nef+ciYNWmufPTzs/g58bEWHiF5prX1pqzKPtjxj3D+DR8b644499tjHdNs/Y9xipuPcwR3S6MOYHLb2ICL3IePcwcb419RqtV06pPP7Uxwg0T9ePyOCxlSbqjYAp1cg1z++eXP/+JajX3Dd5B/NJodrtdrTjfVfMuR/TdZPZv7JbzDWHz1//vzHzaQPxvr3ZeiiHfJjM6HZSV0MamP9kcY4n68H4Ej7Rn5dPr/d39wGuesDLfdba+2LiuoCuFHGkNtuzEjX0vSwtYP48InckqJ2enlvsfe7pzyyftJa+8Zu6C9dunRXQ25zeH6/pVarPaEdOtbaCll3k+6DXBtyDxjrPrf//vvP6nfSTj/nrAxAoX9iy4cBEr0CnJnS2WPdfVueMDaxJjl11TXJ8jE/G/ZbxpgXE7lb5eU3T91FM3kZZN0vc7TvGR52+86EZid1idwJ0v7wsH+9rjs87N4keYb8dTqvk2tIjEIHqSF3zcKFC5+Sp2Gs/0pajtxH8/nt/jbk7gvt8If/2HbrdVMOExaR3xCf63rn3NO6oQPASp/d+slFiw5+xnR0iNxSQ24nWXc3kVu2ZMmSJ0kdgLYh/9NA0/0gSZLffxvH/vGti/rH6zfOFGB6Wf9p3/zF+mTF6luTFasmG/9jP0tWrHqtvKyZps655xty/6sHEFlfJ+suM+RvDIOkIXE55/q7bdOQ2yrtDDs30C2dbusR+XOlfWPcuzWdXgEWlnnShqSG3Pm6LVwT+VMkn8gdm89v5/dhhx32+JQGf/hLntVOvZmWASjPZDnYKWBFNQLA6sparfbMZv3HhITJ5vdaymrpTjOHSz8NdM+58Nar+04//xcNkNKAJddj5yannTev2ctr9z5ZN64G/Q7oBXRdItrDWHcWlyF/ruRhaUXk1xjj/0buSYrlJZH/JpH/mgweIv8u1c6kMf7f8KESUeYZeLlg/TuNdRezjoP8hUTukFY6itBH/6WgW3HnDFv/gbzubZjcR3h2jstdDOy4lOLnhb5O+mesvzpIE24JkTvNWHce6k+nk8LzFwFW5N27hD+hXDFg8cdM/lBD/gIit5GXjEGyuEwvwSC1AQilz7GN9XimmnNskLx4ZOQ5hvxvMAHVav4vdPvGmD8j636Lf0xakmes+ypoQZ8HCYrIf4+s3yZ6vcBHXsp/TepIimc35FbLJIe+k/Vn1mr+JVIGaSeABVAOz+DuaEcSk3aCDpZeJ7+LUmPtP4j0SzSyD+qgHBE9d9jaYWPs+2vW/m2tVksl10WLljwL+rdh6z9ojKtpSQ91MRErvWQffhvjDkMe1ANEI28p6ktod+Qt+XGblt1tYvIp/eP1T2ugeKSvd7/k3jsf//UfjLcGKgGsVZPJ8lW/S1asOi45drIr5ScRvTY74N0xKYNaXEDKknoQxfNF9dIrKEWhYG1IaZlr8unAt9b+PVl/Zya/Ue8WGVC6PWPt28n6h/J18NFgUKEsf3gNOln9nPWTGLQasMi6GwJgZvvczuzdFLCsf8iYkVdI35tJWPjA88+if4v+DR+Bvp+5Jv89tEPk3iv3DbkvSNtIoTSXPJHwvPd/LPegYzLkvp3+tu5zTJNBLvAFE5PQ1O9c6kjKAEbuECnbCWCxcp0B1B4h9dtJjXXfwliSCTNfB+CP/oE+8gz5HxvrLiHy7wiTBJaY7m6UwRgHMGEiDM/krsUYide/rNVqzxP60LEBtMOk7a4IZfw9Bx544BONdaeDppTNp2TdHZjk8/cT9v0b33z3Iw1Q0n7/+ObJJ6/ecEmyYmxT22CVWSau+vcpD9nGDSJ3TGQoZtR7m73cPClIGobcg1JXZt9Yro+sv0XyoKPCjAOlqNzTqbH+nagHhWqckQVQ6jyIsvXqui1jHGlaaNeQvz1zj0YWYvliyP8ic78haf0c+VnAygJVph65w/P80L/Rv0Z5d4eBhChgSW7jQQct/ROUbwpYcdkKKS9IjEh1f9zdeE/4SIz1/53N43L3DDv3ZrQxbP1RaT65M3Q/jfX/IXnG+s8ir1ar/anci+mO9Dd5hzL6vYtkxtK26mMAO/9jXRZ0oGsCjU4Ay1j3adTNS2n6WYquifwi7jv5Q4vyjXXnGPJbACTIBygZcncZ636mASjsikLidJdD0tPjr+bcq6FOMdb9UNpAmQD0btyQ/5Ux7q3yXRH5r0PnKGXzKVl/D1Yz+fvJwvPe9sFX/vCHPxXAeCTTp3/n6kuT01bf2CVQiW5rZ7L8m8+d8qDT3DDWrVADcs00xTPZRH651DXW/6dkEvkF6X1y12sFKFmffgC12pI9pQ7rYsjdLPXI+rNlCYgPnGe+BsD8CPWQzzOSfCjklkV6fUTu34UWQE/aaaXDmgJYZE+E+F+z9g2N2ZQB4WyhV5TmActau1sGRFPpp3hJiOet1UZeoGkHwPdb5JmwTEH+dDqsHgAWLw31skeDEAALy7TMZETuDNlNhmSbfXc8HjoCLJE4Zemm+TLNdR82PAD8egyiDt4JpHItdUal/Y6iXV0iv555T/4d+TaJ3PHIE91uBKwHMe4gseryXQMWjVZvtKMDkwet9htetOaqjY8EYD3v4juuf+zXvnXZDIFKAGsyOW2MJRXNoOmuNWBBjJ2uvM7nnUUBEevvxceD/CD2RokgJ400Ayys6+VjJOuu1ToD0IROQX8UWOcb46tSBx+F7hvqa/OMWq321ECnudJdAxakTa1UNtYeIW1B56fbyl/nAQv5AfQaYA3dSDMJK/STngv9CJa01vq3sW7IulXSh2Fr2Rti1gGL3L/mny8PWNADSb+M9f+j+cbPDklQSeNYFncoYZ0O+nr5me9Ts99E/h+5bzm9EXYZcR96PKnLgEVuo/zWKcx9Qh+yujiUgQQVaPn9+XeQsLYX6aK6Biy7cmAHAAv/NFr93X7nL1vz/HV33TcXwLXnJffdu+s5F69JVoxt7xlYheUh6xg0o6e7JrIn8gtl4HFXTVc+n68V9hD340Dcxi+Q/JYpM0wTCYvIHZ72g/zX8+3gNxT8qswQkT80/S1SVpNU7JzalbAwM+s+ADzStsiv13n56yLACv1Xy2/YXqXb8FBgN3YJIbmK0jptM/dcAAnQnH3Aym6IoE0NPrzDjM2X2D9MgHl+hGePEgrKkV/UGWD5T4F+0eZOUVv6Xtw4uRX6SH0fkyIMl/W98D7cpfqeXBvrP44+FIEmK+u5f66G8rxB0AT4ugYsGh3YLoAlKY0O3LXPBV9e27/u/mljWnUDbHuuq29/6nlXrE1WjN3dY6ASKeskYXC7KdHIQhlsnBK9st26/HLUh8zrdnJLUnrkv5yn1UzCgh4rrWfZjiZfFYC1Li1DIwtZ8sh9yGm+um/I/0gktlaApc0aMKB1B4j8kNAGPZ2Xv84p3e+UfNaTZXdkRVeXAlaqd5H+Y9nNO6n2RJiYpH1oE7C0bslYNyp9QWrIndSg5z6Ne9hVlHtIRb+Tq5fqLiNgNd4d+e/osnKt9YfW2v06ASzhvV6+Cd12UlGUW2tfjvLynrHTp+sTuSuavdtWgAWPBuYZeQN6vCTMSfzSTtxt3yS/82nUh03VYRUBlgDX8OgB173yhxf/rBtQalbnWd/feGWyYvV1swRUXQMWBiQUfekgJfcTUQprZsLIEopFY/0n9H2ZwVCfFebkfiK0sGTUZXHdDLDi7iB/wIbc74iy29G12pK9lA3XDiiHMeOmbZH/Vb6tot9Y9qZ1WthhzQZgoT9BqR12nqQfnEYJi8h/We7jQ9PPAPMKyRMJi/kv4Gb9JAAnV0ftEvpf6+Ualm8NesWAldf9gHZewmLzgdgHLNuhiM72oTEp4t1Cr9UJYGE5D7MM0HbO/bmm3c41rOhhuiHK7Khsv13zAnR6DFjfKupbcEljSW2KyxbvKuI7KlK6twIsAa5Fq5dcuvfaa2ek3+qfuH/j48743vpZBqoAWMvHvlTEpOnuYRtXBi6n5DbiY8FOE3QoetmH/Cn2PNYfnanPgzcrbksfmgFWBL6NQge7N8b692BwY5dR7zpSY7eLlapSBx87BidAGLYvbCNGbjtmQGlf69eCRDgyHyCCfJl5A73eS1jSB70p0eh7WBJCilD3Uut3gAJ4InkCWKAplu6cR+4M6OLkY8Q7lDohdVcRuc9j90rfx04caOUlrHYAC/VIT1QwDib3YW47qBzSjRYsd1G+E8CK9FnnNJ3hqDHuX7DTl1+6QTEOsIT+DMp22JKBrv6bC8BKdWfWvl23jWtxW+sasABcNDrwwH7fOvKi54/fs6mZ9FR0v3+8Xk/9/05b9aJk+diFcwBaHS8JhWmQnPQAbnYNRTZ2zqQeUgwOrRBHXbFt0eVw3QywkMcGdsHQsLFUUtJD6JO7EiAmdINvWUOZXdRvbEtL+cyuWUMquAYfeK8AC0sP1Y/bpG2d6l1MlIWRJvLFv5DvkdtpyE8U+c7Btk3oQfJV7QXeRWU5ADyzQ5nlJ+sauS45NovBu9W0pA2dKkk33RnDrmZmxzbbTpCcrbtcNj/CDm/DVKNIqtdt4rqxQeTuZid1GtkHwAdQZdVGdBkCqAlgCw1Yx0dbvVuwEoBzuuRJOheAxaYobN/mt2BDAGMZhtOYnKOR8NYZAZZIWzQ6cMcbLvjq2j0nNu8oAii5FyOInlkYYWHF2AHJ8lXXzCJwdQ1YeGlhl0yM4RqDKX48D2CnRAacvGRJteRC5G7OD5hGudRu6E5IVXJfUpaM9BK1ASo7sSQqsjTHDmNGylAfC/ql9TD4MKb4TAYFaR8ce8UOzFi3SvqEVPsHwgdQ5+WvYXMjZhDgWT4fv/Hsarv/Ib2MInIfzSvd0R/RowSr9YZJCOyTpoBFRokP4+D8e3UXRb7txCSipdBUWlJeDfoZ0JcAallgwLY+om9owIvXO8Az/R5Aj6z7Aee372gOc5Xjg3V+dnyCDi9VyS9vZv5A5L7I5aw7Rz+PXAevh2BwK/ckDSsN/1D+GZAfpbZJjF3+HaTXM6VuPg18b0jLoU/+fpiqsCtc0ZhpZ0koYKXT2tgBV73iwkuuEIDSaVsx2teseVyyfNX7k+Vj980CcM0IsMBYNgcwfv+g6IXbDP79O4oGAWxZRJEZwrKkpgxiD5V/V0mtNrI3aOoPNF+IjVJhEEruWEhEkKKaAaXUDTOVW6r6/aH80lXKYrYNM7Q7FuYKACrJM+HZj8kvKZCPXVAsJYoGrdSXlJdWNDK/CJSlDFuVE5akU7fKgwuHfwc2I8QuCO8GO1J5Gy3QY1svmBfA/Snn6oR89ANLayw7tLU9djTzfIJdFSavZs8JmyzkF/EIbQX9onsrf+TkF+R3iuX58Z5Bpx3pSupE+rsQeaPeNcbpIUVjVNdDNAuAQ97pXcrADKGId8jnJezDS20pm08BQrJ8xqZLfhWSL8/g7tzBmJxY6idiG8oYJif1HkjrdQtYAl6LVr9tYu+1N97EgDVev33e+vrSjqIonPzt3ZIVY1/psWnDjAErZVAbFzwjKWkmznL3FUlBbZAri5QcmDUORMX7TWSLzRZmreFeEZ4pYDFwraxu2//8w8994Zqzd+u6X0cdtTg5+SxEX5CdvpmkcwpY7JybAyyK7htd86OsWHKgRxyIvpJ3snsT+V/DZCAvTfaoqdkn0xPAEsPTldVbaXRgSTLZQQyeA+fvlgxWlydD1R3JUHUyef/7xpPlozfNELjmFLAggmPHLu7GndSNYd/sv+myhT9UDmDpjCU/O0GTO366Zdqjmk+9BCxZJtrR6uW0qto6TtWrX/34ZLB6RDJU3cRABbCS/9p+25ITTrzoYR3X/V0C15wC1qP6BXfROTgDwyJadEZdkCirPLIcQOjk1NVmrruCXT9x5O9527MDWOzms9OurJ41snogY8DHDzBUPSAZrFybApQAVT71C29PPvuVS5LlYzs6BK6OASs4rrIFNba4z9ROrprpWOrFHZaLxWpc57d7zTZfDzspN9tFbJdOr8tBEYvni8+Yet7n24nb97+VsvkUZh8IJd1MeZunV/7uHQewKcLvI8a0KqIcNhTcRii7i/LlHk9e5C+Q3+2kmOwQPaOdsh2XmS3AEmmLRge20Fj1mKWnzd81qQ28IBmqXDgtUOWB65CR/0lOPvvnHYBWx4CVdYlhK9vMdr4wFrYt8nFKpADJazdNB1SwO3pPu/XmotywtQfK88GnrFmbxga/NinbLIW+pJTUmnFxdu7DTYjfR4FLmLQo/qfG+vubTby8e4n4ag0DZaneMv1/DVgArsGzBu5/2qGV7ySDld91DFYavN5/+ERy6ugtbQBXN4A15VCIIrE2xGYSswW/oOWba5KZNX0IFs9Nis757fYBy30uBSmOge/WRvuddfgI0jxIa9M4Sc/5Q/4BNIiQLrDTamZOEu3EONhjs7MExPwB5jSdsOz/LWCZldXtL/5IZW0yVLlnRkClQWt4/63Jxz95cbJirN4CuHoCWBwnSEXGxEtrBliw42EpjdxnOCQyn97ix+Dgql92OORCR1twVwQ7mhAUDmWD469bq624hQYOIODdHuPeKveCgaY/Ey42bG1vRl6FOFowsJQyHNaF3OF8GpB13w3ggo2CEApXynUJWF+U+kixzI3RT1NL/fwRZhwWh2OQ8Sk3ZyAiqI4LpulheR6Wl/5cDjuMiAHkF0gYH12WraXZrScAKPtMFtgNsV9eCF09hq1+TQNK6RiWGQa6HBKYLeU50J07H/ZSsBMi8t/A5KPr4hquOCHKZ+wDGxpn43qhHGya4ELD7xPvhNwJ8CXN08PvYIzKusXvwgI8hOVu7qAf6HJkh2qeHjaJor8r4lc9BFeufBn8jiGh71Q82IV9XeHCxnaJ7r1FCvwWgNWHcMtiN9Zqcwqhrdm9yLh3w/MiVZ3M1pLwjZ+vXPEYU51eT6XBqJPrkYNuSz5/CkIo7ywArl4BFqIHbNSGeEWABQPEvEW2ljAQDUAGRMFpOelHHcGjT0ko2yRCI+rDgFEcbhGnSgz0dIjgeAJN6sTN8cpVhAXdL1yj3xgY0r9eAJbQyrjCkF8k93nAqvA60qfg7O2WSjmkcPLN0FHmI/klawxN3PDXy5a9QL/H2IfAe3Lv1W1qP8Zh60eQxy4jQo/cF7VHgQAtJou8v6k8G6zoEbtf2gljhmPMN96/0LfuB9HVhotjApP3ruhxPRznJTR1GkDXbS8Kc4OJEHTQb0TtwLJdxpLQgAFyBLXP4B4McbUrkvQD4xBuVFIPaRFg8YQeIpluZ7UKOfaXReQM/awxGOXa4D7k1prGMXE3sFEqfARF39SL9MAVlVufsrS6oWcS1XQgduiSXyUnn50/pCITs1szs9m1OFziRRjyP9c+gZgtpZ4GLCA/7mM2kBfYNI2B09j8IR2YDbeK6Kj6TIjwmob29cK1zhNxX/sFiksNyoEmPtLpws8AtGB5j2fpFWCF+FQ42CE8oxwawQH74j18AIbcqfoACe5LjCKK/iBWk9DgKA3kzsBzxed7UDZHEOk1LQf65G7Oh01GaF/5OMQ9henkIm8gikFKK0Zv1QCX5bG/HX2IUqAO07wDIYbJ+k1CC+FW8ExRWrpX7mPJHEEyjeEvQIMJS4AC4BActjm+PC/n4GMJmkV/fDiv9ffnJdEY/ugK1JHQ2tolie+H8wEmJX5akBrtEZCwMA4BiAieGOK241i1hotUHrDg7cAO6+Q3ZEMu+9fAlUqH+4G/K0/+NLKPPBNHKLHudF5x2NHqtb0Aqto51a27v6eyJhmqbJszsBIwG6zsTJZ9YDw5dfR2lrbg8tPhn4jQYQC7UZmFZFDhQwsvUsUVp4YOCy8WEhLEZ8wSwYHYXZbWV6EyWumwZgpY3H8OS+M+qVxG+rAkjMaCfSyp4fDSOMuhjnjt9wKwwIMcgGzDMoqXqzHSQl4Zr5eQ+igwFZnhFnGRwQeI6JbphMGhm1Pwx2lH6UGqvHRTPpkSqmYmgBXf6TYsucWdhpesKRD722UJDF6EAzCw9A1hhRvOywys6WEnAAE57AFtsINwiKog0tR5sjRCu9FpuGmYGdFB4Z3K54AJLPgahhOhglM4R5X4vJRByioD627Q94quEf6Ix4/1R0l+HrAkZnw+5A/K4yARrh/9D/FeosQn5LKpXTnwHzMBLBqt7nzFcdWJvlrljjkHKgEsSYffPJl84tPfT05d3fF5gXnAApcysdo5JId/jZawoEfR3MSHFHzf6K9Yr6SPy1Lx1HsNWAhhEj8iHtjNIkRgcAK0sBxhYNThdOJOUFeAFT9U3Qd9Lbq0zCSQOxEFH6I480KikA+TrLtKaPEJyZQBYma/jo9F5D6p30l8jyE8cJCefxHuBQdg0M7HNptOwuI6JoQBlrbCUWkBNCGNyP18ygDGZ11y2R0iIUq5TLQQcksCiKVgHCRH4w7LS01SX6eQJnEsGaJ7yn0xy9ESEU4cx7JbykCCClKO+7DckxSAxwdOGPMyUVegLpzrpYwGLPQzRocodIKOEzRiyrPaRAAMkXdlghK6nC46d8Ez7MrqHd2A1r4nVX/1eFu98hEHKgEspIPVlie5ZB5e/dBLQrJ+JbLwged0TjiJBmfbBWCQJSFOWAm6gDQCpZRppI24UrMJWEX2LwApLK14EDYBF1n29hKw+MSYoLfh04f1yUQNvqiPUfctdYINM7Auz8t18qfgY8Z7gl9cmq90ZfJ62SG8QRtBDyH1cMQC1OsYsMhvENqSat5KvyRPp/llfdrvRv94bPF9csejrgS7y5bFUsofKWoB3Ya+jqGIt2IsR1qrEYVCl0nDXhOxsbd8C9oZPm4kXK77EJ7Z3cAx29Q5CBqw2JE6TBQ4UzMGEcilfIRYI7puiIzq7madJm9euaVYtaR9ro1W96KV1R+1C1oHnTFw558cUr3kUQVUQ9Xbk8FqRnmaPmAbF/KSwkDxY1IluDXktullcEUJKxtKxF3beDGN+N06NnongIVDJxp9qT1PDxgZrBkJixp9R72oxLxW6nFcKUJ0Bn9cTlr8Jsp3A1gBxNNduc3SVjxEI40oqcMUN8pMBSwBT3luPshTRQVt1A0OvPhA5J4c1Cl1kWopBR8B7uUA61O6PCQOoYdAc8jTZxcWxWnSSvFWdme8lJPx0yINYG9eiLaDNOxOmBIOqABs9XPgGkDDz0J+SJZ/cNPR5eQ+YpPhPk46RxhuKQMdUoh06n/MO9hEe0RJ66/jwRu36TBEGrBiXUQPvbjxXeQAi4EsH1m3tgukLQ4nFGLD3Zbd0Z5M+uzKirWjAzc1A67hbww8sNeyytpksLL50QNWla3J4srxSTxTTZjcadoMsEBHTgNJB7EMNPILws5Q+tHdIkpd1MMpzFJHAxasi+W+RJ6U/oalUUpvUvQ0yI8xstIZuAlgZQ6fhHGramudLLWYXohgGuiR7wiwoPwVujrGOMLSaGmDVGxzHaddn18nzz5dykdSkTsECvW0bWNepmOyQyLGx6RpZU/admuRh/MHhQbMUHR5vKtG3lTAwik/ujyutUExPsxcPgLr7YP+x7J8KCna6NSFhj0MQpyweLZl88NI0VZYgrrfMgjH3WK9HJR+wkSDAyTKmFVnGIq6pBkQg+f6pCkNWKwaCceInS9tdZqGGGzuDgDplLq10ZfsYkerR9qVA5s0cL3mk9XLHlOr/PrRA1TwPayMJovnpzGcpjxMBzdaARbI5JTI8pEvEJGXBx+5uzRg5XbE0tNndFsI0QtQ0jG6s4cs+KsR48gY9+588Ll2AKuVxJQ9XqszwMJ2uvqoMwpbrYDmMhR0IdBJ5OLmHw8dByuCjVscIl26ByQuFg5HiG2ciQ8V7yEs5/QRZbzZkT21Gx+Qtf/EgRjDKUSpqQP4ATq5k6ARFBH2c4uwhEqfCxNTgYRVBFgxsJ1MJtgh/Cqif0bbPD71WA524LbipIedSzwbJhJs3ETwTU0g4q7ggzDZkE2UGPMsmAWQ26wnoaIhH8cu9ETnSx/y5VJeM3D5h9CGlJETpWSDQe4jhT0bdk2bARbKwCYw2DSal+m6ct0MCCUfadxFLYxay+Wg26LR6kn7nVK5ZhdX+dmjCqgGq79Mhqqv0w8002sNIqLD0jSxtArWww3pB1v1PNDI3SeDnMEG0occOJkOTD7EkknmJaVYd5Ms/3iwixSnUm1qgTrtAFYMRYtomvwxwWQjxjL/udxDKjtzrQBO8yP70YXTknU+tqqFPiQuBAtEfqpUVc8l5SSFRIuyrY58j2VvEx5kpazGOxKaSCVeO2gHvV5xORzkKCMAAAQISURBVFZUC78au8MfS2kVGFoWmDUIeKWp7H6xpGjdTSm9Il40DpltnJBUUE4vxTT/9TURIq3G9x+fR+fjGhOHmE9AH6vzG8tKe6IGx2DH5X6Ccan7oSUs0AmuQjBxcTdg51JN6oic+iGWyIleG6Wxe7AcxRgQvRWfSETuenwXul/F17U37d2V/59WhPfu+q5kcfWwJEkeU9zZ7u/GAx7CR2390UWU8ILEBgjLEgnQB+YGBWH2A5BDJ3mwZHVLfSoscAQS96DYqMQTZdLdsTjY6jCckxDA0D9JH7Er2GpAZs46bAx6zLgnp/WiVXyUGINEktvJk/aQyuGtGGxF1tlsOmHdJaAf/dX4AFeuGw4cbcRRb/QJIYQ/CykK5SB5wdxCdg+lrzHdlHMp6YNhpo6V3yjPsc+n+GwG2tl3xkuj6OAO4GpIe3wyEfMFy17NC7lmh2K9AdB4Ltj2/UbzCeoCfeRXo68s1V0hJy3FcMuna9svKYvJUQ4OkT40S6O+cgfabVZGbASLdpnjEnpHPMcwuGFZd3dYLrJ/LW9Ugbax7rz8gb5BevTXxb7Xg9mEvwW/9aZHtMMSO7utwiND/vv5HdVmzxHuL973LclQ9epHRtKqPJQMVT+bLHx9RjfRusOd57LbC7llMmsXUWAlIrnD83qAYM4QlIkxSgGfayiuCKK/EJqYTcKpx6wAP1pCLEs+z3gAQsQxMv4AAUcoHqEjAbBIWaRsx8T9Ch+7zsM1H3IZd2mwfBHdSQgl7D6sZj0o3g/CxoAsQfK05DeDVoHbi+SHZY7zRREbeLes4eKBENAf0MtioYEUAzXsUvEBBcsgocqWui6H63g+IA4ywI7Ue8GvVu8T+hHwDpbsAhKgw9blZuRVmj5s2fDM+l7RNcxdwhiI48E4KtqiB39YeoFOM2yEfAy/81bnoT+0R9h8sEfAniuGN+bd16I+5O/xcyp3rnw+fmNzArwoysM97BrC8h9jAxsoYlcVjUlfKvVQTuzQ5J6kKBvfDb9zzXMpw5sAOOczvMNlWo8rZdpLcVjC0L7vSwYr984dcFUu5CgP7fWwLFVyoORAyYEcB2oDT08GqyclQ9XtswZcg5VrEkh15V/JgZIDJQd6woHagpckQ4jGoKKFzvx6UzJU+UCCiKTlX8mBkgMlB3rOgaF935oMVa+bIXDtSAYrpyaI8V7+lRwoOVByYFY5AIloaN9lhTHap5O6BisbksEFL5/V/pXESw6UHCg5MIUD4RScU9JTcFqB1WD15od3HmkKjfJGyYGSAyUH5pQD0G8NViaKl4mVrclg5bhk/vxd57RPZWMlB0oOlBxoyYHBypuToeoFvFQcrF6fDFY+1yt3mpbtlpklB0oO/N5x4P8AlQ0gDeXQovMAAAAASUVORK5CYII="/>
             </defs>
             </svg>
-<br>
-<br>
 
+            
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="confirm-2" method="POST">
+       
+          <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <h3 class="govuk-notification-banner__heading">
+                PRN accepted.
+              </h3>
+              <p class="govuk-body">65 tonnes credited towards your 2025 obligation.</p>
+              <!--<p class="govuk-body">1900 tonnes left to meet your paper and board obligation.</p>-->
+            </div>
+          </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="confirm-2" method="POST">
-   
-      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Success
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <h3 class="govuk-notification-banner__heading">
-            PERN accepted.
-          </h3>
-          <p class="govuk-body">100 tonnes credited towards your obligation.</p>
-        </div>
-      </div>
-        <h1 class="govuk-heading-l">Packaging Export Recycling Note</h1>
+        <h1 class="govuk-heading-l">Packaging Recycling Note</h1>
 
         <div class="govuk-inset-text app-inset-text">
           <div class="govuk-heading-m">
-            PERN number: <strong>EX454545540M</strong></div>
+            PRN number: <strong>ER454545540M</strong></div>
           <div class="govuk-heading-m">
-          Year: <strong>2025</strong></div>
+          Year: <strong>2024</strong></div>
         </div>
        
+
         <table class="govuk-table">
-         <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>-->
+        <!--  <caption class="govuk-table__caption govuk-table__caption--m">{H2 Title}</caption>-->
           <tbody class="govuk-table__body">
+    
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Status</td>
               <th scope="row" class="govuk-table__header"><strong class="govuk-tag govuk-tag--green">
                 Accepted
-                </strong></th>
+                </strong>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Status meaning</td>
-              <th scope="row" class="govuk-table__header">The exporter issued the PERN to the producer or compliance scheme. The producer or compliance scheme has not yet accepted the PERN.
-              </th>
+              <td class="govuk-table__cell">Status meaning </td>
+              <th scope="row" class="govuk-table__header">The producer or compliance scheme accepted the PRN. </th>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Issued by</td>
-              <th scope="row" class="govuk-table__header">Recycling Ltd
+              <th scope="row" class="govuk-table__header">BYZ Reprocessor
               </th>
             </tr>
-            
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Authorised by</td>
+              <td class="govuk-table__cell">Reproccessing site</td>
+              <th scope="row" class="govuk-table__header">23 Ruby Street, London, NW N32
+              </th>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Authorised by	</td>
               <th scope="row" class="govuk-table__header">John Smith
               </th>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Accreditation number</td>
-              <th scope="row" class="govuk-table__header">EX234562024
-              </th>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">PERN details</caption>
-          <tbody class="govuk-table__body">
-    
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Date issued</td>
-              <th scope="row" class="govuk-table__header">20 December 2025
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Relates to waste received in December</td>
-              <th scope="row" class="govuk-table__header">Yes, can count towards 2025 or 2026 obligations
-              </th>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Material</td>
-              <th scope="row" class="govuk-table__header">Paper and board
-              </th>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Tonnage</td>
-              <th scope="row" class="govuk-table__header">170
-              </th>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Packaging producer or compliance scheme</td>
-              <th scope="row" class="govuk-table__header">Tesco
-              </th>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Note</td>
-              <th scope="row" class="govuk-table__header">Purchase order number 12354
+              <th scope="row" class="govuk-table__header">ER123456789
               </th>
             </tr>
            
           </tbody>
         </table>
 
+        <br>
 
-<br>
-      
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">PRN details</caption>
+  <tbody class="govuk-table__body">
+
+  
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Date issued</td>
+      <th scope="row" class="govuk-table__header">01 December 2024
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Relates to waste received in December</td>
+      <th scope="row" class="govuk-table__header">Yes, can count towards 2024 or 2025 obligations
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Material</td>
+      <th scope="row" class="govuk-table__header">Paper and board
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Tonnage</td>
+      <th scope="row" class="govuk-table__header">65
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Packaging producer or compliance scheme</td>
+      <th scope="row" class="govuk-table__header">Tesco
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Note</td>
+      <th scope="row" class="govuk-table__header">Purchase order number 12354
+      </th>
+    </tr>
+   
+  </tbody>
+</table>
          
-          <button class="govuk-button" formaction="view-awaiting-acceptance-alt">Accept or reject more PRNs and PERNs</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download this PERN</button>
+<br>
+<br>
+
+         
+
+          <button class="govuk-button" formaction="view-awaiting-acceptance-alt">Accept or reject more PRNs and PERNs</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download this PRN</button>
+          <p><a href="manage-prn-home">Manage obligation home</a></p>
     </div>
   </form>
   </main>
