@@ -3,7 +3,7 @@
 {% if data['licence-type'] == "full" %}
   {% set title = "Payment complete" %}
 {% else %}
-  {% set title = "Payment for registration complete" %}
+  {% set title = "Payment successful" %}
 {% endif %}
 
 {% block pageTitle %}
@@ -12,99 +12,36 @@
 
 {% block beforeContent %}
 
-<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
 
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      
-
-      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
-
-        {% if data['licence-type'] == "full" %}
-          <span class="govuk-panel__title">£30</span>
-        {% endif %}
-
-        <h1 class="govuk-panel__title">
-          {{ title }}
-        </h1>
-        <div class="govuk-panel__body">
-          Your registration number is <br><strong>16130122-2WC3JDD-AJ2H17</strong>
-          <br>
-          <br>
-        
-        </div>
-      </div>
-
-     
-
-      <div class="govuk-!-margin-bottom-6"> 
-        <div class="govuk-!-margin-bottom-3">
-
-          {% if data['licence-option'] == "digital" %}
-
-          {% else %}
-            <p class="govuk-body">
-              
-            </p>
-          {% endif %}
-
-          
-
-         
-
-          
-
-        </div>
-
-        {% if data['rcr'] == "true" %}
-
-          <h2 class="govuk-heading-l">
-            Report your yearly catch return
-          </h2>
-
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-              By law you must <a href="#">report a catch return</a> of your yearly salmon and sea trout fishing activity in England and Wales, even if you do not catch anything or do not fish.
-            </strong>
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Payment successful
+          </h1>
+          <div class="govuk-panel__body">
+            Your registration reference number is<br><strong>16130122-2WCJDD-AJ2H17</strong>
           </div>
-
-        
-
-        {% endif %}
-
+        </div>
+        <p class="govuk-body">We have sent an email confirmation to <a href="#" class="govuk-link">email@address.com</a></p>
+        <h2 class="govuk-heading-m">What happens next</h2>
         <p class="govuk-body">
-          
+          We will review your application and contact you about the outcome - this usually takes up to 2 weeks.
         </p>
-
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Return to dashboard</a>
+        </p>
         
-
-        
-
       </div>
-
-      <h2 class="govuk-heading-m">
-        What happens next?
-      </h2>
-
-      <p class="govuk-body">
-        {% if data['licence-confirmation'] === "note" %}
-          <a href="check-restart">
-        {% else %}
-          <a href="date-of-birth">
-        {% endif %}
-          
-        </a>
-      </p>
-
-
     </div>
-  </div>
+  </main>
+</div>
 
 {% endblock %}
