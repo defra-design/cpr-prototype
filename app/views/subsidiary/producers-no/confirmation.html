@@ -1,4 +1,4 @@
-{% set serviceName = "Run the fees and payments calculator" %}
+{% set serviceName = "Report packaging data" %}
  
 {% extends "layout.html" %}
  
@@ -11,26 +11,115 @@
   <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-            You have successfully updated the default parameters
-          </h1>
-          <div class="govuk-panel__body">
-            11 July 2025 - 9:35
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              File uploaded
+            </h3>
+            <!-- <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>-->
           </div>
         </div>
+        </div>
+        </div>
+      
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
         
-        <h2 class="govuk-heading-m">What happens next</h2>
-        <p class="govuk-body">All calculations will automatically use the new parameters, unless they are manually changed.
-        </p>
+        
+
+        <table class="govuk-table govuk-table--small-text-until-tablet">
+          <caption class="govuk-table__caption govuk-table__caption--m">Subsidiaries</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Company name</th>
+              <th scope="col" class="govuk-table__header">Organisation ID</th>
+              <th scope="col" class="govuk-table__header">Subsidiary name</th>
+              <th scope="col" class="govuk-table__header">Subsidiary ID</th>
+              <th scope="col" class="govuk-table__header">Nation</th>
+              <th scope="col" class="govuk-table__header">Reporting</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Paint shop Ltd</th>
+              <td class="govuk-table__cell">478956</td>
+              <td class="govuk-table__cell">Paint supplies</td>
+              <td class="govuk-table__cell">478956</td>
+              <td class="govuk-table__cell">Scotland</td>
+              <td class="govuk-table__cell">Group</td>
+            </tr>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Paint shop Ltd</th>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Paint supplies</td>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Scotland</td>
+                <td class="govuk-table__cell">Group</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Paint shop Ltd</th>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Paint supplies</td>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Scotland</td>
+                <td class="govuk-table__cell">Group</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Paint shop Ltd</th>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Paint supplies</td>
+                <td class="govuk-table__cell">478956</td>
+                <td class="govuk-table__cell">Scotland</td>
+                <td class="govuk-table__cell">Group</td>
+              </tr>
+            
+            
+          </tbody>
+        </table>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          <form method="POST" action="./loading-success">
+              <div class="govuk-form-group ">
+      
+              <br>
+              <br>
+      
+              
+      
+              
+      
+              <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+                  Upload a new file
+              </label>
+      
+              <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+      
+              {{ govukButton({
+              text: "Upload file",
+              preventDoubleClick: true,
+              href: 'confirmation',
+              classes: 'govuk-!-margin-top-4'
+              }) }}
+          </form> 
+        
 
         &nbsp; &nbsp;
 <div class="govuk-button-group">
-  <a href="default-settings-change" class="govuk-button" type="submit">View new default parameters</a>
+ 
   <a class="govuk-link" href="dash">Return to the dashboard</a>
 </div>
         
-        
+      </div>
+      </div>  
       </div>
     </div>
   </main>
