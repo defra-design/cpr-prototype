@@ -1,0 +1,123 @@
+{% set serviceName = "Report packaging data" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              File uploaded
+            </h3>
+            <!-- <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>-->
+          </div>
+        </div>
+        </div>
+        </div>
+      
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+        
+        
+
+        <table class="govuk-table govuk-table--small-text-until-tablet">
+          <caption class="govuk-table__caption govuk-table__caption--m">Subsidiaries</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              
+              <th scope="col" class="govuk-table__header">Subsidiary name</th>
+              <th scope="col" class="govuk-table__header">Subsidiary ID</th>
+              <th scope="col" class="govuk-table__header">Companies House number</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              
+              <td class="govuk-table__cell">Lemon larger Ltd</td>
+              <td class="govuk-table__cell">AA15559428</td>
+              <td class="govuk-table__cell">15559428</td>
+              
+            </tr>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                
+                <td class="govuk-table__cell">Alcohol Free Ltd</td>
+                <td class="govuk-table__cell">AA15559429</td>
+                <td class="govuk-table__cell">15559428</td>
+                
+              </tr>
+              <tr class="govuk-table__row">
+                
+                <td class="govuk-table__cell">Best Beer Brewery Limited</td>
+                <td class="govuk-table__cell">AA15559430</td>
+                <td class="govuk-table__cell">15559428</td>
+                
+              </tr>
+              <tr class="govuk-table__row">
+                
+                <td class="govuk-table__cell">Non Alcoholic Drinks Company</td>
+                <td class="govuk-table__cell">AA15559440</td>
+                <td class="govuk-table__cell">15559428</td>
+                
+              </tr>
+            
+            
+          </tbody>
+        </table>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          <form method="POST" action="./loading-success">
+              <div class="govuk-form-group ">
+      
+              <br>
+              <br>
+      
+              
+      
+              
+      
+              <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+                  Upload a new file
+              </label>
+      
+              <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+      
+              {{ govukButton({
+              text: "Upload file",
+              preventDoubleClick: true,
+              href: 'confirmation',
+              classes: 'govuk-!-margin-top-4'
+              }) }}
+          </form> 
+        
+
+        &nbsp; &nbsp;
+<div class="govuk-button-group">
+ 
+  <a class="govuk-link" href="landing-page">Return to the dashboard</a>
+</div>
+        
+      </div>
+      </div>  
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
