@@ -25,17 +25,15 @@
         
       </fieldset>
     </div>
-  </div>
-</div>
+  
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m"></caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Parameter</th>
-          <th scope="col" class="govuk-table__header">Nation/Material</th>
+          <th scope="col" class="govuk-table__header">Catagory</th>
           <th scope="col" class="govuk-table__header">Error</th>
         </tr>
       </thead>
@@ -65,27 +63,27 @@
         </tr>
       </tbody>
     </table>
-  </div>
-</div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
     <p>You will need to update this data before you can upload the spreadsheet successfully.</p>
 
 
-    <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+    <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+      Upload the file again
+  </label>
 
-        {{ govukButton({
-        text: "Upload file",
-        preventDoubleClick: true,
-        href: 'confirmation',
-        classes: 'govuk-!-margin-top-4'
-        }) }}
-    
+  <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+</div>
+
+  {{ govukButton({
+  text: "Upload file",
+  preventDoubleClick: true,
+  href: 'confirmation',
+  classes: 'govuk-!-margin-top-4'
+  }) }}
+</form>
+
 
 </div>
-  
 </div>
 
 {% endblock %}
-
