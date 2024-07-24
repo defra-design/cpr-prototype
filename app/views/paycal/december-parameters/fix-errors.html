@@ -9,23 +9,28 @@
 {% block content %}
 <br>
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-form-group govuk-form-group--error">
-      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
-            There is a problem with your upload
-          </h1>
-        </legend>
-        
-        <p id="passport-issued-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> The data contained errors
-        </p>
-        
-      </fieldset>
+    
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem with your upload
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Enter your full name</a>
+            </li>
+            <li>
+              <a href="#">The date your passport was issued must be in the past</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  
 
 
     <table class="govuk-table">
@@ -71,8 +76,8 @@
       Upload the file again
   </label>
 
-  <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
-</div>
+  <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file"><br>
+
 
   {{ govukButton({
   text: "Upload file",
@@ -83,6 +88,8 @@
 </form>
 
 
+</div>
+</div>
 </div>
 </div>
 
