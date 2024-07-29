@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if you need to report packaging data" %}
+
+{% block pageTitle %}
+Check if you need to report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./importer.html">Back</a>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{{ data["brand-owner-1"] | upper |  log }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Your packaging activities</span>
+        Selling empty packaging to other businesses
+      </h1>
+
+      <p class="govuk-body">
+        This means selling empty packaging to organisations that fall under the higher threshold for EPR for packaging.
+      </p>
+
+      <p class="govuk-body">
+        Organisations that fall under the higher threshold:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have an annual turnover of less than £2 million</li>
+        <li>handle or supply less than 50 tonnes of packaging a year</li>
+      </ul>
+
+      <form action="../activities/online-marketplace" method="post" novalidate>
+
+        <div class="govuk-form-group govuk-!-margin-top-5">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Do you sell empty packaging to businesses that fall under the higher threshold?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="distributor-yes" name="distributor" type="radio" value="yes" {{ checked("distributor", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="distributor-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="distributor-no" name="distributor" type="radio" value="no" {{ checked("distributor", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="distributor-no">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <!-- FORM-ROUTING -->
+        <form method="POST" action="question-1">
+
+            <!-- HEADING -->
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-8">
+                    Check if you need to register for the Extended Producer Responsibility for packaging scheme
+                </h1>
+            </div>
+
+            
+            <!-- START PAGE CONTENT -->
+            <div class="govuk-grid-column-two-thirds">
+
+                <p class="govuk-body">Use this service to find out if your organisation or group will need to:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>register for the scheme</li>
+                    <li>submit data about how you work with packaging each year</li>
+                    <li>pay annual charges to cover the cost of recovering, recycling and disposing of the packaging waste you produce</li>
+                </ul>
+
+                <p class="govuk-body">To complete this service you'll need to tell us:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your annual turnover</li>
+                    <li>the ways that your organisation or group works with packaging</li>
+                    <li>the estimate tonnage of packaging you work with each calendar year</li>
+                </ul>
+
+                <div class="govuk-inset-text">It should take about 5 minutes to check if you are obligated to register.</div>
+
+                {{ govukButton({
+                    text: "Start now",
+                    isStartButton: true
+                })}}
+
+            </div>
+
+            <!-- GUIDANCE SIDEBAR -->
+            <div class="govuk-grid-column-one-third" style="padding: 0px 15px;">
+                <div class="guidance-sidebar" style="padding-top: 15px; border-top: #1d70b8 2px solid;">
+                    <h2 class="govuk-heading-s">Related content</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Understand the new Extended Producer Responsibility for packaging scheme</a></p>
+                    <p class="govuk-body-s"><a href="#">Understand how to gather data for your Extended Producer Responsibility for packaging submissions</a></p>
+                </div>    
+            </div>
+
+        </form>
+
+</div>
+
+{% endblock %}

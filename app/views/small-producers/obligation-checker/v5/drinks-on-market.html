@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if you need to report packaging data" %}
+
+{% block pageTitle %}
+Check if you need to report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./activities/seller.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="POST" action="place-drinks-market-question">
+
+
+        <div class="govuk-form-group ">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+              <span class="govuk-caption-l">Your packaging activities</span>
+              <h1 class="govuk-fieldset__heading">
+                Do you place drinks on the market in England, Wales or Northern Ireland in single-use containers? 
+              </h1>
+            </legend>
+            
+            <div class="govuk-radios govuk-radios--stacked" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="place-drinks-yes" name="place-drinks" type="radio" value="yes" {{ checked("place-drinks", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="place-drinks-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="place-drinks-no" name="place-drinks" type="radio" value="no" {{ checked("place-drinks", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="place-drinks-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        })}}
+
+        <!-- DETAILS -->
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you place drinks on the market in Scotland
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">From August 2023, Scotland will operate a Deposit Return Scheme.</p>
+            <p class="govuk-body">This may affect organisations that place drinks on the market in Scotland.</p>
+            <p class="govuk-body"><a class="govuk-link" href="https://www.sepa.org.uk/regulations/waste/deposit-return-scheme/producers/" target="_blank">Find out more about Scotland’s Deposit Return Scheme (opens in new tab)</a></p>
+          </div>
+        </details>
+
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}

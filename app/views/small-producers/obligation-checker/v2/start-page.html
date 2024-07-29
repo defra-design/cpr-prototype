@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <!-- FORM-ROUTING -->
+        <form method="POST" action="question-1">
+
+            <!-- HEADING -->
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                    Check if the extended producer responsibility for packaging regulations apply to you
+                </h1>
+            </div>
+
+            
+            <!-- START PAGE CONTENT -->
+            <div class="govuk-grid-column-two-thirds">
+
+                <p class="govuk-body">Organisations that handle, supply, distribute or import packaging may be required to pay the full net cost of the disposal of their packaging, under new regulations.</p>
+
+                <!-- <p class="govuk-body"><a href="javascript:if(window.print)window.print()">Save or print this page</a></p> -->
+
+                <p class="govuk-body">Use this tool to find out:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>if the regulations apply to you</li>
+                    <li>what charges your organisation may need to pay</li>
+                    <li>what you need to do next to comply with the new regulations</li>
+                </ul>
+
+                <p class="govuk-body">You'll need to know:</p>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                    <li>your annual turnover</li>
+                    <li>the ways that your organisation handles or supplies packaging</li>
+                    <li>the estimated total weight (in tonnes) of packaging you handle each calendar year</li>
+                </ul>
+
+                {{ govukButton({
+                    text: "Check now    ",
+                    isStartButton: true
+                })}}
+
+                <p class="govuk-body govuk-hint">This tool will not send any of your data to the Department for Environment, Food and Rural Affairs (Defra).</p>
+
+                <div class="guidance-sidebar" style="padding-top: 15px; margin-top: 70px; border-top: #1d70b8 2px solid;">
+                    <h2 class="govuk-heading-s">Explore the topic</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Waste</a></p>
+                </div>
+
+            </div>
+
+            <!-- GUIDANCE SIDEBAR -->
+            <div class="govuk-grid-column-one-third" style="padding: 0px 15px;">
+                <div class="guidance-sidebar" style="padding: 15px 0px 10px 0px; border-top: #1d70b8 2px solid;">
+                    <h2 class="govuk-heading-s">Related content</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Packaging waste: extended producer responsibility for packaging</a></p>
+                </div>
+                <div class="guidance-sidebar" style="padding-top: 15px; border-top: #B1B4B6 1px solid;">
+                    <h2 class="govuk-body-s">Collection</h2>
+            
+                    <p class="govuk-body-s"><a href="#">Extended producer responsibility regulations</a></p>
+                </div>    
+            </div>
+
+        </form>
+
+</div>
+
+{% endblock %}

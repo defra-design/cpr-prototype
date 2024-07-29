@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if your organisation needs to register" %}
+
+{% block pageTitle %}
+Check if your organisation needs to register | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!-- Obligated for both -->
+        {% if 'yes' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] and 'over' in data['obCombinedEprTonnage'] %}
+        <h1 class="govuk-heading-l">Your business must register for both schemes</h1>
+        <p>Based on your answers, your business must register for the extended producer responsibility scheme and the deposit return scheme.</p>
+        {{ govukButton({
+            text: "Register for both schemes"
+        })}}
+        <!-- Obligated for DRS -->
+        
+        {% elif 'no' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] %}
+        <h1 class="govuk-heading-l">Your business must register for the deposit return scheme</h1>
+        <p>Based on your answers, your business only needs to register for the deposit return scheme right now.</p>
+        <!-- <p>You should check again next year.</p> -->
+        {{ govukButton({
+            text: "Register for the DRS scheme"
+        })}}
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'yes' in data['obCombinedDrs'] and 'under' in data['obCombinedEprTonnage']  %}
+        <h1 class="govuk-heading-l">Your business must register for the deposit return scheme</h1>
+        <p>Based on your answers, your business only needs to register for the deposit return scheme right now.</p>
+        <!-- <p>You should check again next year.</p> -->
+        {{ govukButton({
+            text: "Register for the DRS scheme"
+        })}}
+
+        <!-- Obligated for EPR -->
+        {% elif 'yes' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs'] and 'over' in data['obCombinedEprTonnage'] %}
+        <h1 class="govuk-heading-l">Your business must register for the extended producer responsibility scheme</h1>
+        <p>Based on your answers, your business only needs to register for the extended producer responsibility scheme right now.</p>
+        <!-- <p>You should check again next year.</p> -->
+        {{ govukButton({
+            text: "Register for the EPR scheme"
+        })}}
+
+        <!-- Obligated for neither -->
+        {% elif 'no' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs']%}
+        <h1 class="govuk-heading-l">Your business does not need to register for either scheme</h1>
+        <p>Based on your answers, your business does not need to register for the extended producer responsibility scheme or the deposit return scheme.</p>
+        <p>You should check again next year.</p>
+
+        {% elif 'yes' in data['obCombinedTurnover'] and 'no' in data['obCombinedDrs'] and 'under' in data['obCombinedEprTonnage'] %}
+        <h1 class="govuk-heading-l">Your business does not need to register for either scheme</h1>
+        <p>Based on your answers, your business does not need to register for the extended producer responsibility scheme or the deposit return scheme.</p>
+        <p>You should check again next year.</p>
+
+        {% else %}
+        {% endif %}
+
+
+
+        <p><a href="../epr/service-start">Return to GOV.UK</a></p>
+
+    </div>
+</div>
+
+{% endblock %}
