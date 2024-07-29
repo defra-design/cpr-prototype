@@ -1,27 +1,36 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        Heading goes here
-      </h1>
+    <h1 class="govuk-heading-xl">
+      You must self-declare
+    </h1>
+    <form method="POST" action="self-declare-2-status.html">
 
-      <p>This is a paragraph of text. It explains in more detail what has happened and wraps across several lines.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit erat feugiat ligula vulputate consequat.
+        Aenean sed lacinia turpis. Sed venenatis luctus iaculis. Duis laoreet efficitur orci eu cursus. In vitae sem
+        tincidunt felis rutrum pellentesque. Sed magna felis, varius imperdiet auctor ac, bibendum quis tellus. Sed a
+        suscipit purus, vel pharetra ipsum. Suspendisse iaculis ut dolor in ultrices.</p>
 
-      <p>Read more <a href="/url/of/onward/page">about this topic</a>.</p>
+      <p>Read more <a href="#">about this topic</a>.</p>
 
-    </div>
+      {{ govukButton({
+      text: "Continue"
+      })}}
+
+    </form>
   </div>
+</div>
 
 {% endblock %}
