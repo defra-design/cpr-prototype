@@ -3,7 +3,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 // Routing for Organisation type
-router.post('small-producers/obligation-checker/v4/route-organisation-type', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/route-organisation-type', function (req, res) {
     var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
@@ -18,7 +18,7 @@ router.post('small-producers/obligation-checker/v4/route-organisation-type', fun
 })
 
 // Routing for Organisation type change (TO DO - TO DO)
-router.post('small-producers/obligation-checker/v4/route-organisation-type-change', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/route-organisation-type-change', function (req, res) {
     var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
@@ -33,7 +33,7 @@ router.post('small-producers/obligation-checker/v4/route-organisation-type-chang
 })
 
 // Routing for Turnover
-router.post('small-producers/obligation-checker/v4/organisation-turnover', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/organisation-turnover', function (req, res) {
     var obDrsCheckboxes = req.session.data['turnover']
     
     if (obDrsCheckboxes == "Under £1 million"){
@@ -48,7 +48,7 @@ router.post('small-producers/obligation-checker/v4/organisation-turnover', funct
 })
 
 // Routing for Turnover-change (TO DO - TO DO)
-router.post('small-producers/obligation-checker/v4/organisation-turnover-change', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/organisation-turnover-change', function (req, res) {
     var obDrsCheckboxes = req.session.data['turnover']
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     
@@ -70,7 +70,7 @@ router.post('small-producers/obligation-checker/v4/organisation-turnover-change'
 })
 
 // Routing for Activities
-router.post('small-producers/obligation-checker/v4/packaging-activities', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/packaging-activities', function (req, res) {
 
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
@@ -120,7 +120,7 @@ router.post('small-producers/obligation-checker/v4/packaging-activities', functi
 
 
 // Routing for Interim DRS 1
-router.post('small-producers/obligation-checker/v4/place-drinks-market', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/place-drinks-market', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
@@ -168,7 +168,7 @@ router.post('small-producers/obligation-checker/v4/place-drinks-market', functio
 
 
 // Routing for Interim DRS 2
-router.post('small-producers/obligation-checker/v4/drink-container-materials', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/drink-container-materials', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
@@ -216,7 +216,7 @@ router.post('small-producers/obligation-checker/v4/drink-container-materials', f
 
 
 // Routing for Interim DRS 3
-router.post('small-producers/obligation-checker/v4/drink-container-size', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/drink-container-size', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
@@ -318,7 +318,7 @@ router.post('small-producers/obligation-checker/v4/drink-container-size', functi
 })
 
 // Routing for Interim DRS 3-change  (TO DO - TO DO)
-router.post('small-producers/obligation-checker/v4/drink-contianer-size', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/drink-contianer-size', function (req, res) {
     // Make a variable and give it the value
     var brandOwner1 = req.session.data['brand-owner-1']
     var brandOwner2 = req.session.data['brand-owner-2']
@@ -416,7 +416,7 @@ router.post('small-producers/obligation-checker/v4/drink-contianer-size', functi
 })
 
 // Routing for Tonnage
-router.post('small-producers/obligation-checker/v4/route-tonnage', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/route-tonnage', function (req, res) {
     
     // Make a variable and give it the value
     var obCombinedEprExport = req.session.data['packaging-tonnage']
@@ -848,7 +848,7 @@ router.post('small-producers/obligation-checker/v4/route-tonnage', function (req
 })
 
 // Routing for Tonnage-change (TO DO - TO DO)
-router.post('small-producers/obligation-checker/v4/route-tonnage-change', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/route-tonnage-change', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
 
@@ -870,7 +870,7 @@ router.post('small-producers/obligation-checker/v4/route-tonnage-change', functi
 })
 
 // Routing for Nation Tonnage
-router.post('small-producers/obligation-checker/v4/packaging-nation-tonnage', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/packaging-nation-tonnage', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
     var nationTonnageData = req.session.data['nation-tonnage']
@@ -884,7 +884,7 @@ router.post('small-producers/obligation-checker/v4/packaging-nation-tonnage', fu
 })
 
 // Routing for Nation Tonnage Change (TO DO - TO DO)
-router.post('small-producers/obligation-checker/v4/packaging-nation-tonnage-change', function (req, res) {
+router.post('/small-producers/obligation-checker/v4/packaging-nation-tonnage-change', function (req, res) {
     var obCombinedEprExport = req.session.data['packaging-tonnage']
     var obDrsCheckboxes = req.session.data['turnover']
     var nationTonnageData = req.session.data['nation-tonnage']
