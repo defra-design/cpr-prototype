@@ -125,16 +125,3 @@ router.get('/clear', (req, res) => {
 
 router.use('/public-register' , require ('./views/public-register/_routes'));
 module.exports = router
-
-
-//small-producer
-util.deepStrictEqual(exports, ['Fruit', 'Vegetables'])
-router.post('/exports-answer', function(request, response) {
-
-    var exports = request.session.data['exports']
-    if (util.deepStrictEqual(exports, ['Fruit'])){
-        response.redirect("/fruit")
-    } else {
-        response.redirect("/next-question")
-    }
-})
