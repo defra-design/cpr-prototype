@@ -56,7 +56,7 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="parent-company" name="organisation-type" type="radio"
-                value="Parent company" {{ checked("organisation-type", "Parent company" ) }}>
+                value="Parent company" {{ checked("organisation-type", "Parent-company" ) }}>
               <label class="govuk-label govuk-radios__label" for="parent-company">
                 Parent company
               </label>
@@ -105,9 +105,14 @@ Check if EPR for packaging affects you | {{serviceName}} prototype
         </div>
       </details>
 
-      {{ govukButton({
-      text: "Continue"
-      })}}
+      <a href="https://defra-cpr-prototype.herokuapp.com/obligation-checker/v4/turnover"
+        onclick="document.getElementById('myForm').submit();">Submit via Link</a>
+
+      <a href="https://defra-cpr-prototype.herokuapp.com/obligation-checker/v4/turnover">
+        {{ govukButton({
+        text: "Continue"
+        })}}
+      </a>
 
     </form>
 
