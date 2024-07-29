@@ -7,13 +7,13 @@ router.post('*/route-organisation-type', function (req, res) {
     var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
-        res.redirect('turnover?acting-as=parent-company')
+        res.redirect('small-producers/obligation-checker/v4/turnover?acting-as=parent-company')
     }
     else if (actingAs == "Subsidiary"){
-        res.redirect('turnover?acting-as=subsidiary')
+        res.redirect('small-producers/obligation-checker/v4/turnover?acting-as=subsidiary')
     }
     else if (actingAs == "Individual company"){
-        res.redirect('turnover?acting-as=individual')
+        res.redirect('small-producers/obligation-checker/v4/turnover?acting-as=individual')
     }  
 })
 
