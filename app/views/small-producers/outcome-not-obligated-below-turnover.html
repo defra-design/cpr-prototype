@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if EPR for packaging affects you" %}
+
+{% block pageTitle %}
+Check if EPR for packaging affects you | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l govuk-!-margin-top-5">Based on the answers you have given, you do not need to take any further action</h1>
+
+        <p class="govuk-body">This is because your organisation’s turnover was less than £1 million, according to its most recent published accounts.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">
+            You may need to comply with the extended producer responsibility (EPR) for packaging regulations in the future if the turnover for your organisation exceeds £1 million.
+        </p>
+
+        {% if (data['acting-as'] == "subsidiary-group") %}
+            <h2 class="govuk-heading-m">
+                How the regulations may affect your parent company
+            </h2>
+            <p class="govuk-body">
+                Your parent company may need to register for the EPR for packaging regulations if the combined annual turnover for any subsidiaries that do not meet the turnover criteria is over £1 million. 
+            </p>
+        {% endif %}
+
+        <p><a href="#">Leave feedback about this tool</a> (takes about 30 seconds)</p>
+    </div>
+</div>
+
+{% endblock %}
