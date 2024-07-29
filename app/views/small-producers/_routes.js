@@ -3,7 +3,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 
-// Routing for Organisation type
+// Routing for producer status -----> https://defra-cpr-prototype.herokuapp.com/small-producers/self-declare-2-status <------
 router.post('*/self-declare-2-status', function (req, res) {
     var actingAs = req.session.data['status']
     
