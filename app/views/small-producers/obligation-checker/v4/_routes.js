@@ -3,7 +3,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 // Routing for Organisation type
-router.post('/small-producers/obligation-checker/v4/route-organisation-type', function (req, res) {
+router.post('small-producers/obligation-checker/v4/route-organisation-type', function (req, res) {
     var actingAs = req.session.data['organisation-type']
     
     if (actingAs == "Parent company"){
