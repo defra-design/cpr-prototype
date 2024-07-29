@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 // Routing for Organisation type
-router.post('*/self-declare-3-warning', function (req, res) {
+router.post('*/self-declare-2-status', function (req, res) {
     var actingAs = req.session.data['status']
     
     if (actingAs == "small-producer"){
