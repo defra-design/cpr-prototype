@@ -10,56 +10,52 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-<script>
-  function checkStatusAndRedirect() {
-    const smallProducer = document.getElementById('small-producer').checked;
-    const largeProducer = document.getElementById('large-producer').checked;
-    const na = document.getElementById('na').checked;
-
-    if (smallProducer) {
-      window.location.href = 'self-declare-3-warning.html'; // Replace with your desired URL
-    } else if (largeProducer) {
-      window.location.href = 'self-declare-3-warning.html'; // Replace with your desired URL
-    } else if (na) {
-      window.location.href = 'self-declare-4-obligation-checker.html'; // Replace with your desired URL
-    } else {
-      alert('Please select at least one option.');
-    }
-  }
-</script>
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">You must declare your producer status</h1>
+    <form method="POST" action="self-declare-3-warning">
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="status">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">Please declare the producer status below</h1>
-        </legend>
-        <div id="status-hint" class="govuk-hint">Select all that apply.</div>
-        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="small-producer" name="small-producer" type="checkbox"
-              value="small-producer">
-            <label class="govuk-label govuk-checkboxes__label" for="small-producer">Small producer</label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="large-producer" name="large-producer" type="checkbox"
-              value="large-producer">
-            <label class="govuk-label govuk-checkboxes__label" for="large-producer">Large producer</label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="na" name="na" type="checkbox" value="na">
-            <label class="govuk-label govuk-checkboxes__label" for="na">Don't know</label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+      <div class="govuk-form-group">
 
-    {{ govukButton({
-    text: "Continue"
-    })}}
+        <fieldset class="govuk-fieldset" aria-describedby="status">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Please declare the producer status below
+            </h1>
+          </legend>
+          <div id="status-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="small-producer" name="small-producer" type="checkbox"
+                value="small-producer">
+              <label class="govuk-label govuk-checkboxes__label" for="small-producer">
+                Small producer
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="large-producer" name="large-producer" type="checkbox"
+                value="large-producer">
+              <label class="govuk-label govuk-checkboxes__label" for="large-producer">
+                Large producer
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="na" name="na" type="checkbox" value="na">
+              <label class="govuk-label govuk-checkboxes__label" for="na">
+                Don't know
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      })}}
+
+    </form>
   </div>
 </div>
 
