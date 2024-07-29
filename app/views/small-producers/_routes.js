@@ -10,7 +10,7 @@ router.post('*/self-declare-2-status', function (req, res) {
     if (actingAs == "small-producer"){
         res.redirect('self-declare-3-warning')
     }
-    else if (actingAs == "Slarge-producer"){
+    else if (actingAs == "large-producer"){
         res.redirect('self-declare-3-warning')
     }
     else if (actingAs == "na"){
