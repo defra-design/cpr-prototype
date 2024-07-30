@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('*/self-declare-2-status', function (req, res) {
     var actingAs = req.session.data['status']
     
-    if (actingAs == "small-producer"){
+    if (actingAs == "small-producers"){
         res.redirect('self-declare-3-warning')
     }
     else if (actingAs == "large-producer"){
