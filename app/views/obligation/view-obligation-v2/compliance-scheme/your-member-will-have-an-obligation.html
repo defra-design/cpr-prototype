@@ -1,0 +1,114 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+  {% endblock %}
+
+
+  {% block beforeContent %}
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Manage your recycling obligations</a>
+      </li>
+      <!--
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
+      </li>
+      -->
+    </ol>
+  </nav>
+  {% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      You will have a 2025 recycling obligation to meet
+    </h1>
+    <p> Compliance scheme: COMPLIANCE LTD (EA)<br>
+      Regulator: Environment Agency (England)</p>
+    <p>Your member’s 2025 recycling obligation is still being calculated based on the 2024 packaging data they submitted. Once the calculation is complete you’ll be informed of their exact obligation amount.</p> <p>In the meantime, here’s what you can do:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Acquire PRNs or PERNs on their behalf to count towards their 2025 recycling obligation </li>
+        <li>Review their packaging data to avoid any discrepancies in their 2025 obligation</li>
+        
+      </ul>
+ 
+    
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you believe they submitted incorrect data, contact the regulator immediately.
+        </strong>
+      </div>
+   
+
+
+<a href="view-obligation" class="govuk-link">  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Back to recycling obligation 
+    </button></a>
+   
+</div>
+</div>
+
+
+          
+    
+
+
+ 
+  
+
+{% endblock %}
