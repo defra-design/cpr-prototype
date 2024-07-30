@@ -113,7 +113,7 @@ router.use('/paper-cups/takeback-scheme-registration/version-2', require('./view
 
 
 //Smallproducer
-router.use('/small-producer', require('./views/small-producer/_routes'));
+router.use('/small-producers', require('./views/small-producers/_routes'));
 
 
 // Clear all session data
