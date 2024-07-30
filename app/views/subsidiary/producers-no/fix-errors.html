@@ -1,15 +1,57 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
 {% set serviceName = "Report packaging data" %}
- 
-{% extends "layout.html" %}
- 
+
 {% block pageTitle %}
-    {{serviceName}} prototype
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+  
+
 {% endblock %}
 
 
-{% block beforeContent %}
-
-{% endblock %}
 
 {% block content %}
 
@@ -34,7 +76,7 @@
                   <div class="govuk-error-summary__body">
                     <ul class="govuk-list govuk-error-summary__list">
                       <li>
-                        <a href="#">Organisation ID must be the same as the identification number assigned to your organisation when your account was created</a>
+                        <a href="#">Your file is larger than 60KB.</a>
                       </li>
                     </ul>
                   </div>
