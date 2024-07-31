@@ -1,0 +1,49 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-body account-info">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div><br>
+
+
+    <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="file-upload-1">
+        Upload a file
+      </label>
+      <p id="file-upload-1-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 50KB
+      </p>
+      <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="fileUpload1" type="file" aria-describedby="file-upload-1-error">
+    </div>
+
+
+
+        {{ govukButton({
+        text: "Upload file",
+        preventDoubleClick: true,
+        href: 'confirmation',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}
