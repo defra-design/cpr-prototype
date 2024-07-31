@@ -1,10 +1,55 @@
-{% set serviceName = "Run the fees and payments calculator" %}
- 
-{% extends "layout.html" %}
- 
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
 {% block pageTitle %}
-    {{serviceName}} prototype
+ Report packaging data
 {% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
 {% block content %}
 
 <div class="govuk-width-container">
@@ -15,15 +60,13 @@
           <h1 class="govuk-panel__title">
             File uploaded successfully
           </h1>
-          <div class="govuk-panel__body">
-            200 subsidiaries have been added to your account.
-          </div>
+         
         </div>
         <p class="govuk-body">
         </p>
         
-        <h2 class="govuk-heading-m">What happens next</h2>
-        <p class="govuk-body">200 subsidiaries have been added to your account.
+      
+        <p class="govuk-body">You added 200 subsidiaries.
         </p>
         
 
@@ -31,11 +74,9 @@
 <div class="govuk-button-group">
   <a href="subs-list" class="govuk-button" type="submit">View your subsidiaries</a>
   <a class="govuk-link" href="dash"></a>
-</div>
-&nbsp; &nbsp;
-<div class="govuk-button-group">
+
  
-  <a class="govuk-link" href="landing-page">Return to account home</a>
+  <a class="govuk-link" href="landing-page-2">Return to account home</a>
 </div>
         
         

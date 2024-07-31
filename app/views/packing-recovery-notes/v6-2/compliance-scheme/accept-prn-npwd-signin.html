@@ -1,0 +1,55 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="accepted-prn" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              You need to accept this PRN on NPWD
+            </label>
+          </h1>
+          <br>
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link">Sign in to NPWD</a> to accept this PRNs against your 2024 obligation.
+          </p>
+
+        </div>
+      </div>
+
+
+</fieldset>
+</div>
+ 
+
+</form>
+  
+</div>
+
+{% endblock %}
