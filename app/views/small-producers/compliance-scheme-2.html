@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Report packaging data" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+<a href="selected-yes.html" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    <form method="POST" action="self-declare-1">
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Are you using a compliance scheme?
+            </h1>
+            <br>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="compliance-scheme-yes" name="compliance-scheme" type="radio"
+                value="yes" {{ checked("compliance-scheme", "yes" ) }}>
+              <label class="govuk-label govuk-radios__label" for="compliance-scheme-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="compliance-scheme-no" name="compliance-scheme" type="radio"
+                value="no" {{ checked("compliance-scheme", "no" ) }}>
+              <label class="govuk-label govuk-radios__label" for="compliance-scheme-no">
+                No
+              </label>
+            </div>
+          </div>
+          <br><br>
+
+
+
+        </fieldset>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What is compliance scheme?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Compliance schemes are third parties that help organisations meet the<br>
+            EPR for packaging requierements.
+            <br><br>
+            Compliance schemes can: <br>
+            <ul>
+              <li>register you </li>
+              <li>pay your registration fees</li>
+              <li>buy PRNs (packaging waste recucling notes) or PERNs(packaging <br>
+                waste export recycling notes)to meet your recygling obligations</li>
+              <li>report your packaging data </li>
+            </ul>
+            <br>
+            A compliance scheme cannot pay your waste managment fee.
+          </div>
+        </details>
+      </div>
+      <a href="self-declare-1">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </a>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
