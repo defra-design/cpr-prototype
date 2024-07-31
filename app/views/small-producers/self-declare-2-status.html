@@ -12,7 +12,29 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">You must declare your producer status</h1>
+    <h1 class="govuk-heading-xl">Large and small organisations</h1>
+    <p>There are different reporting requirements, fees and costs depending if your organisation is classed as 'small'
+      or 'large'.</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with nationality
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        You need to collect and report packaging data if all the following apply:
+        <li>you’re an individual business, subsidiary or group (but not a charity)</li>
+        <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7 April
+        </li>
+        <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in 2022
+        </li>
+        <li>you carry out any of the packaging activities</li>
+        Find out more about <a
+          href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do">reporting
+          requirements</a>
+      </div>
+    </details>
+
 
     <form class="form" action="self-declare-3-warning" method="post">
 
@@ -21,7 +43,7 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       values: data["status"],
       fieldset: {
       legend: {
-      text: "What is your status?",
+      text: "What size is your organisation?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
       }
@@ -37,13 +59,10 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       {
       value: "Large Producers",
       text: "Large Producers"
-      },
-      {
-      value: "Don’t know",
-      text: "Don’t know"
       }
       ]
       }) }}
+
 
       <a href="https://defra-cpr-prototype.herokuapp.com/small-producers/self-declare-3-warning">
         <button type="submit" class="govuk-button" data-module="govuk-button">
