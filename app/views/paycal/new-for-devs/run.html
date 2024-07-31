@@ -1,0 +1,96 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}      
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="upload-file.html">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+   </div>
+
+    
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <br><br>
+    
+    <h2 class="govuk-heading-m">
+      
+    </h2>
+      
+    <section class="gem-c-attachment govuk-!-display-none-print govuk-!-margin-bottom-6" data-module="ga4-link-tracker" data-ga4-link-tracker-module-started="true">
+      <div class="gem-c-attachment__thumbnail">
+      <a class="govuk-link" target="_self" tabindex="-1" aria-hidden="true" href="#">
+      <img src="/public/images/file.png" alt="" width="99px;" style="padding-top:5px;"></a>
+      </div>
+    
+      <div class="gem-c-attachment__details">
+      <h3 class="gem-c-attachment__title">
+        <h2 class="govuk-heading-m">
+          Download the results file
+        </h2>
+        <a class="govuk-link gem-c-attachment__link" href="#">Test 10</a>
+    </h3>
+    <a class="govuk-link gem-c-attachment__link" href="#"></a>
+    <p class="gem-c-attachment__metadata">10:01 - 28 June 2025<br>CSV 157 KB</p>
+    
+    </div></section>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp;<br><br>
+    <h1 class="govuk-heading-xl">Test 10</h1>
+
+
+
+<form action="/form-handler" method="post" novalidate>
+
+<input type="hidden" name="answers-checked" value="true">
+
+<div class="govuk-form-group">
+  <h2 class="govuk-heading-m">
+    Change the classification
+  </h2>
+
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      Selecting 'Scrap' will delete this run
+    </strong>
+  </div>
+
+
+<select class="govuk-select" id="location" name="location" aria-describedby="location-hint">
+<option value="choose" selected>Unclassified</option>
+<option value="paly">Play</option>
+<option value="scrap">Scrap</option>
+</select>
+</div>
+
+&nbsp; &nbsp;
+<div class="govuk-button-group">
+  <a href="classification-changed" class="govuk-button" type="submit">Save the classification</a>
+  <a class="govuk-link" href="dash">Return to the dashboard</a>
+</div>
+</form>
+
+  
+
+
+      </div>
+    </div>
+  
+</div>
+
+
+{% endblock %}
