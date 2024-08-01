@@ -1,80 +1,116 @@
-{% set serviceName = "Small producers" %}
-
 {% extends "layout.html" %}
 
+{% set serviceName %}
+Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if you need to report packaging data" %}
+
 {% block pageTitle %}
-Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Check if you need to report packaging data | {{serviceName}} prototype
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Manufacturing</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Collection and packaging reforms</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">Check if your organisation needs to register</li>
+    </ol>
+</div> -->
+
+<!-- <a class="govuk-back-link" href="./start-page.html">Back</a> -->
+
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">What size is your organisation?</h1>
-    <p>There are different reporting requirements, fees, and costs depending on if your organisation is classed as
-      'small' or 'large'.</p>
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help with size of organisation
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <p>You need to collect and report packaging data if all the following apply:</p>
-        <ul>
-          <li>you’re an individual business, subsidiary or group (but not a charity)</li>
-          <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7 April
-          </li>
-          <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in 2022
-          </li>
-          <li>you carry out any of the packaging activities</li>
-        </ul>
-        <p>Find out more about <a
-            href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do">reporting
-            requirements</a></p>
-      </div>
-    </details>
 
-    <form class="form" action="self-declare-2-status" method="post">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <!-- Optional: Add a legend if required -->
+    <form method="POST" action="self-declare-3-warning">
+
+
+      <div class="govuk-form-group govuk-!-margin-top-8">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+            <span class="govuk-caption-l">About your organisation</span>
+            <h1 class="govuk-fieldset__heading">
+              What size is your organisation?
+            </h1>
           </legend>
+
+          <div id="changed-name-hint" class="govuk-hint">
+            There are different reporting requirements, fees, and costs depending on if your organisation is classed as
+            'small' or 'large'.
+          </div>
+
+
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sizeorganisation-large" name="sizeorganisation" type="radio"
-                value="largeproducers">
-              <label class="govuk-label govuk-radios__label" for="sizeorganisation-large">
-                Large producers
+              <input class="govuk-radios__input" id="largeproducer" name="sizeorganisation" type="radio"
+                value="largeproducer" {{ checked("sizeorganisation", "largeproducer" ) }}>
+              <label class="govuk-label govuk-radios__label" for="largeproducer">
+                Large producer
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sizeorganisation-small" name="sizeorganisation" type="radio"
-                value="smallproducers">
-              <label class="govuk-label govuk-radios__label" for="sizeorganisation-small">
-                Small producers
+              <input class="govuk-radios__input" id="smallproducer" name="sizeorganisation" type="radio"
+                value="smallproducer" {{ checked("sizeorganisation", "smallproducer" ) }}>
+              <label class="govuk-label govuk-radios__label" for="smallproducer">
+                Small producer
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sizeorganisation-dontknow" name="sizeorganisation" type="radio"
-                value="dontknow">
-              <label class="govuk-label govuk-radios__label" for="sizeorganisation-dontknow">
+              <input class="govuk-radios__input" id="dontknow" name="sizeorganisation" type="radio" value="dontknow" {{
+                checked("sizeorganisation", "dontknow" ) }}>
+              <label class="govuk-label govuk-radios__label" for="dontknow">
                 Don't know
               </label>
             </div>
           </div>
+
         </fieldset>
       </div>
 
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Continue
-      </button>
+      <!-- DETAILS -->
+      <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            How organisation is classed as'small' or 'large'.
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">You need to collect and report packaging data if all the following apply:</p>
+          <ol class="govuk-list govuk-list--bullet">
+            <li>you’re an individual business, subsidiary or group (but not a charity)</li>
+            <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7
+              April</li>
+            <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in
+              2022</li>
+            <li>you carry out any of the packaging activities</li>
+          </ol>
+          <p>Find out more about <a
+              href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do">reporting
+              requirements</a></p>
+        </div>
+      </details>
+
+      {{ govukButton({
+      text: "Continue"
+      })}}
+
     </form>
+
+
 
   </div>
 </div>
