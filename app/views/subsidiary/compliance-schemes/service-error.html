@@ -1,0 +1,79 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="upload-file.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="upload-new-file">
+        <div class="govuk-form-group ">
+
+        <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+
+       <h1 class="govuk-body-m">Try again later. 
+<br><br>
+        We have not saved your answers. When the service is available, you will need to start again. </h1>
+       
+
+        {{ govukButton({
+        text: "Account home",
+        preventDoubleClick: true,
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}
