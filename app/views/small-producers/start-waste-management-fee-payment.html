@@ -1,54 +1,121 @@
-{% set serviceName = "Small producers" %}
-
 {% extends "layout.html" %}
 
+{% set serviceName %}
+Small Producers
+{% endset%}
+
+{% set serviceName = "Pay a waste management fee" %}
+
 {% block pageTitle %}
-Start self-declaration service
+Pay a waste management fee
 {% endblock %}
 
+
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">link 1</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">link 2</a>
+    </li>
+  </ol>
+</div>
 {% endblock %}
 
 {% block content %}
 
+<div class="govuk-grid-row">
 
+  <!-- FORM-ROUTING -->
+  <form method="POST" action="producer-fees-info">
 
-<main id="content" role="main" class=" govuk-main-wrapper">
+    <!-- HEADING -->
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+        <span class="govuk-caption-xl">Guidance</span>
+        Check if you need to pay a waste management fee payment and learn about waste management fees
+      </h1>
+      <p class="govuk-body-l">
+        Find out lorem ipsum lorem ipsum lorem ipsum
+      </p>
+    </div>
 
-  <div class="govuk-grid-row">
+    <!-- DIVIDER -->
+    <div class="govuk-grid-column-full">
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+
+    <!-- HEADING -->
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body-s govuk-!-margin-bottom-2">
+        From: <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">Department
+          for Environment, Food & Rural Affairs</a> and <a href="#"
+          class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold">Enviroment Agency</a>
+      </p>
+      <p class="govuk-body-s">
+        Published: Published XX XX XXXX
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break">
+
+    </div>
+
+    <!-- START PAGE CONTENT -->
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Start a waste management fee payment
-      </h1>
-      <form method="POST" action="producer-fees-info">
-        <p>Use this service Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, enim vitae
-          accumsan
-          vehicula, risus dolor pharetra justo, eget auctor purus lacus vitae ante. Nullam urna odio, porta quis risus
-          et,
-          malesuada dapibus est.</p>
-        <p>use this service Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, enim vitae
-          accumsan
-          vehicula, risus dolor pharetra justo, eget auctor purus lacus vitae ante. Nullam urna odio, porta quis risus
-          et,
-          malesuada dapibus est.</p>
-        <p>use this service Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, enim vitae
-          accumsan
-          vehicula, risus dolor pharetra justo, eget auctor purus lacus vitae ante. Nullam urna odio, porta quis risus
-          et,
-          malesuada dapibus est.</p>
+      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum pharetra nisl,
+        vitae blandit dolor cursus eget. Suspendisse consectetur tortor vel felis malesuada iaculis.</p>
 
-        <a href="https://defra-cpr-prototype.herokuapp.com/small-producers/producer-fees-info" role="button"
-          draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-          Start now
-          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
-            viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-          </svg>
-        </a>
-      </form>
+      <p class="govuk-body">Use this tool to find out:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Lorem ipsum dolor sit amet </li>
+        <li>Consectetur adipiscing elit</li>
+        <li>In condimentum pharetra nisl</li>
+      </ul>
+
+      <p class="govuk-body">You'll need to know:</p>
+      <ul class="govuk-list govuk-list--bullet ">
+        <li>In condimentum pharetra nisl</li>
+        <li>In condimentum pharetra nis</li>
+        <li>Ra nislra nislra nislra nisl</li>
+      </ul>
+
+      <div class="govuk-inset-text govuk-!-margin-bottom-7">
+        <p class="govuk-body ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum pharetra
+          nisl,</p>
+      </div>
+      {{ govukButton({
+      text: "Check now",
+      isStartButton: true
+      })}}
+
+      <div class="guidance-sidebar" style="padding-top: 15px; margin-top: 70px; border-top: #1d70b8 2px solid;">
+        <h2 class="govuk-heading-s">Lorem ipsum dolor sit</h2>
+
+        <p class="govuk-body-s"><a href="#">Adipiscing elit</a></p>
+      </div>
+
     </div>
-  </div>
-</main>
+
+    <!-- GUIDANCE SIDEBAR -->
+    <div class="govuk-grid-column-one-third" style="padding: 0px 15px;">
+      <div class="guidance-sidebar" style="padding: 15px 0px 0px 0px; border-top: #1d70b8 2px solid;">
+        <h2 class="govuk-heading-s">Adipiscing elit</h2>
+      </div>
+      <div class="guidance-sidebar" style="padding-top: 15px; border-top: #B1B4B6 1px solid;">
+        <h2 class="govuk-body-s">Adipiscing elit</h2>
+
+        <p class="govuk-body-s"><a href="#">Adipiscing elit</a></p>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
 {% endblock %}

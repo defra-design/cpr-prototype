@@ -1,10 +1,13 @@
-{% set serviceName = "Small producers" %}
-
 {% extends "layout.html" %}
 
+{% set serviceName %}
+Your waste management fees
+{% endset%}
+
+{% set serviceName = "Your waste management fees" %}
 
 {% block pageTitle %}
-Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+Your waste management fees
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,9 +18,33 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Your waste management fees are £1,216.00</h1>
+
     <form method="POST" action="small-producer-dashboard">
-      <p>Because you have declared as a small producer... lorem ipusm lorem iosum lorem ipusm lorem iosum</p>
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+            <span class="govuk-caption-l">About your waste management fees</span>
+            <h1 class="govuk-fieldset__heading">
+              Your waste management fees are £1,216.00
+            </h1>
+          </legend>
+          <p>Because you have declared as a small producer... lorem ipusm lorem iosum lorem ipusm lorem iosum</p>
+          <p>Please pay your fees <a
+              href="https://defra-cpr-prototype.herokuapp.com/paycal/payments/confirmation">online</a>. If you arent
+            able to pay online pay by bank transfer using the details below:</p>
+          <ul class="govuk-list govuk-list">
+            <li>Company name: Environment Agency</li>
+            <li>Bank: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate, London EC2M
+              4RB
+            </li>
+            <li>Sort code: 60-70-80</li>
+            <li>Account number: 10014411</li>
+            <li>Account name: EA RECEIPTS</li>
+            <li>Reference: PR/PK/REP </li>
+          </ul>
+          <p>I am happy with the above and ready to submit my declaration.</p>
+      </div>
+      <!-- DETAILS -->
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -29,25 +56,11 @@ Content page template – {{ serviceName }} – GOV.UK Prototype Kit
 
         </div>
       </details>
-
-      <p>Please pay your fees <a
-          href="https://defra-cpr-prototype.herokuapp.com/paycal/payments/confirmation">online</a>. If you arent able to
-        pay online pay by bank transfer using the details below.</p>
-      <ul class="govuk-list govuk-list">
-        <li>Company name: Environment Agency</li>
-        <li>Bank: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate, London EC2M 4RB
-        </li>
-        <li>Sort code: 60-70-80</li>
-        <li>Account number: 10014411</li>
-        <li>Account name: EA RECEIPTS</li>
-        <li>Reference: PR/PK/REP </li>
-      </ul>
-
       {{ govukButton({
       text: "Continue"
       })}}
-
     </form>
+
   </div>
 </div>
 
