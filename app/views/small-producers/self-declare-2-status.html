@@ -15,7 +15,7 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Large and small organisations</h1>
+    <h1 class="govuk-heading-l">What size is your organisation?</h1>
     <p>There are different reporting requirements, fees and costs depending if your organisation is classed as 'small'
       or 'large'.</p>
     <details class="govuk-details">
@@ -28,9 +28,11 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
         <ul>
           You need to collect and report packaging data if all the following apply:
           <li>you’re an individual business, subsidiary or group (but not a charity)</li>
-          <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7 April
+          <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to
+            7 April
           </li>
-          <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in 2022
+          <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market
+            in 2022
           </li>
           <li>you carry out any of the packaging activities</li>
         </ul>
@@ -40,34 +42,28 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </details>
 
-
     <form class="form" action="self-declare-3-warning" method="post">
-
-      {{ govukCheckboxes({
-      name: "status",
-      values: data["status"],
-      fieldset: {
-      legend: {
-      text: "What size is your organisation?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-      }
-      },
-      hint: {
-      text: "Select all that apply."
-      },
-      items: [
-      {
-      value: "Small Producer",
-      text: "Small Producer"
-      },
-      {
-      value: "Large Producers",
-      text: "Large Producers"
-      }
-      ]
-      }) }}
-
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Large producers
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio"
+                value="scotland">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                Small producers
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
       <a href="https://defra-cpr-prototype.herokuapp.com/small-producers/self-declare-3-warning">
         <button type="submit" class="govuk-button" data-module="govuk-button">
