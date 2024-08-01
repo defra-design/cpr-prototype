@@ -15,7 +15,7 @@ router.post('self-declare-2-status', function (req, res) {
     if (sizeorganisation === 'largeproducer' || sizeorganisation === 'smallproducer') {
         res.redirect('self-declare-3-warning')
     } else {
-        res.post('self-declare-4-obligation-checker')
+        res.redirect('self-declare-4-obligation-checker')
     }
 })
 
