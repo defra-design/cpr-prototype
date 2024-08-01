@@ -2,7 +2,6 @@
 
 {% extends "layout.html" %}
 
-
 {% block pageTitle %}
 Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -16,8 +15,8 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">What size is your organisation?</h1>
-    <p>There are different reporting requirements, fees and costs depending if your organisation is classed as 'small'
-      or 'large'.</p>
+    <p>There are different reporting requirements, fees, and costs depending on if your organisation is classed as
+      'small' or 'large'.</p>
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -25,14 +24,12 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
         </span>
       </summary>
       <div class="govuk-details__text">
+        <p>You need to collect and report packaging data if all the following apply:</p>
         <ul>
-          You need to collect and report packaging data if all the following apply:
           <li>you’re an individual business, subsidiary or group (but not a charity)</li>
-          <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to
-            7 April
+          <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7 April
           </li>
-          <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market
-            in 2022
+          <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in 2022
           </li>
           <li>you carry out any of the packaging activities</li>
         </ul>
@@ -46,32 +43,37 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <!-- Optional: Add a legend if required -->
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sizeorganisation" name="sizeorganisation" type="radio"
+              <input class="govuk-radios__input" id="sizeorganisation-large" name="sizeorganisation" type="radio"
                 value="largeproducers">
-              <label class="govuk-label govuk-radios__label" for="sizeorganisation">
+              <label class="govuk-label govuk-radios__label" for="sizeorganisation-large">
                 Large producers
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sizeorganisation-2" name="sizeorganisation" type="radio"
+              <input class="govuk-radios__input" id="sizeorganisation-small" name="sizeorganisation" type="radio"
                 value="smallproducers">
-              <label class="govuk-label govuk-radios__label" for="sizeorganisation-2">
+              <label class="govuk-label govuk-radios__label" for="sizeorganisation-small">
                 Small producers
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sizeorganisation-dontknow" name="sizeorganisation" type="radio"
+                value="dontknow">
+              <label class="govuk-label govuk-radios__label" for="sizeorganisation-dontknow">
+                Don't know
               </label>
             </div>
           </div>
         </fieldset>
       </div>
 
-      <a href="https://defra-cpr-prototype.herokuapp.com/small-producers/self-declare-3-warning">
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
-      </a>
-
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
     </form>
 
   </div>
