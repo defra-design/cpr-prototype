@@ -1,0 +1,84 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="">
+        <div class="govuk-form-group ">
+
+        <h1 class="govuk-heading-l">How to complete a CSV file</h1>
+
+       <h1 class="govuk-body-m"> Enter the required data in the CSV file and use the following column headers:</h1>
+        
+
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li> ‘organisation_id’ -  enter the 6 digit long identification number created when the holding company registered with EPR</li>
+            <li> ‘subsidiary_id’  - enter the self-assigned id used if you have previously submitted data for this subsidiary</li>
+          <li>  ‘organisation_name’ – enter any names exactly as they appear on Companies House</li>
+          <li>‘companies house number’ – enter the 8 digit long number</li>
+          <li>‘parent_child' – enter Parent or child</li>
+          <li> 'franchisee_licensee_tenant' - enter Y if the child entity is a franchisee, licensee or tenant </li>
+        </ol>
+    </div>
+
+   <div class="govuk-body-m">If you are entering data from an organisation details CSV file, you can use the data in column A to populate  Column 1,  and Columns B, C and E for columns two to four. </div>
+
+        {{ govukButton({
+        text: "Download CSV template",
+        preventDoubleClick: true,
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

@@ -50,40 +50,33 @@ Report packaging data
 {% endblock %}
 
 
+
 {% block content %}
+<form class="form" action="" method="POST">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
 
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-            File uploaded successfully
-          </h1>
-         
-        </div>
-        <p class="govuk-body">
-        </p>
-        
-      
-        <p class="govuk-body">You added subsidiaries.
-        </p>
-        
+      <h1 class="govuk-heading-l">Uploading and validating file</h1>
 
-        &nbsp; &nbsp;
-<div class="govuk-button-group">
-  <a href="subs-list" class="govuk-button" type="submit">View subsidiaries</a>
-  <a class="govuk-link" href="dash"></a>
+      <p class="govuk-body">Your file is currently being uploaded and checked for errors. This is taking longer than expected. 
+        
+        <br><br>Come back later to check the status of this file.</p>
 
- 
-  <a class="govuk-link" href="landing-page-2">Return to account home</a>
-</div>
-        
-        
-      </div>
+
+      <!--<p>
+        <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+      </p> --> 
+      <button class="govuk-button" formaction="subs-list-pending-2">View subsidiaries</button> 
+    </form>
+      <!--<a class="govuk-link" href="confirmation">Next page</a>-->
     </div>
-  </main>
-</div>
-
+  </div>
 
 {% endblock %}
+
+{% block scripts %}
+  
+{% endblock %}
+
+
+
