@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 
-// Routing for Page
+// Routing for Page /small-producers/self-declare-2-status
 router.post('*/selfdeclare', function (req, res) {
     var sizeorganisation = req.session.data['sizeorganisation'];  
     if (sizeorganisation === "smallproducer") {
@@ -16,6 +16,20 @@ router.post('*/selfdeclare', function (req, res) {
         res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page');
     }
 });
+
+
+router.post('*/selfdeclarenext', function (req, res) {
+    var declarationanswer = req.session.data['declarationanswer'];  
+    if (declarationanswer === "yes") {
+        // Handle case where the answer is "yes"
+        res.redirect('./self-declare-5-success');
+    } else if (declarationanswer === "no") {
+        // Handle case where the answer is "no"
+        res.redirect('./no-page');
+    }
+});
+
+
 
 module.exports = router;
 
