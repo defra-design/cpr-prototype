@@ -1,23 +1,41 @@
 const express = require('express')
 const router = express.Router()
-// Add your routes here - above the module.exports line
 
-// Routing for self-declare-2-status.html
+
+
+
+
+// Route for handling GET requests to self-declare-2-status page
 router.get('self-declare-2-status', function (req, res) {
-    res.render('self-declare-2-status', {})
+        res.render('self-declare-2-status', { noSessionData: true })
 })
 
-router.post('self-declare-2-status', function (req, res) {
-    // Retrieve the value of sizeorganisation from session data
-    var sizeorganisation = req.session.data['sizeorganisation']
 
-    // Check the value and redirect accordingly
-    if (sizeorganisation === 'largeproducer' || sizeorganisation === 'smallproducer') {
-        res.redirect('self-declare-3-warning')
+// Route for handling form submission from self-declare-2-status page
+router.post('self-declare-2-status', function (req, res) {
+    // Ensure session data is available
+    if (req.session && req.session.data) {
+        var sizeorganisation = req.session.data['sizeorganisation']
+
+        // Check the value and redirect accordingly
+        if (sizeorganisation === 'largeproducer' || sizeorganisation === 'smallproducer') {
+            res.redirect('self-declare-3-warning')
+        } else if (sizeorganisation === 'dontknow') {
+            res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page')
+        } else {
+            // Handle other cases if necessary
+            res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page')
+        }
     } else {
-        res.redirect('self-declare-4-obligation-checker')
+        // Handle the case where session data is not available
+        res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page')
     }
 })
+
+
+
+
+
 
 
 module.exports = router
