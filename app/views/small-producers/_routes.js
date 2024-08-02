@@ -30,6 +30,20 @@ router.post('*/selfdeclarenext', function (req, res) {
 });
 
 
+// Routing for Page /small-producers/fees-confirmation-question
+router.post('*/feesnext', function (req, res) {
+    var declarationanswer = req.session.data['declarationanswer'];  
+    if (declarationanswer === "yes") {
+        // Handle case where the answer is "yes"
+        res.redirect('./producer-fees-info');
+    } else if (declarationanswer === "no") {
+        // Handle case where the answer is "no"
+        res.redirect('./no-page');
+    }
+});
+
+
+
 
 module.exports = router;
 
