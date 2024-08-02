@@ -17,7 +17,7 @@ router.post('*/selfdeclare', function (req, res) {
     }
 });
 
-
+// Routing for Page /small-producers/self-declare-3-warning-2
 router.post('*/selfdeclarenext', function (req, res) {
     var declarationanswer = req.session.data['declarationanswer'];  
     if (declarationanswer === "yes") {
