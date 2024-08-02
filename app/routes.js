@@ -112,7 +112,7 @@ router.use('/paper-cups/takeback-scheme-registration/version-1', require('./view
 router.use('/paper-cups/takeback-scheme-registration/version-2', require('./views/paper-cups/takeback-scheme-registration/version-2/_routes'));
 
 //Small producers
-router.use('/small-producers/links-routes', require('./views/small-producers/links-routes/_routes'));
+router.use('/small-producers', require('./views/small-producers/_routes'));
 
 
 // Clear all session data
