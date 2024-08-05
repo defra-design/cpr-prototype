@@ -99,6 +99,7 @@ router.use('/packing-recovery-notes/v4', require('./views/packing-recovery-notes
 router.use('/packing-recovery-notes/v5', require('./views/packing-recovery-notes/v5/_routes'));
 router.use('/packing-recovery-notes/v6', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-1', require('./views/packing-recovery-notes/v6/_routes'));
+router.use('/packing-recovery-notes/v6-2', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/account-creation', require('./views/packing-recovery-notes/account-creation/build/_routes'));
 
 
@@ -112,7 +113,7 @@ router.use('/paper-cups/takeback-scheme-registration/version-1', require('./view
 router.use('/paper-cups/takeback-scheme-registration/version-2', require('./views/paper-cups/takeback-scheme-registration/version-2/_routes'));
 
 //Small producers
-router.use('/small-producers', require('./views/small-producers/_routes'));
+router.use('/small-producers/links-routes', require('./views/small-producers/links-routes/_routes'));
 
 
 // Clear all session data

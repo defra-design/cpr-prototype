@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
-Small Producers
+Small producer
 {% endset%}
 
-{% set serviceName = "Size of your organisation" %}
+{% set serviceName = "Submit declaration as a small producer" %}
 
 {% block pageTitle %}
-Size of your organisation
+Submit declaration as a small producer
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,56 +19,38 @@ Size of your organisation
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="POST" action="./selfdeclarenext">
+    <form method="POST" action="self-declare-5-success">
       <div class="govuk-form-group govuk-!-margin-top-0">
-        <fieldset class="govuk-fieldset" aria-describedby="declarationanswer">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
             <span class="govuk-caption-l">About your declaration</span>
             <h1 class="govuk-fieldset__heading">
               Submit declaration as a small producer
             </h1>
           </legend>
-          <div id="declarationanswer" class="govuk-hint">
-            I declare that... Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <p>I declare that... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu sodales quam. Nullam
+            magna nibh, bibendum et aliquam ut, feugiat ut quam. Aliquam erat volutpat. Nam semper nisl et nulla
+            finibus, quis molestie lectus accumsan. </p>
+          <div id="changedName-hint" class="govuk-hint">
+            Do you agree
           </div>
-          <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="yes" name="declarationanswer" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="yes">
+              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="changedName">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no" name="declarationanswer" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="no">
+              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="changedName-2">
                 No
               </label>
             </div>
           </div>
         </fieldset>
       </div>
-      <!-- DETAILS -->
-      <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            How organisation is classed as 'small' or 'large'.
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">You need to collect and report packaging data if all the following apply:</p>
-          <ol class="govuk-list govuk-list--bullet">
-            <li>you’re an individual business, subsidiary or group (but not a charity)</li>
-            <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7
-              April</li>
-            <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in
-              2022</li>
-            <li>you carry out any of the packaging activities</li>
-          </ol>
-          <p>Find out more about <a
-              href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do">reporting
-              requirements</a></p>
-        </div>
-      </details>
+
       {{ govukButton({
       text: "Continue"
       })}}
