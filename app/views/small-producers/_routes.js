@@ -35,7 +35,7 @@ router.post('*/feesnext', function (req, res) {
     var declarationanswer = req.session.data['declarationanswer'];  
     if (declarationanswer === "yes") {
         // Handle case where the answer is "yes"
-        res.redirect('./producer-fees-info');
+        res.redirect('./fees-task-list-1');
     } else if (declarationanswer === "no") {
         // Handle case where the answer is "no"
         res.redirect('./no-page');
