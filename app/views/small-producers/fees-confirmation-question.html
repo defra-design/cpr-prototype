@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
-Small producer
+Small Producers
 {% endset%}
 
-{% set serviceName = "Declaring as a small producer" %}
+{% set serviceName = "Size of your organisation" %}
 
 {% block pageTitle %}
-Declaring as a small producer
+Size of your organisation
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,35 +19,56 @@ Declaring as a small producer
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="POST" action="producer-fees-info">
+    <form method="POST" action="./feesnext">
       <div class="govuk-form-group govuk-!-margin-top-0">
-        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="declarationanswer">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
             <span class="govuk-caption-l">About your waste management fees</span>
             <h1 class="govuk-fieldset__heading">
               Did you signed a self-declaration?
             </h1>
           </legend>
-          <div id="changedName-hint" class="govuk-hint">
-            you should have received an email with lorem ipsum lorem
+          <div id="declarationanswer" class="govuk-hint">
+            you should have received an email with lorem ipsum lorem.
           </div>
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="changedName">
+              <input class="govuk-radios__input" id="yes" name="declarationanswer" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changedName-2">
+              <input class="govuk-radios__input" id="no" name="declarationanswer" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">
                 No
               </label>
             </div>
           </div>
         </fieldset>
       </div>
-
+      <!-- DETAILS -->
+      <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            How organisation is classed as 'small' or 'large'.
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">You need to collect and report packaging data if all the following apply:</p>
+          <ol class="govuk-list govuk-list--bullet">
+            <li>you’re an individual business, subsidiary or group (but not a charity)</li>
+            <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7
+              April</li>
+            <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in
+              2022</li>
+            <li>you carry out any of the packaging activities</li>
+          </ol>
+          <p>Find out more about <a
+              href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do">reporting
+              requirements</a></p>
+        </div>
+      </details>
       {{ govukButton({
       text: "Continue"
       })}}
