@@ -7,180 +7,250 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-    {
-    href: "#",
-    text: "Home",
-    active: true
-    },
-    {
-    href: "#",
-    text: "Manage account" 
-    },
-    {
-    href: "#",
-    text: "My profile" 
-    },
-    {
-    href: "#",
-    text: "Sign out"
-    }
-    ]
-    }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
-  {% endblock %}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
 
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="./lp-landing-page.html">Home</a>
-{% endblock %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Manage your recycling obligations</a>
+    </li>
+    <!--
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
+      </li>
+      -->
+  </ol>
+</nav>
 
+{% endblock %}
 
 
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
-      
-     
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">Compliance LTD (EA)</span>
-        Your members' recycling obligation for 2025 is 18,000 tonnes
-      </h1>
-     
-     
-     <!--<h2 class="govuk-heading-m">Breakdown of your full packaging obligation</h2>-->
+  <div class="govuk-grid-column-two-thirds ">
 
-     <p class="govuk-body">
-      <a href="view-obligation-by-producer" class="govuk-link">View recycling obligations by members</a>  </p>
+    <h1 class="govuk-heading-l ">
+      Your recycling obligation progress for 2025
+    </h1>
+
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+
+    <!--<h2 class="govuk-heading-m">Breakdown of your full packaging obligation</h2>-->
+
+    <p>Select a material for information on how the data was calculated and view progress towards meeting your 2025
+      recycling obligation.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full ">
 
 
-        <p>Select a material for more information on how the data was calculated.</p>
-      
-      
+    <table class="govuk-table">
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">  Breakdown of your packaging obligation:</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Material</th>
+          <th scope="col" class="govuk-table__header">Tonnage you need to meet</th>
+          <th scope="col" class="govuk-table__header">Tonnage awaiting acceptance </th>
+          <th scope="col" class="govuk-table__header">Tonnage outstanding</th>
+          <th scope="col" class="govuk-table__header">Tonnage of PERNs and PRNs accepted</th>
+          <th scope="col" class="govuk-table__header" width="15%">Status</th>
 
-      <table class="govuk-table">
-        <!--<caption class="govuk-table__caption govuk-table__caption--m">  Breakdown of your packaging obligation:</caption>-->
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" >Material</th>
-            <th scope="col" class="govuk-table__header">Tonnage</th>
-            <th scope="col" class="govuk-table__header">Tonnage met</th>
-           <!-- <th scope="col" class="govuk-table__header">PRNs or PERNs awaiting acceptance</th>-->
-            <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
 
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="paper-calculation.html" class="govuk-link">Paper</a></th>
-            <td class="govuk-table__cell">4,000</td>
-            <td class="govuk-table__cell">0</td>
-           
-            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Aluminium</a></th>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">N/A</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Bronze</a></th>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">N/A</td>
+        </tr>
+
+
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Glass</a></th>
+          <td class="govuk-table__cell">3,500</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
               Not met
             </strong></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Glass
-              <br/> Glass re-melt
-            </a></th>
-            <td class="govuk-table__cell">3,500
-              <br/> 500
-            </td>
-            <td class="govuk-table__cell">0 <br/> 0</td>
-            
-            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
-              Not met</strong>
-              <div class="govuk-!-padding-bottom-1"></div>
-              <strong class="govuk-tag govuk-tag--grey">
-                Not met</strong></td>
-         
-            </strong></td>
-          </tr>
-         
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Plastic</a></th>
-            <td class="govuk-table__cell">7,000</td>
-            <td class="govuk-table__cell">0</td>
-            
-            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Glass re-melt</a></th>
+          <td class="govuk-table__cell">500</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
               Not met
             </strong></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Steel</a></th>
-            <td class="govuk-table__cell">3,000</td>
-            <td class="govuk-table__cell">0</td>
-           
-            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="paper-calculation.html" class="govuk-link">Paper</a></th>
+          <td class="govuk-table__cell">4,000</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
               Not met
             </strong></td>
-          </tr>
-          
-          
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total tonnage for 2025</th>
-            <td class="govuk-table__cell">18,000</td>
-            <td class="govuk-table__cell">0</td>
-            
-            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Plastic</a></th>
+          <td class="govuk-table__cell">7,000</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
               Not met
             </strong></td>
-          </tr>
-        </tbody>
-      </table>
-     
-     
-     
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            What these amounts mean
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>These amounts are based on the data you submitted to the Scottish Environment Protection Agency when reporting your packaging materials.  </p>
-          <p> We calculated these numbers by applying the relevant material recycling target for 2025 to the amount and type of packaging you supplied in 2024.</p>
-          <p class="govuk-body">View your  
-            <a href="#" class="govuk-link">packaging data history</a> for the data you submitted for 2024.   </p>
-            <p class="govuk-body">See
-              <a href="https://consult.defra.gov.uk/extended-producer-responsibiity-team/consultation-on-the-draft-producer-responsibility/supporting_documents/230720%20consultation%20draft%20PRO%20Packaging%20and%20Packaging%20Waste%20Regulations.pdf" class="govuk-link">Producer Responsibility Obligations Regulations 2024</a> to understand how material recycling targets for 2025 are set.   </p>
-       
-          </div>
-      </details>
+        </tr>
 
-      <p>
-        If you believe your data is incorrect, contact your regulator immediately.        </p>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Steel</a></th>
+          <td class="govuk-table__cell">3,000</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+              Not met
+            </strong></td>
+        </tr>
 
 
-          <h2 class="govuk-heading-m">Select the option which applies to you:</h2>
-<ul class="govuk-list govuk-list--bullet">
 
-  <li> <a href="meeting-your-obligation.html" class="govuk-link">I still need to meet my recycling obligation </a></li>
-  <li><a href="#" class="govuk-link">  I’m ready to submit a certificate of compliance for 2025</a></li>
 
-</ul>
 
-          <!--
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Total tonnage for 2025</th>
+          <td class="govuk-table__cell">18,000</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+              Not met
+            </strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-2">
+
+    <p class="govuk-!-margin-bottom-5"> <a href="#" class="govuk-link">View recycling obligations by member</a></p>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What these amounts mean
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>These amounts are based on the data you submitted to the Scottish Environment Protection Agency when
+          reporting your packaging materials. We calculated these numbers by applying the relevant material recycling
+          target for 2025 to the amount and type of packaging you supplied in 2024.</p>
+
+        <p class="govuk-body">View your
+          <a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v2/current-history"
+            class="govuk-link">packaging data history</a> for the data you submitted for 2024.
+        </p>
+        <p class="govuk-body">See
+          <a href="https://consult.defra.gov.uk/extended-producer-responsibiity-team/consultation-on-the-draft-producer-responsibility/supporting_documents/230720%20consultation%20draft%20PRO%20Packaging%20and%20Packaging%20Waste%20Regulations.pdf"
+            class="govuk-link">Producer Responsibility Obligations Regulations 2024</a> to understand how material
+          recycling targets for 2025 are set.
+        </p>
+
+      </div>
+    </details>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        If you believe your data is incorrect, contact your regulator immediately.
+      </strong>
+    </div>
+
+
+
+
+    <p> <a href="#" class="govuk-link">Manage obligations home</a></p>
+
+</div>
+</div>
+
+    <!--
       <br/>
       <br/>
       <a href="what-to-do-next.html" class="govuk-link">  <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -190,15 +260,15 @@ Report packaging data
 
 
 
+  </div>
 </div>
-</div>
 
 
-          
-    
 
 
- 
-  
+
+
+
+
 
 {% endblock %}
