@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Small Producers
+{% endset%}
+
+{% set serviceName = "Size of your organisation" %}
+
+{% block pageTitle %}
+Size of your organisation
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="fees-task-list-2">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <fieldset class="govuk-fieldset" aria-describedby="declarationanswer">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+            <span class="govuk-caption-l">About your registration</span>
+            <h1 class="govuk-fieldset__heading">
+              Registration page
+            </h1>
+          </legend>
+          <h1 class="govuk-heading-m">Organisation name Ltd.</h1>
+          <p class="govuk-body">Organisation number: XXXXXX</p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link" href="self-declare-2-status"
+                style=" font-size: 1.1875rem; line-height: 1.3157894737;">Confirm
+                producer size</a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <p class="govuk-body">Completed</p>
+            </div>
+          </div>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link" href="#" style=" font-size: 1.1875rem; line-height: 1.3157894737;">Submit
+                registration data</a>
+              <div id="company-details-3-hint" class="govuk-task-list__hint">
+                <p>Include ipsum dolor consectetur information.</p>
+              </div>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <div class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </div>
+            </div>
+          </div>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link" href="#" style=" font-size: 1.1875rem; line-height: 1.3157894737;">Pay registration
+                fee</a>
+              <div id="company-details-3-hint" class="govuk-task-list__hint">
+                <p>Include ipsum dolor consectetur information.</p>
+              </div>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <div class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </div>
+            </div>
+          </div>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+
+          <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, congue at
+            congue molestie, commodo sed urna.</p>
+
+          {{ govukButton({
+          text: "Continue"
+          })}}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -7,15 +7,15 @@ router.post('*/selfdeclare', function (req, res) {
     var sizeorganisation = req.session.data['sizeorganisation'];  
     if (sizeorganisation === "smallproducer") {
         // Handle smallproducer case
-        res.redirect('./self-declare-3-warning');
+        res.redirect('./task-list-2');
     } else if (sizeorganisation === "largeproducer") {
         // Handle largeproducer case
-        res.redirect('./self-declare-3-warning');
-    } else {
-        var dontknown = req.session.data['dontknow'];
-        res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page');
+        res.redirect('./task-list-2');
     }
 });
+
+
+
 
 // Routing for Page /small-producers/self-declare-3-warning-2
 router.post('*/selfdeclarenext', function (req, res) {
