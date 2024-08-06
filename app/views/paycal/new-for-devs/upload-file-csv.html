@@ -1,5 +1,6 @@
 
 
+
 {% set serviceName = "Run the fees and payments calculator" %}
  
 {% extends "layout.html" %}
@@ -7,26 +8,26 @@
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
-
-
-{% block beforeContent %}
-
-{% endblock %}
-
 {% block content %}
 
+  
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
-    <a class="govuk-back-link" href="#">Back</a>
+<div class="govuk-grid-column-full">
+  <div class="govuk-body account-info">
+    <div>
+        <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
     </div>
-
-    <div class="govuk-body account-info govuk-grid-column-one-half">
-      <div>
-          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
-      </div>
-    </div>
-   </div>
-<br><br>
+  </div><br>
+  <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="file-upload-1">
+      Upload a file
+    </label>
+    <p id="file-upload-1-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 50KB
+    </p>
+    <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="fileUpload1" type="file" aria-describedby="file-upload-1-error">
+  </div>
+</div>
 
      <h1 class="govuk-heading-l">Upload new default calculator parameters</h1>
 
@@ -40,7 +41,7 @@
 
 <br>
       
-      <form method="POST" action="./upload-file-csv">
+      <form method="POST" action="./loading-errors">
     
           <!-- FILE UPLOAD -->
           <div class="govuk-form-group">
