@@ -19,38 +19,35 @@ Report packaging data
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="POST" action="./task-list-2">
-      <div class="govuk-form-group govuk-!-margin-top-0">
-        <fieldset class="govuk-fieldset" aria-describedby="sizeorganisation">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-            <span class="govuk-caption-l">About your organisation</span>
-            <h1 class="govuk-fieldset__heading">
-              What size is your organisation?
-            </h1>
-          </legend>
-          <div id="sizeorganisation" class="govuk-hint">
-            There are different reporting requirements, fees, and costs depending on if your organisation is classed as
-            'small' or 'large'.
-          </div>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="largeproducer" name="sizeorganisation" type="radio"
-                value="largeproducer">
-              <label class="govuk-label govuk-radios__label" for="largeproducer">
-                Large producer
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="smallproducer" name="sizeorganisation" type="radio"
-                value="smallproducer">
-              <label class="govuk-label govuk-radios__label" for="smallproducer">
-                Small producer
-              </label>
-            </div>
-          </div>
-        </fieldset>
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+      <span class="govuk-caption-l">About your organisation</span>
+      <h1 class="govuk-fieldset__heading">
+        What size is your organisation?
+      </h1>
+    </legend>
+
+    <form id="agreementForm">
+      <!-- Hint Text -->
+      <div id="sizeorganisation" class="govuk-hint">
+        There are different reporting requirements, fees, and costs depending on if your organisation is classed as
+        'small' or 'large'.
       </div>
-      <!-- DETAILS -->
+
+      {{ govukRadios({
+      name: "agreement",
+      value: data['agreement'],
+      items: [
+      {
+      value: "small-producer",
+      text: "Small producer"
+      },
+      {
+      value: "large-producer",
+      text: "Large producer"
+      }
+      ]
+      }) }}
+
       <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -60,7 +57,7 @@ Report packaging data
         <div class="govuk-details__text">
           <p class="govuk-body">You need to collect and report packaging data if all the following apply:</p>
           <ol class="govuk-list govuk-list--bullet">
-            <li>you’re an individual business, subsidiary or group (but not a charity).</li>
+            <li>you’re an individual business, subsidiary or group (but small-producert a charity).</li>
             <li>you have an annual turnover of £1 million or more, based on your most recent annual accounts up to 7
               April.</li>
             <li>you were responsible for importing or supplying more than 25 tonnes of packaging to the UK market in
@@ -75,10 +72,38 @@ Report packaging data
               requirements</a>.</p>
         </div>
       </details>
+
       {{ govukButton({
-      text: "Continue"
-      })}}
+      text: "Continue",
+      attributes: {
+      id: "submitButton",
+      onclick: "handleSubmit(event)"
+      }
+      }) }}
     </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the form element
+        const form = document.getElementById('agreementForm');
+        // Get the selected radio button value
+        const agreement = form.querySelector('input[name="agreement"]:checked');
+
+        // Check if an option is selected
+        if (agreement) {
+          // Route based on the selected value
+          if (agreement.value === 'small-producer') {
+            window.location.href = 'task-list-2-small-producer';
+          } else if (agreement.value === 'large-producer') {
+            window.location.href = 'task-list-2-large-producer';
+          }
+        } else {
+          alert('Please select an option.');
+        }
+      }
+    </script>
 
   </div>
 </div>

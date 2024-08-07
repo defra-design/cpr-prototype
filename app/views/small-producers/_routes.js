@@ -2,20 +2,17 @@ const express = require('express')
 const router = express.Router()
 
 
-// Routing for Page /small-producers/self-declare-2-status
-router.post('*/task-list-1', function (req, res) {
-    var sizeorganisation = req.session.data['sizeorganisation'];  
-    if (sizeorganisation === "smallproducer") {
-        // Handle smallproducer case
-        res.redirect('./task-list-1');
-    } else if (sizeorganisation === "largeproducer") {
-        // Handle largeproducer case
-        res.redirect('./task-list-1');
+router.post('/size-answer', function(request, response) {
+
+    var size = request.session.data['size']
+    if (size == "England"){
+        response.redirect("/task-list-2-large-producer")
     } else {
-        var dontknown = req.session.data['dontknow'];
-        res.redirect('https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page');
+        response.redirect("/task-list-2-small-producer")
     }
-});
+})
+
+
 
 // Routing for Page /small-producers/self-declare-3-warning-2
 router.post('*/selfdeclarenext', function (req, res) {
