@@ -1,0 +1,115 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="POST">
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+       Confirm your organisation's details from Companies House
+      </h1>
+    
+
+    </legend>
+
+    <div class="govuk-inset-text">
+      <h1 class="govuk-heading-m">Dunder Mifflin</h1>
+      <br>
+Companies House number:<br>
+01234567   <br><br>
+Address:<br>
+Midcity Place<br>71 High Holborn <br>London<br>WC1V6EA</div>
+    
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+These details are wrong    </span>
+  </summary>
+  <div class="govuk-details__text">
+If these details are wrong, you should:<br><br>
+Check Companies House to see if your organisation's details are correct - If they arent, you <a href="#"> change them on Companies House (open in new tab)</a>  </div>
+</details>
+
+
+
+
+</fieldset>
+</div>
+<div id="codemain">
+<div id="code" style="float: left;">
+
+         
+
+</div>
+
+
+ 
+<button class="govuk-button" formaction="details-nation">Continue</button>  
+</div></form>
+</div>
+
+{% endblock %}
