@@ -1,0 +1,143 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <style>
+
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: black;
+}
+</style
+</head>
+<body>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="POST">
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        What is your name, as shown on Companies House?
+      </h1>
+    
+
+    </legend>
+
+    <h1 class="govuk-heading-m">
+ First Name
+    </h1>
+    
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number1" placeholder="Dwight"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+  
+    
+    <h1 class="govuk-heading-m">
+  Last Name
+    </h1>
+    
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="number2" placeholder="Schrute" type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    
+   
+
+
+
+
+</fieldset>
+</div>
+<div id="codemain">
+<div id="code" style="float: left;">
+
+         
+
+</div>
+
+
+ 
+<button class="govuk-button" formaction="details-role">Continue</button> 
+</div></form>
+</div>
+</body>
+</html>
+{% endblock %}
