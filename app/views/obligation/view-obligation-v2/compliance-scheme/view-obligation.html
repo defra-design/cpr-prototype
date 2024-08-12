@@ -54,18 +54,19 @@ classes: 'govuk-width-container'
 <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      <a class="govuk-breadcrumbs__link" href="../../s3/cs-landing-page.html">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Manage your recycling obligations</a>
+      <a class="govuk-breadcrumbs__link" href="../../s3/cs-sub-landing-page-s3.html">Manage your recycling obligations</a>
     </li>
-    <!--
+  
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
+        <a class="govuk-breadcrumbs__link" href="view-obligation">Your recycling obligation progress for 2025</a>
       </li>
-      -->
+    
   </ol>
 </nav>
+
 
 {% endblock %}
 
@@ -97,12 +98,12 @@ classes: 'govuk-width-container'
       <!--<caption class="govuk-table__caption govuk-table__caption--m">  Breakdown of your packaging obligation:</caption>-->
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Material</th>
+          <th scope="col" class="govuk-table__header" width="20%">Material</th>
           <th scope="col" class="govuk-table__header">Tonnage you need to meet</th>
           <th scope="col" class="govuk-table__header">Tonnage awaiting acceptance </th>
           <th scope="col" class="govuk-table__header">Tonnage outstanding</th>
           <th scope="col" class="govuk-table__header">Tonnage of PERNs and PRNs accepted</th>
-          <th scope="col" class="govuk-table__header" width="15%">Status</th>
+          <th scope="col" class="govuk-table__header" width="18%">Status</th>
 
         </tr>
       </thead>
@@ -111,38 +112,31 @@ classes: 'govuk-width-container'
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Aluminium</a></th>
+          <td class="govuk-table__cell">5,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">N/A</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+            Not met
+          </strong></td>
         </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Bronze</a></th>
-          <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">0</td>
-          <td class="govuk-table__cell">N/A</td>
-        </tr>
-
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Glass</a></th>
-          <td class="govuk-table__cell">3,500</td>
+          <td class="govuk-table__cell">10,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
-              Not met
-            </strong></td>
+            Not met
+          </strong></td>
         </tr>
+
+
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Glass re-melt</a></th>
-          <td class="govuk-table__cell">500</td>
+          <td class="govuk-table__cell">15,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
@@ -152,8 +146,8 @@ classes: 'govuk-width-container'
         </tr>
 
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header"><a href="paper-calculation.html" class="govuk-link">Paper</a></th>
-          <td class="govuk-table__cell">4,000</td>
+          <th scope="row" class="govuk-table__header"><a href="paper-calculation.html" class="govuk-link">Paper, board or fibre-based composite material</a></th>
+          <td class="govuk-table__cell">20,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
@@ -164,7 +158,7 @@ classes: 'govuk-width-container'
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Plastic</a></th>
-          <td class="govuk-table__cell">7,000</td>
+          <td class="govuk-table__cell">25,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
@@ -175,7 +169,7 @@ classes: 'govuk-width-container'
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Steel</a></th>
-          <td class="govuk-table__cell">3,000</td>
+          <td class="govuk-table__cell">30,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
@@ -184,6 +178,16 @@ classes: 'govuk-width-container'
             </strong></td>
         </tr>
 
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">Wood</a></th>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--turquoise">
+            not applicable
+          </strong></td>
+        </tr>
 
 
 
@@ -191,7 +195,7 @@ classes: 'govuk-width-container'
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Total tonnage for 2025</th>
-          <td class="govuk-table__cell">18,000</td>
+          <td class="govuk-table__cell">105,000</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
           <td class="govuk-table__cell">0</td>
@@ -208,8 +212,9 @@ classes: 'govuk-width-container'
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-2">
 
+    <!--
     <p class="govuk-!-margin-bottom-5"> <a href="#" class="govuk-link">View recycling obligations by member</a></p>
-
+  -->
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -245,7 +250,7 @@ classes: 'govuk-width-container'
 
 
 
-    <p> <a href="#" class="govuk-link">Manage obligations home</a></p>
+    <p> <a href="../../s3/cs-sub-landing-page-s3.html" class="govuk-link">Manage your recycling obligations</a></p>
 
 </div>
 </div>

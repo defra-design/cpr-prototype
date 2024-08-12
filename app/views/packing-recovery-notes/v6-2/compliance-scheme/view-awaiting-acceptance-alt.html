@@ -7,7 +7,7 @@
   items: [
     {
       text: "Home",
-      href: "../landing-page"
+      href: "https://defra-cpr-prototype.herokuapp.com/obligation/s3/cs-sub-landing-page-s3"
     },
     {
       text: "Accept or reject PRNs and PERNS",
@@ -34,16 +34,26 @@
 
 
     <h2 class="govuk-heading-l">Accept or reject PRNs and PERNs</h2>
-  <!--  <p class="govuk-body">To deduct the tonnage from your obligation you need to accept the PRN/PERN</p>-->
+ 
+    <div class="govuk-form-group" style="float:right">
+      <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+      <select class="govuk-select" id="select-status" name="sort">
+          <option  selected>Filter by </option>
+          <option value="published">Aluminium </option>
+          <option value="comments">Glass</option>
+          <option value="comments">Glass re-melt</option>
+        <option value="updated">Paper, board or fibre-based composite material</option>
+        <option value="published">Plastic </option>
+          <option value="comments">Steel</option>
+          <option value="comments">Wood</option>
+         <!-- <option value="views">Awaiting cancellation</option>-->
+  
+      </select>
+  </div>
 
-   <!-- <div class="govuk-inset-text">
-      Number of PRNs and PERNs awaiting acceptance
-      <br>
-      <br>
-      <h2 class="govuk-heading-l">12</h2>
-    </div>-->
+   
 
-
+    
    
    
       <table class="govuk-table">
@@ -351,7 +361,7 @@
               <thead class="govuk-table__head">
               <tr class="govuk-table__row">
         
-                <h2 class="govuk-heading-m">Paper and board</h2>
+                <h2 class="govuk-heading-m">Paper, board or fibre-based composite material</h2>
                 <div id="waste-hint" class="govuk-hint">
                   Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
                 </div>
