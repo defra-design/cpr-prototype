@@ -16,10 +16,14 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">Payment unsuccessful</h1>
-      <p>Your payment was not completed and no money has been taken from your bank account.<br>
-      You can try to <a href="confirmation">make an online payment</a> again now or try again later.</p>
-      <br>
-      
+      <p>Your payment was not completed and no money has been taken from your bank account.</p>
+      <form action="/form-handler" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+      <div class="govuk-button-group">
+        <a href="submitted" class="govuk-button" type="submit">Try the payment again</a>
+        
+      </div>
+      </form>
 
       <h2 class="govuk-heading-m">To pay by bank transfer instead</h2>
         
@@ -31,9 +35,9 @@
           <li>Account number: 10014411</li>
           <li>Account name: EA RECEIPTS</li>
           <li>Reference: PR/PK/REP </li>
-        </ul>
+        </ul><br>
 
-        <p><a href="landing-page">Return to the dashboard</a></p>
+        <p><a href="dashboard"> Return to the dashboard</a></p>
 
     </div>
   </div>
@@ -41,3 +45,5 @@
 
 
 {% endblock %}
+
+       
