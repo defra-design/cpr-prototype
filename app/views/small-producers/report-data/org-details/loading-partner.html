@@ -1,0 +1,93 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+EPR for packaging data
+{% endset%}
+
+{% set serviceName = "EPR for packaging data" %}
+
+{% block pageTitle %}
+EPR for packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "EPR for packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Report your organisation details</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Upload organisation details</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full  govuk-!-margin-bottom-5">
+
+    <h1 class="govuk-heading-l">Uploading organisation details</h1>
+
+    <p class="govuk-body">This may take a few minutes - we’ll refresh the page automatically until it is done.</p>
+
+    <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
+
+    <p class="govuk-body">
+      <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+    </p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  setTimeout(function () {
+    window.location.href = "loading-success";
+  }, 3000);  // 3000 milliseconds = 3 seconds
+</script>
+{% endblock %}
