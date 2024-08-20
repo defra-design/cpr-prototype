@@ -12,60 +12,48 @@ EPR for packaging data
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "EPR for packaging data",
-    serviceUrl: "#",
-    navigation: [
-    {
-    href: "#",
-    text: "Home",
-    active: true
-    },
-    {
-    href: "#",
-    text: "Manage account" 
-    },
-    {
-    href: "#",
-    text: "My profile" 
-    },
-    {
-    href: "#",
-    text: "Sign out"
-    }
-    ]
-    }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
-  {% endblock %}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "EPR for packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
 
 
 {% block beforeContent %}
-<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="./cs-landing-page-1.html">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Manage your 2025 recycling obligations</a>
-    </li>
-    <!--
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
-    </li>
-    -->
-  </ol>
-</nav>
-
+{{ govukBackLink({
+  href: "lp-landing-page-1",
+  text: "Back"
+}) }}
 {% endblock %}
 
 
@@ -73,15 +61,14 @@ EPR for packaging data
 {% block content %}
 <!--aug 24-->
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full  ">
-      
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
-        Manage your 2025 recycling obligations
-      </h1>
+  <div class="govuk-grid-column-two-thirds  ">
 
-      <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Manage your 2025 recycling obligations
+    </h1>
+
+    <p> Producer: Best Foods Ltd</br>
       Regulator: Environment Agency (England)</p>
-  
 
     <p>You have until <strong>31 January 2026</strong> to meet your recycling obligations for 2025.</p>
 
@@ -97,7 +84,7 @@ EPR for packaging data
     <div class="govuk-inset-text">
       <span class="govuk-caption-m">Number of PRNs and PERNs awaiting acceptance</span>
       <br>
-      <h1 class="govuk-heading-xl">5
+      <h1 class="govuk-heading-xl">12
      <br>
         <span class="govuk-body"><a href="#" class="govuk-link">Accept or reject PRNs and PERNs
           </a></span>
