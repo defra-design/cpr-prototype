@@ -1,0 +1,50 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="dash-small-tiles">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+   </div>
+   <br>
+   <h1 class="govuk-heading-xl">Local authority disposal costs</h1>
+       
+  
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Disposal costs have not been set. </span><br>
+        <hr>
+        
+        
+       
+        <!--<h3 class="govuk-heading-s govuk-!-margin-bottom-3">If you have access - you will see this data in Databricks.
+          </h3>
+        
+        <p>You will need to upload a CSV file using the <a href="#" class="govuk-link--no-visited-state"> default parameters template</a> to set them before you can run any calculations.</p>-->
+        <br><br>
+
+<form action="/form-handler" method="post" novalidate>
+  <input type="hidden" name="answers-checked" value="true">
+<div class="govuk-button-group">
+  <a href="upload-file-la" class="govuk-button" type="submit">Upload new disposal costs</a>
+  <a class="govuk-link" href="dash-small-tiles">Return to the dashboard</a>
+</div>
+</form>
+
+      </div>
+    </div>
+  
+</div>
+
+{% endblock %}
