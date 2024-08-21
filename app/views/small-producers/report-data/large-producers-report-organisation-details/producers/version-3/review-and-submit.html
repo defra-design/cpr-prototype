@@ -7,48 +7,45 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "#",
-        text: "Home"
-      },
-      {
-        href: "#",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 
 {% block beforeContent %}
-
-<a class="govuk-back-link" href="report-org-details-task-list.html">Back</a>
-
-
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -62,7 +59,7 @@ Report packaging data
 
                     <h1 class="govuk-heading-l">Check files and submit to the environmental regulator</h1>
 
-<!--                    <h2 class="govuk-heading-m">Your files</h2>-->
+                    <!--                    <h2 class="govuk-heading-m">Your files</h2>-->
                     <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
                         <!-- ORGANISAITON DETAILS -->
@@ -71,8 +68,8 @@ Report packaging data
                                 Organisation details
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                <a class="govuk-link--no-visited-state govuk-link" href="#" >
-                                    {{data['organisation-details-file']}} 
+                                <a class="govuk-link--no-visited-state govuk-link" href="#">
+                                    {{data['organisation-details-file']}}
                                 </a>
                             </dd>
                             <dd class="govuk-summary-list__actions">
@@ -88,7 +85,7 @@ Report packaging data
                                 Brand details
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                <a class="govuk-link--no-visited-state govuk-link" href="#" >01-acme-brand.csv
+                                <a class="govuk-link--no-visited-state govuk-link" href="#">01-acme-brand.csv
                                 </a>
                             </dd>
                             <dd class="govuk-summary-list__actions">
@@ -104,8 +101,8 @@ Report packaging data
                                 Partner details
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                <a class="govuk-link--no-visited-state govuk-link" href="#" >01-acme-partner.csv
-                                </a> 
+                                <a class="govuk-link--no-visited-state govuk-link" href="#">01-acme-partner.csv
+                                </a>
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -115,20 +112,25 @@ Report packaging data
                         </div>
 
 
-                    </dl>    
+                    </dl>
 
-                    
+
                     <!-- FOR COMPLIANCE SCHEMES ONLY-->
-                    
 
-                    <p class="govuk-body">Your organisation may face enforcement action if the data you submit is inaccurate.</p>
+
+                    <p class="govuk-body">Your organisation may face enforcement action if the data you submit is
+                        inaccurate.</p>
 
                 </div>
-            </div> 
+            </div>
 
             {{ govukButton({
             text: "Submit to regulator"
             })}}
+
+            <p class="govuk-body">
+                <a href="#" class="govuk-link">Print this page</a>
+            </p>
 
         </form>
 
