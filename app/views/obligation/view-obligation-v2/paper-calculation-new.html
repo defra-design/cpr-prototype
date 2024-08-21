@@ -1,0 +1,216 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../s3/lp-landing-page.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../s3/lp-sub-landing-page-s3.html">Manage your recycling obligations</a>
+    </li>
+  
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="view-obligation">Your 2025 recycling obligation for paper, board or fibre-based composite material</a>
+      </li>
+    
+  </ol>
+</nav>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Your 2025 recycling obligation for paper, board or fibre-based composite material is 20,000 tonnes
+    </h1>
+    <p> Producer: Best Foods Ltd</br>
+      Regulator: Environment Agency (England)</p>
+
+    <!--<p>
+        This amount is based on the data you submitted when you reported your packaging data. It has been approved by the scottish regulator. 
+      </p>
+      <p> We calculated these numbers by assessing the amount and type of packaging materials you use, ensuring compliance with environmental regulations.
+    
+      </p>
+  
+    -->
+
+
+    <!--<p>This is the amount you need to handle for each material in 2025:</p>-->
+
+  </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-2">
+
+
+     
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Current status of your paper, board or fibre-based composite material obligation:</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" width="20%">Material</th>
+          <th scope="col" class="govuk-table__header">Obligation you need to meet</th>
+          <th scope="col" class="govuk-table__header">Tonnage awaiting acceptance </th>
+          <th scope="col" class="govuk-table__header">Tonnage of PERNs and PRNs accepted</th>
+          <th scope="col" class="govuk-table__header">Tonnage outstanding</th>
+          <th scope="col" class="govuk-table__header" width="18%">Status</th>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Paper, board or fibre-based composite material</th>
+          <td class="govuk-table__cell">20,000</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell">0</td>
+          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+              Not met
+            </strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What these amounts mean
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>These amounts are based on the data you submitted to the Environment Agency when reporting this packaging material. We calculated these numbers by applying the relevant material recycling
+      target for 2025 to the amount and type of packaging you supplied in 2024.</p>
+
+    <p class="govuk-body">View your
+      <a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v2/current-history"
+        class="govuk-link">packaging data history</a> for the data you submitted for 2024.
+    </p>
+    <p class="govuk-body">See the
+      <a href="https://consult.defra.gov.uk/extended-producer-responsibiity-team/consultation-on-the-draft-producer-responsibility/supporting_documents/230720%20consultation%20draft%20PRO%20Packaging%20and%20Packaging%20Waste%20Regulations.pdf"
+        class="govuk-link">Producer Responsibility Obligations (Packaging and Packaging Waste) Regulations 2024</a> to understand how material recycling targets for 2025 are set.
+    </p>
+
+  </div>
+</details>
+
+
+  <div class="govuk-grid-full govuk-!-margin-bottom-2">
+<h2 class="govuk-heading-m">Your calculation</h2>
+
+<p class="govuk-body"> X = 26,666.67 tonnes (the total amount of paper, board or fibre-based composite material you reported) <br />
+  Y = 75% (recycling target for paper, board or fibre-based composite material set by the 2025 regulations)
+  <br />
+  <br />
+  <strong>Z is 26,666.67 tonnes x 75% = 20,000 tonnes (your 2025 obligation for paper, board or fibre-based composite material)</strong>
+
+</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How we calculated your recycling obligation
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">We calculated your obligation using these steps:</p>
+    <ol class="govuk-list govuk-list--number">
+      <li><strong>Data collection:</strong> We gathered the data you submitted based on the paper, board or fibre-based composite material information you supplied.</li>
+      <li> <strong>Calculation formula: </strong>We applied the formula set out in the 2025 regulations,<br /> X x Y =
+        Z, where:</li>
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>X is the total weight of paper, board or fibre-based composite material packaging you reported for 2024</li>
+        <li>Y is the recycling target percentage for 2025 set by the regulations</li>
+        <li>Z is your total paper, board or fibre-based composite material recycling obligation for 2025</li>
+      </ul>
+    </ol>
+
+
+  </div>
+</details>
+
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    If you believe your data is incorrect, contact your regulator immediately.
+  </strong>
+</div>
+
+
+
+
+
+<p><a href="view-obligation" class="govuk-link">Back to your recycling obligation</a></p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

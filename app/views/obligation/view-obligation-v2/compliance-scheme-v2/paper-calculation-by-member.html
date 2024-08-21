@@ -1,0 +1,169 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../../s3/cs-landing-page.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../../s3/cs-sub-landing-page-s3.html">Manage your recycling obligations</a>
+    </li>
+  
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="view-obligation">Your recycling obligation progress for 2025</a>
+      </li>
+    
+  </ol>
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+
+    <h1 class="govuk-heading-l">
+      Breakdown of your paper, board or fibre-based material obligation by member
+    </h1>
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+    <!--<p>
+        This amount is based on the data you submitted when you reported your packaging data. It has been approved by the scottish regulator. 
+      </p>
+      <p> We calculated these numbers by assessing the amount and type of packaging materials you use, ensuring compliance with environmental regulations.
+    
+      </p>
+  
+    -->
+
+
+  <p>Your total recycling obligation for paper, board, or fibre-based materials in 2025 is 20,000 tonnes. This table shows the progress of each member towards meeting their portion of the obligation.</p>
+
+  </div>
+  </div>
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-3 govuk-!-margin-bottom-2">
+
+
+    <table class="govuk-table">
+     <!-- <caption class="govuk-table__caption govuk-table__caption--m">Current status of your paper, board or fibre-based composite material obligation:</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" width="20%">Member </th>
+          <th scope="col" class="govuk-table__header">Amount of material reported</th>
+          <th scope="col" class="govuk-table__header">Recycling target </th>
+          <th scope="col" class="govuk-table__header">Obligation to meet</th>
+        
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">ABC Enterprises</th>
+          <td class="govuk-table__cell">6,666.67 tonnes</td>
+          <td class="govuk-table__cell">75%</td>
+          <td class="govuk-table__cell">5,000</td>
+      
+        
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Ashinze Empire</th>
+          <td class="govuk-table__cell">6,666.67 tonnes</td>
+          <td class="govuk-table__cell">75%</td>
+          <td class="govuk-table__cell">5,000</td>
+      
+        
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Fitzgerald Frigates</th>
+          <td class="govuk-table__cell">6,666.67 tonnes</td>
+          <td class="govuk-table__cell">75%</td>
+          <td class="govuk-table__cell">5,000</td>
+      
+        
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Possum Industries</th>
+          <td class="govuk-table__cell">6,666.67 tonnes</td>
+          <td class="govuk-table__cell">75%</td>
+          <td class="govuk-table__cell">5,000</td>
+      
+        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<p><a href="view-obligation" class="govuk-link">Back to your recycling obligation</a></p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
