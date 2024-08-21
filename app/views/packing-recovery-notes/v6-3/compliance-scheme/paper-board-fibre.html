@@ -23,12 +23,35 @@
 {% endblock %}
 
 
-
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
 
+
+<link rel="stylesheet" href="https://govuk-frontend.herokuapp.com/public/stylesheets/govuk-frontend-3.11.0.min.css">
+    <script src="https://govuk-frontend.herokuapp.com/public/javascripts/govuk-frontend-3.11.0.min.js"></script>
+   
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var selectAllButton = document.getElementById('select-all');
+          var deselectAllButton = document.getElementById('deselect-all');
+
+          selectAllButton.addEventListener('click', function() {
+              var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+              checkboxes.forEach(function(checkbox) {
+                  checkbox.checked = true;
+              });
+          });
+
+          deselectAllButton.addEventListener('click', function() {
+              var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+              checkboxes.forEach(function(checkbox) {
+                  checkbox.checked = false;
+              });
+          });
+      });
+  </script>
 
 
 <div class="govuk-grid-row">
@@ -49,12 +72,12 @@
       </div>
  
 
-      <div class="govuk-button-group">
+      <!--<div class="govuk-button-group">
         <button type="submit" class="govuk-button" data-module="govuk-button" formaction="accept-bulk">
           Accept selected PRNs and PERNs
         </button>
         <a class="govuk-link" href="#">Select all</a>
-      </div>
+      </div>-->
 
       
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -76,10 +99,28 @@
           <option  selected>Sort by </option>
           <option value="published">Tonnage</option>
           <option value="updated">Issued by</option>
-          <option value="updated">PRN or PERN</option>
+          <option value="updated">PRN</option>
+          <option value="updated">PERN</option>
       
         </select>
       </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button" formaction="accept-bulk">
+          Accept selected PRNs and PERNs
+        </button>
+        <!--<a class="govuk-link" href="#">Select all</a>-->
+      </div>
+
+      <!--<div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
+        <label class="govuk-label govuk-checkboxes__label" for="select-all">Select All</label>
+    </div>-->
+
+     <!-- <div class="govuk-button-group">
+        <a class="govuk-link" href="#">Select all on this page</a>
+      </div>-->
+
       
             <table class="govuk-table">
 
@@ -99,12 +140,25 @@
               </tr>
               </thead>
               <tbody class="govuk-table__body">
-        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
+                          <label class="govuk-label govuk-checkboxes__label" for="select-all">Select or deselect all PRNs or PERNs</label>
+                      </div>
+                        </td>
+                        <td class="govuk-table__cell"> </td>
+                  <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell"></td>
+                  
+                </tr>
         
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell">
                       <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="accept-bulk">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="options" type="checkbox" value="accept-bulk">
                           <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                               <a href="selected-prn">ER454545540M</a>
                           </label>
