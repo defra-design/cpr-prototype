@@ -1,7 +1,7 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
-Small Producers
+Report packaging data
 {% endset%}
 
 {% set serviceName = "Report packaging data" %}
@@ -10,11 +10,46 @@ Small Producers
 Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
 {% endblock %}
 
 {% block content %}
+
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back <span style="color: #777;">(Prototype use
+    only)</span></a>
+
 
 <div class="govuk-grid-row">
   <!-- FORM-ROUTING -->
