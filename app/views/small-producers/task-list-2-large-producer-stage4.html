@@ -1,7 +1,7 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
-Small Producers
+Report packaging data
 {% endset%}
 
 {% set serviceName = "Report packaging data" %}
@@ -10,8 +10,38 @@ Small Producers
 Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -64,8 +94,7 @@ Report packaging data
                 </li>
                 <li class="app-task-list__item">
                   <span class="app-task-list__task-name">
-                    <a href="payment/large-producers/payment-confirmation-large-producers.html" aria-describedby="#"
-                      class="#">
+                    <a href="./payment/large-producers/payment-complete" aria-describedby="#" class="#">
                       Pay registration fee
                     </a>
                   </span>
