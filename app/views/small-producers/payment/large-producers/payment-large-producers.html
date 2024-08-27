@@ -44,106 +44,68 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-form-group govuk-!-margin-top-0">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-        <span class="govuk-caption-l">Pay registration fee</span>
-        <h1 class="govuk-fieldset__heading">
-          Amount due
-        </h1>
-      </legend>
-      <h2 class="govuk-heading-m">£1,216.00</h2>
+    <form class="form" action="payment-large-producers-next" method="post">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Your registration fees
+          </h1>
+        </legend>
 
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Breakdown of amount due</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Items</th>
-            <th scope="col" class="govuk-table__header">Amount</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Item 2</th>
-            <td class="govuk-table__cell">£0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Item 3</th>
-            <td class="govuk-table__cell">£0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Item 4</th>
-            <td class="govuk-table__cell">£0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total estimated pay</th>
-            <td class="govuk-table__cell">£1,216.00</td>
-          </tr>
-        </tbody>
-      </table>
+        <p class="govuk-body">We have calculated your registration fees based on the information you have supplied.</p>
 
-      <!-- <p class="govuk-body"><a class="govuk-link" href="../payment-previous-years-1.html">View previous years fees</a>
-      </p> -->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Fee amounts due £4,224.00</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Group</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Large producer fee</th>
+              <td class="govuk-table__cell">£2, 620.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Subsidiaries</th>
+              <td class="govuk-table__cell">£558.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Late application</th>
+              <td class="govuk-table__cell">£332.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Re-submitting a report</th>
+              <td class="govuk-table__cell">£714.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total due</th>
+              <td class="govuk-table__cell">£4,224.00</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2 class="govuk-heading-m">Your payment options:</h2>
 
-      <h2 class="govuk-heading-m">1. Pay online</h2>
-      <p>You can <a class="govuk-link" href="payment-details">pay online now</a> </a>using
-        GOV.UK Pay.</p>
-      <h2 class="govuk-heading-m">2. Pay by bank transfer</h2>
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+    </form>
 
-      <p class="govuk-body">Account details:</p>
-      <ul class="govuk-list govuk-list">
-        <li>Company name: Environment Agency</li>
-        <li>Bank: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate, London EC2M
-          4RB</li>
-        <li>Sort code: 60-70-80</li>
-        <li>Account number: 10014411</li>
-        <li>Account name: EA RECEIPTS</li>
-        <li>Reference: PR/PK/REP </li>
-      </ul>
-
-      <h2 class="govuk-heading-m">Submit payment details</h2>
-
-      <p>After you have made the payment <a class="govuk-link" href="payment-bank-transfer">please submit us the payment
-          information</a>.</p>
-      <!-- <p class="govuk-body">For offline payments <a href="../../large-producer-dashboard-3-payment-offline"
-          class="govuk-link">sign into
-          your
-          online account</a> and
-        check status payment. After payment is sucessful you will be issued a receipt which you can download for your
-        records.
-      </p> -->
-    </div>
   </div>
 </div>
-
-<!-- <div>
-  <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-    <div class="govuk-accordion__section">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-            Payments scenarios (prototype only)
-          </span>
-        </h2>
-      </div>
-      <div id="accordion-default-content-2" class="govuk-accordion__section-content">
-        <ul class="govuk-list govuk-list--bullet">
-          <li><a href="./payment-complete" class="govuk-link">Payment confirmed</a></li>
-          <li><a href="./payments/payment-declined" class="govuk-link">Online payment declined</a></li>
-          <li> <a href="./payments/payment-failed" class="govuk-link">Payment failed</a></li>
-          <li> <a href="./payments/payment-cancelled" class="govuk-link">Payment cancelled</a></li>
-          <li><a href="./payments/payment-fees-already-paid" class="govuk-link">Fees already paid</a></li> 
-        </ul>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
+</div>
 {% endblock %}
