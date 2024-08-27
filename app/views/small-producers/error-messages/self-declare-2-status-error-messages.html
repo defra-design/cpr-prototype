@@ -47,6 +47,18 @@ classes: 'govuk-width-container'
 
 {% block content %}
 
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{{ govukErrorSummary({
+titleText: "There is a problem",
+errorList: [
+{
+text: "State your size use our step-by-step guide",
+href: "#"
+}
+]
+}) }}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
