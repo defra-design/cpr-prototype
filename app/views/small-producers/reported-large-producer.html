@@ -45,38 +45,19 @@ classes: 'govuk-width-container'
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        {% if large-producer %}
-        <h1 class="govuk-heading-l">You have reported as a {{ large-producer }}</h1>
-        {% else %}
-        <h1 class="govuk-heading-l">You have reported as a {{ small-producer }}</h1>
-        {% endif %}
+        <span class="govuk-caption-l">About your organisation</span>
+        <h1 class="govuk-heading-l">Large producer</h1>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
-            <!-- ORGANISATION DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Large producer
-                </dt>
+        <p class="govuk-body">You have told us you are a large producer.</p>
 
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="./self-declare-2-status.html">
-                        Change
-                    </a>
-                </dd>
-            </div>
-        </dl>
+        <p class="govuk-body">This means your organisation:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>has an annual turnover of more than £2 million</li>
+            <li>is responsible for supplying or importing more than 50 tonnes of packaging in the UK</li>
+        </ul>
+        <p class="govuk-body">If you are unsure <a href="#" class="govuk-link" rel="noreferrer noopener"
+                target="_blank">check the guidance (opens in a new tab)</a>.</p>
 
-        <h2 class="govuk-heading-m">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </h2>
-
-        <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget odio ultricies,
-            tristique tortor eu, commodo nulla. Integer vel erat in nisl vestibulum malesuada vitae vel lectus.</p>
-
-        <p class="govuk-body">
-            If you are still unsure, <a class="govuk-link govuk-link--no-visited-state" href="#" target="_blank">
-                check the guidance (opens in a new window)</a> and declare your size.
-        </p>
 
         {{ govukButton({
         text: "Continue",
@@ -85,9 +66,6 @@ classes: 'govuk-width-container'
         classes: 'govuk-!-margin-top-4'
         }) }}
 
-        <p class="govuk-body">
-            <a href="#" class="govuk-link">Print this page</a>
-        </p>
     </div>
 </div>
 {% endblock %}

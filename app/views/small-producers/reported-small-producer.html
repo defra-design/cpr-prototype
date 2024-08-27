@@ -1,22 +1,17 @@
 {% extends "layout.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
 homepageUrl: "../../index.html",
-serviceName: "Report packaging data",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
 {
@@ -41,53 +36,27 @@ text: "prototype"
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
 
 {% block beforeContent %}
-
-{% if (data['org-detail-complete'] === "yes") %}
-<a class="govuk-back-link" href="../report-org-details-task-list.html">Back</a>
-{% else %}
-<a class="govuk-back-link" href="./upload-file.html">Back</a>
-{% endif %}
-
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">You have reported as a small producer</h1>
+        <span class="govuk-caption-l">About your organisation</span>
+        <h1 class="govuk-heading-l">small producer</h1>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
-            <!-- ORGANISAITON DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Small producer
-                </dt>
+        <p class="govuk-body">You have told us you are a small producer.</p>
 
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="./self-declare-2-status.html">
-                        Change
-                    </a>
-                </dd>
-            </div>
-        </dl>
-
-        <!--        <p class="govuk-body">This file has details for 150 of your members. </p>-->
-
-        <h2 class="govuk-heading-m">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </h2>
-
-        <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget odio ultricies,
-            tristique tortor eu, commodo nulla. Integer vel erat in nisl vestibulum malesuada vitae vel lectus.</p>
-
-
-        <p class="govuk-body">If you are still unsure <a class="govuk-link govuk-link--no-visited-state" href="#"
-                target="_blank">check the guidance (opens in a new window)</a> and declare your size.</p>
-
+        <p class="govuk-body">This means your organisation:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>has an annual turnover under £5 million</li>
+            <li>is responsible for supplying or importing more than 50 tonnes of packaging in the UK</li>
+        </ul>
+        <p class="govuk-body">If you are unsure <a href="#" class="govuk-link" rel="noreferrer noopener"
+                target="_blank">check the guidance (opens in a new tab)</a>.</p>
 
 
         {{ govukButton({
@@ -97,12 +66,6 @@ classes: 'govuk-width-container'
         classes: 'govuk-!-margin-top-4'
         }) }}
 
-        <p class="govuk-body">
-            <a href="#" class="govuk-link">Print this page</a>
-        </p>
-
-
     </div>
 </div>
-
 {% endblock %}
