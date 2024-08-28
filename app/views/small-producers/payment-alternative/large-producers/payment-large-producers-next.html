@@ -1,0 +1,137 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./payment-large-producers-payment-information">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Pay your registration fees
+          </h1>
+        </legend>
+
+        <p class="govuk-body">You have 2 options:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>use GOV.UK to <a class="govuk-link"
+              href="https://defra-cpr-prototype.herokuapp.com/paycal/payments/payment-details">pay online now</a></li>
+          <li>pay by bank transfer</li>
+        </ul>
+
+
+        <p class="govuk-body">Please use this reference number when paying:<br>
+          <strong>16130122-2WCJDD-AJ2H17</strong>
+        </p>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              If you pay by bank transfer, the account details are:
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            <ul class="govuk-list govuk-list">
+              <h3 class="govuk-heading-s">England</h3>
+              <li>Company name: Environment Agency</li>
+              <li>Bank: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate, London
+                EC2M
+                4RB</li>
+              <li>Sort code: 60-70-80</li>
+              <li>Account number: 10014411</li>
+              <li>Account name: EA RECEIPTS</li>
+              <li>Reference: PR/PK/REP </li>
+            </ul>
+            <ul class="govuk-list govuk-list">
+              <h3 class="govuk-heading-s">Wales</h3>
+              <li>Company name: Natural Resources Wales</li>
+              <li>Bank: Lorem ipsum </li>
+              <li>Sort code: 00-00-00</li>
+              <li>Account number: 00000000</li>
+              <li>Account name: Lorem ipsum</li>
+              <li>Reference: Lorem/ipsum </li>
+            </ul>
+            <ul class="govuk-list govuk-list">
+              <h3 class="govuk-heading-s">Scotland</h3>
+              <li>Company name: Scottish Environment Protection Agency - SEPA</li>
+              <li>The Environmental Protection Agency (EPA)</li>
+              <li>Bank: Lorem ipsum </li>
+              <li>Sort code: 00-00-00</li>
+              <li>Account number: 00000000</li>
+              <li>Account name: Lorem ipsum</li>
+              <li>Reference: Lorem/ipsum </li>
+            </ul>
+            <ul class="govuk-list govuk-list">
+              <h3 class="govuk-heading-s">Northern Ireland - EPA</h3>
+              <li>The Environmental Protection Agency (EPA)</li>
+              <li>Bank: Lorem ipsum </li>
+              <li>Sort code: 00-00-00</li>
+              <li>Account number: 00000000</li>
+              <li>Account name: Lorem ipsum</li>
+              <li>Reference: Lorem/ipsum </li>
+            </ul>
+          </div>
+        </details>
+
+        {{ govukButton({
+        text: "Continue"
+        })}}
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+{% endblock %}
