@@ -106,32 +106,46 @@
 </div>
 
                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                
+<!--Filter and sorting starts-->
+
+<div class="govuk-form-group" style="float:right; margin-bottom: 20px;">
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
+</div>
 
 <div class="govuk-form-group" style="float:right">
-    <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
-    <select class="govuk-select" id="select-status" name="sort">
+    <label class="govuk-visually-hidden" for="select-filter " id="label1">Select a filter</label>
+    <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
         <option  selected>Filter by </option>
-        <option value="published">Accepted </option>
-        <option value="comments">Awaiting acceptance</option>
-        <option value="comments">Cancelled</option>
-      <option value="updated">Rejected</option>
-      <option value="views">December waste</option>
-
+        <option value="accepted">Accepted</option>
+    <option value="awaiting">Awaiting acceptance</option>
+    <option value="cancelled">Cancelled</option>
+    <option value="rejected">Rejected</option>
+    <option value="december-waste">December waste</option>
+    <option value="prn">PRN</option>
+    <option value="pern">PERN</option>
+    <option value="aluminium">Aluminium</option>
+    <option value="glass-other">Glass other</option>
+    <option value="glass-remelt">Glass re-melt</option>
+    <option value="paper-board">Paper, board or fibre-based composite material</option>
+    <option value="plastic">Plastic</option>
+    <option value="steel">Steel</option>
+    <option value="wood">Wood</option>
     </select>
 </div>
 
     <div class="govuk-form-group" style="float:right">
-      <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
-  <select class="govuk-select" id="select-status" name="sort">
+      <label class="govuk-visually-hidden" for="select-sort " id="label2" >Select sort option</label>
+  <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
     <option  selected>Sort by </option>
-    <option value="published">Date issued</option>
-    <option value="updated">Issued by</option>
-    <option value="updated">Tonnage</option>
-    <option value="updated">Material</option>
-    
-
+    <option value="date-issued">Date issued</option>
+    <option value="issued-by">Issued by</option>
+    <option value="tonnage">Tonnage</option>
+    <option value="material">Material</option>
   </select>
 </div>
+  
+<!--Filter and sorting end-->
 
 
       <table class="govuk-table">
@@ -180,7 +194,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Wood</td>
             <td class="govuk-table__cell"> 20 Nov 2025</td>
@@ -194,7 +208,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
             <td class="govuk-table__cell"> 20 Nov 2025</td>
@@ -209,7 +223,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
             <td class="govuk-table__cell"> 20 Dec 2024</td>
@@ -223,7 +237,7 @@
           
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Plastic</td>
             <td class="govuk-table__cell"> 20 Dec 2024</td>
@@ -237,7 +251,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
             <td class="govuk-table__cell"> 20 Dec 2024</td>
@@ -252,7 +266,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Wood</td>
             <td class="govuk-table__cell"> 20 Dec 2024</td>
@@ -267,7 +281,7 @@
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="prn-0001">EX3484743570M</a>
+              <a href="#">EX3484743570M</a>
                   </div></td>
          <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
             <td class="govuk-table__cell"> 20 Dec 2024</td>
@@ -320,6 +334,97 @@
 
     </div>
 
+    <script>
+      function applyFilters() {
+        const filter = document.getElementById('select-filter').value;
+        const sort = document.getElementById('select-sort').value;
+        // Add your filtering and sorting logic here
+        console.log('Filter:', filter);
+        console.log('Sort:', sort);
+      }
+    
+      document.getElementById('select-filter').addEventListener('change', applyFilters);
+      document.getElementById('select-sort').addEventListener('change', applyFilters);
+    </script>
+
+<script>
+  // Example data array
+  const data = [
+    { prn: 'ER3484743570M', material: 'Paper', date: '2025-11-20', waste: 'No', issuedBy: 'XYZ Reprocessing', tonnage: 65, status: 'Awaiting acceptance' },
+    { prn: 'EX3484743570M', material: 'Paper', date: '2024-12-20', waste: 'Yes', issuedBy: 'Packaging reprocessing Ltd', tonnage: 70, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Wood', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 100, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Paper', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 151, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Paper', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 60, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Plastic', date: '2024-12-20', waste: 'No', issuedBy: 'Packaging reprocessing Ltd', tonnage: 100, status: 'Rejected' },
+    { prn: 'EX3484743570M', material: 'Paper', date: '2024-12-20', waste: 'Yes', issuedBy: '	Packaging reprocessing Ltd', tonnage: 80, status: 'Cancelled' },
+
+    // Add more data objects here
+  ];
+
+  function applyFilters() {
+    const filter = document.getElementById('select-filter').value;
+    const sort = document.getElementById('select-sort').value;
+
+    let filteredData = data;
+
+    // Apply filter
+    if (filter !== 'Filter by') {
+      filteredData = filteredData.filter(item => item.status.toLowerCase() === filter.toLowerCase());
+    }
+
+    // Apply sort
+    if (sort !== 'Sort by') {
+      filteredData.sort((a, b) => {
+        if (sort === 'date-issued') {
+          return new Date(a.date) - new Date(b.date);
+        } else if (sort === 'issued-by') {
+          return a.issuedBy.localeCompare(b.issuedBy);
+        } else if (sort === 'tonnage') {
+          return a.tonnage - b.tonnage;
+        } else if (sort === 'material') {
+          return a.material.localeCompare(b.material);
+        }
+      });
+    }
+
+    // Update table
+    const tableBody = document.querySelector('.govuk-table__body');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    filteredData.forEach(item => {
+      const row = document.createElement('tr');
+      row.className = 'govuk-table__row';
+      row.innerHTML = `
+        <td class="govuk-table__cell"><a href="#">${item.prn}</a></td>
+        <td class="govuk-table__cell">${item.material}</td>
+        <td class="govuk-table__cell">${new Date(item.date).toLocaleDateString()}</td>
+        <td class="govuk-table__cell">${item.waste}</td>
+        <td class="govuk-table__cell">${item.issuedBy}</td>
+        <td class="govuk-table__cell">${item.tonnage}</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--${getStatusClass(item.status)}">${item.status}</strong></td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
+
+  function getStatusClass(status) {
+    switch (status.toLowerCase()) {
+      case 'accepted':
+        return 'green';
+      case 'awaiting acceptance':
+        return 'grey';
+      case 'rejected':
+        return 'red';
+      case 'cancelled':
+        return 'yellow';
+      default:
+        return 'grey';
+    }
+  }
+
+  document.getElementById('select-filter').addEventListener('change', applyFilters);
+  document.getElementById('select-sort').addEventListener('change', applyFilters);
+</script>
 
 
 
