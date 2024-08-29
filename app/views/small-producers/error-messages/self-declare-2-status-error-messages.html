@@ -1,22 +1,17 @@
 {% extends "layout-private-beta-research.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
 homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
 {
@@ -41,9 +36,7 @@ text: "prototype"
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
-
 
 {% block content %}
 
@@ -53,7 +46,7 @@ classes: 'govuk-width-container'
 titleText: "There is a problem",
 errorList: [
 {
-text: "State your size use our step-by-step guide",
+text: "Select producer size",
 href: "#"
 }
 ]
@@ -63,70 +56,55 @@ href: "#"
   <div class="govuk-grid-column-two-thirds">
 
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-      <!-- <span class="govuk-caption-l">About your organisation</span>-->
+      <span class="govuk-caption-l">About your organisation</span>
       <h1 class="govuk-fieldset__heading">
-        About your organisation
+        Reporting requirements, fees, and costs
       </h1>
     </legend>
 
-    <p>Your organisation’s reporting requirements, fees payable and other costs will depend on whether it’s classed as a
-      ‘large producer’ or a ‘small producer’.</p>
-
+    <p>Your organisation’s reporting requirements, fees payable, and other costs will depend on whether it’s classed as
+      a ‘large producer’ or a ‘small producer’.</p>
 
     <p><a
         href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#What-you-may-need-to-do"
-        target="_blank" rel="noopener noreferrer">Find
-        out more about packaging responsibilities and organisation sizes (opens in a new tab)</a></p>
+        target="_blank" rel="noopener noreferrer">Find out more about packaging responsibilities and organisation sizes
+        (opens in a new tab)</a></p>
     <p>If you are unsure whether your organisation is ‘large’ or ‘small’, use our <a
         href="https://defra-cpr-prototype.herokuapp.com/obligation-checker/v5/start-page" target="_blank"
-        rel="noopener noreferrer">step-by-step guide (opens in a
-        new
-        tab).</a></p>
+        rel="noopener noreferrer">step-by-step guide (opens in a new tab)</a>.</p>
 
-    <h2 class="govuk-heading-m">What size is your organisation?</h2>
+    <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-error">
+        <h2 class="govuk-heading-m">What size is your organisation?</h2>
+        <p id="countries-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Select producer size
+        </p>
 
-    <form id="agreementForm">
-      <!-- Hint Text -->
-      <!--<div id="sizeorganisation" class="govuk-hint">
-        There are different reporting requirements, fees, and costs depending on if your organisation is classed as
-        'small' or 'large'.
-      </div> -->
+        <form id="agreementForm">
+          {{ govukRadios({
+          name: "agreement",
+          value: data['agreement'],
+          items: [
+          {
+          value: "large-producer",
+          text: "Large producer"
+          },
+          {
+          value: "small-producer",
+          text: "Small producer"
+          }
+          ]
+          }) }}
+      </fieldset>
+    </div>
 
-
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-      {{ govukRadios({
-      name: "agreement",
-      fieldset: {
-      legend: {
-      text: "Where do you live?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-      }
-      },
-      items: [
-      {
-      value: "large-producer",
-      text: "Large producer"
-      },
-      {
-      value: "small-producer",
-      text: "Small producer"
-      }
-      ],
-      errorMessage: {
-      text: "Select the country where you live"
-      }
-      }) }}
-
-      {{ govukButton({
-      text: "Continue",
-      attributes: {
-      id: "submitButton",
-      onclick: "handleSubmit(event)"
-      }
-      }) }}
-    </form>
+    {{ govukButton({
+    text: "Continue",
+    attributes: {
+    id: "submitButton",
+    onclick: "handleSubmit(event)"
+    }
+    }) }}
 
     <script>
       function handleSubmit(event) {
@@ -141,9 +119,9 @@ href: "#"
         if (agreement) {
           // Route based on the selected value
           if (agreement.value === 'small-producer') {
-            window.location.href = 'reported-small-producer';
+            window.location.href = '../reported-small-producer';
           } else if (agreement.value === 'large-producer') {
-            window.location.href = 'reported-large-producer';
+            window.location.href = '../reported-large-producer';
           }
         } else {
           alert('Please select an option.');
@@ -151,19 +129,32 @@ href: "#"
       }
     </script>
 
+    </form>
   </div>
 </div>
 
-<div class="govuk-width-container">
+{% endblock %}
+
+{% block bodyEnd %}
+<div class="govuk-grid-row" style="background:#fafafa; text-align: center;">
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <p class="govuk-body">Prototype error messages</p>
-        {% block beforeContent %}
-        <a class="govuk-back-link" href="javascript:window.history.back()">Go back</a>
-        {% endblock %}
+      <div class="govuk-grid-column-two-thirds" style="margin: 0 auto;">
+        <div style="margin-right: 15px; margin-bottom: 25px; margin-left: 15px;">
+          <h3 class="govuk-heading-s">Prototype extras</h3>
+          <ol class="govuk-list govuk-list--number" style="display: inline-block; text-align: left;">
+            <li><a class="govuk-breadcrumbs__link" href="../self-declare-2-status" style="color: #1d70b8;"
+                onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
+                onclick="this.style.color='purple';">
+                Hide error messages
+              </a></li>
+            <li><a class="govuk-breadcrumbs__link" href="#">Welsh language</a></li>
+            <li><a class="govuk-breadcrumbs__link" href="#">Design decisions</a></li>
+          </ol>
+        </div>
       </div>
     </div>
   </main>
 </div>
+
 {% endblock %}
