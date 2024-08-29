@@ -1,0 +1,52 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../landing-page"
+    },
+    {
+      text: "Accept or reject PRNs and PERNS",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form class="form" action="accept-bulk" method="POST">
+
+
+    <h2 class="govuk-heading-l">Accept or reject PRNs and PERNs</h2>
+    <div id="waste-hint" class="govuk-hint">
+      You do not have PRN or PERN to accept or reject.
+    </div>
+
+<br>
+<br>
+
+    <button class="govuk-button" formaction="https://defra-cpr-prototype.herokuapp.com/obligation/s3/cs-sub-landing-page-s3">Manage your obligation</button> 
+</div>
+
+<body>
+
+ 
+  
+
+{% endblock %}
