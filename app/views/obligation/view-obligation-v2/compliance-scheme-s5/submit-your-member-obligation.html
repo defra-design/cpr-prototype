@@ -1,0 +1,115 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+  {% endblock %}
+
+  {% block beforeContent %}
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Manage your recycling obligations</a>
+      </li>
+      <!--
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Travel abroad</a>
+      </li>
+      -->
+    </ol>
+  </nav>
+  
+  {% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds  govuk-!-margin-bottom-5">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Report your packaging data to calculate your recycling obligation 
+    </h1>
+    
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+
+    <p>Your recycling obligation for 2025 will be determined once the regulator has verified your packaging data from 2024. You can start acquiring PRNs and PERNs in the meanwhile, but you’ll first need to report your packaging data to determine your obligation.</p> 
+    
+  
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you encounter any issues submitting your data, contact your regulator immediately.
+        </strong>
+      </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Report your packaging data 
+        </button>
+        <a class="govuk-link" href="view-obligation">Manage your recycling obligations</a>
+      </div>
+ 
+
+   
+</div>
+</div>
+
+
+          
+    
+
+
+ 
+  
+
+{% endblock %}
