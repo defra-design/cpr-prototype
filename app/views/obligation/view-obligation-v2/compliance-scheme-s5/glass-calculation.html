@@ -1,0 +1,241 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Your 2025 recycling obligation for glass 
+    </h1>
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (EA)</p>
+
+    <!--<p>
+        This amount is based on the data you submitted when you reported your packaging data. It has been approved by the scottish regulator. 
+      </p>
+      <p> We calculated these numbers by assessing the amount and type of packaging materials you use, ensuring compliance with environmental regulations.
+    
+      </p>
+  
+    -->
+
+
+    <p>This table shows how your total recycling obligation for glass is divided between glass re-melt and remaining glass.</p>
+
+  </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-2">
+
+
+     
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Current status of your glass recycling obligation</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="20%">Material</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Obligation you need to meet</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance </th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+            <th scope="col" class="govuk-table__header" width="17%">Status</th>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Glass re-melt</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">18,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">10,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">5,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">13,000</td>
+            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Not met
+              </strong></td>
+          </tr>
+  
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Remaining glass</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">7,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">5,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">1,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">6,000</td>
+            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Not met
+              </strong></td>
+          </tr>
+  
+  
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><strong>Totals</strong></th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">25,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">15,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">6,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">19,000</td>
+            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Not met
+              </strong></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds ">
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What these amounts mean
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>These amounts are based on the data submitted to the Environment Agency when reporting this packaging material. We calculated these numbers by applying the relevant material recycling target for 2025 to the amount and type of packaging your member supplied in 2024.</p>
+
+    <p class="govuk-body">View your
+      <a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v2/current-history"
+        class="govuk-link">packaging data history</a> for the data submitted for 2024.
+    </p>
+    <p class="govuk-body">See the
+      <a href="https://consult.defra.gov.uk/extended-producer-responsibiity-team/consultation-on-the-draft-producer-responsibility/supporting_documents/230720%20consultation%20draft%20PRO%20Packaging%20and%20Packaging%20Waste%20Regulations.pdf"
+        class="govuk-link">Producer Responsibility Obligations (Packaging and Packaging Waste) Regulations 2024</a> to understand how material recycling targets for 2025 are set.
+    </p>
+
+  </div>
+</details>
+
+
+  <div class="govuk-grid-full govuk-!-margin-bottom-2">
+<h2 class="govuk-heading-m">How we calculated your obligation</h2>
+<h3 class="govuk-heading-s"> Total glass obligation</h3>
+<p class="govuk-body">We applied this formula to calculate your total glass obligation:  </p>
+<p class="govuk-body"> 
+ 
+  <strong>L x Y = total glass obligation</strong>
+
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+
+  <li><strong>L</strong> is 33,784 tonnes (the total glass material you reported for 2024 to the nearest tonne)  </li>
+  <li><strong>Y</strong> is 74% (the 2025 recycling target for glass)</li>
+ 
+</ul>
+
+<p>Your total glass recycling obligation is: <br/>
+<strong> 33,784 tonnes x 74% = 25,000 tonnes</strong>.</p>
+
+
+
+<h3 class="govuk-heading-s"> Glass re-melt obligation</h3>
+<p class="govuk-body">Your glass re-melt obligation is part of your total glass obligation. We used the formula set out in the 2025 regulations to calculate it:</p>
+<p class="govuk-body"> 
+ 
+  <strong>T x (L x Y) = G</strong>
+
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li><strong>T</strong> is 75% (the 2025 percentage recycling target for glass re-melt)</li>
+  <li><strong>L</strong> is 33,784 tonnes (the total glass material you reported for 2024 to the nearest tonne)</li>
+  <li><strong>Y</strong> is 74% (the 2025 percentage recycling target for glass)</li>
+ 
+</ul>
+
+<p>Your glass re-melt obligation (<strong>G</strong>) is: <br/>
+  <strong>75% x (33,784 tonnes x 74%) = 18,000 tonnes</strong>.</p>
+
+  <h3 class="govuk-heading-s"> Remaining glass obligation</h3>
+
+<p> To determine your remaining glass obligation, we subtract the glass re-melt obligation from your total obligation.</p>
+
+<p>Your remaining glass obligation is:  <br/>
+  <strong>25,000 tonnes - 18,000 tonnes = 7,000 tonnes</strong>.</p>
+
+
+
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    If you believe your data is incorrect, contact your regulator immediately.
+  </strong>
+</div>
+
+
+
+
+
+<p><a href="#" class="govuk-link">Back to your recycling obligation</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
