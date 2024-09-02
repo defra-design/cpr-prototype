@@ -58,7 +58,7 @@ classes: 'govuk-width-container'
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
           <span class="govuk-caption-l">Registration fee payment</span>
           <h1 class="govuk-fieldset__heading">
-            Bank transfer details
+            Details of your payment
           </h1>
         </legend>
 
@@ -74,39 +74,56 @@ classes: 'govuk-width-container'
 
         <div class="govuk-form-group">
           <h3 class="govuk-heading-s">Payment details</h3>
+          <div style="padding-top: 10px; padding-bottom: 40px;">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sort">
+                Select nation
+              </label>
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published">England - Environment Agency - EA</option>
+                <option value="views">Scotland - Scottish Environment Protection Agency - SEPA</option>
+                <option value="updated" selected>Wales - Natural Resources Wales - NRW</option>
+                <option value="comments">Northern Ireland - The Environmental Protection Agency - EPA</option>
+              </select>
+            </div>
+          </div>
           <label class="govuk-label" for="name-on-the-account">
             Account name
           </label>
           <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false"
             autocomplete="name">
         </div>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="name-on-the-account">
-            Bank name
-          </label>
-          <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false"
-            autocomplete="name">
-        </div>
 
         <div class="govuk-form-group">
+          <label class="govuk-label" for="sort-code">
+            Sort code
+          </label>
+          <div id="sort-code-hint" class="govuk-hint">
+            Must be 6 digits long
+          </div>
+          <input class="govuk-input govuk-input--width-5 govuk-input--extra-letter-spacing" id="sort-code"
+            name="sortCode" type="text" spellcheck="false" aria-describedby="sort-code-hint" inputmode="numeric">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="account-number">
+            Account number
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            Must be between 6 and 8 digits long
+          </div>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="account-number"
+            name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint"
+            inputmode="numeric">
+        </div>
+        <div class="govuk-form-group">
           <label class="govuk-label" for="roll-number">
-            Bank or building society roll number
+            Building society roll number (if you have one)
           </label>
           <div id="roll-number-hint" class="govuk-hint">
             You can find it on your card, statement or passbook
           </div>
           <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roll-number"
             name="rollNumber" type="text" spellcheck="false" aria-describedby="roll-number-hint">
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="roll-number">
-            Amount
-          </label>
-          <div class="govuk-input__wrapper">
-            <div class="govuk-input__prefix" aria-hidden="true">£</div>
-            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
-          </div>
         </div>
 
         <div class="govuk-form-group">
@@ -120,7 +137,7 @@ classes: 'govuk-width-container'
       </div>
 
       {{ govukButton({
-      text: "Submit payment details",
+      text: "Submit details of payment",
       attributes: {
       id: "submitButton",
       onclick: "handleSubmit(event)"

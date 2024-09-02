@@ -47,9 +47,10 @@ classes: 'govuk-width-container'
     <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">About your organisation</span>
 
-        <h1 class="govuk-heading-l">Large producer</h1>
+        <h1 class="govuk-heading-l producerInfo"></h1>
 
-        <p class="govuk-body">You have told us you are a large producer.</p>
+        <p class="govuk-body">You have told us you are a <span class="producerInfo"
+                style=" text-transform: lowercase;"></span>.</p>
 
         <p class="govuk-body">This means your organisation:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -60,7 +61,6 @@ classes: 'govuk-width-container'
                 class="govuk-link" rel="noreferrer noopener" target="_blank">check the guidance (opens in a new
                 tab)</a>.</p>
 
-
         {{ govukButton({
         text: "Continue",
         preventDoubleClick: true,
@@ -69,6 +69,29 @@ classes: 'govuk-width-container'
         }) }}
 
     </div>
-    <script src="../../../public/javascripts/small-producers.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the saved value from local storage
+            const selectedProducer = localStorage.getItem('selectedProducer');
+
+            // Select all elements with the class "producerInfo"
+            const producerElements = document.querySelectorAll('.producerInfo');
+
+            // Iterate over each element and update its content based on the selected value
+            if (selectedProducer) {
+                producerElements.forEach(function (element) {
+                    if (selectedProducer === 'small-producer') {
+                        element.textContent = 'Small producer';
+                    } else if (selectedProducer === 'small-producer-1') {
+                        element.textContent = 'small producer';
+                    } else if (selectedProducer === 'large-producer') {
+                        element.textContent = 'Large producer';
+                    } else if (selectedProducer === 'large-producer-1') {
+                        element.textContent = 'large producer';
+                    }
+                });
+            }
+        });
+    </script>
 </div>
 {% endblock %}
