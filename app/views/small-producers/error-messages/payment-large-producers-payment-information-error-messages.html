@@ -45,15 +45,38 @@ classes: 'govuk-width-container'
 {% endblock %}
 
 
+
+
 {% block beforeContent %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Please select nation</a>
+        </li>
+        <li>
+          <a href="#">Please provide a company name</a>
+        </li>
+        <li>
+          <a href="#">Please provide a BACS reference number</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="../../payment/small-producers/payment-complete">
+    <form method="POST" action="../../payment/large-producers/payment-complete">
       <div class="govuk-form-group govuk-!-margin-top-0">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
           <span class="govuk-caption-l">Registration fee payment</span>
@@ -72,35 +95,58 @@ classes: 'govuk-width-container'
 
         <div class="govuk-form-group">
           <h3 class="govuk-heading-s">Enter the details of your BACS payment</h3>
+
           <div style="padding-top: 10px; padding-bottom: 40px;">
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="sort">
-                Select nation
+
+
+            <div class="govuk-form-group govuk-form-group--error">
+              <label class="govuk-label" for="location">
+                Select a nation
               </label>
-              <select class="govuk-select" id="sort" name="sort">
+              <div id="location-hint" class="govuk-hint">
+                Lorem ipsum lorem - This can be different to where you went before
+              </div>
+              <p id="location-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> UK nations
+              </p>
+              <select class="govuk-select govuk-select--error" id="location" name="location"
+                aria-describedby="location-hint location-error">
+                <option value="choose" selected>Select nation</option>
                 <option value="published">England - Environment Agency - EA</option>
                 <option value="views">Scotland - Scottish Environment Protection Agency - SEPA</option>
                 <option value="updated" selected>Wales - Natural Resources Wales - NRW</option>
                 <option value="comments">Northern Ireland - The Environmental Protection Agency - EPA</option>
               </select>
             </div>
+
           </div>
-          <div class="govuk-form-group">
+
+          <div class="govuk-form-group govuk-form-group--error">
             <label class="govuk-label" for="name-on-the-account">
               Provide your company name
             </label>
-            <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false"
-              autocomplete="name">
+            <div id="sort-code-hint" class="govuk-hint">
+              Why to you have to provide company name lorem ipsum
+            </div>
+            <p id="sort-code-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> lorem ipsum lorem
+            </p>
+            <input class="govuk-input govuk-input--error" id="name-on-the-account" name="nameOnTheAccount" type="text"
+              spellcheck="false" autocomplete="name">
           </div>
-          <div class="govuk-form-group">
+
+          <div class="govuk-form-group  govuk-form-group--error">
             <label class="govuk-label" for="roll-number">
               BACS reference number
             </label>
             <div id="roll-number-hint" class="govuk-hint">
-              You can find it on ...
+              Somethings about BACS. This is mandatory to proceed
             </div>
-            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roll-number"
-              name="rollNumber" type="text" spellcheck="false" aria-describedby="roll-number-hint">
+            <p id="sort-code-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> lorem ipsum lorem
+            </p>
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error"
+              id="roll-number" name="rollNumber" type="text" spellcheck="false" aria-describedby="roll-number-hint">
           </div>
           <!-- <div class="govuk-form-group">
           <label class="govuk-label" for="roll-number">
@@ -138,3 +184,28 @@ classes: 'govuk-width-container'
 
 
 {% endblock %}
+
+{% block bodyEnd %}
+<div class="govuk-grid-row" style="background:#fafafa; text-align: center;">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds" style="margin: 0 auto;">
+        <div style="margin-right: 460px; margin-bottom: 25px;  padding: 30px; width: 300px;
+          border: 1px solid #cccccc; float: right;">
+          <h3 class="govuk-heading-s">Prototype extras</h3>
+          <ol class="govuk-list govuk-list--number" style="display: inline-block; text-align: left;">
+            <li><a class="govuk-breadcrumbs__link"
+                href="../payment-alternative/large-producers/payment-large-producers-payment-information"
+                style="color: #1d70b8;" onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
+                onclick="this.style.color='purple';">
+                Hide error messages
+              </a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
+<!-- GOV.UK Prototype Kit {{releaseVersion}} -->
