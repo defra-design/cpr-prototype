@@ -60,41 +60,49 @@
       
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-    <!--Filter and sorting starts-->
+   <!--Filter and sorting starts-->
+  
+   <a href="#" class="govuk-link">Clear filters</a>.
 
 <div class="govuk-form-group" style="float:right; margin-bottom: 20px;">
   <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
 </div>
 
 <div class="govuk-form-group" style="float:right">
-  <label class="govuk-label govuk-label--s" id="label1" for="select-filter">
-    Select a filter
-  </label>
-  <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
-      <option  selected>Filter by </option>
-  <option value="december-waste">December waste</option>
-  <option value="aluminium">Aluminium</option>
-  <option value="glass-other">Glass other</option>
-  <option value="glass-remelt">Glass re-melt</option>
-  <option value="paper-board">Paper, board or fibre-based composite material</option>
-  <option value="plastic">Plastic</option>
-  <option value="steel">Steel</option>
-  <option value="wood">Wood</option>
+    <label class="govuk-label" id="label1" for="select-filter">
+      Filter by
+    </label>
+    <!--<div id="location-hint" class="govuk-hint">
+        This can be different to where you went before
+      </div>-->
+    <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
+        <option  selected>Filter by </option>
+    <option value="december-waste">December waste</option>
+    <option value="aluminium">Aluminium</option>
+    <option value="glass-other">Glass other</option>
+    <option value="glass-remelt">Glass re-melt</option>
+    <option value="paper-board">Paper, board or fibre-based composite material</option>
+    <option value="plastic">Plastic</option>
+    <option value="steel">Steel</option>
+    <option value="wood">Wood</option>
+    </select>
+</div>
+
+    <div class="govuk-form-group" style="float:right">
+      <label class="govuk-label" id="label2" for="select-sort">
+        Sort by
+      </label>
+      <!--<div id="location-hint" class="govuk-hint">
+        This can be different to where you went before
+      </div>-->
+  <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
+    <option  selected>Material </option>
+    <option value="date-issued">Date issued</option>
+    <option value="tonnage">Tonnage</option>
+    <option value="material">Material</option>
   </select>
 </div>
-
-  <div class="govuk-form-group" style="float:right">
-    <label class="govuk-label govuk-label--s" id="label2" for="select-sort">
-      Select sort option
-    </label>
-<select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
-  <option  selected>Sort by </option>
-  <option value="date-issued">Date issued</option>
-  <option value="tonnage">Tonnage</option>
-  <option value="material">Material</option>
-</select>
-</div>
-
+  
 <!--Filter and sorting end-->
 
     
@@ -322,36 +330,37 @@
               </tbody>
             </table>
 
+            <nav class="moj-pagination" aria-label="Pagination navigation">
+
+              <ul class="moj-pagination__list">
+                <!--<li class="moj-pagination__item  moj-pagination__item--prev">
+                  <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+                </li>
             
-            <nav class="govuk-pagination" aria-label="Pagination">
-              <ul class="govuk-pagination__list">
-                <li class="govuk-pagination__item govuk-pagination__item--current">
-                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
-                    1
-                  </a>
-                </li>
-                <li class="govuk-pagination__item">
-                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
-                    2
-                  </a>
-                </li>
-                <li class="govuk-pagination__item">
-                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
-                    3
-                  </a>
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 45">1</a></li>-->
+            
+                <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 45" aria-current="page">1</li>
+      
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="" aria-label="Page 2 of 5">2</a></li>
+              
+            
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="" aria-label="Page 3 of 5">3</a></li>
+            
+                <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+            
+                <li class="moj-pagination__item"><a class="moj-pagination__link" href="" aria-label="Page 5 of 5">5</a></li>
+            
+                <li class="moj-pagination__item  moj-pagination__item--next">
+                  <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
                 </li>
               </ul>
-              <div class="govuk-pagination__next">
-                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
-                  <span class="govuk-pagination__link-title">
-                    Next<span class="govuk-visually-hidden"> page</span>
-                  </span>
-                  <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-                  </svg>
-                </a>
-              </div>
+              <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>45</b> PRNs and PERNs</p>
+      
             </nav>
+          
+       
+<br>
+
 <br>
      
     <button class="govuk-button" formaction="accept-bulk">Accept selected PRNs and PERNs</button> <!--<button class=" govuk-button govuk-button--secondary" formaction="reject-bulk" style="margin-left: 20px;">Reject selected PRNs and PERNs</button>-->
