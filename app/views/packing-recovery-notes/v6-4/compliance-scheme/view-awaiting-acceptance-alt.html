@@ -1,4 +1,4 @@
-{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+{% set serviceName = "EPR for packaging data: manage your recycling obligation" %}
 
 {% extends "layout.html" %}
 
@@ -7,7 +7,7 @@
   items: [
     {
       text: "Home",
-      href: "https://defra-cpr-prototype.herokuapp.com/obligation/s3/cs-sub-landing-page-s3"
+      href: "https://defra-cpr-prototype.herokuapp.com/recycling obligation/s3/cs-sub-landing-page-s3"
     },
     {
       text: "Accept or reject PRNs and PERNS",
@@ -61,11 +61,12 @@
 
    <!--Filter and sorting starts-->
   
-   <a href="#" class="govuk-link">Clear filters</a>.
-
-<div class="govuk-form-group" style="float:right; margin-bottom: 20px;">
+   <div class="govuk-form-group" style="float:right; margin-bottom: 20px; margin-right: 10px;">
+    <a href="#" class="govuk-link" style="margin-right: 10px;">Clear sort and filter</a>
+    </div>
+<!--<div class="govuk-form-group" style="float:right; margin-bottom: 20px;">
   <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
-</div>
+</div>-->
 
 <div class="govuk-form-group" style="float:right">
     <label class="govuk-label" id="label1" for="select-filter">
@@ -108,7 +109,6 @@
 
     
 </div>
-   
             <table class="govuk-table">
               <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -118,13 +118,13 @@
                 </div>-->
         
                 <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">PRN or PERN number</th>
-                  <th scope="col" class="govuk-table__header">Material</th>
-                  <th scope="col" class="govuk-table__header">Date issued</th>
-                    <th scope="col" class="govuk-table__header">December waste</th>
-                  <th scope="col" class="govuk-table__header">Issued by</th>
-                  <th scope="col" class="govuk-table__header">Tonnage</th>
-                  <th scope="col" class="govuk-table__header">Issuer note</th>
+                  <th scope="col" class="govuk-table__header" style="width: 15%;">PRN or PERN number</th>
+                  <th scope="col" class="govuk-table__header" style="width: 20%;" >Material</th>
+                  <th scope="col" class="govuk-table__header" style="width: 15%;">Date issued</th>
+                    <th scope="col" class="govuk-table__header" style="width: 10%;">December waste</th>
+                  <th scope="col" class="govuk-table__header" style="width: 20%;">Issued by</th>
+                  <th scope="col" class="govuk-table__header" style="width: 10%;">Tonnage</th>
+                  <th scope="col" class="govuk-table__header" style="width: 10%;">Issuer note</th>
                 </tr>
         
         
@@ -136,7 +136,7 @@
                   <td class="govuk-table__cell">
                         <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
-                          <label class="govuk-label govuk-checkboxes__label" for="select-all">Select or unselect all PRNs and PERNs on this page</label>
+                          <label class="govuk-label govuk-checkboxes__label" for="select-all">Select or unselect all PRNs and PERNs</label>
                       </div>
                         </td>
                         <td class="govuk-table__cell"> </td>
@@ -205,7 +205,7 @@
                       <div class="govuk-checkboxes__item">
                           <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="accept-bulk">
                           <label class="govuk-label govuk-checkboxes__label" for="waste-4">
-                              <a href="selected-pern">EX454545560M</a>
+                              <a href="aluminium">EX454545560M</a>
                           </label>
                         </div>
                         </div></td>
@@ -330,6 +330,7 @@
              
               </tbody>
             </table>
+          </div>
 
             <nav class="moj-pagination" aria-label="Pagination navigation">
 

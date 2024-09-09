@@ -1,4 +1,4 @@
-{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+{% set serviceName = "EPR for packaging data: manage your recycling obligation" %}
 
 {% extends "layout.html" %}
 
@@ -35,7 +35,7 @@
         </label>
       </h1>
       <div id="event-name-hint" class="govuk-hint">
-        You can search for PRNs and PERNs issued to your 2025 obligation. To search your 2024 obligation you need to do this in NPWD.
+        You can search for PRNs and PERNs issued to your 2025 recycling obligation. To search your 2024 recycling obligation you need to do this in NPWD.
       </div>
     </div>
     
@@ -59,8 +59,7 @@
                   classes: "govuk-body--m",
                   showAllValues: true,
                   isPageHeading: true,
-                  text: "Enter the exact PRN or PERN number, or the exact name of the issuing organisation.
-                  "
+                  text: "Enter PRN or PERN number, or the name of the reprocessor or exporter."
                   },
                   items: [
                   { text: "Valpak (EA), CRN100002" },
@@ -110,11 +109,15 @@
                 
 <!--Filter and sorting starts-->
 
-<a href="#" class="govuk-link" style="margin-right: 10px;">Clear filters</a>
+
 
 <div class="govuk-form-group" style="float:right; margin-bottom: 20px; margin-right: 10px;">
-  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
+<a href="#" class="govuk-link" style="margin-right: 10px;">Clear sort and filter</a>
 </div>
+
+<!--<div class="govuk-form-group" style="float:right; margin-bottom: 20px; margin-right: 10px;">
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
+</div>-->
 
 <div class="govuk-form-group" style="float:right; margin-right: 10px;">
   <label class="govuk-label" id="label1" for="select-filter">
@@ -165,18 +168,16 @@
 
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">PRN and PERN number</th>
-            <th scope="col" class="govuk-table__header">Material</th>
-            <th scope="col" class="govuk-table__header">Date issued</th>
-              <th scope="col" class="govuk-table__header">December waste</th>
-            <th scope="col" class="govuk-table__header">Issued by</th>
-            <th scope="col" class="govuk-table__header">Tonnage</th>
-            <th scope="col" class="govuk-table__header">Status</th>
-
+            <th scope="col" class="govuk-table__header" style="width: 15%;">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header" style="width: 20%;">Material</th>
+            <th scope="col" class="govuk-table__header" style="width: 15%;">Date issued</th>
+            <th scope="col" class="govuk-table__header" style="width: 10%;">December waste</th>
+            <th scope="col" class="govuk-table__header" style="width: 20%;">Issued by</th>
+            <th scope="col" class="govuk-table__header" style="width: 10%;">Tonnage</th>
+            <th scope="col" class="govuk-table__header" style="width: 10%;">Status</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               <a href="selected-prn">ER3484743570M</a>
