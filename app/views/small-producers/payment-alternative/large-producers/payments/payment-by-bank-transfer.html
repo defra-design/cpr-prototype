@@ -53,35 +53,39 @@ classes: 'govuk-width-container'
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <form
+      action="../../../payment-alternative/large-producers/payments/small-producer-dashboard-bank-transfer-alternative"
+      method="post" novalidate>
 
-    <div class="govuk-form-group govuk-!-margin-top-0">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-        <span class="govuk-caption-l">Pay registration fee</span>
-        <h1 class="govuk-fieldset__heading">
-          Pay by bank transfer
-        </h1>
-      </legend>
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Pay by bank transfer
+          </h1>
+        </legend>
 
-      <p class="govuk-body">Use this application reference number:<br>
-        <strong>APP-45678-RBDIGZAPKB</strong>
-      </p>
+        <p class="govuk-body">To pay by bank transfer use application reference:<br>
+          <strong>APP-45678-RBDIGZAPKB</strong>
+        </p>
 
-      <div class="govuk-details__text">
-        <p class="govuk-body">BACS payment details:</p>
-        <ul class="govuk-list govuk-list">
-          <h3 class="govuk-heading-s">England</h3>
-          <li>Account name: Environment Agency - EA</li>
-          <li>Account number: 10014411</li>
-          <li>Sort code: 60-70-80</li>
-          <li>Bank name: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate,
-            London
-            EC2M
-            4RB</li>
-        </ul>
-      </div>
-      <br>
-      <br>
-      <!-- <div class="govuk-details__text">
+        <div class="govuk-details__text">
+          <p class="govuk-body">Payment must be made via BACS to:</p>
+          <ul class="govuk-list govuk-list">
+            <h3 class="govuk-heading-s">England</h3>
+            <li>Account name: Environment Agency - EA</li>
+            <li>Account number: 10014411</li>
+            <li>Sort code: 60-70-80</li>
+            <li>Bank name: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate,
+              London
+              EC2M
+              4RB</li>
+          </ul>
+        </div>
+        <br>
+        <br>
+        <h2 class="govuk-heading-m">Submit your application</h2>
+        <!-- <div class="govuk-details__text">
           <ul class="govuk-list govuk-list">
             <h3 class="govuk-heading-s">Scotland</h3>
             <li>Account name: Scottish Environment Protection Agency - SEPA</li>
@@ -113,13 +117,14 @@ classes: 'govuk-width-container'
           </ul>
         </div>  <br>
         <br>-->
-      <p class="govuk-body">
-        After making your payment <a
-          href="../../../payment-alternative/large-producers/payments/small-producer-dashboard-bank-transfer-alternative"
-          class="govuk-link">login to the dashboard to submit the application</a>.
-      </p>
+        <p class="govuk-body">
+          You can submit your application from the registration dashboard after the payment has been made.</p>
+      </div>
 
-    </div>
+      {{ govukButton({
+      text: "Continue"
+      })}}
+    </form>
   </div>
 </div>
 {% endblock %}

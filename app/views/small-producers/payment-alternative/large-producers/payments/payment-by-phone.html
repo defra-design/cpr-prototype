@@ -53,78 +53,43 @@ classes: 'govuk-width-container'
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-form-group govuk-!-margin-top-0">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-        <span class="govuk-caption-l">Pay registration fee</span>
-        <h1 class="govuk-fieldset__heading">
-          Pay by phone
-        </h1>
-      </legend>
+    <form
+      action="../../../payment-alternative/large-producers/payments/small-producer-dashboard-bank-transfer-alternative"
+      method="post" novalidate>
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Pay by phone
+          </h1>
+        </legend>
 
-      <p class="govuk-body">Contact the department XXXXX of Environment Agency by phone.</p>
-      <p class="govuk-body">Have your bank details ready wen speaking with the operator.</p>
+        <p class="govuk-body">To pay by phone use application reference:<br><strong>APP-45678-RBDIGZAPKB</strong></p>
+        <p class="govuk-body">Have your bank details ready and call:</p>
 
-      <p class="govuk-body">Use this application reference number:<br>
-        <strong>APP-45678-RBDIGZAPKB</strong>
-      </p>
-
-
-      <!--<div class="govuk-details__text">
+        <div class="govuk-details__text">
+          <p class="govuk-body">Enquires</p>
           <ul class="govuk-list govuk-list">
             <h3 class="govuk-heading-s">England</h3>
-            <li>Environment Agency - EA</li>
-            <li>Telephone: 03708 506 506</li>
-            <li>Monday to Friday</li>
-            <li>Opening hours: 9.00am and 5.00pm</li>
+            <li>Telephone 03708 506 506</li>
+            <li>Telephone from outside the UK (Monday to Friday, 8am to 6pm GMT) +44 (0) 114 282 5312</li>
+            <li>Monday to Friday, 8am to 6pm.</li>
+            <li><a href="https://www.gov.uk/call-charges" class="govuk-link">Find out about call charges</a></li>
           </ul>
         </div>
+
+
         <br>
         <br>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list">
-            <h3 class="govuk-heading-s">Scotland</h3>
-            <li>Scottish Environment Protection Agency - SEPA</li>
-            <li>Telephone: 0800 80 70 60</li>
-            <li>Monday to Friday</li>
-            <li>Opening hours: 9.00am and 5.00pm</li>
-          </ul>
-        </div>
-        <br>
-        <br>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list">
-            <h3 class="govuk-heading-s">Wales</h3>
-            <li>Natural Resources Wales - NRW</li>
-            <li>Telephone: 0300 065 3000</li>
-            <li>Monday to Friday</li>
-            <li>Opening hours: 9.00am and 5.00pm</li>
-          </ul>
-        </div>
-        <br>
-        <br>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list">
-            <h3 class="govuk-heading-s">Northern Ireland</h3>
-            <li>The Environmental Protection Agency - EPA</li>
-            <li>Telephone: 0300 200 7856</li>
-            <li>Monday to Friday</li>
-            <li>Opening hours: 9.00am and 5.00pm</li>
-
-          </ul>
-        </div>  <br>
-        <br>-->
 
 
-      <p class="govuk-body">
-        After making your payment <a
-          href="../../../payment-alternative/large-producers/payments/small-producer-dashboard-bank-transfer-alternative"
-          class="govuk-link">login to the dashboard to submit the application</a>.
-      </p>
-
-
-
-
-    </div>
+        <p class="govuk-body">
+          You can submit your application from the registration dashboard after the payment has been made.</p>
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      })}}
+    </form>
   </div>
 </div>
 {% endblock %}
