@@ -48,47 +48,99 @@
   </script>
 
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Accept or reject PRNs and PERNs</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="accept-bulk" method="POST">
+      <p class="govuk-body">Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.</p>
+    </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar govuk-!-display-none-print">
+      <div class="gem-c-related-navigation govuk-!-display-none-print" data-module="ga4-link-tracker" data-ga4-link-tracker-module-started="true">
+      <h2 id="related-nav-related_items-34a8f55a" class="gem-c-related-navigation__main-heading">
+        Related content
+      </h2>
+      <nav role="navigation" class="gem-c-related-navigation__nav-section" aria-labelledby="related-nav-related_items-34a8f55a" data-module="gem-toggle" data-gem-toggle-module-started="true">
+
+  <ul class="govuk-list">
+    <li>
+      <a class="govuk-link" href="#">Download PRNs and PERNs in CSV or Excel file</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#">Manage your recyling obligation</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#">Search for PRNs or PERNs</a>
+    </li>
+  </ul>
+</nav>
+
+</div>
+</div>
+
+  </div>
+</div>
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <form class="form" action="accept-bulk" method="POST">
-    <h1 class="govuk-heading-xl">Accept or reject PRNs and PERNs</h1>
+    <!--<h1 class="govuk-heading-xl">Accept or reject PRNs and PERNs</h1>
     <p class="govuk-body">Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.</p>
-
+    -->
+  
+      
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
    <!--Filter and sorting starts-->
   
-   <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <a href="#" class="govuk-link govuk-!-margin-right-3">Clear sort and filter</a>
-  </div>
+   <div class="govuk-form-group" style="float:right; margin-bottom: 20px; margin-right: 10px;">
+    <a href="#" class="govuk-link" style="margin-right: 10px;">Clear sort and filter</a>
+    </div>
+<!--<div class="govuk-form-group" style="float:right; margin-bottom: 20px;">
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="applyFilters()">Apply filters</button>
+</div>-->
 
-  <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <label class="govuk-label" id="label1" for="select-filter">Filter by</label>
+<div class="govuk-form-group" style="float:right">
+    <label class="govuk-label" id="label1" for="select-filter">
+      Filter by
+    </label>
+    <!--<div id="location-hint" class="govuk-hint">
+        This can be different to where you went before
+      </div>-->
     <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
       <option selected>All materials</option>
-      <option value="aluminium">Aluminium</option>
-      <option value="glass-other">Glass other</option>
-      <option value="glass-remelt">Glass re-melt</option>
-      <option value="paper-board">Paper, board or fibre-based composite material</option>
-      <option value="plastic">Plastic</option>
-      <option value="steel">Steel</option>
-      <option value="wood">Wood</option>
+    <option value="aluminium">Aluminium</option>
+    <option value="glass-other">Glass other</option>
+    <option value="glass-remelt">Glass re-melt</option>
+    <option value="paper-board">Paper, board or fibre-based composite material</option>
+    <option value="plastic">Plastic</option>
+    <option value="steel">Steel</option>
+    <option value="wood">Wood</option>
     </select>
-  </div>
+</div>
 
-  <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <label class="govuk-label" id="label2" for="select-sort">Sort by</label>
-    <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
-      <option value="date-issued-a">Date issued (newest first)</option>
-      <option value="date-issued-b">Date issued (oldest first)</option>
-      <option value="december-waste">December waste (yes to no)</option>
-      <option value="issued-by-a">Issued by (A to Z)</option>
-      <option value="issued-by-b">Issued by (Z to A)</option>
-      <option value="tonnage-a">Tonnage (heaviest first)</option>
-      <option value="tonnage-b">Tonnage (lightest first)</option>
-    </select>
-  </div>
+    <div class="govuk-form-group" style="float:right">
+      <label class="govuk-label" id="label2" for="select-sort">
+        Sort by
+      </label>
+      <!--<div id="location-hint" class="govuk-hint">
+        This can be different to where you went before
+      </div>-->
+  <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
+    <option value="date-issued-a">Date issued (newest first)</option>
+    <option value="date-issued-b">Date issued (oldest first)</option>
+    <option value="december-waste">December waste (yes to no)</option>
+    <option value="date-issued-b">Issued by (A to Z)</option>
+    <option value="date-issued-b">Issued by (Z to A)</option>
+    <option value="tonnage-a">Tonnage (heaviest first)</option>
+    <option value="tonnage-b">Tonnage (lightest first)</option>
+  </select>
+</div>
   
 <!--Filter and sorting end-->
 
