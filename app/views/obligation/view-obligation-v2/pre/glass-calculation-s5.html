@@ -58,6 +58,65 @@ classes: 'govuk-width-container'
 
 {% block content %}
 
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds ">
     
@@ -90,23 +149,23 @@ classes: 'govuk-width-container'
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Glass re-melt</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
+          <th scope="row" class="govuk-table__header">Glass re-melt</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
             No data yet
             </strong></td>
         </tr>
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Remaining glass</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
+          <th scope="row" class="govuk-table__header">Remaining glass</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
             No data yet
             </strong></td>
         </tr>
@@ -114,11 +173,11 @@ classes: 'govuk-width-container'
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header"><strong>Totals</strong></th>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+          <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
             No data yet
             </strong></td>
         </tr>
