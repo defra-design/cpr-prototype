@@ -1,0 +1,300 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "pEPR: Regulators' Service" %}
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#">Back to home</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Environment Agency</span>
+    <h1 class="govuk-heading-xl">Manage registration submissions</h1>
+
+    <form id="filter-form">
+      <p class="govuk-body-m">This list shows the current pending submissions and the latest actioned submissions. To
+        view older submissions<a href="#" class="govuk-link govuk-link--no-visited-state"> log in to Power-BI.</a></p>
+
+      <!-- Filters -->
+      <div class="moj-filter">
+        <div class="moj-filter__content">
+          <div class="moj-filter__selected" style="margin-bottom: 60px;">
+
+            <div class="moj-filter__options" style="box-shadow: inset 0 0 0 0px;">
+              <h2 class="govuk-heading-m">Filter options</h2>
+
+              <div class="govuk-form-group" style="margin-top: 40px;">
+                <label class="govuk-label" for="organisation-name">Organisation name</label>
+                <input class="govuk-input" id="organisation-name" name="organisation-name" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="organisation-id">Organisation ID</label>
+                <input class="govuk-input" id="organisation-id" name="organisation-id" type="text">
+              </div>
+
+              <!-- Organisation type -->
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
+                  <h3 class=" govuk-heading-s">Organisation type</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="orgtype-directproducer" name="orgtype" type="checkbox"
+                        value="Direct producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-directproducer">Direct
+                        producer</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="orgtype-compliancescheme" name="orgtype"
+                        type="checkbox" value="Compliance scheme">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-compliancescheme">Compliance
+                        scheme</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="orgtype-smallproducer" name="orgtype" type="checkbox"
+                        value="Small producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-smallproducer">Small
+                        producer</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="orgtype-largeproducer" name="orgtype" type="checkbox"
+                        value="Large producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-largeproducer">Large
+                        producer</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Submission status -->
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
+                  <h3 class=" govuk-heading-s">Submission status</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="status-pending" name="status" type="checkbox"
+                        value="Pending">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-pending">Pending</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="status-approved" name="status" type="checkbox"
+                        value="Approved">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-approved">Approved</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="status-rejected" name="status" type="checkbox"
+                        value="Rejected">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-rejected">Rejected</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="status-queried" name="status" type="checkbox"
+                        value="Queried">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-queried">Queried</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Submission year -->
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
+                  <h3 class=" govuk-heading-s">Submission year</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class="govuk-checkboxes__input" id="yeartwentythree" name="year" type="checkbox"
+                        value="2023">
+                      <label class="govuk-label govuk-checkboxes__label" for="yeartwentythree">2023</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class=" govuk-checkboxes__input" id="yeartwentyfour" name="year" type="checkbox"
+                        value="2024">
+                      <label class="govuk-label govuk-checkboxes__label" for="yeartwentyfour">2024</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Submission period -->
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
+                  <h3 class="govuk-heading-s">Submission period</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"
+                    style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class="govuk-checkboxes__input" id="period-june" name="period" type="checkbox" value="1">
+                      <label class="govuk-label govuk-checkboxes__label" for="period-june">
+                        January - June
+                      </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="width: 160px !important;">
+                      <input class="govuk-checkboxes__input" id="period-december" name="period" type="checkbox"
+                        value="2">
+                      <label class="govuk-label govuk-checkboxes__label" for="period-december">
+                        July - December
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Apply and clear filters -->
+              <div style="align-items: center; display: flex;">
+                <button class="govuk-button" type="button" id="apply-filters" style="margin-right: 30px;">Apply
+                  filters</button>
+                <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state"
+                    id="clear-filters">Clear filters</a>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- TABLE -->
+    <table class="govuk-table" id="submission-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation ID</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation type</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission period</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission year</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body" id="submission-table-body">
+        <tr>
+          <td class="govuk-table__cell">Company A</td>
+          <td class="govuk-table__cell">A001</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell">Company B</td>
+          <td class="govuk-table__cell">B002</td>
+          <td class="govuk-table__cell">Small producer</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
+          <td class="govuk-table__cell">July - December</td>
+          <td class="govuk-table__cell">2024</td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell">Company C</td>
+          <td class="govuk-table__cell">C003</td>
+          <td class="govuk-table__cell">Direct producer</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell">Company D</td>
+          <td class="govuk-table__cell">D004</td>
+          <td class="govuk-table__cell">Compliance scheme</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple">Queried</strong></td>
+          <td class="govuk-table__cell">July - December</td>
+          <td class="govuk-table__cell">2023</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav class="govuk-pagination" role="navigation" aria-label="results"></nav>
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"
+        aria-current="page">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+        3
+      </a>
+    </li>
+    <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
+        10
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next"> <span
+        class="govuk-pagination__link-title">Next</span> <svg
+        class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13"
+        width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path
+          d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+        </path>
+      </svg></a>
+  </div>
+  </nav>
+</div>
+
+
+
+<script>
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    // Get filter values
+    const orgNameFilter = document.getElementById('organisation-name').value.toLowerCase();
+    const orgIdFilter = document.getElementById('organisation-id').value.toLowerCase();
+
+    // Get all checkboxes
+    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value);
+    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value);
+    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value);
+    const periodFilters = Array.from(document.querySelectorAll('input[name="period"]:checked')).map(cb => cb.value);
+
+    // Get table rows
+    const rows = document.querySelectorAll('#submission-table-body tr');
+
+    // Filter rows
+    rows.forEach(row => {
+      const orgName = row.cells[0].textContent.toLowerCase();
+      const orgId = row.cells[1].textContent.toLowerCase();
+      const orgType = row.cells[2].textContent;
+      const status = row.cells[3].textContent;
+      const period = row.cells[4].textContent === 'January - June' ? '1' : '2';
+      const year = row.cells[5].textContent;
+
+      const orgNameMatch = orgName.includes(orgNameFilter);
+      const orgIdMatch = orgId.includes(orgIdFilter);
+      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
+      const statusMatch = statusFilters.length === 0 || statusFilters.includes(status);
+      const yearMatch = yearFilters.length === 0 || yearFilters.includes(year);
+      const periodMatch = periodFilters.length === 0 || periodFilters.includes(period);
+
+      // Show/hide row based on match
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch && periodMatch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+
+  document.getElementById('clear-filters').addEventListener('click', function () {
+    document.getElementById('filter-form').reset();
+    const rows = document.querySelectorAll('#submission-table-body tr');
+    rows.forEach(row => {
+      row.style.display = '';
+    });
+  });
+</script>
+
+{% endblock %}
