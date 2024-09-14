@@ -58,6 +58,63 @@ classes: 'govuk-width-container'
 
 {% block content %}
 
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds ">
     
@@ -89,11 +146,11 @@ classes: 'govuk-width-container'
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Steel </th>
-          <td class="govuk-table__cell govuk-table__cell--numeric">30,000</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">30,000</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green" >
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet">30,000</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">30,000</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+          <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--green" >
               Met
             </strong></td>
         </tr>
