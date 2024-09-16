@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-
 {% set serviceName = "pEPR: Regulators' Service" %}
 {% set title = "pEPR: Regulators' Service" %}
 
@@ -25,22 +24,17 @@
       <div class="moj-filter">
         <div class="moj-filter__content">
           <div class="moj-filter__selected" style="margin-bottom: 60px;">
-
             <div class="moj-filter__options" style="box-shadow: inset 0 0 0 0px;">
               <h2 class="govuk-heading-m">Filter options</h2>
-
               <div class="govuk-form-group" style="margin-top: 40px;">
                 <label class="govuk-label" for="organisation-name">Organisation name</label>
                 <input class="govuk-input" id="organisation-name" name="organisation-name" type="text">
               </div>
-
               <div class="govuk-form-group">
                 <label class="govuk-label" for="organisation-id">Organisation ID</label>
                 <input class="govuk-input" id="organisation-id" name="organisation-id" type="text">
               </div>
-
               <br>
-
               <p class="govuk-body">Choose one or more that apply</p>
               <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
                 <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
@@ -136,7 +130,6 @@
                       </h2>
                     </div>
                     <div id="accordion-default-content-3" class="govuk-accordion__section-content">
-
                       <!-- Submission year -->
                       <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 20px;">
@@ -194,22 +187,6 @@
                   </div>
                 </fieldset>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <!-- Apply and clear filters -->
               <div style="align-items: center; display: flex;">
                 <button class="govuk-button" type="button" id="apply-filters" style="margin-right: 30px;">Apply
@@ -217,14 +194,15 @@
                 <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state"
                     id="clear-filters">Clear filters</a>
               </div>
-
-
-
             </div>
           </div>
         </div>
       </div>
     </form>
+
+
+
+    <h2 class="govuk-heading-m">Filtered results:</h2>
 
     <!-- TABLE -->
     <table class="govuk-table" id="submission-table">
@@ -232,44 +210,178 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation ID</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission date and time</th>
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation type</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission period</th>
           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission year</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body" id="submission-table-body">
         <tr>
-          <td class="govuk-table__cell">Company A</td>
-          <td class="govuk-table__cell">A001</td>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Acme org Ltd.</a></td>
+          <td class="govuk-table__cell">213 146</td>
+          <td class="govuk-table__cell">10 March 2023 21:22:12</td>
           <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
-          <td class="govuk-table__cell">January - June</td>
-          <td class="govuk-table__cell">2023</td>
         </tr>
         <tr>
-          <td class="govuk-table__cell">Company B</td>
-          <td class="govuk-table__cell">B002</td>
-          <td class="govuk-table__cell">Small producer</td>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Beta Comply</a></td>
+          <td class="govuk-table__cell">415 146</td>
+          <td class="govuk-table__cell">11 September 2023 14:12:14</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
-          <td class="govuk-table__cell">July - December</td>
-          <td class="govuk-table__cell">2024</td>
         </tr>
         <tr>
-          <td class="govuk-table__cell">Company C</td>
-          <td class="govuk-table__cell">C003</td>
-          <td class="govuk-table__cell">Direct producer</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Oasis Packaging Ltd</a></td>
+          <td class="govuk-table__cell">033 141</td>
+          <td class="govuk-table__cell">18 March 2023 20:37:52</td>
+          <td class="govuk-table__cell">Large producer</td>
           <td class="govuk-table__cell">January - June</td>
           <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
         </tr>
         <tr>
-          <td class="govuk-table__cell">Company D</td>
-          <td class="govuk-table__cell">D004</td>
-          <td class="govuk-table__cell">Compliance scheme</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple">Queried</strong></td>
-          <td class="govuk-table__cell">July - December</td>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Division Packing Ltd</a></td>
+          <td class="govuk-table__cell">743 141</td>
+          <td class="govuk-table__cell">01 April 2023 16:15:05</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
           <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple">Queried</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Cure Packaging Ltd</a></td>
+          <td class="govuk-table__cell">093 141</td>
+          <td class="govuk-table__cell">22 April 2023 17:00:10</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Zeppelin Packaging Ltd</a></td>
+          <td class="govuk-table__cell">673 145</td>
+          <td class="govuk-table__cell">19 May 2023 14:00:30</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Pink org Ltd</a></td>
+          <td class="govuk-table__cell">033 141</td>
+          <td class="govuk-table__cell">17 March 2023 13:27:05</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Pixies Packaging Ltd</a></td>
+          <td class="govuk-table__cell">953 149</td>
+          <td class="govuk-table__cell">19 March 2023 10:47:08</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Varpak</a></td>
+          <td class="govuk-table__cell">583 142</td>
+          <td class="govuk-table__cell">4 April 2023 10:47:08</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Lattice Lumia Ltd.</a></td>
+          <td class="govuk-table__cell">983 143</td>
+          <td class="govuk-table__cell">10 April 2023 11:27:04</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Nova</a></td>
+          <td class="govuk-table__cell">763 141</td>
+          <td class="govuk-table__cell">02 May 2023 15:35:13</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Nexus org Ltd.</a></td>
+          <td class="govuk-table__cell">033 144</td>
+          <td class="govuk-table__cell">13 March 2023 16:15:05</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Omni org Ltd.</a></td>
+          <td class="govuk-table__cell">683 144</td>
+          <td class="govuk-table__cell">19 March 2023 11:27:04</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">Orbit org Ltd.</a></td>
+          <td class="govuk-table__cell">943 176</td>
+          <td class="govuk-table__cell">29 March 2023 14:14:36</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+        </tr>
+        <tr>
+          <td class="govuk-table__cell"><a
+              href="https://defra-cpr-prototype.herokuapp.com/regulator-manage-pom-data/pom-data-details-acme"
+              class="govuk-link">ZetaZephyr</a></td>
+          <td class="govuk-table__cell">743 147</td>
+          <td class="govuk-table__cell">07 April 2023 09:12:12</td>
+          <td class="govuk-table__cell">Large producer</td>
+          <td class="govuk-table__cell">January - June</td>
+          <td class="govuk-table__cell">2023</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Approved</strong></td>
         </tr>
       </tbody>
     </table>
@@ -333,10 +445,11 @@
     rows.forEach(row => {
       const orgName = row.cells[0].textContent.toLowerCase();
       const orgId = row.cells[1].textContent.toLowerCase();
-      const orgType = row.cells[2].textContent;
-      const status = row.cells[3].textContent;
+      const submissionDateTime = row.cells[2].textContent; // Added field
+      const orgType = row.cells[3].textContent;
       const period = row.cells[4].textContent === 'January - June' ? '1' : '2';
       const year = row.cells[5].textContent;
+      const status = row.cells[6].textContent;
 
       const orgNameMatch = orgName.includes(orgNameFilter);
       const orgIdMatch = orgId.includes(orgIdFilter);
