@@ -127,36 +127,44 @@
 
    <!--Filter and sorting starts-->
   
-   <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <a href="#" class="govuk-link govuk-!-margin-right-3">Clear sort and filter</a>
-  </div>
+   <div class="govuk-grid-row">
 
-  <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <label class="govuk-label" id="label1" for="select-filter">Filter by</label>
-    <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
-      <option selected>All materials</option>
-      <option value="aluminium">Aluminium</option>
-      <option value="glass-other">Glass other</option>
-      <option value="glass-remelt">Glass re-melt</option>
-      <option value="paper-board">Paper, board or fibre-based composite material</option>
-      <option value="plastic">Plastic</option>
-      <option value="steel">Steel</option>
-      <option value="wood">Wood</option>
-    </select>
+      <div class="govuk-grid-column-one-third">
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <label class="govuk-label" id="label2" for="select-sort">Sort by</label>
+        <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
+          <option value="date-issued-a">Date issued (newest first)</option>
+          <option value="date-issued-b">Date issued (oldest first)</option>
+          <option value="december-waste">December waste (yes to no)</option>
+          <option value="issued-by-a">Issued by (A to Z)</option>
+          <option value="issued-by-b">Issued by (Z to A)</option>
+          <option value="tonnage-a">Tonnage (heaviest first)</option>
+          <option value="tonnage-b">Tonnage (lightest first)</option>
+        </select>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <label class="govuk-label" id="label1" for="select-filter">Filter by</label>
+        <select class="govuk-select" id="select-filter" name="filter" aria-labelledby="label1">
+          <option selected>All materials</option>
+          <option value="aluminium">Aluminium</option>
+          <option value="glass-other">Glass other</option>
+          <option value="glass-remelt">Glass re-melt</option>
+          <option value="paper-board">Paper, board or fibre-based composite material</option>
+          <option value="plastic">Plastic</option>
+          <option value="steel">Steel</option>
+          <option value="wood">Wood</option>
+        </select>
+      </div>
+    </div>
+  
+    
+<div class="govuk-form-group" style="float:right; margin-bottom: 20px; margin-right: 10px;">
+  <a href="#" class="govuk-link" style="margin-right: 10px;">Clear sort and filter</a>
   </div>
-
-  <div class="govuk-form-group govuk-!-margin-bottom-6">
-    <label class="govuk-label" id="label2" for="select-sort">Sort by</label>
-    <select class="govuk-select" id="select-sort" name="sort" aria-labelledby="label2">
-      <option value="date-issued-a">Date issued (newest first)</option>
-      <option value="date-issued-b">Date issued (oldest first)</option>
-      <option value="december-waste">December waste (yes to no)</option>
-      <option value="issued-by-a">Issued by (A to Z)</option>
-      <option value="issued-by-b">Issued by (Z to A)</option>
-      <option value="tonnage-a">Tonnage (heaviest first)</option>
-      <option value="tonnage-b">Tonnage (lightest first)</option>
-    </select>
   </div>
+  
   
 <!--Filter and sorting end-->
 
@@ -175,10 +183,10 @@
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="checkboxes-hint">
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
-              <label class="govuk-label govuk-checkboxes__label" for="select-all">Select All</label>
+              <label class="govuk-label govuk-checkboxes__label" for="select-all">Select or unselect all PRNs and PERNs</label>
           </div>
 
 
@@ -199,7 +207,7 @@
     
       <tr class="govuk-table__row">
         <td class="govuk-table__cell" data-label="PRN or PERN number">
-          <div class="govuk-checkboxes govuk-checkboxes--medium">
+          <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="accept-bulk">
               <label class="govuk-label govuk-checkboxes__label" for="waste-1">
@@ -237,8 +245,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                 <a href="december-selected-prn">ER454545540M</a>
               </label>
             </div>
@@ -255,8 +263,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-4">
                 <a href="aluminium">ER454545540M</a>
               </label>
             </div>
@@ -274,8 +282,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-5">
                 <a href="selected-prn-dec-2026">EX454545540M</a>
               </label>
             </div>
@@ -292,8 +300,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-6">
                 <a href="select-prn-dec-2026">ER454545540M</a>
               </label>
             </div>
@@ -310,8 +318,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-7">
                 <a href="#">ER454545540M</a>
               </label>
             </div>
@@ -329,8 +337,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-8" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-8">
                 <a href="#">ER454545540M</a>
               </label>
             </div>
@@ -348,8 +356,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-9" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-9">
                 <a href="#">ER454545540M</a>
               </label>
             </div>
@@ -367,8 +375,8 @@
         <td class="govuk-table__cell" data-label="PRN or PERN number">
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              <input class="govuk-checkboxes__input" id="waste-01" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-01">
                 <a href="#">ER454545540M</a>
               </label>
             </div>

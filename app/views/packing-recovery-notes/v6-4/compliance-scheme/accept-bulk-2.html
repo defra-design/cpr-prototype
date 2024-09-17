@@ -14,6 +14,74 @@
 {% endblock %}
 {% block content %}
 
+<!-----mobile res-->
+
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header th, .govuk-table td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  .govuk-table th {
+    background-color: #ffffff;
+  }
+
+  .govuk-table__row:hover {
+    background-color: #f1f1f1;
+  }
+
+  @media screen and (max-width: 600px) {
+    .govuk-table thead {
+      display: none;
+      width: 100%;
+    }
+
+    .govuk-table tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table td {
+      display: block;
+      text-align: left;
+      border: none;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    .govuk-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .govuk-checkboxes__input {
+    margin-right: 10px;
+  }
+
+  .govuk-checkboxes__label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .govuk-table__header--numeric {
+    text-align: right;
+  }
+
+  }
+</style>
+
+<!-----Mobile res end-->
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
