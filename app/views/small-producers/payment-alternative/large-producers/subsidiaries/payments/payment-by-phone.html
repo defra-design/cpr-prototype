@@ -15,7 +15,7 @@ Report packaging data
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../../index.html",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
 serviceName: "Report packaging data",
 serviceUrl: "#",
 navigation: [
@@ -53,18 +53,77 @@ classes: 'govuk-width-container'
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form
-      action="../../../payment-alternative/large-producers/payments/small-producer-dashboard-bank-transfer-alternative"
-      method="post" novalidate>
+    <form action="../../subsidiaries/payments/small-producer-dashboard-bank-transfer-alternative" method="post"
+      novalidate>
       <div class="govuk-form-group govuk-!-margin-top-0">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
           <span class="govuk-caption-l">Pay registration fee</span>
           <h1 class="govuk-fieldset__heading">
-            Pay by phone
+            Pay by phone £22,980.00
           </h1>
         </legend>
 
-        <p class="govuk-body">To pay by phone use application reference:<br><strong>APP-45678-RBDIGZAPKB</strong></p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Summary of fees
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <table class="govuk-table govuk-table--small-text-until-tablet">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Chargeable item</th>
+                  <th scope="col" class="govuk-table__header">Description</th>
+                  <th scope="col" class="govuk-table__header">Amount</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Base fee</th>
+                  <td class="govuk-table__cell">Fee for prpoducer size</td>
+                  <td class="govuk-table__cell">£2,620.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">First 20 subsidiaries fee</th>
+                  <td class="govuk-table__cell">Fee for number os subsidiaries</td>
+                  <td class="govuk-table__cell">£11,160.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Next 80 subsidiaries fee</th>
+                  <td class="govuk-table__cell">Fee for number os subsidiaries</td>
+                  <td class="govuk-table__cell">£11,200.00</td>
+                </tr>
+                <tr class="govuk-table__row"></tr>
+                <th scope="row" class="govuk-table__header">Total subsidiaries fee</th>
+                <td class="govuk-table__cell">Fee for number of subsidiaries</td>
+                <td class="govuk-table__cell">£22,360.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Total</th>
+                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__header">£22,980.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="govuk-warning-text" style="margin-bottom: 0px;">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            <p class="govuk-body" style="position:relative; bottom:10px;">Use application payment reference:<br>
+              <strong>APP-45678-RBDIGZAPKB</strong>
+            </p>
+          </strong>
+        </div>
+
+
+
+
+
+
         <p class="govuk-body">Have your bank details ready and call:</p>
 
         <div class="govuk-details__text">
@@ -77,12 +136,8 @@ classes: 'govuk-width-container'
             <li><a href="https://www.gov.uk/call-charges" class="govuk-link">Find out about call charges</a></li>
           </ul>
         </div>
-
-
         <br>
         <br>
-
-
         <p class="govuk-body">
           You can submit your application from the registration dashboard after the payment has been made.</p>
       </div>
