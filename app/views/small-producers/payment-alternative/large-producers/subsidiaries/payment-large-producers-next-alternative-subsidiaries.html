@@ -7,7 +7,7 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+Large producers payment online marketplace
 {% endblock %}
 
 {% block header %}
@@ -50,6 +50,7 @@ classes: 'govuk-width-container'
 
 
 
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -57,12 +58,70 @@ classes: 'govuk-width-container'
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
         <span class="govuk-caption-l">Pay registration fee</span>
         <h1 class="govuk-fieldset__heading">
-          Make registration fee payment
+          Make registration fee payment of £22,980.00
         </h1>
       </legend>
 
-      <p class="govuk-body">Select payment method.</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Summary of fees
+          </span>
+        </summary>
+        <div class="govuk-details__text">
 
+          <table class="govuk-table govuk-table--small-text-until-tablet">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Chargeable item</th>
+                <th scope="col" class="govuk-table__header">Description</th>
+                <th scope="col" class="govuk-table__header">Amount</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Base fee</th>
+                <td class="govuk-table__cell">Fee for prpoducer size</td>
+                <td class="govuk-table__cell">£2,620.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">First 20 subsidiaries fee</th>
+                <td class="govuk-table__cell">Fee for number os subsidiaries</td>
+                <td class="govuk-table__cell">£11,160.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Next 80 subsidiaries fee</th>
+                <td class="govuk-table__cell">Fee for number os subsidiaries</td>
+                <td class="govuk-table__cell">£11,200.00</td>
+              </tr>
+              <tr class="govuk-table__row"></tr>
+              <th scope="row" class="govuk-table__header">Total subsidiaries fee</th>
+              <td class="govuk-table__cell">Fee for number of subsidiaries</td>
+              <td class="govuk-table__cell">£22,360.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Total</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__header">£22,980.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <div class="govuk-warning-text" style="margin-bottom: 0px;">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          <p class="govuk-body" style="position:relative; bottom:10px;">To pay by bank transfer use application
+            reference:<br>
+            <strong>APP-45678-RBDIGZAPKB</strong>
+          </p>
+        </strong>
+      </div>
+
+
+      <p class="govuk-body">Select payment method.</p>
 
       <form id="agreementForm">
         {{ govukRadios({
@@ -113,11 +172,11 @@ classes: 'govuk-width-container'
 
             // Route based on the selected value
             if (agreement.value === 'pay-bank-transfer') {
-              window.location.href = '../../payment-alternative/large-producers/payments/payment-by-bank-transfer';
+              window.location.href = '../../../payment-alternative/large-producers/subsidiaries/payments/payment-by-bank-transfer';
             } else if (agreement.value === 'pay-online') {
-              window.location.href = '../../payment-alternative/large-producers/payments/payment-online';
+              window.location.href = '../../../payment-alternative/large-producers/subsidiaries/payments/payment-online';
             } else if (agreement.value === 'pay-by-phone') {
-              window.location.href = '../../payment-alternative/large-producers/payments/payment-by-phone';
+              window.location.href = '../../../payment-alternative/large-producers/subsidiaries/payments/payment-by-phone';
             }
           } else {
             alert('Please select an option.');
