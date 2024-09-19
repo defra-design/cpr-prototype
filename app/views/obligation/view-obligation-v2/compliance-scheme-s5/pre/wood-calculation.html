@@ -58,6 +58,65 @@ classes: 'govuk-width-container'
 
 {% block content %}
 
+
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds ">
     
@@ -75,31 +134,30 @@ classes: 'govuk-width-container'
 
 
  
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Current status of your wood recycling obligation</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" width="15%">Material</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligation to meet</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance </th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
-          <th scope="col" class="govuk-table__header" width="13%">Status</th>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Wood </th>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
-          <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
-             	
-No data yet
-            </strong></td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Current status of your wood recycling obligation</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="15%">Material</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligation to meet</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance </th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+            <th scope="col" class="govuk-table__header" width="13%">Status</th>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Wood</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding"><span class="govuk-visually-hidden">Not available yet</span> <span aria-hidden="true">-</span></td>
+            <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--grey" aria-live="polite">
+              No data yet
+              </strong></td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </div>
 
