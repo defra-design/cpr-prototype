@@ -45,7 +45,7 @@
         submissions, <a href="#" class="govuk-link govuk-link--no-visited-state">log in to Power BI</a>.</p>
     </h3>
 
-    <!-- Table start-->
+    <!-- Table submission details start-->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
         <h2 class="govuk-summary-card__title">Submission details - January to June 2023 submission period</h2>
@@ -294,93 +294,105 @@
               spellcheck="false" aria-describedby="currency-hint">
           </div>
         </div>
-
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Submit
         </button>
-
-
-
       </div>
     </div>
     <!-- Table start payment details end-->
 
-    <!-- Table start payment details start-->
+    <!-- Producer comments start-->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
-        <h2 class="govuk-summary-card__title">Comments</h2>
+        <h2 class="govuk-summary-card__title">Latest producer comments</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
           </li>
         </ul>
       </div>
-
-      <div class="govuk-form-group">
-        <div style="padding: 15px 20px; height: 280px;">
-          <h2 class="govuk-heading-m">
-            <label class="govuk-label govuk-label--s" for="more-detail">
-              Producer comments
-            </label>
-          </h2>
-          <div id="more-detail-hint" class="govuk-hint">
-            Lorem ipsum lorem.
-          </div>
-          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
-            aria-describedby="more-detail-hint"></textarea>
-          {{ govukButton({
-          text: "Submit", href:"#"
-          }) }}
-          {% from "govuk/components/button/macro.njk" import govukButton %}
+      <div class="govuk-width-container" style="padding: 30px;">
+        <!-- alternative div A-->
+        <div style="padding-bottom: 30px; border-bottom: 1px solid #cccccc;">
+          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
+          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+            amet, consectetur adipiscing
+            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. </p>
         </div>
+        <!-- alternative div B-->
+        <div style="padding: 30px 0px; border-bottom: 1px solid #cccccc;">
+          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
+          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+            amet, consectetur adipiscing
+            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. </p>
+        </div>
+        <!-- alternative div C-->
+        <div style="padding-top: 30px;">
+          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
+          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
+          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+            amet, consectetur adipiscing
+            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. </p>
+        </div>
+
       </div>
 
-      <div class="govuk-form-group"></div>
-      <div style="padding: 15px 20px;">
-        <h2 class="govuk-heading-m">
-          <label class="govuk-label govuk-label--s" for="more-detail">
-            Regulator comments
-          </label>
-        </h2>
-        <div id="more-detail-hint" class="govuk-hint">
-          Lorem ipsum lorem.
-        </div>
-        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
-          aria-describedby="more-detail-hint"></textarea>
-        {{ govukButton({
-        text: "Submit", href:"#"
-        }) }}
-        {% from "govuk/components/button/macro.njk" import govukButton %}
-      </div>
     </div>
+    <!-- Producer comments end-->
+
+
 
     <div class="govuk-inset-text">
       Acme org Ltd. cannot resubmit until this submission has been actioned.
     </div>
 
-    {{ govukButton({
-    text: "Accept", href:"./acceptpomdata"
-    }) }}
+
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     {{ govukButton({
-    text: "Reject",href: "#",
-    classes: "govuk-button--warning"
-
+    text: "Query",
+    href: "#",
+    attributes: {
+    style: ""
+    }
     }) }}
 
-    <div style="float: right; margin-right: 550px;">
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-      {{ govukButton({
-      text: "Query",
-      classes: "govuk-button--secondary"
-      }) }}
-      <a class="govuk-link" href="#" style="margin-left: 10px; line-height: 30px;">Cancel</a>
-    </div>
+
+    {{ govukButton({
+    text: "Accept",
+    href: "#",
+    attributes: {
+    style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;"
+    }
+    }) }}
+
+
+    {{ govukButton({
+    text: "Reject",
+    href: "#",
+    classes: "govuk-button--warning",
+    attributes: {
+    style: "margin-left: 50px;"
+    }
+    }) }}
+
+
+
 
     <div class="govuk-width-container"><a href="manage-pom-data.html" class="govuk-link govuk-link--no-visited-state">Go
         back to all submissions</a></div>
+
   </div>
-</div>
 </div>
 
 
