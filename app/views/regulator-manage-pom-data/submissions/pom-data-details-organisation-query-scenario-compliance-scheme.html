@@ -5,7 +5,7 @@
 {% set title = "pEPR: Regulators' Service" %}
 
 {% block pageTitle %}
-Large producer - Manage registration submissions
+{{title}} - GOV.UK
 {% endblock %}
 
 
@@ -17,23 +17,34 @@ Large producer - Manage registration submissions
 
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">Manage registration submissions</span>
-    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
-    <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation type</h3>
-    <p class="govuk-body">Large producer</p>
 
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Query Acme org Ltd.
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit ornare odio non luctus.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+        aria-describedby="more-detail-hint"></textarea>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit
+      </button>
+    </div>
+
+    <hr>
+    <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation type</h3>
+    <p class="govuk-body">Compliance scheme</p>
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation identification</h3>
     <p class="govuk-body">ID: 213 146</p>
 
-    <div style="padding: 6px 0px; margin: 30px 0px; background-color: #cce2d8; padding: 15px;  width: 350px;">
-      <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #005a30;">
-        Registration reference number issued</h3>
-      <p class="govuk-body">213148_4</p>
-    </div>
-
-
+    <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Application Reference Number</h3>
+    <p class="govuk-body">456875_9</p>
 
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Registered address</h3>
     <p class="govuk-body">101 High Street <br>
@@ -49,12 +60,13 @@ Large producer - Manage registration submissions
     <p class="govuk-body">To view a summary of the organisation, brand and partner details and any previous
       submissions, <a href="#" class="govuk-link govuk-link--no-visited-state">log in to Power BI</a>.</p>
 
+
     <!-- Table start-->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
-        <h2 class="govuk-summary-card__title">Submission details - January to June 2023 submission period</h2>
-        <strong class="govuk-tag govuk-tag--green" style="margin-left: 279px; justify-content: none">
-          Approved
+        <h2 class="govuk-summary-card__title">Submission details - January to June 2025 submission period</h2>
+        <strong class="govuk-tag govuk-tag--red" style="margin-left: 279px; justify-content: none">
+          Rejected
         </strong>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
@@ -176,7 +188,6 @@ Large producer - Manage registration submissions
     </div>
     <!-- Table end -->
 
-
     <!-- Table start payment details start-->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
@@ -230,34 +241,6 @@ Large producer - Manage registration submissions
               </strong>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              <strong>Online marketplace fee</strong>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              Fee for owning an online marketplace
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              £2,579.00
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <strong class="govuk-tag govuk-tag--turquoise" style="position:relative; left:0px; justify-content: none">
-                Received
-              </strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              <strong>Total items incurred</strong>
-            </dd>
-            <dd class="govuk-summary-list__value">
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <strong>£5,199.00</strong>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
           <!-- divider start-->
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
@@ -277,21 +260,49 @@ Large producer - Manage registration submissions
           <!-- divider end-->
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-              <strong>Subsidiaries fees</strong>
+              <strong>Subsidiaries</strong>
             </dd>
             <dd class="govuk-summary-list__value">
               Fee for number of subsidiaries
             </dd>
             <dd class="govuk-summary-list__actions">
-              £0.00
+
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong class="govuk-tag govuk-tag--grey" style="position:relative; left:0px; justify-content: none">
-                N/A
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <strong>First 20 subsidiaries fee</strong>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Explain 20 subsidiaries unit fee
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              £11,160.00
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <strong class="govuk-tag govuk-tag--turquoise" style="position:relative; left:0px; justify-content: none">
+                Received
               </strong>
             </dd>
           </div>
-
+          <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+              <strong>Next 80 subsidiaries fee</strong>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              Explain 80 subsidiaries unit fee
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              £11,200.00
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <strong class="govuk-tag govuk-tag--red" style="position:relative; left:0px; justify-content: none">
+                Not Received
+              </strong>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
               <strong>Total subsidiaries fees</strong>
@@ -299,9 +310,12 @@ Large producer - Manage registration submissions
             <dd class="govuk-summary-list__value">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong>£0.00</strong>
+              <strong>£11,160.00</strong>
             </dd>
             <dd class="govuk-summary-list__actions">
+              <strong class="govuk-tag govuk-tag--yellow" style="position:relative; left:0px; justify-content: none">
+                Waiting on
+              </strong>
             </dd>
           </div>
           <!-- divider start-->
@@ -401,7 +415,7 @@ Large producer - Manage registration submissions
             <dd class="govuk-summary-list__value">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong>£5,399.00</strong>
+              <strong>£25,180.00</strong>
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -413,7 +427,7 @@ Large producer - Manage registration submissions
             <dd class="govuk-summary-list__value">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong>£5,399.00</strong>
+              <strong>£13,620.00</strong>
             </dd>
             <dd class="govuk-summary-list__actions">
               <strong class="govuk-tag govuk-tag--turquoise" style="position:relative; left:0px; justify-content: none">
@@ -428,38 +442,18 @@ Large producer - Manage registration submissions
             <dd class="govuk-summary-list__value">
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong>£0.00</strong>
+              <strong>£11,160.00</strong>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <strong class="govuk-tag govuk-tag--grey" style="position:relative; left:0px; justify-content: none">
-                N/A
+              <strong class="govuk-tag govuk-tag--yellow" style="position:relative; left:0px; justify-content: none">
+                Waiting on
               </strong>
             </dd>
           </div>
-
-          <!-- Offline payments details - numerical form -->
-          <div class="govuk-form-group" style="margin-top: 60px; width: 400px;">
-            <label class="govuk-label" for="currency">
-              Offline payment details
-            </label>
-            <br>
-            <div id="currency-hint" class="govuk-hint">
-              Include details of offline payments here for example, £600 or £193.54.
-            </div>
-            <div class="govuk-input__wrapper">
-              <div class="govuk-input__prefix" aria-hidden="true">£</div>
-              <input class="govuk-input govuk-input--width-10" id="currency" name="currency" type="text"
-                spellcheck="false" aria-describedby="currency-hint">
-            </div>
-          </div>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Submit offline payment
-          </button>
         </dl>
       </div>
     </div>
     <!-- Table payment details end-->
-
 
     <!-- Producer comments start-->
     <div class="govuk-summary-card">
@@ -482,69 +476,10 @@ Large producer - Manage registration submissions
             Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Praesent eget nunc eget magna auctor aliquet. </p>
         </div>
-        <!-- alternative div B
-        <div style="padding: 30px 0px; border-bottom: 1px solid #cccccc;">
-          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
-          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
-            amet, consectetur adipiscing
-            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. </p>
-        </div>
-        alternative div C
-        <div style="padding-top: 30px;">
-          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
-          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
-            amet, consectetur adipiscing
-            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. </p>
-        </div>-->
-
       </div>
 
     </div>
     <!-- Producer comments end-->
-
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-
-    {{ govukButton({
-    text: "Query",
-    href: "pom-data-details-organisation-query-scenario-large-producers",
-    attributes: {
-    style: ""
-    }
-    }) }}
-
-
-    <!--{{ govukButton({
-    text: "Accept",
-    href: "#",
-    attributes: {
-    style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;"
-    }
-  }) }}-->
-
-
-    <!--{{ govukButton({
-    text: "Reject",
-    href: "#",
-    classes: "govuk-button--warning",
-    attributes: {
-    style: "margin-left: 50px;"
-    }
-  }) }}-->
-
-
-
-
-    <div class="govuk-width-container"><a href="manage-pom-data.html" class="govuk-link govuk-link--no-visited-state">Go
-        back to all submissions</a></div>
-
   </div>
 </div>
 

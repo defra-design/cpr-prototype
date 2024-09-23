@@ -5,7 +5,7 @@
 {% set title = "pEPR: Regulators' Service" %}
 
 {% block pageTitle %}
-Large producer - Manage registration submissions
+{{title}} - GOV.UK
 {% endblock %}
 
 
@@ -17,10 +17,27 @@ Large producer - Manage registration submissions
 
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">Manage registration submissions</span>
-    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Query Acme org Ltd.
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit ornare odio non luctus.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+        aria-describedby="more-detail-hint"></textarea>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit
+      </button>
+    </div>
+
+    <hr>
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation type</h3>
     <p class="govuk-body">Large producer</p>
 
@@ -437,24 +454,6 @@ Large producer - Manage registration submissions
             </dd>
           </div>
 
-          <!-- Offline payments details - numerical form -->
-          <div class="govuk-form-group" style="margin-top: 60px; width: 400px;">
-            <label class="govuk-label" for="currency">
-              Offline payment details
-            </label>
-            <br>
-            <div id="currency-hint" class="govuk-hint">
-              Include details of offline payments here for example, £600 or £193.54.
-            </div>
-            <div class="govuk-input__wrapper">
-              <div class="govuk-input__prefix" aria-hidden="true">£</div>
-              <input class="govuk-input govuk-input--width-10" id="currency" name="currency" type="text"
-                spellcheck="false" aria-describedby="currency-hint">
-            </div>
-          </div>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Submit offline payment
-          </button>
         </dl>
       </div>
     </div>
@@ -509,41 +508,6 @@ Large producer - Manage registration submissions
 
     </div>
     <!-- Producer comments end-->
-
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-
-    {{ govukButton({
-    text: "Query",
-    href: "pom-data-details-organisation-query-scenario-large-producers",
-    attributes: {
-    style: ""
-    }
-    }) }}
-
-
-    <!--{{ govukButton({
-    text: "Accept",
-    href: "#",
-    attributes: {
-    style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;"
-    }
-  }) }}-->
-
-
-    <!--{{ govukButton({
-    text: "Reject",
-    href: "#",
-    classes: "govuk-button--warning",
-    attributes: {
-    style: "margin-left: 50px;"
-    }
-  }) }}-->
-
-
-
-
-    <div class="govuk-width-container"><a href="manage-pom-data.html" class="govuk-link govuk-link--no-visited-state">Go
-        back to all submissions</a></div>
 
   </div>
 </div>
