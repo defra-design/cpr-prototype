@@ -14,57 +14,11 @@ Small producer base fee - Manage registration submissions
 {% endblock %}
 
 
-
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
-    <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="more-detail">
-          Query Acme org Ltd.
-        </label>
-      </h1>
-      <div id="more-detail-hint" class="govuk-hint">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit ornare odio non luctus.
-      </div>
-      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
-        aria-describedby="more-detail-hint"></textarea>
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Submit
-      </button>
-    </div>
-
-    <!-- Producer comments start-->
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
-        <h2 class="govuk-summary-card__title">Latest query: a subject sample text here</h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-          </li>
-        </ul>
-      </div>
-      <div class="govuk-width-container" style="padding: 30px;">
-        <!-- alternative div A-->
-        <div style="padding-bottom: 0px; margin: 0px;">
-          <p class=" govuk-body" style="margin:0px;"><span
-              style="font-size: 18px;"><strong>someone@email.com</strong></span></p>
-          <p class=" govuk-body" style="margin:0px;">
-            <span style="font-size: 16px; color:#808080;">23/09/2024 10:04</span>
-          </p><br>
-          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
-            amet, consectetur adipiscing
-            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. </p>
-        </div>
-      </div>
-    </div>
-    <!-- Producer comments end-->
-
-
+    <span class="govuk-caption-xl">Manage registration submissions</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation name</h3>
     <p class="govuk-body">Acme org Ltd.</p>
 
@@ -74,8 +28,12 @@ Small producer base fee - Manage registration submissions
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Organisation identification</h3>
     <p class="govuk-body">ID: 215 148</p>
 
-    <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Application Reference Number</h3>
-    <p class="govuk-body">213148_4</p>
+    <div style="padding: 6px 0px; margin: 30px 0px; background-color: #dbd5e9; padding: 15px;  width: 350px;">
+      <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #3d2375;">
+        Application reference number queried</h3>
+      <p class="govuk-body">213148_4</p>
+    </div>
+
 
     <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px;">Registered address</h3>
     <p class="govuk-body">101 High Street <br>
@@ -87,8 +45,6 @@ Small producer base fee - Manage registration submissions
     <p class="govuk-body">08519077<br> <a href="#" class="govuk-link govuk-link--no-visited-state">View on Companies
         House register</a>
     </p>
-
-
 
     <!-- Table start-->
     <div class="govuk-summary-card">
@@ -216,7 +172,6 @@ Small producer base fee - Manage registration submissions
       </div>
     </div>
     <!-- Table end -->
-
 
     <!-- Table start payment details start-->
     <div class="govuk-summary-card">
@@ -448,12 +403,29 @@ Small producer base fee - Manage registration submissions
           </div>
 
           <!-- Offline payments details - numerical form -->
+          <div class="govuk-form-group" style="margin-top: 50px; width: 400px;">
+            <label class="govuk-label" for="currency">
+              Offline payment details
+            </label>
+            <br>
+            <div id="currency-hint" class="govuk-hint">
+              Include details of offline payments here for example, £600 or £193.54.
+            </div>
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="currency" name="currency" type="text"
+                spellcheck="false" aria-describedby="currency-hint">
+            </div>
+
+          </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Submit offline payment
+          </button>
 
         </dl>
       </div>
     </div>
     <!-- Table payment details end-->
-
 
     <!-- Producer comments start-->
     <div class="govuk-summary-card">
@@ -467,9 +439,29 @@ Small producer base fee - Manage registration submissions
       <div class="govuk-width-container" style="padding: 30px;">
         <!-- alternative div A-->
         <div style="padding-bottom: 0px; margin: 0px;">
-          <p class=" govuk-body" style="margin:0px;"><strong>Name:</strong> Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body" style="margin:0px;"><strong>Title:</strong>Lorem ipsum dolor sit amet</p>
-          <p class=" govuk-body"><strong>Date and time:</strong> Date at 00:00 am/pm</p>
+          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+            amet, consectetur adipiscing
+            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. </p>
+        </div>
+      </div>
+
+    </div>
+    <!-- Producer comments end-->
+
+    <!-- Regulator comments start-->
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+        <h2 class="govuk-summary-card__title">Regulator comments</h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-width-container" style="padding: 30px;">
+        <!-- alternative div A-->
+        <div style="padding-bottom: 0px; margin: 0px;">
           <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
             amet, consectetur adipiscing
             elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -478,7 +470,54 @@ Small producer base fee - Manage registration submissions
         </div>
       </div>
     </div>
-    <!-- Producer comments end-->
+    <!-- Regulator comments end-->
+
+    <!-- Query comments start-->
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper" style="align-items: center; background-color: #dbd5e9;">
+        <h2 class="govuk-summary-card__title">Query comments</h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-width-container" style="padding: 30px;">
+        <!-- alternative div A-->
+        <div style="padding-bottom: 0px; margin: 0px;">
+          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+            amet, consectetur adipiscing
+            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent eget nunc eget magna auctor aliquet. </p>
+        </div>
+      </div>
+    </div>
+    <!-- Query comments end-->
+
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Query again
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit ornare odio non luctus.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+        aria-describedby="more-detail-hint"></textarea>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit query
+      </button>
+    </div>
+
+
+
+    <div class="govuk-width-container"><a href="manage-data-submissions"
+        class="govuk-link govuk-link--no-visited-state">Go
+        back to all submissions</a></div>
+
+
 
   </div>
 </div>
