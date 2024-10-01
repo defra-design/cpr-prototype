@@ -13,15 +13,13 @@ Small producer - Manage registration submissions
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
-
-
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Manage registration submissions</span>
     <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Are you sure you want to accept this registration?</h1>
-    <p class="govuk-body">Explain the reason for accepting the registration. Lorem ipum lorem. Lorem ipsum dolor sit
+
+    <!--<p class="govuk-body">Explain the reason for accepting the registration. Lorem ipum lorem. Lorem ipsum dolor sit
       amet, consectetur adipiscing elit. Vestibulum ex quam, convallis fermentum dapibus et, convallis vestibulum arcu.
     </p>
 
@@ -32,22 +30,65 @@ Small producer - Manage registration submissions
           aria-describedby="more-detail-hint"></textarea>
       </div>
 
-    </div>
+    </div> -->
+
+
+    <form id="agreementForm">
+      {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "agreement",
+      value: data['agreement'],
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      }) }}
+
+      {{ govukButton({
+      text: "Continue",
+      attributes: {
+      id: "submitButton",
+      onclick: "handleSubmit(event)"
+      }
+      }) }}
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the form element
+        const form = document.getElementById('agreementForm');
+        // Get the selected radio button value
+        const agreement = form.querySelector('input[name="agreement"]:checked');
+
+        // Check if an option is selected
+        if (agreement) {
+          // Save the selected value to local storage
+          localStorage.setItem('selectedProducer', agreement.value);
+
+          // Route based on the selected value
+          if (agreement.value === 'no') {
+            window.location.href = 'pom-data-details-organisation-small-producer-reject-q1';
+          } else if (agreement.value === 'yes') {
+            window.location.href = 'pom-data-details-organisation-large-producer-approved';
+          }
+        } else {
+          alert('Please select an option.');
+        }
+      }
+    </script>
+
+
   </div>
 </div>
 
-
-
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-{{ govukButton({
-text: "Continue",
-href: "pom-data-details-organisation-large-producer-approved",
-classes: "govuk-button--secondary",
-attributes: {
-style: ""
-}
-}) }}
 
 
 <div class="govuk-width-container"><a href="manage-data-submissions" class="govuk-link govuk-link--no-visited-state">Go
