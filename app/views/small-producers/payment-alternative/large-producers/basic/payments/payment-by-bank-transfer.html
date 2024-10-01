@@ -136,7 +136,7 @@ classes: 'govuk-width-container'
     </form>
 
     <!-- Print and PDF buttons START -->
-    <div class="govuk-grid-row" style="margin: 20px 0px 0px 0px;">
+    <div class="govuk-grid-row" style="margin: 20px 0px 10px 0px;">
       <div class="button-container" style="width: 200px; float: left;">
         <!-- Print Button -->
         <button class="btn btn-print" id="printButton" onclick="handlePrintClick()"
@@ -160,57 +160,57 @@ classes: 'govuk-width-container'
     </div>
   </div>
   <!-- Print and PDF buttons END-->
-
-  <script>
-    // Both buttons trigger the browser's print dialog, which includes a "Save as PDF" option.
-    function printPage() {
-      window.print();
-    }
-  </script>
-
-  <script>
-    // Function to handle the click event
-    function handlePrintClick() {
-      var button = document.getElementById('printButton');
-      button.classList.add('clicked'); // Add the 'clicked' class to change the style
-
-      // Trigger the print dialog after a slight delay to show the clicked state
-      setTimeout(function () {
-        window.print();
-      }, 150);
-
-      // Remove the 'clicked' state after printing to reset the button
-      window.onafterprint = function () {
-        button.classList.remove('clicked');
-      };
-    }
-  </script>
-
-  <script>
-    // Function to handle the print button click event
-    function handlePrintClick() {
-      var button = document.getElementById('printButton');
-
-      // Apply the clicked state (yellow background and bottom border)
-      button.style.backgroundColor = '	#ffdd00';
-      button.style.borderBottom = '3px solid #000000';
-
-      // Trigger the print dialog after a slight delay
-      setTimeout(function () {
-        window.print();
-      }, 150);
-
-      // Remove the clicked state after printing
-      window.onafterprint = function () {
-        button.style.backgroundColor = ''; // Reset to original background
-        button.style.borderBottom = ''; // Reset the bottom border
-      };
-    }
-  </script>
-
 </div>
 
+<script>
+  // Both buttons trigger the browser's print dialog, which includes a "Save as PDF" option.
+  function printPage() {
+    window.print();
+  }
+</script>
+
+<script>
+  // Function to handle the click event
+  function handlePrintClick() {
+    var button = document.getElementById('printButton');
+    button.classList.add('clicked'); // Add the 'clicked' class to change the style
+
+    // Trigger the print dialog after a slight delay to show the clicked state
+    setTimeout(function () {
+      window.print();
+    }, 150);
+
+    // Remove the 'clicked' state after printing to reset the button
+    window.onafterprint = function () {
+      button.classList.remove('clicked');
+    };
+  }
+</script>
+
+<script>
+  // Function to handle the print button click event
+  function handlePrintClick() {
+    var button = document.getElementById('printButton');
+
+    // Apply the clicked state (yellow background and bottom border)
+    button.style.backgroundColor = '	#ffdd00';
+    button.style.borderBottom = '3px solid #000000';
+
+    // Trigger the print dialog after a slight delay
+    setTimeout(function () {
+      window.print();
+    }, 150);
+
+    // Remove the clicked state after printing
+    window.onafterprint = function () {
+      button.style.backgroundColor = ''; // Reset to original background
+      button.style.borderBottom = ''; // Reset the bottom border
+    };
+  }
+</script>
+</div>
 {% endblock %}
+
 
 {% block bodyEnd %}
 <div class="govuk-grid-row" style="background:#fafafa; text-align: center;">
