@@ -1,47 +1,30 @@
 {% extends "layout-private-beta-research.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account"
-},
-{
-href: "#",
-text: "Sign out"
-}
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
 ]
 }) }}
 
 {{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
+tag: { text: "prototype" },
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
 
 {% block beforeContent %}
@@ -49,161 +32,94 @@ classes: 'govuk-width-container'
 {% endblock %}
 
 {% block content %}
+<!-- Page layout start 1 -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="./small-producer-dashboard-bank-transfer-basic" method="post" novalidate>
+    <div class="govuk-form-group govuk-!-margin-0">
+      <h1 class="govuk-heading-l"> Pay by bank transfer</h1>
+      <!-- Page layout end 1 -->
 
-      <div class="govuk-form-group govuk-!-margin-top-0">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-          <!--<span class="govuk-caption-l">Pay registration fee</span>-->
-          <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
-            Pay by bank transfer
-          </h1>
-        </legend>
-      </div>
-
+      <!-- Content Start -->
       <p class="govuk-body">To pay the registration fee of £1,216 by BACS transfer, use the application payment
-        reference: <br>
-        APP-45678-RBDIGZAPKB.
+        reference: APP-45678-RBDIGZAPKB.
       </p>
 
-      <h2 class="govuk-heading-m">Payment details</h2>
+      <p class="govuk-body">Payment must be made via BACS.</p>
 
-      <div class="govuk-details__text" style="margin: 20px 0px; position:relative;top:-20px;">
-        <p class="govuk-body">Payment must be made via BACS to</p>
+      <h2 class="govuk-heading-m">Payment details</h2>
+      <div class="govuk-inset-text">
         <ul class="govuk-list govuk-list">
           <h3 class="govuk-heading-s">England</h3>
           <li>Account name: Environment Agency</li>
           <li>Account number: 10014411</li>
           <li>Sort code: 60-70-80</li>
-          <li>Bank name: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate,
+          <li>Bank name: RBS/NatWest, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate,
             London
             EC2M
             4RB</li>
         </ul>
       </div>
-
       <div class="govuk-width-container">
         <p class="govuk-body">Submit your application from the registration dashboard when payment has been made.</p>
       </div>
 
-      {{ govukButton({
-      text: "Return to the dashboard"
-      })}}
-    </form>
+      <!-- Print and PDF buttons START -->
+      <div class="govuk-grid-row" style="margin: 30px 0px 60px 0px;">
+        <div class="button-container" style="width: 200px; float: left;">
+          <!-- Print Button -->
+          <button class="btn btn-print" id="printButton" onclick="handlePrintOrSave('print')"
+            style="background: url(https://www.gov.uk/assets/government-frontend/govuk_publishing_components/icon-print-9785e3a205c49d1efe1bfe07f3b60cafe820be2d0ca670aa2f4565f5deed4d5f.png) no-repeat 10px 50%;
+          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
+            Print this page
+          </button>
+        </div>
 
-    <!-- Print and PDF buttons START -->
-    <div class="govuk-grid-row" style="margin: 20px 0px 10px 0px;">
-      <div class="button-container" style="width: 200px; float: left;">
-        <!-- Print Button -->
-        <button class="btn btn-print" id="printButton" onclick="handlePrintClick()"
-          style="background: url(https://www.gov.uk/assets/government-frontend/govuk_publishing_components/icon-print-9785e3a205c49d1efe1bfe07f3b60cafe820be2d0ca670aa2f4565f5deed4d5f.png) no-repeat 10px 50%;
-    background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
-          Print this page
-        </button>
-      </div>
-      <div class="button-container" style="width: 200px; float: left; position: relative; right: 50px;">
         <!-- Save as PDF Button -->
-        <button class="btn btn-pdf" onclick="window.print()"
-          style="no-repeat 10px 50%; padding:6px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff; cursor: pointer;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
-            style="vertical-align: middle; margin-right: 3px; color: #000000; width: 20px;">
-            <path
-              d="M19.707 7.293l-5-5A1 1 0 0014 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8a1 1 0 00-.293-.707zM14 4.414L18.586 9H14V4.414zM18 20H6V4h7v5a1 1 0 001 1h5v10z" />
-          </svg>
-          Save as PDF
-        </button>
-      </div>
-    </div>
-  </div>
-  <!-- Print and PDF buttons END-->
-</div>
-
-<script>
-  // Both buttons trigger the browser's print dialog, which includes a "Save as PDF" option.
-  function printPage() {
-    window.print();
-  }
-</script>
-
-<script>
-  // Function to handle the click event
-  function handlePrintClick() {
-    var button = document.getElementById('printButton');
-    button.classList.add('clicked'); // Add the 'clicked' class to change the style
-
-    // Trigger the print dialog after a slight delay to show the clicked state
-    setTimeout(function () {
-      window.print();
-    }, 150);
-
-    // Remove the 'clicked' state after printing to reset the button
-    window.onafterprint = function () {
-      button.classList.remove('clicked');
-    };
-  }
-</script>
-
-<script>
-  // Function to handle the print button click event
-  function handlePrintClick() {
-    var button = document.getElementById('printButton');
-
-    // Apply the clicked state (yellow background and bottom border)
-    button.style.backgroundColor = '	#ffdd00';
-    button.style.borderBottom = '3px solid #000000';
-
-    // Trigger the print dialog after a slight delay
-    setTimeout(function () {
-      window.print();
-    }, 150);
-
-    // Remove the clicked state after printing
-    window.onafterprint = function () {
-      button.style.backgroundColor = ''; // Reset to original background
-      button.style.borderBottom = ''; // Reset the bottom border
-    };
-  }
-</script>
-</div>
-{% endblock %}
-
-
-{% block bodyEnd %}
-<div class="govuk-grid-row" style="background:#fafafa; text-align: center;">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds" style="margin: 0 auto;">
-        <div style="margin-right: 460px; margin-bottom: 25px;  padding: 30px; width: 300px;
-          border: 1px solid #cccccc; float: right;">
-          <h3 class="govuk-heading-s">Prototype extras</h3>
-          <ol class="govuk-list govuk-list--number" style="display: inline-block; text-align: left;">
-            <li><a class="govuk-breadcrumbs__link" href="payment-by-bank-transfer" style="color: #1d70b8;"
-                onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
-                onclick="this.style.color='purple';">
-                England
-              </a></li>
-            <li><a class="govuk-breadcrumbs__link" href="nations/payment-by-bank-transfer-scotland"
-                style="color: #1d70b8;" onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
-                onclick="this.style.color='purple';">
-                Scotland
-              </a></li>
-            <li><a class="govuk-breadcrumbs__link" href="nations/payment-by-bank-transfer-wales" style="color: #1d70b8;"
-                onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
-                onclick="this.style.color='purple';">
-                Wales
-              </a></li>
-            <li><a class="govuk-breadcrumbs__link" href="nations/payment-by-bank-transfer-northern-ireland"
-                style="color: #1d70b8;" onmouseover="this.style.color='green';" onmouseout="this.style.color='#1d70b8';"
-                onclick="this.style.color='purple';">
-                Northern Ireland
-              </a></li>
-          </ol>
+        <div class="button-container" style="width: 200px; float: left; position: relative; left: -40px;">
+          <!-- Print Button -->
+          <button class="btn btn-pdf" id="pdfButton" onclick="handlePrintOrSave('pdf')"
+            style="background: url(https://govuk-elements.herokuapp.com/public/images/icon-file-download.png) no-repeat 10px 50%;
+          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
+            Save as a PDF
+          </button>
         </div>
       </div>
+      <!-- Print and PDF buttons END -->
+
+      <p class="govuk-body">
+        <a href="./small-producer-dashboard-bank-transfer-basic" class="govuk-link">Return to the dashboard</a>
+      </p>
+      <!-- Content Start -->
+
+      <!-- Page layout start 2  -->
     </div>
-  </main>
+  </div>
 </div>
 
+<!-- Page layout end 2  -->
+
+<script>
+  // Function to handle both Print and Save as PDF
+  function handlePrintOrSave(action) {
+    var printButton = document.getElementById('printButton');
+    var pdfButton = document.getElementById('pdfButton');
+
+    // Apply 'clicked' style for buttons
+    var button = (action === 'print') ? printButton : pdfButton;
+    button.style.backgroundColor = '#ffdd00'; // Highlight with yellow background
+    button.style.borderBottom = '3px solid #000000'; // Add bottom border for clicked state
+
+    // Trigger print dialog
+    setTimeout(function () {
+      window.print(); // Save as PDF is part of the print dialog
+    }, 150);
+
+    // Reset style after printing
+    window.onafterprint = function () {
+      button.style.backgroundColor = ''; // Reset background color
+      button.style.borderBottom = ''; // Reset border
+    };
+  }
+</script>
+
 {% endblock %}
-<!-- GOV.UK Prototype Kit {{releaseVersion}} -->

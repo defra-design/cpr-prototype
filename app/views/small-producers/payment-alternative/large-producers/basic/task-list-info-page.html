@@ -1,103 +1,80 @@
 {% extends "layout-private-beta-research.html" %}
 
-{% set serviceName %}
-Onboarding
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account"
-},
-{
-href: "#",
-text: "Sign out"
-}
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
 ]
 }) }}
 
 {{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
+tag: { text: "prototype" },
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
-
-{% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
-{% endblock %}
-
 
 {% block content %}
+<!-- Page layout start 1 -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="../basic/task-list-2-basic" method="post">
+    <form method="POST" action="../basic/task-list-2-basic">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <h1 class="govuk-heading-l">Acme Limited registration</h1>
+        <div class="govuk-inset-text" style="margin-bottom: 20px;">
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            <strong>Organisation ID: 123 456</strong>
+          </p>
+        </div>
+        <!-- Page layout end 1 -->
 
-      <form method="POST" action="fees-task-list-2">
-        <div class="govuk-form-group govuk-!-margin-top-0">
-          <fieldset class="govuk-fieldset" aria-describedby="declarationanswer">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-              <!--<span class="govuk-caption-l">About your registration</span>-->
-              <h1 class="govuk-fieldset__heading">
-                Acme Limited registration
-              </h1>
-            </legend>
-            <div class="govuk-inset-text" style="margin: 0px 0px 20px 0px;>
-                    <p class=" govuk-body govuk-!-margin-bottom-1"> <strong> Organisation ID: 123 456</strong></p>
-            </div>
+        <!-- Content Start -->
 
-            <p class="govuk-body">Signing up to Extended producer responsibility
-              (EPR) for packaging is a two-step process.</p>
+        <p class="govuk-body">Signing up to Extended Producer Responsibility
+          (EPR) for packaging is a two-step process.</p>
+        <p class="govuk-body">Your business was enrolled in the first stage.</p>
+        <p class="govuk-body">Now you must complete registration and:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>enter your organisation’s data.</li>
+          <li>make payment.</li>
+          <li>submit your application.</li>
+        </ul>
 
-            <p class="govuk-body">Your business was enrolled in the first stage.</p>
-            <p class="govuk-body">Now you must complete registration and:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>enter your organisation’s data.</li>
-              <li>make payment.</li>
-              <li>submit your application.</li>
-            </ul>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Find out more about packaging
+            responsibilities and organisation sizes (opens in a new tab)</a>
+        </p>
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
 
-            <p class="govuk-body">
-              <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Find out more about packaging
-                responsibilities and organisation sizes (opens in a new tab)</a>
-            </p>
+        <p class="govuk-body-s" style="margin-top: 30px;">
+          <a href="../basic/large-producer-dashboard-basic" class="govuk-link">Go back to dashboard</a>
+        </p>
 
-            {{ govukButton({
-            text: "Continue",
-            attributes: {
-            id: "submitButton",
-            onclick: "handleSubmit(event)"
-            }
-            }) }}
+        <!-- Content end-->
 
-      </form>
-
+        <!-- Page layout start 2 -->
+    </form>
   </div>
 </div>
-
-
-
-
-
 {% endblock %}
+
+<!-- Page layout end 2 -->
