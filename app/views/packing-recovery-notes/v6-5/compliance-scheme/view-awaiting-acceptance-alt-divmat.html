@@ -1,0 +1,680 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "https://defra-cpr-prototype.herokuapp.com/recycling obligations/s3/cs-sub-landing-page-s3"
+    },
+    {
+      text: "Accept or reject PRNs and PERNS",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form class="form" action="accept-bulk" method="POST">
+
+
+    <h1 class="govuk-heading-xl">Accept or reject PRNs and PERNs</h1>
+ 
+   
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+    
+            <h2 class="govuk-heading-m">Aluminium</h2>
+            <div id="waste-hint" class="govuk-hint">
+              Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+            </div>
+    
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+              <th scope="col" class="govuk-table__header">Date issued</th>
+                <th scope="col" class="govuk-table__header">December waste</th>
+              <th scope="col" class="govuk-table__header">Issued by</th>
+              <th scope="col" class="govuk-table__header">Tonnage</th>
+              <th scope="col" class="govuk-table__header">Issuer note</th>
+            </tr>
+    
+    
+    
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+    
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="farm">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                          <a href="aluminium">ER454545540M</a>
+                      </label>
+                    </div>
+                    </div></td>
+              <td class="govuk-table__cell"> 20 Nov 2025</td>
+              <td class="govuk-table__cell">No</td>
+                <td class="govuk-table__cell">XYZ Reprocessing</td>
+                <td class="govuk-table__cell">65</td>
+                <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+              
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="farm">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                          <a href="december-selected-prn">EX454545540M</a>
+                      </label>
+                    </div>
+                    </div></td>
+              <td class="govuk-table__cell"> 20 Dec 2024</td>
+              <td class="govuk-table__cell">Yes</td>
+                <td class="govuk-table__cell">Exporting International</td>
+                <td class="govuk-table__cell">170</td>
+                <td class="govuk-table__cell"> T2E reference 5689344....</td>
+              
+            </tr>
+    
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                          <a href="selected-prn">ER454545540M</a>
+                      </label>
+                    </div>
+                    </div></td>
+              <td class="govuk-table__cell"> 01 Nov 2025</td>
+              <td class="govuk-table__cell">No</td>
+                <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                <td class="govuk-table__cell">20</td>
+                <td class="govuk-table__cell">Not provided</td>
+              
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="farm">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-4">
+                          <a href="#">ER454545540M</a>
+                      </label>
+                    </div>
+                    </div></td>
+              <td class="govuk-table__cell"> 10 Nov 2025</td>
+              <td class="govuk-table__cell">No</td>
+                <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                <td class="govuk-table__cell">100</td>
+                <td class="govuk-table__cell">Ref 345678F</td>
+              
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="farm">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-5">
+                          <a href="#">ER454545540M</a>
+                      </label>
+                    </div>
+                    </div></td>
+              <td class="govuk-table__cell"> 10 Nov 2025</td>
+              <td class="govuk-table__cell">No</td>
+                <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                <td class="govuk-table__cell">100</td>
+                <td class="govuk-table__cell">Ref 345678F</td>
+              
+            </tr>
+    
+    
+          </tbody>
+        </table>
+        <p>Showing 5 of 5</p>
+
+
+        <br>
+
+
+        <table class="govuk-table">
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+      
+              <h2 class="govuk-heading-m">Glass other</h2>
+              <div id="waste-hint" class="govuk-hint">
+                Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+              </div>
+      
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+                <th scope="col" class="govuk-table__header">Date issued</th>
+                  <th scope="col" class="govuk-table__header">December waste</th>
+                <th scope="col" class="govuk-table__header">Issued by</th>
+                <th scope="col" class="govuk-table__header">Tonnage</th>
+                <th scope="col" class="govuk-table__header">Issuer note</th>
+              </tr>
+      
+      
+      
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+      
+      
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="farm">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-6">
+                            <a href="glass-other">ER454545540M</a>
+                        </label>
+                      </div>
+                      </div></td>
+                <td class="govuk-table__cell"> 20 Nov 2025</td>
+                <td class="govuk-table__cell">No</td>
+                  <td class="govuk-table__cell">XYZ Reprocessing</td>
+                  <td class="govuk-table__cell">65</td>
+                  <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+                
+              </tr>
+      
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="farm">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-7">
+                            <a href="december-selected-prn">EX454545540M</a>
+                        </label>
+                      </div>
+                      </div></td>
+                <td class="govuk-table__cell"> 20 Dec 2024</td>
+                <td class="govuk-table__cell">Yes</td>
+                  <td class="govuk-table__cell">Exporting International</td>
+                  <td class="govuk-table__cell">170</td>
+                  <td class="govuk-table__cell"> T2E reference 5689344....</td>
+                
+              </tr>
+      
+      
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-8" name="waste" type="checkbox" value="farm">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-8">
+                            <a href="selected-prn">ER454545540M</a>
+                        </label>
+                      </div>
+                      </div></td>
+                <td class="govuk-table__cell"> 01 Nov 2025</td>
+                <td class="govuk-table__cell">No</td>
+                  <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                  <td class="govuk-table__cell">20</td>
+                  <td class="govuk-table__cell">Not provided</td>
+                
+              </tr>
+      
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-9" name="waste" type="checkbox" value="farm">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-9">
+                            <a href="#">ER454545540M</a>
+                        </label>
+                      </div>
+                      </div></td>
+                <td class="govuk-table__cell"> 10 Nov 2025</td>
+                <td class="govuk-table__cell">No</td>
+                  <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                  <td class="govuk-table__cell">100</td>
+                  <td class="govuk-table__cell">Ref 345678F</td>
+                
+              </tr>
+      
+      
+            </tbody>
+          </table>
+          <p>Showing 4 of 4</p>
+
+
+<br>
+
+          <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+        
+                <h2 class="govuk-heading-m">Glass re-melt</h2>
+                <div id="waste-hint" class="govuk-hint">
+                  Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+                </div>
+        
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+                  <th scope="col" class="govuk-table__header">Date issued</th>
+                    <th scope="col" class="govuk-table__header">December waste</th>
+                  <th scope="col" class="govuk-table__header">Issued by</th>
+                  <th scope="col" class="govuk-table__header">Tonnage</th>
+                  <th scope="col" class="govuk-table__header">Issuer note</th>
+                </tr>
+ 
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+        
+        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-01" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-01">
+                              <a href="glass-remelt">ER454545540M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 20 Nov 2025</td>
+                  <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell">XYZ Reprocessing</td>
+                    <td class="govuk-table__cell">65</td>
+                    <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+                  
+                </tr>
+
+              </tbody>
+            </table>
+            <p>Showing 1 of 1</p>
+            <br>
+
+            <table class="govuk-table">
+
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+        
+                <h2 class="govuk-heading-m">Paper, board or fibre-based composite material</h2>
+                <div id="waste-hint" class="govuk-hint">
+                  Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+                </div>
+        
+                <tr class="govuk-table__row">
+        
+                  <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+                  <th scope="col" class="govuk-table__header">Date issued</th>
+                    <th scope="col" class="govuk-table__header">December waste</th>
+                  <th scope="col" class="govuk-table__header">Issued by</th>
+                  <th scope="col" class="govuk-table__header">Tonnage</th>
+                  <th scope="col" class="govuk-table__header">Issuer note</th>
+                </tr>
+        
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-02" name="waste" type="checkbox" value="accept-bulk">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-02">
+                              <a href="selected-prn">ER454545540M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 20 Nov 2025</td>
+                  <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell">XYZ Reprocessing</td>
+                    <td class="govuk-table__cell">65</td>
+                    <td class="govuk-table__cell">Purchase order number 34XFY68</td>  
+                </tr>
+        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-03" name="waste" type="checkbox" value="december-waste" onclick="checkItem(this)">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-03">
+                              <a href="prn-december-waste-selected">ER454545540M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 01 Dec 2024</td>
+                  <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell">BYZ Reprocessor</td>
+                    <td class="govuk-table__cell">65</td>
+                    <td class="govuk-table__cell">Purchase order number 34XFY68</td>  
+                </tr>
+        
+        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-04" name="waste" type="checkbox" value="view-awaiting-acceptance-alt-1">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-04">
+                              <a href="december-selected-prn">EX454545540M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 20 Dec 2024</td>
+                  <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell">Exporting International</td>
+                    <td class="govuk-table__cell">170</td>
+                    <td class="govuk-table__cell"> T2E reference 5689344....</td>
+                  
+                </tr>
+        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-05" name="waste" type="checkbox" value="accept-bulk">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-05">
+                              <a href="selected-pern">EX454545560M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 01 Nov 2025</td>
+                  <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                    <td class="govuk-table__cell">20</td>
+                    <td class="govuk-table__cell">Not provided</td>
+                  
+                </tr>
+        
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-06" name="waste" type="checkbox" value="accept-bulk">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-06">
+                              <a href="selected-prn-dec-2026">ER454545540M</a>
+                          </label>
+                        </div>
+                        </div></td>
+                  <td class="govuk-table__cell"> 01 Dec 2025</td>
+                  <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell">Paperlink International Ltd</td>
+                    <td class="govuk-table__cell">100</td>
+                    <td class="govuk-table__cell">Ref 345678F</td>
+                  
+                </tr>
+             
+              </tbody>
+            </table>
+            <p>Showing 5 of 30</p>
+            <p class="govuk-body">
+              <a href="paper-board-fibre" class="govuk-link">View all</a>
+            </p>
+           <br>
+            <br>
+
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+          
+                  <h2 class="govuk-heading-m">Plastic</h2>
+                  <div id="waste-hint" class="govuk-hint">
+                    Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+                  </div>
+                  <div class="govuk-inset-text">
+                    You have no PRNs or PERNs awaiting acceptance.
+                  </div>
+              
+                </tbody>
+
+              <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+              <br>
+            <table class="govuk-table">
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+          
+                  <h2 class="govuk-heading-m">Steel</h2>
+                  <div id="waste-hint" class="govuk-hint">
+                    Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+                  </div>
+          
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+                    <th scope="col" class="govuk-table__header">Date issued</th>
+                      <th scope="col" class="govuk-table__header">December waste</th>
+                    <th scope="col" class="govuk-table__header">Issued by</th>
+                    <th scope="col" class="govuk-table__header">Tonnage</th>
+                    <th scope="col" class="govuk-table__header">Issuer note</th>
+                  </tr>
+          
+          
+          
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+          
+          
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-07" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-07">
+                                <a href="selected-prn">ER454545540M</a>
+                            </label>
+                          </div>
+                          </div></td>
+                    <td class="govuk-table__cell"> 20 Nov 2025</td>
+                    <td class="govuk-table__cell">No</td>
+                      <td class="govuk-table__cell">XYZ Reprocessing</td>
+                      <td class="govuk-table__cell">65</td>
+                      <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+                    
+                  </tr>
+          
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-08" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-08">
+                                <a href="december-selected-prn">EX454545540M</a>
+                            </label>
+                          </div>
+                          </div></td>
+                    <td class="govuk-table__cell"> 20 Dec 2024</td>
+                    <td class="govuk-table__cell">Yes</td>
+                      <td class="govuk-table__cell">Exporting International</td>
+                      <td class="govuk-table__cell">170</td>
+                      <td class="govuk-table__cell"> T2E reference 5689344....</td>
+                    
+                  </tr>
+          
+          
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-09" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-09">
+                                <a href="selected-prn">ER454545540M</a>
+                            </label>
+                          </div>
+                          </div></td>
+                    <td class="govuk-table__cell"> 01 Nov 2025</td>
+                    <td class="govuk-table__cell">No</td>
+                      <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                      <td class="govuk-table__cell">20</td>
+                      <td class="govuk-table__cell">Not provided</td>
+                    
+                  </tr>
+          
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-11" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-11">
+                                <a href="#">ER454545540M</a>
+                            </label>
+                          </div>
+                          </div></td>
+                    <td class="govuk-table__cell"> 10 Nov 2025</td>
+                    <td class="govuk-table__cell">No</td>
+                      <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                      <td class="govuk-table__cell">100</td>
+                      <td class="govuk-table__cell">Ref 345678F</td>
+                  </tr>
+
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-12" name="waste" type="checkbox" value="accept-bulk">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-12">
+                                <a href="selected-prn-dec-2026">ER454545540M</a>
+                            </label>
+                          </div>
+                          </div></td>
+                    <td class="govuk-table__cell"> 01 Dec 2025</td>
+                    <td class="govuk-table__cell">Yes</td>
+                      <td class="govuk-table__cell">Paperlink International Ltd</td>
+                      <td class="govuk-table__cell">100</td>
+                      <td class="govuk-table__cell">Ref 345678F</td>
+                    
+                  </tr>
+          
+          
+                </tbody>
+              </table>
+              <p>Showing 5 of 15</p>
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">View all 15</a>
+            </p>
+
+            
+
+              <br>
+<br>
+              <table class="govuk-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+            
+                    <h2 class="govuk-heading-m">Wood</h2>
+                    <div id="waste-hint" class="govuk-hint">
+                      Select the PRNs and PERNs you want to accept. You can also review each one by opening it and selecting 'accept' or 'reject'.
+                    </div>
+            
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">PRN or PERN number</th>
+                      <th scope="col" class="govuk-table__header">Date issued</th>
+                        <th scope="col" class="govuk-table__header">December waste</th>
+                      <th scope="col" class="govuk-table__header">Issued by</th>
+                      <th scope="col" class="govuk-table__header">Tonnage</th>
+                      <th scope="col" class="govuk-table__header">Issuer note</th>
+                    </tr>
+            
+            
+            
+                  </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+            
+            
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                          <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="waste-13" name="waste" type="checkbox" value="farm">
+                              <label class="govuk-label govuk-checkboxes__label" for="waste-13">
+                                  <a href="selected-prn">ER454545540M</a>
+                              </label>
+                            </div>
+                            </div></td>
+                      <td class="govuk-table__cell"> 20 Nov 2025</td>
+                      <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">XYZ Reprocessing</td>
+                        <td class="govuk-table__cell">65</td>
+                        <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+                      
+                    </tr>
+            
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                          <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="waste-14" name="waste" type="checkbox" value="farm">
+                              <label class="govuk-label govuk-checkboxes__label" for="waste-14">
+                                  <a href="december-selected-prn">EX454545540M</a>
+                              </label>
+                            </div>
+                            </div></td>
+                      <td class="govuk-table__cell"> 20 Dec 2024</td>
+                      <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">Exporting International</td>
+                        <td class="govuk-table__cell">170</td>
+                        <td class="govuk-table__cell"> T2E reference 5689344....</td>
+                      
+                    </tr>
+            
+            
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                          <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="waste-15" name="waste" type="checkbox" value="farm">
+                              <label class="govuk-label govuk-checkboxes__label" for="waste-15">
+                                  <a href="selected-prn">ER454545540M</a>
+                              </label>
+                            </div>
+                            </div></td>
+                      <td class="govuk-table__cell"> 01 Nov 2025</td>
+                      <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                        <td class="govuk-table__cell">20</td>
+                        <td class="govuk-table__cell">Not provided</td>
+                      
+                    </tr>
+            
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                          <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="waste-16" name="waste" type="checkbox" value="farm">
+                              <label class="govuk-label govuk-checkboxes__label" for="waste-16">
+                                  <a href="#">ER454545540M</a>
+                              </label>
+                            </div>
+                            </div></td>
+                      <td class="govuk-table__cell"> 10 Nov 2025</td>
+                      <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+                        <td class="govuk-table__cell">100</td>
+                        <td class="govuk-table__cell">Ref 345678F</td>
+                      
+                    </tr>
+            
+            
+                  </tbody>
+                </table>
+                <p>Showing 4 of 4</p>
+          
+          <br>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+     <br>
+    <button class="govuk-button" formaction="accept-bulk">Accept selected PRNs and PERNs</button> <!--<button class=" govuk-button govuk-button--secondary" formaction="reject-bulk" style="margin-left: 20px;">Reject selected PRNs and PERNs</button>-->
+
+
+</div>
+
+<body>
+
+  
+</form>
+
+
+{% endblock %}
