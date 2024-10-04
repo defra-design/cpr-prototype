@@ -1,0 +1,516 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../landing-page"
+    },
+    {
+      text: "Search PRNs and PERNs",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--xl" for="event-name">
+          Search PRNs and PERNs
+        </label>
+      </h1>
+      <div id="event-name-hint" class="govuk-hint">
+        You can search for PRNs and PERNs issued to your 2025 recycling obligations. To search your 2024 recycling obligations you need to do this in NPWD.
+      </div>
+    </div>
+    
+<br>
+   
+
+                <!--Filter test start-->
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+                      <div class="moj-filter__content" style="padding-bottom: 0; box-shadow: grey; margin-bottom: 50px;">
+                          <div class="moj-filter__selected" style="padding-bottom: 0; box-shadow: none;">
+                              <h2 class="govuk-heading-m">Filter options</h2>
+                              <fieldset class="govuk-fieldset">
+                                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m"></legend>
+                                  {{ xGovukAutocomplete({
+                                      id: "country",
+                                      name: "which-producer",
+                                      allowEmpty: false,
+                                      label: {
+                                          classes: "govuk-body--m",
+                                          showAllValues: true,
+                                          isPageHeading: true,
+                                          text: "Search by PRN or PERN number, or the name of the issuing organisation."
+                                      },
+                                      items: [
+                                          { text: "Valpak (EA), CRN100002" },
+                                          { text: "MRKWRGHT LTD" },
+                                          { text: "GREEN LTD" },
+                                          { text: "Packcare" },
+                                          { text: "Nipak Ltd (NIEA)" },
+                                          { text: "BiffPack (EA)" },
+                                          { text: "BiffPack (GB)" },
+                                          { text: "Toddpak" },
+                                          { text: "ComplyPak (NIEA)" },
+                                          { text: "Co2 Compliance (SEPA)" },
+                                          { text: "Scotpak (SEPA)" },
+                                          { text: "Ecosurety Scotland" },
+                                          { text: "Pennine-Pack (EA)" },
+                                          { text: "SWS Compak" },
+                                          { text: "ER454545540M" },
+                                          { text: "ER454545541M" },
+                                          { text: "ER454545542M" },
+                                          { text: "ER454545543M" },
+                                          { text: "ER454545545M" },
+                                          { text: "ER454545546M" },
+                                          { text: "Tesco" },
+                                          { text: "ASDA" },
+                                          { text: "B&Q" }
+                                      ]
+                                  }) }}
+                              </fieldset>
+                              <div class="moj-filter__options" style="box-shadow: none; padding: 0;">
+                          
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Organisation type</legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                            <div class="govuk-checkboxes__item" style="margin-right: 0;">
+                                                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
+                                                <label class="govuk-label govuk-checkboxes__label" for="type">Direct producer</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2">
+                                                <label class="govuk-label govuk-checkboxes__label" for="type-2">Compliance scheme</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <br>
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Submission status</legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                            <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">Awaiting acceptance</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">Accepted</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">Rejected</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                              <label class="govuk-label govuk-checkboxes__label" for="status">Cancelled</label>
+                                          </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <br>
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">December waste year</legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                            <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">Yes</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">No</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <br>
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Issued period</legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                            <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">January - June 2024</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">July - December 2024</label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                                <label class="govuk-label govuk-checkboxes__label" for="status">January - June 2025</label>
+                                            </div>
+                                         
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="govuk-form-group">
+                                  <fieldset class="govuk-fieldset">
+                                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                              <label class="govuk-label govuk-checkboxes__label" for="status">July - December 2025</label>
+                                          </div>
+                                      </div>
+                                  </fieldset>
+                              </div>
+      <br>
+                                <div class="govuk-form-group">
+                                  <fieldset class="govuk-fieldset">
+                                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Materials</legend>
+                                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                              <label class="govuk-label govuk-checkboxes__label" for="status">Aluminium</label>
+                                          </div>
+                                          <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                              <label class="govuk-label govuk-checkboxes__label" for="status">Glass other</label>
+                                          </div>
+                                          <div class="govuk-checkboxes__item">
+                                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                              <label class="govuk-label govuk-checkboxes__label" for="status">Glass re-melt</label>
+                                          </div>
+                                      </div>
+                                  </fieldset>
+                              </div>
+                              <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset">
+                                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                        <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                            <label class="govuk-label govuk-checkboxes__label" for="status">Paper, board or fibre-based composite material</label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item" style="margin-right: 50px;">
+                                            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                            <label class="govuk-label govuk-checkboxes__label" for="status">Plastic</label>
+                                        </div>
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                            <label class="govuk-label govuk-checkboxes__label" for="status">Steel</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="govuk-form-group">
+                              <fieldset class="govuk-fieldset">
+                                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                                      <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                                          <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                                          <label class="govuk-label govuk-checkboxes__label" for="status">Wood</label>
+                                      </div>
+                                  </div>
+                              </fieldset>
+                          </div>
+                                <div id="buttonclasspom" style="margin-top: 20px;">
+                                    <button class="govuk-button" style="margin-right: 20px;" formaction="">Apply filters</button>
+                                    <a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-top: 50px;">Clear filters</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                          </div>
+                      </div>
+                     
+                <!--Filter test end-->
+                
+
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header">Material</th>
+            <th scope="col" class="govuk-table__header">Date issued</th>
+              <th scope="col" class="govuk-table__header">December waste</th>
+            <th scope="col" class="govuk-table__header">Issued by</th>
+            <th scope="col" class="govuk-table__header">Tonnage</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="selected-prn">ER3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">XYZ Reprocessing</td>
+              <td class="govuk-table__cell">65</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+                Awaiting acceptance
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="alum-accepted-prn-2">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Aluminium</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">XYZ Reprocessing</td>
+              <td class="govuk-table__cell">151</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Wood</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">60</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+          
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Plastic</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+                Rejected
+        </strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">ER3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Glass re-melt</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+                Rejected
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Steel</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">80
+              </td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Cancelled
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Wood</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">65
+              </td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper, board or fibre-based composite material</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+
+      <nav class="moj-pagination" aria-label="Pagination navigation">
+
+        <ul class="moj-pagination__list">
+          <!--<li class="moj-pagination__item  moj-pagination__item--prev">
+            <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+          </li>
+      
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 45">1</a></li>-->
+      
+          <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 45" aria-current="page">1</li>
+
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-awaiting-acceptance-2" aria-label="Page 2 of 5">2</a></li>
+        
+      
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-awaiting-acceptance-3" aria-label="Page 3 of 5">3</a></li>
+      
+          <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+      
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-awaiting-acceptance-5" aria-label="Page 5 of 5">5</a></li>
+      
+          <li class="moj-pagination__item  moj-pagination__item--next">
+            <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+          </li>
+        </ul>
+        <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>45</b> PRNs and PERNs</p>
+
+      </nav>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--xl">
+
+    </div>
+
+<script>
+  // Example data array
+  const data = [
+    { prn: 'ER3484743570M', material: 'Paper, board or fibre-based composite material', date: '2025-11-20', waste: 'No', issuedBy: 'XYZ Reprocessing', tonnage: 65, status: 'Awaiting acceptance' },
+    { prn: 'EX3484743570M', material: 'Aluminium', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 151, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Paper, board or fibre-based composite material', date: '2024-12-20', waste: 'Yes', issuedBy: 'Packaging reprocessing Ltd', tonnage: 70, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Wood', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 100, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Paper, board or fibre-based composite material', date: '2025-11-20', waste: 'No', issuedBy: 'XYZ Reprocessing', tonnage: 151, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Paper, board or fibre-based composite material', date: '2025-11-20', waste: 'No', issuedBy: 'Exporting International', tonnage: 60, status: 'Accepted' },
+    { prn: 'EX3484743570M', material: 'Plastic', date: '2024-12-20', waste: 'No', issuedBy: 'Packaging reprocessing Ltd', tonnage: 100, status: 'Rejected' },
+    { prn: 'ER3484743570M', material: 'Glass', date: '2024-12-20', waste: 'No', issuedBy: 'Packaging reprocessing Ltd', tonnage: 70, status: 'Rejected' },
+    { prn: 'EX3484743570M', material: 'Steel', date: '2024-12-20', waste: 'Yes', issuedBy: '	Packaging reprocessing Ltd', tonnage: 80, status: 'Cancelled' },
+
+    // Add more data objects here
+  ];
+
+  function applyFilters() {
+    const filter = document.getElementById('select-filter').value;
+    const sort = document.getElementById('select-sort').value;
+
+    let filteredData = data;
+
+    // Apply filter
+    if (filter !== 'Filter by') {
+      filteredData = filteredData.filter(item => item.status.toLowerCase() === filter.toLowerCase());
+    }
+
+    // Apply sort
+    if (sort !== 'Sort by') {
+      filteredData.sort((a, b) => {
+        if (sort === 'date-issued') {
+          return new Date(a.date) - new Date(b.date);
+        } else if (sort === 'tonnage') {
+          return a.tonnage - b.tonnage;
+        } else if (sort === 'material') {
+          return a.material.localeCompare(b.material);
+        }
+      });
+    }
+
+    // Update table
+    const tableBody = document.querySelector('.govuk-table__body');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    filteredData.forEach(item => {
+      const row = document.createElement('tr');
+      row.className = 'govuk-table__row';
+      row.innerHTML = `
+        <td class="govuk-table__cell"><a href="#">${item.prn}</a></td>
+        <td class="govuk-table__cell">${item.material}</td>
+        <td class="govuk-table__cell">${new Date(item.date).toLocaleDateString()}</td>
+        <td class="govuk-table__cell">${item.waste}</td>
+        <td class="govuk-table__cell">${item.tonnage}</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--${getStatusClass(item.status)}">${item.status}</strong></td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
+
+  function getStatusClass(status) {
+    switch (status.toLowerCase()) {
+      case 'accepted':
+        return 'green';
+      case 'awaiting acceptance':
+        return 'grey';
+      case 'rejected':
+        return 'red';
+      case 'cancelled':
+        return 'yellow';
+      default:
+        return 'grey';
+    }
+  }
+
+  document.getElementById('select-filter').addEventListener('change', applyFilters);
+  document.getElementById('select-sort').addEventListener('change', applyFilters);
+</script>
+
+
+
+{% endblock %}
