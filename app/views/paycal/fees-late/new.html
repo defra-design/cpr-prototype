@@ -1,50 +1,10 @@
-{% extends "layout-private-beta-research.html" %}
-
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
-{% set serviceName = "Report packaging data" %}
-
+{% set serviceName = "Register to ..." %}
+ 
+{% extends "layout.html" %}
+ 
 {% block pageTitle %}
-Report packaging data
+    {{serviceName}} prototype
 {% endblock %}
-
-{% block header %}
-
-{# Set serviceName in config.js. #}
-
-{{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
-serviceUrl: "#",
-navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account"
-},
-{
-href: "#",
-text: "Sign out"
-}
-]
-}) }}
-
-{{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
-html: 'This is not a live service.',
-classes: 'govuk-width-container'
-}) }}
-
-{% endblock %}
-
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -81,11 +41,6 @@ classes: 'govuk-width-container'
                 <th scope="row" class="govuk-table__header">Online <br>marketplace fee</th>
                 <td class="govuk-table__cell govuk-!-padding-left-2"> Fee for owning an online marketplace</td>
                 <td class="govuk-table__cell">£2,579.00</td>
-              </tr>
-              <tr class="govuk-table__row"></tr>
-                <th scope="row" class="govuk-table__header">Late payment fee</th>
-                <td class="govuk-table__cell govuk-!-padding-left-2"> Fee for late payment</td>
-                <td class="govuk-table__cell">£332.00</td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Total chargeable items</th>
