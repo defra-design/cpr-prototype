@@ -1,0 +1,126 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-0">
+      <h1 class="govuk-heading-l">Pay by phone</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+      <p class="govuk-body">To pay the registration fee of £1,216 by phone, use the application payment
+        reference: APP-45678-RBDIGZAPKB.
+      </p>
+
+      <p class="govuk-body">Have your bank details ready to call.</p>
+
+      <h2 class="govuk-heading-m">Payment details</h2>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body">Enquires</p>
+        <ul class="govuk-list govuk-list">
+          <h3 class="govuk-heading-s">England</h3>
+          <li>Environment Agency</li>
+          <li>Telephone: 03708 506 506</li>
+          <li>Telephone from outside the UK: +44 (0) 114 282 5312</li>
+          <li>Monday to Friday, 8am to 6pm</li>
+          <br>
+          <li><a href="https://www.gov.uk/call-charges" class="govuk-link">Find out about call charges</a></li>
+        </ul>
+      </div>
+      <div class="govuk-width-container">
+        <p class="govuk-body">Submit your application from the registration dashboard when payment has been made.</p>
+      </div>
+
+      <!-- Print and PDF buttons START -->
+      <div class="govuk-grid-row" style="margin: 30px 0px 60px 0px;">
+        <div class="button-container" style="width: 200px; float: left;">
+          <!-- Print Button -->
+          <button class="btn btn-print" id="printButton" onclick="handlePrintOrSave('print')"
+            style="background: url(https://www.gov.uk/assets/government-frontend/govuk_publishing_components/icon-print-9785e3a205c49d1efe1bfe07f3b60cafe820be2d0ca670aa2f4565f5deed4d5f.png) no-repeat 10px 50%;
+          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
+            Print this page
+          </button>
+        </div>
+
+        <!-- Save as PDF Button -->
+        <div class="button-container" style="width: 200px; float: left; position: relative; left: -40px;">
+          <!-- Print Button -->
+          <button class="btn btn-pdf" id="pdfButton" onclick="handlePrintOrSave('pdf')"
+            style="background: url(https://govuk-elements.herokuapp.com/public/images/icon-file-download.png) no-repeat 10px 50%;
+          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
+            Save as a PDF
+          </button>
+        </div>
+      </div>
+      <!-- Print and PDF buttons END -->
+
+      <p class="govuk-body">
+        <a href="./small-producer-dashboard-bank-transfer-basic" class="govuk-link">Return to the dashboard</a>
+      </p>
+      <!-- Content Start -->
+
+      <!-- Page layout start 2  -->
+    </div>
+  </div>
+</div>
+
+<!-- Page layout end 2  -->
+
+<script>
+  // Function to handle both Print and Save as PDF
+  function handlePrintOrSave(action) {
+    var printButton = document.getElementById('printButton');
+    var pdfButton = document.getElementById('pdfButton');
+
+    // Apply 'clicked' style for buttons
+    var button = (action === 'print') ? printButton : pdfButton;
+    button.style.backgroundColor = '#ffdd00'; // Highlight with yellow background
+    button.style.borderBottom = '3px solid #000000'; // Add bottom border for clicked state
+
+    // Trigger print dialog
+    setTimeout(function () {
+      window.print(); // Save as PDF is part of the print dialog
+    }, 150);
+
+    // Reset style after printing
+    window.onafterprint = function () {
+      button.style.backgroundColor = ''; // Reset background color
+      button.style.borderBottom = ''; // Reset border
+    };
+  }
+</script>
+
+{% endblock %}
