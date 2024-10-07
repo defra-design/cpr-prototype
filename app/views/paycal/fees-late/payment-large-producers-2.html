@@ -1,0 +1,83 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="POST" action="dashboard">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Payment successful
+            </h1>
+            <div class="govuk-panel__body">
+              Your application reference number is<br>16130122-2WCJDD-AJ2H17
+            </div>
+          </div>
+          <p>We have sent an email confirmation to email@address.com</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            We will review your application and contact you about the outcome.
+          </p>
+      </div>
+
+    </div>
+    <p><a href="dashboard">Return to the dashboard</a></p>
+    <p><a href="payment-failed">Payment failed</a></p>
+    <p><a href="service-unavailable">Service unavailable</a></p>
+</div>
+
+</form>
+</main>
+</div>
+
+
+{% endblock %}

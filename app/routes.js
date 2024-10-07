@@ -102,6 +102,7 @@ router.use('/packing-recovery-notes/v6-1', require('./views/packing-recovery-not
 router.use('/packing-recovery-notes/v6-2', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-3', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-4', require('./views/packing-recovery-notes/v6/_routes'));
+router.use('/packing-recovery-notes/v6-5', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/account-creation', require('./views/packing-recovery-notes/account-creation/build/_routes'));
 
 
