@@ -1,0 +1,76 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+<form class="form" action="transfer-prn-success" method="POST">
+
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+    Transfer this PRN to Valpak Scotland Ltd (SEPA)
+  </h1>
+
+  <br>
+      <table class="govuk-table govuk-table--small-text-until-tablet">
+        <caption class="govuk-table__caption govuk-table__caption--m">Paper, board or fibre-based composite material </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date issued</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half">Issued by</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Tonnage</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Remove PRN or PERN from selection</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">ER454545540M</th>
+            <td class="govuk-table__cell">20 Nov 2025</td>
+            <td class="govuk-table__cell">XYZ Reprocessing</td>
+            <td class="govuk-table__cell">65</td>
+            <td class="govuk-table__cell">
+              <label for="remove-selection" class="govuk-label govuk-checkboxes__label" >
+                <a href="accept-bulk-2" style="color: #1d70b8;">Remove from selection</a>
+            </label>
+               </td>
+          </tr>          
+        </tbody>
+      </table>
+
+      <br>
+
+      </div>
+
+
+</fieldset>
+</div>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+  Now transfer
+</h1>
+
+<p>Accepting this will transfer the PRN to Valpak Scotland Ltd (SEPA).</p> 
+
+<br>
+
+  <button class="govuk-button" formaction="transfer-prn-success">Transfer</button> 
+
+</form>
+  
+</div>
+
+{% endblock %}
