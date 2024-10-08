@@ -61,37 +61,21 @@ classes: 'govuk-width-container'
       </div>
       <div class="govuk-width-container">
         <p class="govuk-body">Submit your application from the registration dashboard when payment has been made.</p>
+        <p class="govuk-body">
+          You can
+          <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+            print or save this page as a PDF
+          </a>
+        </p>
       </div>
 
-      <!-- Print and PDF buttons START -->
-      <div class="govuk-grid-row" style="margin: 30px 0px 60px 0px;">
-        <div class="button-container" style="width: 200px; float: left;">
-          <!-- Print Button -->
-          <button class="btn btn-print" id="printButton" onclick="handlePrintOrSave('print')"
-            style="background: url(https://www.gov.uk/assets/government-frontend/govuk_publishing_components/icon-print-9785e3a205c49d1efe1bfe07f3b60cafe820be2d0ca670aa2f4565f5deed4d5f.png) no-repeat 10px 50%;
-          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
-            Print this page
-          </button>
-        </div>
-
-        <!-- Save as PDF Button -->
-        <div class="button-container" style="width: 200px; float: left; position: relative; left: -40px;">
-          <!-- Print Button -->
-          <button class="btn btn-pdf" id="pdfButton" onclick="handlePrintOrSave('pdf')"
-            style="background: url(https://govuk-elements.herokuapp.com/public/images/icon-file-download.png) no-repeat 10px 50%;
-          background-size: 16px 18px; padding: 10px 10px 10px 36px; text-decoration: none; border: 1px solid #505a5f; color: #1d70b8; cursor: pointer; margin: 0; background-color: #ffffff;">
-            Save as a PDF
-          </button>
-        </div>
-      </div>
-      <!-- Print and PDF buttons END -->
 
       <p class="govuk-body">
         <a href="./small-producer-dashboard-bank-transfer-basic" class="govuk-link">Return to the dashboard</a>
       </p>
-      <!-- Content Start -->
+      <!-- Content End -->
 
-      <!-- Page layout start 2  -->
+      <!-- Page layout end 2  -->
     </div>
   </div>
 </div>
@@ -99,26 +83,8 @@ classes: 'govuk-width-container'
 <!-- Page layout end 2  -->
 
 <script>
-  // Function to handle both Print and Save as PDF
-  function handlePrintOrSave(action) {
-    var printButton = document.getElementById('printButton');
-    var pdfButton = document.getElementById('pdfButton');
-
-    // Apply 'clicked' style for buttons
-    var button = (action === 'print') ? printButton : pdfButton;
-    button.style.backgroundColor = '#ffdd00'; // Highlight with yellow background
-    button.style.borderBottom = '3px solid #000000'; // Add bottom border for clicked state
-
-    // Trigger print dialog
-    setTimeout(function () {
-      window.print(); // Save as PDF is part of the print dialog
-    }, 150);
-
-    // Reset style after printing
-    window.onafterprint = function () {
-      button.style.backgroundColor = ''; // Reset background color
-      button.style.borderBottom = ''; // Reset border
-    };
+  function handlePrintOrSave() {
+    window.print(); // This opens the print dialog where users can choose to print or save as PDF
   }
 </script>
 
