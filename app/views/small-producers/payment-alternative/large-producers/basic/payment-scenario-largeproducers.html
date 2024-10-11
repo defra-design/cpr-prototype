@@ -100,8 +100,13 @@ classes: 'govuk-width-container'
                 <td class="govuk-table__cell govuk-!-padding-left-2"></td>
                 <td class="govuk-table__cell"></td>
               </tr>
-
               <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Previous payments received</th>
+                <td class="govuk-table__cell">Total previous payments received by the regulator</td>
+                <td class="govuk-table__header govuk-table__header--numeric">£300.00</td>
+              </tr>
+
+              <!--<tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Previous payments</th>
                 <td class="govuk-table__cell govuk-!-padding-left-2"></td>
                 <td class="govuk-table__cell"></td>
@@ -125,7 +130,7 @@ classes: 'govuk-width-container'
                 <th scope="row" class="govuk-table__header">Total payments received</th>
                 <td class="govuk-table__cell"></td>
                 <td class="govuk-table__header govuk-table__header--numeric">£300.00</td>
-              </tr>
+              </tr> -->
               <tr class="govuk-table__row" style="height: 45px;">
                 <th scope="row" class="govuk-table__header"></th>
                 <td class="govuk-table__cell govuk-!-padding-left-2"></td>
@@ -159,3 +164,30 @@ classes: 'govuk-width-container'
 {% endblock %}
 
 <!-- Page layout end 2 -->
+
+
+{% block bodyEnd %}
+<details class="govuk-details" style="margin: auto; width: 50%;">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      UR only - Fee payment scenarios
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <ul class="govuk-list">
+      <li><a href="../basic/payment-scenario-smallproducers" class="govuk-link">Small producer
+          only scenario</a></li>
+      <li><a href="../basic/payment-scenario-smallproducer-OMP" class="govuk-link">Small producer
+          who is OMP, with 25 subsidiaries of which 0 are OMP scenario</a></li>
+      <li><a href="../basic/payment-scenario-largeproducers" class="govuk-link">Large producer
+          only scenario</a></li>
+      <li><a href="../basic/payment-scenario-largeproducers-104subsidiaries" class="govuk-link">Large producer with
+          104
+          subsidiaries scenario</a></li>
+      <li><a href="../basic/payment-scenario-largeproducers-OMP" class="govuk-link">Large producer
+          who is OMP, with 54 subsidiaries of which are OMP scenario</a></li>
+    </ul>
+  </div>
+</details>
+{% endblock %}
+<!-- GOV.UK Prototype Kit {{releaseVersion}} -->
