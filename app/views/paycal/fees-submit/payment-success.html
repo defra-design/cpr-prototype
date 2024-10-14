@@ -1,3 +1,14 @@
+
+None selected
+
+Skip to content
+Using Gmail with screen readers
+
+Conversations
+10.89 GB of 15 GB (72%) used
+Terms · Privacy · Program Policies
+Last account activity: 6 minutes ago
+Details
 {% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
@@ -51,30 +62,50 @@ classes: 'govuk-width-container'
   <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form method="POST" action="dashboard">
+        <form class="form" action="task-list-2-large-producer-stage4" method="post">
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
               Payment successful
             </h1>
             <div class="govuk-panel__body">
-              Your application reference number is<br>16130122-2WCJDD-AJ2H17
+              Payment reference number is<br>222019EFGF
             </div>
           </div>
-          <p>We have sent an email confirmation to <a href="email@address.com"> email@address.com</a></p>
+          <p class="govuk-body">
+            Registration fee of <strong>1,216.00</strong> paid by John Doe at 10:45am on Wednesday 05th March 2025.
+          </p>
+          <p>The payment reference number will also be used as your application referente number
+            (sample text only). <br><br> Have a clear
+            payment summary, showing the amount of <strong>1,216.00</strong> (sample text only)</p>
 
           <h2 class="govuk-heading-m">What happens next</h2>
           <p class="govuk-body">
-            Submit your registration details as the last step before your application is reviewed.
+            We have sent an email confirmation to <a href="email@address.com">
+              email@address.com</a>
+          </p>
+          <p class="govuk-body">
+            They will contact you either to confirm your registration, or to ask for more information.
+          </p>
+          <p class="govuk-body">
+            <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+          </p>
+
+          <p class="govuk-body">
+            Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
           </p>
       </div>
-
     </div>
-    &nbsp; 
-<div class="govuk-button-group">
-  <a href="task-list-2-large-producer-stage4-online" class="govuk-button" type="submit">Submit your registration application</a>
-</div>
-    <p><a href="dashboard">Return to the dashboard</a></p>
-    
+
+    {{ govukButton({
+    text: "Continue with registration application",
+    attributes: {
+    id: "submitButton",
+    onclick: "handleSubmit(event)"
+    }
+    }) }}
+    </form>
+
+
 </div>
 
 </form>
@@ -83,3 +114,5 @@ classes: 'govuk-width-container'
 
 
 {% endblock %}
+payment-success.html
+Displaying payment-success.html.
