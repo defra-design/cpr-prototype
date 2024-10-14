@@ -70,24 +70,32 @@ classes: 'govuk-width-container'
 <div class="govuk-grid-row govuk-!-margin-bottom-7">
   <div class="govuk-grid-column-one-half">
     <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-"> <a
-          href="../../../../payment-alternative/large-producers/basic/task-list-info-page"
+      <h2 class="govuk-heading-m govuk-link-"> <a href="./task-list-completed"
           class="govuk-link--no-visited-state">Registration</a>
       </h2>
-      <p class="govuk-body">Your organisation needs to be registered for the current year. You need to apply by 31st
-        March 2025</p>
+      <p class="govuk-body">Producer registration application for current year submitted on 00th March 2025</p>
     </div>
   </div>
 
   <div class="govuk-grid-column-one-half">
     <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
 
+
+      {% if (data['submitted'] === "yes") %}
       <h2 class="govuk-heading-m govuk-link-">
         <a href="https://defra-cpr-prototype.herokuapp.com/report-organisation-details/producers/version-3/before-you-start"
           class="govuk-link--no-visited-state">
           Report organisation details
         </a>
       </h2>
+      {% else %}
+      <h2 class="govuk-heading-m govuk-link-">
+        <a href="https://defra-cpr-prototype.herokuapp.com/report-organisation-details/producers/version-3/before-you-start"
+          class="govuk-link--no-visited-state">
+          Report organisation details
+        </a>
+      </h2>
+      {% endif %}
 
 
       <p class="govuk-body">In 2025, you must report data for:</p>
@@ -126,33 +134,6 @@ classes: 'govuk-width-container'
   </div>
 </div>
 
-{% endblock %}
 
-{% block bodyEnd %}
-<details class="govuk-details" style="margin: auto; width: 50%; padding: 30px 0px;">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      UR only - Registration user scenarios
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list">
-      <li><a href="./large-producer-dashboard-registration-notstarted" class="govuk-link">Registration hasn't
-          started (this journey has been developed)</a></li>
-      <li><a href="./large-producer-dashboard-registration-renewal" class="govuk-link">Registration renewal</a></li>
-      <li><a href="./large-producer-dashboard-registration-uploaded-na-processed" class="govuk-link">Registration data
-          has been uploaded, but not processed</a></li>
-      <li><a href="./large-producer-dashboard-registration-uploaded-processed" class="govuk-link">Registration data has
-          been uploaded, and
-          processed</a></li>
-      <li><a href="./large-producer-dashboard-registration-submitt-reg" class="govuk-link">Registration data has been
-          uploaded, and fees registration</a></li>
-      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration approved</a></li>
-      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration queried</a>
-      </li>
-      <li><a href="./large-producer-dashboard-registration-queried" class="govuk-link">Registration rejected</a></li>
-    </ul>
-  </div>
-</details>
+
 {% endblock %}
-<!-- GOV.UK Prototype Kit {{releaseVersion}} -->
