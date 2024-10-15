@@ -52,6 +52,7 @@ classes: 'govuk-width-container'
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form class="form" action="../../../task-list-2-large-producer-stage4" method="post">
+
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
               Payment successful
@@ -61,44 +62,44 @@ classes: 'govuk-width-container'
             </div>
           </div>
           <p class="govuk-body">
-            Registration fee of <strong>1,216.00</strong> paid by John Doe at 10:45am on Wednesday 05th March 2025.
+            Submitted 16 March, 2025
           </p>
-          <p>The payment reference number will also be used as your application referente number
-            (sample text only). <br><br> Have a clear
-            payment summary, showing the amount of <strong>1,216.00</strong> (sample text only)</p>
+
+          <p class="govuk-body">Registration fee of 1,216.00 paid to the Environment Agency, the environmental regular
+            for England.</p>
+
+          <p class="govuk-body">
+            You can <a href="#" onclick="handlePrintOrSave('print')" class="govuk-link">print</a> or <a href="#"
+              onclick="handlePrintOrSave('pdf')" class="govuk-link">download a record of
+              this payment as a PDF</a> (depending on your browser it will open in a new
+            window or tab, or save to your download folder).
+          </p>
 
           <h2 class="govuk-heading-m">What happens next</h2>
-          <p class="govuk-body">
-            We have sent an email confirmation to <a href="email@address.com">
-              email@address.com</a>
-          </p>
-          <p class="govuk-body">
-            They will contact you either to confirm your registration, or to ask for more information.
-          </p>
-          <p class="govuk-body">
-            <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-          </p>
 
           <p class="govuk-body">
-            Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+            You will be contacted about the outcome of your application, usually no more than 2 weeks from the date of
+            submission.
           </p>
+
+          <p class="govuk-body">Visit your <a
+              href="../basic/registration-scenarios/large-producer-dashboard-registration-submitt-reg"
+              class="govuk-link">account home
+              page</a> to check the status of your application.
+          </p>
+          <!-- Content end-->
+
+          {{ govukButton({
+          text: "Continue with registration application",
+          attributes: {
+          id: "submitButton",
+          onclick: "handleSubmit(event)"
+          }
+          }) }}
+        </form>
       </div>
     </div>
-
-    {{ govukButton({
-    text: "Continue with registration application",
-    attributes: {
-    id: "submitButton",
-    onclick: "handleSubmit(event)"
-    }
-    }) }}
-    </form>
-
-
-</div>
-
-</form>
-</main>
+  </main>
 </div>
 
 
