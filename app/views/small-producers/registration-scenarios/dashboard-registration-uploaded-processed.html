@@ -70,11 +70,11 @@ classes: 'govuk-width-container'
 <div class="govuk-grid-row govuk-!-margin-bottom-7">
   <div class="govuk-grid-column-one-half">
     <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-"> <a
-          href="../registration-scenarios/reg-renewal/task-list-info-page-renewal"
-          class="govuk-link--no-visited-state">Registration</a>
+      <h2 class="govuk-heading-m govuk-link-"> <a href="#" class="govuk-link--no-visited-state">Registration</a>
       </h2>
-      <p class="govuk-body">You must register by 1 April, 2025. Late registration may incur a penalty</p>
+      <p class="govuk-body">You have submitted your registration data for 2024. View your Registration fees, and methods
+        of
+        payment</p>
     </div>
   </div>
 
@@ -87,7 +87,6 @@ classes: 'govuk-width-container'
           Report organisation details
         </a>
       </h2>
-
 
       <p class="govuk-body">In 2025, you must report data for:</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -127,6 +126,7 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
+
 {% block bodyEnd %}
 <details class="govuk-details" style="margin: auto; width: 50%; padding: 30px 0px;">
   <summary class="govuk-details__summary">
@@ -135,21 +135,28 @@ classes: 'govuk-width-container'
     </span>
   </summary>
   <div class="govuk-details__text">
-    <ul class="govuk-list">
-      <li><a href="./large-producer-dashboard-registration-notstarted" class="govuk-link">Registration hasn't
-          started (this journey has been developed)</a></li>
-      <li><a href="./large-producer-dashboard-registration-uploaded-na-processed" class="govuk-link">Registration data
-          has been uploaded, but not processed</a></li>
-      <li><a href="./large-producer-dashboard-registration-uploaded-processed" class="govuk-link">Registration data has
-          been uploaded, and
-          processed</a></li>
-      <li><a href="./large-producer-dashboard-registration-submitt-reg" class="govuk-link">Registration data has been
-          uploaded, and fees registration</a></li>
-      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration approved</a></li>
-      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration queried</a>
+    <ol class="govuk-list govuk-list--number">
+      <li><a href="./dashboard-registration-notstarted" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration hasn't
+          started (happy path - first time user - producer registration)</a></li>
+      <li><a href="./dashboard-registration-uploaded-na-processed" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration Data has been uploaded, but not processed </a></li>
+      <li><a href="./dashboard-registration-uploaded-processed" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration data has
+          been uploaded, and processed</a></li>
+      <li><a href="./dashboard-registration-submitt-reg" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration Data has been
+          uploaded and fees viewed</a></li>
+      <li><a href="./dashboard-registration-submitted" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration submitted</a></li>
+      <li><a href="../registration-scenarios/granted/dashboard-granted" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration submission granted</a></li>
+      <li><a href="./dashboard-registration-queried" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration queried</a>
       </li>
-      <li><a href="./large-producer-dashboard-registration-queried" class="govuk-link">Registration rejected</a></li>
-    </ul>
+      <li><a href="./dashboard-registration-rejected" class="govuk-link" rel="noreferrer noopener"
+          target="_blank">Registration rejected</a></li>
+    </ol>
   </div>
 </details>
 {% endblock %}
