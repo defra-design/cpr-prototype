@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
 Report packaging data
@@ -15,16 +15,16 @@ Report packaging data
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../index.html",
+homepageUrl: "../../../index.html",
 serviceName: "Report packaging data",
 serviceUrl: "#",
 navigation: [
 {
-href: "#",
+href: "landing-page.html",
 text: "Home"
 },
 {
-href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+href: "#",
 text: "Manage account"
 },
 {
@@ -44,94 +44,85 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
+
 {% block beforeContent %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
-
 {% block content %}
 
-<div class="govuk-grid-row ">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-panel__title">
-            Report organisation details
-        </h1>
+        <div class="govuk-form-group">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Check status of organisation details files
+            </h1>
 
-        <h2 class="govuk-heading-m">Most recent submission</h2>
+            <p class="govuk-body">The environmental regulator has updated the status of your organisation
+                details files.</p>
 
-        <p class="govuk-body">
-            Submitted at 2:28pm on 28 September 2023 by John Doe.
-        </p>
+            <h2 class="govuk-heading-m govuk-!-margin-top-4">Status of your files</h2>
 
+            <p> Your files have been rejected because:</p>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-
-            <!-- ORGANISAITON DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Organisation details
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <a class="govuk-link--no-visited-state govuk-link" href="#">
-                        {{data['organisation-details-file']}}
-                    </a>
-                </dd>
-            </div>
-
-            <!-- BRAND OWNER DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Brand details
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <a class="govuk-link--no-visited-state govuk-link" href="#">01-acme-brand.csv
-                    </a>
-                </dd>
-                <!--
-<dd class="govuk-summary-list__actions">
-<a class="govuk-link govuk-link--no-visited-state" href="./brand-owner-details/upload-file.html">
-Change<span class="govuk-visually-hidden"> brand owner details file</span>
-</a>
-</dd>
--->
-            </div>
-
-            <!-- PARTNER DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Partnership details
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <a class="govuk-link--no-visited-state govuk-link" href="#">01-acme-partner.csv
-                    </a>
-                </dd>
-                <!--
-<dd class="govuk-summary-list__actions">
-<a class="govuk-link govuk-link--no-visited-state" href="./partner-details/upload-file.html">
-Change<span class="govuk-visually-hidden"> the main person of contact</span>
-</a>
-</dd>
--->
+            <div class="govuk-inset-text">
+                Your address does match details on Companies House.
             </div>
 
 
-        </dl>
+            <div class="govuk-summary-card govuk-!-margin-bottom-1">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                        Files you've already submitted
+                    </h2>
 
-        <h2 class="govuk-heading-m">You need to keep these details up to date</h2>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                    <table class="govuk-table govuk-!-margin-bottom-0">
+                        <caption class="govuk-visually-hidden">Detail regarding the latest valid file submitted
+                        </caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">File name</th>
+                                <th scope="col" class="govuk-table__header">Date and time submitted</th>
+                                <th scope="col" class="govuk-table__header">Submitted by</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">orgdetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">branddetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell border-bottom-0">partnerdetails.csv</td>
+                                <td class="govuk-table__cell">10 September 2023, 3:00pm</td>
+                                <td class="govuk-table__cell">Jane Doe</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
 
         <p class="govuk-body">
-            You need to report any changes to your organisation details within 28 days.
+            <a href="./payment-alternative/large-producers/basic/task-list-2-basic" class="govuk-link">Return to the
+                registration steps</a>
         </p>
 
-        <p class="govuk-body">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">
-                Update organisation details
-            </a>
-        </p>
 
     </div>
 </div>
-
 
 {% endblock %}
