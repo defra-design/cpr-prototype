@@ -1,0 +1,98 @@
+{% set serviceName = "Report packaging data" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+    
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./loading-success">
+        <div class="govuk-form-group ">
+
+            <div class="govuk-error-summary" data-module="govuk-error-summary">
+                <div role="alert">
+                  <h2 class="govuk-error-summary__title">
+                    There is a problem with your upload
+                  </h2>
+                  <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                      <li>
+                        <a href="#">The data contained errors</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        
+
+        
+
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                  <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Parameter</th>
+                        <th scope="col" class="govuk-table__header">Nation/Material</th>
+                        <th scope="col" class="govuk-table__header">Error</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Scheme administrator operating costs</th>
+                        <td class="govuk-table__cell">England</td>
+                        <td class="govuk-table__cell">Enter the scheme administrator operating costs for England</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Communication costs</th>
+                        <td class="govuk-table__cell">Steel</td>
+                        <td class="govuk-table__cell">Enter the communication costs for steel</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Communication costs</th>
+                        <td class="govuk-table__cell">Wood</td>
+                        <td class="govuk-table__cell">Communication costs for wood must be between £0 and £999,999,999.99
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Scheme setup costs</th>
+                        <td class="govuk-table__cell">Scotland</td>
+                        <td class="govuk-table__cell">Scheme setup costs can only include numbers, commas and decimal points
+              
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+    </div>
+
+        {{ govukButton({
+        text: "Upload file",
+        preventDoubleClick: true,
+        href: 'confirmation',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}
