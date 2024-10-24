@@ -1,0 +1,72 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-top-0">
+      <h1 class="govuk-heading-l">Members' organisation details</h1>
+      <div class="govuk-inset-text" style="margin-bottom: 20px;">
+        <p class="govuk-body govuk-!-margin-bottom-1">
+          <strong>Compliance scheme: COMPLIANCE LTD (EA)</strong><br>
+          <strong>Regulator: Environment Agency (England)</strong>
+          <br> <br>
+          <strong>If renewing annual registration, ensure packaging data for 2024 has been submitted.
+            Failure may result in delays to the approval of your registration.
+          </strong>
+        </p>
+      </div>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+      <h2 class="app-task-list__section">You have submitted your registration data for 2024 but your data will be
+        processed within 1 hour of submission</h2>
+      <p class="govuk-body">Why does it take 1 hour and what to do next... example return within 1 hour</p>
+
+      <p class="govuk-body">
+        <a href="./task-list-view-pay-fees-na-processed" class="govuk-link">Return to the registration steps</a>
+      </p>
+
+      <!-- Content end-->
+
+      <!-- Page layout start 2 -->
+    </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+<!-- Page layout end 2 -->
+
+{% block bodyEnd %}
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-0">
+      <h1 class="govuk-heading-l">Registration fee</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+
+      <p class="govuk-body">
+        Registration fee of <strong>£1,216.00</strong> paid by John Doe at 10:45am on Wednesday 05th March 2025 with
+        payment reference number 222019EFGF.
+      </p>
+
+      <!-- Payment start -->
+      <div class="govuk-width-container govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Items</th>
+              <th scope="col" class="govuk-table__header govuk-!-padding-left-2" style="width: 270px;">Description
+              </th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Chargeable items</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Application <br>processing fee</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Fee for producer size</td>
+              <td class="govuk-table__cell govuk-table__header--numeric">£1,216.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total chargeable items
+              </th>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£1,216.00</td>
+            </tr>
+            <tr class="govuk-table__row" style="height: 45px;">
+              <th scope="row" class="govuk-table__header"></th>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Previous payments</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">08th May 2025</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric"> £100.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total payments received</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£100.00</td>
+            </tr>
+            <tr class="govuk-table__row" style="height: 45px;">
+              <th scope="row" class="govuk-table__header"></th>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row" style="background-color: #f9f9f9;">
+              <th scope="row" class="govuk-table__header" style="padding: 30px 0px;">Total outstanding</th>
+              <td class="govuk-table__cell govuk-!-padding-left-2"></td>
+              <td class="govuk-table__header govuk-table__header--numeric" style="padding: 30px 0px;">£1,116.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Payment end -->
+      <!-- Content end-->
+
+      <!-- Page layout start 2 -->
+      </form>
+    </div>
+  </div>
+  {% endblock %}
+
+  <!-- Page layout end 2 -->
+  {% block bodyEnd %}
+  <details class="govuk-details" style="margin: auto; width: 50%;">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        UR only - Fee payment scenarios
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <ul class="govuk-list">
+        <li><a href="../basic/payment-scenario-smallproducers" class="govuk-link">Small producer
+            only scenario</a></li>
+        <li><a href="../basic/payment-scenario-smallproducer-OMP" class="govuk-link">Small producer
+            who is OMP, with 25 subsidiaries of which 0 are OMP scenario</a></li>
+        <li><a href="../basic/payment-scenario-largeproducers" class="govuk-link">Large producer
+            only scenario</a></li>
+        <li><a href="../basic/payment-scenario-largeproducers-104subsidiaries" class="govuk-link">Large producer with
+            104
+            subsidiaries scenario</a></li>
+        <li><a href="../basic/payment-scenario-largeproducers-OMP" class="govuk-link">Large producer
+            who is OMP, with 54 subsidiaries of which are OMP scenario</a></li>
+      </ul>
+    </div>
+  </details>
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->

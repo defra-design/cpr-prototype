@@ -1,0 +1,97 @@
+{% set serviceName = "Small producers" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<!-- OVERVIEW AND CONTACTS -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-xl">Prototypes</span>
+      Compliance scheme registration
+    </h1>
+  </div>
+</div>
+
+<!-- TESTING LINKS -->
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full card card-overview">
+      <strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-2 govuk-!-margin-right-2">Testing</strong>
+
+      <p class="govuk-body"><strong>Registration not started (happy path):</strong></p>
+      <ul class="govuk-list">
+        <li><a href="./compliance-schemes/compliance-scheme-dashboard" class="govuk-link" rel="noreferrer noopener"
+            target="_blank">Compliance scheme registration not started
+            (opens in new tab)</a>
+      </ul>
+
+
+      <!-- TITLE -->
+
+      <p class="govuk-body"><strong>All the registration scenarios:</strong></p>
+
+      <ol class="govuk-list govuk-list--number">
+        <li><a href="./compliance-schemes/compliance-scheme-dashboard" class="govuk-link">Registration hasn't
+            started</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/dashboard-registration-uploaded-na-processed"
+            class="govuk-link">Registration data
+            has been uploaded, but not processed</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/dashboard-registration-uploaded-processed"
+            class="govuk-link">Registration data has been uploaded, and processed</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/dashboard-registration-submitt-reg"
+            class="govuk-link">Registration data has been uploaded, and fees registration paid</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/granted/dashboard-granted"
+            class="govuk-link">Registration granted</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/queried/dashboard-registration-queried"
+            class="govuk-link">Registration queried</a>
+        </li>
+        <li><a href="./compliance-schemes/registration-scenarios/rejected/dashboard-registration-rejected"
+            class="govuk-link">Registration rejected</a></li>
+        <li><a href="./compliance-schemes/registration-scenarios/cancelled/dashboard-registration-cancelled"
+            class="govuk-link">Registration cancelled</a></li>
+      </ol>
+
+
+      <p class="govuk-body"><strong>Emails:</strong></p>
+      <ol class="govuk-list govuk-list--number">
+        <li><a href="./registration-scenarios/granted/emails/email-details-granted" class="govuk-link"
+            rel="noreferrer noopener" target="_blank">Submission granted (opens in new tab)</a></li>
+        <li><a href="./registration-scenarios/rejected/emails/email-details-rejected" class="govuk-link"
+            rel="noreferrer noopener" target="_blank">Submission rejected (opens in new tab)</a></li>
+        <li><a href="./registration-scenarios/queried/emails/email-details-queried" class="govuk-link"
+            rel="noreferrer noopener" target="_blank">Submission queried (opens in new tab)</a></li>
+        <li><a href="./registration-scenarios/cancelled/emails/email-details-cancelled" class="govuk-link"
+            rel="noreferrer noopener" target="_blank">Submission cancelled (opens in new
+            tab)</a></li>
+      </ol>
+      <br>
+      <hr>
+      <br>
+      <p class="govuk-body"><strong>Other</strong></p>
+      <ul class="govuk-list">
+        <li><a
+            href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v1/producer/unsuccessful/sub-landing"
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Report organisation details</a></li>
+      </ul>
+
+
+
+    </div>
+  </div>
+
+
+
+  {% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% set title = "" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Payment unsuccessful</h1>
+      <p>Your payment has not been completed and no money has been taken from your account. You will need to retry thr payment to complete your registration.</p>
+      
+<br>
+      
+<p class="govuk-body">Your application reference is <STRONG>APP-45678-RBDIGZAPKB</STRONG></p>
+      <br>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              How do you want to retry the payment?
+            </h1>
+          </legend>
+         
+          
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-radios__label" for="contact">
+                Online payment 
+              </label>
+            </div>
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+              <label class="govuk-label govuk-radios__label" for="contact-2">
+                Bank transfer
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+              <label class="govuk-label govuk-radios__label" for="contact-2">
+                Phone
+              </label>
+            </div>
+            
+            
+            
+          </div>
+        </fieldset>
+      </div>
+        
+
+        <form action="/form-handler" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+        <div class="govuk-button-group">
+          <a href="dashboard" class="govuk-button" type="submit">Continue</a>
+        
+        </div>
+        </form>
+        
+
+        <p><a href="dashboard"> Return to the dashboard</a></p>
+        
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+       
