@@ -58,44 +58,37 @@ classes: 'govuk-width-container'
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Organisation details uploaded</h1>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
-            <!-- ORGANISAITON DETAILS -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    File uploaded
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    <a class="govuk-link govuk-link--no-visited-state" href="#">
-                        {{data['organisation-details-file']}} 
-                    </a>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link govuk-link--no-visited-state" href="upload-file.html">
-                        Change<span class="govuk-visually-hidden">organisation details file</span>
-                    </a>
-                </dd>
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+              </h2>
             </div>
-        </dl>
+            <div class="govuk-notification-banner__content">
+              <h3 class="govuk-notification-banner__heading">
+                Organisation details uploaded
+              </h3>
+              <p>orgdetails1.csv</p>
+            </div>
+          </div>
 
-        <!--        <p class="govuk-body">This file has details for 150 of your members. </p>-->
+          <h2 class="govuk-heading-m">What happens next</h2>
 
+                    <p class="govuk-body">Based on what is in the file, you also need to report about: </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>brand details</li>
+                      <li>partner details</li>
+                    </ul>
 
-        <p class="govuk-body">Based on the information you've given, you also need to report:</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>brand details, including brand names and codes</li>
-            <li>partner details, including names and contact details</li>
-        </ul>
-
-        <p class="govuk-body">If you think this is wrong, <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">check the guidance (opens in a new window)</a> and re-upload your file.</p>
+                    <p>If you think this is incorrect, you can <a class="govuk-link" href="organisation-upload.html">re-upload your organisation details</a>.</p>
 
 
 
         {{ govukButton({
-        text: "Continue",
+        text: "Upload brand details",
         preventDoubleClick: true,
-        href: 'summary-of-uploads.html',
+        href: 'upload-brand.html',
         classes: 'govuk-!-margin-top-4'
         }) }}
 
