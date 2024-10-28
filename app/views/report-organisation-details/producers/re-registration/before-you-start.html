@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+            <div class="govuk-form-group">
+                <h1 class="govuk-heading-l">
+                    Report your organisation details
+                </h1>
+
+                <h2 class="govuk-heading-m">Before you start</h2> 
+                
+                <h3 class="govuk-heading-m">1. Read the guidance</h3>
+                
+                <p class="govuk-body">Find out <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to report organisation details (opens in a new window)</a>. There are template documents you can use to build your files.</p>
+
+                <h3 class="govuk-heading-m">If you've missed a deadline to submit</h3>
+
+                <p class="govuk-body">You will need to prepare CSV files to submit. You can open and complete CSV files in any spreadsheet program.</p>
+
+            </div>
+
+
+
+      <form method="POST" action="./loading-errors">
+
+          <!-- FILE UPLOAD -->
+          <div class="govuk-form-group">
+
+            <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+                Upload your organisation details file
+            </label>
+            
+<!--
+            <div id="organisation-file-hint" class="govuk-hint">
+              You should upload as CSV file
+            </div>
+-->
+            <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+        {{ govukButton({
+          text: "Upload file"
+        })}}
+      </form>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
