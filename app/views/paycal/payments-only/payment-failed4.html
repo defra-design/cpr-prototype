@@ -1,51 +1,34 @@
 {% extends "layout-private-beta-research.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account"
-},
-{
-href: "#",
-text: "Sign out"
-}
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
 ]
 }) }}
 
 {{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
+tag: { text: "prototype" },
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
 
-
 {% block content %}
+<!-- Page layout start 1 -->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
