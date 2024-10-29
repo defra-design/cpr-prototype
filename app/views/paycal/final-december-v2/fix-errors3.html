@@ -1,0 +1,61 @@
+{% set serviceName = "Run the service administrator calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+                <form method="POST" action="./loading-success">
+                    <div class="govuk-form-group ">
+                        <div class="govuk-error-summary" data-module="govuk-error-summary">
+                            <div role="alert">
+                              <h2 class="govuk-error-summary__title">
+                                There is a problem with your upload
+                              </h2>
+                              <div class="govuk-error-summary__body">
+                                <ul class="govuk-list govuk-error-summary__list">
+                                  <li>
+                                    The data contained errors
+                                  </li>
+                                </ul>
+                              </div>
+                  </div>
+                  </div>
+                  <p>You will need to update this data before you can upload the spreadsheet successfully</p>
+
+                  
+                      <ol class="govuk-list govuk-list--number">
+                        <li>Enter the scheme administrator operating costs for England</li>
+                        <li>Enter the communication costs for steel</li>
+                        <li>Communication costs for wood must be between £0 and £999,999,999.99</li>
+                        <li>Scheme setup costs can only include numbers, commas and decimal points</li>
+                      </ol>
+     
+        
+  
+      
+      <br>
+        <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+            Upload the file again
+        </label>
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+    
+        {{ govukButton({
+        text: "Upload file",
+        preventDoubleClick: true,
+        href: 'confirmation',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+    </form>
+    
+
+    </div>
+</div>
+
+{% endblock %}
