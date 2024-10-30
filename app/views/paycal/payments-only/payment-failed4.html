@@ -1,14 +1,52 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set title = "" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-  {{title}} - GOV.UK
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
 
+  {# Set serviceName in config.js. #}
   
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -26,7 +64,7 @@
       </form>
 <br>
 
-<p class="govuk-body">Your application reference is <STRONG>APP-45678-RBDIGZAPKB</STRONG>. Make a note of this reference, as you will need it to retry the payment.</p>
+<p class="govuk-body">Your reference is <STRONG>APP-45678-RBDIGZAPKB</STRONG>. <br>Make a note - as you will need it to retry the payment.</p>
       <p class="govuk-body">Use these details to make payment of [[Payment Amount]]:</p>
       <h2 class="govuk-heading-m">To pay by bank transfer</h2>
         
