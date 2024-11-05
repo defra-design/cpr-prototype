@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Your waste management fees
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="payment-offline-large-producers">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <h1 class="govuk-fieldset__heading">
+            Your payment of {£0,000.00} is pending
+          </h1>
+        </legend>
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Reference number: 000 123 456</strong></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Payment method: online PayCal</strong></p>
+        </div>
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Breakdown of amount you have to pay</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Items</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 2</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 3</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 4</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total</th>
+              <td class="govuk-table__cell">£0,000.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="govuk-heading-m">About your payment status</h2>
+
+        <p class="govuk-body">Sign into your <a href="#" class="govuk-link">online account</a> to check if your payment
+          has been received.</p>
+        <p class="govuk-body">Any payment bank transter or offline payment you’ve sent within the last 7 days will show
+          in the ‘Your balance’ section in your online account.</p>
+        <p class="govuk-body">After DEFRA has processed your payment, it will show in the ‘View payments and credits’
+          section of your online account. It can take up to 7 days to show in your online account after your payment is
+          sent.</p>
+        <p class="govuk-body">If you cannot see your payment in your online account after 7 days, check with your bank
+          to make sure the payment has been sent.</p>
+
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      })}}
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Print this page</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

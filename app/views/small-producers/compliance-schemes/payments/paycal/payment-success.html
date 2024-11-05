@@ -15,7 +15,7 @@ Report packaging data
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/compliance-scheme-index",
 serviceName: "Report packaging data",
 serviceUrl: "#",
 navigation: [
@@ -52,46 +52,40 @@ classes: 'govuk-width-container'
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form class="form" action="../../task-list-view-pay-fees-completed" method="post">
-
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
               Payment successful
             </h1>
             <div class="govuk-panel__body">
-              Payment reference number is<br>222019EFGF
+              Your registration fee has been paid
             </div>
           </div>
-          <p class="govuk-body">
-            Submitted 16 March, 2025
+
+          <p class="govuk-body">We have sent an email confirmation to <a href="email@address.com"> email@address.com</a>
           </p>
-
-          <p class="govuk-body">Registration fee of <strong>£38.046.00</strong> paid by John Doe at 10:45am on Wednesday
-            5 March 2025.</p>
-
-          <p class="govuk-body">The payment reference number will also be used as your application reference.</p>
+          <p class="govuk-body">Your application reference: 222019EFGF</p>
+          <br>
 
           <h2 class="govuk-heading-m">What happens next</h2>
-
           <p class="govuk-body">
-            We have sent an email confirmation to <a href="mailto:email@address.com">email@address.com</a> and will
-            contact you either to confirm your registration, or to ask for more information.
+            Submit your registration details as the last step before your application is reviewed.
           </p>
-
-
           <!-- Content end-->
 
           {{ govukButton({
-          text: "Continue",
+          text: "Submit your registration application",
           attributes: {
           id: "submitButton",
           onclick: "handleSubmit(event)"
           }
           }) }}
         </form>
+
+        <p class="govuk-body"><a href="../../../compliance-schemes/compliance-scheme-dashboard"
+            class="govuk-link">Return to the dashboard</a></p>
       </div>
     </div>
   </main>
 </div>
-
 
 {% endblock %}
