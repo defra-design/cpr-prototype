@@ -56,23 +56,29 @@
 <form action="/form-handler" method="post" novalidate>
 
 <input type="hidden" name="answers-checked" value="true">
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
-          <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-            Delete 
-          </label>
-        </div>
- 
-    </fieldset>
-  </div>
- 
+  
+  <div class="govuk-form-group govuk-form-group--error">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+              Delete (this cannot be undone)
+            </label>
+          </div> 
+      </fieldset>
+    </div>
+    <p></p>
+    <p id="national-insurance-number-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span>Unfortunately this file cannot be deleted
+    </p>
+    
+  </div> 
   
 &nbsp; 
 <div class="govuk-button-group">
-  <a href="run-radio-sure" class="govuk-button" type="submit">Continue</a>   <a class="govuk-link" href="dash-small-tiles">Return to the dashboard</a>
+  <a href="dash-small-tiles" class="govuk-button" type="submit">Return to the dashboard</a>   
 </div>
 </div>
 
