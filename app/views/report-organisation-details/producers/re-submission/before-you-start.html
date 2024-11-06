@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+            <div class="govuk-form-group">
+                <h1 class="govuk-heading-l">
+                    Report your organisation data
+                </h1>
+
+                <h2 class="govuk-heading-m">Before you start</h2> 
+                
+                <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to report organisation details (opens in a new window)</a>. <br>There are template documents you can use to build your files.</p>
+
+                <h3 class="govuk-heading-m">Make sure you have all your files ready </h3>
+                <p class="govuk-body">Get your files ready before you start, including brand and partner details if necessary. </p>
+
+                <h3 class="govuk-heading-m">If you’re reporting for subsidiaries</h3>
+                <p class="govuk-body">Your file will be rejected if you do not use the subsidiary ID we’ve provided. <a class="govuk-link govuk-link--no-visited-state" href="#" target="_blank">Mange your subsidiaries</a>.
+                </p>
+
+            </div>
+
+
+
+      <form method="POST" action="./check-file">
+
+          <!-- FILE UPLOAD -->
+          <div class="govuk-form-group">
+
+            <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+                Upload your organisation details file
+            </label>
+            <p class="govuk-body">The uploaded file must be in CSV format</p>
+            <p class="govuk-body">Your file may take a few minutes to upload. Do not close the window when the file is uploading. </p>
+            
+<!--
+            <div id="organisation-file-hint" class="govuk-hint">
+              You should upload as CSV file
+            </div>
+-->
+            <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+        {{ govukButton({
+          text: "Upload file"
+        })}}
+      </form>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
