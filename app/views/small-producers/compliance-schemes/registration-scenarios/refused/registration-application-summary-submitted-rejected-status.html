@@ -1,0 +1,117 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/compliance-scheme-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+          The environmental regulator has rejected your files
+        </h1>
+
+        <p class="govuk-body">The environmental regulator has rejected your registration for the 2024-2025 period.</p>
+
+        <div class="govuk-inset-text">
+          <strong>Reason for rejection:</strong><br>
+          <p class="govuk-body">Check the email sent on 21/10/24 for more information.<br><br>
+            <strong>Message entered by the regulator:</strong><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget nunc
+            eget magna auctor aliquet.
+          </p>
+        </div>
+
+        <div class="govuk-summary-card govuk-!-margin-bottom-1">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Your history
+            </h2>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <table class="govuk-table govuk-!-margin-bottom-0">
+              <caption class="govuk-visually-hidden">Detail regarding the latest valid file submitted
+              </caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Status</th>
+                  <th scope="col" class="govuk-table__header">Date and time submitted</th>
+                  <th scope="col" class="govuk-table__header">Submitted by</th>
+
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell border-bottom-0">Application rejected</td>
+                  <td class="govuk-table__cell">22 April 2025, 11:00am</td>
+                  <td class="govuk-table__cell">Jane Doe</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" style="border-bottom: 0px;">Application submitted</td>
+                  <td class="govuk-table__cell" style="border-bottom: 0px;">14 March 2025, 3:00pm</td>
+                  <td class="govuk-table__cell" style="border-bottom: 0px;">Jane Doe</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+      </fieldset>
+    </div>
+
+    <div class="govuk-button-group">
+      <a href="./task-list-rejected" class="govuk-link">Return to the registration steps</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
