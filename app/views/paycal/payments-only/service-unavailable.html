@@ -1,16 +1,47 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set title = "" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-  {{title}} - GOV.UK
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
   }) }}
 
 {% endblock %}
@@ -20,10 +51,13 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
-      <p>Your payment has not been completed and will not be taken from your bank account.
-        <p>You can return to the service later to pay online, or <a href="#">make an offline payment</a></p>
-      </p>
+      <!--<p>Your payment has not been completed and will not be taken from your bank account.</p>--> 
+      
+      <p>You could try again later.</p>
+       <p>Alternatively - you could pay by bank transfer or by phone.</p>
 
+       <p><a href="dashboard"> Return to the dashboard</a></p>
+ 
     </div>
   </div>
 
