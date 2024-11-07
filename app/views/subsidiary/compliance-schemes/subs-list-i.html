@@ -1,0 +1,320 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Home",
+href: "/subsidiary/compliance-schemes/landing-page-2-i"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<style>
+  .card {
+    min-height: 0px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">Subsidiaries</h1>
+    <!-- <form method="POST" action=""> -->
+    <!--
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          Check all the information you have provided is accurate. If it is not correct or if there is any missing
+          information you will need to provide the correct data. Use the subsidiary IDs for all future organisation
+          details and packaging data submissions. </strong>
+      </div>
+-->
+    <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
+
+      <form class="form" action="#" method="POST">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+            </legend>
+
+            {{ xGovukAutocomplete({
+            id: "country",
+            name: "which-producer",
+            allowEmpty: false,
+            label: {
+            classes: "govuk-body--m",
+            showAllValues: true,
+            isPageHeading: true,
+            text: "Enter producers name to search for subsidiaries "
+            },
+            items: [
+            { text: "Good Foods Limited" },
+            { text: "Good For You limited" },
+            { text: "Good greens PLC" },
+            { text: "Great Bites Ltd" }
+
+            ]
+            }) }}
+
+
+
+          </fieldset>
+        </div>
+
+        <input class="govuk-button" type="submit" value="Search" />
+
+      </form>
+    </div>
+
+    <!--
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+-->
+    <h1 class="govuk-heading-m">GOOD FOODS LIMITED</h1>
+      <!--  <span class="govuk-button-group" style="float: right;">
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add additional subsidiary to producer
+        </a> </span>  -->
+    
+    <span class="govuk-caption-m">Organisation ID: 155594<br>Companies House number: 10319765</span>
+    <p class="govuk-body govuk-!-static-padding-top-3"><a href="#" class="govuk-link">Add another subsidiary to this producer</a>.</p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          
+            <th scope="col" class="govuk-table__header">Subsidiary name</th>
+            <th scope="col" class="govuk-table__header">New subsidiary ID</th>
+            <th scope="col" class="govuk-table__header">Companies House number</th>
+            <th scope="col" class="govuk-table__header">Old subsidiary ID</th>
+          
+          
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Sauces Coventry</td>
+          <td class="govuk-table__cell">123456</td>
+          <td class="govuk-table__cell">64523645</td>
+          <td class="govuk-table__cell">587954</td>
+  
+
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Vegetables Telford</td>
+          <td class="govuk-table__cell">895464</td>
+          <td class="govuk-table__cell">75496214</td>
+          <td class="govuk-table__cell"></td>
+    
+
+        </tr>
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Pasta Stratford</td>
+          <td class="govuk-table__cell">654931</td>
+          <td class="govuk-table__cell">no CH number</td>
+          <td class="govuk-table__cell">AH9833</td>
+     
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Sauces Banbury</td>
+          <td class="govuk-table__cell">597812</td>
+          <td class="govuk-table__cell">no CH number</td>
+          <td class="govuk-table__cell"></td>
+       
+        </tr>
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Sauces Exeter</td>
+          <td class="govuk-table__cell">634215</td>
+          <td class="govuk-table__cell">21369754</td>
+          <td class="govuk-table__cell">894312</td>
+     
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            Good Sauces London</td>
+          <td class="govuk-table__cell">264985</td>
+          <td class="govuk-table__cell">45692678</td>
+          <td class="govuk-table__cell">54AH16</td>
+     
+
+        </tr>
+      </tbody>
+    </table>
+    <nav class="govuk-pagination" aria-label="Pagination">
+      <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+          <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg"
+            height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z">
+            </path>
+          </svg>
+          <span class="govuk-pagination__link-title">
+            Previous<span class="govuk-visually-hidden"> page</span>
+          </span>
+        </a>
+      </div>
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">
+          &ctdot;
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 6">
+            6
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 7" aria-current="page">
+            7
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 8">
+            8
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">
+          &ctdot;
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 42">
+            42
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+          <span class="govuk-pagination__link-title">
+            Next<span class="govuk-visually-hidden"> page</span>
+          </span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
+            height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+      <!-- FILE UPLOAD -->
+      <div class="govuk-form-group">
+       
+          <h2 class="govuk-heading-m">Adding additional subsidiaries</h2>
+
+        <p class="govuk-body"><a href="#" class="govuk-link">Add another subsidiary to this producer</a>.</p>
+        <p class="govuk-body">To add multiple subsidiaries to this producer (or others),follow the instructions in <a href="#" class="govuk-link">how to complete and upload a CSV file (opens in a new tab)</a>. You can also download your current subsidiaries list in CSV format, update it, and resubmit.</p>
+
+     
+        <p class="govuk-body">The file must be:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>smaller than 60KB</li>
+              <li>in CSV format</li>
+          </ul>
+        <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file is uploading.</p>
+    
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+        </div>
+        <p></p>
+    <form method="POST" action="./loading">
+    <button class="govuk-button" >Upload file</button> <button
+      class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Download subsidiaries file</button>
+    </form>
+<p></p>
+ 
+
+      <!-- </form> -->
+    </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
