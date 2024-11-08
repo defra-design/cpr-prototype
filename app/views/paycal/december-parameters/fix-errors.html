@@ -6,53 +6,59 @@
     {{serviceName}} prototype
 {% endblock %}
 
-
-{% block beforeContent %}
-<a class="govuk-back-link" href="upload-file.html">Back</a>
-{% endblock %}
-
 {% block content %}
+<br>
+
+
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="./loading-success">
-        <div class="govuk-form-group ">
-
-        <h1 class="govuk-heading-l">Default parameters file not uploaded – fix the errors and try again</h1>
-
-        <p class="govuk-body">Your data file has not been uploaded. This is because some of the data in your file is missing or in the wrong format.</p>
-
-        <h2 class="govuk-heading-m">
-            How to fix errors</h2>
-
-        <ol class="govuk-list govuk-list--number govuk-list--spaced">
-            <li><a href="../../../../../../public/files/packaging-data-Jan-Jun-2023-error-report.csv">Download your error report (CSV, 120KB)</a>. This tells you where the errors are in your file. </li>
-            <li>Use the report to fix the errors. You may also need the <a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/government/publications/packaging-data-how-to-create-your-file-for-extended-producer-responsibility/packaging-data-file-specification-for-extended-producer-responsibility">file specification guidance (opens in a new window)</a>.</li>
-            <li>Upload the file again.</li>
-        </ol>
-
-        <h2 class="govuk-heading-m">
-            How the error report works</h2>
-
-        <p class="govuk-body">You should fix these errors and re-upload the file. If there are more errors, you may get another error report when you re-upload the file.</p>
-
-        <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
-            Upload the file again
-        </label>
-
-        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem with your upload
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>The data contained errors
+            </li>
+            
+          </ul>
+        </div>
+      </div>
     </div>
 
-        {{ govukButton({
-        text: "Upload file",
-        preventDoubleClick: true,
-        href: 'confirmation',
-        classes: 'govuk-!-margin-top-4'
-        }) }}
-    </form>
+    <h2 class="govuk-heading-s">You will need to update this data before you can upload the spreadsheet successfully.</h2>
+    <ol class="govuk-list govuk-list--number">
+      <li>Enter the scheme administrator operating costs for England</li>
+      <li>Enter the communication costs for steel</li>
+      <li>Communication costs for wood must be between £0 and £999,999,999.99</li>
+      <li>Scheme setup costs can only include numbers, commas and decimal points</li>
+    </ol>
+
+    
 
 
-    </div>
+    <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+      Upload the file again
+  </label>
+
+  <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file"><br>
+
+
+  {{ govukButton({
+  text: "Upload file",
+  preventDoubleClick: true,
+  href: 'confirmation',
+  classes: 'govuk-!-margin-top-4'
+  }) }}
+</form>
+
+
+</div>
+</div>
+</div>
 </div>
 
 {% endblock %}

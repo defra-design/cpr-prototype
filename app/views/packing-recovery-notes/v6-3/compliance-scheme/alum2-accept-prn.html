@@ -1,0 +1,37 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="alum-accepted-prn" method="POST">
+
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+    Accept this PRN towards your 2025 obligation? 
+  </h1>
+
+  <p>This will credit 170 tonnes towards your paper, board or fibre-based composite material obligation</p> 
+
+  <br>
+
+ 
+    <input class="govuk-button" type="submit" value="Yes, accept" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="No, go back"  />
+
+</form>
+  
+</div>
+
+{% endblock %}

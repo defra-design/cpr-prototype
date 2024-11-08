@@ -1,0 +1,115 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-xl">Subsidiaries</h1>
+         
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                Check all the information you have provided is accurate. If it is not correct or if there is any missing information you will need to provide the correct data. Use the subsidiary IDs for all future organisation details and packaging data submissions.                 </strong>
+            </div>
+            
+         
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h1 class="govuk-heading-m">GOOD FOODS LIMITED</h1>
+            <span class="govuk-caption-m">Organisation ID: 155594<br>Companies House number: 10319765</span>
+
+            <br><br>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <h1 class="govuk-body-m">Subsidiaries will appear here after they have been processed. </h1>
+        <br>
+            <form method="POST" action="">
+         
+
+        
+      </div>
+      </div> 
+      
+        
+
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+     <br><br>
+ 
+   
+  </form>
+  
+  <div id="ctas">
+    <button class="govuk-button" formaction="loading">Upload file</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Export</button> 
+    <a class="govuk-pagination__link govuk-body-m"  href="how-to-complete">Account home</a>
+    <a class="govuk-pagination__link govuk-body-m"  href="how-to-complete">How to complete a file (opens in new tab)</a>
+</div>
+
+
+
+
+        
+      </div>
+      </div>  
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

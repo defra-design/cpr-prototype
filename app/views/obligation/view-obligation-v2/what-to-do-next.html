@@ -1,0 +1,127 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+  {% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="./lp-landing-page.html">Home</a>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Meeting your recycling obligation
+      </h1>
+
+      <!--<p>
+        This amount is based on the data you submitted when you reported your packaging data. It has been approved by the scottish regulator. 
+      </p>
+      <p> We calculated these numbers by assessing the amount and type of packaging materials you use, ensuring compliance with environmental regulations.
+    
+      </p>-->
+  
+   
+      
+     
+     
+     <p>To meet your 2025 recycling obligation of 18,000 tonnes, you still need to:</p>
+     <ol class="govuk-list govuk-list--number">
+     <li><h3 class="govuk-heading-s">
+      Buy PRNs or PERNs for your packaging materials
+    </h3>
+   
+       <p>To meet your recycling obligations, you must purchase PRNs from an accredited reprocessor or exporter. This certifies that the packaging waste has been properly recycled or exported for recycling. </p>
+       <p> <a href="https://npwd.environment-agency.gov.uk/PublicRegister.aspx" class="govuk-link"> See the public register of accredited reprocessors and exporters</a></p>
+</li>
+<li>
+        <h3 class="govuk-heading-s">
+          Accept any outstanding PRNs or PERNs to meet your material obligations
+       </h3>
+       
+          <p>Once you've purchased PRNs or PERNs, ensure they are accepted by your compliance scheme or regulatory authority. This will help you meet your material obligations and avoid any compliance issues. </p>
+          
+          
+<p>          <a href="https://defra-cpr-prototype.herokuapp.com/packing-recovery-notes/v6-1/compliance-scheme/view-awaiting-acceptance-alt" class="govuk-link">  Accept PRNs or PERNs</a></p>  
+</li>
+<li>
+<h3 class="govuk-heading-s">
+  Check everything's correct
+</h3>
+
+  <p>Verify that your data, including purchased and accepted PRNs and PERNs, are correctly recorded and accounted for. </p>
+  <p>After fully meeting your obligation for each material, you’ll be issued a certificate to demonstrate full compliance.</p>
+
+
+</li>
+<br/>
+<br/>
+  <p class="govuk-body">
+    <a href="#" class="govuk-link">I have a problem with my obligation</a></p>
+
+<a href="view-obligation" class="govuk-link">  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Back to full obligation
+      </button></a>
+     
+</div>
+</div>
+
+
+          
+    
+
+
+ 
+  
+
+{% endblock %}

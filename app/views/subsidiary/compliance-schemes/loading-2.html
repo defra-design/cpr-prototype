@@ -1,0 +1,82 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+
+{% block content %}
+<form class="form" action="" method="POST">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-l">Uploading and validating file</h1>
+
+      <p class="govuk-body">Your file is currently being uploaded and checked for errors. This is taking longer than expected. 
+        
+        <br><br>Come back later to check the status of this file.</p>
+
+
+      <!--<p>
+        <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+      </p> --> 
+      <button class="govuk-button" formaction="subs-list-pending-2">View subsidiaries</button> 
+    </form>
+      <!--<a class="govuk-link" href="confirmation">Next page</a>-->
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+  
+{% endblock %}
+
+
+

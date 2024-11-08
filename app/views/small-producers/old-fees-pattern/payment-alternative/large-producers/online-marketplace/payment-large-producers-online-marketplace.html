@@ -1,0 +1,116 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Large producer payment fees online marketplace
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Online marketplace (large producers)
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form"
+      action="../../../payment-alternative/large-producers/online-marketplace/payment-large-producers-next-alternative"
+      method="post">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Total fee due £5,199.00
+          </h1>
+        </legend>
+
+        <p class="govuk-body">Registration fees are calculated from the information you have supplied.</p>
+
+
+        <table class="govuk-table govuk-table--small-text-until-tablet">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Chargeable item</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Base fee</th>
+              <td class="govuk-table__cell">Fee for producer size</td>
+              <td class="govuk-table__cell">£2,620.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Online marketplace fee</th>
+              <td class="govuk-table__cell">Fee for owning an online marketplace</td>
+              <td class="govuk-table__cell">£2,579.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total subsidiaries fee</th>
+              <td class="govuk-table__cell">Fee for number of subsidiaries</td>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header">£5,199.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {{ govukButton({
+        text: "Continue and pay",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+    </form>
+
+  </div>
+</div>
+
+
+<script src="../../../public/javascripts/small-producers.js"></script>
+</div>
+{% endblock %}

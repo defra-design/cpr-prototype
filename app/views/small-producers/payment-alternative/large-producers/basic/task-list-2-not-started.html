@@ -1,0 +1,75 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="fees-task-list-2">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <h1 class="govuk-heading-l">Acme Limited registration</h1>
+        <div class="govuk-inset-text" style="margin-bottom: 20px;">
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            <strong>Organisation ID: 123 456</strong>
+          </p>
+        </div>
+        <!-- Page layout end 1 -->
+
+        <!-- Content Start -->
+        <h2 class="app-task-list__section">Registration steps</h2>
+        <ul class="app-task-list__items govuk-!-padding-left-0">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="https://defra-cpr-prototype.herokuapp.com/report-organisation-details/producers/version-3/before-you-start"
+                aria-describedby="#" class="#">
+                Submit registration data
+              </a>
+            </span><strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not Started</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="../basic/large-producer-dashboard-basic" aria-describedby="#" class="#">
+                Pay registration fee
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not Started</strong>
+          </li>
+        </ul>
+        <!-- Content end-->
+
+        <!-- Page layout start 2 -->
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+<!-- Page layout end 2 -->
+
+{% block bodyEnd %}
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-xl">Subsidiaries</h1>
+            <form method="POST" action="">
+
+
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  Check all the information you have provided is accurate. If it is not correct or if there is any missing information you will need to provide the correct data. Use the subsidiary IDs for all future organisation details and packaging data submissions.                 </strong>
+              </div>
+              
+           
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+         
+<h1 class="govuk-heading-m">GOOD FOODS LIMITED</h1>
+<span class="govuk-caption-m">Organisation ID: 155594<br>Companies House number: 10319765</span>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row"> <h1 class="govuk-heading-m">
+              <th scope="col" class="govuk-table__header">Subsidiary name</th>
+              <th scope="col" class="govuk-table__header">Subsidiary ID</th>
+              <th scope="col" class="govuk-table__header">Companies House number</th>
+              <th scope="col" class="govuk-table__header"></th>
+              </h1>
+            </tr>
+          </thead>
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  Good Sauces Coventry</td>
+                  <td class="govuk-table__cell">123456</td>
+                  <td class="govuk-table__cell">64523645</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href="remove-confirm">
+                  Remove<span class="govuk-visually-hidden"> address</span>
+                  </a></td>
+              
+              </tr>
+
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"> 
+                  Good Vegetables Telford</td>
+                  <td class="govuk-table__cell">895464</td>
+                  <td class="govuk-table__cell">89461325</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href="#">
+                    Remove<span class="govuk-visually-hidden"> address</span>
+                    </a></td>
+              
+              </tr>
+              
+              
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                    Good Pasta Stratford</td>
+                    <td class="govuk-table__cell">654931</td>
+                    <td class="govuk-table__cell">46531597</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="#">
+                      Remove<span class="govuk-visually-hidden"> address</span>
+                      </a></td>
+                
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">
+                      Bobs Bicycles</td>
+                      <td class="govuk-table__cell">597812</td>
+                      <td class="govuk-table__cell">86314576</td>
+                      <td class="govuk-table__cell"><a class="govuk-link" href="#">
+                        Remove<span class="govuk-visually-hidden"> address</span>
+                        </a></td>
+                </tr>
+
+                
+
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Ice Cream London</td>
+                        <td class="govuk-table__cell">634215</td>
+                        <td class="govuk-table__cell">21369754</td>
+                        <td class="govuk-table__cell"><a class="govuk-link" href="#">
+                          Remove<span class="govuk-visually-hidden"> address</span>
+                          </a></td>
+                    
+                    </tr>
+
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"> 
+                    Toms Bikes</td>
+                    <td class="govuk-table__cell">264985</td>
+                    <td class="govuk-table__cell">45692678</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="#">
+                      Remove<span class="govuk-visually-hidden"> address</span>
+                      </a></td>
+                
+                </tr>
+          </tbody>
+        </table><br>
+      
+        
+
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+     <br><br>
+ 
+   
+  </form>
+  
+  <div id="ctas">
+    <button class="govuk-button" formaction="loading">Upload file</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Export</button> 
+    <a class="govuk-pagination__link govuk-body-m"  href="how-to-complete">Account home</a>
+    <a class="govuk-pagination__link govuk-body-m"  href="how-to-complete">How to complete a file (opens in new tab)</a>
+</div>
+
+
+
+
+        
+      </div>
+      </div>  
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

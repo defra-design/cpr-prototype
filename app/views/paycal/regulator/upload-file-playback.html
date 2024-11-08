@@ -1,0 +1,97 @@
+
+
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="#">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+        <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+    </div>
+   </div>
+<br><br>
+<form method="POST" action="">
+     <h1 class="govuk-heading-l">Review fees</h1>
+
+     <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+  
+        
+          <div id="waste-hint" class="govuk-hint">
+            Check if all data uploaded are correct before submitting.      </div>
+  
+          <tr class="govuk-table__row">
+           
+            <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Effective from</th>
+            <th scope="col" class="govuk-table__header">Effective to</th>
+       
+          </tr>
+  
+  
+  
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+  
+  
+          <tr class="govuk-table__row">
+          
+            <td class="govuk-table__cell">Large Producer registration</td>
+            <td class="govuk-table__cell">2,620.79</td>
+              <td class="govuk-table__cell">01/01/2024</td>
+              <td class="govuk-table__cell">31/12/2024</td>
+           
+            
+          </tr>
+  
+  
+          <tr class="govuk-table__row">
+          
+            <td class="govuk-table__cell">Small Producer registration</td>
+            <td class="govuk-table__cell">1,573.45</td>
+              <td class="govuk-table__cell">01/01/2024</td>
+              <td class="govuk-table__cell">31/12/2024</td>
+           
+            
+          </tr>
+
+          
+          <tr class="govuk-table__row">
+          
+            <td class="govuk-table__cell">Online Market Place</td>
+            <td class="govuk-table__cell">620.14</td>
+              <td class="govuk-table__cell">01/01/2024</td>
+              <td class="govuk-table__cell">31/12/2024</td>
+           
+            
+          </tr>
+  
+        </tbody>
+      </table>
+      <button class="govuk-button" formaction="confirmation">Comfirm and submit</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

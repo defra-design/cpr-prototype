@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+{{ data | log }}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">The amount of packaging you handle and supply</h1>
+
+    <p>Some of the ways you handle and supply packaging may make you legally obligated under EPR for packaging. These
+      include:</p>
+
+    <p class="govuk-body">You can buy:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>importing packaging that contains goods into the UK to sell</li>
+      <li>selling empty packaging to businesses that fall under the higher threshold</li>
+      <li>owning an online marketplace</li>
+      <li>hiring or loaning out reusable packaging to UK organisations</li>
+    </ul>
+
+
+    <form id="tonnageForm">
+      {{ govukRadios({
+      name: "tonnagedata",
+      value: data['tonnagedata'],
+      items: [
+      {
+      value: "under25tonnes",
+      text: "Under 25 tonnes"
+      },
+      {
+      value: "25to50tonnes",
+      text: "25 tonnes to 50 tonnes"
+      },
+      {
+      value: "morethan50tonnes",
+      text: "More than 50 tonnes"
+      }
+      ]
+      }) }}
+
+      <div>
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+      </div>
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the form element
+        const form = document.getElementById('tonnageForm');
+        // Get the selected radio button value
+        const tonnagedata = form.querySelector('input[name="tonnagedata"]:checked');
+
+        // Check if an option is selected
+        if (tonnagedata) {
+          // Route based on the selected value
+          if (tonnagedata.value === '25to50tonnes' || tonnagedata.value === 'morethan50tonnes') {
+            window.location.href = '../task-list-2-large-producer';
+          } else if (tonnagedata.value === 'under25tonnes') {
+            window.location.href = 'outcome-not-obligated-below-turnover';
+          }
+        } else {
+          alert('Please select an option.');
+        }
+      }
+    </script>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

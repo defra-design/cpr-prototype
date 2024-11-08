@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+{{ data["brand-owner-1"] | upper | log }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Owning an online marketplace
+    </h1>
+
+    <p class="govuk-body">
+      An online marketplace is a website that has been set up to allow non-UK organisations to sell their goods online.
+    </p>
+
+    <p class="govuk-body">
+      If your organisation owns a website that sells goods from UK organisations only, this is not classed as an online
+      marketplace.
+    </p>
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Do you own an online marketplace that allows non-UK organisations to sell packaged products in the UK?
+    </legend>
+
+
+    <form id="marketplaceForm">
+      {{ govukRadios({
+      name: "marketplacedata",
+      value: data['marketplacedata'],
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      }) }}
+
+      <div>
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+      </div>
+    </form>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the form element
+        const form = document.getElementById('marketplaceForm');
+        // Get the selected radio button value
+        const marketplacedata = form.querySelector('input[name="marketplacedata"]:checked');
+
+        // Check if an option is selected
+        if (marketplacedata) {
+          // Route based on the selected value
+          if (marketplacedata.value === 'no') {
+            window.location.href = 'service-provider';
+          } else if (marketplacedata.value === 'yes') {
+            window.location.href = 'service-provider';
+          }
+        } else {
+          alert('Please select an option.');
+        }
+      }
+    </script>
+
+
+  </div>
+</div>
+
+{% endblock %}

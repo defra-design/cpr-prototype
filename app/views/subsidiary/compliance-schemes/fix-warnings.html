@@ -1,0 +1,108 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="upload-file.html">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="upload-new-file">
+        <div class="govuk-form-group ">
+
+        <h1 class="govuk-heading-l">Subsidiaries file processed – check the warnings</h1>
+
+       <h1 class="govuk-body-m"> We have processed your file. We were not able to add all of your subsidiaries.  You need to check the file and fix any errors. </h1>
+        <h2 class="govuk-heading-m">
+            How to check warnings</h2>
+
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li><a href="../../../../../../public/files/packaging-data-Jan-Jun-2023-warnings-report.csv">Download your warnings report (CSV, 120KB)</a>.</li>
+            <li>You may also need the <a href="how-to-complete" class="govuk-link--no-visited-state">How to complete a file guidance (opens in new tab)</a>.</li>
+          
+        </ol>
+    </div>
+
+    <fieldset class="govuk-fieldset">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading govuk-!-margin-top-2">
+            Do you want to upload a new file?
+          </h2>
+        </legend>
+        <div class="govuk-radios govuk-!-margin-bottom-2" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="uploadNew" name="upload-new" type="radio" value="Yes" {{ checked("upload-new", "Yes") }} >
+            <label class="govuk-label govuk-radios__label" for="uploadNew">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="uploadNew-2" name="upload-new" type="radio" value="No" {{ checked("upload-new", "No") }} >
+            <label class="govuk-label govuk-radios__label" for="uploadNew-2">
+                No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+        {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true,
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

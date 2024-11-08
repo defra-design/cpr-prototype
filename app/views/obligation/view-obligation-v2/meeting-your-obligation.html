@@ -1,0 +1,112 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+  {% endblock %}
+
+
+
+  {% block beforeContent %}
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="./lp-landing-page.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Manage your recycling obligations</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Your recycling obligation progress for 2025</a>
+      </li>
+    
+    </ol>
+  </nav>
+  
+  {% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds  govuk-!-margin-bottom-5">
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+        Meeting your recycling obligation
+      </h1>
+      <p> Producer: Best Foods Ltd</br>
+        Regulator: Environment Agency (England)</p>
+     <p>To meet your 2025 recycling obligation, you will need to:</p>
+     <ul class="govuk-list govuk-list--bullet">
+     <li>acquire PRNs or PERNs to count towards your obligation </li>
+     <li>accept any issued PRNs or PERNs</li>
+ 
+     </ul>
+
+     <p>For guidance on meeting your recycling obligations, see 
+      <a href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do" class="govuk-link"> extended producer responsibility (EPR) for packaging</a></p>  
+<br/>
+
+<p> <a href="#" class="govuk-link">Manage your recycling obligations</a></p>
+  
+<!--
+<a href="view-obligation" class="govuk-link">  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Back to your recycling obligation
+      </button></a>
+   -->  
+</div>
+</div>
+
+
+          
+    
+
+
+ 
+  
+
+{% endblock %}

@@ -1,0 +1,190 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report takeaway cups recycling data" %}
+
+{% set title = "Create an account to report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+   
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form method="POST" action="./success">
+
+    <h1 class="govuk-heading-l ">Check your answers</h1>
+
+    <h2 class="govuk-heading-m ">Organisation details</h2>
+    
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  
+
+        <!-- PRODUCER DETAILS -->
+
+             <!-- COMPANIES HOUSE DETAILS -->
+             <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation name
+                </dt>
+                <dd class="govuk-summary-list__value">
+     
+    
+                 
+                    <p class="govuk-body govuk-!-font-weight-bold">GOOD FOODS LTD</p>
+             
+                </dd>
+            </div>
+     
+        <!-- COMPANIES HOUSE NUMBER -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+                10319765
+            </dd>
+            <dd class="govuk-summary-list__actions">
+               
+            </dd>
+        </div>
+
+   
+
+   <!--
+      
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Organisation ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+                155594
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </a>
+            </dd>
+        </div>
+      --> 
+
+
+       
+         
+    </dl>
+
+
+
+
+    <h2 class="govuk-heading-m ">Your Subsidiary </h2>
+    
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  
+
+        <!-- REGISTERED WITH COMPANIES HOUSE -->
+     
+        <!-- COMPANIES HOUSE NUMBER -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+                01234567
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-the-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+
+        <!-- COMPANIES HOUSE DETAILS -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Subsidiary details 
+            </dt>
+            <dd class="govuk-summary-list__value">
+ 
+
+             
+                <p class="govuk-body govuk-!-font-weight-bold">Good Sauces Cambridge</p>
+         
+                <p class="govuk-body">9 Grange Road <br>Cambridge<br>United Kingdom <br>CB2 0AA</p>
+            </dd>
+        </div>
+
+   
+      
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                UK nation
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['uk-nation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/uk-nation.html">
+                Change<span class="govuk-visually-hidden"> UK nation</span>
+            </a>
+            </dd>
+        </div>
+       
+
+              
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Reporting method
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['reporting'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/uk-nation.html">
+                Change<span class="govuk-visually-hidden"> UK nation</span>
+            </a>
+            </dd>
+        </div>
+       
+         
+    </dl>
+
+
+
+
+    <!-- Declaration -->
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+        Declaration
+    </h2>
+
+    <p class="govuk-body govuk-!-margin-bottom-6">By confirming your details, you agree that the information you’ve given is complete and correct. 
+    </p>
+
+    <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You can be fined or prosecuted if you give the wrong information.
+        </strong>
+      </div>
+
+    {{ govukButton({
+      text: "Confirm and continue"
+    })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

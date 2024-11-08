@@ -1,0 +1,237 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "pEPR: Regulators' Service" %}
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:void(0)">Back to home</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Environment Agency</span>
+    <h1 class="govuk-heading-xl">Manage registration submissions</h1>
+
+    <form id="filter-form">
+      <p class="govuk-body-m">This list shows the current pending submissions and the latest actioned submissions. To
+        view older submissions
+        <a href="#" class="govuk-link govuk-link--no-visited-state"> log in to Power-BI.</a>
+      </p>
+
+      <!-- Filters -->
+      <div class="moj-filter">
+        <div class="moj-filter__content">
+          <div class="moj-filter__selected" style="margin-bottom: 60px;">
+
+            <div class="moj-filter__options" style="box-shadow: inset 0 0 0 0px; padding: 0px;">
+              <h2 class="govuk-heading-m">Filter options</h2>
+
+              <div class="govuk-form-group" style="margin: 15px 0px;">
+                <label class="govuk-label" for="organisation-name">Organisation name</label>
+                <input class="govuk-input" id="organisation-name" name="organisation-name" type="text">
+              </div>
+
+              <div class="govuk-form-group" style="margin: 15px 0px 25px 0px;">
+                <label class="govuk-label" for="organisation-id">Organisation ID</label>
+                <input class="govuk-input" id="organisation-id" name="organisation-id" type="text">
+              </div>
+
+              <!-- Organisation type -->
+              <div class="govuk-form-group" style="margin: 15px 0px;">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 7px;">
+                  <h3 class=" govuk-heading-s">Organisation type</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-compliancescheme" name="orgtype"
+                        type="checkbox" value="Compliance scheme">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-compliancescheme">Compliance
+                        scheme</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-largeproducer" name="orgtype" type="checkbox"
+                        value="Large producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-largeproducer">Large
+                        producer</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-smallproducer" name="orgtype" type="checkbox"
+                        value="Small producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-smallproducer">Small
+                        producer</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <!-- Submission status -->
+              <div class="govuk-form-group" style="margin: 15px 0px;">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 7px;">
+                  <h3 class="govuk-heading-s">Submission status</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-pending" name="status" type="checkbox"
+                        value="Pending">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-pending">Pending</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-granted" name="status" type="checkbox"
+                        value="Granted">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-granted">Granted</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-refused" name="status" type="checkbox"
+                        value="Refused">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-refused">Refused</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-cancelled" name="status" type="checkbox"
+                        value="Cancelled">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-cancelled">Cancelled</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-updated" name="status" type="checkbox"
+                        value="Updated">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-updated">Updated</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <!-- Submission year -->
+              <div class="govuk-form-group" style="margin: 15px 0px;">
+                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 7px;">
+                  <h3 class="govuk-heading-s">Submission year</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="year2025" name="year" type="checkbox" value="2025">
+                      <label class="govuk-label govuk-checkboxes__label" for="year2025">2025</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Apply and clear filters -->
+              <div style="align-items: center; display: flex;">
+                <button class="govuk-button" type="button" id="apply-filters"
+                  style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
+                <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
+                    class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+    <!-- TABLE -->
+    <table class="govuk-table" id="submission-table">
+
+      <h2 class="govuk-heading-m" style="text-align:center; margin: 90px 0px 10px 0px;">No
+        results found
+      </h2>
+    </table>
+  </div>
+
+
+</div>
+
+
+<script>
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    // Get filter values
+    const orgNameFilter = document.getElementById('organisation-name').value.toLowerCase();
+    const orgIdFilter = document.getElementById('organisation-id').value.toLowerCase();
+
+    // Get all checkboxes
+    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.toLowerCase());
+    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.toLowerCase());
+    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.toLowerCase());
+
+    // Check if any filters are selected
+    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
+
+    // If no filters are selected, redirect to 'manage-data-submissions-no-results'
+    if (noFiltersSelected) {
+      window.location.href = '../submissions/manage-data-submissions-no-results';
+      return; // Stop further processing
+    }
+
+    console.log('Filters Applied:', {
+      orgNameFilter,
+      orgIdFilter,
+      orgTypeFilters,
+      statusFilters,
+      yearFilters
+    });
+
+    // Get table rows
+    const rows = document.querySelectorAll('#submission-table-body tr');
+
+    // Filter rows
+    let anyRowVisible = false; // Track if any row is visible after filtering
+    rows.forEach(row => {
+      // Get data from cells
+      const orgName = row.cells[0].querySelector('a').textContent.toLowerCase().trim(); // Organisation Name
+      const orgId = row.cells[1].textContent.trim().toLowerCase(); // Organisation ID
+      const orgType = row.cells[0].querySelector('span').textContent.toLowerCase().trim(); // Organisation Type
+      const submissionYear = row.cells[3].textContent.trim().toLowerCase(); // Submission Year
+      const status = row.cells[4].querySelector('strong').textContent.toLowerCase().trim(); // Submission Status
+
+      // Filter logic
+      const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
+      const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
+      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
+      const statusMatch = statusFilters.length === 0 || statusFilters.includes(status);
+      const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
+
+      // Show/hide row based on match
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
+        row.style.display = '';
+        anyRowVisible = true; // At least one row matches the filters
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    // If no rows are visible after filtering, redirect to 'manage-data-submissions-no-results'
+    if (!anyRowVisible) {
+      window.location.href = '../submissions/manage-data-submissions-no-results';
+    }
+  });
+
+  document.getElementById('clear-filters').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent page reload on clear filters link
+    document.getElementById('filter-form').reset(); // Reset form inputs
+    const rows = document.querySelectorAll('#submission-table-body tr');
+    rows.forEach(row => {
+      row.style.display = ''; // Show all rows
+    });
+  });
+
+  // Add event listeners for checkbox changes
+  const allCheckboxes = document.querySelectorAll('input[name="orgtype"], input[name="status"], input[name="year"]');
+  allCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
+      // When any checkbox is changed, redirect to the manage-data-submissions page
+      window.location.href = '../submissions/manage-data-submissions';
+    });
+  });
+
+
+</script>
+
+
+
+
+
+{% endblock %}

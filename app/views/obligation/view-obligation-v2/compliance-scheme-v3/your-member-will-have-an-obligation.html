@@ -1,0 +1,121 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Manage account" 
+    },
+    {
+    href: "#",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+  {% endblock %}
+
+
+  {% block beforeContent %}
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../../s3/cs-landing-page-2.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../../s3/cs-sub-landing-page-s2.html">Manage your recycling obligations</a>
+      </li>
+    
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Your recycling obligation progress for 2025</a>
+      </li>
+    
+    </ol>
+  </nav>
+  
+  
+  {% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds  govuk-!-margin-bottom-5">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      You will have a 2025 recycling obligation to meet 
+    </h1>
+    
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+
+    <p>Your 2025 recycling obligation will be calculated based on the 2024 packaging data submitted. Once your data submission is approved by the regulator you’ll be able to access it from <a href="../../s3/cs-sub-landing-page-s2.html" class="govuk-link">Manage your recycling obligations</a>.</p> 
+    
+    <p>In the meantime, you can:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>start acquiring PRNs and PERNs</li>
+        <li>review your packaging data to avoid any discrepancies</li>  
+      </ul>
+    
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you believe you submitted incorrect data, contact your regulator immediately.
+        </strong>
+      </div>
+
+      <p><a href="../../s3/cs-sub-landing-page-s2.html" class="govuk-link">Manage your recycling obligations</a></p>
+  <!--
+<a href="view-obligation" class="govuk-link">  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Back to recycling obligation 
+    </button></a>
+  -->
+      
+</div>
+</div>
+
+
+          
+    
+
+
+ 
+  
+
+{% endblock %}

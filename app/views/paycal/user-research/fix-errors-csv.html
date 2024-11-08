@@ -1,0 +1,69 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-body account-info">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div><br>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./loading-success">
+        <div class="govuk-form-group ">
+            <div class="govuk-error-summary" data-module="govuk-error-summary">
+                <div role="alert">
+                  <h2 class="govuk-error-summary__title">
+                    There is a problem
+                  </h2>
+                  <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                      <li>
+                        Your file must have the extension.csv
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./loading-success">
+        <div class="govuk-form-group ">
+ 
+        <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+            Upload the file again
+        </label>
+
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+    </div>
+
+        {{ govukButton({
+        text: "Upload file",
+        preventDoubleClick: true,
+        href: 'confirmation',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

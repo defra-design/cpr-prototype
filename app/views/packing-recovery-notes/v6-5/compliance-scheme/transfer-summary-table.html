@@ -1,0 +1,44 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+<form class="form" action="transfer-prn-success" method="POST">
+
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+    Transfer this PRN to Valpak Scotland Ltd (SEPA)?
+  </h1>
+
+  <p>This PRN is 170 tonnes of paper, board or fibre-based composite material. </p>
+
+  <br>
+ 
+    <input class="govuk-button" type="submit" value="Yes, transfer" style="margin-right: 20px;"/>  
+</form>
+  
+</div>
+
+{% endblock %}
+
+<script src="https://govuk-frontend.herokuapp.com/public/javascripts/govuk-frontend-3.14.0.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function() 
+{      var metadataModule = document.querySelector('[data-module="govuk-toggle-metadata"]');     
+ if (metadataModule) { window.GOVUKFrontend.initAll();     
+
+  }   
+   });  
+   </script>

@@ -1,0 +1,176 @@
+{% set serviceName = "Small producers" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<!-- OVERVIEW AND CONTACTS -->
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+                <h1 class="govuk-heading-l">
+                        <span class="govuk-caption-xl">Prototypes</span>
+                        Small and large producers registration
+                </h1>
+        </div>
+</div>
+
+<!-- TESTING LINKS -->
+<div class="govuk-grid-row govuk-!-margin-top-5">
+        <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-grid-column-full card card-overview">
+                        <!-- TITLE -->
+                        <strong
+                                class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-2 govuk-!-margin-right-2">Testing</strong>
+                        <p class="govuk-body"><strong>Registration not started (happy path):</strong></p>
+
+                        <ul class="govuk-list">
+                                <li><a href="./registration-scenarios/dashboard-registration-notstarted"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Large and
+                                                small producers registration not started</a></li>
+                        </ul>
+
+
+                        <p class="govuk-body"><strong>All the registration scenarios:</strong></p>
+                        <ol class="govuk-list govuk-list--number">
+                                <li><a href="./registration-scenarios/dashboard-registration-notstarted"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration hasn't started</a></li>
+                                <p class="govuk-body">From scratch first time registration.</p>
+                                <li><a href="./registration-scenarios/dashboard-registration-uploaded-na-processed"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration data has been uploaded, but not processed
+                                        </a></li>
+                                <li><a href="./registration-scenarios/dashboard-registration-uploaded-processed"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration data has
+                                                been uploaded, and processed</a></li>
+                                <li><a href="./registration-scenarios/dashboard-registration-submitt-reg"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration data has been
+                                                uploaded and fees viewed</a></li>
+                                <p class="govuk-body">After registration application submitted and awaiting response
+                                        from regulator.</p>
+
+                                <li><a href="./registration-scenarios/submitted/dashboard-submitted" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">Registration submitted</a>
+                                </li>
+                                <p class="govuk-body">Returning to view a successful submission status.</p>
+
+
+                                <li><a href="./registration-scenarios/granted/dashboard-granted" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">Registration submission
+                                                granted</a></li>
+                                <p class="govuk-body">Returning to view a successful submission status.</p>
+
+
+                                <li><a href="./registration-scenarios/queried/dashboard-registration-queried"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration queried</a>
+                                </li>
+                                <p class="govuk-body">When the regulator has identified a potential issue with your
+                                        application.</p>
+
+                                <li><a href="./registration-scenarios/refused/dashboard-registration-refused"
+                                                class="govuk-link" rel="noreferrer noopener"
+                                                target="_blank">Registration refused</a></li>
+
+                                <p class="govuk-body">Returning to view a rejected submission. Also includes
+                                        resubmitting their members organisation details.</p>
+                                <li><a href="./registration-scenarios/cancelled/dashboard-registration-cancelled"
+                                                class="govuk-link">Registration cancelled</a></li>
+                                <p class="govuk-body">In rare occasions the overall application gets cancelled.</p>
+                        </ol>
+
+
+
+                        <p class="govuk-body"
+                                style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #000000 !important;">
+                                <strong>Current fee scenario pattern:</strong>
+                        </p>
+
+                        <ol class="govuk-list govuk-list--number">
+                                <li><a href="./payment-alternative/large-producers/basic/payment-scenario-smallproducers"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Small
+                                                producer
+                                                only scenario</a></li>
+                                <li><a href="./payment-alternative/large-producers/basic/payment-scenario-smallproducer-OMP"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Small
+                                                producer who is OMP, with 25 subsidiaries of which 0 are OMP
+                                                scenario</a></li>
+                                <li><a href="./payment-alternative/large-producers/basic/payment-scenario-largeproducers"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Large
+                                                producer
+                                                only scenario</a></li>
+                                <li><a href="./payment-alternative/large-producers/basic/payment-scenario-largeproducers-104subsidiaries"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Large
+                                                producer with
+                                                104 subsidiaries scenario</a></li>
+                                <li><a href="./payment-alternative/large-producers/basic/payment-scenario-largeproducers-OMP"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Large
+                                                producer who is OMP, with 54 subsidiaries of which are OMP scenario</a>
+                                </li>
+                        </ol>
+
+                        <p class="govuk-body"
+                                style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #000000 !important;">
+                                <strong>Pay by BACS - nations</strong>
+                        </p>
+                        <ol class="govuk-list govuk-list--number"
+                                style="margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid #000000 !important;">
+                                <li><a href="./payment/payments-nations/payment-england" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">England </a></li>
+                                <li><a href="./payment/payments-nations/payment-scotland" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">Scotland</a></li>
+                                <li><a href="./payment/payments-nations/payment-wales" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">Wales</a></li>
+                                <li><a href="./payment/payments-nations/payment-northern-ireland" class="govuk-link"
+                                                rel="noreferrer noopener" target="_blank">Northern Ireland</a></li>
+                        </ol>
+
+
+                        <p class="govuk-body"><strong>Emails:</strong></p>
+
+                        <ol class="govuk-list govuk-list--number">
+                                <li><a href="./registration-scenarios/granted/emails/email-details-granted"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Submission
+                                                granted</a></li>
+                                <li><a href="./registration-scenarios/refused/emails/email-details-refused"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Submission
+                                                refused</a></li>
+                                <li><a href="./registration-scenarios/queried/emails/email-details-queried"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Submission
+                                                queried</a></li>
+                                <li><a href="./registration-scenarios/cancelled/emails/email-details-cancelled"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Submission
+                                                cancelled</a></li>
+                        </ol>
+                        <br>
+                        <hr>
+                        <br>
+                        <p class="govuk-body"><strong>Other</strong></p>
+                        <ul class="govuk-list">
+                                <li><a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v1/producer/unsuccessful/sub-landing"
+                                                class="govuk-link" rel="noreferrer noopener" target="_blank">Report
+                                                organisation details</a>
+                                </li>
+                        </ul>
+
+
+
+                </div>
+        </div>
+
+
+
+        {% endblock %}

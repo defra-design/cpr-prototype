@@ -1,0 +1,108 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+EPR for packaging data
+{% endset%}
+
+{% set serviceName = "EPR for packaging data" %}
+
+{% block pageTitle %}
+EPR for packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "EPR for packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Report your organisation details</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Upload organisation details</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="#">
+
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+        aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Organisation details uploaded
+          </h3>
+          <p class="govuk-body">filename.csv</p>
+        </div>
+      </div>
+
+
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">Based on what is in the file, you also need to report about:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>brand details.</li>
+        <li>partner details.</li>
+      </ul>
+      <p class="govuk-body">If you think this is wrong, you can <a href="../upload-org-details" class="govuk-link"
+          rel="noreferrer noopener" target="_blank">re-upload your organisation details</a>.</p>
+
+      {{ govukButton({
+      text: "Upload brand information"
+      })}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

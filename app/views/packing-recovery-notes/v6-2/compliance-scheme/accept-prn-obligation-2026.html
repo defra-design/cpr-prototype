@@ -1,0 +1,53 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="select-prn-dec-2026" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              Accept this PRN against your 2026 obligation?
+            </label>
+          </h1>
+          <br>
+          <p class="govuk-body-m">This will credit 100 tonnes towards your 2026 obligation.</p>
+
+        </div>
+      </div>
+
+
+</fieldset>
+</div>
+ 
+    <input class="govuk-button" type="submit" value="Yes, accept" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="No, go back"  />
+
+</form>
+  
+</div>
+
+{% endblock %}

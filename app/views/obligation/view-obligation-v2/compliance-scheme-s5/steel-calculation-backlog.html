@@ -1,0 +1,223 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<a href="#" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Your 2025 recycling obligation for steel
+    </h1>
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (EA)</p>
+
+
+  </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-2">
+
+
+ 
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Current status of your steel recycling obligation</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="15%">Material</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligation to meet</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance </th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+            <th scope="col" class="govuk-table__header" width="13%">Status</th>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Steel </th>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligation to meet">30,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">30,000</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+            <td class="govuk-table__cell" data-header="Status"> <strong class="govuk-tag govuk-tag--green" >
+                Met
+              </strong></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What these amounts mean
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>These amounts are based on the data submitted to the Environment Agency when reporting this packaging material. We calculated these numbers by applying the relevant material recycling
+      target for 2025 to the amount and type of packaging your member supplied in 2024.</p>
+
+    <p class="govuk-body">View your
+      <a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v2/current-history"
+        class="govuk-link">packaging data history</a> for the data submitted for 2024.
+    </p>
+    <p class="govuk-body">See the
+      <a href="https://consult.defra.gov.uk/extended-producer-responsibiity-team/consultation-on-the-draft-producer-responsibility/supporting_documents/230720%20consultation%20draft%20PRO%20Packaging%20and%20Packaging%20Waste%20Regulations.pdf"
+        class="govuk-link">Producer Responsibility Obligations (Packaging and Packaging Waste) Regulations 2024</a> to understand how material recycling targets for 2025 are set.
+    </p>
+
+  </div>
+</details>
+
+
+<div class="govuk-grid-full govuk-!-margin-bottom-2">
+  <h2 class="govuk-heading-m">How we calculated your recycling obligation</h2>
+  
+  <p class="govuk-body">We applied the formula set out in the 2024 regulations to calculate your total steel obligation: </p>
+   <p> <strong>X x Y = Z</strong></p>
+  
+   <ul class="govuk-list govuk-list--bullet">
+    <li><strong> X </strong> is 37,500 tonnes (the total amount of steel you reported to the nearest tonne) </li>
+    <li><strong> Y </strong> is 80% (recycling target for steel set by the 2024 regulations)</li>
+  </ul>
+  
+  <p>Your steel obligation (<strong>Z</strong>) is: <br/>
+    <strong> 37,500 tonnes x 80% = 30,000 tonnes</strong>.</p>
+  
+  
+  
+  
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      If you believe your data is incorrect, contact your regulator immediately.
+    </strong>
+  </div>
+
+
+
+
+  <p><a href="https://defra-cpr-prototype.herokuapp.com/obligation/s6b/cs-sub-landing-page-s3" class="govuk-link">Back to your recycling obligations</a></p>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Subsidiary successfully removed
+          </h1>
+          <div class="govuk-panel__body">
+            Good Sauces Coventry
+
+          </div>
+        </div>
+        <p class="govuk-body">
+        </p>
+        
+        
+        <p class="govuk-body">You removed a subsidiary.
+        </p>
+        
+
+        &nbsp; &nbsp;
+<div class="govuk-button-group">
+  <a href="subs-list-2" class="govuk-button" type="submit">View subsidiaries</a>
+  <a class="govuk-link" href="dash"></a>
+
+ 
+  <a class="govuk-link" href="landing-page">Return to account home</a>
+</div>
+        
+        
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

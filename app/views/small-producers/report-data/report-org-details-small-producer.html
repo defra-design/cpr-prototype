@@ -1,0 +1,117 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+EPR for packaging data
+{% endset%}
+
+{% set serviceName = "EPR for packaging data" %}
+
+{% block pageTitle %}
+EPR for packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "EPR for packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="report-org-details">Report your organisation details</a>
+    </li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full  govuk-!-margin-bottom-5">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Report your organisation details
+    </h1>
+    <h2 class="govuk-heading-m">Before you start</h2>
+    <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state"
+        href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging"
+        target="_blank">how to report organisation details (opens in a new window)</a>. <br> There are
+      template documents you can use to build your files.</p>
+
+    <h2 class="govuk-heading-m">What you need to do</h2>
+    <ol class="govuk-list govuk-list--number">
+      <li>Upload organisation details to your account in a CSV file. We’ll check the data is in the right format.
+      </li>
+      <li>Based on what is in that file, you may also need to upload files with brand and partner information.</li>
+      <li>Submit the data to the environmental regulator by the deadline - only people with the right account
+        permission can do this.</li>
+    </ol>
+    <p class="govuk-body">You can upload new files to your account at any time before you submit.</p>
+
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-7">
+      <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+          <h2 class="govuk-heading-m ">Report members’ organisation details for January to June 2023</h2>
+          <p class="govuk-body">Deadline: 11:59pm on 1 October 2023</p>
+          <p class="govuk-body"><a
+              href="small-producers-report-organisation-details/producers/version-3/before-you-start"
+              class="govuk-link">Report organisation details</a></p>
+          <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="status"
+              style="float: left;">Not started</strong></p>
+
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+          <h2 class="govuk-heading-m">Report members’ organisation details for July to December 2023</h2><br>
+          <p class="govuk-body">Deadline: 11:59pm on 1 April 2024</p>
+          <p class="govuk-body"><strong class="govuk-tag govuk-tag--yellow app-task-list__tag" id="status"
+              style="float: left;">cannot
+              start yet</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

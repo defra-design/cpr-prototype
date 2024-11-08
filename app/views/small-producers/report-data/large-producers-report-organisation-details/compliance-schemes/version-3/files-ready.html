@@ -1,0 +1,101 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="POST" action="./ready-or-not">
+
+            <div class="govuk-form-group">
+                {{ govukRadios({
+                    idPrefix: "files-ready",
+                    name: "files-ready",
+                    fieldset: {
+                        legend: {
+                            text: "Do you have your organisation details file ready?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes – upload now" 
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        },
+                        {
+                            divider: "or"
+                        },
+                          {
+                            value: "not-sure",
+                            text: "I'm not sure"
+                          }
+                    ]
+                }) }}
+
+            </div>
+
+            {{ govukButton({
+            text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}

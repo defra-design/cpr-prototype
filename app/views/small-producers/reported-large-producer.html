@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">About your organisation</span>
+
+        <h1 class="govuk-heading-l">Large producer</h1>
+
+        <p class="govuk-body">You have told us you are a large producer.</p>
+
+        <p class="govuk-body">This means your organisation:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>has an annual turnover of more than £2 million</li>
+            <li>is responsible for supplying or importing more than 50 tonnes of packaging in the UK</li>
+        </ul>
+        <p class="govuk-body">If you are unsure <a href="https://www.gov.uk/guidance/report-packaging-data"
+                class="govuk-link" rel="noreferrer noopener" target="_blank">check the guidance (opens in a new
+                tab)</a>.</p>
+
+
+        {{ govukButton({
+        text: "Continue",
+        preventDoubleClick: true,
+        href: 'task-list-2-large-producer',
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+    </div>
+    <script src="../../../public/javascripts/small-producers.js"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,288 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "Check if you need to report packaging data" %}
+
+{% block pageTitle %}
+Check if you need to report packaging data | {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+{{ data["drink-materials"] |  log }}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!-- PANEL -->
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5 govuk-!-margin-top-5" style="background-color: #1D70B8;">
+            <h1 class=" govuk-heading-l" style="color: #fff; padding: 0px; margin: 0 auto;">
+              You will need to report packaging data
+            </h1>
+        </div>
+
+        <!-- SUMMARY -->
+        {% if data["small-producer"] == 'yes' %}
+          <p class="govuk-body">
+            Under EPR for packaging, you're classed as a small organisation. This means your organisation will need to record and submit data about the packaging it handles and supplies.
+          </p>
+        {% endif %}
+
+        {% if data["small-producer"] == 'no' %}
+          <p class="govuk-body">
+            Under EPR for packaging, you're classed as a large organisation. This means your organisation will need to record and submit data about the packaging it handles and supplies. You’ll also need to pay fees.
+          </p>
+        {% endif %}
+
+        <p class="govuk-body">You can <a href="javascript:if(window.print)window.print()">print or save this page as a PDF</a>.</p>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">What this means for your organisation</h2>
+
+        <!-- WASTE COST OBLIGATION -->
+        {% if data["small-producer"] == 'no' %}
+          <p class="govuk-body">You must:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>record data about empty packaging and packaged goods you handle and supply in the UK market from 1 January 2023</li>
+              <li>create an account and register your organisation from July 2023</li>
+              <li>pay a fee to the environmental regulator</li>
+              <li>submit data about empty packaging and packaged goods you handled or supplied through the UK market</li>
+          </ul>
+          <div class="govuk-inset-text">
+           <p class="govuk-body">For the period January to June 2023, submit data between 1 July 2023 and 1 October 2023.</p>
+           <p class="govuk-body">For the period July to December 2023, submit data between 1 January 2024 and 1 April 2024.</p>
+          </div>
+          <p class="govuk-body">For any packaging that you handle and supply that is collected by local authorities from households or street bins, from April 2024 you must pay the scheme administrator:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>a fee</li>
+              <li>a waste management fee</li>
+          </ul>
+        {% endif %}
+
+        {% if data["small-producer"] == 'yes' %}
+          <p class="govuk-body">You must:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>record data about empty packaging and packaged goods you handle and supply in the UK market from 1 January 2023</li>
+              <li>create an account and register your organisation from January 2024</li>
+              <li>pay a fee to the environmental regulator</li>
+              <li>submit data about empty packaging and packaged goods you handled or supplied through the UK market throughout 2023</li>
+          </ul>
+          <div class="govuk-inset-text">
+           <p class="govuk-body">You’ll need to submit your data between 1 January 2024 and 1 April 2024.</p>
+          </div>
+        {% endif %}
+
+        <!-- RECYCLING OBLIGATION -->
+        {% if data["small-producer"] == 'no' %}
+          <h3 class="govuk-heading-s">Meet your recycling obligations</h3>
+          <p class="govuk-body">You must buy  packaging waste recyling notes (PRNs) or packaging waste export recycling notes (PERNs) in 2024.</p>
+          <p class="govuk-body">We’ll let you know how many PRNs and PERNs you need to buy. We’ll base this on your 2023 data.</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What are PRNs and PERNs?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">A PRN or PERN is a certificate prooving that packaging waste has been recycled properly.</p>
+              <p class="govuk-body">You can buy PRNs and PERNs from accredited reprocessors. Reprocessors are responsible for recycling packaging waste.</p>
+              <p class="govuk-body">By buying PRNs and PERNs, you work towards meeting your recylcing target.</p>
+            </div>
+          </details>
+        {% endif %}
+        
+        <!-- NATION DATA -->
+        {% if data["nation-data"] == 'yes' %}
+          <h3 class="govuk-heading-s">Submit nation data</h3>
+          <p class="govuk-body">You’ll need to submit nation data.</p>
+          <p class="govuk-body">Nation data is information about which country in the UK your packaging has been sold, hired, loaned, gifted or discarded. </p>
+          <div class="govuk-inset-text">
+            You must submit your nation data for the 2023 calendar year by 1 October 2024.
+          </div>
+        {% endif %}
+
+        <!-- NEXT STEPS -->
+        <h2 class="govuk-heading-m">What you should do next</h2>
+        <p class="govuk-body">Prepare to collect data about the packaging you handle or supply in 2023. </p>
+        <p class="govuk-body"><a href="https://www.gov.uk/guidance/how-to-collect-your-packaging-data-for-extended-producer-responsibility" target="_blank" class="govuk-link">Find out more about the data you'll need to collect (opens in a new tab)</a></p>
+
+        <!-- SECTION BREAK -->
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <!-- WHAT YOU TOLD US / CHANGE YOUR ANSWERS -->
+        <h2 class="govuk-heading-m">What you told us</h2>
+        <dl class="govuk-summary-list">
+          
+          <!-- ORGANISATION TYPE -->
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Organisation type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['organisation-type'] }}
+              </dd>
+          </div>
+          
+          <!-- TURNOVER -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Turnover
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['turnover'] }}
+            </dd>
+          </div>
+          
+          <!-- ACTIVITIES -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging activities
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data["brand-owner"] == 'yes' %}
+                  <li>
+                    supplying goods to the UK market under your own brand
+                  </li>
+                {% endif %}
+                {% if data["packer-filler"] == 'yes' %}
+                  <li>
+                    placing goods into packaging that's unbranded when it's sold
+                  </li>
+                {% endif %}
+                {% if data["importer"] == 'yes' %}
+                  <li>
+                    importing packaging that contains goods into the UK to sell
+                  </li>
+                {% endif %}
+                {% if data["distributor"] == 'yes' %}
+                  <li>
+                    selling empty packaging to businesses that fall under the higher threshold
+                  </li>
+                {% endif %}
+                {% if data["online-marketplace"] == 'yes' %}
+                  <li>
+                    owning an online marketplace
+                  </li>
+                {% endif %}
+                {% if data["service-provider"] == 'yes' %}
+                  <li>
+                    hiring or loaning out reusable packaging to UK organisations
+                  </li>
+                {% endif %}
+                {% if data["seller"] == 'yes' %}
+                  <li>
+                    supplying filled packaging to consumers
+                  </li>
+                {% endif %}
+              </ul>
+            </dd>
+          </div>
+
+          <!-- DRINKS ON MARKET -->
+          <!-- {% if data["drinks-market-answer"] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Place drinks containers on the market
+            </dt>
+            {% if data["place-drinks"] == 'yes' %}
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            {% else %}
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            {% endif %}
+          </div>
+          {% endif %} -->
+
+          <!-- DRINKS MATERIAL -->
+          <!-- {% if data["drink-material-answer"] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Materials used for drinks containers
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data["drink-materials"] == 'plastic-bottles' %}
+                <li>PET plastic bottles</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'glass-bottles' %}
+                <li>glass bottles</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'steel-cans' %}
+                <li>steel cans</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'aluminium-cans' %}
+                <li>aluminium cans</li>
+                {% endif %}
+
+                {% if data["drink-materials"] == 'None' %}
+                <li>None</li>
+                {% endif %}
+                
+              </ul>
+            </dd>
+          </div>
+          {% endif %} -->
+
+          <!-- DRINKS SIZE -->
+          <!-- {% if data["drink-size-answer"] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Drinks containers between 50ml and 3l
+            </dt>
+            {% if data["drink-size"] == 'yes' %}
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            {% endif %}
+            {% if data["drink-size"] == 'no' %}
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            {% endif %}
+          </div>
+          {% endif %} -->
+          
+          <!-- WASTE COST • TONNAGE -->
+          {% if data["handle-supply"] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount handled and supplied
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['packaging-tonnage'] }}
+            </dd>
+          </div>
+          {% endif %}
+          
+          <!-- NATION DATA • TONNAGE -->
+          {% if data["sell-tonnage"] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount sold, hired, loaned, gifted or discarded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['nation-tonnage'] }}
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
+
+    </div>
+</div>
+
+{% endblock %}
