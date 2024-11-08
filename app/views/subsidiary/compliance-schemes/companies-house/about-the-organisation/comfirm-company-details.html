@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account to report takeaway cups recycling data" %}
+
+{% set title = "Create an account to report takeaway cups recycling data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./companies-house-number.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+   <form method="POST" action="./uk-nation">
+
+
+
+      <h1 class="govuk-heading-l">Confirm subsidiary details</h1>
+      <div class="govuk-inset-text">
+        
+   
+
+    
+        <h2 class="govuk-heading-m">Good Sauces Cambridge</h2>
+     
+
+        <div class="govuk-!-margin-bottom-4">
+          <p class="govuk-body govuk-!-margin-bottom-1">Company number:</p>
+          <p class="govuk-body">01234567</p>
+        </div>
+        <div class="">
+          <p class="govuk-body govuk-!-margin-bottom-1">Registered address:</p>
+          <p class="govuk-body govuk-!-margin-bottom-1">9 Grange Road <br>Cambridge <br>United Kingdom <br>CB2 0AA</p>
+        </div>
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            These details are wrong
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">If these details are wrong, you should:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>check the Companies House number and make sure it’s accurate - if you entered it incorrectly, you can <a href="./companies-house-number.html" class="govuk-link">change your number</a></li>
+            <li>check Companies House to see if your organisation details are  correct, if they are not <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">you can change them on Companies House (opens in a new tab)</a></li>
+          </ul>
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
