@@ -1,0 +1,89 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="../../../landing-page/v2/cs-submit-behalf-lp-england" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+                    <div class="govuk-panel govuk-panel--confirmation">
+                        <h1 class="govuk-panel__title">
+                        Your packaging data has been submitted
+                        </h1>
+                      </div>
+                    <p>Submitted by Jane Doe at 2:00pm on 10 October 2023</p>
+                     <a href="./file-uploaded.html">Print this page</a>
+
+                      <h2 class="govuk-heading-m govuk-!-margin-top-4">What happens next</h2>
+                      
+                      <p>The environmental regulator will review your packaging data. They will contact you if there are any issues.</p>
+    
+                </fieldset>
+            </div>
+
+
+            <a href="landing.html">Go to your account homepage</a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

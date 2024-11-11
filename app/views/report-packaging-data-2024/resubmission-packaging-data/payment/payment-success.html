@@ -1,0 +1,97 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="./payment-online-confirmation.html" method="post">
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Payment successful
+            </h1>
+            <div class="govuk-panel__body">
+              Payment reference number is<br>222019EFGF
+            </div>
+          </div>
+          <p class="govuk-body">
+            Submitted 16 March, 2025
+          </p>
+
+          <p class="govuk-body">Registration fee of <strong>£1,216.00</strong> paid by John Doe at 10:45am on Wednesday
+            5 March 2025.</p>
+
+          <p class="govuk-body">The payment reference number will also be used as your application reference.</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            We have sent an email confirmation to <a href="mailto:email@address.com">email@address.com</a> and will
+            contact you either to confirm your registration, or to ask for more information.
+          </p>
+
+
+          <!-- Content end-->
+
+          {{ govukButton({
+          text: "Continue",
+          attributes: {
+          id: "submitButton",
+          onclick: "handleSubmit(event)"
+          }
+          }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
