@@ -53,16 +53,17 @@ classes: 'govuk-width-container'
 
 
 <nav class="defra-language-select" aria-label="Language switcher">
-  {{ govukBackLink ({
-    text: "Home",
-    href: "/subsidiary/compliance-schemes/landing-page-2-i"
-    }) }}    
+ {{ govukBackLink ({
+  text: "Home",
+  href: "/subsidiary/compliance-schemes/landing-page-2-i"
+  }) }} 
   <ul class="defra-language-select__list">
     <li class="defra-language-select__list-item">
       <span aria-current="true">English</span>
     </li>
     <li class="defra-language-select__list-item">
-      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
         <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
         <span aria-hidden="true">Cymraeg</span>
       </a>
@@ -82,7 +83,6 @@ classes: 'govuk-width-container'
   .card {
     min-height: 0px;
   }
-
 </style>
 
 <div class="govuk-grid-row">
@@ -92,9 +92,9 @@ classes: 'govuk-width-container'
     <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
       Regulator: Environment Agency (England)</p>
 
-<!--
-<p class="govuk-body">Search for subsidiaries, add new ones, or upload and manage your subsidiaries list.</p>
-    -->
+
+   
+
 
     <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
 
@@ -112,7 +112,7 @@ classes: 'govuk-width-container'
             name: "which-producer",
             allowEmpty: false,
             label: {
-            classes: "govuk-body--m",
+            classes: "govuk-body--m ",
             showAllValues: true,
             isPageHeading: true,
             text: "Search for a producer to add subsidiary."
@@ -127,11 +127,8 @@ classes: 'govuk-width-container'
             }) }}
 
 
-
           </fieldset>
         </div>
-
-        
 
         <input class="govuk-button" type="submit" value="Search" />
 
@@ -141,146 +138,46 @@ classes: 'govuk-width-container'
     <!--
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 -->
-
-
-    <h2 class="govuk-heading-l">Producer 
-   <span class="govuk-form-group" style="float: right;">
-      {{ govukSelect({
-        id: "sort",
-        name: "sort",
-        label: {
-          text: ""
-        },
-        items: [
-       
-          {
-            value: "some",
-            text: "Show producers with subsidiaries  ",
-            selected: true
-          },
-          {
-            value: "none",
-            text: "Show producers without subsidiaries"
-          },
-          {
-            value: "both",
-            text: "Show all"
-           
-          }
-        ]
-      }) }}
-    </span>  </h2>
+<h2 class="govuk-heading-l">Producer 
+  <span class="govuk-form-group" style="float: right;">
+     {{ govukSelect({
+       id: "sort",
+       name: "sort",
+       label: {
+         text: ""
+       },
+       items: [
       
-      <h1 class="govuk-heading-m">GOOD FOODS LIMITED </h1>
+         {
+           value: "some",
+           text: "Show producers with subsidiaries  "
+         },
+         {
+           value: "none",
+           text: "Show producers without subsidiaries",
+           selected: true
+         },
+         {
+           value: "both",
+           text: "Show all"
+          
+         }
+       ]
+     }) }}
+   </span>  </h2>
+    <h1 class="govuk-heading-m">GOOD FOODS LIMITED</h1>
 
     <p class="govuk-body">Organisation ID: 155594<br>Companies House number: 10319765</p>
-   
-    <h2 class="govuk-heading-m">Subsidiaries 
 
+    <h2 class="govuk-heading-m">Subsidiaries  </h2>
 
-    </h2>
+    <p class="govuk-body">No subsidiaries added for this producer.</p>
 
-   <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row"> <h1 class="govuk-heading-m">
-          <th scope="col" class="govuk-table__header">Subsidiary name</th>
-          <th scope="col" class="govuk-table__header">Subsidiary ID</th>
-          <th scope="col" class="govuk-table__header">Companies House number</th>
-          <th scope="col" class="govuk-table__header"></th>
-          </h1>
-        </tr>
-      </thead>
-      
-      <tbody class="govuk-table__body">
-
-                <tr class="govuk-table__row">
-          <td class="govuk-table__cell">
-            Good Sauces Cambridge</td>
-              <td class="govuk-table__cell">654123</td>
-              <td class="govuk-table__cell">01234567</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">
-              Remove<span class="govuk-visually-hidden"> address</span>
-              </a></td>
-          
-          </tr>
-          
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">
-              Good Sauces Coventry</td>
-              <td class="govuk-table__cell">123456</td>
-              <td class="govuk-table__cell">64523645</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">
-              Remove<span class="govuk-visually-hidden"> address</span>
-              </a></td>
-          
-          </tr>
-
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"> 
-              Good Vegetables Telford</td>
-              <td class="govuk-table__cell">895464</td>
-              <td class="govuk-table__cell">89461325</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">
-                Remove<span class="govuk-visually-hidden"> address</span>
-                </a></td>
-          
-          </tr>
-          
-          
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-                Good Pasta Stratford</td>
-                <td class="govuk-table__cell">654931</td>
-                <td class="govuk-table__cell">46531597</td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="#">
-                  Remove<span class="govuk-visually-hidden"> address</span>
-                  </a></td>
-            
-            </tr>
-
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                  Good Sauces Banbury</td>
-                  <td class="govuk-table__cell">597812</td>
-                  <td class="govuk-table__cell">86314576</td>
-                  <td class="govuk-table__cell"><a class="govuk-link" href="#">
-                    Remove<span class="govuk-visually-hidden"> address</span>
-                    </a></td>
-            </tr>
-
-            
-
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">
-                    Good Sauces Exeter</td>
-                    <td class="govuk-table__cell">634215</td>
-                    <td class="govuk-table__cell">21369754</td>
-                    <td class="govuk-table__cell"><a class="govuk-link" href="#">
-                      Remove<span class="govuk-visually-hidden"> address</span>
-                      </a></td>
-                
-                </tr>
-
-        <tr class="govuk-table__row">
-            <td class="govuk-table__cell"> 
-                Good Sauces London</td>
-                <td class="govuk-table__cell">264985</td>
-                <td class="govuk-table__cell">45692678</td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="#">
-                  Remove<span class="govuk-visually-hidden"> address</span>
-                  </a></td>
-            
-            </tr>
-      </tbody>
-    </table>
-  <div><form method="POST" action="./companies-house/about-the-organisation/companies-house-number">
+    <div><form method="POST" action="./companies-house/about-the-organisation/companies-house-number">
     
-        <button class="govuk-button" >Add a single subsidiary to this producer</button>
-  
+      <button class="govuk-button" >Add a single subsidiary to this producer</button>
+
 </form></div>
-    
     <nav class="govuk-pagination" aria-label="Pagination">
       <div class="govuk-pagination__prev">
         <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
@@ -340,22 +237,26 @@ classes: 'govuk-width-container'
             </path>
           </svg>
         </a>
+
       </div>
+
+
     </nav>
-</div>
+
+  </div>
 
 
 </div>
 
 
-
+<!--
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
     <span class="govuk-visually-hidden">Warning</span>
     Make sure all the information is accurate and complete. Use the subsidiary IDs for all future organisation and packaging data submissions.               </strong>
 </div>
-
+-->
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -363,8 +264,9 @@ classes: 'govuk-width-container'
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    
-    
+
+
+
      <!-- FILE UPLOAD -->
      <div class="govuk-form-group">
 
@@ -373,7 +275,7 @@ classes: 'govuk-width-container'
       <h2 class="govuk-heading-m">Adding subsidiaries</h2>
       
       <p class="govuk-body">To add subsidiaries you will need to upload a CSV file.</p>
-      <p class="govuk-body">How to <a href="#" class="govuk-link">complete and upload a CSV file (opens in a new tab)</a>. </p>  
+      <p class="govuk-body">How to <a href="how-to-complete" class="govuk-link" target="_blank">complete and upload a CSV file (opens in a new tab)</a>. </p>  
       
    
       <h2 class="govuk-heading-m">
@@ -413,12 +315,9 @@ classes: 'govuk-width-container'
     <!-- </form> -->
   </div>
 
-</div>
+  </div>
 </div>
 
 
 
 {% endblock %}
-
-
-       
