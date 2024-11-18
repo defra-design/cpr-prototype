@@ -32,7 +32,6 @@ classes: 'govuk-width-container'
 {% endblock %}
 
 {% block content %}
-<!-- Page layout start 1 -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="./payment/large-producers/payment-large-producers-2">
@@ -41,12 +40,17 @@ classes: 'govuk-width-container'
         <div class="govuk-inset-text" style="margin-bottom: 20px;">
           <p class="govuk-body govuk-!-margin-bottom-1">
             <strong>Organisation ID: 123 456</strong>
-            <br> <br>
-            <strong>Ensure your packaging data for 2024 has been reported before registering. Failure may result in
-              delays to the granting of your registration.</strong>
           </p>
         </div>
-        <!-- Page layout end 1 -->
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Ensure your packaging data for 2024 has been reported before registering. Failure may result in
+            delays to your registration being assessed.
+          </strong>
+        </div>
 
         <!-- Content Start -->
         <h2 class="app-task-list__section">Additional information</h2>
@@ -60,21 +64,18 @@ classes: 'govuk-width-container'
 
 
         {{ govukButton({
-        text: "Submit registration request",
+        text: "Submit registration application",
         attributes: {
         id: "submitButton",
         onclick: "handleSubmit(event)"
         }
         }) }}
         <!-- Content end-->
-
-        <!-- Page layout start 2 -->
       </div>
     </form>
   </div>
 </div>
 {% endblock %}
-<!-- Page layout end 2 -->
 
 {% block bodyEnd %}
 {% endblock %}
