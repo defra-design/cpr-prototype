@@ -1,0 +1,167 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+    text: "Home",
+    href: "/subsidiary/compliance-schemes/landing-page-2-i"
+    }) }}    
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+  .card {
+    min-height: 0px;
+  }
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Manage subsidiaries</h1>
+
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+
+<!--
+<p class="govuk-body">Search for subsidiaries, add new ones, or upload and manage your subsidiaries list.</p>
+    -->
+
+    <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
+
+      <form class="form" action="#" method="POST">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+            </legend>
+
+            {{ xGovukAutocomplete({
+            id: "country",
+            name: "which-producer",
+            allowEmpty: false,
+            label: {
+            classes: "govuk-body--m",
+            showAllValues: true,
+            isPageHeading: true,
+            text: "Search for a producer to add subsidiary."
+            },
+            items: [
+            { text: "Good Foods Limited" },
+            { text: "Good For You limited" },
+            { text: "Good greens PLC" },
+            { text: "Great Bites Ltd" }
+
+            ]
+            }) }}
+
+
+
+          </fieldset>
+        </div>
+
+        
+
+        <input class="govuk-button" type="submit" value="Search" />
+
+      </form>
+    </div>
+
+    <!--
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+-->
+
+
+    <h2 class="govuk-heading-l">Producer not found
+     </h2>
+      
+
+
+  
+
+    <p class="govuk-body">If you searched for the name of a producer, check the spelling and try again. If you need to add the producer to this compliance scheme, you can do this through <a href="#" class="govuk-link">Members’ organisation details</a>. </p>
+   
+
+</div>
+    
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+
+
+
+
+{% endblock %}
