@@ -78,14 +78,67 @@ Report packaging data
 
 {% block content %}
 
+
+<style>
+  .card {
+    min-height: 0px;
+  }
+
+</style>
+
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+  <div class="govuk-grid-column-full govuk-!-margin-top-4">
     <h1 class="govuk-heading-l">Manage subsidiaries for producers</h1>
 
     <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
       Regulator: Environment Agency (England)</p>
 
+      <div class="govuk-grid-column-full card">
+
+        <form class="form" action="#" method="POST">
+  
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  
+  
+              </legend>
+  
+              {{ xGovukAutocomplete({
+              id: "country",
+              name: "which-producer",
+              allowEmpty: false,
+              label: {
+              classes: "govuk-body--m",
+              showAllValues: true,
+              isPageHeading: true,
+              text: "Search for a producer to add subsidiary."
+              },
+              items: [
+              { text: "Good Foods Limited" },
+              { text: "Good For You limited" },
+              { text: "Good greens PLC" },
+              { text: "Great Bites Ltd" }
+  
+              ]
+              }) }}
+  
+  
+  
+            </fieldset>
+          </div>
+  
+          
+  
+          <input class="govuk-button" type="submit" value="Search" />
+  
+        </form>
+      </div>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
       <div class="govuk-inset-text">
         You have not added any subsidiaries.
       </div>
