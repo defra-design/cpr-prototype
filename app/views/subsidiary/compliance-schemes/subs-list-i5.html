@@ -1,0 +1,328 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+ {{ govukBackLink ({
+  text: "Home",
+  href: "/subsidiary/compliance-schemes/landing-page-2-i"
+  }) }} 
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+  .card {
+    min-height: 0px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Manage subsidiaries</h1>
+
+    <p> Compliance scheme: COMPLIANCE LTD (EA)</br>
+      Regulator: Environment Agency (England)</p>
+
+
+   
+
+
+    <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
+
+      <form class="form" action="#" method="POST">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+            </legend>
+
+            {{ xGovukAutocomplete({
+            id: "country",
+            name: "which-producer",
+            allowEmpty: false,
+            label: {
+            classes: "govuk-body--m ",
+            showAllValues: true,
+            isPageHeading: true,
+            text: "Search for a producer to add subsidiary."
+            },
+            items: [
+            { text: "Good Foods Limited" },
+            { text: "Good For You limited" },
+            { text: "Good greens PLC" },
+            { text: "Great Bites Ltd" }
+
+            ]
+            }) }}
+
+
+          </fieldset>
+        </div>
+
+        <input class="govuk-button" type="submit" value="Search" />
+
+      </form>
+    </div>
+
+    <!--
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+-->
+<h2 class="govuk-heading-l">Producer 
+  <span class="govuk-form-group" style="float: right;">
+     {{ govukSelect({
+       id: "sort",
+       name: "sort",
+       label: {
+         text: ""
+       },
+       items: [
+      
+         {
+           value: "some",
+           text: "Show producers with subsidiaries  "
+         },
+         {
+           value: "none",
+           text: "Show producers without subsidiaries",
+           selected: true
+         },
+         {
+           value: "both",
+           text: "Show all"
+          
+         }
+       ]
+     }) }}
+   </span>  </h2>
+    <h1 class="govuk-heading-m">GOOD FOODS LIMITED</h1>
+
+    <p class="govuk-body">Organisation ID: 155594<br>Companies House number: 10319765</p>
+
+    <h2 class="govuk-heading-m">Subsidiaries  </h2>
+
+    <div class="govuk-inset-text">
+      You have not added any subsidiaries.
+    </div>
+
+
+ 
+
+    <div><form method="POST" action="./companies-house/about-the-organisation/companies-house-number">
+    
+      <button class="govuk-button" >Add a single subsidiary to this producer</button>
+
+</form></div>
+    <nav class="govuk-pagination" aria-label="Pagination">
+      <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+          <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg"
+            height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z">
+            </path>
+          </svg>
+          <span class="govuk-pagination__link-title">
+            Previous<span class="govuk-visually-hidden"> page</span>
+          </span>
+        </a>
+      </div>
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">
+          &ctdot;
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 6">
+            6
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 7" aria-current="page">
+            7
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 8">
+            8
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">
+          &ctdot;
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 42">
+            42
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+          <span class="govuk-pagination__link-title">
+            Next<span class="govuk-visually-hidden"> page</span>
+          </span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
+            height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+            </path>
+          </svg>
+        </a>
+
+      </div>
+
+
+    </nav>
+
+  </div>
+
+
+</div>
+
+
+<!--
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Make sure all the information is accurate and complete. Use the subsidiary IDs for all future organisation and packaging data submissions.               </strong>
+</div>
+-->
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+     <!-- FILE UPLOAD -->
+     <div class="govuk-form-group">
+
+
+
+      <h2 class="govuk-heading-m">Adding subsidiaries</h2>
+      
+      <p class="govuk-body">To add multiple subsidiaries to any producer within this compliance scheme, you will need to upload a CSV file.  </p>
+      <p class="govuk-body">How to <a href="#" class="govuk-link">complete and upload a CSV file (opens in a new tab)</a>. </p>  
+      
+   
+      <h2 class="govuk-heading-m">
+        <label class="govuk-label govuk-label--m" for="org-details" aria-describedby="organisation-file-hint">
+          Uploading a file
+        </label>
+      </h2>
+   
+      <p class="govuk-body">The file must be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>smaller than 60KB</li>
+            <li>in CSV format</li>
+        </ul>
+      <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file is uploading.</p>
+  
+    
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="file-upload-1">
+          Upload a file
+        </label>
+        <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+      </div>
+      <p></p>
+  <form method="POST" action="./loading">
+  <button class="govuk-button" >Upload file</button>
+  </form>
+  <h2 class="govuk-heading-m">Download subsidiaries list</h2>
+  <p class="govuk-body">You can download a CSV file of your current producers and their subsidiaries to  review.</p>
+
+  <form method="POST" action="#">
+    <button class=" govuk-button govuk-button--secondary">Download list</button>
+    </form>
+<p></p>
+
+
+    <!-- </form> -->
+  </div>
+
+</div>
+</div>
+
+
+
+{% endblock %}
