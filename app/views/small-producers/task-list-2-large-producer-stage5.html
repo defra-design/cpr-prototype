@@ -60,25 +60,87 @@ classes: 'govuk-width-container'
         <p class="govuk-body">Use the comment box to enter additional information which may assist the regulator. For
           example, an agreement over a part-payment.</p>
 
-        <div class="govuk-form-group">
-          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
-            aria-describedby="more-detail-hint"></textarea>
-        </div>
+        <form id="textareaForm" novalidate>
+          <fieldset id="textarea-fieldset" class="govuk-fieldset">
+            <!-- Error Message -->
+            <span id="error-message" class="govuk-error-message" style="display: none;">
+              Please provide additional information in the comment box.
+            </span>
 
+            <div class="govuk-form-group">
+              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+                aria-describedby="more-detail-hint" style="margin-bottom: 0px !important;"></textarea>
+            </div>
+          </fieldset>
 
-        {{ govukButton({
-        text: "Submit registration application",
-        attributes: {
-        id: "submitButton",
-        onclick: "handleSubmit(event)"
-        }
-        }) }}
-        <!-- Content end-->
+          <div style="margin-top: 20px;">
+
+            {{ govukButton({
+            text: "Submit registration application",
+            attributes: {
+            id: "submitButton",
+            onclick: "handleSubmit(event)"
+            }
+            }) }}
+          </div>
+        </form>
+
+        <style>
+          /* Error styling for the textarea field */
+          .govuk-fieldset--error {
+            padding-left: 15px;
+            border-left: 5px solid #d4351c;
+          }
+
+          .govuk-textarea--error {
+            border: 1px solid #d4351c;
+          }
+        </style>
+
       </div>
     </form>
   </div>
 </div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const textarea = document.getElementById('more-detail');
+    const fieldset = document.getElementById('textarea-fieldset');
+    const errorMessage = document.getElementById('error-message');
+
+    // Check if textarea is empty
+    if (textarea.value.trim() === "") {
+      // Show error message and add error styling
+      errorMessage.style.display = 'block';
+      fieldset.classList.add('govuk-fieldset--error');
+      textarea.classList.add('govuk-textarea--error');
+    } else {
+      // Hide error message and remove error styling
+      errorMessage.style.display = 'none';
+      fieldset.classList.remove('govuk-fieldset--error');
+      textarea.classList.remove('govuk-textarea--error');
+
+      // Redirect to the specified page
+      window.location.href = "https://defra-cpr-prototype.herokuapp.com/small-producers/payment/large-producers/payment-large-producers-2";
+    }
+  }
+
+  // Add a click listener for when the user interacts with the page
+  document.addEventListener('click', (event) => {
+    const textarea = document.getElementById('more-detail');
+    const fieldset = document.getElementById('textarea-fieldset');
+    const errorMessage = document.getElementById('error-message');
+
+    // If clicking outside the form and textarea is empty, show error
+    if (!textarea.contains(event.target) && textarea.value.trim() === "") {
+      errorMessage.style.display = 'block';
+      fieldset.classList.add('govuk-fieldset--error');
+      textarea.classList.add('govuk-textarea--error');
+    }
+  });
+</script>
 {% endblock %}
 
-{% block bodyEnd %}
-{% endblock %}
+{% block bodyEnd %}{% endblock %}
