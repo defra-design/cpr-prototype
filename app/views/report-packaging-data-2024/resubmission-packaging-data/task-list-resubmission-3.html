@@ -27,6 +27,11 @@ classes: 'govuk-width-container'
 }) }}
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
 {% block content %}
 <!-- Page layout start 1 -->
 <div class="govuk-grid-row">
@@ -38,7 +43,7 @@ classes: 'govuk-width-container'
         <!-- Page layout end 1 -->
 
         <!-- Content Start -->
-        <h2 class="app-task-list__section">Packaging data resubmission steps</h2>
+        
         <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
@@ -52,7 +57,7 @@ classes: 'govuk-width-container'
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
               <a href="./payment/fee-due.html" aria-describedby="#" class="#">
-                View and pay resubmission fee
+                View resubmission fee
               </a>
             </span>
             <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">completed</strong><br>
@@ -60,7 +65,7 @@ classes: 'govuk-width-container'
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
               <a href="./submit-data/registration-request.html" aria-describedby="#" class="#">
-                Submit to regulator
+                Submit resubmission
               </a>
             </span>
             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not started</strong><br>
@@ -73,6 +78,9 @@ classes: 'govuk-width-container'
 
         <!-- Page layout start 2 -->
       </div>
+
+      <a href="../report-packaging-data.html">Return to the dashboard</a>
+      
     </form>
   </div>
 </div>
