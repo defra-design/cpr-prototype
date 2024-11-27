@@ -56,15 +56,20 @@ Report packaging data
         <form action="file-resubmitted" method="post">
 
           <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
-            Are you sure you want to re-upload your organisation details?       
+            Check and submit        
       </h1>
-      <p>If you want to replace any of the files in the account, you'll need to re-upload all of the files relating to your organisation details. These will replace the current ones.</p>
-      
+
+
+    <p>You have uploaded new organisation details. You can now submit them.</p>
+
+    
+    
     <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Files you've already submitted</h2>
+          <h2 class="govuk-summary-card__title">Files uploaded</h2>
           <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <span class="govuk-visually-hidden"> file </span>
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="reupload/upload-csv.html">
+                Change<span class="govuk-visually-hidden"> file </span>
               </a>
             </li>
           </ul>
@@ -87,7 +92,7 @@ Report packaging data
                orgdetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                4 October 2024
+                10 October 2023, 2:00pm
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith
@@ -98,7 +103,7 @@ Report packaging data
                 branddetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                4 October 2024
+                10 October 2023, 2:00pm
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith 
@@ -109,7 +114,7 @@ Report packaging data
                 partnerdetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                4 October 2024
+               10 October 2023, 2:00pm
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith 
@@ -118,19 +123,34 @@ Report packaging data
           </dl>
         </div>
       </div>
+
+            <h2 class="govuk-heading-m">Do you want to submit your organisation details? </h2>
         
       <form id="agreementForm">
+        {{ govukRadios({
+        name: "agreement",
+        value: data['agreement'],
+        items: [
+        {
+        value: "pay-bank-transfer",
+        text: "Yes, submit now "
+
+        },
+        {
+        value: "pay-online",
+        text: "No, I'll do it later "
+        }
+        ]
+        }) }}
+        <br>
 
         {{ govukButton({
-          text: "Continue",
+          text: "Submit",
           preventDoubleClick: true,
-          href: 'before-you-start.html',
+          href: 'declaration.html',
           classes: 'govuk-!-margin-top-4'
           }) }}
       </form>
-      <p class="govuk-body">
-        <a href="landing-page" class="govuk-link">Cancel</a>
-      </p>
 
           
        
