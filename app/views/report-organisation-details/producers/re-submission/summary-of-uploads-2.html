@@ -56,11 +56,9 @@ Report packaging data
         <form action="file-resubmitted" method="post">
 
           <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
-            Files you've uploaded       
+            Check and submit        
       </h1>
-
-    
-    
+      
     <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Files uploaded</h2>
@@ -89,7 +87,7 @@ Report packaging data
                orgdetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                10 October 2023, 2:00pm
+                8 November 2024
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith
@@ -100,7 +98,7 @@ Report packaging data
                 branddetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-                10 October 2023, 2:00pm
+                8 November 2024
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith 
@@ -111,7 +109,7 @@ Report packaging data
                 partnerdetails1.csv
               </dd>
               <dd class="govuk-summary-list__value">
-               10 October 2023, 2:00pm
+                8 November 2024
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith 
@@ -121,10 +119,36 @@ Report packaging data
         </div>
       </div>
 
-            <h2 class="govuk-heading-m">How to submit your files</h2>
-            <p>You don't have permission to submit files.</p>
-            <p>Someone in your team with the right account permissions must submit these files.</p>
-            <a href="task-list-org-data-completed" class="govuk-link">Go to account homepage</a>
+            <h2 class="govuk-heading-m">Are you sure you want to submit your organisation details?</h2>
+        
+      <form id="agreementForm">
+        {{ govukRadios({
+        name: "agreement",
+        value: data['agreement'],
+        items: [
+        {
+        value: "pay-bank-transfer",
+        text: "Yes, I'd like to submit"
+
+        },
+        {
+        value: "pay-online",
+        text: "No, I don't want to do this right now"
+        }
+        ]
+        }) }}
+        <br>
+
+        {{ govukButton({
+          text: "Submit",
+          preventDoubleClick: true,
+          href: 'declaration.html',
+          classes: 'govuk-!-margin-top-4'
+          }) }}
+      </form>
+
+          
+       
 
         </div>
         </form>
