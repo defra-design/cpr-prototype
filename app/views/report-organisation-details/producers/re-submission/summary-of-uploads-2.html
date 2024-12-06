@@ -7,153 +7,108 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "rejected/landing-page.html",
-        text: "Home"
-      },
-      {
-        href: "#",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div>
 
-        {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.back()"
-        }) }}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
 
-        <form action="file-resubmitted" method="post">
+    <form action="file-resubmitted" method="post">
 
-          <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
-            Check and submit        
+      <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+        Check and submit
       </h1>
-      
-    <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Files uploaded</h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="reupload/upload-csv.html">
-                Change<span class="govuk-visually-hidden"> file </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                File name 
-              </dt> 
-              <dt class="govuk-summary-list__key">
-                Date and time uploaded
-              </dt>
-              <dt class="govuk-summary-list__key">
-                Uploaded by
-              </dt>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-               orgdetails1.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
-              </dd>
-              <dd class="govuk-summary-list__value">
-                John Smith
-               </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                branddetails1.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
-              </dd>
-              <dd class="govuk-summary-list__value">
-                John Smith 
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                partnerdetails1.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
-              </dd>
-              <dd class="govuk-summary-list__value">
-                John Smith 
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
 
-            <h2 class="govuk-heading-m">Are you sure you want to submit your organisation details?</h2>
-        
-      <form id="agreementForm">
-        {{ govukRadios({
-        name: "agreement",
-        value: data['agreement'],
-        items: [
-        {
-        value: "pay-bank-transfer",
-        text: "Yes, I'd like to submit"
+      <table class=govuk-table style="background-color:#ffffff; border: 1px solid #b1b4b6;">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="padding: 15px">File name</th>
+            <th scope="col" class="govuk-table__header" style="padding: 15px">Date and time submitted</th>
+            <th scope="col" class="govuk-table__header" style="padding: 15px">Submitted by</th>
+            <th scope="col" class="govuk-table__header" style="padding: 15px">Status</th>
+            <th scope="col" class="govuk-table__header" style="padding: 15px"></th>
+          </tr>
+        </thead>
 
-        },
-        {
-        value: "pay-online",
-        text: "No, I don't want to do this right now"
-        }
-        ]
-        }) }}
-        <br>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" style="padding: 15px">orgdetails1.csv</td>
+            <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+            <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px"> <a class="govuk-link"
+                href="../re-submission/before-you-start">Change</a></td>
+          </tr>
+        </tbody>
 
-        {{ govukButton({
-          text: "Submit",
-          preventDoubleClick: true,
-          href: 'declaration.html',
-          classes: 'govuk-!-margin-top-4'
-          }) }}
-      </form>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" style="padding: 15px">branddetails.csv</td>
+            <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+            <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px"> <a class="govuk-link"
+                href="../re-submission/upload-brand">Change</a></td>
+          </tr>
+        </tbody>
 
-          
-       
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" style="padding: 15px">partnerdetails.csv</td>
+            <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+            <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+            <td class="govuk-table__cell" style="padding: 15px"> <a class="govuk-link"
+                href="../re-submission/upload-partner">Change</a></td>
+          </tr>
+        </tbody>
+      </table>
 
-        </div>
-        </form>
-
-    </div>
+      {{ govukButton({
+      text: "Submit files"
+      })}}
+    </form>
+  </div>
 </div>
 
 {% endblock %}
