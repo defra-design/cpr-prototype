@@ -1,63 +1,45 @@
 {% extends "layout-private-beta-research.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+{{ serviceName }}
 {% endblock %}
 
 {% block header %}
-
 {# Set serviceName in config.js. #}
 
 {{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
 serviceUrl: "#",
 navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account"
-},
-{
-href: "#",
-text: "Sign out"
-}
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
 ]
 }) }}
 
 {{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
+tag: { text: "prototype" },
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-
 {% endblock %}
 
 {% block beforeContent %}
-<a href="./landing-page" class="govuk-back-link">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
-
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="task-list-org-data-completed">
+    <form method="POST" action="../basic/task-list-2-basic">
       <div class="govuk-form-group govuk-!-margin-top-0">
-        <h1 class="govuk-heading-l">ACME Partnership Ltd registration</h1>
+        <h1 class="govuk-heading-l">Acme Limited registration</h1>
         <div class="govuk-inset-text" style="margin-bottom: 20px;">
           <p class="govuk-body govuk-!-margin-bottom-1">
-            <strong>Registration reference number: ABC123456</strong>
+            <strong>Organisation ID: 123 456</strong>
           </p>
         </div>
 
@@ -79,20 +61,12 @@ classes: 'govuk-width-container'
           <li>submit your application</li>
         </ul>
 
-        <p class="govuk-body">If any of your organisation details change you must update them <strong>within 28
-            days</strong>.</p>
-
-        <p class="govuk-body">You need to complete the three tasks above if you update your organisation details. You'll
-          remain registered
-          during this time. Your registration reference number will not change.</p>
-
         <p class="govuk-body">You must be an approved or delegated person to submit your data and complete the
           application.</p>
 
         <p class="govuk-body">
           <a href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do"
-            class="govuk-link" rel="noreferrer noopener" target="_blank">Find out more about packaging
-            responsibilities
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Find out more about packaging responsibilities
             and check if you need to take action (opens in a new tab)</a>
         </p>
 
