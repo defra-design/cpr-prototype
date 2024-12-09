@@ -25,7 +25,7 @@ text: "Home"
 },
 {
 href: "#",
-text: "Manage account" 
+text: "Manage account"
 },
 {
 href: "#",
@@ -51,49 +51,50 @@ classes: 'govuk-width-container'
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-       
+    <div class="govuk-form-group">
 
-        <form action="../../../landing-page/v2/cs-submit-behalf-lp-england" method="post">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Organisation details submitted
+        </h1>
+      </div>
+      <p>Submitted by Jane Doe at 2:00pm on 10 October 2023.
+        <a href="./file-uploaded.html">Print this page</a>
+      </p>
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+      <div class="govuk-inset-text">
 
-                    <div class="govuk-panel govuk-panel--confirmation">
-                        <h1 class="govuk-panel__title">
-                            Organisation details submitted 
-                        </h1>
-                      </div>
-                    <p>Submitted by Jane Doe at 2:00pm on 10 October 2023.
-                     <a href="./file-uploaded.html">Print this page</a></p>
+        <ul class="govuk-list govuk-list">
+          <li>It may take up to an hour for our systems to update.</li>
+        </ul>
+      </div>
 
-                     <div class="govuk-inset-text">
+      <h2 class="govuk-heading-m govuk-!-margin-top-4">What happens next</h2>
 
-                        <ul class="govuk-list govuk-list">
-                          <li>It may take up to an hour for our systems to update.</li>
-                        </ul>
-                      </div>
+      <p>You still need to: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>pay any changes to your registration fee </li>
+        <li>apply for registration </li>
+      </ul>
 
-                      <h2 class="govuk-heading-m govuk-!-margin-top-4">What happens next</h2>
-                      
-                      <p>You still need to: </p>
-                      <ul class="govuk-list govuk-list--bullet">
-                        <li>pay any changes to your registration fee </li>
-                        <li>apply for registration </li>
-                      </ul>
 
-                      
-                      
+      {{ govukButton({
+      text: "Update your registration",
+      preventDoubleClick: true,
+      href: 'task-list-org-data-completed-2',
+      classes: 'govuk-!-margin-top-4'
+      }) }}
 
-                    <p>  <a href="task-list-org-data-completed-2.html">Update your registration</a></p>
+      <div>
+        <a href="#" class="govuk-link">Return to the dashboard</a>
+      </div>
 
-                </fieldset>
-            </div>
-           
-        </form>
 
     </div>
+
+  </div>
 </div>
 
 {% endblock %}
