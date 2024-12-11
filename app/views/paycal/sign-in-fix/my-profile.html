@@ -1,0 +1,94 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "landing-page.html",
+    text: "Home"
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile",
+    active: true
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-grid-row govuk-!-margin-top-8 govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-full">
+      <div class="govuk-!dispaly-inline-block">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+              My profile
+          </h1>
+      </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <td class="govuk-table__cell">James Cason</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link">Change</a></td>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Role</th>
+          <td class="govuk-table__cell">Employee<br>Sustainability Manager</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link">Change</a></td>
+        </tr>
+       
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Telephone number</th>
+          <td class="govuk-table__cell">07852 572467</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link">Change</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+</div>
+
+{% endblock %}
