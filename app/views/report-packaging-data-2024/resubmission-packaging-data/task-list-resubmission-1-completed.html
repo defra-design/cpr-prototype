@@ -1,0 +1,107 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      Packaging data submitted
+    </h3>
+    <p class="govuk-body">Your data has been submitted. It may take up to an hour for our systems to update and calculate your fee. </p>
+  </div>
+</div>
+
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- form method="POST" action="fees-task-list-2" -->
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <span class="govuk-caption-l">Acme limited</span>
+        <h1 class="govuk-heading-l">Resubmit packaging data</h1>
+        <h2 class="govuk-heading-m">Your next steps</h2>
+        <!-- Page layout end 1 -->
+
+        <!-- Content Start -->
+        
+        <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="./registration-data/check-submission.html" aria-describedby="#" class="#">
+                Resubmit packaging data
+              </a>
+            </span><strong class="govuk-tag govuk-tag--blue app-task-list__tag"
+              id="contact-information-status">Completed</strong><br>
+              
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="./payment/fee-due.html" aria-describedby="#" class="#">
+                View resubmission fee
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not started</strong><br>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a aria-describedby="#" class="#" style="text-decoration: none;">
+                Submit to environmental regulator
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start yet</strong><br>
+          </li>
+        </ul>
+
+
+
+        <!-- Content end-->
+
+        <!-- Page layout start 2 -->
+      </div>
+
+      <a href="../report-packaging-data.html">Return to the dashboard</a>
+
+    </form>
+  </div>
+</div>
+{% endblock %}
+<!-- Page layout end 2 -->
+
+{% block bodyEnd %}
+{% endblock %}

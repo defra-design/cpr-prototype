@@ -34,13 +34,36 @@ classes: 'govuk-width-container'
 
 {% block content %}
 <!-- Page layout start 1 -->
+
+<!-- ----BANNER--
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important 
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+       Only resubmit if you need to change or correct your packaging data. <br> You may have to pay an additional fee to resubmit.
+    </p>
+  </div>
+</div>
+--> 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- form method="POST" action="fees-task-list-2" -->
       <div class="govuk-form-group govuk-!-margin-top-0">
-        <h1 class="govuk-heading-l">Acme Limited Packaging data resubmission</h1>
+        
+        <!-- option with caption 
+        <span class="govuk-caption-l">Acme limited</span>
+        <h1 class="govuk-heading-l">Resubmit packaging data</h1>
+        <h2 class="govuk-heading-m">Your next steps</h2>
+        -->
+        <h1 class="govuk-heading-l">Acme Limited packaging data resubmission</h1>
        
-        <!-- Page layout end 1 -->
+       <!-- Page layout end 1 -->
 
         <!-- Content Start -->
         
@@ -48,19 +71,19 @@ classes: 'govuk-width-container'
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
               <a href="./registration-data/check-submission.html" aria-describedby="#" class="#">
-                Resubmit packaging data
+                Provide new packaging data
               </a>
-            </span><strong class="govuk-tag govuk-tag--blue app-task-list__tag"
-              id="contact-information-status">Completed</strong><br>
+            </span><strong class="govuk-tag govuk-tag--grey app-task-list__tag"
+              id="contact-information-status">NOT STARTED</strong><br>
           
           </li>
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
-              <a href="./payment/fee-due.html" aria-describedby="#" class="#">
+              <a  aria-describedby="#" class="#" style="text-decoration: none;">
                 View resubmission fee
               </a>
             </span>
-            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not started</strong><br>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start yet</strong><br>
           </li>
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
@@ -69,8 +92,12 @@ classes: 'govuk-width-container'
               </a>
             </span>
             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start yet</strong><br>
+          
           </li>
+          
         </ul>
+
+        
 
 
 
@@ -83,6 +110,7 @@ classes: 'govuk-width-container'
 
     </form>
   </div>
+  
 </div>
 {% endblock %}
 <!-- Page layout end 2 -->
