@@ -40,13 +40,17 @@ Report packaging data
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Sign in</h1>
     
-    <form action="error-email" method="post">
+    <form action="error-password" method="post">
 
-      <div class="govuk-form-group govuk-!-margin-top-5">
-        <label class="govuk-label govuk-lab el--" for="email">
-          Email address 
+      <div class="govuk-form-group govuk-form-group--error">
+        <label class="govuk-label" for="email">
+          Email address
         </label>
-        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['email']}}" >
+        
+        <p id="email-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter an email address in the correct format, like name@example.com
+        </p>
+        <input class="govuk-input govuk-input--error" id="email" name="email" type="email" spellcheck="false" value="Not an email address" aria-describedby="email-hint email-error" autocomplete="email">
       </div>
 
       <div class="govuk-form-group govuk-!-margin-bottom-6">
