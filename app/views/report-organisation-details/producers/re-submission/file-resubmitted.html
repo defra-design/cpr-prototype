@@ -86,22 +86,31 @@ classes: 'govuk-width-container'
       }) }}
 
       <div>
-        <a href="#" class="govuk-link">Return to the dashboard</a>
+        <a href="../re-submission/landing-page" class="govuk-link">Return to the dashboard</a>
       </div>
 
 
     </div>
 
     <div>
-      <a href="./file-uploaded.html">Print this page</a>
+      <p class="govuk-body">
+        You can
+        <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+          print or save this page as a PDF
+        </a>
+      </p>
 
     </div>
 
 
-
   </div>
+  <script>
+    function handlePrintOrSave() {
+      window.print(); // This opens the print dialog where users can choose to print or save as PDF
+    }
+  </script>
 
 </div>
-</div>
+
 
 {% endblock %}
