@@ -38,16 +38,35 @@ Report packaging data
 
 <div class="govuk-grid-row govuk-!-margin-top-4">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Sign in</h1>
-    
-    <form action="error-email" method="post">
-
-      <div class="govuk-form-group govuk-!-margin-top-5">
-        <label class="govuk-label govuk-lab el--" for="email">
-          Email address 
-        </label>
-        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="" autocomplete="email" value="" >
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#full-name-input">Enter an email address in the correct format</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <h1 class="govuk-heading-l">Sign in</h1>
+    <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label" for="full-name-input">
+        Email address
+      </label>
+      <p id="full-name-input-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter an email address in the correct format, like name@example.com
+      </p>
+      <input class="govuk-input govuk-input--error" id="full-name-input" name="name" type="text" aria-describedby="full-name-input-error" autocomplete="name">
+    </div>
+    
+    
+
+      
+
       <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
         <label class="govuk-label" for="password-input">
           Password
