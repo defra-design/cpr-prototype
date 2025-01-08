@@ -1,0 +1,50 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    
+    <h1 class="govuk-heading-l">You have been signed out</h1>
+
+    <p class="govuk-body">Any information you have not saved has been deleted because you did not do anything for 20 minutes. </p>
+    <p>This is to protect your information.</p>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Sign back in
+    </button>
+
+        <br><br>
+        
+{% endblock %}
