@@ -30,7 +30,7 @@ Small producer - Manage registration submissions
 
     <div style="padding: 6px 0px; margin: 30px 0px; background-color: #cce2d8; padding: 15px;  width: 350px;">
       <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #005a30;">
-        Registration reference number</h3>
+        Application reference number</h3>
       <p class="govuk-body">213148_4</p>
       <p class="govuk-body">Resubmission<br>
         <span style="font-size: 14px; color:#5a5a5a; position: relative; top: 0px;">25 October 2025
@@ -364,38 +364,39 @@ Small producer - Manage registration submissions
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-    {{ govukButton({
-    text: "Cancel registration",
-    href: "../cancelling/2-reason.html",
-    classes: "govuk-button--secondary",
-    attributes: {
-    style: ""
-    }
-    }) }}
 
 
     {{ govukButton({
     text: "Approve resubmitted data",
     href: "../resubmission/granting/confirmation.html",
     attributes: {
-    style: "float: right; margin-left: 30px;"
+    style: "float: left; "
+    }
+    }) }}
+
+    {{ govukButton({
+    text: "Reject data",
+    href: "../resubmission/refusing/1-reason",
+    classes: "govuk-button--warning",
+    attributes: {
+    style: "float: left; margin-left: 30px;"
     }
     }) }}
 
 
     {{ govukButton({
-    text: "Reject resubmitted data",
-    href: "../resubmission/refusing/1-reason",
-    classes: "govuk-button--warning",
+    text: "Cancel registration",
+    href: "../cancelling/2-reason.html",
+    classes: "govuk-button--secondary",
     attributes: {
-    style: "float: right;"
+    style: "margin-left: 30px;"
     }
     }) }}
 
 
 
-    <div class="govuk-width-container"><a href="manage-data-submissions"
-        class="govuk-link govuk-link--no-visited-state">Go
+
+    <div class="govuk-width-container"><a href="../../../main" class="govuk-link govuk-link--no-visited-state">Go
         back to all submissions</a></div>
   </div>
 </div>
