@@ -14,8 +14,6 @@ Small producer - Manage registration submissions
 {% endblock %}
 
 
-
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -28,10 +26,16 @@ Small producer - Manage registration submissions
       <p class="govuk-body" style="padding: 7px 0px; margin: 0px;">ID: 215 148</p>
     </h3>
 
-    <div style="padding: 6px 0px; margin: 30px 0px; background-color: #cce2d8; padding: 15px;  width: 350px;">
-      <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #005a30;">
-        Registration reference number</h3>
+
+
+    <div style="padding: 6px 0px; margin: 30px 0px; background-color: #f6d7d2; padding: 15px;  width: 350px;">
+      <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #942514;">
+        Application reference number</h3>
       <p class="govuk-body">213148_4</p>
+      <p class="govuk-body">Resubmission refused<br>
+        <span style="font-size: 14px; color:#5a5a5a; position: relative; top: 0px;">25 October 2025
+          10:30:25</span>
+      </p>
     </div>
 
 
@@ -57,9 +61,9 @@ Small producer - Manage registration submissions
       <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
         <h2 class="govuk-summary-card__title">Submission details</h2>
         <div style="padding-top: 20px;">
-          <strong class="govuk-tag govuk-tag--green"
+          <strong class="govuk-tag govuk-tag--red"
             style="margin-left: 279px; justify-content: none; position: relative; left: 185px;">
-            Granted
+            Refused
           </strong>
           <p
             style="font-size: 16px; colour:#505a5f; text-align: right; position: relative; left: 185px;padding-top:10px;">
@@ -358,20 +362,8 @@ Small producer - Manage registration submissions
 
 
 
-
-
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-
-    {{ govukButton({
-    text: "Cancel registration",
-    href: "../actions/cancelling/2-reason.html",
-    classes: "govuk-button--secondary",
-    attributes: {
-    style: ""
-    }
-    }) }}
-
-    <div class="govuk-width-container"><a href="../../main" class="govuk-link govuk-link--no-visited-state">Go
+    <div class="govuk-width-container"><a href="../../../../main-refused"
+        class="govuk-link govuk-link--no-visited-state">Go
         back to all submissions</a></div>
   </div>
 </div>
