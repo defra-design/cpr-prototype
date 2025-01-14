@@ -76,7 +76,7 @@ classes: 'govuk-width-container'
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Files uploaded</h2>
-          <ul class="govuk-summary-card__actions">
+          <ul class="govuk-summary-card__actions" style="padding-right: 70px;">
             <li class="govuk-summary-card__action"> <a class="govuk-link" href="reupload/upload-csv.html">
                 Change<span class="govuk-visually-hidden"> file </span>
               </a>
@@ -95,6 +95,8 @@ classes: 'govuk-width-container'
               <dt class="govuk-summary-list__key">
                 Uploaded by
               </dt>
+              <dt class="govuk-summary-list__key">
+              </dt>
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
@@ -105,6 +107,10 @@ classes: 'govuk-width-container'
               </dd>
               <dd class="govuk-summary-list__value">
                 John Smith
+              </dd>
+              <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="reupload/upload-csv.html">
+                  Download</a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -117,6 +123,10 @@ classes: 'govuk-width-container'
               <dd class="govuk-summary-list__value">
                 John Smith
               </dd>
+              <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="reupload/upload-csv.html">
+                  Download</a>
+              </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
@@ -128,64 +138,45 @@ classes: 'govuk-width-container'
               <dd class="govuk-summary-list__value">
                 John Smith
               </dd>
+              <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="reupload/upload-csv.html">
+                  Download</a>
+              </dd>
             </div>
           </dl>
         </div>
       </div>
 
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Files already submitted</h2>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                File name
-              </dt>
-              <dt class="govuk-summary-list__key">
-                Date and time submitted
-              </dt>
-              <dt class="govuk-summary-list__key">
-                Submitted by
-              </dt>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h2 class="govuk-heading-m">
+              Are you sure you want to submit this file to the environmental regulator?
+            </h2>
+          </legend>
+          <!-- <div id="signIn-hint" class="govuk-hint">
+            This information will be sent to the environmental regulator
+          </div>
+        -->
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway"
+                aria-describedby="signIn-item-hint">
+              <label class="govuk-label govuk-radios__label" for="signIn">
+                Yes, submit now
+              </label>
             </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                orgdetails.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                10 September 2023, 3:00pm
-              </dd>
-              <dd class="govuk-summary-list__value">
-                Jane Doe
-              </dd>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login"
+                aria-describedby="signIn-2-item-hint">
+              <label class="govuk-label govuk-radios__label" for="signIn-2">
+                No, I’ll do it later
+              </label>
             </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                branddetails.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                10 September 2023, 3:00pm
-              </dd>
-              <dd class="govuk-summary-list__value">
-                Jane Doe
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dd class="govuk-summary-list__value">
-                partnerdetails.csv
-              </dd>
-              <dd class="govuk-summary-list__value">
-                10 September 2023, 3:00pm
-              </dd>
-              <dd class="govuk-summary-list__value">
-                Jane Doe
-              </dd>
-            </div>
-          </dl>
-        </div>
+          </div>
+        </fieldset>
       </div>
+
 
       {{ govukButton({
       text: "Submit files"
