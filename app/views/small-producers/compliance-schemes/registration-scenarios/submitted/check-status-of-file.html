@@ -1,4 +1,4 @@
-{% extends "layout-private-beta-research.html" %}
+{% extends "layout.html" %}
 
 {% set serviceName %}
 Report packaging data
@@ -13,18 +13,18 @@ Report packaging data
 {% block header %}
 
 {# Set serviceName in config.js. #}
-
 {{ govukHeader({
-homepageUrl: "../../../index.html",
+homepageUrl: "../../index.html",
 serviceName: "Report packaging data",
 serviceUrl: "#",
 navigation: [
 {
-href: "rejected/landing-page.html",
-text: "Home"
+href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+text: "Home",
+active: true
 },
 {
-href: "#",
+href: "../../delegate-someone/account-management",
 text: "Manage account"
 },
 {
@@ -44,102 +44,146 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
+{% block beforeContent %}
+
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-width-container">
+    <div class="govuk-grid-column-two-thirds">
 
         {{ govukBackLink({
         text: "Back",
         href: "javascript:history.back()"
         }) }}
 
-        <h1 class="govuk-heading-l">Your history</h1>
+        <form action="file-submitted" method="post">
+
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Organisation details files uploaded – check and submit
+            </h1>
 
 
+            <p> The files you've uploaded have saved. </p>
 
-        <p><a href="past-history">View your full organisation details history</a></p>
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">Most recent organisation details files</h2>
-
-        <table class=govuk-table style="background-color:#ffffff; border: 1px solid #b1b4b6;">
-            <caption class="govuk-table__caption govuk-table__caption--m">January to June 2023</caption>
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header" style="padding: 15px">File name</th>
-                    <th scope="col" class="govuk-table__header" style="padding: 15px">Date and time submitted</th>
-                    <th scope="col" class="govuk-table__header" style="padding: 15px">Submitted by</th>
-                    <th scope="col" class="govuk-table__header" style="padding: 15px">Status</th>
-                </tr>
-            </thead>
-
-
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" style="padding: 15px">orgdetails1.csv <br> branddetails1.csv <br>
-                        partnerdetails1.csv </td>
-                    <td class="govuk-table__cell" style="padding: 15px"> 10 October 2023, 2:00pm</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Jane Doe</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Submitted on 10 October 2023, 2:00pm</td>
-                </tr>
-            </tbody>
-
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" style="padding: 15px">orgdetails.csv <br> branddetails.csv <br>
-                        partnerdetails.csv </td>
-                    <td class="govuk-table__cell" style="padding: 15px">10 September 2023, 3:00pm</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Jane Doe</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Rejected on 8 October 2023, 3:00pm</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="govuk-table" style="background-color:#ffffff; border: 1px solid #b1b4b6;">
-            <caption class="govuk-table__caption govuk-table__caption--m">July to December 2023</caption>
-            <div govuk-!-margin-left-3>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header" style="padding: 15px">File name</th>
-                        <th scope="col" class="govuk-table__header" style="padding: 15px">Date and time submitted
-                        </th>
-                        <th scope="col" class="govuk-table__header" style="padding: 15px">Submitted by</th>
-                        <th scope="col" class="govuk-table__header" style="padding: 15px">Status</th>
-                    </tr>
-                </thead>
-
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Files uploaded</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                File name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Date and time uploaded
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Uploaded by
+                            </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                orgdetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                branddetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                partnerdetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
             </div>
 
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" style="padding: 15px">orgdetails1.csv <br> branddetails1.csv <br>
-                        partnerdetails1.csv </td>
-                    <td class="govuk-table__cell" style="padding: 15px"> 10 April 2024, 2:00pm</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Jane Doe</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Submitted on 10 April 2024, 2:00pm</td>
-                </tr>
-            </tbody>
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Files already submitted</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                File name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Date and time submitted
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Submitted by
+                            </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                orgdetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                branddetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                partnerdetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
 
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell" style="padding: 15px">orgdetails.csv <br> branddetails.csv <br>
-                        partnerdetails.csv </td>
-                    <td class="govuk-table__cell" style="padding: 15px">10 March 2024, 3:00pm</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Jane Doe</td>
-                    <td class="govuk-table__cell" style="padding: 15px">Rejected on 12 March 2024, 3:00pm</td>
-                </tr>
-            </tbody>
-        </table>
+            <div>
+                <p class="govuk-body">
+                    <a href="./task-list-in-submitted-scenario" class="govuk-link">Return
+                        to the registration steps</a>
+                </p>
+            </div>
+        </form>
+
     </div>
-</div>
-
-<div>
-    <p class="govuk-body">
-        <a href="./task-list-in-submitted-scenario" class="govuk-link">Return
-            to the registration steps</a>
-    </p>
-</div>
-
-</div>
 </div>
 
 {% endblock %}

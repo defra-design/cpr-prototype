@@ -32,28 +32,35 @@ classes: 'govuk-width-container'
 {% endblock %}
 
 {% block content %}
-<!-- Page layout start 1 -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="./registration-submission-confirmation">
       <div class="govuk-form-group govuk-!-margin-top-0">
-        <h1 class="govuk-heading-l">Members' organisation details</h1>
+        <h1 class="govuk-heading-l">Scheme registration details</h1>
         <div class="govuk-inset-text" style="margin-bottom: 20px;">
           <p class="govuk-body govuk-!-margin-bottom-1">
             <strong>Compliance scheme: COMPLIANCE LTD (EA)</strong><br>
             <strong>Regulator: Environment Agency (England)</strong>
-            <br> <br>
-            <strong>If renewing annual registration, ensure packaging data for 2024 has been submitted.
-              Failure may result in delays to the approval of your registration.
-            </strong>
           </p>
         </div>
-        <!-- Page layout end 1 -->
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Ensure your packaging data for 2024 has been reported before registering. Failure may result in
+            delays to your registration being assessed.
+          </strong>
+        </div>
+
+        <p class="govuk-body">You must be an approved or delegated person to submit your data and complete the
+          application.</p>
 
         <!-- Content Start -->
         <h2 class="app-task-list__section">Additional information</h2>
         <p class="govuk-body">Use the comment box to enter additional information which may assist the regulator. For
           example, an agreement over a part-payment.</p>
+
 
         <div class="govuk-form-group">
           <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
@@ -62,7 +69,7 @@ classes: 'govuk-width-container'
 
 
         {{ govukButton({
-        text: "Submit registration request",
+        text: "Submit registration application",
         attributes: {
         id: "submitButton",
         onclick: "handleSubmit(event)"

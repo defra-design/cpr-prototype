@@ -1,0 +1,127 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  <a class="govuk-back-link" href="./companies-house-number.html">Back</a>
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+   <form method="POST" action="../confirm-declaration/check-your-answers_v2">
+
+
+
+      <h1 class="govuk-heading-l">Confirm subsidiary details</h1>
+      <div class="govuk-inset-text">
+        
+   
+
+    
+        <h2 class="govuk-heading-m">Good Sauces Cambridge</h2>
+     
+
+        <div class="govuk-!-margin-bottom-4">
+          <p class="govuk-body govuk-!-margin-bottom-1">Company number:</p>
+          <p class="govuk-body">01234567</p>
+        </div>
+        <div class="">
+          <p class="govuk-body govuk-!-margin-bottom-1">Registered address:</p>
+          <p class="govuk-body govuk-!-margin-bottom-1">9 Grange Road <br>Cambridge <br>United Kingdom <br>CB2 0AA</p>
+        </div>
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            These details are wrong
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">If these details are wrong, you should:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>check the Companies House number and make sure it’s accurate - if you entered it incorrectly, you can <a href="./companies-house-number.html" class="govuk-link">change your number</a></li>
+            <li>check Companies House to see if your organisation details are  correct, if they are not <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">you can change them on Companies House (opens in a new tab)</a></li>
+          </ul>
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

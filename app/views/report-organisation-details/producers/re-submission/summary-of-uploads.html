@@ -1,0 +1,144 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "rejected/landing-page.html",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-resubmitted" method="post">
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+            Are you sure you want to re-upload your organisation details?       
+      </h1>
+      <p>If you want to replace any of the files in the account, you'll need to re-upload all of the files relating to your organisation details. These will replace the current ones.</p>
+      
+    <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Files you've already submitted</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action"> <span class="govuk-visually-hidden"> file </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                File name 
+              </dt> 
+              <dt class="govuk-summary-list__key">
+                Date and time uploaded
+              </dt>
+              <dt class="govuk-summary-list__key">
+                Uploaded by
+              </dt>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+               orgdetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+                4 October 2024
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith
+               </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                branddetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+                4 October 2024
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith 
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                partnerdetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+                4 October 2024
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith 
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+        
+      <form id="agreementForm">
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true,
+          href: 'before-you-start.html',
+          classes: 'govuk-!-margin-top-4'
+          }) }}
+      </form>
+      <p class="govuk-body">
+        <a href="landing-page" class="govuk-link">Cancel</a>
+      </p>
+
+          
+       
+
+        </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Payment unsuccessful</h1>
+      <p>Your payment has not been completed and no money has been taken from your bank account.</p>
+      <form action="/form-handler" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+      <div class="govuk-button-group">
+        <a href="payment-details" class="govuk-button" type="submit">Try online payment again</a>
+      
+      </div>
+      </form>
+<br>
+
+<p class="govuk-body">Your reference is <STRONG>APP-45678-RBDIGZAPKB</STRONG>. <br>Make a note of this reference, as you will need it to retry the payment.</p>
+      <p class="govuk-body">Use these details to make payment of: [[Payment Amount]]</p>
+      <h2 class="govuk-heading-m">To pay by bank transfer</h2>
+        
+      
+      <div class="govuk-inset-text">
+        <ul class="govuk-list govuk-list">
+          
+          <li>Account name: EA Receipts</li>
+          <li>Account number: 10014411</li>
+          <li>Sort code: 60-70-80</li>
+          <li>Bank name: Royal Bank of Scotland, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate,
+            London EC2M 4RB</li>
+        </ul>
+      </div>
+
+        <h2 class="govuk-heading-m">To pay by phone</h2>
+        <div class="govuk-inset-text">
+          <ul class="govuk-list govuk-list">
+            
+            <li>Environment Agency</li>
+            <li>Telephone: 03708 506 506</li>
+            <li>Telephone from outside the UK: +44 (0) 114 282 5312</li>
+            <li>Monday to Friday, 8am to 6pm</li>
+            <br>
+            <li><a href="https://www.gov.uk/call-charges" class="govuk-link">Find out about call charges</a></li>
+          </ul>
+        </div>
+        
+
+        <p><a href="dashboard"> Return to the dashboard</a></p>
+      
+    </div>
+  </div>
+
+{% endblock %}

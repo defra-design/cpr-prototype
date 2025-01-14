@@ -1,0 +1,164 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "rejected/landing-page.html",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="uploading-file.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="declaration">
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     <h1 class="govuk-heading-l">Check and submit new file</h1>
+
+     <p class="govuk-body">Confirm you want to submit your new packaging data file.</p>
+
+     <p class="govuk-body">This will replace the last file you submitted.</p>
+
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+            File you're submitting
+        </h2>
+        
+        <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="upload-file.html">Change</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="govuk-summary-card__content">
+        <table class="govuk-table govuk-!-margin-bottom-0">
+            <caption class="govuk-visually-hidden">Detail regarding the latest valid file uploaded</caption>
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">File name</th>
+                <th scope="col" class="govuk-table__header">Date uploaded</th>
+                <th scope="col" class="govuk-table__header">Uploaded by</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell border-bottom-0">packaging-data1.csv</td>
+                <td class="govuk-table__cell">10 October 2023</td>
+                <td class="govuk-table__cell">Jane Doe</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+          Last file submitted
+      </h2>
+  </div>
+  
+  <div class="govuk-summary-card__content">
+      <table class="govuk-table govuk-!-margin-bottom-0">
+          <caption class="govuk-visually-hidden">Detail regarding the latest valid file uploaded</caption>
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">File name</th>
+              <th scope="col" class="govuk-table__header">Date submitted</th>
+              <th scope="col" class="govuk-table__header">Submitted by</th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell border-bottom-0">packaging-data.csv</td>
+              <td class="govuk-table__cell">10 September 2023</td>
+              <td class="govuk-table__cell">Jane Doe</td>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+  
+
+      
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h2 class="govuk-heading-m">
+        Are you sure you want to submit this file?
+      </h2>
+    </legend>
+   <!-- <div id="signIn-hint" class="govuk-hint">
+      This information will be sent to the environmental regulator
+    </div>
+  -->
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn">
+          Yes, submit now
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login" aria-describedby="signIn-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn-2">
+          No, I’ll do it later
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+  
+      
+{{ govukButton({
+  text: "Continue"
+})}}
+
+    </div>
+  </div>
+
+{% endblock %}
