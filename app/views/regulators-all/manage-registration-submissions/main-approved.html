@@ -66,7 +66,6 @@
                 </fieldset>
               </div>
 
-
               <!-- Submission status -->
               <div class="govuk-form-group" style="margin: 15px 0px;">
                 <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 7px;">
@@ -97,15 +96,21 @@
                         value="Cancelled">
                       <label class="govuk-label govuk-checkboxes__label" for="status-cancelled">Cancelled</label>
                     </div>
-                    <!--
                     <div class="govuk-checkboxes__item" style="width: 150px !important;">
                       <input class="govuk-checkboxes__input" id="status-updated" name="status" type="checkbox"
                         value="Updated">
                       <label class="govuk-label govuk-checkboxes__label" for="status-updated">Updated</label>
-                    </div> -->
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-granted" name="status" type="checkbox"
+                        value="Granted">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-granted">Resubmission</label>
+                    </div>
                   </div>
                 </fieldset>
               </div>
+
 
 
               <!-- Submission year -->
@@ -161,7 +166,7 @@
 
           <td class="govuk-table__cell">2025</td>
           <td class="govuk-table__cell" style="height:75px;"><strong class="govuk-tag govuk-tag--green">Granted</strong>
-            <strong class="govuk-tag govuk-tag--grey" style="margin-top: 7px;">Resubmission approved</strong>
+            <strong class="govuk-tag govuk-tag--light-blue" style="margin-top: 7px;">Resubmission approved</strong>
           </td>
         </tr>
         <tr>
@@ -174,7 +179,7 @@
 
           <td class="govuk-table__cell">2025</td>
           <td class="govuk-table__cell" style="height:75px;"><strong class="govuk-tag govuk-tag--green">Granted</strong>
-            <strong class="govuk-tag govuk-tag--grey" style="margin-top: 7px;">Resubmission</strong>
+            <strong class="govuk-tag govuk-tag--light-blue" style="margin-top: 7px;">Resubmission</strong>
           </td>
         </tr>
         <tr>
@@ -446,20 +451,32 @@
 <script>
   document.getElementById('apply-filters').addEventListener('click', function () {
     // Get filter values
-    const orgNameFilter = document.getElementById('organisation-name').value.toLowerCase();
-    const orgIdFilter = document.getElementById('organisation-id').value.toLowerCase();
+    const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
+    const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
 
     // Get all checkboxes for filtering
-    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.toLowerCase());
-    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.toLowerCase());
-    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.toLowerCase());
+    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Add logic to handle "Resubmission" as a group of statuses (case-insensitive)
+    if (statusFilters.includes("resubmission")) {
+      // Replace "resubmission" with all related statuses
+      statusFilters.splice(
+        statusFilters.indexOf("resubmission"),
+        1,
+        "resubmission",
+        "resubmission approved",
+        "resubmission rejected"
+      );
+    }
 
     // Check if any filters are selected
     const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
 
     // If no filters are selected, redirect to 'manage-data-submissions-no-results'
     if (noFiltersSelected) {
-      window.location.href = '../submissions/manage-data-submissions-no-results';
+      window.location.href = '../manage-data-submissions-no-results';
       return; // Stop further processing
     }
 
@@ -478,14 +495,16 @@
     let anyRowVisible = false; // Track if any row is visible after filtering
     rows.forEach(row => {
       // Get data from cells
-      const orgName = row.cells[0].querySelector('a').textContent.toLowerCase().trim(); // Organisation Name
+      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase(); // Organisation Name
       const orgId = row.cells[1].textContent.trim().toLowerCase(); // Organisation ID
-      const orgType = row.cells[0].querySelector('span').textContent.toLowerCase().trim(); // Organisation Type
+      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase(); // Organisation Type
       const submissionYear = row.cells[3].textContent.trim().toLowerCase(); // Submission Year
-      const status = row.cells[4].querySelector('strong').textContent.toLowerCase().trim(); // Submission Status
 
-      // Match status filters
-      const statusMatch = statusFilters.length === 0 || statusFilters.includes(status);
+      // Get all <strong> tags within the status cell
+      const statusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Match status filters, considering all capitalization variations
+      const statusMatch = statusFilters.length === 0 || statusFilters.some(filter => statusTags.some(tag => tag === filter));
 
       // Filter logic
       const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
@@ -495,16 +514,16 @@
 
       // Show/hide row based on matches
       if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
-        row.style.display = '';
+        row.style.display = ''; // Show row
         anyRowVisible = true; // At least one row matches the filters
       } else {
-        row.style.display = 'none';
+        row.style.display = 'none'; // Hide row
       }
     });
 
     // If no rows are visible after filtering, redirect to 'manage-data-submissions-no-results'
     if (!anyRowVisible) {
-      window.location.href = '../submissions/manage-data-submissions-no-results';
+      window.location.href = '../manage-data-submissions-no-results';
     }
   });
 
@@ -516,7 +535,6 @@
       row.style.display = ''; // Show all rows
     });
   });
-
 
 </script>
 
