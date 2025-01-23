@@ -58,7 +58,7 @@ classes: 'govuk-width-container'
 
     <div class="govuk-width-container" style="margin-top:30px;">
       <p class="govuk-body">
-        <a href="landing-page" class="govuk-link">Return to
+        <a href="../re-submission/viewed-status/landing-page" class="govuk-link">Return to
           the dashboard</a>
       </p>
     </div>
@@ -69,30 +69,5 @@ classes: 'govuk-width-container'
   </div>
 </div>
 
-<!-- Page layout end 2  -->
-
-<script>
-  // Function to handle both Print and Save as PDF
-  function handlePrintOrSave(action) {
-    var printButton = document.getElementById('printButton');
-    var pdfButton = document.getElementById('pdfButton');
-
-    // Apply 'clicked' style for buttons
-    var button = (action === 'print') ? printButton : pdfButton;
-    button.style.backgroundColor = '#ffdd00'; // Highlight with yellow background
-    button.style.borderBottom = '3px solid #000000'; // Add bottom border for clicked state
-
-    // Trigger print dialog
-    setTimeout(function () {
-      window.print(); // Save as PDF is part of the print dialog
-    }, 150);
-
-    // Reset style after printing
-    window.onafterprint = function () {
-      button.style.backgroundColor = ''; // Reset background color
-      button.style.borderBottom = ''; // Reset border
-    };
-  }
-</script>
 
 {% endblock %}

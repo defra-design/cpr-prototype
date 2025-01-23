@@ -64,6 +64,19 @@ classes: 'govuk-width-container'
         Check and submit
       </h1>
 
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          Be aware that once you submit your data it will take quite some time to be processed and there may be dealys.
+          <br>
+          <br>
+          If you continue the journey without confirming re-submission of the files or with errors, despite you can
+          finalise re-submission we cannot gurantee a swift process and you may have to restart resubmission process
+          from scratch. SAMPLE TEXT
+        </strong>
+      </div>
+
       <p class="govuk-body">You can now make final changes to your files or correct errors before submitting them to the
         regulator. <br><br>To re-upload an amended file, select change. <br>If you wish to proceed with no further
         changes,
@@ -134,7 +147,6 @@ classes: 'govuk-width-container'
           </dl>
         </div>
       </div>
-
       <!-- New Summary Card with bespoke code end -->
 
       <div class="govuk-form-group">
@@ -170,6 +182,19 @@ classes: 'govuk-width-container'
       {{ govukButton({
       text: "Confirm"
       })}}
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+      {{ govukButton({
+      text: "Continue without submitting",
+      href: "./declaration",
+      classes: "govuk-button--secondary",
+      attributes: {
+      style: "margin-left: 30px;"
+      }
+      }) }}
     </form>
 
   </div>

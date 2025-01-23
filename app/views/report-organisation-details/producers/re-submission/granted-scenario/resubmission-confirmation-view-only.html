@@ -27,6 +27,11 @@ classes: 'govuk-width-container'
 }) }}
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
 {% block content %}
 <!-- Page layout start 1 -->
 <div class="govuk-grid-row">
@@ -57,27 +62,15 @@ classes: 'govuk-width-container'
             onclick="handlePrintOrSave('pdf')" class="govuk-link">download a confirmation as a PDF</a>. It will open in
           a new window or tab, or save to your downloads, depending on your browser.
         </p>
-
-        <h2 class="govuk-heading-m">What happens next</h2>
-
-        <p class="govuk-body">
-          You will receive an email after the environmental regulator reviews your submission.
-        </p>
-
-        <p class="govuk-body">
-          You can only make changes to your organisation data files after they've been reviewed.
-        </p>
-
-        <p class="govuk-body">Visit your <a href="../re-submission/granted-scenario/dashboard-granted"
-            class="govuk-link">account home
-            page</a> to check the status of your application.
-        </p>
-
         <!-- Content end-->
 
         <!-- Page layout start 2 -->
       </div>
     </form>
+    <p class="govuk-body">
+      <a href="./task-list-granted" class="govuk-link">Return
+        to the registration steps</a>
+    </p>
   </div>
 </div>
 <!-- Page layout end 2 -->
