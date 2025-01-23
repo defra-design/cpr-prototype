@@ -1,4 +1,4 @@
-{% set serviceName = "Accreditation" %}
+{% set serviceName = "Registration" %}
 
 {% extends "layout.html" %}
 
@@ -21,7 +21,7 @@
     <h1 class="govuk-heading-l">
 
 
-      What’s the address of the site you want to register?
+      Which address should the regulator send legal documents to?
 
 </h1>
 
@@ -34,7 +34,7 @@
 
 
 
-    <form class="form" action="" method="POST">
+    <form class="form" action="check-answers1" method="POST">
 
      
       <div class="govuk-form-group">
@@ -44,30 +44,33 @@
        
        
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="search" data-aria-controls="conditional-contact">
-     
+          <input class="govuk-radios__input" id="changed-name-6" name="documents" type="radio" value="registered" data-aria-controls="conditional-contact">
           <label class="govuk-label govuk-radios__label" for="changed-name-6">
-            It’s the same as the business address
+            The registered address
           </label>
         </div>
         <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
             <div id="govuk-body" class="govuk-body-m">
-               <strong>Business address</strong> <br>
               23 Ruby Street<br>
                London, UK<br>
                EE12 345
               </div>
        
         </div>
-        <!--<div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
+       <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="documents" type="radio" value="site">
           <label class="govuk-label govuk-radios__label" for="changed-name">
-  
-            It’s the same as the registered office address
-    
+           The site address
           </label>
         </div>
-        <div class="govuk-radios__item">
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+          <div id="govuk-body" class="govuk-body-m">
+            1 Reprocessing site<br>
+             Birmingham, UK<br>
+             EE12 345
+            </div>
+      </div>
+        <!--<div class="govuk-radios__item">
           <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
           <label class="govuk-label govuk-radios__label" for="changed-name">
 
@@ -76,7 +79,7 @@
         </div>-->
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="search">
+          <input class="govuk-radios__input" id="changed-name" name="documents" type="radio" value="different">
           <label class="govuk-label govuk-radios__label" for="changed-name">
   
             It’s a different address
