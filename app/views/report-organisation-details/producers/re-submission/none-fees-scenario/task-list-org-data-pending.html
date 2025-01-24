@@ -27,59 +27,55 @@ classes: 'govuk-width-container'
 }) }}
 {% endblock %}
 
-{% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
-{% endblock %}
-
-
 {% block content %}
 <!-- Page layout start 1 -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- <form method="POST" action="task-list-2-large-producer-stage5"> -->
     <div class="govuk-form-group govuk-!-margin-top-0">
-      <h1 class="govuk-heading-l">Acme Limited registration</h1>
+      <h1 class="govuk-heading-l">Continue your registration</h1>
       <!-- Page layout end 1 -->
 
       <!-- Content Start -->
+      <h2 class="app-task-list__section">Registration steps</h2>
       <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            Submit registration data
-          </span><strong class="govuk-tag govuk-tag--dark-blue app-task-list__tag"
-            id="contact-information-status">Completed</strong><br>
-          <p>You have submitted organisation, brand <br>and partner details</p>
+            <a href="summary-of-uploads-2-view-only" aria-describedby="#" class="#">
+              Update registration details
+            </a>
+          </span><strong class="govuk-tag govuk-tag--yellow app-task-list__tag"
+            id="contact-information-status">Pending</strong>
         </li>
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            <a href="../viewed-status/payment-scenario-smallproducers-view-only-stage-3" aria-describedby="#" class="#">
-              View and pay registration fee
-            </a>
-            <p class="govuk-body">You have viewed the registration fee and selected <br>a payment method</p>
+            View and pay registration fee
           </span>
-          <strong class="govuk-tag govuk-tag--dark-blue app-task-list__tag"
-            id="contact-information-status">completed</strong><br>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot
+            start yet</strong><br>
         </li>
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            <a href="../viewed-status/resubmission-confirmation-view-only" aria-describedby="#" class="#">
-              Submit registration application
-            </a>
+            Update registration
           </span>
-          <strong class="govuk-tag govuk-tag--dark-blue app-task-list__tag"
-            id="contact-information-status">Completed</strong><br>
-          Your application has been submitted
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+            yet</strong>
         </li>
       </ul>
-
+      <!-- Content end-->
       <p class="govuk-body">
-        <a href="./dashboard-granted" class="govuk-link">Return to the dashboard</a>
+        <a href="./landing-page-pending-none-scenario" class="govuk-link">Return to the dashboard</a>
       </p>
-
       <!-- Page layout start 2 -->
     </div>
-    </form>
   </div>
+
+  <script>
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") {
+        window.location.href = "task-list-org-data-completed-2";
+      }
+    });
+  </script>
 </div>
 {% endblock %}
 <!-- Page layout end 2 -->
