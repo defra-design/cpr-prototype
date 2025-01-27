@@ -1,0 +1,216 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+    {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }} 
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="./remove-confirmation-new-i-myc" method="POST">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+<h1 class="govuk-heading-l ">Check your answers
+</h1>
+
+    <h2 class="govuk-heading-m ">Remove subsidiary</h2>
+    
+    <dl class="govuk-summary-list">
+
+
+        <!-- SUB NAME -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Good Sauces Coventry
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            
+            </dd>
+        </div>
+
+               <!-- SUB ID -->
+               <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Subsidiary ID
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  123456
+                </dd>
+                <dd class="govuk-summary-list__actions">
+               
+                </dd>
+            </div>
+
+                       <!-- SUB CHN -->
+                       <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Companies House number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          64523645
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                       
+                        </dd>
+                    </div>
+
+                         <!-- SUB Joined -->
+                         <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Joined
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            4 June 2017
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                         
+                          </dd>
+                      </div>
+
+        <!-- REASON CODE -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['reason'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./remove-reason-i-myc">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+
+
+
+        <!-- REASON MORE INFO -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Additional information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['moreDetail'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./remove-reason-text-i-myc">
+                Change<span class="govuk-visually-hidden"> UK nation</span>
+            </a>
+            </dd>
+        </div>
+
+        
+        <!-- Leaving date -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+             Leaving date
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {{ data['leaving-date-day'] }}  {{ data['leaving-date-month'] }} {{ data['leaving-date-year'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./remove-date-i-myc">
+              Change<span class="govuk-visually-hidden"> UK nation</span>
+          </a>
+          </dd>
+      </div>
+    </dl>
+
+
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-8">  
+    </dl>
+    <p class="govuk-body">By confirming your answers, you agree that the information you’ve given is complete and correct.</p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        You can be fined or prosecuted if you give the wrong information.
+      </strong>
+    </div>
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm and remove subsidiary
+      </button>
+      <a class="govuk-link" href="subs-list-i-myc.html">Cancel</a>
+    </div>
+
+
+</form>
+
+
+{% endblock %}
