@@ -1,0 +1,105 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+    {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }} 
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="./remove-date-i-myc" method="POST">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <span class="govuk-caption-l">{{ data['reason'] }}</span>
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Can you provide more detail? 
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Do not include personal or financial information, like your National Insurance number or credit card details
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <a class="govuk-link" href="subs-list-i-myc.html">Cancel</a>
+    </div>
+
+
+</form>
+
+
+{% endblock %}
