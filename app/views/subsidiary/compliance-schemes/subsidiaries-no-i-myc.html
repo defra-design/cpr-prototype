@@ -7,47 +7,50 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Report packaging data
+ Report packaging data
 {% endblock %}
 
 {% block header %}
 
-{# Set serviceName in config.js. #}
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
 
-{{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
-serviceUrl: "#",
-navigation: [
-{
-href: "#",
-text: "Home",
-active: true
-},
-{
-href: "manage-account.html",
-text: "Manage account"
-},
-{
-href: "my-profile.html",
-text: "My profile"
-},
-{
-href: "#",
-text: "Sign out"
-}
-]
-}) }}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
-{{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
-html: 'This is not a live service.',
-classes: 'govuk-width-container'
-}) }}
+  
 
 {% endblock %}
+
 
 {% block beforeContent %}
 
@@ -55,8 +58,8 @@ classes: 'govuk-width-container'
 <nav class="defra-language-select" aria-label="Language switcher">
   {{ govukBackLink ({
     text: "Home",
-    href: "/subsidiary/compliance-schemes/landing-page-2-i-myc"
-    }) }}    
+    href: "javascript:history.back()"
+}) }}   
   <ul class="defra-language-select__list">
     <li class="defra-language-select__list-item">
       <span aria-current="true">English</span>
@@ -73,80 +76,15 @@ classes: 'govuk-width-container'
 
 {% endblock %}
 
-
-
 {% block content %}
 
 
 <style>
-
-.card {
+  .card {
     min-height: 0px;
-}
-  .govuk-table {
-    width: 100%;
-    border-collapse: collapse;
   }
 
-  .govuk-table__header th, .govuk-table td {
-   /* padding: 8px; */
-    text-align: left;
-  }
-
-  .govuk-table__header--numeric, .govuk-table__cell--numeric {
-    text-align: left;
-}
-
-  .govuk-table th {
-    background-color: #ffffff;
-  }
-
-  .govuk-table__row:hover {
-    background-color: #f1f1f1;
-  }
-
-  @media screen and (max-width: 600px) {
-    .govuk-table thead {
-      display: none;
-      width: 100%;
-    }
-
-    .govuk-table tr {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .govuk-table td {
-      display: block;
-      text-align: left;
-      border: none;
-      position: relative;
-      padding-left: 50%;
-    }
-
-    .govuk-table td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 50%;
-      padding-left: 10px;
-      font-weight: bold;
-      text-align: left; 
-    }
-
- 
-  .govuk-checkboxes__label {
-    display: flex;
-    align-items: center;
-  }
-  
-  .govuk-table__header--numeric {
-    text-align: right;
-  }
-
-  }
 </style>
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">COMPLIANCE LTD (EA)</span>
@@ -210,12 +148,12 @@ classes: 'govuk-width-container'
             
                {
                  value: "some",
-                 text: "Show producers with subsidiaries  ",
-                 selected: true
+                 text: "Show producers with subsidiaries  "
                },
                {
                  value: "none",
-                 text: "Show producers without subsidiaries"
+                 text: "Show producers without subsidiaries",
+                 selected: true
                },
                {
                  value: "both",
@@ -231,48 +169,20 @@ classes: 'govuk-width-container'
 
     <p class="govuk-body">Organisation ID: 123 456<br>Companies House number: 10319765</p>
 
-
     <div class="govuk-table-container">
       <table class="govuk-table responsive-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
           Subsidiaries
         </caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="35%">Subsidiary name</th>
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Subsidiary ID</th>  
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Companies House number</th>
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="15%">Joined</th>
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Reporting</th>
-          
-            <th scope="col" class="govuk-table__header" ></th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-    <!--
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell" data-label="Subsidiary name">Good Sauces Coventry</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">	123456 </td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">64523645
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Joining date">4 June 2017</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Reporting type">Group</td>          
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label=""><a class="govuk-link" href="remove-reason-i-myc.html">
-              Remove<span class="govuk-visually-hidden"> Remove subsidiary</span>
-              </a></td>
-          </tr>
-        -->
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell" data-label="Subsidiary name" name="sub-name">Good Vegetables Telford</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">	895464
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">89461325
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Joining date">17 Dec 2023</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Reporting type">Self</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric" data-label=""><a class="govuk-link" href="#">
-              Remove<span class="govuk-visually-hidden"> Remove subsidiary</span>
-              </a></td> 
-      </tbody>
     </table>
     </div>
+    
+          <div class="govuk-inset-text">
+            You have not added any subsidiaries.
+    
+          </div>
+  
+    
 </div>
 </div>
 
@@ -307,12 +217,7 @@ classes: 'govuk-width-container'
 </nav>
 
 
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-    Check all the information you have provided is accurate. If it is not correct or if there is any missing information you will need to provide the correct data. Use the subsidiary IDs for all future organisation details and packaging data submissions.                 </strong>
-          </div>
+
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 

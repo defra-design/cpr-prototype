@@ -121,7 +121,7 @@ router.use('/small-producers/links-routes', require('./views/small-producers/lin
 
 //Mid Year Changes
 router.use('/subsidiary/compliance-schemes', require('./views/subsidiary/_routes'));
-
+router.use('/subsidiary/producers', require('./views/subsidiary/_routes'));
 
 // Clear all session data
 router.get('/clear', (req, res) => {
