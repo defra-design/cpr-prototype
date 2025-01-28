@@ -34,15 +34,15 @@
       rows: [
         {
           key: {
-            text: "Name"
+            text: "List the type of suppliers for steel"
           },
           value: {
-            text: "Sarah Philips"
+            text: data.suppliers1
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "./packaging-waste",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -51,15 +51,15 @@
         },
         {
           key: {
-            text: "Date of birth"
+            text: "Did you reprocess steel packaging waste last calendar year?"
           },
           value: {
-            text: "5 January 1978"
+            text: data.repo
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "./reprocessor-year",
                 text: "Change",
                 visuallyHiddenText: "date of birth"
               }
@@ -82,55 +82,21 @@
               }
             ]
           }
-        },
-        {
-          key: {
-            text: "Address"
-          },
-          value: {
-            html: "72 Guild Street<br>London<br>SE23 6FH"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "address"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Contact details"
-          },
-          value: {
-            html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "contact details"
-              }
-            ]
-          }
         }
       ]
     }) }}
 
-    <h2 class="govuk-heading-m">Application details</h2>
+    <h2 class="govuk-heading-m">Reprocessing inputs for last calendar year</h2>
 
     {{ govukSummaryList({
       classes: "govuk-!-margin-bottom-9",
       rows: [
         {
           key: {
-            text: "Previous application number"
+            text: "UK steel packaging waste"
           },
           value: {
-            text: "502135326"
+            text: data.costPerItem
           },
           actions: {
             items: [
@@ -144,10 +110,10 @@
         },
         {
           key: {
-            text: "Licence type"
+            text: "Non-UK steel packaging waste"
           },
           value: {
-            text: "For personal use"
+            text: data.costPerItem
           },
           actions: {
             items: [
@@ -161,10 +127,10 @@
         },
         {
           key: {
-            text: "Home address"
+            text: "Steel that’s not packaging waste"
           },
           value: {
-            html: "72 Guild Street<br>London<br>SE23 6FH"
+            text: data.costPerItem
           },
           actions: {
             items: [
@@ -178,10 +144,10 @@
         },
         {
           key: {
-            text: "Licence period"
+            text: "Raw materials"
           },
           value: {
-            text: "Valid for 6 months"
+            text: data.materialamt
           },
           actions: {
             items: [
@@ -195,6 +161,90 @@
         }
       ]
     }) }}
+
+    <h2 class="govuk-heading-m">Steel reprocessing outputs from last calendar year</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Types and tonnages of products"
+          },
+          value: {
+            text: data.material1
+          },
+          actions: {
+            items: [
+              {
+                href: "./waste-inputs2",
+                text: "Change",
+                visuallyHiddenText: "previous application number"
+              }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Enter outputs for last calendar year</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Materials not processed on site"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contaminants"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Process loss"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          }
+          ]
+        }) }}
 
     <h2 class="govuk-heading-m">Now send your application</h2>
 
