@@ -19,7 +19,7 @@
 <main id="content" role="main">
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <form class="form" method="post">
+  <form class="form" method="post" action="./search-result">
                  {% if data['languagePreference'] != "en" %}
                      {% if data['error'] == "true" %}
   <div class="govuk-error-summary" data-module="govuk-error-summary">
@@ -37,8 +37,41 @@
   </div>
   </div>
                      {% endif %}
-  <h1 class="govuk-heading-l">
-                         Chwilio am eiddo
+
+                     <h1 class="govuk-heading-l">
+                        Enter your site postcode
+ </h1>
+                    {% if data['error'] == "true" %}
+ <div class="govuk-form-group govuk-form-group--error">
+ <fieldset class="govuk-fieldset" aria-describedby="postcode-error">
+ <label id="postcode-input" class="govuk-label" for="postcode">
+                                    Enter a postcode
+ </label>
+ <p id="postcode-error" class="govuk-error-message">
+ <span class="govuk-visually-hidden">Error:</span> Enter a postcode, like AA1 1AA
+ </p>
+ <input class="govuk-input govuk-input--width-10 govuk-input--error" id="postcode" name="postcode" type="text">
+ </fieldset>
+ </div>
+                    {% else %}
+ <div class="govuk-form-group">
+ <fieldset class="govuk-fieldset">
+ <label id="postcode-input" class="govuk-label" for="postcode">
+                                    Enter a postcode
+ </label>
+ <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+ </fieldset>
+ </div>
+                    {% endif %}
+                    
+ <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Find address
+ </button>
+ <p class="govuk-body">
+ <a href="#/" class="govuk-link">Enter address manually</a>
+ </p>
+  <!--<h1 class="govuk-heading-l">
+    Enter your site postcode
   </h1>
                      {% if data['error'] == "true" %}
   <div class="govuk-form-group govuk-form-group--error">
@@ -67,7 +100,7 @@
   </button>
   <p class="govuk-body">
   <a href="#/" class="govuk-link">Opsiynau chwilio eraill</a>
-  </p>
+  </p>-->
                  {% else %}
                      {% if data['error'] == "true" %}
   <div class="govuk-error-summary" data-module="govuk-error-summary">
