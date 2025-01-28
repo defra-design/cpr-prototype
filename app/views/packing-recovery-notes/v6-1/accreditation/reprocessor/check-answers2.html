@@ -32,15 +32,15 @@
       rows: [
         {
           key: {
-            text: "Site address"
+            text: "Select the packaging waste you’re authorised to reprocess at this site"
           },
           value: {
-            text: "Sarah Philips"
+            text: data.materials
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "./choose-material",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -49,17 +49,17 @@
         },
         {
           key: {
-            text: "Waste carrier, broker or dealer registration number"
+            text: "Is it an exemption or permit that authorises you to reprocess steel?"
           },
           value: {
-            text: "5 January 1978"
+            text: data.permit
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "./exemption-permit",
                 text: "Change",
-                visuallyHiddenText: "date of birth"
+                visuallyHiddenText: "permit"
               }
             ]
           }
@@ -74,7 +74,7 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "./exemption-permit",
                 text: "Change",
                 visuallyHiddenText: "customer reference"
               }
@@ -86,12 +86,12 @@
             text: "Discharge consent  number"
           },
           value: {
-            html: "72 Guild Street<br>London<br>SE23 6FH"
+            text: data.permit
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "./exemption-permit",
                 text: "Change",
                 visuallyHiddenText: "address"
               }
@@ -103,12 +103,46 @@
             text: "Exemption reference"
           },
           value: {
-            html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+            text: "Not provided"
           },
           actions: {
             items: [
               {
                 href: "#",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Materials you need to register"
+          },
+          value: {
+            text: data.materials
+          },
+          actions: {
+            items: [
+              {
+                href: "./choose-material",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Who can the regulator contact about your application for steel?"
+          },
+          value: {
+            text: data.regulator
+          },
+          actions: {
+            items: [
+              {
+                href: "./choose-material",
                 text: "Change",
                 visuallyHiddenText: "contact details"
               }
