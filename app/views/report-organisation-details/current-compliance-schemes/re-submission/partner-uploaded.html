@@ -1,0 +1,98 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
+
+    <form action="summary-of-uploads-2" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+
+          <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+            aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <h3 class="govuk-notification-banner__heading">
+                Partner details uploaded
+              </h3>
+              <p>partnerdetails1.csv</p>
+            </div>
+          </div>
+
+
+          <p>If you think this is incorrect, <a class="govuk-link" href="../re-submission/upload-partner">you can upload
+              again</a>.</p>
+
+
+          <p class="govuk-body">To view or correct your uploaded files, select 'continue'.</p>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+          <div>
+            <a href="../re-submission/landing-page" class="govuk-link">Return to the dashboard</a>
+          </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

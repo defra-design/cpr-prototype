@@ -1,0 +1,116 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected-noresubmission/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Registration details resubmitted
+        </h1>
+      </div>
+      <p>Submitted by Jane Doe at 2:00pm on 10 October 2023.</p>
+
+      <div class="govuk-inset-text">
+
+        <ul class="govuk-list govuk-list">
+          <li>It may take an hour for our systems to update.</li>
+        </ul>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-4">What happens next</h2>
+
+      <p>You still need to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>view your registration fee</li>
+        <li>submit to the environmental regulator</li>
+      </ul>
+
+
+      {{ govukButton({
+      text: "Update your registration",
+      preventDoubleClick: true,
+      href: 'task-list-org-data-pending',
+      classes: 'govuk-!-margin-top-4'
+      }) }}
+
+      <div>
+        <a href="../re-submission/landing-page" class="govuk-link">Return to the dashboard</a>
+      </div>
+
+
+    </div>
+
+    <div>
+      <p class="govuk-body">
+        You can
+        <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+          print or save this page as a PDF
+        </a>
+      </p>
+
+    </div>
+
+
+  </div>
+  <script>
+    function handlePrintOrSave() {
+      window.print(); // This opens the print dialog where users can choose to print or save as PDF
+    }
+  </script>
+
+</div>
+
+
+{% endblock %}
