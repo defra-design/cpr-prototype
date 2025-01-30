@@ -30,9 +30,6 @@ Resubmission
       <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #005a30;">
         Producer registration number</h3>
       <p class="govuk-body">R25EP1234567345</p>
-      <h3 class="govuk-heading-s" style="padding: 6px 0px; margin: 0px; color: #005a30;">
-        Application reference number</h3>
-      <p class="govuk-body">PEPR00000425P5</p>
       </p>
     </div>
 
@@ -141,16 +138,16 @@ Resubmission
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width: 330px;"> <strong
-                  class="govuk-tag govuk-tag--green">Granted</strong></th>
-              <th scope="col" class="govuk-table__cell" style="font-weight: normal;"> 01 January 2025 11:15:20</th>
-              <th scope="col" class="govuk-table__cell" style="font-weight: normal;"></th>
-            </tr>
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width: 330px;"> <strong
-                  class="govuk-tag govuk-tag--light-blue">Resubmission</strong></th>
+                  class="govuk-tag govuk-tag--light-blue">Resubmission rejected</strong></th>
               <th scope="col" class="govuk-table__cell" style="font-weight: normal;">05 January 2025 13:23:01</th>
               <th scope="col" class="govuk-table__cell" style="font-weight: normal;"></th>
+            </tr>
+            <th scope="col" class="govuk-table__header" style="width: 330px;"> <strong
+                class="govuk-tag govuk-tag--green">Granted</strong></th>
+            <th scope="col" class="govuk-table__cell" style="font-weight: normal;"> 01 January 2025 11:15:20</th>
+            <th scope="col" class="govuk-table__cell" style="font-weight: normal;"></th>
             </tr>
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width: 330px;"></th>
@@ -251,9 +248,28 @@ Resubmission
       </div>
     </div>
     <!-- Table payment details end-->
+
+
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+      <h2 class="govuk-heading-l">Past month</h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Case manager</th>
+            <th scope="col" class="govuk-table__header">Cases opened</th>
+            <th scope="col" class="govuk-table__header">Cases closed</th>
+          </tr>
+        </thead>
+
+      </table>
+    </div>
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+      <h2 class="govuk-heading-l">Past year</h2>
+
+    </div>
   </div>
 </div>
-
 
 <!-- Producer comments start-->
 <div class="govuk-summary-card">
@@ -274,7 +290,6 @@ Resubmission
         Praesent eget nunc eget magna auctor aliquet. </p>
     </div>
   </div>
-
 </div>
 <!-- Producer comments end-->
 
@@ -302,30 +317,7 @@ Resubmission
 
 
 
-
-
-
-
-
 {% from "govuk/components/button/macro.njk" import govukButton %}
-
-
-{{ govukButton({
-text: "Approve data",
-href: "./granting-question",
-attributes: {
-style: "float: left; "
-}
-}) }}
-
-{{ govukButton({
-text: "Reject data",
-href: "./1-reason",
-classes: "govuk-button--warning",
-attributes: {
-style: "float: left; margin-left: 30px;"
-}
-}) }}
 
 
 {{ govukButton({
@@ -333,12 +325,13 @@ text: "Cancel registration",
 href: "./2-reason.html",
 classes: "govuk-button--secondary",
 attributes: {
-style: "margin-left: 30px;"
+style: ""
 }
 }) }}
 
 
-<div class="govuk-width-container"><a href="../main-r9-version" class="govuk-link govuk-link--no-visited-state">Go
+<div class="govuk-width-container"><a href="../main-r9-version-rejected"
+    class="govuk-link govuk-link--no-visited-state">Go
     back to all submissions</a></div>
 </div>
 </div>
