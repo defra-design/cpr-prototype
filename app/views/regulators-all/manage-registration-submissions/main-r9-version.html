@@ -103,6 +103,7 @@
                         value="Resubmission">
                       <label class="govuk-label govuk-checkboxes__label" for="status-resubmission">Resubmission</label>
                     </div>
+
                   </div>
                 </fieldset>
               </div>
@@ -161,8 +162,7 @@
 
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Granted</strong>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--light-blue">Resubmission</strong>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">Resubmission</strong>
             </td>
             </td>
           </tr>
@@ -222,6 +222,7 @@
                 style=" padding-top: 7px;">Pending</strong>
             </td>
             <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--light-blue">Resubmission</strong>
             </td>
           </tr>
 
@@ -504,62 +505,57 @@
 </div>
 
 <script>
+
   document.getElementById('apply-filters').addEventListener('click', function () {
     // Get filter values
     const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
     const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
 
     // Get all checkboxes for filtering
-    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
-    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
-    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
 
-    // Add logic to handle "Resubmission" as a group of statuses (case-insensitive)
-    if (statusFilters.includes("Resubmission")) {
-      // Replace "Resubmission" with related statuses
-      statusFilters.splice(
-        statusFilters.indexOf("Resubmission"),
-        1,
+    // Normalize "resubmission" filter (convert it into multiple related statuses)
+    if (statusFilters.includes("resubmission")) {
+      statusFilters = statusFilters.filter(f => f !== "resubmission").concat([
         "resubmission",
         "resubmission approved",
         "resubmission rejected"
-      );
+      ]);
     }
 
-    // Check if any filters are selected
+    // Check if no filters are selected
     const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
 
-    // If no filters are selected, redirect to 'manage-data-submissions-no-results'
     if (noFiltersSelected) {
       window.location.href = '../manage-data-submissions-no-results';
-      return; // Stop further processing
+      return;
     }
 
-    console.log('Filters Applied:', {
-      orgNameFilter,
-      orgIdFilter,
-      orgTypeFilters,
-      statusFilters,
-      yearFilters
-    });
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, statusFilters, yearFilters });
 
     // Get table rows
     const rows = document.querySelectorAll('#submission-table-body tr');
 
-    // Filter rows
     let anyRowVisible = false; // Track if any row is visible after filtering
+
     rows.forEach(row => {
-      // Get data from cells
+      // Extract cell values
       const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase(); // Organisation Name
       const orgId = row.cells[1].textContent.trim().toLowerCase(); // Organisation ID
       const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase(); // Organisation Type
       const submissionYear = row.cells[3].textContent.trim().toLowerCase(); // Submission Year
 
-      // Get all <strong> tags within the status cell
-      const statusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+      // Get all <strong> tags from both status columns (Submission Status and Resubmission)
+      const statusTags = [
+        ...Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase()),
+        ...Array.from(row.cells[5].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase())
+      ];
 
-      // Match status filters, considering all capitalization variations
-      const statusMatch = statusFilters.length === 0 || statusFilters.some(filter => statusTags.some(tag => tag === filter));
+      // Match status filters, considering both columns
+      const statusMatch = statusFilters.length === 0 ||
+        statusFilters.some(filter => statusTags.some(tag => tag.includes(filter)));
 
       // Filter logic
       const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
@@ -567,29 +563,30 @@
       const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
       const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
 
-      // Show/hide row based on matches
+      // Show row if it matches any filter or has "Resubmission" in either column
       if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
         row.style.display = ''; // Show row
-        anyRowVisible = true; // At least one row matches the filters
+        anyRowVisible = true;
       } else {
         row.style.display = 'none'; // Hide row
       }
     });
 
-    // If no rows are visible after filtering, redirect to 'manage-data-submissions-no-results'
     if (!anyRowVisible) {
       window.location.href = '../manage-data-submissions-no-results';
     }
   });
 
   document.getElementById('clear-filters').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent page reload on clear filters link
-    document.getElementById('filter-form').reset(); // Reset form inputs
-    const rows = document.querySelectorAll('#submission-table-body tr');
-    rows.forEach(row => {
+    event.preventDefault();
+    document.getElementById('filter-form').reset();
+
+    document.querySelectorAll('#submission-table-body tr').forEach(row => {
       row.style.display = ''; // Show all rows
     });
   });
+
+
 </script>
 
 
