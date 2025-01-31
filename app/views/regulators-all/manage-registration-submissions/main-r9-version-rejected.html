@@ -41,9 +41,9 @@
               </div>
 
               <!-- Organisation type -->
-              <div class="govuk-form-group" style="margin: 15px 0px;">
-                <fieldset class="govuk-fieldset" style="border-bottom:1px solid #cccccc; padding-bottom: 7px;">
-                  <h3 class=" govuk-heading-s">Organisation type</h3>
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class=" govuk-heading-s" style="margin-bottom: 5px;">Organisation type</h3>
                   <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
                     <div class="govuk-checkboxes__item" style="width: 150px !important;">
                       <input class="govuk-checkboxes__input" id="orgtype-compliancescheme" name="orgtype"
@@ -68,9 +68,9 @@
               </div>
 
               <!-- Submission status -->
-              <div class="govuk-form-group" style="margin: 15px 0px;">
-                <fieldset class="govuk-fieldset"> <!--style="border-bottom:1px solid #cccccc; padding-bottom: 7px;"-->
-                  <h3 class="govuk-heading-s">Submission status</h3>
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Submission status</h3>
                   <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
                     <div class="govuk-checkboxes__item" style="width: 150px !important;">
                       <input class="govuk-checkboxes__input" id="status-pending" name="status" type="checkbox"
@@ -98,36 +98,41 @@
                       <label class="govuk-label govuk-checkboxes__label" for="status-cancelled">Cancelled</label>
                     </div>
 
-
-
-
-                    <!-- Submission year -->
-                    <div class="govuk-form-group" style="margin: 15px 0px;">
-                      <fieldset class="govuk-fieldset">
-                        <!-- style="border-bottom:1px solid #cccccc; padding-bottom: 7px;"-->
-                        <h3 class="govuk-heading-s">Relevant year</h3>
-                        <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
-                          <div class="govuk-checkboxes__item" style="width: 150px !important;">
-                            <input class="govuk-checkboxes__input" id="year2025" name="year" type="checkbox"
-                              value="2025">
-                            <label class="govuk-label govuk-checkboxes__label" for="year2025">2025</label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
-
-                    <!-- Apply and clear filters -->
-                    <div style="align-items: center; display: flex;">
-                      <button class="govuk-button" type="button" id="apply-filters"
-                        style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
-                      <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
-                          class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission" name="status" type="checkbox"
+                        value="Resubmission">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-resubmission">Resubmission</label>
                     </div>
 
                   </div>
+                </fieldset>
+              </div>
+
+
+              <!-- Submission year -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Relevant year</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="year2025" name="year" type="checkbox" value="2025">
+                      <label class="govuk-label govuk-checkboxes__label" for="year2025">2025</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Apply and clear filters -->
+              <div style="align-items: center; display: flex;">
+                <button class="govuk-button" type="button" id="apply-filters"
+                  style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
+                <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
+                    class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
     </form>
 
     <div style="padding: 0px 20px;">
@@ -139,50 +144,60 @@
             <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
             <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation ID and<br>Reference number
             </th>
-            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission date and time</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission date <br>and time</th>
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Relevant year</th>
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Resubmission</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body" id="submission-table-body">
           <!-- Org Acme with links start -->
           <tr>
-            <td class="govuk-table__cell"><a href="./r9-internal-pages/resubmission-granted" class="govuk-link">Acme org
-                Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+            <td class="govuk-table__cell"><a href="./r9-internal-pages/resubmission-after-resub-rejected"
+                class="govuk-link">Another
+                Acme
+                org Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
             <td class="govuk-table__cell">215148 <br>R25EP1234567345
             </td>
             <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
 
             <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
             <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--green" style=" padding-top: 7px;">Granted</strong>
-              <strong class="govuk-tag govuk-tag--light-blue" style=" padding-top: 7px;">Resubmission pending</strong>
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission">Rejected</strong>
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./r9-internal-pages/resubmission-granted" class="govuk-link">Acme org
+                Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+            <td class="govuk-table__cell">215148 <br>R25EP1234567345
+            </td>
+            <td class="govuk-table__cell">25 October 2025 <br> 10:10:01</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Granted</strong>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue"
+                id="status-resubmission">Pending</strong>
+            </td>
             </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="./r9-internal-pages/resubmission-after-resub-granted"
-                class="govuk-link">Acme org
-                Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+                class="govuk-link">Another
+                Acme
+                org Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
             <td class="govuk-table__cell">215148 <br>R25EP1234567345
             </td>
             <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
+
             <td class="govuk-table__cell">2025</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--green" style=" padding-top: 7px;">Granted</strong>
-              <strong class="govuk-tag govuk-tag--light-blue" style=" padding-top: 7px;">Resubmission accepted</strong>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
             </td>
-          </tr>
-          <tr>
-            <td class="govuk-table__cell"><a href="./r9-internal-pages/resubmission-after-resub-rejected"
-                class="govuk-link">Acme org
-                Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
-            <td class="govuk-table__cell">215148 <br>R25EP1234567345
-            </td>
-            <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
-            <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--green" style=" padding-top: 7px;">Granted</strong>
-              <strong class="govuk-tag govuk-tag--light-blue" style=" padding-top: 7px;">Resubmission rejected</strong>
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission">Accepted</strong>
             </td>
           </tr>
           <tr>
@@ -196,6 +211,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
                 style=" padding-top: 7px;">Refused</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="./small-producer/queried/overview.html" class="govuk-link">Acme
@@ -208,8 +225,9 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
                 style=" padding-top: 7px;">Queried</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
-
           <tr>
             <td class="govuk-table__cell"><a href="./large-producer/pending/overview.html" class="govuk-link">Acme
                 org Ltd.</a><br><span class="orgNameFilter Large producer">Large producer</span></td>
@@ -221,23 +239,9 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
                 style=" padding-top: 7px;">Pending</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
-
-          <!--<tr>
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Acme
-                org Ltd.</a><br><span class="orgNameFilter Large producer">Large producer</span></td>
-            <td class="govuk-table__cell">215148<br>PEPR00000125P1
-            </td>
-            <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
-
-            <td class="govuk-table__cell">2025</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow"
-                style=" padding-top: 7px;">Updated</strong>
-            </td>
-          </tr>-->
-
-          <!-- Org Acme with links end -->
-
 
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -248,6 +252,8 @@
             <td class="govuk-table__cell">2024</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
                 style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -262,6 +268,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
                 style=" padding-top: 7px;">Refused</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -275,6 +283,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
                 style=" padding-top: 7px;">Queried</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -286,6 +296,8 @@
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
                 style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -299,6 +311,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
                 style="padding-top: 7px;">Granted</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -309,6 +323,8 @@
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
                 style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -323,6 +339,8 @@
                 style="background-color:#282d30;color:#e5e6e7; padding-top: 7px;">
                 Cancelled
               </strong></td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -335,6 +353,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
                 style=" padding-top: 7px;">Refused</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -346,6 +366,8 @@
             <td class="govuk-table__cell">2024</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
                 style=" padding-top: 7px;">Pending</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -360,6 +382,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
                 style=" padding-top: 7px;">Granted</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -372,6 +396,8 @@
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
                 style=" padding-top: 7px;">Refused</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -386,6 +412,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
                 style=" padding-top: 7px;">Pending</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -397,6 +425,8 @@
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
                 style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
           <tr>
@@ -410,6 +440,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
                 style=" padding-top: 7px;">Refused</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -422,6 +454,8 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
                 style=" padding-top: 7px;">Pending</strong>
             </td>
+            <td class="govuk-table__cell">
+            </td>
           </tr>
           <tr>
             <td class="govuk-table__cell"><a href="#"
@@ -432,6 +466,8 @@
             <td class="govuk-table__cell">2024</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
                 style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
             </td>
           </tr>
         </tbody>
@@ -481,65 +517,56 @@
 
 </div>
 
-
 <script>
-
   document.getElementById('apply-filters').addEventListener('click', function () {
     // Get filter values
     const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
     const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
 
     // Get all checkboxes for filtering
-    const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
-    const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
-    const yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
 
-    // Add logic to handle "Resubmission" as a group of statuses (case-insensitive)
+    // Normalise "resubmission" filter (convert it into multiple related statuses)
     if (statusFilters.includes("resubmission")) {
-      // Replace "resubmission" with all related statuses
-      statusFilters.splice(
-        statusFilters.indexOf("resubmission"),
-        1,
+      statusFilters = statusFilters.filter(f => f !== "resubmission").concat([
         "resubmission",
-        "resubmission approved",
-        "resubmission rejected"
-      );
+        "pending",
+        "accepted",
+        "rejected"
+      ]);
     }
 
-    // Check if any filters are selected
+    // Check if no filters are selected
     const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
-
-    // If no filters are selected, redirect to 'manage-data-submissions-no-results'
     if (noFiltersSelected) {
       window.location.href = '../manage-data-submissions-no-results';
-      return; // Stop further processing
+      return;
     }
 
-    console.log('Filters Applied:', {
-      orgNameFilter,
-      orgIdFilter,
-      orgTypeFilters,
-      statusFilters,
-      yearFilters
-    });
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, statusFilters, yearFilters });
 
     // Get table rows
     const rows = document.querySelectorAll('#submission-table-body tr');
-
-    // Filter rows
     let anyRowVisible = false; // Track if any row is visible after filtering
+
     rows.forEach(row => {
-      // Get data from cells
-      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase(); // Organisation Name
-      const orgId = row.cells[1].textContent.trim().toLowerCase(); // Organisation ID
-      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase(); // Organisation Type
-      const submissionYear = row.cells[3].textContent.trim().toLowerCase(); // Submission Year
+      // Extract cell values
+      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase();
+      const orgId = row.cells[1].textContent.trim().toLowerCase();
+      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
+      const submissionYear = row.cells[3].textContent.trim().toLowerCase();
 
-      // Get all <strong> tags within the status cell
-      const statusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+      // Get all <strong> tags from both status columns (Submission Status and Resubmission)
+      const statusTags = [
+        ...Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase()),
+        ...Array.from(row.cells[5].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase())
+      ];
 
-      // Match status filters, considering all capitalization variations
-      const statusMatch = statusFilters.length === 0 || statusFilters.some(filter => statusTags.some(tag => tag === filter));
+      // Match status filters, considering both columns
+      const statusMatch = statusFilters.length === 0 ||
+        statusFilters.some(filter => statusTags.some(tag => tag === filter));
 
       // Filter logic
       const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
@@ -547,35 +574,29 @@
       const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
       const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
 
-      // Show/hide row based on matches
+      // Show row if it matches any filter
       if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
         row.style.display = ''; // Show row
-        anyRowVisible = true; // At least one row matches the filters
+        anyRowVisible = true;
       } else {
         row.style.display = 'none'; // Hide row
       }
     });
 
-    // If no rows are visible after filtering, redirect to 'manage-data-submissions-no-results'
     if (!anyRowVisible) {
       window.location.href = '../manage-data-submissions-no-results';
     }
   });
 
+  // Clear filters
   document.getElementById('clear-filters').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent page reload on clear filters link
-    document.getElementById('filter-form').reset(); // Reset form inputs
-    const rows = document.querySelectorAll('#submission-table-body tr');
-    rows.forEach(row => {
+    event.preventDefault();
+    document.getElementById('filter-form').reset();
+    document.querySelectorAll('#submission-table-body tr').forEach(row => {
       row.style.display = ''; // Show all rows
     });
   });
 
-
 </script>
-
-
-
-
 
 {% endblock %}
