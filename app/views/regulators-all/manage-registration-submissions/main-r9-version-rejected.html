@@ -147,7 +147,7 @@
             <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission date <br>and time</th>
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Relevant year</th>
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
-            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Resubmission</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Resubmission status</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body" id="submission-table-body">
@@ -517,35 +517,37 @@
 
 </div>
 
+
 <script>
   document.getElementById('apply-filters').addEventListener('click', function () {
     // Get filter values
     const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
     const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
 
-    // Get all checkboxes for filtering
+    // Get selected checkboxes
     let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
     let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Separate normal status filters from "Resubmission"
+    let resubmissionFilterActive = statusFilters.includes("resubmission");
+    let standardStatusFilters = statusFilters.filter(f => f !== "resubmission"); // Exclude "Resubmission"
+
+    // Define statuses that will disable resubmission filtering
+    let statusesDisablingResubmission = ["pending", "granted", "refused", "queried", "cancelled"];
+    let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
+
+    // Get year filters
     let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
 
-    // Normalise "resubmission" filter (convert it into multiple related statuses)
-    if (statusFilters.includes("resubmission")) {
-      statusFilters = statusFilters.filter(f => f !== "resubmission").concat([
-        "resubmission",
-        "pending",
-        "accepted",
-        "rejected"
-      ]);
-    }
-
     // Check if no filters are selected
-    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
+    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 &&
+      statusFilters.length === 0 && yearFilters.length === 0;
     if (noFiltersSelected) {
       window.location.href = '../manage-data-submissions-no-results';
       return;
     }
 
-    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, statusFilters, yearFilters });
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilterActive, yearFilters, otherStatusSelected });
 
     // Get table rows
     const rows = document.querySelectorAll('#submission-table-body tr');
@@ -558,24 +560,39 @@
       const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
       const submissionYear = row.cells[3].textContent.trim().toLowerCase();
 
-      // Get all <strong> tags from both status columns (Submission Status and Resubmission)
-      const statusTags = [
-        ...Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase()),
-        ...Array.from(row.cells[5].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase())
-      ];
+      // Get Submission Status (Column 5)
+      const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
 
-      // Match status filters, considering both columns
-      const statusMatch = statusFilters.length === 0 ||
-        statusFilters.some(filter => statusTags.some(tag => tag === filter));
+      // Get Resubmission Status (Column 6) **ONLY from strong tags with id="status-resubmission"**
+      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong#status-resubmission')).map(tag => tag.textContent.trim().toLowerCase());
 
-      // Filter logic
+      // Fix: Only apply resubmission filtering if no other status (Pending, Granted, Refused, etc.) is checked
+      if (resubmissionFilterActive && !otherStatusSelected) {
+        let resubmissionMatch = resubmissionStatusTags.some(tag => ["pending", "accepted", "rejected"].includes(tag));
+        let grantedMatch = submissionStatusTags.includes("granted");
+
+        // Only show rows where "Granted" exists AND resubmission status is Pending, Accepted, or Rejected
+        if (grantedMatch && resubmissionMatch) {
+          row.style.display = ''; // Show row
+          anyRowVisible = true;
+        } else {
+          row.style.display = 'none'; // Hide row
+        }
+        return; // Skip other filters when Resubmission is active
+      }
+
+      // Match Submission Status (Normal filtering)
+      const submissionStatusMatch = standardStatusFilters.length === 0 ||
+        standardStatusFilters.some(filter => submissionStatusTags.includes(filter));
+
+      // Apply all other filter conditions
       const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
       const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
       const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
       const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
 
-      // Show row if it matches any filter
-      if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
+      // Final row visibility check
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && submissionStatusMatch && yearMatch) {
         row.style.display = ''; // Show row
         anyRowVisible = true;
       } else {
