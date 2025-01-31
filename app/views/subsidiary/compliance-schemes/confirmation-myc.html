@@ -1,0 +1,90 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            File uploaded successfully
+          </h1>
+        </div>
+   
+        <p class="govuk-body">You added 300 subsidiaries.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">Check all the information you have provided is accurate.</p>
+        <p class="govuk-body">Use the subsidiary IDs for all future organisation details and packaging data submissions.</p>
+        <button class=" govuk-button govuk-button--secondary">Download list</button>
+
+        <h2 class="govuk-heading-m">Removing subsidiaries</h2>
+                  
+        <p class="govuk-body">To permanently remove subsidiaries, update your organisation details file and resubmit it.</p>
+
+        <p class="govuk-body">If your members’ organisation details change, you must tell the regulator within 28 days.</p>
+    
+<div class="govuk-button-group">
+  <a class="govuk-link" href="subs-list-i-myc-4">Return to subsidiaries</a>  <a class="govuk-link" href="#">Return to account home</a>
+</div>
+<p class="govuk-body govuk-error-message">Placeholder text Sam to provide words!
+</p>
+    </div>
+    </div>    
+        
+</div>
+
+
+{% endblock %}
