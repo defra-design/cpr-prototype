@@ -1,9 +1,5 @@
 {% extends "layout.html" %}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
-
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
@@ -58,20 +54,11 @@ classes: 'govuk-width-container'
     href: "javascript:history.back()"
     }) }}
 
-    <form action="declaration" method="post">
+    <form id="agreementForm" novalidate>
 
       <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
         Check and submit
       </h1>
-
-      <!--<div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-visually-hidden">Warning</span>
-          Your resubmission may be delayed if there are errors in your files, of if you do not confirm resubmission. You
-          may also have to start the process again.
-        </strong>
-      </div>-->
 
       <!-- New Summary Card with bespoke code start -->
       <div class="govuk-summary-card">
@@ -137,52 +124,42 @@ classes: 'govuk-width-container'
       <!-- New Summary Card with bespoke code end -->
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <fieldset class="govuk-fieldset" id="radio-fieldset" aria-describedby="signIn-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h2 class="govuk-heading-m">
-              Are you sure you want to submit your organisation details?
-            </h2>
+            <h2 class="govuk-heading-m">Are you sure you want to submit your organisation details?</h2>
           </legend>
           <div id="signIn-hint" class="govuk-hint">
             This information will be sent to the environmental regulator
           </div>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway"
-                aria-describedby="signIn-item-hint">
-              <label class="govuk-label govuk-radios__label" for="signIn">
-                Yes, I'd like to submit
-              </label>
+              <input class="govuk-radios__input" id="signIn" name="agreement" type="radio" value="signIn">
+              <label class="govuk-label govuk-radios__label" for="signIn">Yes, I'd like to submit</label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login"
-                aria-describedby="signIn-2-item-hint">
-              <label class="govuk-label govuk-radios__label" for="signIn-2">
-                No, I’ll do it later
-              </label>
+              <input class="govuk-radios__input" id="signIn-2" name="agreement" type="radio" value="signIn-2">
+              <label class="govuk-label govuk-radios__label" for="signIn-2">No, I’ll do it later</label>
             </div>
           </div>
         </fieldset>
       </div>
 
-
-      {{ govukButton({
-      text: "Confirm"
-      })}}
-
-
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-
-
-      {{ govukButton({
-      text: "Continue without submitting",
-      href: "./declaration",
-      classes: "govuk-button--secondary",
-      attributes: {
-      style: "margin-left: 30px;"
-      }
-      }) }}
+      {{ govukButton({ text: "Confirm" }) }}
     </form>
+
+    <script>
+      document.getElementById('agreementForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const agreement = document.querySelector('input[name="agreement"]:checked');
+
+        if (agreement) {
+          localStorage.setItem('selectedProducer', agreement.value);
+          window.location.href = agreement.value === 'signIn' ? '../re-submission/declaration' : '../../../report-organisation-details/producers/re-submission/landing-page';
+        } else {
+          document.getElementById('radio-fieldset').classList.add('govuk-fieldset--error');
+        }
+      });
+    </script>
 
   </div>
 </div>
