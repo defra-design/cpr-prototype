@@ -1,0 +1,99 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            File uploaded successfully
+          </h1>
+        </div>
+
+        <p class="govuk-body">You added 300 subsidiaries.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Check that all the information you have provided is accurate</li>
+          <li>If your members’ organisation details change, notify the regulator within 28 days by  <a href="#">updating and resubmitting your registration file</a></li>
+          <li>Use the subsidiary IDs for all future organisation details and packaging data submissions</li>
+        </ul>
+        
+
+        <button class=" govuk-button govuk-button--secondary">Download subsidiaries list</button>
+
+  
+     
+          <p class="govuk-body govuk-error-message">Sam to review copy with BAs
+          </p>
+  
+
+        <div class="govuk-button-group">
+          <a href="subs-list-i-myc-5" class="govuk-button" type="submit">View subsidiaries</a>
+
+
+
+          <a class="govuk-link" href="#">Return to account home</a>
+        </div>
+
+
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
