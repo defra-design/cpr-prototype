@@ -17,10 +17,10 @@ router.post('*/registered-charity-question', function (req, res) {
     var registeredCharity = req.session.data['registered-charity']
 
     if (registeredCharity == "Yes"){
-        res.redirect('../companies-house/about-your-organisation/companies-house-number')
+        res.redirect('../not-affected/charity')
     }
     else if (registeredCharity == "No"){
-        res.redirect('../non-companies-house/about-your-business/type-of-organisation')
+        res.redirect('../general/registered-with-companies-house')
     }
 })
 
