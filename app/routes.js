@@ -119,8 +119,11 @@ router.use('/paper-cups/takeback-scheme-registration/version-2', require('./view
 router.use('/small-producers/links-routes', require('./views/small-producers/links-routes/_routes'));
 
 
+//Enrolment
+router.use('/enrolment/account-creation', require('./views/enrolment/account-creation/build/_routes'));
+
 //Mid Year Changes
-router.use('/subsidiary/compliance-schemes', require('./views/subsidiary/_routes'));
+router.use('/enrolment/compliance-schemes', require('./views/subsidiary/_routes'));
 router.use('/subsidiary/producers', require('./views/subsidiary/_routes'));
 
 // Clear all session data
