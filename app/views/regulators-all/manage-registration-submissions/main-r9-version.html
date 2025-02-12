@@ -97,11 +97,36 @@
                         value="Cancelled">
                       <label class="govuk-label govuk-checkboxes__label" for="status-cancelled">Cancelled</label>
                     </div>
+                  </div>
+                </fieldset>
+              </div>
 
+
+
+
+
+              <!-- Resubmission status -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Resubmission status</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
                     <div class="govuk-checkboxes__item" style="width: 150px !important;">
-                      <input class="govuk-checkboxes__input" id="status-resubmission" name="status" type="checkbox"
-                        value="Resubmission">
-                      <label class="govuk-label govuk-checkboxes__label" for="status-resubmission">Resubmission</label>
+                      <input class="govuk-checkboxes__input" id="status-resubmission-pending" name="status"
+                        type="checkbox" value="resubmission-pending">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-pending">Pending</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission-accepted" name="status"
+                        type="checkbox" value="resubmission-accepted">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-accepted">Accepted</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission-rejected" name="status"
+                        type="checkbox" value="resubmission-rejected">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-rejected">Rejected</label>
                     </div>
 
                   </div>
@@ -162,7 +187,7 @@
             <td class="govuk-table__cell">2025</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Granted</strong>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue"
-                id="status-resubmission">Pending</strong>
+                id="status-resubmission-pending">Pending</strong>
             </td>
             </td>
           </tr>
@@ -180,7 +205,7 @@
                 style=" padding-top: 7px;">Granted</strong>
             </td>
             <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission">Accepted</strong>
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission-accepted">Accepted</strong>
             </td>
           </tr>
           <tr>
@@ -197,7 +222,7 @@
                 style=" padding-top: 7px;">Granted</strong>
             </td>
             <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission">Rejected</strong>
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission-rejected">Rejected</strong>
             </td>
           </tr>
           <tr>
@@ -527,11 +552,17 @@
     let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
     let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
 
-    // Separate normal status filters from "Resubmission"
-    let resubmissionFilterActive = statusFilters.includes("resubmission");
-    let standardStatusFilters = statusFilters.filter(f => f !== "resubmission"); // Exclude "Resubmission"
+    // Separate resubmission filters
+    let resubmissionFilters = statusFilters.filter(status =>
+      ["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
 
-    // Define statuses that will disable resubmission filtering
+    // Filter out resubmission-related statuses from standard status filters
+    let standardStatusFilters = statusFilters.filter(status =>
+      !["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
+
+    // Define statuses that disable resubmission filtering
     let statusesDisablingResubmission = ["pending", "granted", "refused", "queried", "cancelled"];
     let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
 
@@ -546,7 +577,7 @@
       return;
     }
 
-    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilterActive, yearFilters, otherStatusSelected });
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilters, yearFilters, otherStatusSelected });
 
     // Get table rows
     const rows = document.querySelectorAll('#submission-table-body tr');
@@ -562,15 +593,15 @@
       // Get Submission Status (Column 5)
       const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
 
-      // Get Resubmission Status (Column 6) **ONLY from strong tags with id="status-resubmission"**
-      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong#status-resubmission')).map(tag => tag.textContent.trim().toLowerCase());
+      // Get Resubmission Status (Column 6)
+      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong[id^="status-resubmission"]')).map(tag => tag.textContent.trim().toLowerCase());
 
-      // Fix: Only apply resubmission filtering if no other status (Pending, Granted, Refused, etc.) is checked
-      if (resubmissionFilterActive && !otherStatusSelected) {
-        let resubmissionMatch = resubmissionStatusTags.some(tag => ["pending", "accepted", "rejected"].includes(tag));
+      // Handle resubmission filtering
+      if (resubmissionFilters.length > 0 && !otherStatusSelected) {
+        let resubmissionMatch = resubmissionStatusTags.some(tag => resubmissionFilters.includes(`resubmission-${tag}`)); // Match specific resubmission status
         let grantedMatch = submissionStatusTags.includes("granted");
 
-        // Only show rows where "Granted" exists AND resubmission status is Pending, Accepted, or Rejected
+        // Only show rows where "Granted" exists AND resubmission status matches the filters
         if (grantedMatch && resubmissionMatch) {
           row.style.display = ''; // Show row
           anyRowVisible = true;
