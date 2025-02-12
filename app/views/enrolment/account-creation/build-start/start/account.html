@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management?added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-body account-info">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div><br>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Account: ACORN LIMITED
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Organisation ID: 123 456</strong></p>
+  <p class="govuk-body govuk-!-margin-bottom-1"> Your account is set up as a reprocessor and exporter.</p>
+</div>
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"><a href="registered-as-a-charity" class="govuk-link--no-visited-state">Enrol your business</a></h2>
+      <p class="govuk-body">officia quia et sunt aliquam in enim soluta hic reprehenderit:</p>
+        <ul class="govuk-list govuk-list--bullet">
+         <li>Lorem ipsum dolor sit amet.</li>
+         <li>Dolor sit amet.</li>
+        </ul> 
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m"><a href="#" class="govuk-link--no-visited-state">View delegated businesses</a></h2>
+      <p class="govuk-body">Lorem ipsum dolor sit amet. Ut perferendis</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>magnam aut praesentium magni ut repudiandae</li>
+          <li>magnam aut praesentium magni ut repudiandae</li>
+        </ul> 
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">Registrations and status</h2>
+      <p class="govuk-body">No action needed at the moment</p>
+    </div>
+  </div>
+  
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m" class="govuk-link--no-visited-state">Acreditation and status</h2>
+      <p class="govuk-body">No action needed at the moment</p>
+    </div>
+  </div>
+  </div>
+  
+
+
+{% endblock %}
