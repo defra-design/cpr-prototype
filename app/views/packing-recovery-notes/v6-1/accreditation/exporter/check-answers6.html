@@ -16,14 +16,14 @@
           <div class="govuk-grid-column-full">
           <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
-            <h2 class="govuk-heading-m">Steel</h2>
+            <h2 class="govuk-heading-m">Overseas reprocessor details</h2>
 
 
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
                   <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Material
+                        Overseas reprocessor details
                       </dt>
                       <dd class="govuk-summary-list__value">
                         {{data['materials']}}<br>
@@ -37,7 +37,7 @@
 
                   <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Who can the regulator contact about your application for steel?
+                        Person the regulator can contact
                       </dt>
                       <dd class="govuk-summary-list__value">
                           {{data['regulator']}}
@@ -51,7 +51,7 @@
                   </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  List the type of suppliers you get steel packaging waste from
+                  Packaging waste you export to this reprocessor
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{data['notesource']}}
@@ -61,30 +61,58 @@
                     Change<span class="govuk-visually-hidden"> previous application number</span>
                   </a>
                 </dd>
-              </div>
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Name the UK ports you use for exporting steel packaging waste
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['director1']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> previous application number</span>
-                    </a>
-                </dd>
-            </div>
+              </div>            
             </dl>
 
-             
-         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">Interim site details</h2>
 
 
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Using interim sites
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['materials']}}<br>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="choose-material">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Interim site details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['regulator']}}
+                      
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="contact-select">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Person the regulator can contact
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['notesource']}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="waste-details">
+                  Change<span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+              </dd>
+            </div>            
           </dl>
 
-            <form action="review-material2" method="post" novalidate>
+            <form action="add-oversea-repo-site-2" method="post" novalidate>
               <input type="hidden" name="answers-checked" value="true">
              <input type="hidden" name="waste-data-reprocesser" value="true">
               <button class="govuk-button" data-module="govuk-button">
