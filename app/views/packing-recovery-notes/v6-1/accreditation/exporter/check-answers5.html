@@ -1,4 +1,4 @@
-{% set serviceName = "Accreditation" %}
+{% set serviceName = "Registration" %}
 
 {% extends "layout.html" %}
 
@@ -23,58 +23,110 @@
 
                   <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Overseas reprocessor details
+                        Organisation name
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{data['materials']}}<br>
+                        {{data['orgName']}}<br>
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="choose-material">
+                          <a class="govuk-link" href="overseas-reprocessor-details">
                               Change<span class="govuk-visually-hidden"> previous application number</span>
                           </a>
                       </dd>
                   </div>
-
                   <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Person the regulator can contact
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                          {{data['regulator']}}
-                        
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="contact-select">
-                              Change<span class="govuk-visually-hidden"> previous application number</span>
-                          </a>
-                      </dd>
-                  </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Packaging waste you export to this reprocessor
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['notesource']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details">
-                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                    <dt class="govuk-summary-list__key">
+                      Country
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['country']}}<br>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="overseas-reprocessor-details">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Address line 1
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['addressLine1']}}<br>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="overseas-reprocessor-details">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                      </a>
+                  </dd>
+              </div>
+       
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address line 2 (optional)
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['addressLine2']}}<br>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="overseas-reprocessor-details">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
                   </a>
-                </dd>
-              </div>            
+              </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              City or town
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['addressLineTown']}}<br>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="overseas-reprocessor-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            State, province or region (optional)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['addressCounty']}}<br>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="overseas-reprocessor-details">
+                  Change<span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+          </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Postcode or area code (optional)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['addressPostcode']}}<br>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="overseas-reprocessor-details">
+                Change<span class="govuk-visually-hidden"> previous application number</span>
+            </a>
+        </dd>
+    </div>
+          
             </dl>
 
-            <h2 class="govuk-heading-m">Interim site details</h2>
+            <h2 class="govuk-heading-m">Person the regulator can contact</h2>
 
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Using interim sites
+                      Full name
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{data['materials']}}<br>
+                      {{data['Fullname']}}<br>
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="choose-material">
@@ -85,10 +137,10 @@
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Interim site details
+                      Emaill address
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['regulator']}}
+                        {{data['email']}}
                       
                     </dd>
                     <dd class="govuk-summary-list__actions">
@@ -99,10 +151,10 @@
                 </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Person the regulator can contact
+                Telephone
               </dt>
               <dd class="govuk-summary-list__value">
-                {{data['notesource']}}
+                {{data['phoneNumber']}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="waste-details">
@@ -111,6 +163,174 @@
               </dd>
             </div>            
           </dl>
+
+         
+          <h2 class="govuk-heading-m">Packaging waste exported to this reprocessor</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Packaging waste
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['materials']}}<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="interim-site-details">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+          </dl>
+
+          <h2 class="govuk-heading-m">Interim site details</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Organisation name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['orgName']}}<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="interim-site-details">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Country
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['country']}}<br>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="interim-site-details">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address line 1
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['addressLine1']}}<br>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="interim-site-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+            </dd>
+        </div>
+ 
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address line 2 (optional)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['addressLine2']}}<br>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="interim-site-details">
+                Change<span class="govuk-visually-hidden"> previous application number</span>
+            </a>
+        </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        City or town
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{data['addressLineTown']}}<br>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="interim-site-details">
+              Change<span class="govuk-visually-hidden"> previous application number</span>
+          </a>
+      </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      State, province or region (optional)
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{data['addressCounty']}}<br>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="interim-site-details">
+            Change<span class="govuk-visually-hidden"> previous application number</span>
+        </a>
+    </dd>
+</div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+    Postcode or area code (optional)
+  </dt>
+  <dd class="govuk-summary-list__value">
+    {{data['addressPostcode']}}<br>
+  </dd>
+  <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="interim-site-details">
+          Change<span class="govuk-visually-hidden"> previous application number</span>
+      </a>
+  </dd>
+</div>
+    
+      </dl>
+
+      <h2 class="govuk-heading-m">Person the regulator can contact</h2>
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['Fullname']}}<br>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="choose-material">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Emaill address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {{data['email']}}
+                
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="contact-select">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd>
+          </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Telephone
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['phoneNumber']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="waste-details">
+            Change<span class="govuk-visually-hidden"> previous application number</span>
+          </a>
+        </dd>
+      </div>            
+    </dl>
+
 
             <form action="add-oversea-repo-site" method="post" novalidate>
               <input type="hidden" name="answers-checked" value="true">
