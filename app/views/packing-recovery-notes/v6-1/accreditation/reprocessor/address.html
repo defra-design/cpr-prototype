@@ -1,4 +1,4 @@
-{% set serviceName = "Accreditation" %}
+{% set serviceName = "Registration" %}
 
 {% extends "layout.html" %}
 
@@ -21,7 +21,7 @@
     <h1 class="govuk-heading-l">
 
 
-      Your registered office address
+      What’s the address of the site you want to register?
 
 </h1>
 
@@ -32,10 +32,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<p>Your registered office address is currently listed as:</p>
-    <div class="govuk-inset-text">
-      1 London Way<br>Birmingham, UK<br>XX1 ZZ2    </div>
- <h2 class="govuk-heading-m">Is this address correct?</h2>
+
+
+    <form class="form" action="" method="POST">
 
      
       <div class="govuk-form-group">
@@ -45,21 +44,44 @@
        
        
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="address-postal" data-aria-controls="conditional-contact">
+          <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="grid-ref" data-aria-controls="conditional-contact">
      
           <label class="govuk-label govuk-radios__label" for="changed-name-6">
-            Yes
+            It’s the same as the business address
           </label>
         </div>
-     
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="address-update">
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div id="govuk-body" class="govuk-body-m">
+               <strong>Business address</strong> <br>
+              23 Ruby Street<br>
+               London, UK<br>
+               EE12 345
+              </div>
+       
+        </div>
+        <!--<div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
           <label class="govuk-label govuk-radios__label" for="changed-name">
   
-            No, I need to update this address    
+            It’s the same as the registered office address
+    
           </label>
         </div>
-   
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+
+            It’s the same as the contact address
+          </label>
+        </div>-->
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="search">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+  
+            It’s a different address
+          </label>
+        </div>
       
   
       </div>

@@ -1,0 +1,112 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "rejected/landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div>
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+      Your history
+    </h1>
+
+
+    <p><a href="https://defra-cpr-prototype.herokuapp.com/orgdetails-resubmission/v2/past-history">View your full
+        organisation details history</a></p>
+    <h2 class="govuk-heading-m govuk-!-margin-top-3">Most recent organisation details files</h2>
+
+
+    <table class=govuk-table style="background-color:#ffffff; border: 1px solid #b1b4b6; margin: 30px 0px;">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" style="padding: 15px">File name</th>
+          <th scope="col" class="govuk-table__header" style="padding: 15px">Date and time submitted</th>
+          <th scope="col" class="govuk-table__header" style="padding: 15px">Submitted by</th>
+          <th scope="col" class="govuk-table__header" style="padding: 15px">Status</th>
+          <th scope="col" class="govuk-table__header" style="padding: 15px"></th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" style="padding: 15px">orgdetails1.csv</td>
+          <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+          <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+          <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+        </tr>
+      </tbody>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" style="padding: 15px">branddetails.csv</td>
+          <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+          <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+          <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+        </tr>
+      </tbody>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" style="padding: 15px">partnerdetails.csv</td>
+          <td class="govuk-table__cell" style="padding: 15px">8 November 2024, 3:00pm</td>
+          <td class="govuk-table__cell" style="padding: 15px">John Smith</td>
+          <td class="govuk-table__cell" style="padding: 15px">Submitted on 8 October 2023, 2:00pm</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body">
+      <a href="./task-list-org-data-completed-3" class="govuk-link--no-visited-state">Return to the registration
+        steps</a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

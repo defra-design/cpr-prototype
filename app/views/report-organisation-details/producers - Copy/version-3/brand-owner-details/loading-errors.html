@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a class="govuk-back-link" href="#">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-l">Uploading organisation details</h1>
+
+      <p class="govuk-body">This may take a few minutes - we’ll refresh the page automatically until it is done.</p>
+
+      <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
+
+      <!-- <div class="loading" aria-live="polite" role="status"></div> -->
+
+      <p>
+        <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+      </p>
+
+<!--
+      <div class="govuk-grid-row govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+            <div class="govuk-grid-column-full">
+
+                <div class="loading" style="margin-left:auto; margin-right: auto;" aria-live="polite" role="status"></div>
+
+                <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-text-align-centre" style="max-width: 630px; margin: auto;">Uploading brand owner details – this may take a few minutes</h1>
+            </div>
+        </div>
+-->
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="/public/javascripts/loading-file-errors.js"></script>
+{% endblock %}
+
+
+

@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "./home.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./home.html">Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Report organisation details</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">   
+      <p>You must report by 11:59pm on 1 October 2023.</p> 
+   
+
+        <!-- {% if (data['section-two-complete'] == "yes") %}
+            <p class="govuk-body">You have completed 2 of 4 sections.</p>
+        {% else %}
+            <p class="govuk-body">You have completed 1 of 4 sections.</p>
+        {% endif %} -->
+
+      <ol class="app-task-list govuk-!-margin-top-8">
+
+        <li>
+            <h2 class="app-task-list__section ">
+              Upload organisation details
+            </h2>
+            <ul class="app-task-list__items govuk-!-padding-left-0">
+
+              <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">
+                    <a href="./org-details/check-file" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                      Organisation details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Uploaded</strong>
+              </li>
+
+            </ul>
+        </li>   
+
+        <li>
+          <h2 class="app-task-list__section">
+            Upload additional information
+          </h2>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            
+            <li class="app-task-list__item">
+              {% if (data['brand-detail-complete'] === "yes") %}
+              <span class="app-task-list__task-name">
+                <a href="./brand-owner-details/check-file.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                  Brand details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Uploaded</strong>
+              {% else %}
+                {% if (data['brand-details-errors'] === "yes") %}
+                <span class="app-task-list__task-name">
+                  <a href="./brand-owner-details/errors.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                    Brand details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--red app-task-list__tag" id="contact-information-status">Errors</strong>
+                  {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./brand-owner-details/upload-file.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                      Brand details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %} 
+              {% endif %}
+            </li>
+
+            <li class="app-task-list__item">
+              {% if (data['partner-detail-complete'] === "yes") %}
+              <span class="app-task-list__task-name">
+                <a href="./partner-details/check-file.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                  Partner details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="contact-information-status">Uploaded</strong>
+              {% else %}
+                {% if (data['partner-details-errors'] === "yes") %}
+                <span class="app-task-list__task-name">
+                  <a href="./partner-details/errors.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                    Partner details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--red app-task-list__tag" id="contact-information-status">Errors</strong>
+                  {% else %}
+                  <span class="app-task-list__task-name">
+                    <a href="./partner-details/upload-file.html" aria-describedby="confirm-contact-details" class="govuk-link--no-visited-state">
+                      Partner details
+                    </a>
+                  </span>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started</strong>
+                {% endif %} 
+              {% endif %}
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Check and submit files
+          </h2>
+          <p>Check your files before submitting them to the environmental regulator.</p>
+          <p>Your files must be in CSV format, and match the template provided in the guidance.</p>
+
+          
+          {% if (data['org-detail-complete'] === "yes" and data['brand-detail-complete'] === "yes" and data['partner-detail-complete'] === "yes") %}
+          {{ govukButton({
+            text: "Review files",
+            preventDoubleClick: true,
+            href: 'review-and-submit.html'
+          }) }}
+          {% else %}
+          {{ govukButton({
+            text: "Review files",
+            preventDoubleClick: true,
+            href: 'review-and-submit.html'
+          }) }}
+          {% endif %}
+
+        </li>
+      </ol>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="related-content" style="border-top: 3px solid #1D70B8;">
+          <h3 class="govuk-heading-s govuk-!-margin-top-4">Guidance</h3>
+  
+          <p class="govuk-body">If you cannot find what you need in the guidance, contact the helpdesk.</p>
+  
+          <p class="govuk-body">Email: <a class="govuk-link govuk-link--no-visited-state" href="mailto:eprcustomerservice@defra.gov.uk">eprcustomerservice@defra.gov.uk</a></p>
+  
+          <p class="govuk-body govuk-!-margin-bottom-2">Telephone: 0300 060 0002</p>
+  
+          <p class="govuk-body">Monday to Friday, 8am to 4:30pm</p>
+      </div>       
+  </div>
+  </div>
+
+  
+
+{% endblock %}

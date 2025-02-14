@@ -1,4 +1,4 @@
-{% set serviceName = "Accreditation" %}
+{% set serviceName = "Registration" %}
 
 {% extends "layout.html" %}
 
@@ -28,41 +28,32 @@
       <h1 class="govuk-heading-l">
         Overseas reprocessor details
       </h1>
-    
+      <p class="govuk-body">
+        The facility where the reprocessing of the exported packaging waste takes place.  
+            </p>
     </legend>
 
 
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      
-      </legend>
+
       <div class="govuk-form-group">
-        <label class="govuk-label" for="address-line-1" style="font-weight: bold;">
+        <label class="govuk-label" for="address-line-1">
           Organisation name
         </label>
-        <input class="govuk-input" id="address-line-1" name="orgname" type="text" autocomplete="address-line1">
+        <input class="govuk-input" id="address-line-1" name="orgName" type="text" autocomplete="address-line1">
       </div>
-
       <div class="govuk-form-group">
-        <label class="govuk-label" for="sort" style="font-weight: bold;">
+        <label class="govuk-label" for="address-line-1">
           Country
         </label>
-        <select class="govuk-select" id="sort" name="sort">
-          <option value="France">France</option>
-          <option value="Albania" selected>Albania</option>
-          <option value="Holland">Holland</option>
-          <option value="Spain">Spain</option>
-        </select>
+        <input class="govuk-input" id="address-line-1" name="country" type="text" autocomplete="address-line1">
       </div>
-
       <div class="govuk-form-group">
-        <label class="govuk-label" for="more-detail" style="font-weight: bold;">
-          Address
+        <label class="govuk-label" for="address-line-1">
+          Address line 1
         </label>
-        <textarea class="govuk-textarea" id="more-detail" name="addressinfo" rows="5"></textarea>
+        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
       </div>
-
-      <!--<div class="govuk-form-group">
+      <div class="govuk-form-group">
         <label class="govuk-label" for="address-line-2">
           Address line 2 (optional)
         </label>
@@ -76,18 +67,24 @@
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="address-county">
-          County (optional)
+          State, province or region (optional)
         </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Leave blank if the address does not have a state, province or region
+        </div>
         <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="address-postcode">
-          Postcode
+          Postcode or similar
         </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Some countries use only numbers, others use a mix of letters and numbers. Leave blank if the country does not have postcodes.
+        </div>
         <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
-      </div>--->
+      </div>
+     
       
-    </fieldset>
     
     
 
@@ -95,9 +92,9 @@
 
 </fieldset>
 </div>
-
+<br>
          
-          <button class="govuk-button" formaction="person-to-contact">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+          <button class="govuk-button" formaction="contact-person-details">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
 
 

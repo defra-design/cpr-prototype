@@ -1,0 +1,265 @@
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+    <h2 class="govuk-heading-m">Personal details</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "List the type of suppliers for wood"
+          },
+          value: {
+            text: data.suppliers1
+          },
+          actions: {
+            items: [
+              {
+                href: "./packaging-waste",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Did you reprocess wood packaging waste last calendar year?"
+          },
+          value: {
+            text: data.repo
+          },
+          actions: {
+            items: [
+              {
+                href: "./reprocessor-year",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Customer reference"
+          },
+          value: {
+            text: "Not provided"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "customer reference"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Reprocessing inputs for last calendar year</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "UK wood packaging waste"
+          },
+          value: {
+            text: data.costPerItem
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "previous application number"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Non-UK wood packaging waste"
+          },
+          value: {
+            text: data.costPerItem
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "licence type"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Wood that’s not packaging waste"
+          },
+          value: {
+            text: data.costPerItem
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "home address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Raw materials"
+          },
+          value: {
+            text: data.materialamt
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "licence period"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Wood reprocessing outputs from last calendar year</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Types and tonnages of products"
+          },
+          value: {
+            text: data.material1
+          },
+          actions: {
+            items: [
+              {
+                href: "./waste-inputs2",
+                text: "Change",
+                visuallyHiddenText: "previous application number"
+              }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Enter outputs for last calendar year</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Materials not processed on site"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contaminants"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Process loss"
+            },
+            value: {
+              text: data.material1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/waste-outputs",
+                  text: "Change",
+                  visuallyHiddenText: "previous application number"
+                }
+              ]
+            }
+          }
+          ]
+        }) }}
+
+    <h2 class="govuk-heading-m">Now send your application</h2>
+
+    <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+    <form action="./review-material3" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Accept and send"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

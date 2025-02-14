@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+Small producer - Manage registration submissions
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Manage registration submissions</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">What date will this registration be cancelled?
+    </h1>
+
+
+    <div class="govuk-grid-column-two-thirds" style="padding:0px;">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
+                  name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month"
+                  name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year"
+                  name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+text: "Save and continue",
+href: "./4-success",
+classes: "govuk-button--secondary",
+attributes: {
+style: ""
+}
+}) }}
+
+
+<div class="govuk-width-container"><a href="../main-r9-version" class="govuk-link govuk-link--no-visited-state">Go
+    back to all submissions</a></div>
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

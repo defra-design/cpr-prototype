@@ -1,159 +1,167 @@
-{% extends "layout-private-beta-research.html" %}
-
-{% set serviceName %}
-Report packaging data
-{% endset%}
+{% extends "layout.html" %}
 
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "rejected/landing-page.html",
-        text: "Home"
-      },
-      {
-        href: "#",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "../../../report-organisation-details/producers/re-submission/resubmission-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "../../../report-organisation-details/producers/re-submission/resubmission-index",
+text: "Home",
+active: true
+},
+{
+href: "../../delegate-someone/account-management",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-        {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.back()"
-        }) }}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+    }) }}
 
-        <form action="file-resubmitted" method="post">
+    <form id="agreementForm" novalidate>
 
-          <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
-            Check and submit        
+      <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+        Check and submit
       </h1>
-      
-    <div class="govuk-summary-card">
+
+      <!-- New Summary Card with bespoke code start -->
+      <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Files uploaded</h2>
           <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="reupload/upload-csv.html">
-                Change<span class="govuk-visually-hidden"> file </span>
-              </a>
+            <li class="govuk-summary-card__action" style="margin-right: 42px;">
+              <a class="govuk-link" href="reupload/upload-csv.html">Change</a>
             </li>
           </ul>
         </div>
         <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
+          <dl class=" govuk-summary-list">
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                File name 
-              </dt> 
-              <dt class="govuk-summary-list__key">
-                Date and time uploaded
+              <dt class="govuk-summary-list__key" style="width: 300px;">
+                File name
               </dt>
-              <dt class="govuk-summary-list__key">
+              <dt class=" govuk-summary-list__key" style="width: 100px; padding: 10px 20px;">
+                Date uploaded
+              </dt>
+              <dt class="govuk-summary-list__key" style="width: 100px;  padding: 10px 20px;">
                 Uploaded by
+              </dt>
+              <dt class=" govuk-summary-list__key">
               </dt>
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
-               orgdetails1.csv
+                Producer_requires_long_data_file_orgdetails1.csv
               </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
+                23 January 2025
               </dd>
-              <dd class="govuk-summary-list__value">
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
                 John Smith
-               </dd>
+              </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
                 branddetails1.csv
               </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
+                23 January 2025
               </dd>
-              <dd class="govuk-summary-list__value">
-                John Smith 
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
+                John Smith
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dd class="govuk-summary-list__value">
                 partnerdetails1.csv
               </dd>
-              <dd class="govuk-summary-list__value">
-                8 November 2024
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
+                23 January 2025
               </dd>
-              <dd class="govuk-summary-list__value">
-                John Smith 
+              <dd class="govuk-summary-list__value" style="padding: 10px 20px;">
+                John Smith
               </dd>
             </div>
           </dl>
         </div>
       </div>
+      <!-- New Summary Card with bespoke code end -->
 
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" id="radio-fieldset" aria-describedby="signIn-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h2 class="govuk-heading-m">Are you sure you want to submit your organisation details?</h2>
-        
-      <form id="agreementForm">
-        {{ govukRadios({
-        name: "agreement",
-        value: data['agreement'],
-        items: [
-        {
-        value: "pay-bank-transfer",
-        text: "Yes, I'd like to submit"
+          </legend>
+          <div id="signIn-hint" class="govuk-hint">
+            This information will be sent to the environmental regulator
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="signIn" name="agreement" type="radio" value="signIn">
+              <label class="govuk-label govuk-radios__label" for="signIn">Yes, I'd like to submit</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="signIn-2" name="agreement" type="radio" value="signIn-2">
+              <label class="govuk-label govuk-radios__label" for="signIn-2">No, I’ll do it later</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-        },
-        {
-        value: "pay-online",
-        text: "No, I don't want to do this right now"
+      {{ govukButton({ text: "Confirm" }) }}
+    </form>
+
+    <script>
+      document.getElementById('agreementForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const agreement = document.querySelector('input[name="agreement"]:checked');
+
+        if (agreement) {
+          localStorage.setItem('selectedProducer', agreement.value);
+          window.location.href = agreement.value === 'signIn' ? '../re-submission/declaration' : '../../../report-organisation-details/producers/re-submission/landing-page';
+        } else {
+          document.getElementById('radio-fieldset').classList.add('govuk-fieldset--error');
         }
-        ]
-        }) }}
-        <br>
+      });
+    </script>
 
-        {{ govukButton({
-          text: "Submit",
-          preventDoubleClick: true,
-          href: 'declaration.html',
-          classes: 'govuk-!-margin-top-4'
-          }) }}
-      </form>
-
-          
-       
-
-        </div>
-        </form>
-
-    </div>
+  </div>
 </div>
 
 {% endblock %}
