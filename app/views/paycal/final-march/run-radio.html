@@ -7,6 +7,13 @@
 {% endblock %}
 {% block content %} 
 
+<style>
+.govuk-radios__label {
+    padding: 4px 15px 5px;
+}
+
+</style>
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
@@ -62,73 +69,94 @@
                     How do you want to classify this calculation?
                   </h1>
               </legend>
-              <div class="govuk-hint">Sub heading can go here</div>
+              <div class="govuk-hint">Choose a classification to process the calculation or delete it if it's no longer needed.</div>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <h2 class="	govuk-heading-m">Classify your calculation run</h2>
               
               <div class="govuk-radios" data-module="govuk-radios">
 
-                  
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="delete" name="calcRun" type="radio" value="outputDelete">
-                  <label class="govuk-label govuk-radios__label" for="delete">
-                    Delete
-                  </label>
-              </div>
-
-                  <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
-                      <label class="govuk-label govuk-radios__label" for="play">
-                        Play
-                      </label>
-                  </div>
-
-                  <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
-                      <label class="govuk-label govuk-radios__label" for="initialRun">
-                        Initial run
-                      </label>
-                  </div>
-
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputInterimRecalculationRun">
-                    <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
-                      Interim Recalculation Run
-                    </label>
-                </div>
-
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="finalRecalculationRun" name="calcRun" type="radio" value="outputFinalRecalculationRun">
-                  <label class="govuk-label govuk-radios__label" for="finalRecalculationRun">
-                    Final Recalculation Run
+                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
+                  <label class="govuk-label govuk-radios__label" for="initialRun">
+                    <strong>Initial run</strong><br>
+                    The first time this calculation has been processed
                   </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="finalRun" name="calcRun" type="radio" value="outputFinalRun">
-                <label class="govuk-label govuk-radios__label" for="finalRun">
-                  Final Run
+                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputInterimRecalculationRun">
+                <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
+                  <strong>Interim re-calculation run</strong><br>
+                  A re-calculation after an initial run using updated data
                 </label>
             </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="finalRecalculationRun" name="calcRun" type="radio" value="outputFinalRecalculationRun">
+              <label class="govuk-label govuk-radios__label" for="finalRecalculationRun">
+                <strong>Final Recalculation Run</strong><br>
+                The last re-calculation before confirming the final run
+              </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="finalRun" name="calcRun" type="radio" value="outputFinalRun">
+            <label class="govuk-label govuk-radios__label" for="finalRun">
+              <strong>Final Run</strong><br>
+              The last calculation before the billing file is created
+            </label>
+        </div>  
+
+                  <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
+                      <label class="govuk-label govuk-radios__label" for="play">
+                        <strong>Re-run</strong><br>
+                        Running this calculation again using the same data
+                      </label>
+                  </div>
+
 
               </div>
           </fieldset>
 
       </div>
-      {% from "govuk/components/details/macro.njk" import govukDetails %}
 
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "You cannot change a classification after the billing file has been issued",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+<!--
 {{ govukDetails({
   summaryText: "Help and further details",
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
-     
+    -->
+    <div class="govuk-button-group">
+      {{
+        govukButton({
+                text: "Confirm classification"
+            })
+    }}
+      </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"> 
+    <h2 class="	govuk-heading-m">Delete this run</h2>
+    {{ govukWarningText({
+      text: "This cannot be undone",
+      iconFallbackText: "Warning"
+    }) }}
+      
 
-      <div class="govuk-button-group">
-        {{
-          govukButton({
-                  text: "Continue"
-              })
-      }}
-        <a class="govuk-link" href="dash-small-tiles">Return to the dashboard</a>
-        </div>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+            Delete this calculation
+          </button>
+          <a class="govuk-link" href="dash-small-tiles">Return to the dashboard</a>
+          </div>
 
   </form>
   </div>
