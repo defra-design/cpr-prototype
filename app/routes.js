@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
 
 
 router.use('/', (req, res, next) => {
@@ -107,13 +109,13 @@ router.use('/packing-recovery-notes/account-creation', require('./views/packing-
 
 
 
+//PayCal
+router.use('/paycal/final-march', require('./views/paycal/final-march/_routes'));
+
+
 //Cups
 router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
-router.use('/paper-cups/enrol/version-2', require('./views/paper-cups/enrol/version-2/_routes'));
-router.use('/paper-cups/sellers-registration/version-1', require('./views/paper-cups/sellers-registration/version-1/_routes'));
-router.use('/paper-cups/sellers-registration/version-2', require('./views/paper-cups/sellers-registration/version-2/_routes'));
-router.use('/paper-cups/takeback-scheme-registration/version-1', require('./views/paper-cups/takeback-scheme-registration/version-1/_routes'));
-router.use('/paper-cups/takeback-scheme-registration/version-2', require('./views/paper-cups/takeback-scheme-registration/version-2/_routes'));
+
 
 //Small producers
 router.use('/small-producers/links-routes', require('./views/small-producers/links-routes/_routes'));
