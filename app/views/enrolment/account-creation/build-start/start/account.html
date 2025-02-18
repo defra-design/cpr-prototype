@@ -1,10 +1,10 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
 Report packaging data
 {% endset%}
 
-{% set serviceName = "Report packaging data" %}
+{% set serviceName = "Reprocessor and exporters account" %}
 
 {% block pageTitle %}
  Report packaging data
@@ -15,25 +15,26 @@ Report packaging data
   {# Set serviceName in config.js. #}
   
   {{ govukHeader({
-    homepageUrl: "../../index.html",
-    serviceName: "Report packaging data",
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters account",
     serviceUrl: "#",
     navigation: [
-      {
-        href: "#",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "../../delegate-someone/account-management?added=no",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
     ]
-  }) }}
+    }) }}
 
   {{ govukPhaseBanner({
     tag: {
@@ -42,10 +43,6 @@ Report packaging data
     html: 'This is not a live service.',
     classes: 'govuk-width-container'
   }) }}
-
-{% endblock %}
-
-{% block beforeContent %}
 
 {% endblock %}
 
