@@ -20,7 +20,8 @@
 
 <div class="govuk-grid-row ">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Verification</h1>
+    <h1 class="govuk-heading-l">Create an account</h1>
+    <p>Verification code has been sent to your inbox. Please add it below.</p>
 
     <form action="" method="post">
 
@@ -37,14 +38,30 @@
           Enter a password
         </label>
 
-        <div id="password-hint" class="govuk-hint">
-          It must be at least 8 characters and must include letters and numbers.
-        </div>
+        
 
         <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
 
       </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="width-10">
+          Verification code
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="width-10" name="width10" type="text">
+      </div>
+      <div class="govuk-button-group">
+        <a href="sign-in" class="govuk-button" type="submit">Verify code</a>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Send a new code
+        </button>
+      </div>
 
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label  govuk-label--" for="retype-password">
+          Enter a password
+        </label>
+        <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+      </div>
       <div class="govuk-form-group govuk-!-margin-bottom-7">
         <label class="govuk-label  govuk-label--" for="retype-password">
           Re-type password
@@ -52,10 +69,9 @@
         <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
       </div>
 
-      {{ govukButton({
-        text: "Create account",
-        href: "sign-in"
-      }) }}
+      <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">
+        Create an account
+      </button>
 
     </form>
 

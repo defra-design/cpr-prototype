@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+
 router.use('/', (req, res, next) => {
     res.locals.currentURL = req.originalUrl; //current screen
     res.locals.prevURL = req.get('Referrer'); // previous screen

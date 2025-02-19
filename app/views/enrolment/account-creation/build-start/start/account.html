@@ -1,10 +1,10 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
 Report packaging data
 {% endset%}
 
-{% set serviceName = "Report packaging data" %}
+{% set serviceName = "Reprocessor and exporters account" %}
 
 {% block pageTitle %}
  Report packaging data
@@ -15,25 +15,26 @@ Report packaging data
   {# Set serviceName in config.js. #}
   
   {{ govukHeader({
-    homepageUrl: "../../index.html",
-    serviceName: "Report packaging data",
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters account",
     serviceUrl: "#",
     navigation: [
-      {
-        href: "#",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "../../delegate-someone/account-management?added=no",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
     ]
-  }) }}
+    }) }}
 
   {{ govukPhaseBanner({
     tag: {
@@ -45,10 +46,6 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
-
-{% endblock %}
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -56,7 +53,7 @@ Report packaging data
       <div>
           <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
       </div>
-    </div><br>
+    </div>
 
 <div class="govuk-grid-row">
 
@@ -70,7 +67,7 @@ Report packaging data
 
 <div class="govuk-inset-text">
   <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Account ID: 123 456</strong></p>
-  <p class="govuk-body govuk-!-margin-bottom-1"> Your reprocessor and exporter account</p>
+  <p class="govuk-body govuk-!-margin-bottom-1"> Your reprocessor and exporters account</p>
 </div>
 
 
@@ -78,23 +75,19 @@ Report packaging data
 
   <div class="govuk-grid-column-one-half">
     <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-"><a href="registered-as-a-charity" class="govuk-link--no-visited-state">Enrol your business</a></h2>
-      <p class="govuk-body">officia quia et sunt aliquam in enim soluta hic reprehenderit:</p>
-        <ul class="govuk-list govuk-list--bullet">
-         <li>Lorem ipsum dolor sit amet.</li>
-         <li>Dolor sit amet.</li>
-        </ul> 
+      <h2 class="govuk-heading-m govuk-link-">Enrol your business</h2>
+      <a class="account-link" href="registered-as-a-charity" id="signout-link">Add a business</a>
     </div>
   </div>
 
   <div class="govuk-grid-column-one-half">
     <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
       <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">View delegated businesses</h2>
-      <p class="govuk-body">Lorem ipsum dolor sit amet. Ut perferendis</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>magnam aut praesentium magni ut repudiandae</li>
-          <li>magnam aut praesentium magni ut repudiandae</li>
-        </ul> 
+      
+      <a class="account-link" href="#" id="signout-link">Apply for reprocessor registration</a>
+      <p></p>
+      <a class="account-link" href="#" id="signout-link">Apply for exporters registration</a>
+      
     </div>
   </div>
 </div>
