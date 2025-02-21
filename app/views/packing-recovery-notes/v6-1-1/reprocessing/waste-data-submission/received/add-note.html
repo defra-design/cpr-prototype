@@ -1,0 +1,61 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="check-answers" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <span class="govuk-caption-l">Recording for: paper/board</span>
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              Add a note (optional)
+            </label>
+          </h1>
+          <p class="govuk-hint">Include any notes that could help differentiate this waste record from others.</p>
+
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="note" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 200 characters
+        </div>
+      </div>
+
+
+
+</fieldset>
+</div>
+  <div class="govuk-button-group">
+  <input hidden  name="add-note" value="true"  />
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+  <a href="check-answers" class="govuk-link">Skip question</a></div>
+</div>
+
+{% endblock %}

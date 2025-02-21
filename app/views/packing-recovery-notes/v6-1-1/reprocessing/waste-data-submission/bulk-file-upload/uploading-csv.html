@@ -1,0 +1,64 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+        <form action="file-uploaded" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+
+                    <div class="govuk-grid-column-full-width">
+
+
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+
+                        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                                <span class="govuk-caption-l">Recording for: paper/board</span>
+                            Uploading file and validating data
+                        </h1>
+
+                        <p class="govuk-body">Your file is currently being uploaded and automatically checked for errors, which can take a few minutes. The page will refresh automatically once this process is complete.</p>
+
+                        <p class="govuk-body">Keep this page open and do not refresh it manually.</p>
+
+                  <p>
+                  <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+                  </p>
+
+
+
+
+
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+            <a href="./file-uploaded.html">Next page</a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

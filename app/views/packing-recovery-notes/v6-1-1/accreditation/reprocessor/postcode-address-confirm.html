@@ -1,0 +1,57 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="tasklist" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-fieldset__heading">
+        Confirm the site address
+      </h1>
+    </legend>
+    <div class="govuk-form-group">
+
+        <div class="govuk-body-m">
+
+          <p>23 Ruby Street<br>
+            Birmingham<br>
+            XX1 ZZ2<br>
+          </p>
+        </div>
+        </div>
+    
+
+
+
+</fieldset>
+</div>
+
+  <input class="govuk-button" type="submit" value="Confirm and continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

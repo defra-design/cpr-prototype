@@ -1,0 +1,55 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="list-ports" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              List the type of suppliers you get steel packaging waste from
+            </label>
+          </h1>
+
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="notesource" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 500 characters
+        </div>
+      </div>
+
+
+</fieldset>
+</div>
+ 
+    <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+</form>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          List the plant and equipment used to reprocess steel packaging waste
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        decription here
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="3" aria-describedby="more-detail-hint"></textarea>
+      <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 500 characters
+      </div>
+    </div>
+
+    <button class="govuk-button" formaction="check-answers3">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+    </form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,158 @@
+
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<main id="content" role="main">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form class="form" method="post" action="./search-result">
+                 {% if data['languagePreference'] != "en" %}
+                     {% if data['error'] == "true" %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+  <h2 class="govuk-error-summary__title">
+                                     Mae problem wedi codi
+  </h2>
+  <div class="govuk-error-summary__body">
+  <ul class="govuk-list govuk-error-summary__list">
+  <li>
+  <a href="#postcode">Rhowch god post, fel AA1 1AA</a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+                     {% endif %}
+
+                     <h1 class="govuk-heading-l">
+                      UK postcode for legal documents
+ </h1>
+                    {% if data['error'] == "true" %}
+ <div class="govuk-form-group govuk-form-group--error">
+ <fieldset class="govuk-fieldset" aria-describedby="postcode-error">
+ <label id="postcode-input" class="govuk-label" for="postcode">
+                                    Enter a postcode
+ </label>
+ <p id="postcode-error" class="govuk-error-message">
+ <span class="govuk-visually-hidden">Error:</span> Enter a postcode, like AA1 1AA
+ </p>
+ <input class="govuk-input govuk-input--width-10 govuk-input--error" id="postcode" name="postcode" type="text">
+ </fieldset>
+ </div>
+                    {% else %}
+ <div class="govuk-form-group">
+ <fieldset class="govuk-fieldset">
+ <label id="postcode-input" class="govuk-label" for="postcode">
+                                    Enter a postcode
+ </label>
+ <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+ </fieldset>
+ </div>
+                    {% endif %}
+                    
+ <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Find address
+ </button>
+ <p class="govuk-body">
+ <a href="#/" class="govuk-link">Enter address manually</a>
+ </p>
+  <!--<h1 class="govuk-heading-l">
+    Enter your site postcode
+  </h1>
+                     {% if data['error'] == "true" %}
+  <div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" aria-describedby="postcode-error">
+  <label class="govuk-label" for="event-name">
+                                     Nodwch y cod post
+  </label>
+  <p id="postcode-error" class="govuk-error-message">
+  <span class="govuk-visually-hidden">Error:</span> Rhowch god post, fel AA1 1AA
+  </p>
+  <input class="govuk-input govuk-input--width-10 govuk-input--error" id="postcode" name="postcode" type="text">
+  </fieldset>
+  </div>
+                     {% else %}
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+  <label class="govuk-label" for="event-name">
+                                     Nodwch y cod post
+  </label>
+  <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+  </fieldset>
+  </div>
+                     {% endif %}
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+                         Chwilio
+  </button>
+  <p class="govuk-body">
+  <a href="#/" class="govuk-link">Opsiynau chwilio eraill</a>
+  </p>-->
+                 {% else %}
+                     {% if data['error'] == "true" %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+  <h2 class="govuk-error-summary__title">
+                                     There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+  <ul class="govuk-list govuk-error-summary__list">
+  <li>
+  <a href="#postcode-input">Enter a postcode, like AA1 1AA</a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+                     {% endif %}
+  <h1 class="govuk-heading-l">
+    UK postcode for enforcement notices
+  </h1>
+                     {% if data['error'] == "true" %}
+  <div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" aria-describedby="postcode-error">
+  <label id="postcode-input" class="govuk-label" for="postcode">
+                                     Enter a postcode
+  </label>
+  <p id="postcode-error" class="govuk-error-message">
+  <span class="govuk-visually-hidden">Error:</span> Enter a postcode, like AA1 1AA
+  </p>
+  <input class="govuk-input govuk-input--width-10 govuk-input--error" id="postcode" name="postcode" type="text">
+  </fieldset>
+  </div>
+                     {% else %}
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+  <label id="postcode-input" class="govuk-label" for="postcode">
+                                     Enter a postcode
+  </label>
+  <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+  </fieldset>
+  </div>
+                     {% endif %}
+                     
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+                         Find address
+  </button>
+  <p class="govuk-body">
+  <a href="#/" class="govuk-link">Enter address manually</a>
+  </p>
+                 {% endif %}
+  </form>
+  </div>
+  </div>
+  </main>
+  {% endblock %}

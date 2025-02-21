@@ -1,0 +1,79 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+
+
+      Payment for your application
+</h1>
+<div class="govuk-body">
+  The total tonnage of PRNs you plan to issue determines the charge for your application. This total is for all the materials you plan to issue PRNs on. For example, if you were planning to issue 200 tonnes of paper PRNs and 201 tonnes of plastic PRNs, this would mean the charge for issuing over 400 tonnes of PRNs applies.   </div>
+</div>
+
+</div><br>
+
+<h2 class="govuk-heading-m">How many PRNs do you plan to issue?</h2>
+
+<form class="form" action="#" method="POST">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="price" type="radio" value="Up to 400 tonnes: £505.00">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          Up to 400 tonnes: £505.00
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="price2" type="radio" value="Over 400 tonnes: £2,616.00">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          Over 400 tonnes: £2,616.00
+        </label>
+      </div>
+</div>
+<br><br>
+<h2 class="govuk-heading-m">Pay by bank transfer</h2>
+
+
+<div class="govuk-body">
+ 
+ 
+  Use these details to make payment:<br>
+<ul>
+  <li> Company name: Environment Agency</li>
+ <li>Bank: RBS/Natwest, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate, London EC2M 4RB</li> 
+  <li>Sort code: 60-70-80</li>
+  <li>Account number: 10014411</li>
+  <li>Account name: EA RECEIPTS</li>
+  <li>Reference: PR/PK/REP/ (reprocessor) or PR/PK/EXP/ (exporter) plus an identifier, such as your company name</li></ul></div>
+
+
+  <h2 class="govuk-heading-m">Other ways to pay</h2>
+
+  <p>Contact your environmental regulator (opens in new tab) to discuss other ways to pay.</p>
+
+<input type="hidden" name="price">
+   <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+</form>
+
+{% endblock %}
+>
