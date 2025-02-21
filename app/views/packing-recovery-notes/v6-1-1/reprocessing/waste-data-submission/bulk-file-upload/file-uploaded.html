@@ -1,0 +1,58 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+        <form action="../manage-glass" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                        <div class="govuk-notification-banner__header">
+                          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                            Success
+                          </h2>
+                        </div>
+                        <div class="govuk-notification-banner__content">
+                          <h3 class="govuk-notification-banner__heading">
+                          File uploaded
+                          </h3>
+                          <p>{{data['waste-file-upload']}}</p>
+                        </div>
+                      </div>
+
+                    <h2 class="govuk-heading-l">What happens next</h2>
+
+                    <p class="govuk-body">We’ll check your file then create a waste record.  </p>
+
+
+                    <p class="govuk-body">This can take xx hours. We will send you an email when we have created the waste record. </p>
+
+
+
+
+                </fieldset>
+            </div>
+
+
+            
+    <p>  <a href="../record-waste.html">Record more waste</a></p>
+            <p>  <a href="#">View, edit, download or delete waste records </a></p>
+            <p>  <a href=".../home.html">Go to your account homepage</a></p>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

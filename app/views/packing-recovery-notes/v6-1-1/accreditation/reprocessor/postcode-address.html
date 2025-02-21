@@ -1,0 +1,74 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="postcode-address-confirm" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-fieldset__heading">
+        What is the postcode of the reprocessing site?
+      </h1>
+    </legend>
+    <div class="govuk-form-group">
+      <div class="govuk-body-m"><strong>Postcode:</strong> XX1 ZZ2 <a href="#">Change</a></div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="sort">
+     <strong> Choose an address</strong> 
+        </label>
+        <select class="govuk-select" id="sort" name="sort">
+            <option value="selected" selected> 10 address found</option>
+           
+            <option value="published">18 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">19 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">20 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">21 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">22 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">23 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">25 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">26 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">27 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">28 Ruby Street, Birmingham, XX1 ZZ2</option>
+            <option value="published">29 Ruby Street, Birmingham, XX1 ZZ2</option>
+         
+        </select>
+      </div>
+        </div>
+    </div>
+
+<input class="govuk-button" type="submit" value="Continue"  />
+
+<br>
+<div class="govuk-body-m"><a href="#">Enter the address manually</a> </div>
+
+</fieldset>
+</div>
+
+  
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

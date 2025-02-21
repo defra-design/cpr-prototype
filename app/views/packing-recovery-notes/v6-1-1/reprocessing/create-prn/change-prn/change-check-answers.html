@@ -1,0 +1,87 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+            <h1 class="govuk-heading-l">PRN1003</h1>
+          <p>  Date created: 30 June 2023</p>
+
+            <h2 class="govuk-heading-m">PRN details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Tonnes of glass
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['tonnes']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="enter-tonnes">
+                    Change<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd>
+              </div>
+              {% if data['no-december'] == 'true' %}
+
+              {% else %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Was the glass received in December
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['material-december']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden"> date of birth</span>
+                  </a>
+                </dd>
+              </div>
+              {% endif %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              Registered producer or compliance scheme
+                </dt>
+                <dd class="govuk-summary-list__value">
+                                  {{data['which-producer']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="">
+                    Change<span class="govuk-visually-hidden"> registered producer or compliance scheme</span>
+                  </a>
+                </dd>
+              </div>
+
+            </dl>
+            <div class="govuk-button-group">
+            <a class="govuk-button govuk-button--secondary" href="../issue" data-module="govuk-button">
+            Send PRN
+            </a>
+            <a class="govuk-link" href="../delete"  data-module="govuk-button">
+              Delete PRN
+            </a>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}
