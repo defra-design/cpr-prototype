@@ -1,0 +1,44 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+        PRN sent
+          </h1>
+          <div class="govuk-panel__body">
+            reference number<br><strong>PRN1003</strong>
+          </div>
+        </div>
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body">
+        Valpack has been sent an email to accept this PRN.
+        </p>
+
+        <a href="../manage-glass" class="govuk-button">View sent PRNs</a>
+
+      <p>  <a href="raise-a-prn">Create another PRN</a></p>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+{% endblock %}

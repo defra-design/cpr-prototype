@@ -1,0 +1,108 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form action="" method="post">
+
+
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            You must keep documents to show you meet these conditions
+            
+          </p>
+        </div>
+      </div>
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Conditions for exporting metal packaging waste
+            </h1>
+
+            <div class="govuk-body-m">
+            You need to tell us if the reprocessing meets all of these conditions:<br><br>
+            <p class="govuk-body"> Use these details to make payment:
+                <ul class="govuk-body">
+               
+              
+                <li>The packaging waste is separated at source, or processed, to ensure it is exported for reprocessing within a shipment of similar material – for example, if the shipment contains steel drink cans and steel scrap and is not a general mix of different materials 
+                    (such as paper and plastic), or a mixture of different grades of the same material (for example, different plastic polymers).<br></li>
+                <li> There is a well-established international technical specification for the exported packaging waste material that your consignments meet.<br></li>
+                <li> The material needs only limited processing overseas before it is recovered, and the recycling process has losses that meet EU industry standards.<br></li>
+                <li> Processing the waste material before recycling does not include hand-sorting that may cause significant harm to human health.<br></li>
+                 <li>The material goes through a recognised form of recycling, and is unlikely to cause significant harm to the environment.<br></li>
+               
+              </ul></p>
+
+
+
+              <h1 class="govuk-heading-m">
+                Does the reprocessing meet all of these conditions?
+          
+          </h1>
+          
+       
+          
+          
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+          
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live" name="next-page" type="radio" value="waste-description-code">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="next-page" type="radio" value="upload-broadly-equivalent-evidence-non-eu">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    No
+                  </label>
+                </div>
+          </div>
+
+
+
+            </div>
+<p></p>
+
+<br><br>
+    </tbody>
+</table>
+        
+          
+
+        </fieldset>
+    </div>
+
+    <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+</form>
+</div>
+</div>
+
+{% endblock %}

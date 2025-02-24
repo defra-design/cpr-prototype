@@ -1,0 +1,163 @@
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Select the packaging waste you’re authorised to reprocess at this site"
+          },
+          value: {
+            text: data.materials
+          },
+          actions: {
+            items: [
+              {
+                href: "./choose-material",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Is it an exemption or permit that authorises you to reprocess steel?"
+          },
+          value: {
+            text: data.permit
+          },
+          actions: {
+            items: [
+              {
+                href: "./exemption-permit",
+                text: "Change",
+                visuallyHiddenText: "permit"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Waste management licence  or environmental permit number"
+          },
+          value: {
+            text: "Not provided"
+          },
+          actions: {
+            items: [
+              {
+                href: "./exemption-permit",
+                text: "Change",
+                visuallyHiddenText: "customer reference"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Exemption reference"
+          },
+          value: {
+            text: "Not provided"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Materials you need to register"
+          },
+          value: {
+            text: data.materials
+          },
+          actions: {
+            items: [
+              {
+                href: "./choose-material",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Who can the regulator contact about your application for steel?"
+          },
+          value: {
+            text: data.regulator
+          },
+          actions: {
+            items: [
+              {
+                href: "./choose-material",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    
+
+    <h2 class="govuk-heading-m">Now send your application</h2>
+
+    <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+    <form action="tasklist4" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+      
+        {{ govukButton({
+          text: "Save and continue later",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

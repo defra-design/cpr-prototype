@@ -1,0 +1,89 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Invoice for registration as an exporter of packaging waste
+        </label>
+      </h1>
+      <strong class="govuk-tag--green">
+        Payment not received
+      </strong>
+    </div>
+
+    <p class="govuk-body">
+      <h2 class="govuk-heading-m">Environment Agency</h2>
+      <p class="govuk-body"> Date: 09/01/2025 </p>
+      <p class="govuk-body"> Payment reference: 000568587647654 </p>
+      </p>
+
+      <p class="govuk-body">
+        <h2 class="govuk-heading-m">Bill to</h2>
+        <p class="govuk-body"> Company name: </p>
+        <p class="govuk-body"> Address: </p>
+        <p class="govuk-body"> Postcode: </p>
+        </p>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Registration application fee for steel at 23 Ruby Street</th>
+              <td class="govuk-table__cell">£2,921</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Registration application fee for wood at 23 Ruby Street</th>
+              <td class="govuk-table__cell">£2,921</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total pay</th>
+              <td class="govuk-table__cell"> £5,842</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="govuk-body">
+          <h2 class="govuk-heading-m">Pay online or by bank transfer</h2>
+          <p class="govuk-body"> Bank transfer details: </p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>company name: Environment Agency</li>
+  <li>bank: RBS/Natwest, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate, London EC2M 4RB</li>
+  <li>sort code: 60-70-80</li>
+  <li>account number: 10014411</li>
+  <li>account name: EA RECEIPTS</li>
+  <li>reference: 000568587647654</li>
+</ul>
+          </p>
+
+    <button class="govuk-button" formaction="">Pay online</button> <button class=" govuk-button govuk-button--secondary" formaction="" style="margin-left: 20px;">Download invoice</button>
+
+    </form>
+</div>
+</div>
+
+{% endblock %}
