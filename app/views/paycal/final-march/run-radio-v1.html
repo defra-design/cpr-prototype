@@ -75,9 +75,10 @@
                     What do you want to do with this calculation?
                   </h1>
               </legend>
-              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
-              <h3 class="govuk-heading-m">Select an option to continue.</h3>
-              
+              <div class="govuk-hint">Choose a classification to process the calculation or delete it if it's no longer needed.</div>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <h2 class="	govuk-heading-m">Classify your calculation run</h2>
               
               <div class="govuk-radios" data-module="govuk-radios">
 
@@ -85,42 +86,89 @@
                   <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
                   <label class="govuk-label govuk-radios__label" for="play">
                     <strong>Play</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Test the run using different parameters without generating invoice instructions</p>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">A test run to see the outcome using different parameters, without the results being processed</p>
                   </label>
               </div>
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputClassify">
-                  <label class="govuk-label govuk-radios__label" for="classify">
-                    <strong>Classify</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process the calculation run</p>
+                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
+                  <label class="govuk-label govuk-radios__label" for="initialRun">
+                    <strong>Initial run</strong><br>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">The first time this calculation has been processed</p>
                   </label>
               </div>
               
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputDelete">
-                <label class="govuk-label govuk-radios__label" for="delete">
-                  <strong>Delete</strong><br>
-                  <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it’s no longer needed</p>
+                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputInterimRecalculationRun">
+                <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
+                  <strong>Interim re-calculation run</strong><br>
+                  <p class="govuk-body-s" style="margin-bottom: 0;">A re-calculation after an initial run using updated data</p>
                 </label>
             </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="finalRecalculationRun" name="calcRun" type="radio" value="outputFinalRecalculationRun">
+              <label class="govuk-label govuk-radios__label" for="finalRecalculationRun">
+                <strong>Final re-calculation run</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">The last re-calculation before confirming the final run</p>
+              </label>
           </div>
-        </fieldset>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="finalRun" name="calcRun" type="radio" value="outputFinalRun">
+            <label class="govuk-label govuk-radios__label" for="finalRun">
+              <strong>Final run</strong><br>
+              <p class="govuk-body-s" style="margin-bottom: 0;">The last calculation before the billing file is created</p>
+            </label>
+        </div>  
+
+                  
+
+
+              </div>
+          </fieldset>
 
       </div>
 
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text" style="font-size: 16px;">
+          <span class="govuk-visually-hidden">Warning</span>
+          You cannot change a classification after the billing file has been issued
+        </strong>
+      </div>
+
       {% from "govuk/components/details/macro.njk" import govukDetails %}
+<!--
+{{ govukDetails({
+  summaryText: "Help and further details",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+    -->
+    <div class="govuk-button-group">
+      {{
+        govukButton({
+                text: "Confirm classification"
+            })
+    }}
+      </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"> 
+    <h2 class="	govuk-heading-m">Delete this run</h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text" style="font-size: 16px;">
+        <span class="govuk-visually-hidden">Warning</span>
+        This cannot be undone
+      </strong>
+    </div>
       
 
         <div class="govuk-button-group">
-          {{
-            govukButton({
-                    text: "Continue"
-                })
-        }}
+          <a href="output-1" class="govuk-button govuk-button--warning" type="submit">Delete this calculation</a>
           <a class="govuk-link" href="dash-small-tiles">Return to dashboard</a>
-        </div>
+          </div>
 
   </form>
   </div>
