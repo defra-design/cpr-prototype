@@ -14,10 +14,10 @@ router.post('*/classification', function (req, res) {
         res.redirect('output-2')
     }
     else if (calculation == "outputClassify"){
-        res.redirect('output-3')
+        res.redirect('output-8')
     }
     else if (calculation == "outputInitialRun"){
-        res.redirect('output-1')
+        res.redirect('output-3')
     }
     else if (calculation == "outputInterimRecalculationRun"){
         res.redirect('output-5')
@@ -28,6 +28,7 @@ router.post('*/classification', function (req, res) {
     else if (calculation == "outputFinalRun"){
         res.redirect('output-7')
     }
+    
 })
 
 
