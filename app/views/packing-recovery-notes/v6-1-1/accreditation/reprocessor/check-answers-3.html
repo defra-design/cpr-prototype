@@ -1,0 +1,373 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
+            <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+            <table>
+
+            <h2 class="govuk-heading-m">Details</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Material
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                       Paper/board
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#" style="margin: 40px;">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        UK source of the waste
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['notesource']}}<br>
+                        
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#" style="margin: 40px;">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Annual total processing capacity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['totalcapacity']}} tonnes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#" style="margin:40px;">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Average weekly processing capacity             </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['weeklycapacity']}} tonnes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#" style="margin: 40px;">
+                    Change<span class="govuk-visually-hidden "> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+             </dl></div></div>
+
+
+
+
+             <h2 class="govuk-heading-m">Estimated waste inputs</h2>
+             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                 <div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key">
+                      UK packaging waste	
+                     </dt>
+                     <dd class="govuk-summary-list__value">
+                      {{data['packingwaste']}} tonnes
+                     </dd>
+                     <dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#" style="margin: 40px;">
+                             Change<span class="govuk-visually-hidden"> previous application number</span>
+                         </a>
+                     </dd>
+                 </div>
+
+                 <div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key">
+                      Non-UK packaging waste
+                     </dt>
+                     <dd class="govuk-summary-list__value">
+                      {{data['packingwaste2']}} tonnes
+                       
+                     </dd>
+                     <dd class="govuk-summary-list__actions">
+                       <a class="govuk-link" href="#" style="margin: 40px;">
+                             Change<span class="govuk-visually-hidden"> previous application number</span>
+                         </a>
+                     </dd>
+                 </div>
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key">
+                Non-packaging waste
+               </dt>
+               <dd class="govuk-summary-list__value">
+                {{data['packingwaste2']}} tonnes
+               </dd>
+               <dd class="govuk-summary-list__actions">
+                 <a class="govuk-link" href="#" style="margin:40px;">
+                   Change<span class="govuk-visually-hidden"> previous application number</span>
+                 </a>
+               </dd>
+             </div>
+           
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key">
+                Total            </dt>
+               <dd class="govuk-summary-list__value">
+               
+               </dd>
+               <dd class="govuk-summary-list__actions">
+                 <a class="govuk-link" href="#" style="margin: 40px;">
+                   <span class="govuk-visually-hidden "> previous application number</span>
+                 </a>
+               </dd>
+             </div>
+            </dl></div>
+          
+
+            <h2 class="govuk-heading-m">Estimated non-waste inputs</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                   	 {{data['material1']}}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['materialamt3']}} tonnes
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#" style="margin: 40px;">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      {{data['material2']}}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['materialamt2']}} tonnes
+                      
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#" style="margin: 40px;">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {{data['material3']}} 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['materialamt3']}} tonnes
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#" style="margin:40px;">
+                  Change<span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+              </dd>
+            </div>
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Total            </dt>
+              <dd class="govuk-summary-list__value">
+              
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#" style="margin: 40px;">
+                  <span class="govuk-visually-hidden "> previous application number</span>
+                </a>
+              </dd>
+            </div>
+           </dl></div>
+
+           <h2 class="govuk-heading-m">Estimated waste outputs       </h2>
+           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+               <div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                    Material not processed on site
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                    {{data['wasteoutput1']}} tonnes
+                   </dd>
+                   <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#" style="margin: 40px;">
+                           Change<span class="govuk-visually-hidden"> previous application number</span>
+                       </a>
+                   </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                   <dt class="govuk-summary-list__key">
+                    Contaminants
+                   </dt>
+                   <dd class="govuk-summary-list__value">
+                    {{data['wasteoutput2']}} tonnes
+                     
+                   </dd>
+                   <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="#" style="margin: 40px;">
+                           Change<span class="govuk-visually-hidden"> previous application number</span>
+                       </a>
+                   </dd>
+               </div>
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+              Process loss
+             </dt>
+             <dd class="govuk-summary-list__value">
+              {{data['wasteoutput3']}} tonnes
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a class="govuk-link" href="#" style="margin:40px;">
+                 Change<span class="govuk-visually-hidden"> previous application number</span>
+               </a>
+             </dd>
+           </div>
+         
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+              Total            </dt>
+             <dd class="govuk-summary-list__value">
+             
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a class="govuk-link" href="#" style="margin: 40px;">
+                 <span class="govuk-visually-hidden "> previous application number</span>
+               </a>
+             </dd>
+           </div>
+          </dl></div>
+
+          <h2 class="govuk-heading-m">Estimated output of products produced from reprocessing</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{data['product1']}}
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['productamt1']}} tonnes
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#" style="margin: 40px;">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                      </a>
+                  </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{data['product2']}}
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['productamt2']}} tonnes
+                    
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#" style="margin: 40px;">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                      </a>
+                  </dd>
+              </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{data['product3']}} 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['productamt3']}} tonnes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="margin:40px;">
+                Change<span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Total            </dt>
+            <dd class="govuk-summary-list__value">
+            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="margin: 40px;">
+                <span class="govuk-visually-hidden "> previous application number</span>
+              </a>
+            </dd>
+          </div>
+         </dl></div>
+
+
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               People who have authority to issue PRNs
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['chk']}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#" style="margin: 40px;">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd>
+          </div>
+
+        <!--  <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+             Your NPWD number              </dt>
+           <dd class="govuk-summary-list__value">
+             {{data['numbernpwd2']}}
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link" href="#" style="margin: 40px;">
+                   Change<span class="govuk-visually-hidden"> previous application number</span>
+               </a>
+           </dd>
+       </div>-->
+
+          </dl>
+
+
+         <form action="tasklist-4" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+         <input type="hidden" name="waste-data-reprocesser" value="true">
+          <button class="govuk-button" data-module="govuk-button">
+              Confirm and continue
+          </button>
+        </form>
+        <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later" style="margin-left: 20px;" />
+  
+  
+           
+          </div>
+        </table>
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% set serviceName = "Manage PRNs/PERNs" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+</fieldset>
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <span class="govuk-caption-l">Raise a PRN for: paper/board</span>
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              If you issue this draft PRN you will exceed 400 tonnes of PRNs issued            </label>
+          </h1>
+          <p class="govuk-body-m">You can still raise this PRN, but if you then issue it you’ll exceed 400 tonnes of PRNs issued.
+<br><br>
+            The regulator will class you as a large reprocessor and you’ll need to pay a charge of £2,111 within 28 days.
+            </p>
+
+        </div>
+        
+      </div>
+
+
+
+
+</div>
+  <div class="govuk-button-group">
+    <button class="govuk-button" formaction="confirm">Raise this prn</button> <button class=" govuk-button govuk-button--secondary" formaction="" style="margin-left: 20px;">Cancel</button>
+
+
+
+
+</form>
+ <!-- <a href="check-answers" class="govuk-link">Skip question</a></div> -->
+</div>
+
+{% endblock %}

@@ -1,0 +1,197 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../home-compliance"
+    },
+    {
+      text: "cancel PRNs and PERNS",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form class="form" action="accept-bulk" method="POST">
+
+
+    <h2 class="govuk-heading-l">Cancel PRNs and PERNs</h2>
+  <!--  <p class="govuk-body">To deduct the tonnage from your obligation you need to accept the PRN/PERN</p>-->
+
+
+    <table class="govuk-table">
+
+      
+
+   <!--   <div class="govuk-inset-text app-inset-text">
+          23 Ruby Street
+ <br> XX YY 
+ <br> Birmingham, UK
+ <br>
+      </div>-->
+
+
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+
+        <h2 class="govuk-heading-m">Paper and board</h2>
+
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">PRN and PERN number</th>
+          <th scope="col" class="govuk-table__header">Date issued</th>
+            <th scope="col" class="govuk-table__header">December waste</th>
+          <th scope="col" class="govuk-table__header">Issued by</th>
+          <th scope="col" class="govuk-table__header">Tonnage</th>
+          <th scope="col" class="govuk-table__header">Note</th>
+        </tr>
+
+
+
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="selected-prn">ER454545540M</a>
+                </div></td>
+          <td class="govuk-table__cell"> 20/11/2025</td>
+          <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">XYZ Reprocessing</td>
+            <td class="govuk-table__cell">65</td>
+            <td class="govuk-table__cell">Purchase order number 34XFY68</td>  
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="december-selected-prn">EX454545540M</a>
+                </div></td>
+          <td class="govuk-table__cell"> 20/12/2024</td>
+          <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell">Exporting International</td>
+            <td class="govuk-table__cell">151</td>
+            <td class="govuk-table__cell"> T2E reference 5689344....</td>
+          
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href="selected-prn">ER454545540M</a>
+                </div></td>
+          <td class="govuk-table__cell"> 01/11/2025</td>
+          <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+            <td class="govuk-table__cell">20</td>
+            <td class="govuk-table__cell">Not provided</td>
+          
+        </tr>
+
+
+     
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+
+    <!--<div class="govuk-inset-text app-inset-text">
+        <div class="govuk-heading-m">
+          23 Ruby Street
+ <br> XX YY 
+ <br> Birmingham, UK
+      </div> -->
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+  
+          <h2 class="govuk-heading-m">Wood</h2>
+  
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header">Date issued</th>
+              <th scope="col" class="govuk-table__header">December waste</th>
+            <th scope="col" class="govuk-table__header">Issued by</th>
+            <th scope="col" class="govuk-table__header">Tonnage</th>
+            <th scope="col" class="govuk-table__header">Note</th>
+          </tr>
+  
+  
+  
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+  
+  
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="selected-prn">ER454545540M</a>
+                  </div></td>
+            <td class="govuk-table__cell"> 20/11/2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">XYZ Reprocessing</td>
+              <td class="govuk-table__cell">65</td>
+              <td class="govuk-table__cell">Purchase order number 34XFY68</td>
+            
+          </tr>
+  
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX454545540M</a>
+                  </div></td>
+            <td class="govuk-table__cell"> 20/12/2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">151</td>
+              <td class="govuk-table__cell"> T2E reference 5689344....</td>
+            
+          </tr>
+  
+  
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">ER454545540M</a>
+                  </div></td>
+            <td class="govuk-table__cell"> 01/11/2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd</td>
+              <td class="govuk-table__cell">20</td>
+              <td class="govuk-table__cell">Not provided</td>
+            
+          </tr>
+  
+  
+  
+        </tbody>
+      </table>
+  
+     
+  <button class="govuk-button" formaction="accept-bulk">Accept selected PRNs and PERNs</button> <button class=" govuk-button govuk-button--secondary" formaction="reject-bulk" style="margin-left: 20px;">Cancel selected PRNs and PERNs</button>
+
+
+</div>
+
+  
+</form>
+
+
+{% endblock %}
