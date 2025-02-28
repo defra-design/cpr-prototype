@@ -17,7 +17,7 @@ router.post('*/classification', function (req, res) {
         res.redirect('classify-initial-run')
     }
     else if (calculation == "outputInitialRun"){
-        res.redirect('output-3')
+        res.redirect('classify-initial-complete')
     }
     else if (calculation == "outputInterimRecalculationRun"){
         res.redirect('output-5')
@@ -27,6 +27,9 @@ router.post('*/classification', function (req, res) {
     }
     else if (calculation == "outputFinalRun"){
         res.redirect('output-7')
+    }
+    else if (calculation == "outputTestRun"){
+        res.redirect('testRun')
     }
     
 })
