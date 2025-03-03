@@ -1,0 +1,115 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
+            <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Material
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                       Paper/board
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="choose-material">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        UK source of this waste
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['notesource']}}<br>
+                        
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="waste-source">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Commodity codes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['commoditycode']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 People who have authority to issue PRNs
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['chk']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+
+            
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your NPWD number              </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['numbernpwd']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+            </dd>
+        </div>
+            </dl>
+
+             
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+          </dl>
+
+            <form action="review-material3" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+             <input type="hidden" name="waste-data-reprocesser" value="true">
+              <button class="govuk-button" data-module="govuk-button">
+                  Confirm and continue
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

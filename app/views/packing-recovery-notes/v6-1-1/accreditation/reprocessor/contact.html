@@ -1,0 +1,106 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="POST">
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Details for: [name of person chosen from previous screen]
+      </h1>
+     
+      
+    </legend>
+
+    <h1 class="govuk-heading-m">
+     Position
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      For example, ‘Director’. </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="director1"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    
+    <h1 class="govuk-heading-m">
+      Contact number
+    </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      This can be a telephone or mobile number.  </div>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="contact2"  type="text" spellcheck="false">
+
+        </div>
+    </div>
+
+    
+    <h1 class="govuk-heading-m">
+
+
+      How do you prefer us to contact you?
+
+</h1>
+
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+   
+   
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="" data-aria-controls="conditional-contact">
+   
+        <label class="govuk-label govuk-radios__label" for="changed-name-6">
+          No preference
+        </label>
+      </div>
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Email only
+  
+        </label>
+      </div>
+  
+  
+  
+    
+  
+    </div>
+
+
+    
+
+
+
+</fieldset>
+</div>
+
+  <button class="govuk-button" formaction="check-answers-1">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+</form>
+</div>
+</div>
+
+{% endblock %}

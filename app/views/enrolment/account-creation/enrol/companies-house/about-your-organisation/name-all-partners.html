@@ -1,0 +1,108 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">What are the names of the partners in the organisation?</h1>
+    <p>Enter the names in full - as they appear on official documents.</p>
+
+    <form action="" method="post">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label govuk-label--" for="azure-email">
+          First name
+        </label>
+        <input class="govuk-input" id="azure-email" name="azure-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['azure-email']}}"">
+      </div>
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label govuk-label--" for="password">
+          Last name
+        </label>
+
+        
+        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+
+      </div>
+      <a class="govuk-link" href="#">Add another</a>
+      <br><br><p></p>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label  govuk-label--" for="retype-password">
+         First name
+        </label>
+        <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+      </div>
+      <div class="govuk-form-group">
+
+        <label class="govuk-label govuk-label--" for="password">
+          Last name
+        </label>
+
+        
+        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+
+      </div>
+      <a class="govuk-link" href="#">Add another</a>
+      <br><br> <p></p>
+
+      <div class="govuk-button-group">
+        <a href="manage-account-person-2" class="govuk-button" type="submit">Continue</a>
+        
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+    {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }} 
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="remove-reason" method="POST">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="leaver-code-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Why is Good Sauces Coventry being removed?
+          </h1>
+        </legend>
+        <div id="leaver-code-hint" class="govuk-hint">
+          Select the reason code from the options below.
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-a" name="reason" type="radio" value="Code A: Administration/Receivership">
+            <label class="govuk-label govuk-radios__label" for="reason-a">
+              Code A
+            </label>
+            <span class="govuk-hint govuk-radios__hint" name="reason-desc">
+              Administration/Receivership
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-b" name="reason" type="radio" value="Code B: Liquidation/Dissolution">
+            <label class="govuk-label govuk-radios__label" for="reason-b">
+              Code B
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Liquidation/Dissolution
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-c" name="reason" type="radio" value="Code C: Dropped below turnover threshold">
+            <label class="govuk-label govuk-radios__label" for="reason-c">
+              Code C
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Dropped below turnover threshold
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-d" name="reason" type="radio" value="Code D:  Dropped below tonnage threshold">
+            <label class="govuk-label govuk-radios__label" for="reason-d">
+              Code D
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Dropped below tonnage threshold
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-e" name="reason" type="radio" value="Code E:  Resignation">
+            <label class="govuk-label govuk-radios__label" for="reason-e">
+              Code E
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Resignation
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-f" name="reason" type="radio" value="Code F: Scheme has terminated membership">
+            <label class="govuk-label govuk-radios__label" for="reason-f">
+              Code F
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Scheme has terminated membership
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-g" name="reason" type="radio" value="Code G: Business closure">
+            <label class="govuk-label govuk-radios__label" for="reason-g">
+              Code G
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Business closure
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-h" name="reason" type="radio" value="Code H: Bankruptcy">
+            <label class="govuk-label govuk-radios__label" for="reason-h">
+              Code H
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Bankruptcy
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-i" name="reason" type="radio" value="Code I: Merged with another company">
+            <label class="govuk-label govuk-radios__label" for="reason-i">
+              Code I
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Merged with another company
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-j" name="reason" type="radio" value="Code J: Now a subsidiary of another company">
+            <label class="govuk-label govuk-radios__label" for="reason-j">
+              Code J
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Now a subsidiary of another company
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-k" name="reason" type="radio" value="Code K:  Not ready to register by 15th April">
+            <label class="govuk-label govuk-radios__label" for="reason-k">
+              Code K
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              Not ready to register by 15th April
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-l" name="reason" type="radio" value="Code L: No longer obligated">
+            <label class="govuk-label govuk-radios__label" for="reason-l">
+              Code L
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              No longer obligated
+            </span>
+          </div>
+
+        </div>
+</fieldset>
+</div>
+
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <a class="govuk-link" href="subs-list-i-myc.html">Cancel</a>
+    </div>
+
+
+</form>
+
+
+{% endblock %}

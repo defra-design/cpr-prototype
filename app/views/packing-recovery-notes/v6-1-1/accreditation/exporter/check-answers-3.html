@@ -1,0 +1,200 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
+            <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Overseas reprocessor details
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['orgname']}}<br>
+                          {{data['sort']}}<br>
+                          {{data['addressinfo']}}<br>
+                        
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="oversea-reprocessor-details">
+                              Change<span class="govuk-visually-hidden"> overseas rep details</span>
+                          </a>
+                      </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Contact at this reprocessor
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['fullname']}}<br>
+                      {{data['position']}}<br>
+                      {{data['mobile']}}<br>
+                      {{data['mobile']}}<br>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="person-to-contact">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+
+
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Broadly equivalent evidence
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    File name: File with a very very long name.pdf<br>
+                   Start date: {{data['startday']}} /  {{data['startmonth']}} / {{data['startyear']}}<br>
+                   End date:  {{data['endday']}} /  {{data['endmonth']}} / {{data['endyear']}}<br>
+                    {{data['mobile']}}<br>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="person-to-contact">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                      </a>
+                  </dd>
+              </div>
+
+
+            
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Waste description code             </dt>
+                <dd class="govuk-summary-list__value">
+                 B1030
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-description-code">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+      
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Using an overseas agent                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['agentname']}}<br>
+                {{data['agentaddress']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="overseas-agent-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Contact details for overseas agent                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['fullnameatc']}} <br>
+                          {{data['positionatc']}} <br>
+                          {{data['mobileatc']}} <br>
+                          {{data['emailatc']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="agent-to-contact">
+                              Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                      </dd>
+                  </div>
+
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      UK ports you use for exporting to this reprocessor 
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{data['listports']}}<br>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="list-ports">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Outputs from reprocessing 
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['outputrepro']}}<br>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="output-from-reprocessing">
+                          Change<span class="govuk-visually-hidden"> previous application number</span>
+                      </a>
+                  </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Plans for returned and rejected waste 
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['notesource']}}<br>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="plans-for-rejected-returned">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Flow diagram of transport route 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                File with a very very long name.pdf
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="uploaded-flow-diagram">
+                      Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+              </dd>
+          </div>
+
+
+            </dl>
+
+
+            <form action="add-overseas-sites-2" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+             <input type="hidden" name="waste-data-reprocesser" value="true">
+              <button class="govuk-button" data-module="govuk-button">
+                  Confirm and continue
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,191 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="check-answers-3" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Authority to issue PRNs for paper/board
+      </h1>
+     
+      <h2 class="govuk-body-s"><p>You can request authority for people in your organisation to issue PRNs for this material. </p>
+
+       <p>
+        [name of regulator] will review your request. They may not approve all the people you request.</p></h2>
+
+    </legend>
+
+
+
+    <h1 class="govuk-heading-m">
+Who would you like to request authority for?     </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      You can select more than one.  </div>
+    
+<br>
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th scope="col" class="govuk-table__header">Full name</th>
+          <th scope="col" class="govuk-table__header">Position</th>
+            <th scope="col" class="govuk-table__header"></th>
+         <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header"></th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric""></th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric""></th>
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="James Taylor">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                   <strong>Name of the person currently logged in</strong> 
+                  </label>
+                </div>
+                </div>
+              </td>
+
+        <td class="govuk-table__cell">Director</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+      </tr>
+      
+
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Andrew Shey">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                     <strong>Andrew Shey</strong> 
+                    </label>
+                  </div>
+                  </div>
+                </td>
+
+          <td class="govuk-table__cell">Management Accountant</td>
+                <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Gary Law ">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                  <strong> Gary Law</strong>            </label>
+                </div>
+                </div>
+              </td>
+
+        <td class="govuk-table__cell">Strategic Buyer</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Liam Simon">
+                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                 <strong>Liam Simon </strong> 
+                </label>
+              </div>
+              </div>
+            </td>
+
+      <td class="govuk-table__cell">Assistant Accountant</td>
+            <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Scott McAllister">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+               <strong>Scott McAllister</strong>
+              </label>
+            </div>
+            </div>
+          </td>
+
+    <td class="govuk-table__cell">PRN signatory</td>
+          <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+  </tr>
+
+    
+      </tbody>
+    </table>
+
+
+
+</fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="dash">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+   </div>
+   <br>
+   <h1 class="govuk-heading-xl">Default calculator parameters</h1>
+       
+  
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Default parameters have not been set.</span><br>
+        <hr>
+        
+        
+       
+        <!--<h3 class="govuk-heading-s govuk-!-margin-bottom-3">If you have access - you will see this data in Databricks.
+          </h3>-->
+          <br> 
+        
+        <p>An account administrator for your organisation will need to upload default parameters before you can run any calculations.</p>
+        <br>
+
+<form action="/form-handler" method="post" novalidate>
+  <input type="hidden" name="answers-checked" value="true">
+<div class="govuk-button-group">
+  <a href="calculate-packaging-payments" class="govuk-button" type="submit">Return to the dashboard</a>
+  
+</div>
+</form>
+
+      </div>
+    </div>
+  
+</div>
+
+{% endblock %}
