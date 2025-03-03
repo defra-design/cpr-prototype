@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " Large organisations on ‘report packaging data’" %}
+
+{% set title = "Large organisations on ‘report packaging data’" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent  %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock%}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+    <h1 class="govuk-heading-l">Large organisations on the ‘report packaging data’ service</h1>
+    <p>Before you start,
+
+ <a href="#">find out what this list is for and how to use it.</a></p>
+  <h1 class="govuk-heading-m">List of organisations - create and download CSV file </h1>
+<p>Use the search criteria to create a list, and download it as a CSV file. <br><br>
+
+  For anything before reporting year 2023, use the <a href="#">Public Register of Registered Producers on the National Packaging Waste Database.</a></p>
+
+
+
+  <form novalidate method="post">
+
+
+
+{{ govukSelect({
+  id: "[public-register][year]",
+  name: "[public-register][year]",
+  label: {
+    text: "Reporting year",
+    
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: " The year the organisation is reporting about. Called ‘Registration year’ on NPWD."
+  },
+  value: data.public-register.year,
+  items: [
+    {
+      value: "year",
+      text: "2023"
+    }
+  ]
+}) }}
+
+{{ govukSelect({
+  id: "[public-register][nation]",
+  name: "[public-register][nation]",
+  label: {
+    text: "Environmental regulator ",
+    isPageHeading: true,
+    classes: "govuk-label--s"
+  },hint: {
+    text: "Who the organisation is reporting to. Called ‘Agency’ on NPWD."
+  },
+ 
+  value: data.public-register.nation,
+  items: [
+  {
+    value: "All",
+    text: "All"
+  }, {
+      value: "One",
+      text: "Environment Agency"
+    },
+    {
+      value: "Two",
+      text: "Natural Resources Wales "
+    },
+    {
+      value: "Three",
+      text: "Northern Ireland Environment Agency"
+    },
+    {
+      value: "Three",
+      text: "Scottish Environment Protection Agency"
+    }
+
+  ]
+}) }}
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="event-name">
+      Organisation name (optional)
+    </label>
+  </h1>
+  <div id="passport-issued-hint" class="govuk-hint">
+    Does not need to be complete or exact.
+  </div>
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="event-name">
+      Companies House number (optional)
+    </label>
+  </h1>
+  
+  <input class="govuk-input" id="event-name" name="eventName" type="text">
+</div>
+
+<br><br>
+{{ govukButton({
+  text: "Create and download file" , 
+  href:"/public-register/old/download"
+}) }}
+
+
+</form>
+
+
+
+    </div>
+    </div>
+
+  
+
+
+
+{% endblock %}

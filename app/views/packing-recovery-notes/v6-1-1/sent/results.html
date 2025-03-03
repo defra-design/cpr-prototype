@@ -1,0 +1,248 @@
+{% set serviceName = "Sent PRN/PERNs" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../home-5"
+    },
+    {
+      text: "Sent PRN/PERNs",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <h1 class="govuk-heading-xl">View sent PRN/PERNs</h1>
+
+      <h2 class="govuk-body"></h2>
+
+      <form class="form" action="#" method="POST">
+
+          <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+
+                  </legend>
+
+                  {{ xGovukAutocomplete({
+                  id: "country",
+                  name: "which-producer",
+                  allowEmpty: false,
+                  label: {
+                  classes: "govuk-body--m",
+                  showAllValues: true,
+                  isPageHeading: true,
+
+                  text: "Search for a PRN by entering its number or the name of the company or compliance scheme you sent it to."
+                  },
+                  items: [
+                  { text: "Valpak (EA), CRN100002" },
+                  { text: "MRKWRGHT LTD" },
+                  { text: "GREEN LTD" },
+                  { text: "Packcare" },
+                  { text: "Nipak Ltd (NIEA)" },
+                  { text: "BiffPack (EA)" },
+                  { text: "BiffPack (GB)" },
+                  { text: "Toddpak" },
+                  { text: "ComplyPak (NIEA)" },
+                  { text: "Co2 Compliance (SEPA)" },
+                  { text: "Scotpak (SEPA)" },
+                  { text: "Ecosurety Scotland" },
+                  { text: "Pennine-Pack (EA)" },
+                  { text: "SWS Compak" },
+                  { text: "PRN0001" },
+                  { text: "PRN0002" },
+                  { text: "PRN0003" },
+                  { text: "PRN0004" },
+                  { text: "PRN0005" },
+                  { text: "PRN0006" },
+                  { text: "Tesco" },
+                  { text: "ASDA" },
+                  { text: "B&Q" }
+                  ]
+                  }) }}
+
+
+
+              </fieldset>
+          </div>
+
+          <input class="govuk-button" type="submit" value="Find PRN/PERN"  />
+
+
+
+      </form>
+
+
+
+
+
+</div>
+
+</div>
+
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<p class="govuk-body">Select a PRN number to view, download or cancel it.
+<br>
+<p class="govuk-body">  6 of 6 PRNs found</p></p>
+
+
+<div class="govuk-form-group" style="float:right">
+    <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+    <select class="govuk-select" id="select-status" name="sort">
+        <option  selected>Filter by </option>
+        <option value="published">Accepted </option>
+        <option value="updated">Awaiting acceptance</option>
+        <option value="views">Rejected</option>
+        <option value="views">Awaiting cancellation</option>
+        <option value="comments">Cancelled</option>
+    </select>
+</div>
+    <div class="govuk-form-group" style="float:right">
+      <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+  <select class="govuk-select" id="select-status" name="sort">
+    <option  selected>Sort by </option>
+    <option value="published">Material</option>
+    <option value="updated">Sent to</option>
+
+  </select>
+</div>
+
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">PRN number</th>
+            <th scope="col" class="govuk-table__header">Material</th>
+              <th scope="col" class="govuk-table__header">Sent to</th>
+            <th scope="col" class="govuk-table__header">Date created</th>
+            <th scope="col" class="govuk-table__header">Tonnes</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+  <a href="#">PRN0010</a>
+                    </label>
+                  </div>
+                  </div></td>
+            <td class="govuk-table__cell">Paper/board</td>
+            <td class="govuk-table__cell"> ASDA</td>
+            <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+            <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--blue">
+        Awaiting acceptance
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <a href="#">PRN0011</a>
+                  </label>
+                  </div>
+                  </div></td>
+              <td class="govuk-table__cell">Paper/board</td>
+              <td class="govuk-table__cell"> ASDA</td>
+              <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                  Accepted
+              </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <a href="#">PRN0012</a>
+                  </label>
+                  </div>
+                  </div></td>
+              <td class="govuk-table__cell">Paper/board</td>
+              <td class="govuk-table__cell"> ASDA</td>
+              <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                  Accepted
+              </strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <a href="#">PRN0013</a>
+                  </label>
+                  </div>
+                  </div></td>
+              <td class="govuk-table__cell">Paper/board</td>
+              <td class="govuk-table__cell"> ASDA</td>
+              <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                  Accepted
+              </strong></td>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <a href="#">PRN0014</a>
+                  </label>
+                  </div>
+                  </div></td>
+              <td class="govuk-table__cell">Paper/board</td>
+              <td class="govuk-table__cell"> ASDA</td>
+              <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                  Accepted
+              </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                  <a href="#">PRN0015</a>
+                  </label>
+                  </div>
+                  </div></td>
+              <td class="govuk-table__cell">Paper/board</td>
+              <td class="govuk-table__cell"> ASDA</td>
+              <td class="govuk-table__cell">20/11/2023</td>
+              <td class="govuk-table__cell">170</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                  Accepted
+              </strong></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+
+    </div>
+
+
+
+
+{% endblock %}

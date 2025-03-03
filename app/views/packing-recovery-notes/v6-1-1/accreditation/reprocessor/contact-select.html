@@ -1,0 +1,74 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="POST">
+
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="more-detail">
+        Who can the regulator contact about your application for steel?
+      </label>
+    </h1>
+ 
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+
+  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-6" name="regulator" type="radio" value="contact-select2" data-aria-controls="conditional-contact">
+      <label class="govuk-label govuk-radios__label" for="changed-name-6">
+      Name of person who is currently logged in
+      </label>
+    </div>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="regulator" type="radio" value="">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        John Smith A (name of person who has an account for this organisation)
+      </label>
+    </div>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="regulator" type="radio" value="">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        John Smith B (name of person who has an account for this organisation)
+      </label>
+    </div>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="regulator" type="radio" value="contact-user">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        Someone who is not on this list
+      </label>
+    </div>
+
+  </div>
+ </fieldset>
+  </div>
+
+
+<input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{
+  hmrcLanguageSelect({
+      language: 'en' if data['languagePreference'] === 'en' else 'cy',
+      en: { href: '?languagePreference=en' },
+      cy: { href: '?languagePreference=cy' }
+  })
+}}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<main id="content" role="main">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full ">
+  
+             {% if data['languagePreference'] == "cy" %}
+  <div>
+  <h1 class="govuk-heading-l">How the toggle works<span style="float:right"></span></h1>
+  <p>When English is selected, all content is in English.</p>
+  </div>  
+             {% else %}
+  <div>
+  <h1 class="govuk-heading-l">Sut mae’r togl yn gweithio<span style="float:right"></span></h1>
+  <p>Pan ddewisir y Gymraeg, mae’r holl gynnwys yn Gymraeg.</p>
+  </div>
+             {% endif %}
+  </div>
+  </main>
+  
+  {% endblock %}

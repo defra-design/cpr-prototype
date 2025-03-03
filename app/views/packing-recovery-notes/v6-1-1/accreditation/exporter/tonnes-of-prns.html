@@ -1,0 +1,84 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+
+      How many PERNs do you plan to issue?
+</h1>
+<div class="govuk-body">
+  The total tonnage of PERNs you expect to issue determines the charge for your application. This total is for all the materials you’ll issue PERNs on.
+
+</div>
+</div>
+
+</div><br>
+
+
+<form class="form" action="" method="POST">
+
+     
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+
+  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+   
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="declaration" data-aria-controls="conditional-contact">
+ 
+      <label class="govuk-label govuk-radios__label" for="changed-name-6">
+        Up to 400 tonnes: £505.00
+      </label>
+    </div>
+   <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div id="govuk-body" class="govuk-body-s">
+          Amount due<br>
+           <strong class="govuk-body-l" style="font-weight: bold;">£505.00</strong> <br>
+        
+          </div>
+   
+    </div>-->
+
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="declaration">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+
+        Over 400 tonnes: £2,616.00
+
+      </label>
+    </div>
+  <!--  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+      <div id="govuk-body" class="govuk-body-s">
+        Amount due<br>
+         <strong class="govuk-body-l" style="font-weight: bold;">£2,616.00</strong> <br>
+      
+        </div>
+
+  </div>-->
+ </fieldset>
+  </div>
+<br>
+<input type="hidden" name="price">
+   <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+</form>
+
+{% endblock %}

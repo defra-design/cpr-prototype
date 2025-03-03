@@ -1,0 +1,181 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %} 
+
+<style>
+.govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+}
+
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      
+  </div>
+</div>
+
+    
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <br><br>
+    
+    <h2 class="govuk-heading-s">
+    Name of calculation run
+    </h2>
+      
+    <section class="gem-c-attachment govuk-!-display-none-print govuk-!-margin-bottom-6" data-module="ga4-link-tracker" data-ga4-link-tracker-module-started="true">
+      <!--
+      <div class="gem-c-attachment__thumbnail">
+        
+      <a class="govuk-link" target="_self" tabindex="-1" aria-hidden="true" href="#">
+      <img src="/public/images/file.png" alt="" width="99px;" style="padding-top:5px;"></a>
+      
+      </div>
+      -->
+      <p class="gem-c-attachment__metadata govuk-body-s">Calulation ID: <strong>240008</strong></p>
+      <p class="gem-c-attachment__metadata govuk-body-s">Run date: <strong>28 June 2024</strong></p>
+      <p class="gem-c-attachment__metadata govuk-body-s">Time of run: <strong>12:09</strong></p>
+      <p class="gem-c-attachment__metadata govuk-body-s">Run by: <strong>Steve Jones</strong></p>
+      <h2 class="gem-c-attachment__title govuk-body">
+        <div class="gem-c-attachment__thumbnail">
+          
+          </div>
+        <a class="govuk-link gem-c-attachment__link" target="_self" data-ga4-link="{&quot;event_name&quot;:&quot;file_download&quot;,&quot;type&quot;:&quot;attachment&quot;}" href="download-error"><img src="/public/images/file.png" alt="" width="60px;" style="padding-top:5px"><br>Download CSV file</a>
+      </h2>
+      </section>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br><br>
+    <form method="POST" action="classification">
+
+      <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    What do you want to do with this calculation?
+                  </h1>
+              </legend>
+              <div class="govuk-hint">Choose a classification to process the calculation or delete it if it's no longer needed.</div>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <h2 class="	govuk-heading-m">Classify your calculation run</h2>
+              
+              <div class="govuk-radios" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
+                  <label class="govuk-label govuk-radios__label" for="play">
+                    <strong>Play</strong><br>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">A test run to see the outcome using different parameters, without the results being processed</p>
+                  </label>
+              </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
+                  <label class="govuk-label govuk-radios__label" for="initialRun">
+                    <strong>Initial run</strong><br>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">The first time this calculation has been processed</p>
+                  </label>
+              </div>
+              
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputInterimRecalculationRun">
+                <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
+                  <strong>Interim re-calculation run</strong><br>
+                  <p class="govuk-body-s" style="margin-bottom: 0;">A re-calculation after an initial run using updated data</p>
+                </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="finalRecalculationRun" name="calcRun" type="radio" value="outputFinalRecalculationRun">
+              <label class="govuk-label govuk-radios__label" for="finalRecalculationRun">
+                <strong>Final re-calculation run</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">The last re-calculation before confirming the final run</p>
+              </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="finalRun" name="calcRun" type="radio" value="outputFinalRun">
+            <label class="govuk-label govuk-radios__label" for="finalRun">
+              <strong>Final run</strong><br>
+              <p class="govuk-body-s" style="margin-bottom: 0;">The last calculation before the billing file is created</p>
+            </label>
+        </div>  
+
+                  
+
+
+              </div>
+          </fieldset>
+
+      </div>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text" style="font-size: 16px;">
+          <span class="govuk-visually-hidden">Warning</span>
+          You cannot change a classification after the billing file has been issued
+        </strong>
+      </div>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+<!--
+{{ govukDetails({
+  summaryText: "Help and further details",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+    -->
+    <div class="govuk-button-group">
+      {{
+        govukButton({
+                text: "Confirm classification"
+            })
+    }}
+      </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"> 
+    <h2 class="	govuk-heading-m">Delete this run</h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text" style="font-size: 16px;">
+        <span class="govuk-visually-hidden">Warning</span>
+        This cannot be undone
+      </strong>
+    </div>
+      
+
+        <div class="govuk-button-group">
+          <a href="output-1" class="govuk-button govuk-button--warning" type="submit">Delete this calculation</a>
+          <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+          </div>
+
+  </form>
+  </div>
+
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

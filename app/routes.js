@@ -99,6 +99,7 @@ router.use('/packing-recovery-notes/v4', require('./views/packing-recovery-notes
 router.use('/packing-recovery-notes/v5', require('./views/packing-recovery-notes/v5/_routes'));
 router.use('/packing-recovery-notes/v6', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-1', require('./views/packing-recovery-notes/v6/_routes'));
+router.use('/packing-recovery-notes/v6-1-1', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-2', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-3', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-4', require('./views/packing-recovery-notes/v6/_routes'));
@@ -107,17 +108,24 @@ router.use('/packing-recovery-notes/account-creation', require('./views/packing-
 
 
 
+//PayCal
+router.use('/paycal/final-march', require('./views/paycal/final-march/_routes'));
+
+
 //Cups
 router.use('/paper-cups/enrol/version-1', require('./views/paper-cups/enrol/version-1/_routes'));
-router.use('/paper-cups/enrol/version-2', require('./views/paper-cups/enrol/version-2/_routes'));
-router.use('/paper-cups/sellers-registration/version-1', require('./views/paper-cups/sellers-registration/version-1/_routes'));
-router.use('/paper-cups/sellers-registration/version-2', require('./views/paper-cups/sellers-registration/version-2/_routes'));
-router.use('/paper-cups/takeback-scheme-registration/version-1', require('./views/paper-cups/takeback-scheme-registration/version-1/_routes'));
-router.use('/paper-cups/takeback-scheme-registration/version-2', require('./views/paper-cups/takeback-scheme-registration/version-2/_routes'));
+
 
 //Small producers
 router.use('/small-producers/links-routes', require('./views/small-producers/links-routes/_routes'));
 
+
+//Enrolment
+router.use('/enrolment/account-creation', require('./views/enrolment/account-creation/build/_routes'));
+
+//Mid Year Changes
+router.use('/enrolment/compliance-schemes', require('./views/subsidiary/_routes'));
+router.use('/subsidiary/producers', require('./views/subsidiary/_routes'));
 
 // Clear all session data
 router.get('/clear', (req, res) => {

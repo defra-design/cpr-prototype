@@ -1,0 +1,102 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters account" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters account",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+  <form action="account" method="post">
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+        You've created an account for Jamie Roberts
+        </h3>
+        
+      </div>
+    </div>
+    <span class="govuk-caption-xl">Reprocessors and exporters account</span>
+    <br>
+    <hr>
+    <br>
+    <p><strong>You are now automatically a super administrator for your organisation. </strong></p>
+    <p class="govuk-body">This means you can:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>invite other team members to perform some of the tasks needed within this service</li>
+  <li>change what permissions you want them to have</li>
+  <li>remove them.</li>
+</ul>
+    <p></p><br>
+    <h3 class="govuk-notification-banner__heading">
+      What you need to do next
+      </h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Enrol your organisations ahead of registration.</li>
+        <li>Add an approved person to perform some tasks  ahead of registration.
+          </li>
+        <li>Register your UK sites and materials to comply with the law.</li>
+      </ol>
+
+      <p>Once you have completed registration you can choose to apply for accreditation for each UK site and material.</p>
+      <p>You can begin enrolment from the dashboard.</p>
+    
+      {{ govukButton({
+        text: "Continue to dashboard"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

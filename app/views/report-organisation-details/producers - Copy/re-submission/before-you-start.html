@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Upload your organisation details file
+    </h1>
+
+
+    <form method="POST" action="./loading-errors">
+
+      <!-- FILE UPLOAD -->
+      <div class="govuk-form-group">
+
+
+        <p class="govuk-body">The uploaded file must be in CSV format</p>
+        <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file
+          is uploading.</p>
+
+        <!--
+            <div id="organisation-file-hint" class="govuk-hint">
+              You should upload as CSV file
+            </div>
+-->
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+      </div>
+      {{ govukButton({
+      text: "Upload file"
+      })}}
+    </form>
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
