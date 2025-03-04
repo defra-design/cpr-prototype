@@ -53,54 +53,54 @@ Report packaging data
     <h1 class="govuk-heading-l">What are the names of the partners in the organisation?</h1>
     <p>Enter the names in full - as they appear on official documents.</p>
 
-    <form action="" method="post">
-
-      <div class="govuk-form-group govuk-!-margin-bottom-7">
-        <label class="govuk-label govuk-label--" for="azure-email">
-          First name
-        </label>
-        <input class="govuk-input" id="azure-email" name="azure-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['azure-email']}}"">
-      </div>
-      
-
-      <div class="govuk-form-group">
-
-        <label class="govuk-label govuk-label--" for="password">
-          Last name
-        </label>
-
-        
-        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
-
-      </div>
-      <a class="govuk-link" href="#">Add another</a>
-      <br><br><p></p>
-
-      <div class="govuk-form-group govuk-!-margin-bottom-7">
-        <label class="govuk-label  govuk-label--" for="retype-password">
-         First name
-        </label>
-        <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
-      </div>
-      <div class="govuk-form-group">
-
-        <label class="govuk-label govuk-label--" for="password">
-          Last name
-        </label>
-
-        
-        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
-
-      </div>
-      <a class="govuk-link" href="#">Add another</a>
-      <br><br> <p></p>
-
-      <div class="govuk-button-group">
-        <a href="manage-account-person-2" class="govuk-button" type="submit">Continue</a>
-        
-      </div>
-
-    </form>
+    <div data-module="moj-add-another">
+    
+      <form method="post">
+    
+        <fieldset class="govuk-fieldset moj-add-another__item">
+    
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+              First name
+            </label>
+    
+            <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
+    
+          </div>
+    
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="person[0][last_name]">
+              Last name
+            </label>
+    
+            <input class="govuk-input" id="person[0][last_name]" name="person[0][last_name]" type="text" data-name="person[%index%][last_name]" data-id="person[%index%][last_name]">
+    
+          </div>
+    
+          
+    
+        </fieldset>
+    
+        <div class="moj-button-action">
+    
+          <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+            Add another person
+          </button>
+    
+        </div>
+    
+        <div class="moj-button-action">
+    
+          <div class="govuk-button-group">
+            <a href="manage-account-person-2" class="govuk-button" type="submit">Submit</a>   
+          </div>
+    
+        </div>
+    
+      </form>
+    
+    </div>
+    
 
   </div>
 </div>
