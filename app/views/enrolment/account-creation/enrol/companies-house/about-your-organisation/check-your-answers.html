@@ -46,13 +46,7 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
 
-
-    <a class="govuk-back-link" href="../about-you/telephone-number.html">Back</a>
-
-
-{% endblock %}
 
 
 {% block content %}
@@ -64,7 +58,7 @@ Report packaging data
 
     <h1 class="govuk-heading-l ">Check your details</h1>
 
-    <h2 class="govuk-heading-m ">Your organisation</h2>
+    <h2 class="govuk-heading-m ">Added organisation</h2>
 
     <dl class="govuk-summary-list">
 
@@ -146,8 +140,31 @@ Report packaging data
     <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-top-6">
         If the address is wrong, you’ll need to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change them on Companies House (opens in a new tab)</a>.
     </p>
+    <br>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Patrnership member</h2>
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">You</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+
+        
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+               Rekha Patel
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-you/enter-NPWD-number">
+                Change<span class="govuk-visually-hidden"> NPWD number</span>
+            </a>
+            </dd>
+        </div>
+
+
+    </dl>
+    <br>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Approved person invite</h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-8">
 
@@ -157,7 +174,7 @@ Report packaging data
                 Role
             </dt>
             <dd class="govuk-summary-list__value">
-                {{ data['form-role-in-organisation'] }}
+                Company secretary
             </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="../about-you/role-in-organisation.html">
@@ -172,7 +189,7 @@ Report packaging data
             Name
         </dt>
         <dd class="govuk-summary-list__value">
-            {{ data['first-name'] }} {{ data['last-name'] }}
+            Henry Brown
         </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="../about-you/full-name.html">
@@ -184,10 +201,10 @@ Report packaging data
         <!-- TELEPHONE -->
         <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-            Telephone
+            Email
         </dt>
         <dd class="govuk-summary-list__value">
-            {{ data['personal-telephone-number'] }}
+            henry.brown@acornltd.com
         </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="../about-you/telephone-number.html">
@@ -198,27 +215,7 @@ Report packaging data
 
     </dl>
 
-    <!--<h2 class="govuk-heading-m govuk-!-margin-bottom-2">NPWD number</h2>
-
-    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
-
-        ROLE 
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-                NPWD number
-            </dt>
-            <dd class="govuk-summary-list__value">
-                {{ data['NPWD-number'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="../about-you/enter-NPWD-number">
-                Change<span class="govuk-visually-hidden"> NPWD number</span>
-            </a>
-            </dd>
-        </div>-->
-
-
-    </dl>
+    
 
     {{ govukButton({
       text: "Continue"
