@@ -1,0 +1,112 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            You've removed NWE Enterprise LTD from your account
+          </h1>
+        </div>
+
+        <p class="govuk-body">If you removed NWE Enterprise LTD from your account by mistake, you should ask them to name you as their compliance scheme in their 'report packaging data' account.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">You must remove NWE Enterprise LTD from either your registration file or your members organisation file, depending on which period this change is to be recorded. --- WORDS FROM SAM</p>
+        
+        <p class="govuk-body">If you've already uploaded this file, y9ou'll need to remove this member and then re-upload the appropriate file. If you've submitted this file to the environmental regulator, you must re-submit the updated file within the next 28 days. --- SAM TO REVIEW ALL WORDING</p>
+
+        <p class="govuk-body">Next steps:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li><a class="govuk-link" href="#">re-upload and submit members' organisation details -- Historical</a> --- WORDS FROM SAM</li>
+  <li><a class="govuk-link" href="#">Resubmit the registration file -- Current period</a> --- WORDS FROM SAM</li>
+  <li><a class="govuk-link" href="#">Return to view all scheme members</a></li>
+
+
+</ul>
+     
+
+
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
