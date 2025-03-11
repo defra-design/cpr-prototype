@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
-  Collection and packaging reforms
+Collection and packaging reforms
 {% endset%}
 
 {% set serviceName = "Check if you need to report packaging data" %}
@@ -27,31 +27,36 @@ Check if you need to report packaging data | {{serviceName}} prototype
         <fieldset class="govuk-fieldset" aria-describedby="organisation-turnover-hint">
 
           {% if (data['acting-as'] == "parent-company") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
-              <span class="govuk-caption-l">About your organisation</span>
-              <h1 class="govuk-fieldset__heading">
-                What was your group’s last annual turnover?
-              </h1>
-            </legend>
-            <p class="govuk-body">Your answer should include the annual turnover of all relevant subsidiaries in your group that handle and supply (create, import, distribute or sell) packaging.</p>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+            <span class="govuk-caption-l">About your organisation</span>
+            <h1 class="govuk-fieldset__heading">
+              What was your group’s last annual turnover?
+            </h1>
+          </legend>
+          <p class="govuk-body">
+            <!-- Your answer should include the annual turnover of all relevant subsidiaries in your
+            group that handle and supply (create, import, distribute or sell) packaging.-->
+            Your answer should include the reported turnover of all relevant subsidiaries in your group that supply
+            (create, import, distribute or sell) packaging.
+          </p>
           {% endif %}
 
           {% if (data['acting-as'] == "subsidiary") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">About your organisation</span>
-              <h1 class="govuk-fieldset__heading">
-                What was your organisation’s last annual turnover?
-              </h1>
-            </legend>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">About your organisation</span>
+            <h1 class="govuk-fieldset__heading">
+              What was your organisation’s last annual turnover?
+            </h1>
+          </legend>
           {% endif %}
 
           {% if (data['acting-as'] == "individual") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">About your organisation</span>
-              <h1 class="govuk-fieldset__heading">
-                What was your organisation’s last annual turnover?
-              </h1>
-            </legend>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">About your organisation</span>
+            <h1 class="govuk-fieldset__heading">
+              What was your organisation’s last annual turnover?
+            </h1>
+          </legend>
           {% endif %}
 
           <div id="organisation-turnover-hint" class="govuk-hint">
@@ -60,19 +65,22 @@ Check if you need to report packaging data | {{serviceName}} prototype
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="under-1m" name="turnover" type="radio" value="Under £1 million" {{ checked("turnover", "Under £1 million") }}>
+              <input class="govuk-radios__input" id="under-1m" name="turnover" type="radio" value="Under £1 million" {{
+                checked("turnover", "Under £1 million" ) }}>
               <label class="govuk-label govuk-radios__label" for="under-1m">
                 Under £1 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="1-2m" name="turnover" type="radio" value="£1 million to £2 million" {{ checked("turnover", "£1 million to £2 million") }}>
+              <input class="govuk-radios__input" id="1-2m" name="turnover" type="radio" value="£1 million to £2 million"
+                {{ checked("turnover", "£1 million to £2 million" ) }}>
               <label class="govuk-label govuk-radios__label" for="1-2m">
                 £1 million to £2 million
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Over-2m" name="turnover" type="radio" value="Over £2 million" {{ checked("turnover", "Over £2 million") }}>
+              <input class="govuk-radios__input" id="Over-2m" name="turnover" type="radio" value="Over £2 million" {{
+                checked("turnover", "Over £2 million" ) }}>
               <label class="govuk-label govuk-radios__label" for="Over-2m">
                 £2 million or more
               </label>
@@ -81,7 +89,7 @@ Check if you need to report packaging data | {{serviceName}} prototype
 
         </fieldset>
       </div>
-      
+
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>

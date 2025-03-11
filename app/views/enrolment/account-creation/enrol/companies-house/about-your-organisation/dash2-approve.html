@@ -1,0 +1,282 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+  
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Learner record applications </h1>
+
+      </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <h2 class="govuk-heading-m">Filters</h2>
+
+    <form action="/form-handler" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <a href="#" class="govuk-button show-continue">
+     Apply filters
+</a>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="width-20">
+    Name or UKPRN 
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+</div>
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Status
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+             New
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+              First waiting
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+              Second assigned
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Second waiting
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Approved
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Registered
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Rejected
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+             Timed out
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="govuk-grid-column-three-quarters">  
+  
+          <h2 class="govuk-heading-m"></h2>
+          
+  
+  
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col"> </th>
+                <th class="govuk-table__header" scope="col"> </th>
+              </tr>
+            </thead>
+            
+            
+            
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+                    <a href="answers" class="govuk-link govuk-link--no-visited-state">
+                      Euston Place Dental Practice
+                    </a></h3>
+                    <p>Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Approved
+                  </strong>
+          
+                </td>
+              </tr>
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“”>
+                    Cherryleas Assessment Centre</a></h3>
+                  <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--grey">
+           Waiting
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“”>
+                    Centre for Accelerated Learning</a></h3>
+                    <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                   
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--grey">
+            Assigned
+          </strong>
+          
+                </td>
+
+              </td>
+            </tr>
+           
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-3"> <a class=“govuk-link--no-visited-state” href=“”>
+                    Chesterfield Hospital School</a></h3>
+                    <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--grey">
+           Approved
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“”>
+                    Chiltern Nursery Nurse Training School</a></h3>
+                    <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green">
+                    Registered
+          </strong>
+          
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“”>
+                    Clayfield House</a></h3>
+                    <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--orange">
+                    Rejected
+          </strong>
+          
+                </td>
+              </tr>
+          
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-2"> <a class=“govuk-link--no-visited-state” href=“one”>
+                    Coventry Hospital and Home Tuition Service</a></h3>
+                    <p>
+                      Application reference: 1234588<br>
+                    Independent Learning Provider<br>
+                    UKPRN: 87651234<br>
+                  18 August 2020</p>
+                </td>
+                <td class="govuk-summary-list__actions">
+                  <strong class="govuk-tag govuk-tag--yellow">
+            Timed Out
+          </strong>
+          
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+        
+          
+  
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+  
+
+         
+      
+
+
+{% endblock %}
