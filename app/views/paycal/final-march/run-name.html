@@ -48,7 +48,7 @@
                   </h1>
               </legend>
               <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
-              <h3 class="govuk-body-m">Download the results file to review the calculation run before choosing to classify or delete it.</h3>
+              <h3 class="govuk-body-m">Download the results file to review the calculation run offline. When you are ready, return to classify or delete it.</h3>
 
               <table class="govuk-table">
                 <tbody class="govuk-table__body">
@@ -71,7 +71,7 @@
                 Download results
               </button>
 
-              <h2 class="govuk-heading-m">What do you want to do with this calculation?</h2>
+              <h2 class="govuk-heading-m">What do you want to do next?</h2>
               
               
               <div class="govuk-radios" data-module="govuk-radios">
@@ -89,7 +89,7 @@
                   <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputClassify">
                   <label class="govuk-label govuk-radios__label" for="classify">
                     <strong>Classify</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process the calculation run</p>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this calculation run</p>
                   </label>
               </div>
               
@@ -110,13 +110,21 @@
       
 
         <div class="govuk-button-group">
+          <!--
+          {{ govukButton({
+            text: "Save and come back later",
+            classes: "govuk-button--secondary"
+          }) }}
+          -->
+
           {{
             govukButton({
                     text: "Continue"
                 })
         }}
-          <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
         </div>
+
+        <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
 
   </form>
   </div>
