@@ -14,7 +14,7 @@ router.post('*/classification', function (req, res) {
         res.redirect('output-2')
     }
     else if (calculation == "outputClassify"){
-        res.redirect('classify-initial-run')
+        res.redirect('classify-run-1')
     }
     else if (calculation == "outputInitialRun"){
         res.redirect('classify-initial-complete')
