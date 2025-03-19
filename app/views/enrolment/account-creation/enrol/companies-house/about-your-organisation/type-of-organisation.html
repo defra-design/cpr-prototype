@@ -1,17 +1,50 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set serviceName = "Create an account" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
-{% set title = "Create an account " %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
-
-
-{% block beforeContent %}
-
-<a class="govuk-back-link" href="#">Back</a>
-
+{% block pageTitle %}
+ Report packaging data
 {% endblock %}
 
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
 
 {% block content %}
 
