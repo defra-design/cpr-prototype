@@ -52,6 +52,10 @@
               <table class="govuk-table">
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Classification</th>
+                    <td class="govuk-table__cell">Initial run</td>
+                  </tr>
+                  <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Calculation ID</th>
                     <td class="govuk-table__cell">240008</td>
                   </tr>
@@ -65,42 +69,18 @@
                   </tr>
                 </tbody>
               </table>
+
               <p class="govuk-body">Download files related to this calculation run.</p>
+
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Download results
+                Results file
               </button>
 
-              <h2 class="govuk-heading-m">What do you want to do next?</h2>
-              
-              
-              <div class="govuk-radios" data-module="govuk-radios">
-                <!--
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
-                  <label class="govuk-label govuk-radios__label" for="play">
-                    <strong>Play</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Test the run without generating invoice instructions</p>
-                  </label>
-              </div>
-            -->
+              <h2 class="govuk-heading-m">Next step</h2>
 
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputClassify">
-                  <label class="govuk-label govuk-radios__label" for="classify">
-                    <strong>Classify</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this calculation run</p>
-                  </label>
-              </div>
+              <p class="govuk-body">Accept all invoice instructions contained in the results file.</p>
               
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputDelete">
-                <label class="govuk-label govuk-radios__label" for="delete">
-                  <strong>Delete</strong><br>
-                  <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it's no longer needed</p>
-                </label>
-            </div>
-          </div>
+            
         </fieldset>
 
       </div>
@@ -115,15 +95,17 @@
             classes: "govuk-button--secondary"
           }) }}
           -->
-
-          {{
-            govukButton({
-                    text: "Continue"
-                })
-        }}
+  
         </div>
 
-        <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+        
+
+      <div class="govuk-button-group"><a href="accept-all-invoice-instructions" class="govuk-button show-continue" style="display: inline;">
+          Continue
+      </a>
+
+      <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+      </div>
 
   </form>
   </div>

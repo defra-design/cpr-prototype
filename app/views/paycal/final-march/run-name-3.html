@@ -52,6 +52,10 @@
               <table class="govuk-table">
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Classification</th>
+                    <td class="govuk-table__cell">Initial run</td>
+                  </tr>
+                  <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Calculation ID</th>
                     <td class="govuk-table__cell">240008</td>
                   </tr>
@@ -63,67 +67,53 @@
                     <th scope="row" class="govuk-table__header">Time of run</th>
                     <td class="govuk-table__cell">12:09</td>
                   </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Run by</th>
+                    <td class="govuk-table__cell">Steve Jones</td>
+                  </tr>
                 </tbody>
               </table>
+              <h2 class="govuk-heading-m">Downloads</h2>
+
               <p class="govuk-body">Download files related to this calculation run.</p>
+              <div class="govuk-button-group">
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Download results
+                Results file
               </button>
-
-              <h2 class="govuk-heading-m">What do you want to do next?</h2>
-              
-              
-              <div class="govuk-radios" data-module="govuk-radios">
-                <!--
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="play" name="calcRun" type="radio" value="outputPlay">
-                  <label class="govuk-label govuk-radios__label" for="play">
-                    <strong>Play</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Test the run without generating invoice instructions</p>
-                  </label>
-              </div>
-            -->
-
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputClassify">
-                  <label class="govuk-label govuk-radios__label" for="classify">
-                    <strong>Classify</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this calculation run</p>
-                  </label>
-              </div>
-              
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputDelete">
-                <label class="govuk-label govuk-radios__label" for="delete">
-                  <strong>Delete</strong><br>
-                  <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it's no longer needed</p>
-                </label>
+              <button type="submit" disabled aria-disabled="true" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Draft billing file generating
+              </button>
             </div>
-          </div>
+            <p class="govuk-body">Your draft billing file is being created. This can take up to 15 minutes. </p>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <h2 class="govuk-heading-m">Next step</h2>
+
+              <p class="govuk-body">Confirm that you want to send the billing file to the FSS. </p>
+
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  Once sent, you will not be able to amend the billing file.
+                </strong>
+              </div>
+
+              <div class="govuk-button-group"><a href="send-billing-file" disabled aria-disabled="true" class="govuk-button show-continue" style="display: inline;">
+                Continue
+            </a>
+      
+            <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+            </div>
+              
         </fieldset>
 
       </div>
 
       {% from "govuk/components/details/macro.njk" import govukDetails %}
-      
 
-        <div class="govuk-button-group">
-          <!--
-          {{ govukButton({
-            text: "Save and come back later",
-            classes: "govuk-button--secondary"
-          }) }}
-          -->
 
-          {{
-            govukButton({
-                    text: "Continue"
-                })
-        }}
-        </div>
-
-        <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+ 
 
   </form>
   </div>
