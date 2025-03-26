@@ -1,0 +1,99 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="team-invite">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your team member's role as shown on Companies House?
+            </h1>
+          </legend>
+          <br>
+          <p>These roles are eligible to be invited as an approved person. You can still enrol without inviting someone if you do not have a name and contact details yet.</p>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="director" name="form-role-in-organisation" type="radio" value="Director" {{ checked("form-role-in-organisation", "Director") }}>
+              <label class="govuk-label govuk-radios__label" for="director">
+                Director
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="secretary" name="form-role-in-organisation" type="radio" value="Company secretary" {{ checked("form-role-in-organisation", "Company secretary") }}>
+              <label class="govuk-label govuk-radios__label" for="secretary">
+                Company secretary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partner" name="form-role-in-organisation" type="radio" value="Partner" {{ checked("form-role-in-organisation", "Partner") }}>
+              <label class="govuk-label govuk-radios__label" for="partner">
+                Partner of the partnership as per the official records filed with Companies House
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue with invitation
+        </button>
+      </div>
+      <a class="govuk-link" href="check-your-answers">Continue without invitation</a>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

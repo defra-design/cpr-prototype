@@ -1,0 +1,86 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          
+            <h1 class="govuk-heading-l">You can still continue to add the organisation</h1>        
+
+<p>The sole trader must appoint themselves as an 'approved person'. This role completes tasks on behalf of the
+  organisation.</p>
+  <p>They do not have to do this immediately but they must appoint themselves before they can:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>apply for accreditation</li>
+      <li>submit quarterly returns after registration</li>
+    </ul>
+  </p>  
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+
+       
+
+        <div class="govuk-button-group">
+          <a href="check-your-answers" class="govuk-button" type="submit">Continue</a>   
+        </div>
+       <!-- <a class="govuk-link" href="team-manage-control">Invite an eligible team member</a>-->
+          
+         
+          </div>
+
+        </div>
+</div>
+
+{% endblock %}
