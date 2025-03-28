@@ -50,24 +50,22 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="business-address-manual">
-      <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="trading-name">
-            What is your organisation’s trading name?
-          </label>
-        </h1>
-        <div id="trading-name-hint" class="govuk-hint">
-          You may trade under your own name, or a name you have given to your business.
-        </div>
-        <input class="govuk-input" id="trading-name" name="trading-name" type="text" spellcheck="false" autocomplete="off" value="{{data['trading-name']}}">
+    <form method="POST" action="success">
+      <h1 class="govuk-heading-l">Declaration</h1>
+
+      <p class="govuk-body">By confirming your details, you agree that the organisational enrolment information you’ve given is complete and correct.</p>
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You could face enforcement action if you give false or deliberately misleading information.
+        </strong>
       </div>
+
       {{ govukButton({
-        text: "Continue"
+        text: "Confirm and add organisation"
       })}}
     </form>
   </div>
 </div>
-
-
 {% endblock %}
