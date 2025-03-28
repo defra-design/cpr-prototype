@@ -37,40 +37,44 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-    &nbsp; &nbsp; <br><br>
+    &nbsp; &nbsp; <br>
     <form method="POST" action="classification">
-
       <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                  <h1 class="govuk-fieldset__heading">
-                    Calculation run: [name of run]
-                  </h1>
-              </legend>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+                  <span class="govuk-caption-l">Calculation run 99</span>
+                  <h1 class="govuk-heading-l">Calculation run details</h1>
+  
               <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
               <h3 class="govuk-body-m">Download the results file to review the calculation run offline. When you are ready, return to classify or delete it.</h3>
 
               <table class="govuk-table">
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Financial year</th>
+                    <td class="govuk-table__cell">2024-25</td>
+                  </tr>
+                  <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Calculation ID</th>
                     <td class="govuk-table__cell">240008</td>
                   </tr>
                   <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Run date</th>
-                    <td class="govuk-table__cell">June 2024</td>
+                    <th scope="row" class="govuk-table__header">Run date and time</th>
+                    <td class="govuk-table__cell">1 May 2024 at 12:09</td>
                   </tr>
                   <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Time of run</th>
-                    <td class="govuk-table__cell">12:09</td>
+                    <th scope="row" class="govuk-table__header">Run by</th>
+                    <td class="govuk-table__cell">Steve Jones</td>
                   </tr>
                 </tbody>
               </table>
-
+              <h2 class="govuk-heading-m">Downloads</h2>
+              <p class="govuk-body">Download files related to this calculation run.</p>
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Download results
+                Results file
               </button>
-
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
               <h2 class="govuk-heading-m">What do you want to do next?</h2>
               
               
@@ -108,7 +112,7 @@
 
       {% from "govuk/components/details/macro.njk" import govukDetails %}
       
-
+      <div class="govuk-button-group">
         <div class="govuk-button-group">
           <!--
           {{ govukButton({
@@ -124,8 +128,8 @@
         }}
         </div>
 
-        <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
-
+        &nbsp; &nbsp;  <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+      </div>
   </form>
   </div>
 

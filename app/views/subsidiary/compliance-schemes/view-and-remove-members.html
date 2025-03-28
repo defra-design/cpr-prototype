@@ -1,0 +1,152 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Home",
+  href: "javascript:history.back()"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">
+      Scheme members for COMPLIANCE LTD (EA)
+    </h1>
+
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body govuk-!-margin-bottom-1">Your account is linked to 3 members.</p>
+      <div class="govuk-hint govuk-!-margin-bottom-2">Last updated: 27 February 2025</div>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="account-number">
+          Search by organisation name or ID
+        </label>
+      </h1>
+      <div id="account-number-hint" class="govuk-hint">
+        For example, Acme Ltd or 123 456
+      </div>
+      <input class="govuk-input govuk-input--width-20" id="account-number" name="accountNumber" type="text"
+        spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">  <span type="submit" class="govuk-button govuk-button govuk-!-margin-left-1 " data-module="govuk-button">
+          Search
+        </button></span>
+    </div>
+
+  
+    <p class="govuk-body"><span class="govuk-body govuk-!-font-weight-bold">3</span> results</p>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Members</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Organisation name</th>
+          <th scope="col" class="govuk-table__header">Organisation ID</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">LITTLE ENGLAND PTY LIMITED</a> </th>
+          <td class="govuk-table__cell">109 222</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="#" class="govuk-link">NN INVESTMENT PARTNERS B.V</a> </th>
+          <td class="govuk-table__cell">109 223</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="remove-member.html" class="govuk-link">NWE ENTERPRISE LTD</a></th>
+          <td class="govuk-table__cell">114 851</td>
+        </tr>
+      </tbody>
+    </table>
+     
+    </div>
+
+  </div>
+
+
+
+
+</div>
+
+</form>
+
+
+{% endblock %}

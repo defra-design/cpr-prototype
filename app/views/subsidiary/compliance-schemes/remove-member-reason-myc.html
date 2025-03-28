@@ -1,0 +1,181 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+    {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }} 
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="remove-member-reason-text" method="POST">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="leaver-code-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Why do you want to remove NWE ENTERPRISE LTD from your account?
+          </h1>
+        </legend>
+        <div id="leaver-code-hint" class="govuk-hint">
+          Select one option.
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-a" name="reason-mem" type="radio" value="A">
+            <label class="govuk-label govuk-radios__label" for="reason-a">
+              It won't be able to give us its organisation details or packaging data by the deadline
+            </label>
+           
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-b" name="reason-mem" type="radio" value="B">
+            <label class="govuk-label govuk-radios__label" for="reason-b">
+              The amount of packaging it handled in the threshold calculation year is less than or equal to 25 tonnes
+            </label>
+           
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-c" name="reason-mem" type="radio" value="C">
+            <label class="govuk-label govuk-radios__label" for="reason-c">
+              It has ended its membership with this scheme
+            </label>
+          
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-d" name="reason-mem" type="radio" value="D">
+            <label class="govuk-label govuk-radios__label" for="reason-d">
+              It has merged with another company
+            </label>
+          
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-e" name="reason-mem" type="radio" value="E">
+            <label class="govuk-label govuk-radios__label" for="reason-e">
+              It is no longer in operation
+            </label>
+            <span class="govuk-hint govuk-radios__hint">
+              For example, it may have closed, gone bankrupt, or gone into liquidation
+            </span>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-f" name="reason-mem" type="radio" value="F">
+            <label class="govuk-label govuk-radios__label" for="reason-f">
+              It has gone into administration
+            </label>
+          
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-g" name="reason-mem" type="radio" value="G">
+            <label class="govuk-label govuk-radios__label" for="reason-g">
+              It is now a subsidiary of another company
+            </label>
+            
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-h" name="reason-mem" type="radio" value="H">
+            <label class="govuk-label govuk-radios__label" for="reason-h">
+              Its turnover in the last financial year before the relevant date is less than or equal to £1 million
+            </label>
+        
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-i" name="reason-mem" type="radio" value="I">
+            <label class="govuk-label govuk-radios__label" for="reason-i">
+              We've ended its membership with this scheme
+            </label>
+           
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-j" name="reason-mem" type="radio" value="J">
+            <label class="govuk-label govuk-radios__label" for="reason-j">
+              None of the above
+            </label>
+          
+          </div>
+          
+
+        </div>
+</fieldset>
+</div>
+
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      
+    </div>
+
+
+</form>
+
+
+{% endblock %}

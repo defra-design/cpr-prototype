@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account" %}
+
+{% set title = "Create an account" %}
+
+{% block pageTitle %}
+    {{title}} - Create an account to report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
+    <form method="POST" action="registered-charity-question">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Has NPWD number?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registered-charity-yes" name="next-page" type="radio" value="enter-NPWD-number" >
+              <label class="govuk-label govuk-radios__label" for="registered-charity-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registered-charity-no" name="next-page" type="radio" value="../confirm-declaration/check-your-answers">
+              <label class="govuk-label govuk-radios__label" for="registered-charity-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
