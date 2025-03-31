@@ -48,30 +48,34 @@ Report packaging data
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds ">
-    <form method="POST" action="../non-companies-house/about-your-business/uk-address">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="trading-name">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Is your organisation registered with Companies House?
+              Does your organisation have a main address in the UK?
             </h1>
           </legend>
+          <p>This means does your organisation have a head office or a main place of business in the UK.</p>
           <div class="govuk-radios" data-module="govuk-radios">
+            
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="registered-companies-house-yes" name="registered-companies-house" type="radio">
-              <label class="govuk-label govuk-radios__label" for="registered-companies-house-yes">
+              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="registered-companies-house-no" name="registered-companies-house" type="radio">
-              <label class="govuk-label govuk-radios__label" for="registered-companies-house-no">
+              <input class="govuk-radios__input" id="sole-trader" name="form-organisation-type" type="radio" value="Sole trader" {{ checked("form-organisation-type", "Sole trader") }}>
+              <label class="govuk-label govuk-radios__label" for="sole-trader">
                 No
               </label>
             </div>
+            
+            
+            
           </div>
         </fieldset>
       </div>
