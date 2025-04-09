@@ -16,7 +16,7 @@ Report packaging data
   
   {{ govukHeader({
     homepageUrl: "../../../index.html",
-    serviceName: "Reprocessor and exporters service",
+    serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
     {
@@ -48,31 +48,36 @@ Report packaging data
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds ">
-    <form method="POST" action="registered-with-companies-house">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="name-all-partners">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
+        <fieldset class="govuk-fieldset" aria-describedby="uk-nation-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Is your organisation registered with Companies House?
+              Are you a partner in that limited partnership?
             </h1>
           </legend>
+          
+
           <div class="govuk-radios" data-module="govuk-radios">
+
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="registered-companies-house-yes" name="registered-companies-house" type="radio" value="Yes" {{ checked("registered-companies-house", "Yes") }}>
-              <label class="govuk-label govuk-radios__label" for="registered-companies-house-yes">
+              <input class="govuk-radios__input" id="england" name="uk-nation" type="radio" value="England" {{ checked("uk-nation", "England") }}>
+              <label class="govuk-label govuk-radios__label" for="england">
                 Yes
               </label>
             </div>
+
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="registered-companies-house-no" name="registered-companies-house" type="radio" value="No" {{ checked("registered-companies-house", "No") }}>
-              <label class="govuk-label govuk-radios__label" for="registered-companies-house-no">
+              <input class="govuk-radios__input" id="scotland" name="uk-nation" type="radio" value="Scotland" {{ checked("uk-nation", "Scotland") }}>
+              <label class="govuk-label govuk-radios__label" for="scotland">
                 No
               </label>
             </div>
+
           </div>
+
         </fieldset>
       </div>
       {{ govukButton({
