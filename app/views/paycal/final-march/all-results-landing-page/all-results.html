@@ -29,7 +29,7 @@
           <div class="moj-filter__selected" style="padding: 0px 20px 30px 20px; margin: 30px 0px;">
             <div class="moj-filter__options" style="box-shadow: inset 0 0 0 0px; padding: 0px;">
               <div class="moj-search">
-                <form action="#" method="post">
+                <form id="search-form">
                   <div class="govuk-form-group">
 
                     <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
@@ -66,38 +66,43 @@
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Accepted</a> (100)
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="accepted">Accepted</a>
+                (100)
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Rejected</a> (100)
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="rejected">Rejected</a>(100)
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Pending</a>
-                (6750)
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="pending">Pending</a>(6750)
               </td>
             </tr>
             <tr>
               <td class="govuk-table__cell"
-                style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; border-bottom:0px;"><a
-                  href="#">Inital</a>
+                style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; border-bottom:0px;"><a href="#"
+                  class="filter-link" data-filter-type="status" data-filter-value="initial">Initial</a>
+
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Delta</a>
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="delta">delta</a>
+
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Rebill</a>
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="rebill">Rebill</a>
+
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">Cancel bill</a>
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="cancelbill">Cancel bill</a>
+
               </td>
               <td class="govuk-table__cell"
                 style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle; border-bottom:0px;">
-                <a href="#">No action</a>
+                <a href="#" class="filter-link" data-filter-type="status" data-filter-value="noaction">No action</a>
+
               </td>
             </tr>
           </thead>
@@ -124,6 +129,9 @@
           </fieldset>
         </div>
         <!-- Select records end -->
+        <button type="button" class="govuk-button govuk-button--secondary" onclick="resetFilters()">Clear
+          filters</button>
+
       </div>
     </form>
 
@@ -508,113 +516,65 @@
 
 
 
+  <script>
+    let activeStatusFilter = null;
+    let activeInstructionFilter = null;
+    let searchTerm = '';
+
+    // Handle filter link clicks
+    document.querySelectorAll('.filter-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const filterType = link.getAttribute('data-filter-type');
+        const filterValue = link.getAttribute('data-filter-value').toLowerCase();
+
+        if (filterType === 'status') activeStatusFilter = filterValue;
+        if (filterType === 'instruction') activeInstructionFilter = filterValue;
+
+        filterResults();
+      });
+    });
+
+    // Handle search
+    document.getElementById('search-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      searchTerm = document.getElementById('search').value.trim().toLowerCase();
+      filterResults();
+    });
+
+    function filterResults() {
+      const rows = document.querySelectorAll('#submission-table-body tr');
+
+      rows.forEach(row => {
+        const orgName = row.cells[1].textContent.trim().toLowerCase();
+        const orgId = row.cells[2].textContent.trim().toLowerCase();
+        const instruction = row.cells[3].textContent.trim().toLowerCase();
+        const status = row.cells[5].textContent.trim().toLowerCase();
+
+        const matchesSearch = !searchTerm || orgName.includes(searchTerm) || orgId.includes(searchTerm);
+        const matchesStatus = !activeStatusFilter || status === activeStatusFilter;
+        const matchesInstruction = !activeInstructionFilter || instruction === activeInstructionFilter;
+
+        if (matchesSearch && matchesStatus && matchesInstruction) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Optional clear filters function
+    function resetFilters() {
+      activeStatusFilter = null;
+      activeInstructionFilter = null;
+      searchTerm = '';
+      document.getElementById('search').value = '';
+      filterResults();
+    }
+  </script>
 
 
 
 </div>
-
-<script>
-  document.getElementById('apply-filters').addEventListener('click', function () {
-    // Get filter values
-    const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
-    const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
-
-    // Get selected checkboxes
-    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
-    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
-
-    // Separate resubmission filters
-    let resubmissionFilters = statusFilters.filter(status =>
-      ["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
-    );
-
-    // Filter out resubmission-related statuses from standard status filters
-    let standardStatusFilters = statusFilters.filter(status =>
-      !["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
-    );
-
-    // Define statuses that disable resubmission filtering
-    let statusesDisablingResubmission = ["pending", "granted", "refused", "queried", "cancelled"];
-    let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
-
-    // Get year filters
-    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
-
-    // Check if no filters are selected
-    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 &&
-      statusFilters.length === 0 && yearFilters.length === 0;
-    if (noFiltersSelected) {
-      window.location.href = '../manage-data-submissions-no-results';
-      return;
-    }
-
-    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilters, yearFilters, otherStatusSelected });
-
-    // Get table rows
-    const rows = document.querySelectorAll('#submission-table-body tr');
-    let anyRowVisible = false; // Track if any row is visible after filtering
-
-    rows.forEach(row => {
-      // Extract cell values
-      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase();
-      const orgId = row.cells[1].textContent.trim().toLowerCase();
-      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
-      const submissionYear = row.cells[3].textContent.trim().toLowerCase();
-
-      // Get Submission Status (Column 5)
-      const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
-
-      // Get Resubmission Status (Column 6)
-      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong[id^="status-resubmission"]')).map(tag => tag.textContent.trim().toLowerCase());
-
-      // Handle resubmission filtering
-      if (resubmissionFilters.length > 0 && !otherStatusSelected) {
-        let resubmissionMatch = resubmissionStatusTags.some(tag => resubmissionFilters.includes(`resubmission-${tag}`)); // Match specific resubmission status
-        let grantedMatch = submissionStatusTags.includes("granted");
-
-        // Only show rows where "Granted" exists AND resubmission status matches the filters
-        if (grantedMatch && resubmissionMatch) {
-          row.style.display = ''; // Show row
-          anyRowVisible = true;
-        } else {
-          row.style.display = 'none'; // Hide row
-        }
-        return; // Skip other filters when Resubmission is active
-      }
-
-      // Match Submission Status (Normal filtering)
-      const submissionStatusMatch = standardStatusFilters.length === 0 ||
-        standardStatusFilters.some(filter => submissionStatusTags.includes(filter));
-
-      // Apply all other filter conditions
-      const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
-      const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
-      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
-      const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
-
-      // Final row visibility check
-      if (orgNameMatch && orgIdMatch && orgTypeMatch && submissionStatusMatch && yearMatch) {
-        row.style.display = ''; // Show row
-        anyRowVisible = true;
-      } else {
-        row.style.display = 'none'; // Hide row
-      }
-    });
-
-    if (!anyRowVisible) {
-      window.location.href = '../manage-data-submissions-no-results';
-    }
-  });
-
-  // Clear filters
-  document.getElementById('clear-filters').addEventListener('click', function (event) {
-    event.preventDefault();
-    document.getElementById('filter-form').reset();
-    document.querySelectorAll('#submission-table-body tr').forEach(row => {
-      row.style.display = ''; // Show all rows
-    });
-  });
-
-</script>
 
 {% endblock %}
