@@ -46,37 +46,39 @@ Report packaging data
 
 {% endblock %}
 
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./check-your-answers.html">Back</a>
+
+{% endblock %}
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Invitation saved</h1>
-      
-    <span class="govuk-caption-l">frankie.bridger@acornltd.com</span>
-    <br><br>
+  <form action="success" method="post">
+      <h1 class="govuk-heading-l">Declaration</h1>
 
-    <h3 class="govuk-notification-banner__heading">
-      What you can do next
-      </h3>
-      <p class="govuk-body">You can:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>continue to add your organisation</li>
-        <li>invite additional people within your organisation to be an approved person, from
-          the eligible roles</li>
-      </ul>
-     
+      <p class="govuk-body">By confirming your details, you agree
+        that the organisational enrolment information you’ve
+        given is complete and correct.</p>
       
-      </form>
-      <br>
-      <form action="check-your-answers" method="post" novalidate>
-        <input type="hidden" name="answers-checked" value="true">
-       <input type="hidden" name="waste-data-reprocesser" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-            Continue
-        </button>
-      </form>
-    <a class="govuk-link" href="team-role">Invite another approved person</a>
-    
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          If any of the information you provide is inaccurate then this may prevent or delay any subsequent submissions made on this service.
+        </strong>
+      </div>
+
+      {{ govukButton({
+        text: "Confirm and add organisation"
+      })}}
+    </form>
   </div>
 </div>
+
+
 {% endblock %}
