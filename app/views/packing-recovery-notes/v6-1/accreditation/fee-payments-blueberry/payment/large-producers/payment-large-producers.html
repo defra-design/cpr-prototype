@@ -1,0 +1,147 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="payment-large-producers-next" method="post">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Your registration fees
+          </h1>
+        </legend>
+
+        <p class="govuk-body">We have calculated your registration fees based on the information you have supplied.</p>
+
+        <h2 class="govuk-heading-m">Fee amounts due £4,757.00</h2>
+
+        <table class="govuk-table govuk-table--small-text-until-tablet">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Fee</th>
+              <th scope="col" class="govuk-table__header">Description</th>
+              <th scope="col" class="govuk-table__header">Cost</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Large producer</th>
+              <td class="govuk-table__cell">Single fee</td>
+              <td class="govuk-table__cell">£2,620.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Registration</th>
+              <td class="govuk-table__cell">With turnover greater than £5 million</td>
+              <td class="govuk-table__cell"> £776.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Subsidiaries</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">First 4 subsidiaries</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£180.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">5 to 20 subsidiaries</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£90.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Any further subsidiaries</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£45.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Allocation method</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Miscellaneous</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Late application</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£332.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Re-submitting a report</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£714.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total due</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">£4,757.00</td>
+            </tr>
+          </tbody>
+        </table>
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+    </form>
+
+  </div>
+</div>
+</div>
+{% endblock %}

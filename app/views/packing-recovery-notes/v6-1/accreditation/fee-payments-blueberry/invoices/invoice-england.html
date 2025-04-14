@@ -1,0 +1,83 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="POST">
+      <h1 class="govuk-heading-l">Invoice for accreditation to issue PRNs</h1>
+
+      <p class="govuk-body">
+      <h2 class="govuk-heading-m">Environment Agency</h2>
+      <p class="govuk-body"> Date: 09/01/2025 </p>
+      <p class="govuk-body">Payment reference: <strong>000568587647654</strong></p>
+
+      <p class="govuk-body">
+      <h2 class="govuk-heading-m">Bill to</h2>
+      <p class="govuk-body"> Company name: </p>
+      <p class="govuk-body"> Address: </p>
+      <p class="govuk-body"> Postcode: </p>
+      </p>
+
+      <!-- Payment start -->
+      <div class="govuk-width-container govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Item</th>
+              <th scope="col" class="govuk-table__header govuk-!-padding-left-2">Description</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Registration application
+              </td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Steel at 23 Ruby Street</td>
+              <td class="govuk-table__cell govuk-table__header--numeric">£2,921.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                Subtotal
+              </th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£2,921.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Previous payments</th>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Total payments received
+              </td>
+              <td class="govuk-table__header govuk-table__header--numeric">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                Total outstanding</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£2,921</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Payment end -->
+
+      <a href="../payment/payment-options.html" role="button" class="govuk-button">Continue</a>
+
+      <button class=" govuk-button govuk-button--secondary" formaction="" style="margin-left: 20px;">Download
+        invoice</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
