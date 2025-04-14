@@ -1,0 +1,140 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../../payment/small-producers/payment-complete">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Registration fee payment</span>
+          <h1 class="govuk-fieldset__heading">
+            Details of your payment
+          </h1>
+        </legend>
+
+        <!--<div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Your payment should include the ref 16130122-2WCJDD-AJ2H17
+          </strong>
+        </div>-->
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-heading-s">Enter the details of your BACS payment</h3>
+          <div style="padding-top: 10px; padding-bottom: 40px;">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sort">
+                Select nation
+              </label>
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published">England - Environment Agency - EA</option>
+                <option value="views">Scotland - Scottish Environment Protection Agency - SEPA</option>
+                <option value="updated" selected>Wales - Natural Resources Wales - NRW</option>
+                <option value="comments">Northern Ireland - The Environmental Protection Agency - EPA</option>
+              </select>
+            </div>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="name-on-the-account">
+              Provide your company name
+            </label>
+            <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false"
+              autocomplete="name">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="roll-number">
+              BACS reference number
+            </label>
+            <div id="roll-number-hint" class="govuk-hint">
+              You can find it on ...
+            </div>
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roll-number"
+              name="rollNumber" type="text" spellcheck="false" aria-describedby="roll-number-hint">
+          </div>
+          <!-- <div class="govuk-form-group">
+          <label class="govuk-label" for="roll-number">
+            Building society roll number (if you have one)
+          </label>
+          <div id="roll-number-hint" class="govuk-hint">
+            You can find it on your card, statement or passbook
+          </div>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="roll-number"
+            name="rollNumber" type="text" spellcheck="false" aria-describedby="roll-number-hint">
+        </div>-->
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="more-detail">
+              Comments
+            </label>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+          </div>
+
+
+        </div>
+
+        {{ govukButton({
+        text: "Submit details of payment",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+    </form>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
