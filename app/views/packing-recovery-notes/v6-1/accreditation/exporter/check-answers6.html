@@ -112,12 +112,23 @@
             </div>            
           </dl>
 
-            <form action="add-oversea-repo-site-2" method="post" novalidate>
+        
+
+            <form action="./add-oversea-repo-site-2" method="post" novalidate>
+
               <input type="hidden" name="answers-checked" value="true">
-             <input type="hidden" name="waste-data-reprocesser" value="true">
-              <button class="govuk-button" data-module="govuk-button">
-                  Confirm and continue
-              </button>
+            
+              <div class="govuk-button-group">
+                {{ govukButton({
+                  text: "Confirm and continue"
+                }) }}
+              
+                {{ govukButton({
+                  text: "Save and continue later",
+                  classes: "govuk-button--secondary"
+                }) }}
+              </div>
+            
             </form>
           </div>
 
