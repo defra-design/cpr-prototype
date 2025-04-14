@@ -1,0 +1,78 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="check-answers" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Enter all your exemption references
+      </h1>
+     
+    </legend>
+  
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-15" id="weight" name="number6"  type="text" spellcheck="false">
+
+        </div>
+
+        <br>
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-15" id="weight" name="number7"  type="text" spellcheck="false">
+
+      </div>
+<br>
+      
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-15" id="weight" name="number8"  type="text" spellcheck="false">
+
+      </div>
+
+      <br>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-15" id="weight" name="number8"  type="text" spellcheck="false">
+  
+        </div>
+    </div>
+<br>
+    <p><a href="#">Add another reference</a></p>
+
+
+</fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+
+</form>
+
+</div>
+
+{% endblock %}
