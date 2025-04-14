@@ -1,0 +1,95 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Person we can contact at: {{data['orgname']}}
+      </h1>
+    
+    </legend>
+
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+      </legend>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Full name
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+          This must be a person holding a senior position in the company.
+        </div>
+        <input class="govuk-input" id="address-line-1" name="fullname" type="text" autocomplete="address-line1">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-2">
+          Position
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+          For example, director.
+        </div>
+        <input class="govuk-input" id="address-line-2" name="position" type="text" autocomplete="address-line2">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-town">
+          Telephone
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Include the country code.
+        </div>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="mobile" type="text" autocomplete="address-level2">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-county">
+          Email
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="email" type="text">
+      </div>
+      <!--<div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">
+          Postcode
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>-->
+      
+    </fieldset>
+    
+    
+</fieldset>
+</div>
+
+         
+
+          <button class="govuk-button" formaction="select-outcome">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+
+</form>
+
+</div>
+
+{% endblock %}

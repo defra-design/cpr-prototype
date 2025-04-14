@@ -1,0 +1,75 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<form action="uploaded-broadly-equivalent-evidence-non-eu" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+              Upload evidence of broadly equivalent standards
+            </h1>
+
+
+            <div class="govuk-body-m">
+              {destination country} is outside the EU and OECD. <br><br>
+
+              You must upload evidence for countries outside the OECD or EU. This is evidence to prove the overseas site is operating to standards equivalent to those in the UK. <br><br>
+
+             <a href="#">  Examples of acceptable evidence (opens in new tab) </a>
+<br>
+<br>
+
+<p>The selected file must:</p>
+<li> no more than 20MB</li>
+ <li>one of these file types: PDF, DOC, DOCX, XLS, CSV, PNG, TIF, JPG or MSG</li> 
+</div>
+
+
+<!--<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Upload evidence</th>
+        <th scope="col" class="govuk-table__header"></th>
+        
+          <th scope="col" class="govuk-table__header">  </th>
+      
+      </tr>
+    </thead>
+    
+</table>
+ <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+
+<br><br>
+    </tbody>
+</table>
+        
+          
+
+        </fieldset>
+    </div>
+
+
+    <input class="govuk-button" type="submit" value="Upload file" style="margin-right: 20px;"  /> <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+</form>
+</div>
+</div>
+
+{% endblock %}
