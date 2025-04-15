@@ -1,0 +1,88 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-top-0">
+      <h1 class="govuk-heading-l">Outstanding accreditation fee to issue PRNs</h1>
+
+      <!-- Content Start -->
+      <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="#" class="#">
+              Material PRN 1
+            </a>
+          </span><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not
+            started</strong><br>
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            Material PRN 2
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+            yet</strong><br>
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            Material PRN 3
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+            yet</strong><br>
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            Material PRN 4
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+            yet</strong><br>
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            Material PRN 5
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+            yet</strong><br>
+        </li>
+      </ul>
+
+      <!-- Content end -->
+      <a href="../dashboard-england-stage1.html" role="button" class="govuk-button govuk-button--secondary">
+        Return to home page
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
