@@ -1,0 +1,155 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+<style>
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-size: 12pt;
+      overflow: hidden;
+    }
+
+    .print-container {
+      page-break-inside: avoid;
+    }
+
+    @page {
+      size: A4;
+      margin: 1cm;
+    }
+  }
+</style>
+
+<div class="govuk-grid-row print-container">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="POST">
+      <h1 class="govuk-heading-l">Invoice for accreditation to issue PRNs</h1>
+      <p class="govuk-body">Sample text: lorem iosum lorem iosum lorem iosum lorem iosum m</p>
+
+      <h2 class="govuk-heading-m">Accreditation authority details</h2>
+      <div class="govuk-width-container govuk-!-margin-top-0 govuk-!-margin-bottom-10">
+        <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Organisation:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Environment Agency</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Date:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">09/01/2025</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Payment reference:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">PR/PK/EXP 000568587647654</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-m">Payee details</h2>
+      <div class="govuk-width-container govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+        <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Company name:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Scanmetals (UK) Ltd</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Address:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Address: 28 Bilston Ln, Willenhall</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Postcode:</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">WV13 2QE</td>
+              <td class="govuk-table__header govuk-table__header--numeric"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-m  govuk-!-margin-top-0">Item description details</h2>
+      <div class="govuk-width-container govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+        <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Item</th>
+              <th scope="col" class="govuk-table__header govuk-!-padding-left-2">Description</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header">Accreditation PRNs</td>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Steel at 23 Ruby Street</td>
+              <td class="govuk-table__cell govuk-table__header--numeric">£2,921.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Subtotal</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£2,921.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Previous payments</th>
+              <td class="govuk-table__cell govuk-!-padding-left-2">Total payments received</td>
+              <td class="govuk-table__header govuk-table__header--numeric">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total outstanding</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__header govuk-table__header--numeric">£2,921</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="govuk-body">
+        Sample text: we accept online payments, by bank transfer or by calling to your local Lorem
+        ipsum lorem ipusm. Payments need to be done by an authorised person. See
+        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Guidance text (opens in new tab)</a>.
+        If you have all the right conditions please continue.
+      </p>
+
+      <a href="../payment/payment-options.html" role="button" class="govuk-button no-print">Continue</a>
+
+      <button class="govuk-button govuk-button--secondary no-print" onclick="handlePrintOrSave('pdf')"
+        style="margin-left: 20px;">
+        Download invoice
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function handlePrintOrSave(action) {
+    if (action === 'print' || action === 'pdf') {
+      window.print();
+    }
+  }
+</script>
+{% endblock %}

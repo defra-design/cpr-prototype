@@ -1,0 +1,50 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+</div>
+</div>
+
+
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="account-number">
+        Enter the reprocessing site’s grid reference
+      </label>
+    </h1>
+    <div id="account-number-hint" class="govuk-hint">
+      You’ll find the site grid reference on permits and exemptions
+    </div>
+    <input class="govuk-input govuk-input--width-10" id="account-number" name="gridRef" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+  </div>
+  
+    
+
+    <form class="form" method="post" action="./address-legal" >
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+     Continue
+      </button>
+      </form>
+     
+</div>
+
+
+
+
+{% endblock %}

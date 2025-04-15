@@ -16,7 +16,7 @@ Report packaging data
   
   {{ govukHeader({
     homepageUrl: "../../../index.html",
-    serviceName: "Reprocessor and exporters service",
+    serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
     {
@@ -54,13 +54,29 @@ Report packaging data
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="trading-name">
-            What is your role in the organisation?
+            Are you a partner?
           </label>
         </h1>
-        <div id="trading-name-hint" class="govuk-hint">
-          For example, owner or director
+        <p>This means a partner within the general partnership that is not registered with Companies House.</p>
+        <div class="govuk-radios" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="yes" name="uk-nation" type="radio" value="England">
+            <label class="govuk-label govuk-radios__label" for="england">
+              Yes
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="no" name="uk-nation" type="radio" value="Scotland">
+            <label class="govuk-label govuk-radios__label" for="scotland">
+              No
+            </label>
+          </div>
+
+
         </div>
-        <input class="govuk-input" id="trading-name" name="trading-name" type="text" spellcheck="false" autocomplete="off" value="{{data['trading-name']}}">
+        
       </div>
       {{ govukButton({
         text: "Continue"

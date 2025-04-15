@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Your waste management fees
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="task-list-4">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+          <span class="govuk-caption-l">Pay registration fee</span>
+          <h1 class="govuk-fieldset__heading">
+            Amount due
+          </h1>
+        </legend>
+        <p class="govuk-body">£1,216.00</p>
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Breakdown of amount due</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Items</th>
+              <th scope="col" class="govuk-table__header">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 2</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 3</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Item 4</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total estimated pay</th>
+              <td class="govuk-table__cell">£1,216.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="govuk-heading-m">Pay online</h2>
+        <p>You can <a class="govuk-link"
+            href="https://defra-cpr-prototype.herokuapp.com/paycal/payments/payment-details">pay online</a> </a>using
+          GOV.UK Pay.</p>
+        <h2 class="govuk-heading-m">Pay by bank transfer</h2>
+
+        <p class="govuk-body">Use these details to make payment:</p>
+        <ul class="govuk-list govuk-list">
+          <li>Company name: Environment Agency</li>
+          <li>Bank: RBS/NatWest, London Corporate Service Centre,CPB Services, 2nd floor, 280 Bishopsgate, London EC2M
+            4RB</li>
+          <li>Sort code: 60-70-80</li>
+          <li>Account number: 10014411</li>
+          <li>Account name: EA RECEIPTS</li>
+          <li>Reference: PR/PK/REP </li>
+        </ul>
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

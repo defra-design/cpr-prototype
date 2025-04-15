@@ -1,0 +1,155 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div id="radio-group" class="govuk-form-group govuk-!-margin-top-0">
+      <h1 class="govuk-heading-l">How to pay your registration fee</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+      <p class="govuk-body">You can pay your registration fee of <strong>£2,921.00</strong> in 1 of 3 ways:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>By bank transfer</li>
+        <li>By phone</li>
+        <li>Online through GOV.UK</li>
+      </ul>
+      <p class="govuk-body">Select a payment method.</p>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      <form id="agreementForm" novalidate>
+        <fieldset id="radio-fieldset" class="govuk-fieldset">
+
+          <!-- Error Message -->
+          <span id="error-message" class="govuk-error-message" style="display: none;">
+            <<<<<<< Updated upstream Please select an option=======Choose your preferred payment method>>>>>>> Stashed
+              changes
+          </span>
+
+          {{ govukRadios({
+          name: "agreement",
+          value: data['agreement'],
+          items: [
+          {
+          value: "pay-bank-transfer",
+          text: "Pay by bank transfer"
+          },
+          {
+          value: "pay-online",
+          text: "Pay online"
+          },
+          {
+          value: "pay-by-phone",
+          text: "Pay by phone"
+          }
+          ]
+          }) }}
+        </fieldset>
+
+        <br><br>
+
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+      </form>
+
+
+
+
+      <style>
+        /* Error styling only for the legend and error message */
+        .govuk-fieldset--error {
+          padding-left: 15px;
+          border-left: 5px solid #d4351c;
+        }
+      </style>
+
+      <script>
+        function handleSubmit(event) {
+          event.preventDefault(); // Prevent form submission
+
+          const form = document.getElementById('agreementForm');
+          const fieldset = document.getElementById('radio-fieldset');
+          const errorMessage = document.getElementById('error-message');
+          const agreement = form.querySelector('input[name="agreement"]:checked');
+
+          if (agreement) {
+            // Hide error message and remove error styling
+            errorMessage.style.display = 'none';
+            fieldset.classList.remove('govuk-fieldset--error');
+
+            // Save selected value and redirect
+            localStorage.setItem('selectedProducer', agreement.value);
+
+
+
+            if (agreement.value === 'pay-bank-transfer') {
+              window.location.href = './payment-by-bank-transfer';
+            } else if (agreement.value === 'pay-online') {
+              window.location.href = './payment-online';
+            } else if (agreement.value === 'pay-by-phone') {
+              window.location.href = './payment-by-phone';
+            }
+          } else {
+            // Show error message and add error styling
+            errorMessage.style.display = 'block';
+            fieldset.classList.add('govuk-fieldset--error');
+          }
+        }
+
+        // Add listener for clicks outside the form to validate
+        document.addEventListener('click', (event) => {
+          const form = document.getElementById('agreementForm');
+          const fieldset = document.getElementById('radio-fieldset');
+          const errorMessage = document.getElementById('error-message');
+          const agreement = form.querySelector('input[name="agreement"]:checked');
+
+          // If clicking outside and no option selected, show error
+          if (!form.contains(event.target) && !agreement) {
+            errorMessage.style.display = 'block';
+            fieldset.classList.add('govuk-fieldset--error');
+          }
+        });
+      </script>
+      <!-- Content end-->
+
+      <!-- Page layout start 2 -->
+    </div>
+  </div>
+  {% endblock %}
