@@ -1,0 +1,64 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<form action="file-uploaded" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Upload accreditation sampling and inspection plan : steel
+            </h1>
+
+
+            <div class="govuk-body-m">
+            <p>The selected file must:</p>
+              <li>no more than 20MB</li>
+               <li>one of these file types: PDF, DOC, DOCX, XLS, CSV, PNG, TIF, JPG or MSG</li> 
+</div>
+
+<br>
+
+<div class="govuk-form-group">
+    <label class="govuk-label" for="file-upload-1">
+      Upload a file
+    </label>
+    <div
+      class="govuk-drop-zone"
+      data-module="govuk-file-upload">
+      <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+    </div>
+  </div>
+
+<br><br>
+        
+          
+
+        </fieldset>
+    </div>
+
+
+    {{
+govukButton({
+text: "Upload file"
+})
+    }}
+
+</form>
+</div>
+</div>
+
+{% endblock %}
