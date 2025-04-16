@@ -1,0 +1,105 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Accept this PRN against your 2025 obligation?</h1>
+<div id="govuk-body" class="govuk-body-m">
+  This PRN relates to waste received for reprocessing in December 2024. It can count towards your 2024 or 2025 obligation.
+</div>
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Accepting it will credit 100 tonnes towards your 2025 obligation.
+    </strong>
+</div>
+</div>
+</div>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I want to accept it against my 2024 obligation
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    Follow these steps:  
+    <ol>
+      <li>Go back to the PRN.</li>
+      <li>Select ‘reject this PRN’ at the bottom of the PRN.</li>
+      <li>Ask the issuer of the PRN to issue a new PRN against your 2024 accreditation in NPWD.</li>
+      <li>After they've issued it, sign in to NPWD and accept it.</li>
+    </ol> 
+    <div id="govuk-body" class="govuk-body-m">
+    <a href="#">Go back to the PRN</a> to reject it.</div>
+  </div>
+  
+</details>
+
+<form class="form" action="" method="POST">
+
+     
+   <!--<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+
+  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+   
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="accept-prn-npwd-signin" data-aria-controls="conditional-contact">
+ 
+      <label class="govuk-label govuk-radios__label" for="changed-name-6">
+        2024
+      </label>
+    </div>
+
+
+   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div id="govuk-body" class="govuk-body-m">
+         
+          23 Ruby Street<br>
+           London, UK<br>
+           EE12 345
+          </div>
+   
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="accept-prn-obligation">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        2025
+
+      </label>
+    </div>
+
+    
+  </div>
+ </fieldset>
+  </div>
+          <p></p>-->
+
+          <button class="govuk-button" formaction="prn-december-waste-selected-3">Yes, accept</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">No, go back</button>
+
+ 
+</div>
+
+
+</form>
+
+{% endblock %}

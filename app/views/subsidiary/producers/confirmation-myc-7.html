@@ -1,0 +1,123 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            File uploaded successfully
+          </h1>
+         
+        </div>
+        <p class="govuk-body">
+        </p>
+        
+      
+        
+        <p class="govuk-body">You added 13 subsidiaries.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">Check that all the information you have provided is accurate.</p>
+        <p class="govuk-body">If any of your subsidiaries’ organisation details change, you must notify the regulator within 28 days by updating and resubmitting your registration file.</p>
+        <p class="govuk-body">Use the subsidiary IDs for all future organisation details and packaging data submissions.</p>
+
+        <p class="govuk-body">
+          Adding or removing members might affect your organisation's packaging obligations – make sure you have read the <a href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#period-you-must-report-on" target="_blank">guidelines for extended producer responsibility for packaging (opens in a new tab)</a>.
+      
+        </p>
+        <button class=" govuk-button govuk-button--secondary">Download subsidiaries list</button>
+
+
+        <div class="govuk-button-group">
+          <a href="subs-list-i-myc-7" class="govuk-button" type="submit">View subsidiaries</a>
+
+
+
+          <a class="govuk-link" href="landing-page-myc-7">Return to account home</a>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="add-note" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Recording for: paper/board</span>
+      <h1 class="govuk-fieldset__heading">Was it baled with wire?</h1>
+    </legend>
+    <p class="govuk-hint">We'll apply a 0.15% weight deduction for bailing wire.</p>
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="baled-allowance" type="radio" value="Yes" data-aria-controls="conditional-contact" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+        Yes
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="baled-allowance" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+        No
+        </label>
+      </div>
+
+    </div>
+<p></p>
+    <div class="govuk-radios__conditional" id="conditional-contact">
+
+        <p style="font-weight: bold">Net total: 10.05</p>
+    </div>
+
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+  </fieldset>
+</div>
+
+
+
+
+
+
+
+</form>
+</div>
+
+
+{% endblock %}

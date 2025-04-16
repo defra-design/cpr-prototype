@@ -1,0 +1,77 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<main id="content" role="main">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+  {% if data['languagePreference'] != "en" %}
+  
+  <form class="form" method="post" action="./check-answers">
+  <h1 class="govuk-heading-l">
+  Confirm address for legal documents</h1>
+  <h1 class="govuk-body">   {{ data['house-number'] }}<br> RHYL COAST ROAD<br>Rhyl<br> Denbighshire<br> {{ data['postcode'] }}
+  </h1>
+  
+
+ 
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Use this address
+  </button>
+  </form>
+  
+    <p class="govuk-body">
+    <a href="#">Use a different address</a></p>
+  
+    <p class="govuk-body">
+      <a href="#">Enter address manually</a></p>
+  
+  {% else %}
+  
+  <h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Confirm address for</span> </h1>
+
+  <h1 class="govuk-body">{{ data['house-number'] }}, Rhyl COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</h1>
+ 
+
+
+  <form class="form" method="post" action="./check-answers" >
+  
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Use this address
+  </button>
+
+  <p class="govuk-body">
+    <a href="#">Use a different address</a></p>
+  
+    <p class="govuk-body">
+      <a href="#">Enter address manually</a></p>
+  </form>
+
+ 
+  
+  {% endif %}
+  
+  </div>
+  
+  </div>
+  </main>
+  
+  {% endblock %}

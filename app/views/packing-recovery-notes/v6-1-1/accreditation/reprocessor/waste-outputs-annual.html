@@ -1,0 +1,174 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<style media="screen">
+  .card {
+  background-color: #f3f2f1;
+  padding: 30px 30px 10px 30px;
+
+}
+</style>
+
+<style type="text/css">
+    .card-container {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 50px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container2 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+<style type="text/css">
+    .card-container3 {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 0px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container4 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Estimate the site’s annual outputs </h1>
+     
+              <form class="form" action="waste-repo-outputs" method="POST">
+
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+                              <h1 class="govuk-heading-m">
+                                Material not processed on site                         </h1>
+                         
+                          <span class="govuk-caption-m"> The tonnage of materials received but not processed at your site, including materials sent to other sites for processing. </span>
+
+                         </legend>
+                          <div class="govuk-form-group">
+
+                              <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="wasteoutput1"  type="text" spellcheck="false">
+                                  <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                              </div>
+                          </div>
+
+
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                      <h1 class="govuk-heading-m">
+                        Contaminants                        </h1>
+                 
+                  <span class="govuk-caption-m"> The tonnage of contaminants removed from the materials during reprocessing, including non-recyclable components or impurities. </span>
+
+                 </legend>
+                  <div class="govuk-form-group">
+
+                      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="wasteoutput2"  type="text" spellcheck="false">
+                          <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                      </div>
+                  </div>
+
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-heading-m">
+                    Process loss                       
+             </h1>
+              <span class="govuk-caption-m"> The tonnage of material lost due to processing, such as material degradation or waste.</span>
+
+             </legend>
+              <div class="govuk-form-group">
+
+                  <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="wasteoutput3"  type="text" spellcheck="false">
+                      <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                  </div>
+              </div>
+
+
+
+
+                      </fieldset>
+                  </div>
+
+                  <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+              </form>
+
+          </div>
+
+
+
+
+
+
+      </div>
+</div>
+
+    <section>
+{% endblock %}

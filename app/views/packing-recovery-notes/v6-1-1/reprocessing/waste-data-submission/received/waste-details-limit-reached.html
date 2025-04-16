@@ -1,0 +1,174 @@
+{% set serviceName = "" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="add-note" method="POST">
+
+  <div class="govuk-form-group">
+
+      <span class="govuk-caption-l">Paper/board</span>
+      <h1 class="govuk-heading-l">Waste type and weight details</h1>
+    </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Sub type
+          </h2>
+        </legend>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Sorted mixed paper/board"  >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+        Sorted mixed paper/board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Unsorted mixed paper.boards" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Unsorted mixed paper.board
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Grades 1.04.00, 1.05.00 & 1.05.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+      Grades 1.04.00, 1.05.00 and 1.05.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="Grade 1.04.01" >
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.01
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="sub-type" type="radio" value="  Grade 1.04.02">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+
+  Grade 1.04.02
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-6" name="sub-type" type="radio" value="other" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="changed-name-6">
+          Other
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="other" type="text" spellcheck="false">
+        <div class="govuk-input__suffix" aria-hidden="true">%</div>
+      </div>
+      </div>
+
+    </div>
+   </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--m" for="weight">
+        Total tonnes
+      </label>
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="enter-waste-tonnes" type="text" spellcheck="false">
+        <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+      </div>
+    </div>
+
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  <h2 class="govuk-fieldset__heading">
+      Was it baled with wire?
+  </h2>
+  </<legend>
+  <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="baled-allowance" type="radio" value="Yes"  >
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+      Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="baled-allowance" type="radio" value="No" >
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        No
+      </label>
+    </div>
+  </div>
+  </fieldset>
+  </div>
+  <a class="govuk-button govuk-button--secondary" href="waste-details-limit-reached">
+  Calculate
+  </a>
+
+
+<hr class="govuk-!-margin-bottom-5">
+<p class="govuk-body">Net Total: <strong>100.3 tonnes</strong></p>
+<hr  class="govuk-!-margin-bottom-5">
+
+
+        <div class="govuk-warning-text">
+<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+<strong class="govuk-warning-text__text">
+<span class="govuk-warning-text__assistive">Warning</span>
+You are recording waste above your accreditation limit. This waste amount will be added to your excess waste balance. Upgrade to use this excess waste balance to create PRNs. <a href="">How to upgrade your accreditation</a>.
+</strong>
+</div>
+
+
+
+  <input type="hidden" name="sub-type">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full gem-c-related-navigation">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Accreditation details
+        </h2>
+          <p class="govuk-body-s ">
+            Total accreditation limit: <strong style="float: right;">400 tonnes</strong>
+          </p>
+        <p class="govuk-body-s">
+          Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+        <p class="govuk-body-s">
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
+        </p>
+
+
+
+      </div>
+  </div>
+</div>
+
+{% endblock %}

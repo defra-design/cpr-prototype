@@ -1,0 +1,145 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Home",
+  href: "javascript:history.back()"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Subsidiaries
+    </h1>
+
+    <div class="govuk-inset-text">
+      If you need to add a subsidiary to this parent company, use the file upload to create a subsidiary ID and then update and resubmit your registration file.</div>
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+      <p class="govuk-body">Before you upload your file, make sure you’re using the latest version of the <a
+        href="https://www.gov.uk/government/publications/groups-and-subsidiaries-how-to-create-your-file-for-extended-producer-responsibility"
+        class="govuk-link" target="_blank">subsidiary file template (opens in a new tab)</a>. </p>
+      <p>Use the file upload to create subsidiary IDs – you will need these subsidiary IDs to add subsidiaries to your organisation.</p>
+
+     
+          <p class="govuk-body">
+            Adding or removing members might affect your organisation's packaging obligations – make sure you have read the <a href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#period-you-must-report-on" target="_blank">guidelines for extended producer responsibility for packaging (opens in a new tab)</a>.
+        
+          </p>
+
+
+
+    <!-- FILE UPLOAD -->
+    <div class="govuk-form-group">
+
+
+      <h2 class="govuk-heading-m">Upload a file</h2>
+
+      <p class="govuk-body">The file must be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>smaller than 60KB</li>
+        <li>in CSV format</li>
+      </ul>
+      <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file
+        is uploading.</p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="file-upload-1">
+          Upload subsidiary file
+        </label>
+        <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+      </div>
+      <p></p>
+
+      <form>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button" formaction="loading-myc-7">
+            Upload file
+          </button>
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+
+  {% endblock %}

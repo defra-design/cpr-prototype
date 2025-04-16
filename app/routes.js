@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const radioButtonRedirect = require('radio-button-redirect')
-router.use(radioButtonRedirect)
 
 
 router.use('/', (req, res, next) => {
@@ -101,16 +99,18 @@ router.use('/packing-recovery-notes/v4', require('./views/packing-recovery-notes
 router.use('/packing-recovery-notes/v5', require('./views/packing-recovery-notes/v5/_routes'));
 router.use('/packing-recovery-notes/v6', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-1', require('./views/packing-recovery-notes/v6/_routes'));
+router.use('/packing-recovery-notes/v6-1-1', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-2', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-3', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-4', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-5', require('./views/packing-recovery-notes/v6/_routes'));
+router.use('/packing-recovery-notes/v6-6-rexp', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/account-creation', require('./views/packing-recovery-notes/account-creation/build/_routes'));
-
 
 
 //PayCal
 router.use('/paycal/final-march', require('./views/paycal/final-march/_routes'));
+router.use('/paycal/final-march', require('./views/paycal/final-may/_routes'));
 
 
 //Cups

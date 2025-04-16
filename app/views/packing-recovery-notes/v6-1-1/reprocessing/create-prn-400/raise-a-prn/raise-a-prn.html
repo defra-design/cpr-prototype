@@ -1,0 +1,180 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<style media="screen">
+  .autocomplete__input {
+    width: 50%;
+  }
+
+
+
+.autocomplete__menu{
+    width: 50%
+}
+
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Paper/board – Ruby St, London SE15 1LR</span>
+<h1 class="govuk-heading-xl">PRN details</h1>
+{% if  data['over-usable'] == 'true' %}
+<form class="form" action="raise-a-prn-usable" method="POST">
+{% else %}
+
+<form class="form" action="check-your-answers" method="POST">
+{% endif %}
+
+
+
+{% if data['no-december'] == 'true' %}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-visually-hidden"> Did you receive all of the  paper/board in December?</legend>
+<label class="govuk-label govuk-label--m" for="event-name">
+  Did you receive all of the  paper/board in December?
+</label>
+<div id="changed-name-hint" class="govuk-hint">
+Only answer yes if 100% of the  paper/board was received in December.
+</div>
+<div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="december-yes" name="material-december" type="radio" value="Yes">
+    <label class="govuk-label govuk-radios__label" for="december-yes">
+      Yes
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="december-no name="material-december" type="radio" value="No">
+    <label class="govuk-label govuk-radios__label" for="december-no">
+      No
+    </label>
+  </div>
+</div>
+</fieldset>
+</div>
+
+{% else %}
+
+{% endif %}
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+<legend class="govuk-visually-hidden">What is the tonnage amount?</legend>
+
+      <label class="govuk-label govuk-label--m" for="tonnage-amount">
+Tonnage amount
+      </label>
+
+
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="tonnage-amount" name="tonnes" type="text" spellcheck="false">
+        <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+      </div>
+
+  </fieldset>
+  </div>
+
+
+    {{ xGovukAutocomplete({
+          id: "country",
+          name: "which-producer",
+          allowEmpty: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            classes: "govuk-label--m",
+            showAllValues: true,
+
+            text: "Organisation or compliance scheme"
+          },
+          id: "country",
+          name: "which-producer",
+          allowEmpty: false,
+          classes: "govuk-input--width-10",
+          items: [
+            { text: "Valpak (EA)" },
+            { text: "Valpak (GB)" },
+            { text: "Packcare" },
+            { text: "Nipak Ltd (NIEA)" },
+            { text: "BiffPack (EA)" },
+            { text: "BiffPack (GB)" },
+            { text: "Toddpak" },
+            { text: "ComplyPak (NIEA)" },
+            { text: "Co2 Compliance (SEPA)" },
+            { text: "Scotpak (SEPA)" },
+            { text: "Ecosurety Scotland" },
+            { text: "Pennine-Pack (EA)" },
+            { text: "SWS Compak" }
+          ]
+        }) }}
+
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        If you need help completing this form
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <ul class="govuk-list">
+        <li>Telephone: 020 7946 0101</li>
+        <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+        <li>Saturday and Sunday, 10am to 4pm</li>
+      </ul>
+      <p class="govuk-body">
+        <a class="govuk-link" href="#">Find out about call charges</a>
+      </p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="#">name@example.com</a></li>
+        <li>We aim to respond within 2 working days</li>
+      </ul>
+    </div>
+  </details>
+
+</form>
+
+</div>
+
+  <aside class="govuk-grid-column-one-third gem-c-related-navigation">
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Accreditation details
+        </h2>
+          <p class="govuk-body-s">
+            Total accreditation limit: <strong style="float: right;">400 tonnes</strong>
+          </p>
+        <p class="govuk-body-s">
+          Remaining accreditation limit: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+        <p class="govuk-body-s">
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3tonnes{% endif %}</strong>
+        </p>
+        {% if data['no-december'] == 'true' %}
+        <p class="govuk-body-s">
+      December waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
+        </p>
+        {% else %}
+
+        {% endif %}
+      {% if data['accreditation-limit']%}
+        <p class="govuk-body-s">
+      Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}5 tonnes{% else %}5 tonnes{% endif %}</strong>
+        </p>
+        {% endif %}
+
+
+      </aside>
+
+  </div>
+{% endblock %}

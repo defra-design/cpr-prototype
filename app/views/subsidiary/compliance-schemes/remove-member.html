@@ -1,0 +1,131 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Back",
+  href: "javascript:history.back()"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">
+      NWE ENTERPRISE LTD
+    </h1>
+
+
+
+    <table class="govuk-table">
+   
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Organisation ID </th>
+          <td class="govuk-table__cell">114 851</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Registered nation</th>
+          <td class="govuk-table__cell">England</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Companies House number</th>
+          <td class="govuk-table__cell">12110938</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Compliance Scheme</th>
+          <td class="govuk-table__cell">COMPLIANCE LTD (EA)</td>
+        </tr>
+      </tbody>
+    </table>
+    <form class="form" action="remove-member-ays" method="POST">   
+    <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+      Remove member
+    </button>
+</form>
+
+  </div>
+
+
+
+
+</div>
+
+</form>
+
+
+{% endblock %}

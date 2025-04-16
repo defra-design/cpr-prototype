@@ -1,0 +1,570 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home",
+active: true
+},
+{
+href: "manage-account.html",
+text: "Manage account"
+},
+{
+href: "my-profile.html",
+text: "My profile"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Home",
+  href: "#"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+  .card {
+    min-height: 0px;
+  }
+
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header th,
+  .govuk-table td {
+    /* padding: 8px; */
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: left;
+  }
+
+  .govuk-table th {
+    background-color: #ffffff;
+  }
+
+  .govuk-table__row:hover {
+    background-color: #f1f1f1;
+  }
+
+  @media screen and (max-width: 600px) {
+    .govuk-table thead {
+      display: none;
+      width: 100%;
+    }
+
+    .govuk-table tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table td {
+      display: block;
+      text-align: left;
+      border: none;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    .govuk-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+
+    .govuk-checkboxes__label {
+      display: flex;
+      align-items: center;
+    }
+
+    .govuk-table__header--numeric {
+      text-align: right;
+    }
+
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Subsidiaries</h1>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        Check all the information you have provided is accurate. If any of it is incorrect or incomplete, you will need
+        to provide the correct information. Use the subsidiary IDs for all future organisation details and packaging
+        data submissions.
+
+      </strong>
+    </div>
+
+
+
+    <form class="form" action="#" method="POST">
+
+    
+      <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+          </legend>
+
+          {{ xGovukAutocomplete({
+          id: "country",
+          name: "which-producer",
+          allowEmpty: false,
+          label: {
+          classes: "govuk-body--m",
+          showAllValues: true,
+          isPageHeading: true,
+          text: "Search for a Subsidiary by name, ID or Companies House number"
+          },
+          items: [
+          { "text": "Apple Farms Bristol" },
+          { "text": "Apple Orchards London" },
+          { "text": "Better Breads London" },
+          { "text": "Berry Good Produce Leeds" },
+          { "text": "Berry Treats Coventry" },
+          { "text": "Crispy Snacks Liverpool" },
+          { "text": "Delicious Dairy Sheffield" },
+          { "text": "Delicious Foods Bristol" },
+          { "text": "Exquisite Treats Liverpool" },
+          { "text": "Fresh Dairy Birmingham" },
+          { "text": "Giant Snacks Oxford" },
+          { "text": "Good Fruits Manchester" },
+          { "text": "Good Sauces Coventry" },
+          { "text": "Golden Grains Oxford" },
+          { "text": "Happiest Meals Exeter" },
+          { "text": "Healthy Honey York" },
+          { "text": "Incredible Grains Sheffield" },
+          { "text": "Innovative Imports Exeter" },
+          { "text": "Jolly Jams Nottingham" },
+          { "text": "Juicy Fruits Cardiff" },
+          { "text": "King's Treats Nottingham" },
+          { "text": "Lively Snacks Manchester" },
+          { "text": "Mighty Imports Leeds" },
+          { "text": "Nifty Snacks Oxford" },
+          { "text": "Nutri Snacks Cardiff" },
+          { "text": "Optimum Exports Sheffield" },
+          { "text": "Organic Eats Leeds" },
+          { "text": "Prime Dairy Nottingham" },
+          { "text": "Quirky Goods Cardiff" },
+          { "text": "Rustic Roots Sheffield" },
+          { "text": "Sunny Delights Oxford" },
+          { "text": "Tasty Treats Glasgow" },
+          { "text": "11112222" },
+          { "text": "11101112" },
+          { "text": "98765432" },
+          { "text": "22223333" },
+          { "text": "22334455" },
+          { "text": "33334444" },
+          { "text": "41415161" },
+          { "text": "33445566" },
+          { "text": "90901010" },
+          { "text": "11223344" },
+          { "text": "89898901" },
+          { "text": "45678901" },
+          { "text": "64523645" }
+
+          ]
+          }) }}
+
+
+
+        </fieldset>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+  
+          <a class="govuk-link" href="#">Clear and reset</a>
+        </div>
+  
+      </div>
+
+
+
+     
+    </form>
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="#">
+        Download subsidiaries list
+      </button>
+      <a class="govuk-link" href="#create-subsidiary-id">Create subsidiary IDs</a>
+    </div>
+
+
+
+    <div class="govuk-table-container">
+
+
+
+      <table class="govuk-table responsive-table">
+
+        <caption class="govuk-table__caption govuk-table__caption--m">
+          Subsidiaries list
+
+        </caption>
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="40%">Subsidiary name</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Subsidiary ID</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Companies House number</th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Apple Farms Bristol</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">101010</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">11112222</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Apple Orchards London</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">102030</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">11101112</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Better Breads London</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">234567</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">98765432</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Berry Good Produce Leeds</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">202020</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">22223333</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Berry Treats Coventry</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">212121</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">22334455</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Crispy Snacks Liverpool</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">303030</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">33334444</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Delicious Dairy Sheffield</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">414141</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">41415161</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Delicious Foods Bristol</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">212121</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">33445566</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Exquisite Treats Liverpool</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">919191</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">90901010</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Fresh Dairy Birmingham</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">345678</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">11223344</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Giant Snacks Oxford</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">545454</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">89898901</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Good Fruits Manchester</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">678901</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">45678901</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Good Sauces Coventry</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">123456</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">64523645</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name" name="sub-name">Good Vegetables Telford</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">895464</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">89461325</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Golden Grains Oxford</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">616161</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">61617181</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Healthy Honey York</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">626262</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">62636364</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Happiest Meals Exeter</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">123123</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">31231231</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Innovative Imports Exeter</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">737373</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">73747475</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Incredible Grains Sheffield</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">565656</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">23232323</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Jolly Jams Nottingham</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">848484</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">84858586</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Juicy Fruits Cardiff</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">878787</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">23233445</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">King's Treats Nottingham</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">676767</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">56565667</td>
+          </tr>
+          <!-- 20 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Lively Snacks Manchester</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">818181</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">34343435</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Mighty Imports Leeds</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">232323</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">78787879</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Nifty Snacks Oxford</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">212121</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">89898988</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Nutri Snacks Cardiff</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">909090</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">90919192</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Optimum Exports Sheffield</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">343434</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">90807060</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Organic Eats Leeds</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">567890</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">99887766</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Prime Dairy Nottingham</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">565656</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">12121212</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Quirky Goods Cardiff</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">343434</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">46464647</td>
+          </tr>
+-->
+          <!--30 lines-->
+          <!--
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Rustic Roots Sheffield</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">989898</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">78878879</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Sunny Delights Oxford</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">767676</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">76767677</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" data-label="Subsidiary name">Tasty Treats Glasgow</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Subsidiary ID">456789</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Companies House number">55667788</td>
+          </tr>
+-->
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+    <nav class="govuk-pagination" aria-label="Pagination">
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+            3
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+          <span class="govuk-pagination__link-title">
+            Next<span class="govuk-visually-hidden"> page</span>
+          </span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
+            height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <h2 id="create-subsidiary-id" class="govuk-heading-m">Create subsidiary IDs</h2>
+        <p class="govuk-body">Use the file upload to create subsidiary IDs – you will need these subsidiary IDs to add
+          subsidiaries to your organisation.</p>
+
+        <p class="govuk-body">Before you upload your file, make sure you’re using the latest version of the <a
+            href="https://www.gov.uk/government/publications/groups-and-subsidiaries-how-to-create-your-file-for-extended-producer-responsibility"
+            target="_blank">subsidiary file template (opens in a new tab)</a>.</p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload subsidiary file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+        </div>
+
+
+        <form>
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button" formaction="loading-myc-7">
+              Upload file
+            </button>
+            
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button"
+      formaction="#">
+      Download subsidiaries list
+    </button>
+        
+          </div>
+        </form>
+
+
+        <!-- FILE UPLOAD -->
+
+        <h2 class="govuk-heading-m">Adding and removing subsidiaries</h2>
+        <p class="govuk-body">To add or remove subsidiaries, you must <a href="#">update and resubmit your
+            registration file</a> within 28 days of the change. You will need to enter the subsidiary IDs to do this.
+        </p>
+        <p class="govuk-body">
+        Adding or removing members might affect your organisation's packaging obligations – make sure you have read the <a href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#period-you-must-report-on" target="_blank">guidelines for extended producer responsibility for packaging (opens in a new tab)</a>.
+    
+      </p>
+    <!-- </form> -->
+      </div>
+    </div>
+
+
+
+    {% endblock %}

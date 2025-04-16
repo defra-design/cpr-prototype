@@ -1,0 +1,90 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">This page will not be in the actually builds or flow.</span>
+    <h1 class="govuk-heading-l">
+
+
+     Select an outcome
+
+</h1>
+
+</div>
+</div>
+
+<form class="form" action="" method="POST">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form class="form" action="" method="POST">
+
+     
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+  
+      <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+       
+       
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="evidence-equivalent" data-aria-controls="conditional-contact">
+     
+          <label class="govuk-label govuk-radios__label" for="changed-name-6">
+            Site is in EU/OECD
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            
+       
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="upload-broadly-equivalent-evidence-non-eu">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+  
+            Not metal  and non-EU/OECD
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="conditions">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+            Metal and non-EU/OECD
+          </label>
+        </div>
+
+
+
+       
+      
+  
+      </div>
+     </fieldset>
+      </div>
+              <p></p>
+  
+    <input type="hidden" name="sub-type">
+    <input class="govuk-button" type="submit" value="Continue"  />
+     
+</div>
+
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %} 
+
+<style>
+.govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+}
+
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br>
+    <form method="POST" action="classification">
+      <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+                  <span class="govuk-caption-l">Calculation run 99</span>
+                  <h1 class="govuk-heading-l">Accept all billing instructions</h1>
+  
+              <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+              <h3 class="govuk-body-m">The results file contains billing instructions. You must accept all instructions before generating a draft billing file.</h3>
+
+              <h2 class="govuk-heading-m">Confirm acceptance</h2>
+
+
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        I confirm that I have accepted all billing instructions in the results file.
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              
+            
+        </fieldset>
+
+      </div>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+      
+
+        <div class="govuk-button-group">
+          <!--
+          {{ govukButton({
+            text: "Save and come back later",
+            classes: "govuk-button--secondary"
+          }) }}
+          -->
+        </div>
+
+        <div class="govuk-button-group"><a href="run-name-4" class="govuk-button show-continue" style="display: inline;">
+          Accept and generate draft billing file
+      </a>
+
+      <a class="govuk-link" href="run-name-2">Return to previous step</a>
+      </div>
+
+  </form>
+  </div>
+
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

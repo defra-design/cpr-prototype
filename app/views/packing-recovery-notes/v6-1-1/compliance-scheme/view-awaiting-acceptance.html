@@ -1,0 +1,329 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../landing-page"
+    },
+    {
+      text: "View all PRNs and PERNs",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+<h1 class="govuk-heading-xl">View all PRNs and PERNs</h1>
+
+
+    <!--<h1 class="govuk-heading-xl">View all PRNs/PERNs</h1>
+
+    <div class="govuk-grid-column-full card">
+
+      <form class="form" action="#" method="POST">
+
+          <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+                  </legend>
+
+                  {{ xGovukAutocomplete({
+                  id: "country",
+                  name: "which-producer",
+                  allowEmpty: false,
+                  label: {
+                  classes: "govuk-body--m",
+                  showAllValues: true,
+                  isPageHeading: true,
+
+                  text: "Search for a PRN/PERN by entering its number or the name of the company who issued it."
+                  },
+                  items: [
+                  { text: "Valpak (EA), CRN100002" },
+                  { text: "MRKWRGHT LTD" },
+                  { text: "GREEN LTD" },
+                  { text: "Packcare" },
+                  { text: "Nipak Ltd (NIEA)" },
+                  { text: "BiffPack (EA)" },
+                  { text: "BiffPack (GB)" },
+                  { text: "Toddpak" },
+                  { text: "ComplyPak (NIEA)" },
+                  { text: "Co2 Compliance (SEPA)" },
+                  { text: "Scotpak (SEPA)" },
+                  { text: "Ecosurety Scotland" },
+                  { text: "Pennine-Pack (EA)" },
+                  { text: "SWS Compak" },
+                  { text: "ER454545540M" },
+                  { text: "ER454545541M" },
+                  { text: "ER454545542M" },
+                  { text: "ER454545543M" },
+                  { text: "ER454545545M" },
+                  { text: "ER454545546M" },
+                  { text: "Tesco" },
+                  { text: "ASDA" },
+                  { text: "B&Q" }
+                  ]
+                  }) }}
+
+
+
+              </fieldset>
+          </div>
+
+          <input class="govuk-button" type="submit" value="Search"  />
+
+
+
+      </form>
+</div>
+
+
+
+</div>
+
+</div>-->
+
+
+               <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">-->
+
+
+
+
+<div class="govuk-form-group" style="float:right">
+    <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+    <select class="govuk-select" id="select-status" name="sort">
+        <option  selected>Filter by </option>
+        <option value="published">Accepted </option>
+        <option value="comments">Awaiting acceptance</option>
+        <option value="comments">Cancelled</option>
+      <option value="updated">Rejected</option>
+       <!-- <option value="views">Awaiting cancellation</option>-->
+
+
+    </select>
+</div>
+
+    <div class="govuk-form-group" style="float:right">
+      <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+  <select class="govuk-select" id="select-status" name="sort">
+    <option  selected>Sort by </option>
+    <option value="published">Date issued</option>
+    <option value="updated">Issued by</option>
+    <option value="updated">Tonnage</option>
+    <option value="updated">Material</option>
+    
+
+  </select>
+</div>
+
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header">Material</th>
+            <th scope="col" class="govuk-table__header">Date issued</th>
+              <th scope="col" class="govuk-table__header">December waste</th>
+            <th scope="col" class="govuk-table__header">Issued by</th>
+            <th scope="col" class="govuk-table__header">Tonnage</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="selected-prn">ER3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">XYZ Reprocessing</td>
+              <td class="govuk-table__cell">65</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--grey">
+                Awaiting acceptance
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">151</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Wood</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Nov 2025</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Exporting International</td>
+              <td class="govuk-table__cell">60</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+          
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Plastic</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">No</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">100</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--red">
+                Rejected
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">80
+              </td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">
+                Cancelled
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Wood</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">65
+              </td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="prn-0001">EX3484743570M</a>
+                  </div></td>
+         <td class="govuk-table__cell">Paper and board</td>
+            <td class="govuk-table__cell"> 20 Dec 2024</td>
+            <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell">Packaging reprocessing Ltd	</td>
+              <td class="govuk-table__cell">70</td>
+              <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--green">
+                Accepted
+        </strong></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+<nav class="govuk-pagination" role="navigation" aria-label="Pagination">
+    <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous<span class="govuk-visually-hidden"> page</span></span></a>
+    </div>
+    <ul class="govuk-pagination__list">
+
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-current="Page 1">
+                1
+            </a>
+        </li>
+        <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-label="page">
+                2
+            </a>
+        </li>
+        <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                3
+            </a>
+        </li>
+    </ul>
+    <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+        </svg></a>
+    </div>
+</nav>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--xl">
+
+
+
+
+    </div>
+
+
+
+
+{% endblock %}
