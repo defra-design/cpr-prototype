@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "pEPR: Reprocessor & exporters" %}
+{% set title = "pEPR: Reprocessor & exporters" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Account</span>
+    <h1 class="govuk-heading-xl">Jamie Roberts</h1>
+  </div>
+</div>
+
+<!-- tabs component-->
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">Contents</h2>
+
+    <!--tab head-->
+    <ul class="govuk-tabs__list">
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#all-organisations">All</a>
+      </li>
+
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#accreditation">Accreditations</a>
+      </li>
+          
+    </ul>
+
+    <!--tabs content-->  
+
+    <!--first tab-->
+    <div class="govuk-tabs__panel" id="all-organisations">
+          
+      <!-- TABLE -->
+      <table class="govuk-table" id="submission-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation and<br>reference</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Registration</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Site addresses <br> registered</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Materials registered</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body" id="submission-table-body">
+         
+          <!--button-->
+          <a href="../one-to-one/add-organization/add-organization.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+            add organization
+          </a>
+           
+          <tr> 
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Manchester green Ltd.</a><br><span class="orgNameFilter Large producer">483718</span></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Apply now</a></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+
+          <tr> 
+            <td class="govuk-table__cell"><a href="../one-to-one/organization-profile/full.html" class="govuk-link">Acme org Ltd.</a><br><span class="orgNameFilter Large producer">215148</span></td>
+            <td class="govuk-table__cell">Reprocessor<br> <a href="#" class="govuk-link">Change</a></td>
+            <td class="govuk-table__cell">5 Sites <br><a href="#" class="govuk-link">View </a></td>
+            <td class="govuk-table__cell">2 Materials</td>
+          </tr> 
+            
+          <tr> 
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Acme Ltd.</a><br><span class="orgNameFilter Large producer">864729</span></td>
+            <td class="govuk-table__cell">Exporter <br> <a href="#" class="govuk-link">Change</a></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Accredit materials</a></td>
+          </tr>
+
+          <tr> 
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Reading WMS Ltd.</a><br><span class="orgNameFilter Large producer">358761</span></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--first tab end-->
+
+    <!--second tab-->  
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="accreditation">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+      New accreditation
+      </button>
+            
+      <!--FILTERS START-->
+      <div class="moj-filter__content" style="padding-bottom: none; box-shadow: grey; margin-bottom: 50px;">
+        <div class="moj-filter__selected" style="padding-bottom: none; box-shadow: none;">
+          
+          <h3 class="govuk-heading-s">Filter options</h3>                    
+
+          <div class="govuk-form-group">
+
+              <fieldset class="govuk-fieldset"> 
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="width-20"> Organization name </label>
+                  <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+                </div>
+              </fieldset>
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+              <fieldset class="govuk-fieldset"> 
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="width-20">Site address</label>
+                  <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+                </div>
+              </fieldset>
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+              <fieldset class="govuk-fieldset">
+                <label class="govuk-label" for="width-20">Material</label>
+
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" style="align-items: center; display: flex;">
+                    
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status"> Plastic  </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status"> Wood </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status">Steel </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status">Glass</label>
+                    </div>
+
+                  </div>
+              </fieldset>
+
+            <div class="govuk-!-padding-bottom-4"></div>
+
+              <fieldset class="govuk-fieldset">
+
+                <label class="govuk-label" for="width-20"> Status </label>
+
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"style="align-items: center; display: flex;">
+                    
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status"> In progress </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status"> Submitted </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status">Rejected</label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                      <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                      <label class="govuk-label govuk-checkboxes__label" for="status"> Queried </label>
+                    </div>
+
+                  </div>
+              </fieldset>
+
+          </div>
+        </div>
+      </div>
+      <!--FILTERS END-->
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Organization and site address</th>
+                <th scope="col" class="govuk-table__header">Material</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Actions</th>
+              </tr>
+            </thead>
+            
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Acme LTD<br>85 Preston rd, Cardiff</td>
+                <td class="govuk-table__cell">Glass</td>
+                <td class="govuk-table__cell">123456789</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Accepted</strong></td>
+                <td class="govuk-table__cell"><a href="./Registration/define-type.html" class="govuk-link">view</a></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Acme LTD<br>3 Montpellier rd, Cardiff</td>
+                <td class="govuk-table__cell">Glass</td>
+                <td class="govuk-table__cell">123456789</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">In progress</strong></td>
+                <td class="govuk-table__cell"><a href="./Registration/define-type.html" class="govuk-link">Continue</a></td>
+              </tr>
+              
+            
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Manchester green<br>85 Nortg rd, Manchester</td>
+                <td class="govuk-table__cell">Glass</td>
+                <td class="govuk-table__cell">123456789</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Rejected</strong></td>
+                <td class="govuk-table__cell"><a href="./Registration/define-type.html" class="govuk-link">view</a></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <!--pagination-->
+          <div>
+            <nav class="govuk-pagination" aria-label="Pagination">
+              <div class="govuk-pagination__prev">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                  </svg>
+                  <span class="govuk-pagination__link-title">
+                    Previous<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                </a>
+              </div>
+              <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+                    1
+                  </a>
+                </li>
+                <li class="govuk-pagination__item govuk-pagination__item--current">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+                    2
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                    3
+                  </a>
+                </li>
+              </ul>
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                  <span class="govuk-pagination__link-title">
+                    Next<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+    </div>
+    <!--second tab end-->    
+
+</div>
+<!-- tabs component end-->  
+  
+
+
+{% endblock %}

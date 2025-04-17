@@ -1,0 +1,107 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="trading-name">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="uk-nation-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Where in the UK is the organisation based?
+            </h1>
+          </legend>
+          <div id="uk-nation-hint" class="govuk-hint">
+            You should choose the nation that matches your business’s registered address.
+          </div>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="england" name="uk-nation" type="radio" value="England" {{ checked("uk-nation", "England") }}>
+              <label class="govuk-label govuk-radios__label" for="england">
+                England
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="scotland" name="uk-nation" type="radio" value="Scotland" {{ checked("uk-nation", "Scotland") }}>
+              <label class="govuk-label govuk-radios__label" for="scotland">
+                Scotland
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="wales" name="uk-nation" type="radio" value="Wales" {{ checked("uk-nation", "Wales") }}>
+              <label class="govuk-label govuk-radios__label" for="wales">
+                Wales
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nothern-ireland" name="uk-nation" type="radio" value="Nothern Ireland" {{ checked("uk-nation", "Nothern Ireland") }}>
+              <label class="govuk-label govuk-radios__label" for="nothern-ireland">
+                Northern Ireland
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

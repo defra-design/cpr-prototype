@@ -1,0 +1,110 @@
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+    <h2 class="govuk-heading-m">Site address and contact details</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: "Where in the UK is this site located?"
+          },
+          value: {
+            text: data.next-page
+          },
+          actions: {
+            items: [
+              {
+                href: "./site-location",
+                text: "Change",
+                visuallyHiddenText: "next-page"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "What’s the address of the site you want to register?"
+          },
+          value: {
+            text: data.next-page
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "next-page"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Which address should the regulator send legal documents to?"
+          },
+          value: {
+            text: data.documents
+          },
+          actions: {
+            items: [
+              {
+                href: "",
+                text: "Change",
+                visuallyHiddenText: "customer reference"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    
+
+    <form action="./tasklist3" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+      
+        {{ govukButton({
+          text: "Save and continue later",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

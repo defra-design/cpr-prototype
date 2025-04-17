@@ -1,0 +1,327 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Submission details start-->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Manage organisation</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Brighton Waste Ltd.</h1>
+
+    <div class="govuk-!-padding-bottom-9"></div>
+
+    <h3 class="govuk-heading-s">Organisation ID <br>
+      <p>100762</p>
+    </h3>
+
+    <h3 class="govuk-heading-s">Registration type<br>
+      <p>Exporter <br> <a  href="#">
+        Apply for reprocessor
+      </a></p>
+    </h3>
+    
+    
+    <div class="govuk-!-padding-bottom-9"></div>
+   
+  <div>  
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">Contents</h2>
+
+  <ul class="govuk-tabs__list">
+
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#tab1">
+      Materials
+      </a>
+    </li>
+
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#tab2">
+        Waste data
+      </a>
+    </li>
+
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#tab3">
+        People
+      </a>
+    </li>
+
+  </ul>
+<!--first tab-->  
+<div class="govuk-tabs__panel" id="tab1">
+  
+    
+      <button type="submit" class="govuk-button" data-module="govuk-button"  >
+        Accredit new material
+      </button>
+    
+      
+<!--FILTERS START-->
+<div class="moj-filter__content" style="padding-bottom: none; box-shadow: grey; margin-bottom: 50px;">
+  <div class="moj-filter__selected" style="padding-bottom: none; box-shadow: none;">
+    <h3 class="govuk-heading-s">Filter options</h3>        
+
+<!--Materials-->             
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"
+          style="align-items: center; display: flex;">
+
+          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Plastic  </label>
+          </div>
+
+          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Wood 
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Steel
+            </label>
+          </div>
+
+          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Glass
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+<!--accreditation-->
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"
+          style="align-items: center; display: flex;">
+
+          <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+            <label class="govuk-label govuk-checkboxes__label" for="status">
+              Show only accredited  </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+  </div>
+
+
+  
+</div>
+<!--FILTERS END-->
+
+    <!-- TABLE -->
+    <table class="govuk-table" id="submission-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Material</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Accredition</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Site address</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+      
+         </tr>
+       </thead>
+
+  <tbody class="govuk-table__body" id="submission-table-body">
+    <!-- Org Acme with links start -->
+
+    <!--first-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">Plastic</td>
+      <!--Accreditation-->
+      <td class="govuk-table__cell">Yes</td>
+      <!--site address-->
+      <td class="govuk-table__cell">76 London rd, Cardiff</td>
+      <td class="govuk-table__cell"> <a  href="#">
+         </a></td>
+      
+      
+    <!-- end first row--></tr> 
+     
+    <!--second-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">Wood</td>
+       <!--Accreditation-->
+      <td class="govuk-table__cell">No</td>
+       <!--site address-->
+      <td class="govuk-table__cell">76 London rd, Cardiff</td>
+      <td class="govuk-table__cell"> <a  href="#">
+        Apply for accreditation </a></td>
+      
+    
+  <!-- end second row--></tr>
+
+    <!--third-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">Steel</td>
+       <!--Accreditation-->
+      <td class="govuk-table__cell">Yes</td>
+       <!--site address-->
+      <td class="govuk-table__cell">76 London rd, Cardiff</td>
+      <td class="govuk-table__cell"> <a  href="#">
+         </a></td>
+      
+  <!-- end third row--></tr>
+      </tbody>
+    </table>
+</div>
+
+<!--second tab-->  
+<div class="govuk-tabs__panel" id="tab2">
+    
+  <!-- TABLE -->
+  <table class="govuk-table" id="submission-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">File name</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Status</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Sent on</th>
+       </tr>
+     </thead>
+
+<tbody class="govuk-table__body" id="submission-table-body">
+  <!-- Org Acme with links start -->
+   <div style="float: right;">
+  <button type="submit" class="govuk-button" data-module="govuk-button" >
+    Report waste
+  </button>
+</div>
+  <!--first-row>--> <tr> 
+    <!--File name-->
+        <td class="govuk-table__cell">Waste reprocessed</td>
+    <!--Status-->
+        <td class="govuk-table__cell">Accepted</td>
+    <!--date-->
+        <td class="govuk-table__cell">04 April 2025</td>
+   
+  <!-- end first row--></tr> 
+   
+  <!--second-row>--> <tr> 
+    <!--File name-->
+    <td class="govuk-table__cell">Waste reprocessed</td>
+    <!--Status-->
+        <td class="govuk-table__cell">Accepted</td>
+    <!--date-->
+        <td class="govuk-table__cell">04 April 2025</td>
+    
+  
+<!-- end second row--></tr>
+
+  <!--third-row>--> <tr> 
+    <!--File name-->
+    <td class="govuk-table__cell">Waste reprocessed</td>
+    <!--Status-->
+        <td class="govuk-table__cell">Accepted</td>
+    <!--date-->
+        <td class="govuk-table__cell">04 April 2025</td>
+    
+<!-- end third row--></tr>
+    </tbody>
+  </table>
+</div>
+
+
+    <!--third tab-->  
+  <div class="govuk-tabs__panel" id="tab3">
+    
+    <!-- TABLE -->
+    <table class="govuk-table" id="submission-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name and Role</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email
+          </th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third">Telephone number</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+         </tr>
+       </thead>
+
+  <tbody class="govuk-table__body" id="submission-table-body">
+    <!-- Org Acme with links start --><div style="float: right;">
+    <button type="submit" class="govuk-button" data-module="govuk-button" >
+      Add new member
+    </button>
+  </div>
+    <!--first-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">John Smith
+          <br><span class="orgNameFilter Large producer">Director</span></td>
+      <!--email-->
+          <td class="govuk-table__cell">Jhon.smith@email.com</td>
+      <!--number-->
+      <td class="govuk-table__cell">0123 589632</td>
+      <td class="govuk-table__cell"><a  href="#">remove</a></td>
+    <!-- end first row--></tr> 
+     
+    <!--second-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">Samantha Clark
+        <br><span class="orgNameFilter Large producer">Partner</span></td>
+      <!--email-->
+        <td class="govuk-table__cell">Jhon.smith@email.com</td>
+      <!--number-->
+    <td class="govuk-table__cell">0123 589632</td>
+    <td class="govuk-table__cell"><a  href="#">remove</a></td>
+    
+  <!-- end second row--></tr>
+
+    <!--third-row>--> <tr> 
+      <!--Name & Role-->
+      <td class="govuk-table__cell">Jonathan Stone
+        <br><span class="orgNameFilter Large producer">Secretary</span></td>
+      <!--email-->
+        <td class="govuk-table__cell">Jhon.smith@email.com</td>
+      <!--number-->
+    <td class="govuk-table__cell">0123 589632</td>
+    <td class="govuk-table__cell"><a  href="#">remove</a></td>
+  <!-- end third row--></tr>
+      </tbody>
+    </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<!---->
+<div>
+  <a href="manage-pom-data.html" class="govuk-link govuk-link--no-visited-state">Go back to all submissions</a>
+</div>
+{% endblock %}

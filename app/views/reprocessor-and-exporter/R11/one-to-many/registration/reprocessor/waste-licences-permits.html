@@ -1,0 +1,74 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Waste carrier, broker or dealer registration for: {company limited}
+      </h1>
+     
+    </legend>
+
+    <h1 class="govuk-heading-m">
+      Enter registration number
+    </h1>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-20" id="weight" name="regnum"  type="alphanumeric" spellcheck="false">
+
+        </div>
+    </div>
+
+
+
+    <!--<h1 class="govuk-heading-m">
+      Discharge consent number
+    </h1>
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-20" id="weight" name="number5"  type="number" spellcheck="false">
+
+        </div>
+    </div>-->
+
+
+
+
+</fieldset>
+</div>
+<div id="codemain">
+<div id="code" style="float: left;">
+<form class="form" action="selected-materials" method="POST">
+          <input class="govuk-button" type="submit" value="Save and continue"  />
+</form>
+</div>
+
+
+ 
+  <a href="application-saved" style="float: right;"> <input class="govuk-button govuk-button--secondary"  type="submit" value="Save and come back later"  /></a>
+</div>
+</div>
+
+{% endblock %}
