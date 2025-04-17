@@ -1,0 +1,190 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+text: "Home",
+active: true
+},
+{
+href: "../../delegate-someone/account-management",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+        }) }}
+
+        <form action="file-submitted" method="post">
+
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Organisation details files uploaded – check and submit
+            </h1>
+
+
+            <p> The files you've uploaded have saved. </p>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Files uploaded</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                File name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Date and time uploaded
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Uploaded by
+                            </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                orgdetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                branddetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                partnerdetails1.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 October 2023, 2:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                John Smith
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Files already submitted</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                File name
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Date and time submitted
+                            </dt>
+                            <dt class="govuk-summary-list__key">
+                                Submitted by
+                            </dt>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                orgdetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                branddetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                                partnerdetails.csv
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                10 September 2023, 3:00pm
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                                Jane Doe
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div>
+                <p class="govuk-body">
+                    <a href="./task-list-in-submitted-scenario" class="govuk-link">Return to the registration steps</a>
+                </p>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

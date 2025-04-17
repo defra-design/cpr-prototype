@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      Account home - ACME PARTNERSHIP LTD.
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Organisation ID: 123 456</strong></p>
+  <p class="govuk-body govuk-!-margin-bottom-1"> Your account is set up so you can report your own data.</p>
+  <p class="govuk-body govuk-!-margin-bottom-1"> <a href="#">Add a compliance scheme to your account.</a></p>
+</div>
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m govuk-link-"> <a href="../../../../task-list-2-large-producer-stage4"
+          class="govuk-link--no-visited-state">Registration</a>
+      </h2>
+      <p class="govuk-body">You have viewed your Registration fees, and methods of payment. You now
+        need to submit your registration</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+
+      <h2 class="govuk-heading-m govuk-link-">
+        <a href="https://defra-cpr-prototype.herokuapp.com/report-organisation-details/producers/version-3/before-you-start"
+          class="govuk-link--no-visited-state">
+          Report organisation details
+        </a>
+      </h2>
+
+      <p class="govuk-body">In 2025, you must report data for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>January to June 2025</li>
+        <li>July to December 2025</li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m"><a
+          href="https://defra-cpr-prototype.herokuapp.com/report-packaging-data-soft-validation/producer/sub-landing"
+          class="govuk-link--no-visited-state">Report packaging data</a></h2>
+      <p class="govuk-body">In 2025, you must report data for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>January to June 2025</li>
+        <li>July to December 2025</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
+      <h2 class="govuk-heading-m" class="govuk-link--no-visited-state">Packaging waste recycling notes (PRNs) and
+        packaging waste export recycling notes (PERNs)</h2>
+      <p class="govuk-body">No action needed at the moment</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block bodyEnd %}
+<details class="govuk-details" style="margin: auto; width: 50%; padding: 30px 0px;">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      UR only - Registration user scenarios
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <ul class="govuk-list">
+      <li><a href="./large-producer-dashboard-registration-notstarted" class="govuk-link">Registration hasn't
+          started (this journey has been developed)</a></li>
+      <li><a href="./large-producer-dashboard-registration-uploaded-na-processed" class="govuk-link">Registration data
+          has been uploaded, but not processed</a></li>
+      <li><a href="./large-producer-dashboard-registration-uploaded-processed" class="govuk-link">Registration data has
+          been uploaded, and
+          processed</a></li>
+      <li><a href="./large-producer-dashboard-registration-submitt-reg" class="govuk-link">Registration data has been
+          uploaded, and fees registration</a></li>
+      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration approved</a></li>
+      <li><a href="./large-producer-dashboard-registration-approved" class="govuk-link">Registration queried</a>
+      </li>
+      <li><a href="./large-producer-dashboard-registration-queried" class="govuk-link">Registration rejected</a></li>
+    </ul>
+  </div>
+</details>
+{% endblock %}
+<!-- GOV.UK Prototype Kit {{releaseVersion}} -->
