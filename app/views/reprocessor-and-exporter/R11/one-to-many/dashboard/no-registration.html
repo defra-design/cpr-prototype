@@ -1,0 +1,444 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "pEPR: Reprocessor & exporters" %}
+{% set title = "pEPR: Reprocessor & exporters" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:void(0)">Back to home</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Account</span>
+    <h1 class="govuk-heading-xl">Jamie Roberts</h1>
+  </div>
+  <div class="govuk-grid-column-one-third" >
+    
+  </div>
+</div>
+
+      <!-- tabs -->
+<div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+          Contents
+        </h2>
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#all-organisations">
+              All
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-week">
+              Accreditations
+            </a>
+          </li>
+          
+        </ul>
+      <!--first tab-->  
+  <div class="govuk-tabs__panel" id="all-organisations">
+          
+    <!-- TABLE -->
+    <table class="govuk-table" id="submission-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation and<br>reference</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Registration</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Site addresses rigistered</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Materials registered</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body" id="submission-table-body">
+        <!-- Org Acme with links start -->
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+            Add organisation
+        </button>
+         <tr> 
+            <!--organisation & ID-->
+            <td class="govuk-table__cell"><a href="./organization-details/overview-completed.html" class="govuk-link">Brighton waste
+              Ltd.</a><br><span class="orgNameFilter Large producer">864729</span></td>
+          <!--Registration-->
+          <td class="govuk-table__cell">Reprocessor <br> <a href="#" class="govuk-link">Change</a></td>
+          <!--Accreditation-->
+          <td class="govuk-table__cell">8 Sites</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link">Accredit materials</a></td>
+          
+        <!-- end second row--></tr>
+        </tbody>
+      </table>
+  </div>
+
+  <!--second tab-->  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      New accreditation
+  </button>
+            
+    <!--FILTERS START-->
+    <div class="moj-filter__content" style="padding-bottom: none; box-shadow: grey; margin-bottom: 50px;">
+      <div class="moj-filter__selected" style="padding-bottom: none; box-shadow: none;">
+      <h3 class="govuk-heading-s">Filter options</h3>        
+
+        <!--Materials-->             
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset"> 
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+            Organization name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+            </div>
+          </fieldset>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <fieldset class="govuk-fieldset"> 
+          <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+            Site address
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+            </div>
+          </fieldset>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <fieldset class="govuk-fieldset">
+            <label class="govuk-label" for="width-20">
+              Material
+            </label>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"
+              style="align-items: center; display: flex;">
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Plastic  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Wood 
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Steel
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Glass
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <div class="govuk-!-padding-bottom-4"></div>
+
+          <fieldset class="govuk-fieldset">
+            <label class="govuk-label" for="width-20">
+              Status
+            </label>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"
+              style="align-items: center; display: flex;">
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  In progress  </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Submitted 
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Rejected
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item" style="margin-right: 63px;">
+                <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete">
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Queried
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+        </div>
+      </div>
+    </div>
+    <!--FILTERS END-->
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Organization and site address</th>
+                <th scope="col" class="govuk-table__header">Material</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Brighton waste<br>76 London rd, Brighton</td>
+                <td class="govuk-table__cell">Wood</td>
+                <td class="govuk-table__cell">123456789</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+                  Submitted
+                </strong></td>
+                <td class="govuk-table__cell"><a href="./Registration/define-type.html" class="govuk-link">view</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Brighton waste<br>76 London rd, Brighton</td>
+                <td class="govuk-table__cell">Glass</td>
+                <td class="govuk-table__cell">123456789</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--pink">
+                  Queried
+                </strong></td>
+                <td class="govuk-table__cell"><a href="./Registration/define-type.html" class="govuk-link">view</a></td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+          <!--pagination-->
+          <div>
+            <nav class="govuk-pagination" aria-label="Pagination">
+              <div class="govuk-pagination__prev">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                  </svg>
+                  <span class="govuk-pagination__link-title">
+                    Previous<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                </a>
+              </div>
+              <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+                    1
+                  </a>
+                </li>
+                <li class="govuk-pagination__item govuk-pagination__item--current">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+                    2
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                    3
+                  </a>
+                </li>
+              </ul>
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                  <span class="govuk-pagination__link-title">
+                    Next<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+  </div>
+
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+          <h2 class="govuk-heading-l">Past month</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case manager</th>
+                <th scope="col" class="govuk-table__header">Cases opened</th>
+                <th scope="col" class="govuk-table__header">Cases closed</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">David Francis</td>
+                <td class="govuk-table__cell">98</td>
+                <td class="govuk-table__cell">95</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Paul Farmer</td>
+                <td class="govuk-table__cell">122</td>
+                <td class="govuk-table__cell">131</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Rita Patel</td>
+                <td class="govuk-table__cell">126</td>
+                <td class="govuk-table__cell">142</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+          <h2 class="govuk-heading-l">Past year</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case manager</th>
+                <th scope="col" class="govuk-table__header">Cases opened</th>
+                <th scope="col" class="govuk-table__header">Cases closed</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">David Francis</td>
+                <td class="govuk-table__cell">1380</td>
+                <td class="govuk-table__cell">1472</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Paul Farmer</td>
+                <td class="govuk-table__cell">1129</td>
+                <td class="govuk-table__cell">1083</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Rita Patel</td>
+                <td class="govuk-table__cell">1539</td>
+                <td class="govuk-table__cell">1265</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        
+</div>  
+  
+
+<script>
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    // Get filter values
+    const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
+    const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
+
+    // Get selected checkboxes
+    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Separate resubmission filters
+    let resubmissionFilters = statusFilters.filter(status =>
+      ["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
+
+    // Filter out resubmission-related statuses from standard status filters
+    let standardStatusFilters = statusFilters.filter(status =>
+      !["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
+
+    // Define statuses that disable resubmission filtering
+    let statusesDisablingResubmission = ["pending", "granted", "refused", "queried", "cancelled"];
+    let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
+
+    // Get year filters
+    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Check if no filters are selected
+    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 &&
+      statusFilters.length === 0 && yearFilters.length === 0;
+    if (noFiltersSelected) {
+      window.location.href = '../manage-data-submissions-no-results';
+      return;
+    }
+
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilters, yearFilters, otherStatusSelected });
+
+    // Get table rows
+    const rows = document.querySelectorAll('#submission-table-body tr');
+    let anyRowVisible = false; // Track if any row is visible after filtering
+
+    rows.forEach(row => {
+      // Extract cell values
+      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase();
+      const orgId = row.cells[1].textContent.trim().toLowerCase();
+      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
+      const submissionYear = row.cells[3].textContent.trim().toLowerCase();
+
+      // Get Submission Status (Column 5)
+      const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Get Resubmission Status (Column 6)
+      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong[id^="status-resubmission"]')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Handle resubmission filtering
+      if (resubmissionFilters.length > 0 && !otherStatusSelected) {
+        let resubmissionMatch = resubmissionStatusTags.some(tag => resubmissionFilters.includes(`resubmission-${tag}`)); // Match specific resubmission status
+        let grantedMatch = submissionStatusTags.includes("granted");
+
+        // Only show rows where "Granted" exists AND resubmission status matches the filters
+        if (grantedMatch && resubmissionMatch) {
+          row.style.display = ''; // Show row
+          anyRowVisible = true;
+        } else {
+          row.style.display = 'none'; // Hide row
+        }
+        return; // Skip other filters when Resubmission is active
+      }
+
+      // Match Submission Status (Normal filtering)
+      const submissionStatusMatch = standardStatusFilters.length === 0 ||
+        standardStatusFilters.some(filter => submissionStatusTags.includes(filter));
+
+      // Apply all other filter conditions
+      const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
+      const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
+      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
+      const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
+
+      // Final row visibility check
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && submissionStatusMatch && yearMatch) {
+        row.style.display = ''; // Show row
+        anyRowVisible = true;
+      } else {
+        row.style.display = 'none'; // Hide row
+      }
+    });
+
+    if (!anyRowVisible) {
+      window.location.href = '../manage-data-submissions-no-results';
+    }
+  });
+
+  // Clear filters
+  document.getElementById('clear-filters').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('filter-form').reset();
+    document.querySelectorAll('#submission-table-body tr').forEach(row => {
+      row.style.display = ''; // Show all rows
+    });
+  });
+
+</script>
+
+{% endblock %}

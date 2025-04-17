@@ -1,0 +1,75 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+  Sign in or create an account - Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Sign in</h1>
+    
+    <form action="general/registered-as-a-charity" method="post">
+
+      <div class="govuk-form-group govuk-!-margin-top-5">
+        <label class="govuk-label govuk-lab el--" for="email">
+          Email address 
+        </label>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['email']}}" >
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <label class="govuk-label govuk-label--" for="password">
+          Password
+        </label>
+      
+        <input class="govuk-input" id="password" name="password" type="password" spellcheck="false" autocomplete="password" value="{{data['password']}}">
+        
+        <p class="govuk-body govuk-!-margin-top-4"><a href="#">I've forgotten my password</a></p>
+      </div>
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </form>
+
+
+    <h2 class="govuk-heading-m">Create a new account</h2>
+    <p class="govuk-body">If you don't already have one, <a href="#">create an account</a>.</p>
+
+  </div>
+</div>
+
+{% endblock %}
