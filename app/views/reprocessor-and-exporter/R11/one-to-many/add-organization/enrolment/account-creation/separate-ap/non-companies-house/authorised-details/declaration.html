@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account " %}
+
+{% set title = "Create an account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="../check-your-answers.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="../../../../../../organization-profile/no-registration">
+      <h1 class="govuk-heading-l">Declaration</h1>
+
+      <p class="govuk-body">By confirming your details, you agree that the information you’ve given is complete and correct.</p>
+      <p class="govuk-body">You also agree that you would like the regulator to approve an account for your organisation. </p>
+
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You can be fined or prosecuted if you give the wrong information.
+        </strong>
+      </div>
+
+      {{ govukButton({
+        text: "Confirm and create account"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

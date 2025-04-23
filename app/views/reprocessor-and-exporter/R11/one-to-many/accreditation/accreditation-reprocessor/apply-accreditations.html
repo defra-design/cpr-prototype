@@ -1,0 +1,105 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+   
+<h1 class="govuk-heading-l">Apply for accreditation</h1>
+
+<h2 class="govuk-heading-s">Reprocessor accreditations for: {{ data['house-number'] }}, RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</h2>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Material</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--">Registration application status</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Steel</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag">
+        Completed
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="./submit-accreditation2">Apply</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Plastic</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">
+        Submitted
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Apply</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Wood</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+        Granted
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Apply</a></td>
+    </tr>
+   
+  </tbody>
+</table>
+<br>
+
+<h2 class="govuk-heading-s">Reprocessor accreditations for: 1, Diamond drive, Denbighshire, {{ data['postcode'] }}</h2>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Material</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--">Registration application status</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Paper</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+        Granted
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Apply</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Plastic</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+        Granted
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Apply</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-table__cell">Wood</td>
+      <td class="govuk-table__cell govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+        Queried
+      </strong></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Apply</a></td>
+    </tr>
+   
+  </tbody>
+</table>
+<br>
+      <!--<form class="form" action="../reprocessor/address" method="POST"> <input class="govuk-button" type="submit" value="Start a new application" style="margin-right: 20px;"  /></form>-->
+
+    </div>
+
+
+
+
+{% endblock %}

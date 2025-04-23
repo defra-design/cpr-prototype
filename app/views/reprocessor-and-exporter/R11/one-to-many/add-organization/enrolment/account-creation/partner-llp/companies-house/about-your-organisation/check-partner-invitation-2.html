@@ -1,0 +1,159 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %} 
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+          
+            <h1 class="govuk-heading-l">Check invitation details</h1>
+
+              <table class="govuk-table">
+                
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header"></th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-table__cell">Role</th>
+                    <td class="govuk-table__cell govuk-table__cell">Member</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-table__cell">Name</th>
+                    <td class="govuk-table__cell govuk-table__cell">Frankie Bridger</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-table__cell">Email</th>
+                    <td class="govuk-table__cell govuk-table__cell">frankie.bridger@acornltd.com</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell govuk-table__cell">Telephone</th>
+                    <td class="govuk-table__cell govuk-table__cell">07890030028</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+
+                <br>
+                
+                <br>
+                <table class="govuk-table">
+                
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header"></th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell govuk-table__cell">Role</th>
+                      <td class="govuk-table__cell govuk-table__cell">Member</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell govuk-table__cell">Name</th>
+                      <td class="govuk-table__cell govuk-table__cell">Rekha Patel</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell govuk-table__cell">Email</th>
+                      <td class="govuk-table__cell govuk-table__cell">rekha.patel@acornltd.com</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell govuk-table__cell">Telephone</th>
+                      <td class="govuk-table__cell govuk-table__cell">07890030028</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                    </tr>
+                    
+                    
+                  </tbody>
+                </table>
+                <p></p>
+                
+
+           <form action="check-your-answers-2" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+             <input type="hidden" name="waste-data-reprocesser" value="true">
+              <button class="govuk-button" data-module="govuk-button">
+                  Continue
+              </button>
+            </form>
+
+            <a class="govuk-link" href="member-partnership">Invite another approved person</a>
+          </div>
+
+        </div>
+      
+  </div>
+
+</div>
+
+{% endblock %}
