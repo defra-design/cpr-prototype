@@ -1,0 +1,247 @@
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+   <div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging waste the site has a permit or exemption to accept and recycle
+            </dt>
+            <dd class="govuk-summary-list__value">
+              WEY9767
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="choose-material">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+        </dl>
+        
+        <h2 class="govuk-heading-m">Permit for accepting and reprocessing steel</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Installation permit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              WP43536
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              The maximum weight the licence authorises the site to accept and recycle
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['weight']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="installation-permit">Change<span class="govuk-visually-hidden"> licence type</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Per year, month or week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              11-03-2021
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> home address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum weight the site is currently capable of reprocessing
+            </dt>
+            <dd class="govuk-summary-list__value">
+              67
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Per year, month or week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              11-03-2021
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+            </dd>
+          </div>
+        </dl>
+        <h2 class="govuk-heading-m">Permit for accepting and reprocessing wood</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Exemption
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['number']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              The maximum weight the licence authorises the site to accept and recycle
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['weighter']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Per year, month or week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['next-page']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> home address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum weight the site is currently capable of reprocessing
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['next-page']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Per year, month or week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['next-page']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Waste carrier, broker, dealer registration</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Waste carrier, broker or dealer registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['regnum']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">About the materials you will reprocess</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Materials you will reprocess in 2026
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['materials']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reason you are not reprocessing wood in 2026
+            </dt>
+            <dd class="govuk-summary-list__value">
+              For personal use
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact for wood application
+            </dt>
+            <dd class="govuk-summary-list__value">
+              John Smith
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> home address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact for steel application
+            </dt>
+            <dd class="govuk-summary-list__value">
+              John Smith
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+            </dd>
+          </div>
+        </dl>
+        <form action="./tasklist3" method="post" novalidate>
+
+          <input type="hidden" name="answers-checked" value="true">
+    
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Confirm and continue"
+            }) }}
+          
+            {{ govukButton({
+              text: "Save and continue later",
+              classes: "govuk-button--secondary"
+            }) }}
+          </div>
+    
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+  </div>
+</div>
+{% endblock %}

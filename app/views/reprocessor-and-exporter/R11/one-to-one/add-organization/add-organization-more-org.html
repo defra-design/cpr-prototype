@@ -1,0 +1,100 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        <form method="post" action="./enrolment/account-creation/separate-ap/non-companies-house/authorised-details-more-org/check-your-answers">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Jamie Roberts</span>
+                Add Your Organisation Details    
+              </h1>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    
+                    <div class="govuk-grid-column-two-thirds">
+                        
+                      </div>
+                    
+                    
+                        
+                    
+
+                </fieldset>
+            
+            <p class="govuk-body">To get started, we need a few details about your organisation and the people who are authorised to manage it on your behalf.</p>
+            
+            <p class="govuk-body">Before you begin, please have the following ready:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Companies House details – such as your registration number and official organisation name.</li>
+              <li>Partnership information – if your organisation is a partnership, please provide details for all partners involved.</li>
+              <li>Approved person(s) – you’ll need to identify at least one approved person who will be responsible for managing the organisation’s account. You can add more than one if needed.</li>
+            </ul> 
+        
+            <p class="govuk-body">This process helps ensure that only verified individuals have access to manage your organisation’s profile.</p>
+        
+        </div>
+            
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" href=".">
+          Start now
+                </button>
+                
+              </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

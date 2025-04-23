@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Manage organisation</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
+  <div class="govuk-!-padding-bottom-5">
+</div>
+
+<h3 class="govuk-heading-s">Organisation ID <br> <p>100762</p> </h3>
+
+<div class="govuk-!-padding-bottom-3"></div>
+
+<h3 class="govuk-heading-s">Registration type<br>
+  <div class="govuk-!-padding-bottom-1"></div>
+  <strong class="govuk-tag govuk-tag--blue">
+    In progress
+  </strong>
+  <div class="govuk-!-padding-bottom-1"></div>
+  <p><a  href="#">continue</a></p>
+</h3>
+    
+<div class="govuk-!-padding-bottom-5"></div>
+   
+<div> 
+  
+  <!--tab component--> 
+  <div class="govuk-tabs" data-module="govuk-tabs">
+
+    <h2 class="govuk-tabs__title">Contents</h2>
+
+    <ul class="govuk-tabs__list">
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#people">People</a>
+      </li>
+
+    </ul>
+
+    <!--first tab-->   
+    <div class="govuk-tabs__panel" id="tab3">
+      
+      <!-- TABLE -->
+      <table class="govuk-table" id="submission-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name and Role</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Telephone number</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body" id="submission-table-body">
+
+          <div style="float: right;">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" >Add new member</button>
+          </div>
+
+          <tr>
+            <td class="govuk-table__cell">John Smith <br><span class="orgNameFilter Large producer"> Director </span></td>
+            <td class="govuk-table__cell">Jhon.smith@email.com</td>
+            <td class="govuk-table__cell">0123 589632</td>
+            <td class="govuk-table__cell"><a  href="#">remove</a></td>
+          </tr> 
+          
+          <tr> 
+            <td class="govuk-table__cell">Samantha Clark<br><span class="orgNameFilter Large producer">Partner</span></td>
+            <td class="govuk-table__cell">Jhon.smith@email.com</td>
+            <td class="govuk-table__cell">0123 589632</td>
+            <td class="govuk-table__cell"><a  href="#">remove</a></td>
+          </tr>
+
+          <tr> 
+            <td class="govuk-table__cell">Jonathan Stone <br><span class="orgNameFilter Large producer">Secretary</span></td>
+            <td class="govuk-table__cell">Jhon.smith@email.com</td>
+            <td class="govuk-table__cell">0123 589632</td>
+            <td class="govuk-table__cell"><a  href="#">remove</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div> <!-- end first tab-->
+
+  </div> <!-- end tab component--> 
+
+</div>
+{% endblock %}
