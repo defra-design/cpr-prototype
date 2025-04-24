@@ -8,27 +8,21 @@
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:void(0)">Back to home</a>
+<a class="govuk-back-link" href="javascript:void(0)">Back</a>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Calculation run 99</span>
-    <h1 class="govuk-heading-xl">Rejecting these billing instructions</h1>
+    <h1 class="govuk-heading-xl">Give a reason for each rejected billing instruction</h1>
 
-    <p class="govuk-body-m">Sample text only: Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-      accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-      architecto beatae vitae dicta sunt explicabo. </p>
-  </div>
+    <p class="govuk-body-m">Provide a reason for rejecting each billing instruction. Your reasons will be saved
+      automatically.</p>
 
-
-
-  <!-- Filtered results start -->
-  <div style="padding: 0px 20px; clear: both;">
     <div>
       <!-- Results table start -->
-      <table class="govuk-table" id="submission-table">
+      <table class="govuk-table" id="submission-table" style=" margin-top: 50px;">
         <thead class="govuk-table__head">
           <tr>
             <td class="govuk-table__cell"
@@ -36,7 +30,7 @@
               selected
             </td>
             <td class="govuk-table__cell"
-              style="width: 60px; text-align: left; padding: 10px 0px 10px 20px; vertical-align: middle; border-bottom:0px;">
+              style="width: 60px; text-align:left; padding: 10px 0px 10px 20px; vertical-align: middle; border-bottom:0px; position: relative; right: 0px;">
               <strong>10-20 of 7000</strong>
             </td>
           </tr>
@@ -44,18 +38,17 @@
       </table>
       <!-- Results table end -->
     </div>
-    <h2 class="govuk-heading-m">Billing instructions</h2>
+    <h2 class="govuk-heading-m">Rejected billing instructions</h2>
     <!-- TABLE -->
     <table class="govuk-table" class="govuk-table" style="table-layout: fixed; width: 100%;">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" style="width: 60px;"></th>
-          <th scope="col" class="govuk-table__header" style="width: 170px;">Organisation name</th>
-          <th scope="col" class="govuk-table__header" style="width: 160px;">Organisation ID</th>
-          <th scope="col" class="govuk-table__header" style="width: 160px;">Billing instruction</th>
-          <th scope="col" class="govuk-table__header" style="width: 140px;">Invoice amount</th>
-          <th scope="col" class="govuk-table__header" style="width: 140px;">Status</th>
-          <th scope="col" class="govuk-table__header" style="width: 140px;"></th>
+          <th scope="col" class="govuk-table__header" style="width: 60px; text-align:left;"></th>
+          <th scope="col" class="govuk-table__header" style="width: 170px; text-align:left;">Organisation name</th>
+          <th scope="col" class="govuk-table__header" style="width: 160px; text-align:left;">Organisation ID</th>
+          <th scope="col" class="govuk-table__header" style="width: 160px; text-align:left; ">Billing instruction</th>
+          <th scope="col" class="govuk-table__header" style="width: 140px; text-align:left;">Invoice amount</th>
+          <th scope="col" class="govuk-table__header" style="width: 190px; text-align:left;">Reason for rejection</th>
         </tr>
       </thead>
 
@@ -67,22 +60,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Initial</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--yellow">Pending</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -92,22 +83,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Delta</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--green">Accepted</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -118,22 +107,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Rebill</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--yellow">Pending</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -143,23 +130,21 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Cancel bill</strong>
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--red">Rejected</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -169,23 +154,21 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">No action</strong>
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--grey">No action </strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -195,22 +178,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Initial</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--yellow">Pending</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -220,22 +201,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Delta</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--green">Accepted</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -246,22 +225,20 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Rebill</strong></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--yellow">Pending</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -271,23 +248,21 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">Cancel bill</strong>
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--red">Rejected</strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
@@ -297,36 +272,42 @@
               style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
               class="govuk-link">Acme org Ltd.</a></td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+            style="width: 60px; text-align:left;  padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
               class="govuk-tag govuk-tag--blue">No action</strong>
           </td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            style="width: 60px; text-align:left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
           <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <strong class="govuk-tag govuk-tag--grey">No action </strong>
-          </td>
-          <td class="govuk-table__cell"
-            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
-            <a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Rejection comment</a>
+            style="width: 60px; text-align: left; padding: 10px 0px 10px 0px; vertical-align: middle;">
+            <input class="govuk-input govuk-input--width-10" id="reason-rejection" name="reasonrejection" type="text"
+              autocomplete="">
+            <!--<a href="./option-B-reject-billing-instructions-2.html" class="govuk-link">Add comment</a>-->
           </td>
         </tr>
 
         <!-- Content end-->
       </tbody>
     </table>
-
-
-
   </div>
 </div>
 
 
+<!-- Reject selected  start -->
+<div style="margin-top: 40px;">
+  <h2 class="govuk-heading-m">Update billing instructions</h2>
+
+  <a href="../reject-selected-page/2-confirmation.html" role="button" class="govuk-button govuk-button--warning"
+    data-module="govuk-button">
+    Reject selected
+  </a>
+</div>
+
+<!-- Reject selected end -->
 
 
 <p class="govuk-body" style="margin-top: 30px;">
