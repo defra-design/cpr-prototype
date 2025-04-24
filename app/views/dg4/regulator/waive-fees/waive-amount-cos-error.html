@@ -17,11 +17,27 @@ Resubmission
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Which fees are you waiving?</h1>
-    <h3 class="govuk-heading-s">
-      <p class="govuk-body" style="padding: 7px 0px; margin: 0px;">Select all that apply</p>
-    </h3>
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Select a fee to waive</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-form-group govuk-form-group--error">
     <div class="govuk-form-group">
+      
+        <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Which fees are you waiving?</h1>
+        <h3 class="govuk-heading-s">
+          <p class="govuk-body govuk-error-message" style="padding: 7px 0px; margin: 0px;">Select all that apply</p>
+        </h3>
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h2 class="govuk-heading-m">
@@ -50,6 +66,7 @@ Resubmission
             </div>
           </div>
         </fieldset>
+      
       </div>
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
@@ -170,6 +187,7 @@ Resubmission
           </div>
         </fieldset>
       </div>
+    </div>
       {{ govukButton({
         text: "Continue", href:"./select-reason-cos.html"
         }) }}

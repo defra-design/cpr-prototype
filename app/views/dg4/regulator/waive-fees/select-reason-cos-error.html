@@ -17,11 +17,27 @@ Resubmission
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Why are you waiving a fee?</h1>
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Give your reason for waiving</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
     <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
+        <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Why are you waiving a fee?</h1>
         <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend">
-            <h3 class="govuk-heading-s">Select your reason</h3>
+          <legend class="govuk-error-message">
+            Select your reason
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
@@ -67,27 +83,29 @@ Resubmission
                 <br>
 
 
-              <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
-                <h3 class="govuk-label-wrapper">
-                  <label class="govuk-label govuk-label--m" for="with-hint">
-                    Additional information
-                  </label>
-                </h3>
-               <!--
-                <div id="with-hint-hint" class="govuk-hint">
-                  Do not include personal or financial information like your National Insurance number or credit card details
-                </div>-->
-                <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-                <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-                  You can enter up to 1000 characters
-                </div>
-              </div>
+          
 
           </div>
         </fieldset>
       </div>
+      <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
+        <h3 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="with-hint">
+            Additional information
+          </label>
+        </h3>
+       <!--
+        <div id="with-hint-hint" class="govuk-hint">
+          Do not include personal or financial information like your National Insurance number or credit card details
+        </div>-->
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 1000 characters
+        </div>
+      </div>
+      </div>
       {{ govukButton({
-        text: "Continue", href:"./regulator-cya.html"
+        text: "Continue", href:"./regulator-cya-cos.html"
         }) }}
   </div>
 </div>

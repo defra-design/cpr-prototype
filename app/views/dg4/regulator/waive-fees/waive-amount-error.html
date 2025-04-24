@@ -17,11 +17,26 @@ Resubmission
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Which fees are you waiving?</h1>
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Select a fee to waive</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
+        <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Which fees are you waiving?</h1>
     <!-- <h3 class="govuk-heading-s">
       <p class="govuk-body" style="padding: 7px 0px; margin: 0px;">Select all that apply</p>
     </h3> -->
-    <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h2 class="govuk-heading-m">
@@ -41,17 +56,18 @@ Resubmission
             </div>
             <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
               <div class="govuk-form-group">
-                <label class="govuk-label" for="contact-by-email">
-                  Enter the waiver amount
+                <label id="countries-error" class="govuk-error-message" for="contact-by-email">
+                  <span class="govuk-visually-hidden">Error:</span> Enter the waiver amount
                 </label>
                 <div class="govuk-input__wrapper">
-                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+                    <div class="govuk-input__prefix " aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5 govuk-input--error" id="cost" name="cost" type="text" spellcheck="false">
                   </div>
               </div>
             </div>
           </div>
         </fieldset>
+      </div>
       </div>
       {{ govukButton({
         text: "Continue", href:"./select-reason.html"
