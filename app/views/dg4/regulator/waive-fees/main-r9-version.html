@@ -1,0 +1,655 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "pEPR: Regulators' Service" %}
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:void(0)">Back to home</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Environment Agency</span>
+    <h1 class="govuk-heading-xl">Manage registration submissions</h1>
+
+    <form id="filter-form">
+      <p class="govuk-body-m">This list shows current pending and latest actioned submissions.
+        <a href="#" class="govuk-link govuk-link--no-visited-state"> Log in to Power BI</a> to view older submissions.
+      </p>
+
+      <!-- Filters -->
+      <div class="moj-filter">
+        <div class="moj-filter__content">
+          <div class="moj-filter__selected" style="margin-bottom: 60px;">
+
+            <div class="moj-filter__options" style="box-shadow: inset 0 0 0 0px; padding: 0px;">
+              <h2 class="govuk-heading-m">Filter options</h2>
+
+              <div class="govuk-form-group" style="margin: 15px 0px;">
+                <label class="govuk-label" for="organisation-name">Organisation name</label>
+                <input class="govuk-input" id="organisation-name" name="organisation-name" type="text">
+              </div>
+
+              <div class="govuk-form-group" style="margin: 15px 0px 25px 0px;">
+                <label class="govuk-label" for="organisation-id">Organisation ID or Reference number</label>
+                <input class="govuk-input" id="organisation-id" name="organisation-id" type="text">
+              </div>
+
+              <!-- Organisation type -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class=" govuk-heading-s" style="margin-bottom: 5px;">Organisation type</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-compliancescheme" name="orgtype"
+                        type="checkbox" value="Compliance scheme">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-compliancescheme">Compliance
+                        scheme</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-largeproducer" name="orgtype" type="checkbox"
+                        value="Large producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-largeproducer">Large
+                        producer</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="orgtype-smallproducer" name="orgtype" type="checkbox"
+                        value="Small producer">
+                      <label class="govuk-label govuk-checkboxes__label" for="orgtype-smallproducer">Small
+                        producer</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Submission status -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Submission status</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-pending" name="status" type="checkbox"
+                        value="Pending">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-pending">Pending</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-granted" name="status" type="checkbox"
+                        value="Granted">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-granted">Granted</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-refused" name="status" type="checkbox"
+                        value="Refused">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-refused">Refused</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-queried" name="status" type="checkbox"
+                        value="Queried">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-queried">Queried</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-cancelled" name="status" type="checkbox"
+                        value="Cancelled">
+                      <label class="govuk-label govuk-checkboxes__label" for="status-cancelled">Cancelled</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+
+
+
+              <!-- Resubmission status -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Resubmission status</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission-pending" name="status"
+                        type="checkbox" value="resubmission-pending">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-pending">Pending</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission-accepted" name="status"
+                        type="checkbox" value="resubmission-accepted">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-accepted">Accepted</label>
+                    </div>
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="status-resubmission-rejected" name="status"
+                        type="checkbox" value="resubmission-rejected">
+                      <label class="govuk-label govuk-checkboxes__label"
+                        for="status-resubmission-rejected">Rejected</label>
+                    </div>
+
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <!-- Submission year -->
+              <div class="govuk-form-group" style="margin-bottom:20px;">
+                <fieldset class="govuk-fieldset">
+                  <h3 class="govuk-heading-s" style="margin-bottom: 5px;">Relevant year</h3>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="year2025" name="year" type="checkbox" value="2025">
+                      <label class="govuk-label govuk-checkboxes__label" for="year2025">2025</label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+                      <input class="govuk-checkboxes__input" id="year2025" name="year" type="checkbox" value="2025">
+                      <label class="govuk-label govuk-checkboxes__label" for="year2025">2026</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Apply and clear filters -->
+              <div style="align-items: center; display: flex;">
+                <button class="govuk-button" type="button" id="apply-filters"
+                  style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
+                <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
+                    class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div style="padding: 0px 20px;">
+      <h2 class="govuk-heading-m">Filtered results:</h2>
+      <!-- TABLE -->
+      <table class="govuk-table" id="submission-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation ID and<br>Reference number
+            </th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission date <br>and time</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Relevant year</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Submission status</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Resubmission status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body" id="submission-table-body">
+          <!-- Org Acme with links start -->
+          <tr>
+            <td class="govuk-table__cell"><a href="./resubmission-granted" class="govuk-link">Acme org
+                Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+            <td class="govuk-table__cell">215148 <br>R25EP1234567345
+            </td>
+            <td class="govuk-table__cell">25 October 2025 <br> 10:10:01</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Granted</strong>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue"
+                id="status-resubmission-pending">Pending</strong>
+            </td>
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./resubmission-after-resub-granted"
+                class="govuk-link">Another
+                Acme
+                org Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+            <td class="govuk-table__cell">215148 <br>R25EP1234567345
+            </td>
+            <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission-accepted">Accepted</strong>
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./resubmission-after-resub-rejected"
+                class="govuk-link">Another
+                Acme
+                org Ltd.</a><br><span class="orgNameFilter Large producer">Small producer</span></td>
+            <td class="govuk-table__cell">215148 <br>R25EP1234567345
+            </td>
+            <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission-rejected">Rejected</strong>
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./cos-overview.html" class="govuk-link">Acme
+                org Ltd.</a><br><span class="orgNameFilter Compliance scheme">Compliance scheme</span></td>
+            <td class="govuk-table__cell">214147<br>PEPR00000125P1
+            </td>
+            <td class="govuk-table__cell">18 February 2025 <br> 11:25:15</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--light-blue" id="status-resubmission-accepted">Accepted</strong>
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./small-producer/queried/overview.html" class="govuk-link">Acme
+                org Ltd.</a><br><span class="Small producer">Small producer</span></td>
+            <td class="govuk-table__cell">215148<br>PEPR00000125P1
+            </td>
+            <td class="govuk-table__cell">17 November 2025 <br> 11:45:12</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
+                style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="./large-producer/pending/overview.html" class="govuk-link">Acme
+                org Ltd.</a><br><span class="orgNameFilter Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">215148<br>PEPR00000125P1
+            </td>
+            <td class="govuk-table__cell">22 October 2025 <br> 09:30:05</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
+                style=" padding-top: 7px;">Pending</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Beta
+                Comply</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">415146 <br> R26EP39346784 </td>
+            <td class="govuk-table__cell">11 September 2023 <br> 14:12:14</td>
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Oasis
+                Packaging Ltd</a><br><span class="Compliance scheme">Compliance scheme</span></td>
+            <td class="govuk-table__cell">033141<br>Ref No:
+              675298_9</td>
+            <td class="govuk-table__cell">18 March 2023 <br> 20:37:52</td>
+
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
+                style=" padding-top: 7px;">Refused</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state">Division Packing
+                Ltd</a><br><span class="Compliance scheme">Compliance scheme</span>
+            </td>
+            <td class="govuk-table__cell">743141<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">01 April 2023 <br> 16:15:05</td>
+
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
+                style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Cure
+                Packaging Ltd</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">093141<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">22 April 2023 <br> 17:00:10</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
+                style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Zeppelin Packaging
+                Ltd</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">673145<br>R25EP1234567345</td>
+            <td class="govuk-table__cell">19 May 2023 <br> 14:00:30</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style="padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Zeppelin Packaging
+                Ltd</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">673145<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">19 May 2023 <br> 14:00:30</td>
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple"
+                style=" padding-top: 7px;">Queried</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Zeppelin Packaging
+                Ltd</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">673145<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">19 May 2023 <br> 14:00:30</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+                style="background-color:#282d30;color:#e5e6e7; padding-top: 7px;">
+                Cancelled
+              </strong></td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Pink
+                org Ltd</a><br><span class="Compliance scheme">Compliance scheme</span></td>
+            <td class="govuk-table__cell">033141<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">17 March 2023 <br> 13:27:05</td>
+
+            <td class="govuk-table__cell">2023</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
+                style=" padding-top: 7px;">Refused</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Pixies
+                Packaging Ltd</a><br><span class="Small producer">Small producer</span></td>
+            <td class="govuk-table__cell">953149<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">19 March 2023 <br> 10:47:08</td>
+
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
+                style=" padding-top: 7px;">Pending</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Varpak</a><br><span
+                class="Small producer">Small producer</span>
+            </td>
+            <td class="govuk-table__cell">583142<br>R25EP1234567345</td>
+            <td class="govuk-table__cell">4 April 2023 <br> 10:47:08</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Lattice Lumia
+                Ltd.</a><br><span class="Compliance scheme">Compliance scheme</span>
+            </td>
+            <td class="govuk-table__cell">983143<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">10 April 2023 <br> 11:27:04</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
+                style=" padding-top: 7px;">Refused</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Nova</a><br><span
+                class="Compliance scheme">Compliance scheme</span>
+            </td>
+            <td class="govuk-table__cell">763141<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">02 May 2023 <br> 15:35:13</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
+                style=" padding-top: 7px;">Pending</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state ">Nexus
+                org Ltd.</a><br><span class="Small producer">Small producer</span></td>
+            <td class="govuk-table__cell">033144<br>R25EP1234567345</td>
+            <td class="govuk-table__cell">13 March 2023 <br> 16:15:05</td>
+
+            <td class="govuk-table__cell">2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state">Omni
+                org Ltd.</a><br><span class="Compliance scheme">Compliance scheme</span></td>
+            <td class="govuk-table__cell">683144<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">19 March 2023 <br> 11:27:04</td>
+
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
+                style=" padding-top: 7px;">Refused</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state">Orbit
+                org Ltd.</a><br><span class="Large producer">Large producer</span></td>
+            <td class="govuk-table__cell">943176<br>PEPR00000125P1</td>
+            <td class="govuk-table__cell">29 March 2023 <br> 14:14:36</td>
+
+            <td class="govuk-table__cell">2023</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
+                style=" padding-top: 7px;">Pending</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+          <tr>
+            <td class="govuk-table__cell"><a href="#"
+                class="govuk-link govuk-link--no-underline govuk-link--no-visited-state">ZetaZephyr</a><br><span
+                class="Large producer">Compliance scheme</td></span>
+            <td class="govuk-table__cell">743147<br>R25EP1234567345</td>
+            <td class="govuk-table__cell">07 April 2023 <br> 09:12:12</td>
+            <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
+                style=" padding-top: 7px;">Granted</strong>
+            </td>
+            <td class="govuk-table__cell">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+  <!--c-->
+  <div style="margin-left:15px;">
+    <ul class="govuk-pagination__list">
+      <li class="govuk-pagination__item govuk-pagination__item--current">
+        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"
+          aria-current="page">
+          1
+        </a>
+      </li>
+      <li class="govuk-pagination__item">
+        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+          2
+        </a>
+      </li>
+      <li class="govuk-pagination__item">
+        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+          3
+        </a>
+      </li>
+      <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+      <li class="govuk-pagination__item">
+        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
+          10
+        </a>
+      </li>
+    </ul>
+    <div class="govuk-pagination__next">
+      <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next"> <span
+          class="govuk-pagination__link-title">Next</span> <svg
+          class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13"
+          width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+          <path
+            d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+          </path>
+        </svg></a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    // Get filter values
+    const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
+    const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
+
+    // Get selected checkboxes
+    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Separate resubmission filters
+    let resubmissionFilters = statusFilters.filter(status =>
+      ["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
+
+    // Filter out resubmission-related statuses from standard status filters
+    let standardStatusFilters = statusFilters.filter(status =>
+      !["resubmission-pending", "resubmission-accepted", "resubmission-rejected"].includes(status)
+    );
+
+    // Define statuses that disable resubmission filtering
+    let statusesDisablingResubmission = ["pending", "granted", "refused", "queried", "cancelled"];
+    let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
+
+    // Get year filters
+    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Check if no filters are selected
+    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 &&
+      statusFilters.length === 0 && yearFilters.length === 0;
+    if (noFiltersSelected) {
+      window.location.href = '../manage-data-submissions-no-results';
+      return;
+    }
+
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilters, yearFilters, otherStatusSelected });
+
+    // Get table rows
+    const rows = document.querySelectorAll('#submission-table-body tr');
+    let anyRowVisible = false; // Track if any row is visible after filtering
+
+    rows.forEach(row => {
+      // Extract cell values
+      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase();
+      const orgId = row.cells[1].textContent.trim().toLowerCase();
+      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
+      const submissionYear = row.cells[3].textContent.trim().toLowerCase();
+
+      // Get Submission Status (Column 5)
+      const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Get Resubmission Status (Column 6)
+      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong[id^="status-resubmission"]')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Handle resubmission filtering
+      if (resubmissionFilters.length > 0 && !otherStatusSelected) {
+        let resubmissionMatch = resubmissionStatusTags.some(tag => resubmissionFilters.includes(`resubmission-${tag}`)); // Match specific resubmission status
+        let grantedMatch = submissionStatusTags.includes("granted");
+
+        // Only show rows where "Granted" exists AND resubmission status matches the filters
+        if (grantedMatch && resubmissionMatch) {
+          row.style.display = ''; // Show row
+          anyRowVisible = true;
+        } else {
+          row.style.display = 'none'; // Hide row
+        }
+        return; // Skip other filters when Resubmission is active
+      }
+
+      // Match Submission Status (Normal filtering)
+      const submissionStatusMatch = standardStatusFilters.length === 0 ||
+        standardStatusFilters.some(filter => submissionStatusTags.includes(filter));
+
+      // Apply all other filter conditions
+      const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
+      const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
+      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
+      const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
+
+      // Final row visibility check
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && submissionStatusMatch && yearMatch) {
+        row.style.display = ''; // Show row
+        anyRowVisible = true;
+      } else {
+        row.style.display = 'none'; // Hide row
+      }
+    });
+
+    if (!anyRowVisible) {
+      window.location.href = '../manage-data-submissions-no-results';
+    }
+  });
+
+  // Clear filters
+  document.getElementById('clear-filters').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('filter-form').reset();
+    document.querySelectorAll('#submission-table-body tr').forEach(row => {
+      row.style.display = ''; // Show all rows
+    });
+  });
+
+</script>
+
+{% endblock %}
