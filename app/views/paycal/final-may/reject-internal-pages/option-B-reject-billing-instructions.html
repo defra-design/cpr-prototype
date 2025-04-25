@@ -15,10 +15,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Calculation run 99</span>
-    <h1 class="govuk-heading-xl">Give a reason for each rejected billing instruction</h1>
+    <h1 class="govuk-heading-xl">Give a reason for rejecting selected billing instructions</h1>
 
-    <p class="govuk-body-m">Provide a reason for rejecting each billing instruction. Your reasons will be saved
-      automatically.</p>
+    <p class="govuk-body-m">Select the billing instructions you want to reject and give a reason that applies to all
+      selected instructions. Your changes will be saved automatically.</p>
 
     <div>
       <!-- Results table start -->
@@ -39,6 +39,7 @@
       <!-- Results table end -->
     </div>
     <h2 class="govuk-heading-m">Rejected billing instructions</h2>
+
     <!-- TABLE -->
     <table class="govuk-table" class="govuk-table" style="table-layout: fixed; width: 100%;">
       <thead class="govuk-table__head">
@@ -293,103 +294,110 @@
         <!-- Content end-->
       </tbody>
     </table>
-  </div>
-</div>
 
 
+    <!-- Pagination block -->
 
-<!-- Pagination block -->
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+      <!-- Left side: pagination numbers + next -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"
+              aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+              3
+            </a>
+          </li>
+          <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
+              700
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next" style="margin-left: 20px;">
+          <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next">
+            <span class="govuk-pagination__link-title">Next</span>
+            <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
+              height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path
+                d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
-  <!-- Left side: pagination numbers + next -->
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <ul class="govuk-pagination__list">
-      <li class="govuk-pagination__item govuk-pagination__item--current">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"
-          aria-current="page">
-          1
-        </a>
-      </li>
-      <li class="govuk-pagination__item">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
-          2
-        </a>
-      </li>
-      <li class="govuk-pagination__item">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
-          3
-        </a>
-      </li>
-      <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
-      <li class="govuk-pagination__item">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
-          700
-        </a>
-      </li>
-    </ul>
-    <div class="govuk-pagination__next" style="margin-left: 20px;">
-      <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next">
-        <span class="govuk-pagination__link-title">Next</span>
-        <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13"
-          width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-          <path
-            d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
-          </path>
-        </svg>
+      <!-- Right side: items per page -->
+      <div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item">
+            Items per page 10
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+              50
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+              100
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Clear float if needed -->
+    <div style="clear: both;"></div>
+
+    <!-- Bigger text box start -->
+    <div style="margin-top: 60px;">
+      <h2 class="govuk-heading-m">Bulk reason for rejection (optional)</h2>
+      <p class="govuk-body-m">Your reason must apply to all selected billing instructions.</p>
+      </p>
+      <div style="padding:0px;">
+        <div class="govuk-form-group">
+          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10"
+            aria-describedby="more-detail-hint" style="width: 960px; margin-bottom: 0px;"></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Bigger text box end -->
+
+    <!-- Reject selected  start -->
+    <div style="margin-top: 40px;">
+      <h2 class="govuk-heading-m">Update billing instructions</h2>
+
+      <a href="../reject-selected-page/2-confirmation-B-option.html" role="button"
+        class="govuk-button govuk-button--warning" data-module="govuk-button">
+        Reject selected
       </a>
     </div>
-  </div>
+    <!-- Reject selected end -->
 
-  <!-- Right side: items per page -->
-  <div>
-    <ul class="govuk-pagination__list">
-      <li class="govuk-pagination__item">
-        Items per page 10
-      </li>
-      <li class="govuk-pagination__item">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
-          50
-        </a>
-      </li>
-      <li class="govuk-pagination__item">
-        <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
-          100
-        </a>
-      </li>
-    </ul>
+
+
+    <p class="govuk-body" style="margin-top: 30px;">
+      <a href="./confirm-billing-instructions-B-option.html" class="govuk-link">Return to billing instructions</a>
+    </p>
+
+
   </div>
 </div>
 
 
-<!-- Clear float if needed -->
-<div style="clear: both;"></div>
-
-
-<!-- Reject selected  start -->
-<div style="margin-top: 40px;">
-  <h2 class="govuk-heading-m">Update billing instructions</h2>
-
-  <a href="../reject-selected-page/2-confirmation.html" role="button" class="govuk-button govuk-button--warning"
-    data-module="govuk-button">
-    Reject selected
-  </a>
-</div>
-
-<!-- Reject selected end -->
-
-
-<p class="govuk-body" style="margin-top: 30px;">
-  <a href="../confirm-billing-instructions.html" class="govuk-link">Return to billing instructions</a>
-</p>
-
-</div>
-</div>
-<!-- Filtered results end -->
-
-
-
-
-
-</div>
 
 {% endblock %}
