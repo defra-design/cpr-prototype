@@ -1,0 +1,91 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+
+<form class="form" action="./accreditation-material" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        You can complete the application, but your account settings don’t allow you to submit it
+      </h1>
+     
+      <h2 class="govuk-body-s"><p>Some people in your organisation are responsible for verifying accreditation applications. They have settings allowing them to submit the application. </p>
+</h2>
+
+    </legend>
+
+
+
+    <h1 class="govuk-heading-m">
+      People who can submit accreditation applications     </h1>
+   
+    
+<br>
+    <table class="govuk-table">
+
+     
+      <tbody class="govuk-table__body">
+      
+        <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Andrew Recycler</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Gary Packaging</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Scott Reprocessor Recycler</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <h2 class="govuk-body-s"><p> One of them will need to sign in to submit the application. </p>
+    </h2>
+</fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Sign out"  />
+
+
+
+
+</form>
+
+</div>
+
+{% endblock %}
