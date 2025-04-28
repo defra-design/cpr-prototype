@@ -1,0 +1,50 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+
+<form class="form" action="./accreditation-prn" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        You can complete the application, but not submit it
+      </h1>
+     
+      <h2 class="govuk-body-s"><p>Some people in your organisation are responsible for verifying accreditation applications. </p>
+</h2>
+<h2 class="govuk-body-s"><p> One of them will need to sign in to submit the application. </p>
+</h2>
+
+
+    </legend>
+
+</fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Continue" style="margin-right: 20px;"  /> 
+
+
+</form>
+
+</div>
+
+{% endblock %}
