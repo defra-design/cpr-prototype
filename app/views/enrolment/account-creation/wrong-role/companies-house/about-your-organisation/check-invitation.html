@@ -46,13 +46,14 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %} 
+{% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <br>
           
             <h1 class="govuk-heading-l">Check invitation details</h1>
+            <p>Any invites created for one or more approved persons will be sent once the organisation is added.</p>
 
               <table class="govuk-table">
                 
@@ -76,28 +77,23 @@ Report packaging data
                     <td class="govuk-table__cell govuk-table__cell">Frankie Bridger<br>frankie.bridger@acornltd.com<br>07890030028</td>
                     <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
-                  </tr>
-                  
-                  
-                  
+                  </tr>  
                 </tbody>
               </table>
 
                 <p></p>
+
                 <div class="govuk-button-group">
                   
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" <a class="govuk-link" href="check-your-answers"</a>
-                    Remove
-                  </button>
+                  <a href="manage-account-person-2" class="govuk-button govuk-button--secondary">Remove</a>    
                 </div>
 
-           <form action="check-your-answers" method="post" novalidate>
-              <input type="hidden" name="answers-checked" value="true">
-             <input type="hidden" name="waste-data-reprocesser" value="true">
-              <button class="govuk-button" data-module="govuk-button">
-Continue              </button>
-            </form>
-            <a class="govuk-link" href="team-role">Invite another approved person</a>
+                <div class="govuk-button-group">
+                  <a href="check-your-answers" class="govuk-button" type="submit">Continue</a> 
+                  <a href="team-role" class="govuk-button govuk-button--secondary">Invite another person</a>    
+                  
+                </div>
+
           </div>
 
         </div>
@@ -106,4 +102,6 @@ Continue              </button>
 
 </div>
 
+
 {% endblock %}
+
