@@ -1,17 +1,51 @@
-{% set serviceName = "Registration" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% extends "layout.html" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
-{% block beforeContent %}
-  {{ govukBackLink ({
-      text: "Back",
-      href: "javascript:history.back()"
-	}) }}
-{% endblock %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-    {{serviceName}} prototype
+ Report packaging data
 {% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
