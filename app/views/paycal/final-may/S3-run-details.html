@@ -1,35 +1,35 @@
 {% set serviceName = "Run the fees and payments calculator" %}
- 
+
 {% extends "layout.html" %}
- 
+
 {% block pageTitle %}
-    {{serviceName}} prototype
+{{serviceName}} prototype
 {% endblock %}
-{% block content %} 
+{% block content %}
 
 <style>
-.govuk-radios__label {
+  .govuk-radios__label {
     padding: 0px 15px 11px 10px;
-}
-
+  }
 </style>
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
-    </div>
+  </div>
 
-    <div class="govuk-body account-info govuk-grid-column-one-half">
-      <div class="alignname" style="margin-right: 15px;">
-          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
-      </div>
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
     </div>
+  </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-      
+
   </div>
 </div>
 
@@ -40,13 +40,14 @@
     &nbsp; &nbsp; <br>
     <form method="POST" action="S3-classify-run">
       <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-                  <span class="govuk-caption-l">Calculation run 99</span>
-                  <h1 class="govuk-heading-l">Calculation run details</h1>
-                  <p class="govuk-body">Download the results file to review the calculation run offline. When you are ready, return to classify or delete it.</p>
-  
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+              <span class="govuk-caption-l">Calculation run 99</span>
+              <h1 class="govuk-heading-l">Calculation run details</h1>
+              <p class="govuk-body">Download the results file to review the calculation run offline. When you are ready,
+                return to classify or delete it.</p>
+
               <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
 
               <table class="govuk-table">
@@ -77,8 +78,8 @@
                 Results file
               </button>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-              
-              
+
+
               <div class="govuk-radios" data-module="govuk-radios">
                 <!--
                 <div class="govuk-radios__item">
@@ -89,56 +90,62 @@
                   </label>
               </div>
             -->
-            <h2 class="govuk-heading-m">What do you want to do next?</h2>
+                <h2 class="govuk-heading-m">What do you want to do next?</h2>
+                <p class="govuk-body">If you are unsure about how to classify this run, speak to your finance team or a
+                  senior team member before continuing.</p>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialTest">
+                  <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio"
+                    value="outputInitialTest">
                   <label class="govuk-label govuk-radios__label" for="classify">
                     <strong>Classify</strong><br>
-                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this calculation run.</p>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this
+                      calculation run.</p>
                   </label>
+                </div>
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio"
+                    value="outputDelete">
+                  <label class="govuk-label govuk-radios__label" for="delete">
+                    <strong>Delete</strong><br>
+                    <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it’s no longer
+                      needed.
+                    </p>
+                  </label>
+                </div>
               </div>
-              
+            </fieldset>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputDelete">
-                <label class="govuk-label govuk-radios__label" for="delete">
-                  <strong>Delete</strong><br>
-                  <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it’s no longer needed.
-                  </p>
-                </label>
-            </div>
           </div>
-        </fieldset>
 
-      </div>
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-      {% from "govuk/components/details/macro.njk" import govukDetails %}
-      
-      <div class="govuk-button-group">
-        <div class="govuk-button-group">
-          <!--
+          <div class="govuk-button-group">
+            <div class="govuk-button-group">
+              <!--
           {{ govukButton({
             text: "Save and come back later",
             classes: "govuk-button--secondary"
           }) }}
           -->
 
-          {{
-            govukButton({
-                    text: "Continue"
-                })
-        }}
-        <a href="S3-dashboard" class="govuk-button govuk-button--secondary" style="display: inline;">Cancel</a>
-        </div>
+              {{
+              govukButton({
+              text: "Continue"
+              })
+              }}
+              <a href="S3-dashboard" class="govuk-button govuk-button--secondary" style="display: inline;">Cancel</a>
+            </div>
 
-        &nbsp; &nbsp;  <a class="govuk-link" href="S3-dashboard">Return to dashboard</a>
-      </div>
+            &nbsp; &nbsp; <a class="govuk-link" href="S3-dashboard">Return to dashboard</a>
+          </div>
+    </form>
+  </div>
+
   </form>
-  </div>
-
-</form>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 {% endblock %}
