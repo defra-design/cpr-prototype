@@ -1,0 +1,90 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="./payment-online-confirmation.html" method="post">
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Payment successful
+            </h1>
+            <div class="govuk-panel__body">
+              Registration application fee for steel at 23 Ruby Street<br>has been paid
+            </div>
+          </div>
+          <p class="govuk-body">
+            We have sent an email confirmation to <a href="mailto:email@address.com">email@address.com</a>
+          </p>
+
+          <p class="govuk-body">Your packaging data resubmission reference: 000568587647654</p>
+
+          <p class="govuk-body">The payment reference number will also be used as your application reference.</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            Submit your packaging data as the last step before it is reviewed by the regulator
+          </p>
+
+
+          <!-- Content end-->
+
+        
+        </form>
+        <a href="../accreditation-view/overview.html">Go to your account homepage</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
