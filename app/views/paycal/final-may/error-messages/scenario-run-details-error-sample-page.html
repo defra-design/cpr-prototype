@@ -1,0 +1,148 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+<style>
+  .govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span>
+      <a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br>
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Please select an option before continuing.</a>
+            </li>
+            <li>
+              <a href="#">Choose a classification.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <form id="actionForm" method="GET" action="../../calculate-packaging-payments.html">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <span class="govuk-caption-l">Calculation run 99 (prototype usage only: unclassified)</span>
+          <h1 class="govuk-heading-l">Calculation-run-details</h1>
+          <p class="govuk-body">Download the results file to review the calculation run offline. When you are ready,
+            return to classify or delete it.</p>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Financial year</th>
+                <td class="govuk-table__cell">2024-25</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Calculation ID</th>
+                <td class="govuk-table__cell">240008</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Run date and time</th>
+                <td class="govuk-table__cell">1 May 2004 at 12:09</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Run by</th>
+                <td class="govuk-table__cell">Steve Jones</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="govuk-heading-m">Downloads</h2>
+          <p class="govuk-body">Download files related to this calculation run.</p>
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Results file
+          </button>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-radios" data-module="govuk-radios"
+            style="padding-left: 15px; border-left: 5px solid #d4351c;">
+            <h2 class="govuk-heading-m">What do you want to do next?</h2>
+            <p class="govuk-body" style="font-weight: 700; color: #d4351c;">If you are unsure about how to classify this
+              run, speak to your finance team or a
+              senior team member before continuing.</p>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="classifyRun" name="calcRun" type="radio" value="classify">
+              <label class="govuk-label govuk-radios__label" for="classifyRun">
+                <strong>Classify</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">Choose a classification to process this
+                  calculation run.</p>
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="deleteRun" name="calcRun" type="radio" value="delete">
+              <label class="govuk-label govuk-radios__label" for="deleteRun">
+                <strong>Delete</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if it’s no longer
+                  needed.</p>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <!--<a href="../calculate-packaging-payments.html" class="govuk-button govuk-button--secondary">Cancel</a>-->
+      </div>
+
+      <a class="govuk-link" href="../calculate-packaging-payments.html">Return to dashboard</a>
+    </form>
+  </div>
+</div>
+
+
+
+
+<script>
+  document.getElementById("actionForm").addEventListener("submit", function (e) {
+    const classify = document.getElementById("classifyRun").checked;
+    const deleteRun = document.getElementById("deleteRun").checked;
+
+    if (classify) {
+      this.action = "./scenario1-classify-run.html";
+    } else if (deleteRun) {
+      this.action = "../../../delete-run.html";
+    } else {
+      e.preventDefault();
+      alert("Please select an option before continuing.");
+    }
+  });
+</script>
+
+{% endblock %}
