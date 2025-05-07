@@ -71,15 +71,21 @@
               </tr>
             </tbody>
           </table>
+          <!-- Download UI start -->
           <h2 class="govuk-heading-m">Downloads</h2>
-
           <p class="govuk-body">Download files related to this calculation run.</p>
-          <div class="govuk-button-group">
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Results file
-            </button>
-          </div>
+
+          <a id="download-button" href="#" class="govuk-button govuk-button--secondary" role="button">
+            Results file
+          </a>
+
+          <p id="download-status" class="govuk-body" style="display: none; margin-top: 15px;">
+            <strong>Downloading...</strong> Please wait while we prepare your file.
+          </p>
+
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <!-- Download UI end -->
           <h2 class="govuk-heading-m">Remove this run's classification</h2>
           <p class="govuk-body">Mark this run as a test or delete it to remove its classification.</p>
 
@@ -116,4 +122,17 @@
 </div>
 </div>
 </div>
+<script>
+  // Handle download simulation
+  document.getElementById('download-button').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const statusText = document.getElementById('download-status');
+    statusText.style.display = 'block';
+
+    setTimeout(() => {
+      statusText.innerHTML = '<strong>✔ Download complete.</strong> Your file has been saved.';
+    }, 2000);
+  });
+</script>
 {% endblock %}
