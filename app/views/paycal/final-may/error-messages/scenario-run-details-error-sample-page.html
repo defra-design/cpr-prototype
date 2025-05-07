@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <form id="actionForm" method="GET" action="../../calculate-packaging-payments.html">
+    <form id="actionForm" method="GET" action="#">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
           <span class="govuk-caption-l">Calculation run 99 (prototype usage only: unclassified)</span>
@@ -121,7 +121,7 @@
         <!--<a href="../calculate-packaging-payments.html" class="govuk-button govuk-button--secondary">Cancel</a>-->
       </div>
 
-      <a class="govuk-link" href="../calculate-packaging-payments.html">Return to dashboard</a>
+      <a class="govuk-link" href="#">Return to dashboard</a>
     </form>
   </div>
 </div>
@@ -129,20 +129,5 @@
 
 
 
-<script>
-  document.getElementById("actionForm").addEventListener("submit", function (e) {
-    const classify = document.getElementById("classifyRun").checked;
-    const deleteRun = document.getElementById("deleteRun").checked;
-
-    if (classify) {
-      this.action = "./scenario1-classify-run.html";
-    } else if (deleteRun) {
-      this.action = "../../../delete-run.html";
-    } else {
-      e.preventDefault();
-      alert("Please select an option before continuing.");
-    }
-  });
-</script>
 
 {% endblock %}
