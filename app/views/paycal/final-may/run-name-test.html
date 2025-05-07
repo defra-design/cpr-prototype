@@ -1,35 +1,35 @@
 {% set serviceName = "Run the fees and payments calculator" %}
- 
+
 {% extends "layout.html" %}
- 
+
 {% block pageTitle %}
-    {{serviceName}} prototype
+{{serviceName}} prototype
 {% endblock %}
-{% block content %} 
+{% block content %}
 
 <style>
-.govuk-radios__label {
+  .govuk-radios__label {
     padding: 0px 15px 11px 10px;
-}
-
+  }
 </style>
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
-    </div>
+  </div>
 
-    <div class="govuk-body account-info govuk-grid-column-one-half">
-      <div class="alignname" style="margin-right: 15px;">
-          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
-      </div>
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
     </div>
+  </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-      
+
   </div>
 </div>
 
@@ -40,12 +40,12 @@
     &nbsp; &nbsp; <br>
     <form method="POST" action="classification">
       <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-                  <span class="govuk-caption-l">Calculation run 99</span>
-                  <h1 class="govuk-heading-l">Calculation run details</h1>
-  
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+              <span class="govuk-caption-l">Calculation run 99</span>
+              <h1 class="govuk-heading-l">Calculation run details</h1>
+
               <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
 
               <table class="govuk-table">
@@ -68,35 +68,68 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- Download UI start -->
+
               <h2 class="govuk-heading-m">Downloads</h2>
               <p class="govuk-body">Download files related to this calculation run.</p>
 
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              <a id="download-button" href="#" class="govuk-button govuk-button--secondary" role="button">
                 Results file
-              </button>
+              </a>
+
+              <p id="download-status" class="govuk-body" style="display: none; margin-top: 15px;">
+                <strong>Downloading...</strong> Please wait while we prepare your file.
+              </p>
+
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <!-- Download UI end -->
+
+
               <h2 class="govuk-heading-m">Delete this run</h2>
               <p class="govuk-body">Remove this calculation run if you no longer need it.</p>
               <div class="govuk-button-group">
-              <a href="delete-run" class="govuk-button govuk-button--secondary" style="display: inline;">Delete run</a>
-              <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
-            </div>
+                <a href="delete-run" class="govuk-button govuk-button--secondary" style="display: inline;">Delete
+                  run</a>
+                <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+              </div>
 
-            
-        </fieldset>
 
-      </div>
+            </fieldset>
 
-      {% from "govuk/components/details/macro.njk" import govukDetails %}
-      
+          </div>
 
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
+
+    </form>
+  </div>
 
   </form>
-  </div>
-
-</form>
-      </div>
-    </div>
-  </div>
 </div>
+</div>
+</div>
+</div>
+
+
+
+<script>
+  document.getElementById('download-button').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent actual navigation for simulation
+
+    const statusText = document.getElementById('download-status');
+    statusText.style.display = 'block';
+
+    // Simulate download delay (e.g. 2 seconds)
+    setTimeout(() => {
+      statusText.innerHTML = '<strong>✔ Download complete.</strong> Your file has been saved.';
+
+      // If you'd like to trigger an actual download, uncomment below:
+      // window.location.href = '/downloads/results-file.csv'; 
+    }, 2000);
+  });
+</script>
+
+
 {% endblock %}
