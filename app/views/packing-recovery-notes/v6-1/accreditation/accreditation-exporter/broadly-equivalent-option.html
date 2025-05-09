@@ -1,0 +1,96 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Optional upload broadly equivalent evidence</h1>
+    <p class="govuk-body">As these site are in the EU or OECD it is optional to upload evidence at the time of application.</p>
+    <p class="govuk-body"> If you choose not to upload evidence you still need to obtain this evidence from the sites. The regulator may request the evidence.</p>
+  </p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Site name</th>
+      <th scope="col" class="govuk-table__header">Country</th>
+      <th scope="col" class="govuk-table__header">Upload status</th>
+      <th scope="col" class="govuk-table__header"></th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">ABC Exporters Ltd</td>
+      <td class="govuk-table__cell">United States</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">XYZ Exporters Ltd</td>
+      <td class="govuk-table__cell">Canada</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">LMN Exporters Ltd</td>
+      <td class="govuk-table__cell">Australia</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">OPQ Exporters Ltd</td>
+      <td class="govuk-table__cell">Japan</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">RST Exporters Ltd</td>
+      <td class="govuk-table__cell">India</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell">UVW Exporters Ltd</td>
+      <td class="govuk-table__cell">Brazil</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
+      Not uploaded
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence">Upload evidence</a></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <form method="post" novalidate action="">
+      <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <a href="confirm-site">
+          <input class="govuk-button" type="submit" value="Continue" />
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
