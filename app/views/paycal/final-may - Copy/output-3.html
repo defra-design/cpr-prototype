@@ -1,0 +1,103 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="run-name">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+</div>
+<br>
+
+   
+   <!--<h1 class="govuk-heading-xl">You have successfully deleted this file</h1>-->
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST" action="classification">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                      Classify this calculation run
+                    </h1>
+                </legend>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+                <h3 class="govuk-body-m">Choose a classification for this calculation run. You can have up to four runs per financial year.</h3>
+                
+                
+                <div class="govuk-radios" data-module="govuk-radios">
+  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
+                    <label class="govuk-label govuk-radios__label" for="initialRun">
+                      <strong>Initial run</strong><br>
+                    </label>
+                </div>
+                
+  
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputInterimRecalculationRun">
+                  <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
+                    <strong>Interim re-calculation run</strong><br>
+                  </label>
+              </div>
+  
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="finalRecalculationRun" name="calcRun" type="radio" value="outputFinalRecalculationRun">
+                <label class="govuk-label govuk-radios__label" for="finalRecalculationRun">
+                  <strong>Final re-calculation run</strong><br>
+                </label>
+            </div>
+  
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="finalRun" name="calcRun" type="radio" value="outputFinalRun">
+              <label class="govuk-label govuk-radios__label" for="finalRun">
+                <strong>Final run</strong><br>
+              </label>
+          </div> 
+            </div>
+          </fieldset>
+<br>
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You cannot re-classify a run after the billing file has been issued.
+            </strong>
+          </div>
+  
+        </div>
+  
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        
+  
+          <div class="govuk-button-group">
+            {{
+              govukButton({
+                      text: "Confirm classification"
+                  })
+          }}
+            <a class="govuk-link" href="calculate-packaging-payments">Return to dashboard</a>
+          </div>
+  
+    </form>
+  
+</div>
+
+{% endblock %}
