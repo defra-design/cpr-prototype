@@ -1,0 +1,87 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          
+            <h1 class="govuk-heading-l">You are now an approved person</h1>
+
+<p>As a partner, company director or secretary  in your business you are now an 'approved person' for your organisation.</p>
+  <p>You can now:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>continue to add your organisation </li>
+      <li>invite additional people within your organisation to be an approved person, from the eligible roles</li>
+    </ul>
+  </p>
+  
+      
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+
+       
+
+        <div class="govuk-button-group">
+          <a href="check-your-answers" class="govuk-button" type="submit">Continue</a>   
+        </div>
+
+          </div>
+
+        </div>
+      
+
+</div>
+
+{% endblock %}

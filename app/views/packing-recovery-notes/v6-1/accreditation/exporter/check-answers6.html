@@ -14,124 +14,108 @@
 
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
-          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+            <!-- Overseas Reprocessor Details -->
             <h2 class="govuk-heading-m">Overseas reprocessor details</h2>
-
-
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-                  <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Overseas reprocessor details
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {{data['materials']}}<br>
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="choose-material">
-                              Change<span class="govuk-visually-hidden"> previous application number</span>
-                          </a>
-                      </dd>
-                  </div>
-
-                  <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Person the regulator can contact
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                          {{data['regulator']}}
-                        
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                          <a class="govuk-link" href="contact-select">
-                              Change<span class="govuk-visually-hidden"> previous application number</span>
-                          </a>
-                      </dd>
-                  </div>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Packaging waste you export to this reprocessor
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['notesource']}}
-                </dd>
+                <dt class="govuk-summary-list__key">Organisation name</dt>
+                <dd class="govuk-summary-list__value">{{data['orgName'] | default('Not provided')}}</dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details">
-                    Change<span class="govuk-visually-hidden"> previous application number</span>
-                  </a>
+                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
                 </dd>
-              </div>            
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Country</dt>
+                <dd class="govuk-summary-list__value">{{data['country'] | default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Address</dt>
+                <dd class="govuk-summary-list__value">{{data['address']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
+                </dd>
+              </div>
+              <!-- Add other fields as necessary -->
             </dl>
 
-            <h2 class="govuk-heading-m">Interim site details</h2>
-
-
+            <!-- Regulator Contact -->
+            <h2 class="govuk-heading-m">Person the regulator can contact</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Using interim sites
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{data['materials']}}<br>
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="choose-material">
-                            Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Interim site details
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['regulator']}}
-                      
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="contact-select">
-                            Change<span class="govuk-visually-hidden"> previous application number</span>
-                        </a>
-                    </dd>
-                </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Person the regulator can contact
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{data['notesource']}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="waste-details">
-                  Change<span class="govuk-visually-hidden"> previous application number</span>
-                </a>
-              </dd>
-            </div>            
-          </dl>
-
-        
-
-            <form action="./add-oversea-repo-site-2" method="post" novalidate>
-
-              <input type="hidden" name="answers-checked" value="true">
-            
-              <div class="govuk-button-group">
-                {{ govukButton({
-                  text: "Confirm and continue"
-                }) }}
-              
-                {{ govukButton({
-                  text: "Save and continue later",
-                  classes: "govuk-button--secondary"
-                }) }}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Full name</dt>
+                <dd class="govuk-summary-list__value">{{data['Full name']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="contact-details">Change</a>
+                </dd>
               </div>
-            
-            </form>
-          </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Email address</dt>
+                <dd class="govuk-summary-list__value">{{data['Email address']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="contact-details">Change</a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Telephone</dt>
+                <dd class="govuk-summary-list__value">{{data['Telephone']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="contact-details">Change</a>
+                </dd>
+              </div>
+            </dl>
 
+            <!-- Packaging Waste Export -->
+            <h2 class="govuk-heading-m">Packaging waste exported to this reprocessor</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Packaging waste</dt>
+                <dd class="govuk-summary-list__value">{{data['Packaging waste']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-details">Change</a>
+                </dd>
+              </div>
+            </dl>
+
+            <!-- Interim Site Details -->
+            <h2 class="govuk-heading-m">Interim site details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Organisation name</dt>
+                <dd class="govuk-summary-list__value">{{data['Organisation name']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="interim-site-details">Change</a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Country</dt>
+                <dd class="govuk-summary-list__value">{{data['Country']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="interim-site-details">Change</a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Person the regulator can contact</dt>
+                <dd class="govuk-summary-list__value">{{data['Address']| default('Not provided')}}</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="interim-site-details">Change</a>
+              <!-- Add other fields as necessary -->
+            </dl>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 20px;">
+              <a href="add-oversea-repo-site-2.html">
+                <input class="govuk-button" type="submit" value="Confirm and continue" />
+              </a>
+              <a href="#">
+                <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+              </a>
+            </div>
+          </div>
         </div>
       </main>
     </div>
