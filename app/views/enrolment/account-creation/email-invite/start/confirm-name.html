@@ -1,19 +1,50 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set serviceName = "Create an account" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
-{% set title = "Create an account" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-    {{title}} - GOV.UK
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
 
-<a class="govuk-back-link" href="">Back</a>
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
-
 
 {% block content %}
 
