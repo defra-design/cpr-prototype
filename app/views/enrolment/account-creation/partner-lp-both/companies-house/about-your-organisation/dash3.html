@@ -1,10 +1,35 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% block page_title %}
-  GOV.UK prototype kit
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
 {% endblock %}
-{% block beforeContent %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
   
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
 
