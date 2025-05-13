@@ -1,0 +1,90 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          
+            <h1 class="govuk-heading-l">You cannot invite this person to be an approved
+              person</h1>  
+              <br>
+              <p>You cannot invite this person to be an approved
+                person but you can still continue to add the organisation.</p>      
+
+  <p>You do not have to invite someone to be an approved person immediately but you must invite one before youcan:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>apply for accreditation</li>
+      <li>submit and verify data returns</li>
+    </ul>
+  </p>
+
+      
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+
+       
+
+        <div class="govuk-button-group">
+          <a href="check-your-answers" class="govuk-button" type="submit">Continue</a>   
+        </div>
+        <a class="govuk-link" href="team-manage-control">Invite an eligible team member</a>
+          
+         
+          </div>
+
+        </div>
+</div>
+
+{% endblock %}
