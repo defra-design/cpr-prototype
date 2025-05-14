@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sitemap Viewer</title>
+</head>
+
+<body>
+  <h1>Sitemap URLs</h1>
+  <ul id="sitemapList"></ul>
+
+  <script>
+    fetch('/sitemap.xml')
+      .then(res => res.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const urls = data.querySelectorAll("url > loc");
+        const list = document.getElementById("sitemapList");
+        urls.forEach(url => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${url.textContent}" target="_blank">${url.textContent}</a>`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+
+</html>
