@@ -1,0 +1,121 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Home",
+  href: "javascript:history.back()"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+  
+</nav>
+<hr class="govuk-section-break govuk-!-margin-top-7 govuk-section-break--visible">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-xl">
+      Resubmit registration data for 2025
+    </h1>
+    <div class="govuk-inset-text">
+      Your current registration status will not change while you update your registration data. Your producer registration number will remain the same.
+    </div>
+    <h2 class="govuk-heading-m">
+      Before you start
+    </h2>
+
+    <p class="govuk-body">Read the guidance on <a rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging">how to report
+        organisation details (opens in a new tab)</a>.</p>
+    <p class="govuk-body">
+      Adding or removing members might affect your organisation's packaging obligations – make sure you have read the <a
+        href="https://www.gov.uk/guidance/extended-producer-responsibility-for-packaging-who-is-affected-and-what-to-do#period-you-must-report-on"
+        target="_blank">guidelines for extended producer responsibility for packaging (opens in a new tab)</a>.
+
+    </p>
+
+    <p class="govuk-body">To resubmit your data you must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>submit your full amended organisation, brand and partner details in CSV format</li>
+      <li>view and pay any additional fees if required</li>
+      <li>resubmit to the environmental regulator</li>
+    </ul>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    </form>
+    </div>
+    </div>
+
+
+    {% endblock %}

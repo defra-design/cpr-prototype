@@ -1,0 +1,131 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        What is the organisation’s address?
+      </h1>
+      <p class="govuk-body">
+        This is a registered office or head office or principal place of business address.
+            </p>
+    </legend>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Organisation name
+        </label>
+        <input class="govuk-input" id="address-line-1" name="orgName" type="text" autocomplete="address-line1">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Country
+        </label>
+        <input class="govuk-input" id="address-line-1" name="country" type="text" autocomplete="address-line1">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Address line 1
+        </label>
+        <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-2">
+          Address line 2 (optional)
+        </label>
+        <input class="govuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-town">
+          Town or city
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-county">
+          State, province or region (optional)
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Leave blank if the address does not have a state, province or region
+        </div>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">
+          Postcode or similar
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Some countries use only numbers, others use a mix of letters and numbers. Leave blank if the country does not have postcodes.
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+      </div>
+     
+ 
+
+</fieldset>
+</div>
+<br>
+         
+          <button class="govuk-button" formaction="uk-nation-select">Continue</button> <!--<button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>-->
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

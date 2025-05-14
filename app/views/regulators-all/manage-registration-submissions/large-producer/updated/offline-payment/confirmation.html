@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR: Regulators' Service" %}
+
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="pom-data-details-organisation-small-producer-Granted.html">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to add this <br> payment?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          No
+        </label>
+      </div>
+    
+      
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue", href: "../overview.html"
+  }) }}
+  
+  
+</div>
+{% endblock %}

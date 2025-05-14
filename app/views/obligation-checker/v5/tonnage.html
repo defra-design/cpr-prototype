@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
-  Collection and packaging reforms
+Collection and packaging reforms
 {% endset%}
 
 {% set serviceName = "Check if you need to report packaging data" %}
@@ -13,8 +13,8 @@ Check if you need to report packaging data | {{serviceName}} prototype
 {% block beforeContent %}
 
 {{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
+text: "Back",
+href: "javascript:history.back()"
 }) }}
 
 {% endblock %}
@@ -26,121 +26,135 @@ Check if you need to report packaging data | {{serviceName}} prototype
 
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
 
-        <span class="govuk-caption-l">Amount of packaging</span>
-        <h1 class="govuk-heading-l">The amount of packaging you handle and supply</h1>
+    <!--<span class="govuk-caption-l">Amount of packaging</span>-->
+    <!--<h1 class="govuk-heading-l">The amount of packaging you handle and supply</h1>-->
 
-        <p>Some of the ways you handle and supply packaging may make you legally obligated under EPR for packaging. These include:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          {% if data["brand-owner"] == 'yes' %}
-          <li>
-            supplying goods to the UK market under your own brand
-          </li>
-          {% endif %}
-          {% if data["packer-filler"] == 'yes' %}
-          <li>
-            placing goods into packaging that's unbranded when it's sold
-          </li>
-          {% endif %}
-          {% if data["importer"] == 'yes' %}
-          <li>
-            importing packaging that contains goods into the UK to sell
-          </li>
-          {% endif %}
-          {% if data["distributor"] == 'yes' %}
-          <li>
-            selling empty packaging to businesses that fall under the higher threshold
-          </li>
-          {% endif %}
-          {% if data["online-marketplace"] == 'yes' %}
-          <li>
-            owning an online marketplace
-          </li>
-          {% endif %}
-          {% if data["service-provider"] == 'yes' %}
-          <li>
-            hiring or loaning out reusable packaging to UK organisations
-          </li>
-          {% endif %}
-        </ul>
+    <h1 class="govuk-heading-l">How much packaging in total do you supply?</h1>
+    <p class="govuk-body"><a href="#" class="govuk-link">Check the guidance</a> for the definition of packaging and
+      information about relevant packaging activities (these are also referred to as 'producer functions')
+    </p>
+    <p class="govuk-body">You do not need to include any packaging for packaging activity that another party is
+      responsible for.</p>
 
-        <!-- INTERIM DRS -->
-        {% if data["drink-size"] == 'yes' %}
-        <div class="govuk-inset-text">
-        <p class="govuk-body " >
-          You also told us that you place single-use drinks containers on the market in England, Wales or Northern Ireland. You should include this packaging in your total tonnage.
-        </p>
-        </div>
-        {% endif %}
+    <!--<p>Some of the ways you handle and supply packaging may make you legally obligated under EPR for packaging. These
+      include:</p>-->
 
-        {% if data["drink-size"] == 'no' %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% if data["brand-owner"] == 'yes' %}
+      <li>
+        supplying goods to the UK market under your own brand
+      </li>
+      {% endif %}
+      {% if data["packer-filler"] == 'yes' %}
+      <li>
+        placing goods into packaging that's unbranded when it's sold
+      </li>
+      {% endif %}
+      {% if data["importer"] == 'yes' %}
+      <li>
+        importing packaging that contains goods into the UK to sell
+      </li>
+      {% endif %}
+      {% if data["distributor"] == 'yes' %}
+      <li>
+        selling empty packaging to businesses that fall under the higher threshold
+      </li>
+      {% endif %}
+      {% if data["online-marketplace"] == 'yes' %}
+      <li>
+        owning an online marketplace
+      </li>
+      {% endif %}
+      {% if data["service-provider"] == 'yes' %}
+      <li>
+        hiring or loaning out reusable packaging to UK organisations
+      </li>
+      {% endif %}
+    </ul>
 
-        {% endif %}
-        
-        <form method="POST" action="route-tonnage">
-          <div class="govuk-form-group govuk-!-margin-top-6">
-            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <!-- INTERIM DRS -->
+    {% if data["drink-size"] == 'yes' %}
+    <div class="govuk-inset-text">
+      <p class="govuk-body ">
+        You also told us that you place single-use drinks containers on the market in England, Wales or Northern
+        Ireland. You should include this packaging in your total tonnage.
+      </p>
+    </div>
+    {% endif %}
+
+    {% if data["drink-size"] == 'no' %}
+
+    {% endif %}
+
+    <form method="POST" action="route-tonnage">
+      <div class="govuk-form-group govuk-!-margin-top-6">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 
           {% if (data['acting-as'] == "parent-company") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-4">
-              <h2 class="govuk-fieldset__heading">
-                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
-            </legend>
+          <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-4">
+            <h2 class="govuk-fieldset__heading">
+              How much packaging in total did you handle and supply in these ways, in 2022? </h2>
+          </legend> -->
 
-            <div id="changed-name-hint" class="govuk-hint">
-              You should calculate the total amount of packaging handled or supplied in these ways across the relevant subsidiaries in your organisation.
-            </div>
+          <!--<div id="changed-name-hint" class="govuk-hint">
+            You should calculate the total amount of packaging handled or supplied in these ways across the relevant
+            subsidiaries in your organisation.
+          </div> -->
           {% endif %}
 
           {% if (data['acting-as'] == "subsidiary") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h2 class="govuk-fieldset__heading">
-                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
-            </legend>
+          <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              How much packaging in total did you handle and supply in these ways, in 2022? </h2>
+          </legend> -->
           {% endif %}
 
           {% if (data['acting-as'] == "individual") %}
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h2 class="govuk-fieldset__heading">
-                How much packaging in total did you handle and supply in these ways, in 2022?               </h2>
-            </legend>
+          <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              How much packaging in total did you handle and supply in these ways, in 2022? </h2>
+          </legend> -->
           {% endif %}
 
-          
 
 
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Under 25 tonnes" name="packaging-tonnage" type="radio" value="Under 25 tonnes" {{ checked("packaging-tonnage", "Under 25 tonnes") }}>
-                  <label class="govuk-label govuk-radios__label" for="Under 25 tonnes">
-                    Under 25 tonnes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="25 tonnes to 50 tonnes" name="packaging-tonnage" type="radio" value="25 tonnes to 50 tonnes" {{ checked("packaging-tonnage", "25 tonnes to 50 tonnes") }}>
-                  <label class="govuk-label govuk-radios__label" for="25 tonnes to 50 tonnes">
-                    25 tonnes to 50 tonnes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="50 tonnes or more" name="packaging-tonnage" type="radio" value="50 tonnes or more" {{ checked("packaging-tonnage", "50 tonnes or more") }}>
-                  <label class="govuk-label govuk-radios__label" for="50 tonnes or more">
-                    More than 50 tonnes
-                  </label>
-                </div>
-              </div>
-          
-            </fieldset>
-          </div> 
 
-            {{ govukButton({
-                text: "Continue"
-            })}}
-        </form>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Under 25 tonnes" name="packaging-tonnage" type="radio"
+                value="Under 25 tonnes" {{ checked("packaging-tonnage", "Under 25 tonnes" ) }}>
+              <label class="govuk-label govuk-radios__label" for="Under 25 tonnes">
+                Under 25 tonnes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="25 tonnes to 50 tonnes" name="packaging-tonnage" type="radio"
+                value="25 tonnes to 50 tonnes" {{ checked("packaging-tonnage", "25 tonnes to 50 tonnes" ) }}>
+              <label class="govuk-label govuk-radios__label" for="25 tonnes to 50 tonnes">
+                25 tonnes to 50 tonnes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="50 tonnes or more" name="packaging-tonnage" type="radio"
+                value="50 tonnes or more" {{ checked("packaging-tonnage", "50 tonnes or more" ) }}>
+              <label class="govuk-label govuk-radios__label" for="50 tonnes or more">
+                More than 50 tonnes
+              </label>
+            </div>
+          </div>
 
-    </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      })}}
+    </form>
+
+  </div>
 </div>
 
 {% endblock %}

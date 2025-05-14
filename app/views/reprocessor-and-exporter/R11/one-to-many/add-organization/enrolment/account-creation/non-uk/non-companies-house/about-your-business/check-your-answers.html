@@ -1,0 +1,211 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="./declaration">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check your details</h1>
+
+
+            <h2 class="govuk-summary-list__card-title govuk-heading-m govuk-!-margin-bottom-2">RECYCLE ABOAD COMPANY</h2>
+<br>
+            <dl class="govuk-summary-list">
+
+                <!-- REGISTERED AS CHARITY -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        A registered charity?
+                    </dt>
+                    <dd class="govuk-summary-list__value">No
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../../general/registered-as-a-charity.html">
+                        Change<span class="govuk-visually-hidden"> if you are a registered charity</span>
+                    </a>
+                    </dd>
+                </div>
+
+                <!-- REGISTERED WITH COMPANIES HOUSE -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Registered with Companies House?
+                    </dt>
+                    <dd class="govuk-summary-list__value">No
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../../general/registered-with-companies-house.html">
+                        Change<span class="govuk-visually-hidden"> if you are registered with companies house</span>
+                    </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Type of organisation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Non-UK
+                </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../about-your-business/type-of-organisation.html">
+                        Change<span class="govuk-visually-hidden"> type of organisation</span>
+                    </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Trading name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  RECYCLE ABROAD
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="../about-your-business/trading-name.html">
+                    Change<span class="govuk-visually-hidden"> trading name</span>
+                </a>
+                </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                      Address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    3001 Plaza Mayor<br>L'Escala <br>Spain
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="../about-your-business/select-business-address.html">
+                    Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Which UK regulator
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    England
+                </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../about-your-business/type-of-organisation.html">
+                        Change<span class="govuk-visually-hidden"> type of organisation</span>
+                    </a>
+                    </dd>
+                </div>
+              
+            </dl>
+            <br>
+
+
+            <h2 class="govuk-summary-list__card-title govuk-heading-m govuk-!-margin-bottom-2 govuk-!-margin-top-6">Approved person</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    None 
+                </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="./about-you/full-name.html">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                    </dd>
+                </div>
+                <!--<div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Telephone
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    +33 7980068803
+                </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="./about-you/telephone-number.html">
+                        Change<span class="govuk-visually-hidden"> email</span>
+                    </a>
+                    </dd>
+                </div>
+            </dl>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-2">NPWD number</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+
+                
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        NPWD number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['NPWD-number'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../about-you/enter-NPWD-number">
+                        Change<span class="govuk-visually-hidden"> NPWD number</span>
+                    </a>
+                    </dd>
+                </div>
+
+
+            </dl>-->
+            <br><br>
+
+    {{ govukButton({
+      text: "Continue"
+    })}}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

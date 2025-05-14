@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+Small producer - Manage registration submissions
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+Resubmission
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Why are you waiving a fee?</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            <h3 class="govuk-heading-s"> Select your reason</h3>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Technical issue raised with help desk
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                Technical issue raised with regulator
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                Request for help not resolved on or before the deadline 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+                Incorrect fee amount
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="whereDoYouLive-5" name="whereDoYouLive" type="radio" value="email" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="whereDoYouLive-5">
+                  Other
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Enter your reason
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contactByEmail" type="text" spellcheck="false" autocomplete="">
+                </div>
+              </div>
+              <Br>
+                <br>
+
+
+              <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
+                <h3 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--m" for="with-hint">
+                    Additional information
+                  </label>
+                </h3>
+               <!--
+                <div id="with-hint-hint" class="govuk-hint">
+                  Do not include personal or financial information like your National Insurance number or credit card details
+                </div>-->
+                <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+                <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+                  You can enter up to 1000 characters
+                </div>
+              </div>
+
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue", href:"./regulator-cya-cos.html"
+        }) }}
+  </div>
+</div>
+
+</div>
+{% endblock %}
+
+<!-- GOV.UK Prototype Kit {{releaseVersion}} -->

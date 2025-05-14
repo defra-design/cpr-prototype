@@ -1,0 +1,297 @@
+{% set serviceName = "Manage registration application" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+  <!-- OVERVIEW AND CONTACTS -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-xl">Manage registration submissions</span>
+            Green Ltd
+        </h1>
+       
+         
+        <ul class="govuk-list">
+          <li><strong>Application type:</strong> Reprocessor</li>
+            <li><strong>Site:</strong> 23 Ruby St, London, E12 3SE</li>
+            <li><strong>Site grid reference:</strong> SJ 854 662</li>
+            <li><strong>Regulator:</strong>  Environment Agency (EA) </li>
+          </ul>
+          <!--<p class="govuk-body govuk-!-margin-bottom-1"><strong>Assigned persons</strong></p>
+             <ul class="govuk-list">
+                      <li>Name: James Dean</li>
+                      <li> Role: Director</li>
+                      <li>Email: james.dean@greenltd.com</li>
+                      <li>Telephone: 012345 67890</li>
+                    </ul> -->
+
+                    
+                    <details class="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          View organisation details and contacts
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <ul class="govuk-list">
+
+                          <li><strong>Trading name:</strong> Green Ltd</li>
+                          <li><strong>Business type:</strong> Limited partnership</li>
+                          <li><strong> Companies house number : </strong><a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank"> 234322334</a></li>
+
+                            <li><strong>Registered address:</strong> 23 Ruby St, London, E12 3SE</li>
+                            <li><strong>Telephone number:</strong> 0207 345 3456</li>
+                           
+                          </ul>
+              
+                          <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-full">
+                              <p class="govuk-body govuk-!-margin-bottom-1"><strong>Approved persons</strong></p>
+                            </div>
+                          </div>
+                          <div class="govuk-grid-row">
+                              <div class="govuk-grid-column-one-half">
+                                <ul class="govuk-list">
+                                  <li>Name: James Dean</li>
+                                  <li> Role: Director</li>
+                                  <li>Email: james.dean@greenltd.com</li>
+                                  <li>Telephone: 012345 67890</li>
+                                </ul> 
+                              </div>
+              
+                              <div class="govuk-grid-column-one-half">
+                                <ul class="govuk-list">
+                                  <li>Name: James Dean</li>
+                                  <li> Role: Director</li>
+                                  <li>Email: james.dean@greenltd.com</li>
+                                  <li>Telephone: 012345 67890</li>
+                                </ul> 
+                              </div>
+                            </div>
+                            <div class="govuk-grid-row">
+                              <div class="govuk-grid-column-one-half">
+                                <ul class="govuk-list">
+                                  <li>Name: James Dean</li>
+                                  <li> Role: Director</li>
+                                  <li>Email: james.dean@greenltd.com</li>
+                                  <li>Telephone: 012345 67890</li>
+                                </ul> 
+                              </div>
+              
+                              <div class="govuk-grid-column-one-half">
+                                <ul class="govuk-list">
+                                  <li>Name: James Dean</li>
+                                  <li> Role: Director</li>
+                                  <li>Email: james.dean@greenltd.com</li>
+                                  <li>Telephone: 012345 67890</li>
+                                </ul> 
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-grid-row">
+                              <div class="govuk-grid-column-full">
+                                <p class="govuk-body govuk-!-margin-bottom-1"><strong>Delegated person</strong></p>
+                              </div>
+                            </div>
+
+
+                            <div class="govuk-grid-row">
+                              <div class="govuk-grid-column-one-half">
+                                <ul class="govuk-list">
+                                  <li>Name: James Dean</li>
+                                  <li> Role: Director</li>
+                                  <li>Email: james.dean@greenltd.com</li>
+                                  <li>Telephone: 012345 67890</li>
+                                </ul> 
+                              </div>
+                              </div>
+
+
+                              <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-full">
+                                  <p class="govuk-body govuk-!-margin-bottom-1"><strong>Partner details</strong></p>
+                                </div>
+                              </div>
+                              <div class="govuk-grid-row">
+                                  <div class="govuk-grid-column-one-half">
+                                    <ul class="govuk-list">
+                                      <li> James Dean</li>
+                                      <li>Alex Smith</li>   
+                                  </div>
+                  
+                                  
+                                </div>
+
+                          </div>         
+                    </details>
+         
+
+       <h2 class="govuk-heading-m"> Check registrations are duly made and assign officer</h2>
+
+<ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+  <li class="app-task-list__item">
+    <span class="app-task-list__task-name">
+      Plastic application reference: 222019EFGF<br/>
+      <a href="check-plastic-status" aria-describedby="#" class="#">
+          Check registration status
+    
+      </a>
+    </span><strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Duly made</strong><br>
+  </li>
+  <li class="app-task-list__item">
+    <span class="app-task-list__task-name">
+      Steel application reference: 333019EFGF<br/>
+      <a href="steel-payment-expected" aria-describedby="#" class="#">     Check registration status
+      </a></a>
+     
+    </span>
+  <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Duly made</strong><br>
+  </li>
+  <li class="app-task-list__item">
+    <span class="app-task-list__task-name">
+     <a href="officer-check-answers" aria-describedby="#" class="#">  Assign officer</a>
+    </span>
+    <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Officer assigned</strong><br>
+  </li>
+</ul>
+
+          <h2 class="govuk-heading-m"> Review site details </h2>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+          
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="#" class="#"> Site address </a>
+               
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Reviewed</strong><br>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="#" class="#"> Waste carrier, broker or dealer registration number</a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Reviewed</strong><br>
+            </li>    
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="#" class="#"> Materials authorised on site</a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Reviewed</strong><br>
+            </li>
+          </ul>
+
+
+          
+          <h2 class="govuk-heading-m"> Review plastic registration 
+
+           <p class="govuk-body">Submitted by Anna Faris (Site administrator)<br>
+           Contact person is Freda Pinto (Site manager) <br/> Telephone number and email: 02087651236 <a href="#" class="govuk-link govuk-link--no-visited-state"> freda.pinto@greenltd.com</a>
+         </p> 
+          </h2>
+         
+          <p class="govuk-body"><strong>Determination date:</strong> 4 June 2024  <a href="../change-determination-date" class="govuk-link">Change</a></p>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+          
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="plastic/check-waste-licences" aria-describedby="#" class="#"> Waste licences, permits or exemptions</a>
+               
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Reviewed</strong><br>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="check-reprocessing-inputs" aria-describedby="#" class="#"> Reprocessing inputs and outputs</a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-information-status">Reviewed</strong><br>
+            </li>
+            <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="check-sampling-plan" aria-describedby="#" class="#"> Sampling and inspection plan</a>
+                 
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="update-status" aria-describedby="#" class="#"> Update registration status</a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+              </li>
+          </ul>
+
+
+          <h2 class="govuk-heading-m"> Review steel registration 
+
+          <p class="govuk-body">Submitted by Anna Faris (Site administrator)<br>
+           Contact person is Freda Pinto (Site manager) <br/> Telephone number and email: 02087651236 <a href="#" class="govuk-link govuk-link--no-visited-state"> freda.pinto@greenltd.com</a>
+         </p> 
+          </h2>
+         
+          <p class="govuk-body"><strong>Determination date:</strong> 4 June 2024  <a href="../change-determination-date" class="govuk-link">Change</a></p>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+          
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="plastic/check-waste-licences" aria-describedby="#" class="#"> Waste licences, permits or exemptions</a>
+               
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="check-reprocessing-inputs" aria-describedby="#" class="#"> Reprocessing inputs and outputs</a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+            </li>
+            <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="check-sampling-plan" aria-describedby="#" class="#"> Sampling and inspection plan</a>
+                 
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="update-status" aria-describedby="#" class="#"> Update registration status</a>
+                </span>
+               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Not Started yet</strong><br>
+              </li>
+          </ul>
+    </div>
+
+
+  </div>
+
+  <a href="../add-comments.html" class="govuk-link"> 
+    <button type="submit" class="govuk-button govuk-body govuk-!-margin-top-6" data-module="govuk-button">
+      Comments
+        </button></a>
+
+  <!--START-->
+
+
+  
+
+                 </div>
+  </div>
+
+
+
+
+{% endblock %}

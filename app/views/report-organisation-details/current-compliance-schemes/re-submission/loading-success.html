@@ -7,40 +7,40 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "#",
-        text: "Home"
-      },
-      {
-        href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "#",
+text: "Home"
+},
+{
+href: "../../delegate-someone/account-management?account-created-notification=false&added=no",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 
@@ -52,22 +52,29 @@ Report packaging data
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
 
-      <h1 class="govuk-heading-l">Uploading organisation details</h1>
+    <h1 class="govuk-heading-l">Uploading organisation details</h1>
 
-      <p class="govuk-body">This may take a few minutes - we'll refresh the page automatically until it is done.</p>
+    <p class="govuk-body">This may take a few minutes - we'll refresh the page automatically until it is done.</p>
 
-      <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
+    <p class="govuk-body">Do not close the page and do not refresh it yourself.</p>
 
-      <!-- <div class="loading" aria-live="polite" role="status"></div> -->
+    <!-- <div class="loading" aria-live="polite" role="status"></div> -->
 
-      <p>
-        <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
-      </p>
+    <p>
+      <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+    </p>
 
-      <!-- <div class="govuk-grid-row">
+
+    <p><a href="../../current-compliance-schemes/re-submission/check-file.html">Continue to next page</a><br>
+      <span style="font-size: 14px;">Prototype only usage</span>
+    </p>
+
+
+
+    <!-- <div class="govuk-grid-row">
         <div class="govuk-!-padding-bottom-9"></div>
         <div class="govuk-!-padding-bottom-9"></div>
         <div class="loading" style="margin-left:auto; margin-right: auto" aria-live="polite" role="status"</div>
@@ -83,15 +90,12 @@ Report packaging data
 
 
 
-    </div>
   </div>
+</div>
 
 {% endblock %}
 
 {% block scripts %}
-  {{ super() }}
-  <script src="/public/javascripts/loading-file-success.js"></script>
+{{ super() }}
+<script src="/public/javascripts/loading-file-success.js"></script>
 {% endblock %}
-
-
-

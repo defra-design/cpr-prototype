@@ -16,7 +16,7 @@ Report packaging data
   
   {{ govukHeader({
     homepageUrl: "../../../index.html",
-    serviceName: "Reprocessor and exporters service",
+    serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
     {
@@ -46,27 +46,11 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
-
-{% if (data['user-group'] == "compliance-scheme") %}
-<a class="govuk-back-link" href="../about-your-organisation/comfirm-company-details.html">Back</a>
-{% else %}
-<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
-{% endif %}
-
-{% if (data['user-group'] == "producer") %}
-<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
-{% endif %}
-
-
-{% endblock %}
-
-
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="name-all-partners">
+    <form method="POST" action="manage-account-person-2">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -78,19 +62,13 @@ Report packaging data
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="director" name="form-role-in-organisation" type="radio" value="Director" {{ checked("form-role-in-organisation", "Director") }}>
               <label class="govuk-label govuk-radios__label" for="director">
-                Director
+                Company director
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="secretary" name="form-role-in-organisation" type="radio" value="Company secretary" {{ checked("form-role-in-organisation", "Company secretary") }}>
               <label class="govuk-label govuk-radios__label" for="secretary">
                 Company secretary
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="partner" name="form-role-in-organisation" type="radio" value="Partner" {{ checked("form-role-in-organisation", "Partner") }}>
-              <label class="govuk-label govuk-radios__label" for="partner">
-                Partner
               </label>
             </div>
             

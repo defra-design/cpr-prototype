@@ -1,0 +1,98 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">You have agreed to be an approved person</h1>
+
+    <form action="" method="post">
+      <label class="govuk-label govuk-label--" for="password">
+        Email address
+      </label>
+
+      <div class="govuk-inset-text">
+        <span class="govuk-caption-l">drew.roberts@recycle.com</span>
+      </div> 
+      <br>
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label govuk-label--" for="password">
+          Enter a password
+        </label>
+
+        <div id="password-hint" class="govuk-hint">
+          It must be at least 8 characters and must include letters and numbers.
+        </div>
+
+        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label  govuk-label--" for="retype-password">
+          Re-type password
+        </label>
+        <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+      </div>
+
+      <div class="govuk-button-group">
+        <a href="confirm-name" class="govuk-button" type="submit">Continue</a>
+        
+      
+    </div>
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

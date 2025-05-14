@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set serviceName %}
-  Collection and packaging reforms
+Collection and packaging reforms
 {% endset%}
 
 {% set serviceName = "Check if you need to report packaging data" %}
@@ -35,23 +35,32 @@ Check if you need to report packaging data | {{serviceName}} prototype
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l govuk-!-margin-top-5">Based on the answers you have given, you do not need to report packaging data</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-top-5">Based on your answers, you do not need to report packaging
+            data</h1>
 
-        <p class="govuk-body">This is because your organisation will handle or supply less than 25 tonnes of packaging in 2022.</p>
+        <p class="govuk-body">This is because your organisation supplied less than 25 tonnes of packaging in 2023</p>
 
         <h2 class="govuk-heading-m">What happens next</h2>
 
         <p class="govuk-body">
-            You may need to comply with the extended producer responsibility for packaging regulations in the future if the amount of packaging you handle and supply in a year is 25 tonnes or more.
+            You may need to comply with the extended producer responsibility for packaging regulations in the future if
+            the amount of packaging you handle and supply in a year is 25 tonnes or more.
         </p>
 
+        <p class="govuk-body">The 'Check if you need to report packaging data' tool is for information and general
+            support but does not constitute legal advice. <a href="#" class="govuk-link">Read the Extended Producer
+                Responsibility for Packaging guidance</a> for more information about obligations and responsibilities.
+        </p>
+
+
         {% if (data['acting-as'] == "subsidiary") %}
-            <h2 class="govuk-heading-m">
-                How the regulations may affect your parent company
-            </h2>
-            <p class="govuk-body">
-                Your parent company may need to register for the EPR for packaging regulations if the combined annual amount of packaging handled or supplied by any subsidiaries that do not meet the criteria is 25 tonnes or more.
-            </p>
+        <h2 class="govuk-heading-m">
+            How the regulations may affect your parent company
+        </h2>
+        <p class="govuk-body">
+            Your parent company may need to register for the EPR for packaging regulations if the combined annual amount
+            of packaging handled or supplied by any subsidiaries that do not meet the criteria is 25 tonnes or more.
+        </p>
         {% endif %}
     </div>
 </div>

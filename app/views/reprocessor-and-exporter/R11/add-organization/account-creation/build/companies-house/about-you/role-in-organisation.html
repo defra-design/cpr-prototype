@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account" %}
+
+{% set title = "Create an account to report packaging data" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['user-group'] == "compliance-scheme") %}
+<a class="govuk-back-link" href="../about-your-organisation/comfirm-company-details.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
+{% if (data['user-group'] == "producer") %}
+<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="authorised-person">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your role in the organisation, as shown on Companies House?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="director" name="form-role-in-organisation" type="radio" value="Director" {{ checked("form-role-in-organisation", "Director") }}>
+              <label class="govuk-label govuk-radios__label" for="director">
+                Director
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="secretary" name="form-role-in-organisation" type="radio" value="Company secretary" {{ checked("form-role-in-organisation", "Company secretary") }}>
+              <label class="govuk-label govuk-radios__label" for="secretary">
+                Company secretary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partner" name="form-role-in-organisation" type="radio" value="Partner" {{ checked("form-role-in-organisation", "Partner") }}>
+              <label class="govuk-label govuk-radios__label" for="partner">
+                Partner
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="member" name="form-role-in-organisation" type="radio" value="Member" {{ checked("form-role-in-organisation", "Member") }}>
+              <label class="govuk-label govuk-radios__label" for="member">
+                Member
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="none-of-the-above" name="form-role-in-organisation" type="radio" value="none-of-the-above" {{ checked("form-role-in-organisation", "yes") }}>
+              <label class="govuk-label govuk-radios__label" for="none-of-the-above">
+                None of the above
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

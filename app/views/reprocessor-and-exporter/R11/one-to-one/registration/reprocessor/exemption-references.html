@@ -1,0 +1,71 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Enter all your exemption references
+      </h1>
+     
+    </legend>
+  
+    <div class="govuk-form-group">
+
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="number"  type="text" spellcheck="false">
+
+        </div>
+
+        <br>
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="number"  type="text" spellcheck="false">
+
+      </div>
+<br>
+      
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="number"  type="text" spellcheck="false">
+
+      </div>
+    </div>
+<br>
+    <p><a href="#">Add another reference</a></p>
+
+
+
+
+</fieldset>
+</div>
+
+<button class="govuk-button" formaction="maximum-reprocess">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

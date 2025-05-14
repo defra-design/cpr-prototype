@@ -1,0 +1,216 @@
+{% set serviceName = "Manage accreditation application" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+  <title>GOV.UK Style Blue Background</title>
+  <style>
+    body {
+      margin: 0;
+    
+    }
+    .govuk-blue-background {
+      background-color: #1d70b8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+ 
+  .white-checkbox {
+    accent-color: white;
+  }
+
+  .white-hover-label {
+    color: #ccc; /* default label color */
+    transition: color 0.2s ease;
+  }
+
+  .white-hover-label:hover {
+    color: white;
+  }
+
+
+  
+  </style>
+
+
+  <div class="govuk-grid-row">
+    
+        <h1 class="govuk-heading-l">
+          Manage registration and accreditation submissions
+       
+
+        <p>This list shows the latest submissions and the action taken on them.  To view older submissions   <a href="#" aria-describedby="#" class="#"> sign in to Power-BI.</a></p>
+
+
+      </h1></div>
+
+      </div>
+      
+      <form id="filter-form">
+  <div class="govuk-blue-background margin-bottom:100px">
+    <h1 class="govuk-heading-l" style="color: #FFFFFF; margin-right: 720px;" >Search and filter</h1>
+ <p class="govuk-body govuk-grid-column-two-thirds" style="color: #FFFFFF; padding-left: 240px; text-align: left;">Search by Companies House number, organisation name, reference number, registration or accreditation number or the site address</p>
+ <p><br><br></p>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+ <div class="govuk-form-group" style="margin-left:240px;">
+  <label class="govuk-label" style="border-style: #FFFFFF;" for="organisation-name"></label>
+  <input class="govuk-input" id="organisation-name" name="organisation-name" type="text" style="width: 900px;"> 
+</div>
+
+<!-- Organisation type -->
+<div class="govuk-form-group" style="margin-left:242px;">
+  
+    <h3 class=" govuk-heading-s" style="margin-right: 900px;  color: #FFFFFF">Filter</h3>
+    <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-reprocessors" name="orgtype"
+        type="checkbox" value="Reprocessor">
+ <label class="govuk-label govuk-checkboxes__label white-hover-label" for="orgtype-reprocessors" style="color: white;">
+   Reprocessor
+ </label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-exporter" name="orgtype" type="checkbox"
+          value="Exporter">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-exporter" style="color: white;">Exporter</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-registration" name="orgtype" type="checkbox"
+          value="Registration">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-registration"  style="color: white;" >Registration</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-accreditation" name="orgtype" type="checkbox"
+          value="Accreditation">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-accreditation" style="color: white;">Accreditation</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-assigntome" name="orgtype" type="checkbox"
+          value="Assigned">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-assigntome" style="color: white; width:150px;">Assigned to me</label>
+      </div>
+     
+    </div>
+
+
+<!--org end-->
+
+
+<!-- Status type -->
+
+  
+
+  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-new" name="status"
+      type="checkbox" value="New">
+<label class="govuk-label govuk-checkboxes__label white-hover-label" for="status-new" style="color: white;">
+ New
+</label>
+    </div>
+    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-pending" name="status" type="checkbox"
+        value="Pending">
+      <label class="govuk-label govuk-checkboxes__label" for="status-pending" style="color: white;">Pending</label>
+    </div>
+    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-queried" name="status" type="checkbox"
+        value="Queried">
+      <label class="govuk-label govuk-checkboxes__label" for="status-queried" style="color: white;">Queried</label>
+    </div>
+   
+  </div>
+</div>
+
+<!--org end-->
+
+
+
+</div>
+ </div>
+ 
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+<div class="govuk-body" style="padding-left: 250px;">
+  
+  <div style="align-items: center; display: flex; margin-left: 10px; margin-top: 20px;">
+    <button class="govuk-button" type="button" id="apply-filters"
+      style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
+    <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
+        class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
+ 
+  <div class="govuk-form-group" style="float:right; margin-left: 200px;">
+    <label class="govuk-body" style="font-weight: bold;" for="select-status ">Sort by</label>
+    <select class="govuk-select" id="select-status" name="sort">
+        <option  selected>Organisation name</option>
+        <option value="published">Option 2</option>
+        
+
+    </select>
+</div>
+ </div>
+</div></form>
+
+
+
+
+<h1 class="govuk-heading-l">
+Green Ltd
+</h1>
+</div></div>
+
+
+
+
+<div class="govuk-table" style="margin-left: 200px;">
+
+
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Date</th>
+        <th scope="col" class="govuk-table__header">Amount</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">First 6 weeks</th>
+        <td class="govuk-table__cell">£109.80 per week</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Next 33 weeks</th>
+        <td class="govuk-table__cell">£109.80 per week</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Total estimated pay</th>
+        <td class="govuk-table__cell">£4,282.20</td>
+      </tr>
+    </tbody>
+  </table>
+  fkkf
+</div>
+
+
+{% endblock %}
