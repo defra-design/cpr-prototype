@@ -1,18 +1,48 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
-  Report packaging data
+Report packaging data
 {% endset%}
 
-{% set serviceName = "Create an account" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-  Create an account
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
 
-<a class="govuk-back-link" href="#">Back</a>
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
 
@@ -23,14 +53,14 @@
     <h1 class="govuk-heading-l">You have agreed to be an approved person</h1>
 
     <form action="" method="post">
+      <label class="govuk-label govuk-label--" for="password">
+        Email address
+      </label>
 
-      <div class="govuk-form-group govuk-!-margin-bottom-7">
-        <label class="govuk-label govuk-label--" for="azure-email">
-          Email address
-        </label>
-        <input class="govuk-input" id="azure-email" name="azure-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="drew.roberts@recycle.com">
-      </div>
-      
+      <div class="govuk-inset-text">
+        <span class="govuk-caption-l">drew.roberts@recycle.com</span>
+      </div> 
+      <br>
 
       <div class="govuk-form-group">
 
