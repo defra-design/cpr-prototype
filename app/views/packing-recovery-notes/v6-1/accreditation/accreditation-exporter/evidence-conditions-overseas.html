@@ -1,0 +1,74 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="" method="POST">
+
+      <div class="govuk-form-group">
+
+<h1 class="govuk-heading-l"> Evidence and conditions for overseas sites</h1>
+
+
+    <p class="govuk-body">You do not need specific evidence if the site fulfils all these conditions:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>The packaging waste is separated at source, or processed, to ensure it is exported for reprocessing within a shipment of similar material – for example, if the shipment contains steel drink cans and steel scrap and is not a general mix of different materials (such as paper and plastic), or a mixture of different grades of the same material (for example, different plastic polymers)</li>
+  <li>There is a well-established international technical specification for the exported packaging waste material that your consignments meet</li>
+  <li>The material needs only limited processing overseas before it is recovered, and the recycling process has losses that meet EU industry standards</li>
+  <li>Processing the waste material before recycling does not include hand-sorting that may cause significant harm to human health</li>
+  <li>The material goes through a recognised form of recycling, and is unlikely to cause significant harm to the environment.</li>
+</ul>
+
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Does {name of reprocessing site} fulfil all these conditions?
+            </h1>
+                <p class="govuk-body">You must keep documents to show they fulfil these conditions.</p>
+
+          </legend>
+       
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers3">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                No
+              </label>
+            </div>
+          </div>
+     </fieldset>
+      </div>
+  
+      <button class="govuk-button" formaction="upload-more-broadly-evidence">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+     
+</div>
+
+
+</form>
+
+
+{% endblock %}
