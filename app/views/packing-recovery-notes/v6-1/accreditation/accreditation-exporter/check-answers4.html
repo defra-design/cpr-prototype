@@ -26,44 +26,8 @@
     </h2>
 <form class="form" method="post">
     <!-- Entry 1 -->
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">File uploaded</dt>
-        <dd class="govuk-summary-list__value">evidence1.doc</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Start date of evidence</dt>
-        <dd class="govuk-summary-list__value">20 June 2025</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Expiry date of evidence</dt>
-        <dd class="govuk-summary-list__value">20 June 2026</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-    </dl>
+   <div id="evidence-summary-list-container"></div>
 
-    
-
-    <!-- Entry 2 -->
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">File uploaded</dt>
-        <dd class="govuk-summary-list__value">evidence2.doc</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Start date of evidence</dt>
-        <dd class="govuk-summary-list__value">20 August 2025</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Expiry date of evidence</dt>
-        <dd class="govuk-summary-list__value">20 August 2026</dd>
-        <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-      </div>
-    </dl>
  <p>&nbsp;</p>
     
       <button type="submit" formaction="accreditation-prn9" class="govuk-button">Confirm and continue</button>
@@ -73,4 +37,42 @@
 
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('evidence-summary-list-container');
+    const evidenceList = JSON.parse(sessionStorage.getItem('evidenceList')) || [];
+
+    if (evidenceList.length === 0) {
+      container.innerHTML = "<p>No evidence uploaded yet.</p>";
+      return;
+    }
+
+    evidenceList.forEach((evidence, index) => {
+      const html = `
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">File uploaded</dt>
+            <dd class="govuk-summary-list__value">${evidence.file}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Start date of evidence</dt>
+            <dd class="govuk-summary-list__value">${evidence.startDate}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Expiry date of evidence</dt>
+            <dd class="govuk-summary-list__value">${evidence.expiryDate}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+        </dl>
+        
+      `;
+      container.insertAdjacentHTML('beforeend', html);
+    });
+  });
+</script>
+
+
 {% endblock %}
