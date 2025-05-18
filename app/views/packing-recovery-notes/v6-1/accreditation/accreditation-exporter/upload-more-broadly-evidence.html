@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form class="form" action="" method="POST">
+<form class="form"  method="POST">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -38,7 +38,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers3">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers4">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
                 No
               </label>
@@ -47,13 +47,35 @@
      </fieldset>
       </div>
   
-      <button class="govuk-button" formaction="upload-more-broadly-evidence">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+      <button id="continueBtn" class="govuk-button" type="submit">Save and continue</button>
+ <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
      
 </div>
 
 
 </form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const continueBtn = document.getElementById('continueBtn');
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+
+    continueBtn.addEventListener('click', function (e) {
+      if (yesRadio.checked) {
+        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+      } else if (noRadio.checked) {
+        continueBtn.setAttribute('formaction', 'check-answer4');
+      } else {
+        e.preventDefault(); // stop the form submit
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
+</script>
+
 
 
 {% endblock %}

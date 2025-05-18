@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form class="form" action="" method="POST">
+<form class="form" method="POST" id="optionalEvidenceForm">
 
       <div class="govuk-form-group">
 
@@ -53,13 +53,33 @@
      </fieldset>
       </div>
   
-      <button class="govuk-button" formaction="upload-more-broadly-evidence">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+      <button id="continueBtn" class="govuk-button">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
      
 </div>
 
 
 </form>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio  = document.getElementById('whereDoYouLive-2');
+    const btn      = document.getElementById('continueBtn'); // now this will find the button
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();  // stop the normal form submission
+
+      if (yesRadio.checked) {
+        window.location.href = 'evidence-conditions-overseas';
+      } else if (noRadio.checked) {
+        window.location.href = 'upload-broadly-equivalent-evidence';
+      } else {
+        alert('Please select Yes or No');
+      }
+    });
+  });
+</script>
+
 
 
 {% endblock %}
