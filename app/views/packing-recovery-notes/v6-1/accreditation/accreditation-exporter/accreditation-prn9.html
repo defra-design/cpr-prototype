@@ -19,7 +19,7 @@
 
 
 
-<form class="form" action="declaration" method="POST">
+
 
     <div class="govuk-form-group">
 <fieldset class="govuk-fieldset">
@@ -112,19 +112,70 @@
  
     </table>
 
-    
+    <div id="initial-buttons" style="display: flex; gap: 20px;">
+  <button class="govuk-button" onclick="showScenarios()">Continue</button>
+  <!-- <a href="application-saved">
+    <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+  </a> -->
+</div>
+
+<div id="scenario-section" style="display: none; margin-top: 30px;">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Select a scenario to continue
+    </legend>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="scenario1" name="scenario" type="radio" value="accreditation-prn9">
+        <label class="govuk-label govuk-radios__label" for="scenario1">Scenario 1</label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="scenario2" name="scenario" type="radio" value="accreditation-prn10">
+        <label class="govuk-label govuk-radios__label" for="scenario2">Scenario 2</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <p>&nbsp;</p>
+  <div id="initial-buttons" style="display: flex; gap: 20px;">
+  <button class="govuk-button" onclick="submitScenario()">Continue</button>
+  <!-- <a href="application-saved">
+    <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+  </a> -->
+</div>
+  
+</div>
     </div>
 
 </fieldset>
 </div>
 
 
-<input class="govuk-button" type="submit" value="Continue"  />
 
 
 
-</form>
+
+
+
+
+
 
 </div>
+
+<script>
+  function showScenarios() {
+    document.getElementById('initial-buttons').style.display = 'none';
+    document.getElementById('scenario-section').style.display = 'block';
+  }
+
+  function submitScenario() {
+    const selected = document.querySelector('input[name="scenario"]:checked');
+    if (selected) {
+      window.location.href = selected.value;
+    } else {
+      alert("Please select a scenario before continuing.");
+    }
+  }
+</script>
 
 {% endblock %}
