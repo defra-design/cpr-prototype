@@ -18,18 +18,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form class="form"  method="POST">
+<form class="form" method="POST" id="optionalEvidenceForm">
 
       <div class="govuk-form-group">
+
+<h1 class="govuk-heading-l">Optional upload of evidence of broadly equivalent standards</h1>
+
+
+    <p class="govuk-body">You've told us the site fulfils all the conditions. This means you do not have to upload evidence of broadly equivalent standards.</p>
+
         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
-              Do you want to upload more evidence for {name of reprocessing site}?
+              Do you want to upload evidence of broadly equivalent standards for {name of reprocessing site}?
             </h1>
           </legend>
        
-          <br>
-
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence">
@@ -38,7 +44,7 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers4">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers3">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
                 No
               </label>
@@ -47,30 +53,28 @@
      </fieldset>
       </div>
   
-      <button id="continueBtn" class="govuk-button" type="submit">Save and continue</button>
- <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+      <button id="continueBtn" class="govuk-button">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
      
 </div>
 
 
 </form>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const continueBtn = document.getElementById('continueBtn');
     const yesRadio = document.getElementById('whereDoYouLive');
-    const noRadio = document.getElementById('whereDoYouLive-2');
+    const noRadio  = document.getElementById('whereDoYouLive-2');
+    const btn      = document.getElementById('continueBtn'); // now this will find the button
 
-    continueBtn.addEventListener('click', function (e) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();  // stop the normal form submission
+
       if (yesRadio.checked) {
-        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+        window.location.href = 'evidence-conditions-overseas';
       } else if (noRadio.checked) {
-        continueBtn.setAttribute('formaction', 'check-answer4');
+        window.location.href = 'upload-broadly-equivalent-evidence';
       } else {
-        e.preventDefault(); // stop the form submit
-        alert('Please select Yes or No before continuing.');
+        alert('Please select Yes or No');
       }
     });
   });

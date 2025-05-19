@@ -139,4 +139,37 @@
 </div>
 </div>
 
+<script>
+  document.querySelector('form').addEventListener('submit', function () {
+    const inputs = document.querySelectorAll('[name="passport-issued-day"]');
+    const startDay = inputs[0].value;
+    const startMonth = document.querySelectorAll('[name="passport-issued-month"]')[0].value;
+    const startYear = document.querySelectorAll('[name="passport-issued-year"]')[0].value;
+
+    const expiryDay = inputs[1].value;
+    const expiryMonth = document.querySelectorAll('[name="passport-issued-month"]')[1].value;
+    const expiryYear = document.querySelectorAll('[name="passport-issued-year"]')[1].value;
+
+    const fileInput = document.getElementById('file-upload-1');
+    const fileName = fileInput.files.length ? fileInput.files[0].name : 'No file chosen';
+
+    const newEntry = {
+      file: fileName,
+      startDate: `${startDay} ${startMonth} ${startYear}`,
+      expiryDate: `${expiryDay} ${expiryMonth} ${expiryYear}`
+    };
+
+    // Get existing entries
+    let evidenceList = JSON.parse(sessionStorage.getItem('evidenceList')) || [];
+
+    // Add the new entry
+    evidenceList.push(newEntry);
+
+    // Save back to sessionStorage
+    sessionStorage.setItem('evidenceList', JSON.stringify(evidenceList));
+  });
+</script>
+
+
+
 {% endblock %}

@@ -97,7 +97,9 @@
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-<a href="broadly-equivalent-option">  Evidence of broadly equivalent standards</a>
+        <a href="javascript:void(0);" onclick="resetScenarioSelection()">
+          Evidence of broadly equivalent standards
+        </a>
               </label>
             </div>
             </div></td>
@@ -111,12 +113,83 @@
     </tr>
  
     </table>
+<div id="broadly-equivalent-form" style="display: none; margin-top: 20px;">
+  <fieldset class="govuk-fieldset" aria-describedby="scenario-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">Select a scenario</h2>
+    </legend>
+
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-1"
+               name="scenario"
+               type="radio"
+               value="1"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-1">
+          Scenario 1
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-2"
+               name="scenario"
+               type="radio"
+               value="2"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-2">
+          Scenario 2
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-3"
+               name="scenario"
+               type="radio"
+               value="3"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-3">
+          Scenario 3
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
 
     
     </div>
 
 </fieldset>
 </div>
+
+<script>
+  function resetScenarioSelection() {
+    // Uncheck all radio buttons
+    const radios = document.querySelectorAll('input[name="scenario"]');
+    radios.forEach(radio => radio.checked = false);
+
+    // Show the radio form
+    document.getElementById('broadly-equivalent-form').style.display = 'block';
+  }
+
+  function handleScenarioRedirect(radio) {
+    switch (radio.value) {
+      case "1":
+        window.location.href = "broadly-equivalent-option";
+        break;
+      case "2":
+        window.location.href = "broadly-equivalent";
+        break;
+      case "3":
+        window.location.href = "evidence-conditions-overseas";
+        break;
+    }
+  }
+</script>
+
 
 
   <!-- <input class="govuk-button" type="submit" value="Find address"  /> -->
