@@ -1,0 +1,99 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+<div id="success-banner" class="govuk-notification-banner govuk-notification-banner--success" role="alert" hidden>
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title">Success</h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading" id="success-text">
+      <!-- dynamically filled -->
+    </p>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Confirm the sites you are adding to your accreditation application</h1>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Site name</th>
+          <th scope="col" class="govuk-table__header">Remove site</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body" id="site-list">
+        <!-- Rows injected by JavaScript -->
+      </tbody>
+    </table>
+
+    <div style="display: flex; gap: 20px;">
+      <a href="accreditation-prn8">
+        <input class="govuk-button" type="submit" value="Continue" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    const tbody = document.getElementById('site-list');
+
+    if (storedSites.length === 0) {
+      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
+      return;
+    }
+
+    storedSites.forEach(site => {
+      const row = document.createElement('tr');
+      row.className = 'govuk-table__row';
+      row.innerHTML = `
+        <td class="govuk-table__cell">${site}</td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link" href="#" onclick="removeSite('${site}')">Remove from accreditation</a>
+        </td>`;
+      tbody.appendChild(row);
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const removedSite = localStorage.getItem('recentlyRemovedSite');
+    if (removedSite) {
+      document.getElementById('success-text').textContent =
+        `You’ve removed ${removedSite} from your application`;
+      document.getElementById('success-banner').hidden = false;
+
+      // Clear it so it only shows once
+      localStorage.removeItem('recentlyRemovedSite');
+    }
+  });
+
+  function removeSite(siteName) {
+    const confirmed = confirm(`Are you sure you want to remove "${siteName}"?`);
+    if (!confirmed) return;
+
+    let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    storedSites = storedSites.filter(name => name !== siteName);
+    localStorage.setItem('selectedSites', JSON.stringify(storedSites));
+
+    // Store the recently removed site
+    localStorage.setItem('recentlyRemovedSite', siteName);
+
+    location.reload(); // Refresh to show updated list and banner
+  }
+</script>
+{% endblock %}

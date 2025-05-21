@@ -21,17 +21,17 @@ Report packaging data
     navigation: [
     {
     href: "#",
-    text: "Home",
+    text: "",
     active: true
     },
     {
     href: "manage-account.html",
-    text: "Manage account" 
+    text: "" 
     },
     
     {
     href: "#",
-    text: "Sign out"
+    text: ""
     }
     ]
     }) }}
@@ -46,42 +46,31 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %}
-
-<a class="govuk-back-link" href="#">Back</a>
-
-{% endblock %}
-
-
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form method="POST" action="telephone-number">
-      <h1 class="govuk-heading-l">Confirm your name</h1>
-      <div class="govuk-inset-text">
-        
-        
-        <div class="">
-          <p class="govuk-body govuk-!-margin-bottom-1">First name: Drew</p>
-          <p class="govuk-body govuk-!-margin-bottom-1">Last name: Roberts</p>
-        </div>
+      <h1 class="govuk-heading-l">Confirm your name?</h1>
+
+      <p class="govuk-body"></p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="first-name">
+          First name
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="first-name" name="first-name" type="text" spellcheck="false" autocomplete="given-name" value="Drew">
       </div>
 
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            These details are wrong
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">If these details are not correct...</p>
-          
-        </div>
-      </details>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="last-name">
+          Last  name
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="last-name" name="last-name" type="text" spellcheck="false" autocomplete="family-name" value="Roberts">
+      </div>
 
       {{ govukButton({
-        text: "Continue"
+        text: "Confirm and continue"
       })}}
     </form>
   </div>

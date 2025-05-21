@@ -1,13 +1,48 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set serviceName = "Create an account" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-  Sign in
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
 
@@ -17,7 +52,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Invitation to be an approved person for RECYCLING LIMITED</h1>
 
-   <p>You have been invited by Jamie Roberts to create an account on the ‘EPR for packaging: reprocessors and exporters’ service with the permissions of an Approved Person.</p>
+   <p>You have been invited by Jamie Roberts to create an account on the ‘EPR for packaging: reprocessors and exporters’ service with the permissions of an approved person.</p>
 
 <p class="govuk-body">As an approved person you can take on tasks on behalf of the organisation, including:</p>
 <ul class="govuk-list govuk-list--bullet">
@@ -32,8 +67,8 @@
     <div class="govuk-button-group">
         <a href="thank-you" class="govuk-button" type="submit">Accept and continue</a>
         
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Reject invitation
+      <a href="reject" class="govuk-button govuk-button--secondary" type="submit">Reject invitation</a>
+        
       </button>
     </div>
 
