@@ -38,12 +38,12 @@
 
   <div class="govuk-grid-column-two-thirds">
     &nbsp; &nbsp; <br>
-    <form method="POST" action="#">
+    <form method="POST" action="classification">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-              <span class="govuk-caption-l">Calculation run 99</span>
+              <span class="govuk-caption-l"> Aug Run 24</span>
               <h1 class="govuk-heading-l">Calculation run details</h1>
 
               <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
@@ -56,15 +56,15 @@
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Classification</th>
-                    <td class="govuk-table__cell">Initial run</td>
+                    <td class="govuk-table__cell">Ready for classification</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Calculation ID</th>
-                    <td class="govuk-table__cell">240008</td>
+                    <td class="govuk-table__cell">240011</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Run date and time</th>
-                    <td class="govuk-table__cell">21 June 2024 at 12:09</td>
+                    <td class="govuk-table__cell">1 August 2024 at 09:25</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Run by</th>
@@ -72,7 +72,9 @@
                   </tr>
                 </tbody>
               </table>
-              <!-- Download UI start -->
+
+
+              <!-- Download file start-->
               <h2 class="govuk-heading-m">Downloads</h2>
               <p class="govuk-body">Download files related to this calculation run.</p>
 
@@ -85,36 +87,33 @@
               </p>
 
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <!-- Download file end-->
 
-              <!-- Download UI end -->
-              <h2 class="govuk-heading-m">Remove this run's classification</h2>
-              <p class="govuk-body">Mark this run as a test or delete it to remove its classification.</p>
+
+              <h2 class="govuk-heading-m">Delete this run</h2>
+              <p class="govuk-body">Remove this calculation if you no longer need it.</p>
 
               <div class="govuk-button-group">
-                <a href="./remove-initial-run-classification.html" class="govuk-button govuk-button--secondary"
-                  style="display: inline;">Remove classification</a>
-              </div>
-              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-              <h2 class="govuk-heading-m">Next step</h2>
-
-              <p class="govuk-body">Accept all billing instructions contained in the results file.</p>
-
-              <div class="govuk-button-group"><a href="./send-billing-file.html" class="govuk-button show-continue"
-                  style="display: inline;">
-                  Continue
-                </a>
-
+                <a href="delete-run" class="govuk-button govuk-button--secondary" style="display: inline;">Delete
+                  run</a>
                 <a class="govuk-link"
-                  href="../../classify/initial-run/scenario1-dashboard-0-initial-run-classified.html">Return to
+                  href="../classify/initial-run/scenario1-dashboard-0-initial-run-completed.html">Return to
                   dashboard</a>
               </div>
 
-            </fieldset>
+
+
 
           </div>
 
-          {% from "govuk/components/details/macro.njk" import govukDetails %}
+        </fieldset>
+
+      </div>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
+
 
     </form>
   </div>
@@ -124,6 +123,8 @@
 </div>
 </div>
 </div>
+
+
 <script>
   // Handle download simulation
   document.getElementById('download-button').addEventListener('click', function (event) {
