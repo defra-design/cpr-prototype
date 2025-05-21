@@ -1,10 +1,5 @@
-{% set serviceName = "Run the fees and payments calculator" %}
-
-{% extends "layout.html" %}
-
-{% block pageTitle %}
-{{serviceName}} prototype
-{% endblock %}
+{% set serviceName = "Run the fees and payments calculator" %} {% extends
+"layout.html" %} {% block pageTitle %} {{serviceName}} prototype {% endblock %}
 {% block content %}
 
 <style>
@@ -13,7 +8,6 @@
   }
 </style>
 
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-body account-info">
@@ -21,15 +15,16 @@
         <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
           id="signout-link">Sign out</a>
       </div>
-    </div><br>
+    </div>
+    <br />
 
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-      <h1 class="govuk-fieldset__heading">
-        Calculate packaging payments
-      </h1>
+      <h1 class="govuk-fieldset__heading">Calculate packaging payments</h1>
     </legend>
-    <div class="govuk-hint" style="margin-bottom: 30px">Set up and run packaging payment calculations, and view past
-      runs by financial year.</div>
+    <div class="govuk-hint" style="margin-bottom: 30px">
+      Set up and run packaging payment calculations, and view past runs by
+      financial year.
+    </div>
 
     <div class="govuk-grid-row tile-group">
       <div class="govuk-grid-column-one-third tile">
@@ -38,8 +33,6 @@
           <span class="govuk-heading govuk-!-font-size-16">View or update the parameters</span>
         </a>
       </div>
-
-
 
       <div class="govuk-grid-column-one-third tile">
         <a class="min-height" href="la-settings-no">
@@ -55,16 +48,21 @@
           <span class="govuk-heading govuk-!-font-size-16">Use the default parameters to run the calculator</span>
         </a>
       </div>
-    </div><br><br>
+    </div>
+    <br /><br />
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h3 class="govuk-heading-l" style='margin-top: 37px; margin-bottom: 0px;'>Calculation runs</h3>
-        <p class="govuk-body-s">View and select a calculation run. You can also filter by financial year to find
-          previous runs.</p>
+        <h3 class="govuk-heading-l" style="margin-top: 37px; margin-bottom: 0px">
+          Calculation runs
+        </h3>
+        <p class="govuk-body-s">
+          View and select a calculation run. You can also filter by financial
+          year to find previous runs.
+        </p>
       </div>
       <div class="govuk-grid-column-one-third">
-        <div class="govuk-form-group" style="float: right;">
-          <label class="govuk-label" for="sort" style="margin-top:17px">
+        <div class="govuk-form-group" style="float: right">
+          <label class="govuk-label" for="sort" style="margin-top: 17px">
             Select a financial year
           </label>
           <select class="govuk-select" id="sort" name="sort">
@@ -72,12 +70,10 @@
             <option value="updated">2023-24</option>
             <option value="updated">2022-23</option>
             <option value="updated">2021-22</option>
-
           </select>
         </div>
       </div>
     </div>
-
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -88,45 +84,124 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+
+        <!-- Ready for classification start-->
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
             <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Running</a>
+              <a href="./scenarios/scenario1/classify/scenario1-run-details.html"
+                class="govuk-link govuk-link--no-visited-state">Calculation run 99</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
-
-            Prototype explanation ONLY:<br>
-            A calculation is running in the background but isn’t ready for
-            review/classification yet.
+            <p class="govuk-body-s">
+              Calculation ID: 240008<br />
+              Run date and time: 21 June 2024 at 12:09<br />
+              Run by: Steve Jones
+            </p>
+            <!--A calculation run has finished running and is ready for
+            review/classification.-->
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green"
-              style="margin-top: 50px; float: right;">
-              Running</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Ready for classification</strong>
+          </td>
         </tr>
+        <!-- Ready for classification end-->
 
+
+
+        <!-- Running start-->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              Test data check 2
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green" style="margin-top: 50px; float: right">
+              Running</strong>
+          </td>
+        </tr>
+        <!-- Running end-->
+
+
+        <!-- Fee adjustement check start -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              <a href="../../run-error.html" class="govuk-link govuk-link--no-visited-state">
+                Fee adjustment check</a>
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240007<br />
+              Run date and time: 15 April 2024 at 10:45<br />
+              Run by: Steve Jones
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red" style="margin-top: 50px; float: right; text-align: right">
+              Error</strong>
+          </td>
+        </tr>
+        <!-- Fee adjustement check end -->
+
+
+        <!--Test Run start-->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              <a href="../scenario1/classify/test-run.html" class="govuk-link govuk-link--no-visited-state">First
+                Run</a>
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240006<br />
+              Run date and time: 1 April 2024 at 11.02<br />
+              Run by: Jamie Roberts
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--yellow" style="margin-top: 50px; float: right; text-align: right">
+              Test run</strong>
+          </td>
+        </tr>
+        <!--Test Run end-->
+
+        <!-- Deleted run start -->
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
             <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Unclassified</a>
+              Data check 1
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
+            <p class="govuk-body-s">Calculation ID: 240009<br>
+              Run date and time: 21 June 2024 at 15:03<br>
               Run by: Jamie Roberts</p>
-
-            Prototype explanation ONLY:<br>
-            A calculation run has finished running and is ready for review/classification.
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue"
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Ready for classification</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+              style="margin-top: 50px;float: right;text-align: right;">
+              Deleted</strong></td>
+
         </tr>
+
+        <!-- Deleted run end -->
+
+        <!-- I AM HERE -->
+
+
 
 
         <!-- Classified -->
@@ -136,18 +211,26 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Initial run</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            A run has been reviewed and classified as a designated run, but the billing file hasn’t been sent to the FSS
-            yet. The current labels are not specific enough.
+            <!--A run has been reviewed and classified as a designated run, but the
+            billing file hasn’t been sent to the FSS yet. The current labels are
+            not specific enough.-->
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise"
-              style="margin-top: 50px;float: right;text-align: right; width:110px;">
-              Initial run classified</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--turquoise" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 110px;
+              ">
+              Initial run classified</strong>
+          </td>
         </tr>
 
         <tr class="govuk-table__row">
@@ -156,20 +239,27 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Interim recalculation run classified</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            A run has been reviewed and classified as a designated run, but the billing file hasn’t been sent to the FSS
-            yet. The current labels are not specific enough.
+            <!--A run has been reviewed and classified as a designated run, but the
+            billing file hasn’t been sent to the FSS yet. The current labels are
+            not specific enough.-->
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise"
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Interim recalculation run classified</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--turquoise" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Interim recalculation run classified</strong>
+          </td>
         </tr>
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
@@ -177,24 +267,27 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Final recalculation run classified</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            A run has been reviewed and classified as a designated run, but the billing file hasn’t been sent to the FSS
-            yet. The current labels are not specific enough.
+            <!--A run has been reviewed and classified as a designated run, but the
+            billing file hasn’t been sent to the FSS yet. The current labels are
+            not specific enough.-->
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise"
-              style="margin-top: 50px;float: right;text-align: right;  width:140px;">
-              Final recalculation run classified</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--turquoise" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Final recalculation run classified</strong>
+          </td>
         </tr>
-
-
-
-
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
@@ -202,23 +295,27 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Final run classified</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            A run has been reviewed and classified as a designated run, but the billing file hasn’t been sent to the FSS
-            yet. The current labels are not specific enough.
+            <!--A run has been reviewed and classified as a designated run, but the
+            billing file hasn’t been sent to the FSS yet. The current labels are
+            not specific enough.-->
           </th>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise"
-              style="margin-top: 50px;float: right;text-align: right; width: 100px;">
-              Final run classified</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--turquoise" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 100px;
+              ">
+              Final run classified</strong>
+          </td>
         </tr>
-
-
-
-
 
         <!-- Has been classified -->
         <tr class="govuk-table__row">
@@ -227,21 +324,29 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Initial run and Initial run completed</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            The run has been reviewed and classified as a designated run, and the billing file has been sent to the FSS.
+            <!--The run has been reviewed and classified as a designated run, and
+            the billing file has been sent to the FSS.-->
           </th>
           <td class="govuk-table__cell"></td>
           <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
               style="margin-top: 50px;float: right;text-align: right; width: 105px;">
               Initial run</strong></td> -->
 
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Initial run completed</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--purple" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Initial run completed</strong>
+          </td>
         </tr>
 
         <tr class="govuk-table__row">
@@ -250,22 +355,29 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Interim recalculation and Interim recalculation completed</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            The run has been reviewed and classified as a designated run, and the billing file has been sent to the FSS.
+            <!--The run has been reviewed and classified as a designated run, and
+            the billing file has been sent to the FSS.-->
           </th>
           <td class="govuk-table__cell"></td>
           <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
               style="margin-top: 50px;float: right;text-align: right; width: 140px;">
               Interim recalculation</strong></td> -->
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Interim recalculation completed</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--purple" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Interim recalculation completed</strong>
+          </td>
         </tr>
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
@@ -273,23 +385,29 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Final recalculation run and Final recalculation run completed</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            The run has been reviewed and classified as a designated run, and the billing file has been sent to the FSS.
+            <!--The run has been reviewed and classified as a designated run, and
+            the billing file has been sent to the FSS.-->
           </th>
           <td class="govuk-table__cell"></td>
           <!-- <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
               style="margin-top: 50px;float: right;text-align: right; width: 140px;">
               Final recalculation run</strong></td> -->
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Final recalculation run completed</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--purple" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Final recalculation run completed</strong>
+          </td>
         </tr>
-
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
@@ -297,23 +415,29 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Final recalculation run and Final recalculation run completed</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            The run has been reviewed and classified as a designated run, and the billing file has been sent to the FSS.
+            <!-- The run has been reviewed and classified as a designated run, and
+            the billing file has been sent to the FSS.-->
           </th>
           <td class="govuk-table__cell"></td>
           <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
               style="margin-top: 50px;float: right;text-align: right; width: 140px;">
               Final recalculation run</strong></td> -->
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Final recalculation run completed</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--purple" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Final recalculation run completed</strong>
+          </td>
         </tr>
-
-
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-body-s">
@@ -321,92 +445,29 @@
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Final run and Final run completed</a>
             </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
 
-            Prototype explanation ONLY:<br>
-            The run has been reviewed and classified as a designated run, and the billing file has been sent to the FSS.
+            <!-- The run has been reviewed and classified as a designated run, and
+            the billing file has been sent to the FSS.-->
           </th>
           <td class="govuk-table__cell"></td>
           <!-- <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
               style="margin-top: 50px;float: right;text-align: right; width: 98px;">
               Final run</strong></td> -->
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--purple "
-              style="margin-top: 50px;float: right;text-align: right; width: 140px;">
-              Final run completed</strong></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--purple" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Final run completed</strong>
+          </td>
         </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header govuk-body-s">
-            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Test run</a>
-            </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
-
-            Prototype explanation ONLY:<br>
-            A run has been classified as a test run.
-          </th>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow"
-              style="margin-top: 50px;float: right;text-align: right;">
-              Test run</strong></td>
-
-        </tr>
-
-
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header govuk-body-s">
-            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Deleted</a>
-            </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
-
-            Prototype explanation ONLY:<br>
-            A run (designated or test) has been deleted.
-          </th>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
-              style="margin-top: 50px;float: right;text-align: right;">
-              Deleted</strong></td>
-
-        </tr>
-
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header govuk-body-s">
-            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Error</a>
-            </h3>
-            <p class="govuk-body-s">Calculation ID: 240010<br>
-              Run date and time: 28 June 2024 at 10:01<br>
-              Run by: Jamie Roberts</p>
-
-            Prototype explanation ONLY:<br>
-            Something has gone wrong with the run.
-          </th>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red"
-              style="margin-top: 50px;float: right;text-align: right;">
-              Deleted</strong></td>
-
-        </tr>
-
-
-
-
-
 
 
 
@@ -415,12 +476,7 @@
 
       </tbody>
     </table>
-
-
-
   </div>
 </div>
-
-
 
 {% endblock %}
