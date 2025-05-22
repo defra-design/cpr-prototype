@@ -1,0 +1,84 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-0">
+      <h1 class="govuk-heading-l">Pay online through GOV.UK</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+
+      <p class="govuk-body">Pay the registration fee of <strong>£2,921 </strong> direct using
+        the GOV.UK secure payments service.</p>
+
+      <p class="govuk-body">Your application payment reference:
+        <strong>PR/PK/EXP 000568587647654</strong>
+      </p>
+
+
+      <a href="./paycal/payment-card-details.html" role="button" class="govuk-button">Pay online now</a>
+
+    </div>
+  </div>
+</div>
+
+<!-- Page layout end 2  -->
+
+<script>
+  // Function to handle both Print and Save as PDF
+  function handlePrintOrSave(action) {
+    var printButton = document.getElementById('printButton');
+    var pdfButton = document.getElementById('pdfButton');
+
+    // Apply 'clicked' style for buttons
+    var button = (action === 'print') ? printButton : pdfButton;
+    button.style.backgroundColor = '#ffdd00'; // Highlight with yellow background
+    button.style.borderBottom = '3px solid #000000'; // Add bottom border for clicked state
+
+    // Trigger print dialog
+    setTimeout(function () {
+      window.print(); // Save as PDF is part of the print dialog
+    }, 150);
+
+    // Reset style after printing
+    window.onafterprint = function () {
+      button.style.backgroundColor = ''; // Reset background color
+      button.style.borderBottom = ''; // Reset border
+    };
+  }
+</script>
+
+{% endblock %}

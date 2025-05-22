@@ -1,0 +1,56 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="" method="POST">
+
+    <h1 class="govuk-heading-l">
+      Submit registration application
+</h1>
+
+<div class="govuk-body">
+  By entering your name and submitting your application, you confirm that the information you have provided is accurate.
+
+</div>
+</div>
+
+</div><br>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="one-half">
+    Enter your full name
+  </label>
+  <input class="govuk-input govuk-!-width-one-half" id="one-half" name="oneHalf" type="text">
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="one-half">
+    Enter your job title
+  </label>
+  <input class="govuk-input govuk-!-width-one-half" id="one-half" name="oneHalf" type="text">
+</div>
+     
+ <div class="govuk-body" style="font-weight: bold;">[Company name] may face enforcement action if the data is inaccurate</div>
+
+<br>
+<br>
+ <button class="govuk-button" formaction="confirmation">Submit application</button>
+  </div>
+</div></div>
+
+
+{% endblock %}

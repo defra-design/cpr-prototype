@@ -1,0 +1,42 @@
+{% set serviceName = "Manage PRNs/PERNs" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="#" method="POST">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            PERN authorised and isssued to:
+          <br>
+              {{data['which-producer']}}
+          </h1>
+          <div class="govuk-panel__body">
+          PERN number<br><strong>9876543</strong>
+          </div>
+        </div>
+
+          <p><a href="#">Download this PERN</a></p>
+          <h1 class="govuk-heading-l">What happens next</h1>
+
+<h2 class="govuk-body-m">We’ll send you an email as soon as the producer or compliance scheme accepts or rejects this PERN. </h2>
+<br>
+
+<button class="govuk-button" formaction="#">View issued PERNs</button> <button class=" govuk-button govuk-button--secondary" formaction="#" style="margin-left: 20px;">Create another PERN</button>
+</div>
+    </div>
+  </main>
+</div>
+</div>
+
+
+{% endblock %}

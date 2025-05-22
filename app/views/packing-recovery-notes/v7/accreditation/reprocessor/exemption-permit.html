@@ -1,0 +1,186 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+  <!--<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Is it an exemption or permit that authorises you to reprocess steel?
+        </h1>
+      </legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="waste-1" name="next-page" type="radio" value="environmental-permit" data-aria-controls="conditional-contact-1">
+          <label class="govuk-label govuk-radios__label" for="waste-1">
+            Environmental permit
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="ppc-permit-1">
+              Enter environmental permit number
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="ppc-permit-1" name="permit" type="number">
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="waste-2" name="next-page" type="radio" value="installation-permit" data-aria-controls="conditional-contact-2">
+          <label class="govuk-label govuk-radios__label" for="waste-2">
+            Installation permit licence
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="ppc-permit-2">
+              Enter installation permit licence
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="ppc-permit-2" name="permit" type="number">
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-2" name="next-page" type="radio" value="ppc-permit" data-aria-controls="conditional-contact-3">
+          <label class="govuk-label govuk-radios__label" for="contact-2">
+            Pollution, Prevention and Control (PPC) permit
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="contact-by-phone">
+              Enter PPC permit number
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="permit" type="number">
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-3" name="next-page" type="radio" value="waste-management" data-aria-controls="conditional-contact-4">
+          <label class="govuk-label govuk-radios__label" for="contact-3">
+            Waste management licence
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="contact-by-text">
+              Waste management number
+            </label>
+            <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="permit" type="number">
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-3" name="next-page" type="radio" value="exemption-references" data-aria-controls="conditional-contact-4">
+          <label class="govuk-label govuk-radios__label" for="contact-3">
+            Exemption references
+          </label>
+        </div>
+      </div>
+      
+
+
+
+
+</fieldset>
+</div>-->
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Is it an exemption or permit that authorises you to reprocess steel?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="waste-1" name="next-page" type="radio" value="environmental-permit" data-aria-controls="conditional-contact-1">
+        <label class="govuk-label govuk-radios__label" for="waste-1">
+          Environmental permit
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-1">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="ppc-permit-1">
+            Enter permit number
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="ppc-permit-1" name="permit" type="alphanumeric">
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="waste-2" name="next-page" type="radio" value="installation-permit" data-aria-controls="conditional-contact-2">
+        <label class="govuk-label govuk-radios__label" for="waste-2">
+          Installation permit
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="ppc-permit-2">
+            Enter installation permit
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="ppc-permit-2" name="permit" type="alphanumeric">
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-2" name="next-page" type="radio" value="ppc-permit" data-aria-controls="conditional-contact-3">
+        <label class="govuk-label govuk-radios__label" for="contact-2">
+          Pollution, Prevention and Control (PPC) permit
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Enter permit number
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="ppc" name="permit" type="alphanumeric">
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-3" name="next-page" type="radio" value="waste-management" data-aria-controls="conditional-contact-4">
+        <label class="govuk-label govuk-radios__label" for="contact-3">
+          Waste management licence
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-text">
+            Waste management number
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="waste-number" name="permit" type="alphanumeric">
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-4" name="next-page" type="radio" value="exemption-references">
+        <label class="govuk-label govuk-radios__label" for="contact-4">
+          Exemption references
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

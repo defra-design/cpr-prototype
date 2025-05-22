@@ -1,0 +1,332 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukBreadcrumbs({
+        items: [
+        {
+        text: "Home",
+        href: ""
+        }
+
+        ]
+        }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+</div>
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<style media="screen">
+    .card {
+        background-color: #f3f2f1;
+        padding: 30px 30px 10px 30px;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 50px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container2 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+<style type="text/css">
+    .card-container3 {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 0px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container4 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+
+<section>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">Manage your recycling obligation</h1>
+
+            <table class="govuk-table">
+
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+          
+                  <!--<h2 class="govuk-heading-m">PRNs and PERNs obligation summary</h2>
+                  <div id="waste-hint" class="govuk-hint">
+                    Select the PRNs and PERNs you want to accept or reject.
+                  </div>-->
+          
+                  <!--<tr class="govuk-table__row">
+          
+                    <th scope="col" class="govuk-table__header">Material</th>
+                    <th scope="col" class="govuk-table__header">Obligation</th>
+                      <th scope="col" class="govuk-table__header">Awaiting acceptance</th>
+                    <th scope="col" class="govuk-table__header">Accepted</th>
+                    <th scope="col" class="govuk-table__header">Towards obligation</th>
+                    <th scope="col" class="govuk-table__header">Outstanding</th>
+                  </tr>
+                    
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+          
+          
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            <a href="selected-prn">Paper and board</a>
+                        </label>
+                          </div></td>
+                    <td class="govuk-table__cell"> 101</td>
+                    <td class="govuk-table__cell">0</td>
+                      <td class="govuk-table__cell">106</td>
+                      <td class="govuk-table__cell">101</td>
+                      <td class="govuk-table__cell">0</td>  
+                  </tr>
+          
+
+                  
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            <a href="selected-prn">Wood</a>
+                        </label>
+                          </div></td>
+                    <td class="govuk-table__cell"> 5</td>
+                    <td class="govuk-table__cell">0</td>
+                      <td class="govuk-table__cell">5</td>
+                      <td class="govuk-table__cell">5</td>
+                      <td class="govuk-table__cell">0</td>  
+                  </tr>
+               
+                </tbody>
+              </table>
+          
+              <table class="govuk-table">-->
+          
+              <!--<div class="govuk-inset-text app-inset-text">
+                  <div class="govuk-heading-m">
+                    23 Ruby Street
+           <br> XX YY 
+           <br> Birmingham, UK
+                </div> -->
+
+                
+            
+                <div class="govuk-inset-text">
+                    <span class="govuk-caption-l">Number of PRNs and PERNs awaiting acceptance</span>
+                    <br>
+                    <h1 class="govuk-heading-xl">10
+                  </div>
+
+                <br>
+                <br>
+
+
+                <div class="cards">
+                  <!--  <div class="card-container" id="cardAmount">
+                        <div class="card-body" style="width: 425px; border-bottom: 0px;">
+                            <h3 class="govuk-heading-m" style="padding-left: 20px; margin-top: 20px;">
+                                Accept or cancel PRNs/PERNs
+                                <span class="govuk-caption-m" style="padding-top: 10px">PRNs/PERNs awaiting acceptance</span>
+                            </h3>
+                            <div class="card-container2" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="./view-awaiting-acceptance-alt" class="govuk-link govuk-link--no-visited-state">Accept PRNs/PERNs</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="./view-awaiting-acceptance-alt-cancel" class="govuk-link govuk-link--no-visited-state">cancel PRNs/PERNs</a>
+                                    </p>
+
+                                    <p><br></p>
+                                </div></div>
+                        </div>
+                    </div>-->
+
+
+                    <div class="card-container3" id="cardAmount">
+                        <div class="card-body" style="width: 425px; border-bottom: 0px;">
+                            <h3 class="govuk-heading-m" style="padding-left: 20px; margin-top: 20px;">
+                                Manage PRNs and PERNs
+                                <!--<span class="govuk-caption-m" style="padding-top: 10px">Hint text here</span>-->
+                            </h3>
+                            <div class="card-container2" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="./view-awaiting-acceptance-alt" class="govuk-link govuk-link--no-visited-state">Accept or reject PRNs and PERNs</a>
+                                    </p>
+                                   
+                                </div></div>
+                            <div class="card-container4" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="./view-awaiting-acceptance" class="govuk-link govuk-link--no-visited-state">View all PRNs and PERNs</a>
+                                    </p>
+                                </div></div>
+                                
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+
+              <!--  <div class="cards">
+                    <div class="card-container" id="cardAmount">
+                        <div class="card-body" style="width: 425px; border-bottom: 0px;">
+                            <h3 class="govuk-heading-m" style="padding-left: 20px; margin-top: 20px;">
+                                Returns
+                                <span class="govuk-caption-m" style="padding-top: 10px">Submit quarterly returns<br><br></span>
+                            </h3>
+                            <div class="card-container2" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="#" class="govuk-link govuk-link--no-visited-state">Submit a return</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="#" class="govuk-link govuk-link--no-visited-state"></a>
+                                    </p>
+                                    <p><br><br></p>
+                                </div></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="card-container3" id="cardAmount">
+                        <div class="card-body" style="width: 425px; border-bottom: 0px;">
+                            <h3 class="govuk-heading-m" style="padding-left: 20px; margin-top: 20px;">
+                                Accreditation
+                                <span class="govuk-caption-m" style="padding-top: 10px">Apply for accreditation, check your status and view all applications</span>
+                            </h3>
+                            <div class="card-container4" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="./accreditation/reprocessor/tasklist.html" class="govuk-link govuk-link--no-visited-state">Apply for new accreditation</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="accreditation/reprocessor/accreditation-list" class="govuk-link govuk-link--no-visited-state">My accreditations</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="accreditation/reprocessor/accreditation-list" class="govuk-link govuk-link--no-visited-state">View all applications</a>
+                                    </p>
+                                    <p></p>
+                                </div></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="cards">
+                    <div class="card-container" id="cardAmount">
+                        <div class="card-body" style="width: 425px; border-bottom: 0px;">
+                            <h3 class="govuk-heading-m" style="padding-left: 20px; margin-top: 20px;">
+                                Account
+                                <span class="govuk-caption-m" style="padding-top: 10px">Create and manage users.</span>
+                            </h3>
+                            <div class="card-container2" id="cardAmount">
+                                <div class="card-body" style="width: 330px;">
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="#" class="govuk-link govuk-link--no-visited-state">Create a new user</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="#" class="govuk-link govuk-link--no-visited-state">Manage a user</a>
+                                    </p>
+                                    <p class="govuk-!-margin-bottom-3">
+                                        <a href="#" class="govuk-link govuk-link--no-visited-state">View my account details</a>
+                                    </p>
+                                </div></div>
+                        </div>
+                    </div>-->
+
+
+
+
+
+
+
+                </div>
+
+        </div>
+
+
+
+    </div>
+    </div>
+
+    <section>
+        {% endblock %}

@@ -1,0 +1,203 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+<form class="form" action="./check-answers" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Authority to issue PERNs for steel
+      </h1>
+     
+      <h2 class="govuk-body-s"><p>You can choose the people you want to have authority to issue PERNs for this material at this site. </p>
+
+       <p>
+        The people you choose will be able to issue PRNs on this system. </p></h2>
+
+    </legend>
+
+
+
+    <h1 class="govuk-heading-m">
+      Select who you want to have authority to issue PRNs     </h1>
+    <div id="event-name-hint" class="govuk-hint">
+      You can select more than one.  </div>
+    
+<br>
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th scope="col" class="govuk-table__header">Full name</th>
+          <th scope="col" class="govuk-table__header">Email</th>
+            <th scope="col" class="govuk-table__header"></th>
+         <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header"></th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric""></th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric""></th>
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="John Taylor">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                   <strong>Myself</strong> 
+                  </label>
+                </div>
+                </div>
+              </td>
+
+        <td class="govuk-table__cell">Myself@reprocessor.com</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+      </tr>
+
+        <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Andrew Recycler">
+                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                     <strong>Andrew Recycler</strong> 
+                    </label>
+                  </div>
+                  </div>
+                </td>
+
+          <td class="govuk-table__cell">Andrew.Recycler@reprocessor.com</td>
+                <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Gary Package1 ">
+                  <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                  <strong> Gary Package</strong>            </label>
+                </div>
+                </div>
+              </td>
+
+        <td class="govuk-table__cell">Gary.Package@reprocessor.com</td>
+              <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+          <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Gary Package">
+                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                 <strong>Gary Package </strong> 
+                </label>
+              </div>
+              </div>
+            </td>
+
+      <td class="govuk-table__cell">GaryWPackage@reprocessor.com</td>
+            <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Scott Reprocessor">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+               <strong>Scott Reprocessor</strong>
+              </label>
+            </div>
+            </div>
+          </td>
+
+    <td class="govuk-table__cell">Scott.Reprocessor@reprocessor.com</td>
+          <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+      <td class="govuk-table__cell govuk-table__cell--numeric""></td>
+
+  </tr>
+
+    
+      </tbody>
+    </table>
+
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      The name of the person is not listed
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   To add a person to this list you need to invite them to create an account.
+<br> <br>
+Then return to this screen to select them to have authority to issue PERNs.
+  </div>
+</details>
+
+
+</fieldset>
+</div>
+
+          <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

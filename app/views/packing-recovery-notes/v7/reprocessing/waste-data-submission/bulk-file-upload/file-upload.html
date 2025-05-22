@@ -1,0 +1,56 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form action="uploading-csv" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                    <span class="govuk-caption-l">Recording for: paper/board</span>
+      Upload waste records
+            </h1>
+
+            <p class="govuk-body">You need to upload your waste records in a spreadsheet format.</p>
+
+            <p class="govuk-body">After you've uploaded your file, we'll check the data. If it's all correct, we'll save the file to your account. If there are any issues, we'll let you know and provide guidance on how to fix them. </p>
+
+
+
+            <h2 class="govuk-heading-m">Upload file</h2>
+
+            <div class="govuk-form-group">
+                    <p>It might take a few minutes to upload your file.  </p>
+                    <p> Please keep this window open until the upload is complete. </p>
+                <input class="govuk-file-upload" id="file-upload-1" name="waste-file-upload" type="file">
+              </div>
+
+
+        </fieldset>
+    </div>
+
+
+    {{
+govukButton({
+text: "Upload file"
+})
+    }}
+
+</form>
+</div>
+</div>
+
+{% endblock %}
