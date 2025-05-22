@@ -80,7 +80,7 @@
                 Results file
               </a>
 
-              <p id="download-status" class="govuk-body" style="display: none; margin-top: 15px;">
+              <p id="download-status" class="govuk-body" style="display: none; margin-top: 15px; margin-bottom: 40px;">
                 <strong>Downloading...</strong> Please wait while we prepare your file.
               </p>
 
@@ -124,16 +124,23 @@
 </div>
 </div>
 </div>
+
+
 <script>
-  // Handle download simulation
   document.getElementById('download-button').addEventListener('click', function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent actual navigation for simulation
 
     const statusText = document.getElementById('download-status');
     statusText.style.display = 'block';
 
+    // Simulate download delay (e.g. 2 seconds)
     setTimeout(() => {
-      statusText.innerHTML = '<strong>✔ Download complete.</strong> Your file has been saved.';
+      statusText.innerHTML = `
+        <strong>✔ Download complete.</strong> Your file has been saved. <br><br><a href="#" target="_blank" style="margin-left: 10px; margin-bottom: 20px;">View results-file.csv</a>
+      `;
+
+      // To trigger actual download, uncomment this:
+      // window.location.href = '/downloads/results-file.csv'; 
     }, 2000);
   });
 </script>

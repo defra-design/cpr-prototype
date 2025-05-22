@@ -37,103 +37,136 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-    &nbsp; &nbsp; <br>
-    <form method="POST" action="classification">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
-              <span class="govuk-caption-l">Calculation run 99</span>
-              <h1 class="govuk-heading-l">Calculation run details</h1>
+    <br>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+            <span class="govuk-caption-l">Calculation run 99</span>
+            <h1 class="govuk-heading-l">Calculation run details</h1>
 
-              <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
 
-              <table class="govuk-table">
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Financial year</th>
-                    <td class="govuk-table__cell">2024-25</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Classification</th>
-                    <td class="govuk-table__cell">Initial run</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Calculation ID</th>
-                    <td class="govuk-table__cell">240008</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Run date and time</th>
-                    <td class="govuk-table__cell">21 June 2024 at 12:09</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Run by</th>
-                    <td class="govuk-table__cell">Steve Jones</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h2 class="govuk-heading-m">Downloads</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Financial year</th>
+                  <td class="govuk-table__cell">2024-25</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Classification</th>
+                  <td class="govuk-table__cell">Initial run</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Calculation ID</th>
+                  <td class="govuk-table__cell">240008</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Run date and time</th>
+                  <td class="govuk-table__cell">21 June 2024 at 12:09</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Run by</th>
+                  <td class="govuk-table__cell">Steve Jones</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m">Downloads</h2>
+            <p class="govuk-body">Download files related to this calculation run.</p>
 
-              <p class="govuk-body">Download files related to this calculation run.</p>
-              <div class="govuk-button-group">
-                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Results file
-                </button>
-                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Draft billing file
-                </button>
-              </div>
-              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-              <h2 class="govuk-heading-m">Remove this run's classification</h2>
-              <p class="govuk-body">Mark this run as a test or delete it to remove its classification.</p>
+            <div class="download-block">
+              <a id="download-results" href="#" class="govuk-button govuk-button--secondary" role="button">
+                Results file
+              </a>
+              <p id="status-results" class="govuk-body" style="display: none; margin-bottom: 40px;">
+                <strong>Downloading...</strong> Please wait while we prepare your file.
+              </p>
+            </div>
 
-              <div class="govuk-button-group">
-                <a href="remove-initial-run-classification" class="govuk-button govuk-button--secondary"
-                  style="display: inline;">Remove classification</a>
-              </div>
-              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <div class="download-block">
+              <a id="download-draft" href="#" class="govuk-button govuk-button--secondary" role="button">
+                Draft billing file
+              </a>
+              <p id="status-draft" class="govuk-body" style="display: none; margin-bottom: 40px;">
+                <strong>Downloading...</strong> Please wait while we prepare your file.
+              </p>
+            </div>
 
-              <h2 class="govuk-heading-m">Next step</h2>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <h2 class="govuk-heading-m">Remove this run's classification</h2>
+            <p class="govuk-body">Mark this run as a test or delete it to remove its classification.</p>
 
-              <p class="govuk-body">Confirm that you want to send the billing file to the FSS. </p>
+            <div class="govuk-button-group">
+              <a href="remove-initial-run-classification" class="govuk-button govuk-button--secondary"
+                style="display: inline;">Remove classification</a>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-              <div class="govuk-warning-text">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-visually-hidden">Warning</span>
-                  Once sent, you will not be able to amend the billing file.
-                </strong>
-              </div>
+            <h2 class="govuk-heading-m">Next step</h2>
 
-              <div class="govuk-button-group"><a href="send-billing-file" class="govuk-button show-continue"
-                  style="display: inline;">
-                  Continue
-                </a>
+            <p class="govuk-body">Confirm that you want to send the billing file to the FSS. </p>
 
-                <a class="govuk-link"
-                  href="../../classify/initial-run/scenario1-dashboard-0-initial-run-classified.html">Return to
-                  dashboard</a>
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                Once sent, you will not be able to amend the billing file.
+              </strong>
+            </div>
 
-              </div>
+            <div class="govuk-button-group"><a href="send-billing-file" class="govuk-button show-continue"
+                style="display: inline;">
+                Continue
+              </a>
 
+              <a class="govuk-link"
+                href="../../classify/initial-run/scenario1-dashboard-0-initial-run-classified.html">Return to
+                dashboard</a>
 
-
-
-            </fieldset>
-
-          </div>
-
-          {% from "govuk/components/details/macro.njk" import govukDetails %}
-
+            </div>
 
 
+
+
+          </fieldset>
+
+        </div>
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
+
+
+
+    </div>
 
     </form>
   </div>
+</div>
+</div>
+</div>
 
-  </form>
-</div>
-</div>
-</div>
-</div>
+<script>
+  function simulateDownload(buttonId, statusId, filename) {
+    const button = document.getElementById(buttonId);
+    const status = document.getElementById(statusId);
+
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      status.style.display = 'block';
+      status.innerHTML = `<strong>Downloading...</strong> Please wait while we prepare your file.`;
+
+      setTimeout(() => {
+        status.innerHTML = `
+          <strong>✔ Download complete.</strong> Your file has been saved. <br><br>
+          <a href="/downloads/${filename}" target="_blank" style="margin-left: 10px;">View ${filename}</a>
+        `;
+      }, 2000);
+    });
+  }
+
+  simulateDownload('download-results', 'status-results', 'results-file.csv');
+  simulateDownload('download-draft', 'status-draft', 'draft-billing-file.csv');
+</script>
+
 {% endblock %}
