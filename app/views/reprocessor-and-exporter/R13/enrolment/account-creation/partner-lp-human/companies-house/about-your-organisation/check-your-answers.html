@@ -1,0 +1,293 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST" action="declaration">
+
+    <h1 class="govuk-heading-l ">Check your details</h1>
+
+    <h2 class="govuk-heading-m ">Added organisation</h2>
+
+    <dl class="govuk-summary-list">
+
+        <!-- REGISTERED AS CHARITY -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                A registered charity?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../../general/registered-as-a-charity.html">
+                Change<span class="govuk-visually-hidden"> if you are a registered charity</span>
+            </a>
+            </dd>
+        </div>
+
+        <!-- REGISTERED WITH COMPANIES HOUSE -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Registered with Companies House?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../../general/registered-with-companies-house.html">
+                Change<span class="govuk-visually-hidden"> if you are registered with companies house</span>
+            </a>
+            </dd>
+        </div>
+
+        <!-- COMPANIES HOUSE NUMBER -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+                000134567
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+
+
+        <!-- COMPANIES HOUSE DETAILS -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Organisation details
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">ACORN LIMITED<br>
+                Crowthorne House <br>Wokingham<br>RG40 3GZ</p>
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                UK nation
+            </dt>
+            <dd class="govuk-summary-list__value">
+                England
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+        
+
+        <!-- UK NATION -->
+        {% if (data['uk-nation-question'] == "yes") %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                UK nation
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['uk-nation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/uk-nation.html">
+                Change<span class="govuk-visually-hidden"> UK nation</span>
+            </a>
+            </dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Different trading name?
+            </dt>
+            <dd class="govuk-summary-list__value">
+                No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../../general/registered-with-companies-house.html">
+                Change<span class="govuk-visually-hidden"> if you are registered with companies house</span>
+            </a>
+            </dd>
+        </div>
+
+    </dl>
+
+    <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+        If the address is wrong, you’ll need to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change them on Companies House (opens in a new tab)</a>.
+    </p>
+    <br>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Partners within a limited partnership</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+                  
+                  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Full name
+                    </dt>
+                      <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">Frankie Bridger</p>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                          Change<span class="govuk-visually-hidden"></span>
+                      </a>
+                      </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                          Full name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">Rekha Patel</p>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                          Change<span class="govuk-visually-hidden"></span>
+                      </a>
+                      </dd>
+                  </div>
+                  
+          
+              </dl>
+        
+
+
+
+    </dl>
+    <br>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Approved person email invitations created</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+
+         <!-- ROLE -->
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Role
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Individual partner<br>
+                </p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Invite
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Frankie <br>Bridger<br>
+                frankie.bridger@acornltd.com <br>078900328</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+
+        <br><p></p>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Role
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Individual partner<br>
+                </p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                Invite
+            </dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Rekha <br>Patel<br>
+                rekha.patel@acornltd.com <br>078900328</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="../about-your-organisation/companies-house-number.html">
+                Change<span class="govuk-visually-hidden"> Companies House number</span>
+            </a>
+            </dd>
+        </div>
+        
+        
+
+    </dl>
+
+    
+
+    {{ govukButton({
+      text: "Continue"
+    })}}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

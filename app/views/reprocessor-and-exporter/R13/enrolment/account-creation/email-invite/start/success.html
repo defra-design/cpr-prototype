@@ -1,0 +1,91 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+  <form action="account" method="post">
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+        You are an approved person for RECYCLE LIMITED
+        </h3>
+        
+      </div>
+    </div>
+    
+    
+    <h3 class="govuk-notification-banner__heading">
+      What you can do now
+      </h3>
+      <p>As an approved person for your organisation you can:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>invite additional colleagues to the organisation</li>
+          <li>delegate your functions to another person (a delegate) at a later stage - subject to regulator approval</li>
+          <li>apply for accreditation</li>
+          <li>submit and verify data returns</li>
+          <li>submit monthly returns after accreditation</li>
+      </ul>
+        <br>
+        <p>You can now continue to your organisation home page.</p>
+    
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+{% endblock %}

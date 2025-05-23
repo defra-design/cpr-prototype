@@ -1,0 +1,123 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% if (data['user-group'] == "compliance-scheme") %}
+<a class="govuk-back-link" href="../about-your-organisation/comfirm-company-details.html">Back</a>
+{% else %}
+<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
+{% if (data['user-group'] == "producer") %}
+<a class="govuk-back-link" href="../about-your-organisation/uk-nation.html">Back</a>
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="not-approved-person">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your role in the organisation, as shown on Companies House?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="director" name="form-role-in-organisation" type="radio" value="Director" {{ checked("form-role-in-organisation", "Director") }}>
+              <label class="govuk-label govuk-radios__label" for="director">
+                Director
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="secretary" name="form-role-in-organisation" type="radio" value="Company secretary" {{ checked("form-role-in-organisation", "Company secretary") }}>
+              <label class="govuk-label govuk-radios__label" for="secretary">
+                Company secretary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partner" name="form-role-in-organisation" type="radio" value="Partner" {{ checked("form-role-in-organisation", "Partner") }}>
+              <label class="govuk-label govuk-radios__label" for="partner">
+                Partner
+              </label>
+            </div>
+            
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+              <label class="govuk-label govuk-radios__label" for="contact-3">
+                None of the above
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                  What is your role in the organisation?
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-text" name="contactByText" type="tel" autocomplete="tel">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

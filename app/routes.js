@@ -137,3 +137,6 @@ router.get('/clear', (req, res) => {
 
 router.use('/public-register' , require ('./views/public-register/_routes'));
 module.exports = router
+
+//re-ex
+router.use('/reprocessor-and-exporter/R13/enrolment/account-creation', require('./views/reprocessor-and-exporter/R13/enrolment/account-creation/build/_routes'));
