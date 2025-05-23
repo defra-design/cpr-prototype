@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+  Report packaging data
+{% endset%}
+
+{% set serviceName = "Create an account" %}
+
+{% block pageTitle %}
+  Create an account
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="#">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Create an account</h1>
+
+    <form action="" method="post">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label govuk-label--" for="azure-email">
+          Email address
+        </label>
+        <input class="govuk-input" id="azure-email" name="azure-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="Joe Doey"">
+      </div>
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label govuk-label--" for="password">
+          Enter a password
+        </label>
+
+        <div id="password-hint" class="govuk-hint">
+          It must be at least 8 characters and must include letters and numbers.
+        </div>
+
+        <input class="govuk-input " aria-describedby="password-hint" id="password" name="password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label  govuk-label--" for="retype-password">
+          Re-type password
+        </label>
+        <input class="govuk-input" id="retype-password" name="retype-password" type="password" spellcheck="false" autocomplete="new-password" value="{{data['password']}}">
+      </div>
+
+      <div class="govuk-button-group">
+        <a href="create-account" class="govuk-button" type="submit">Accept and continue</a>
+        
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Reject invitation
+      </button>
+    </div>
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form action="check-your-answers" method="post">
+    <h1 class="govuk-heading-l">Invitation saved</h1>
+    <span class="govuk-caption-l">frankie.bridger@acornltd.com</span>
+    
+<p></p>
+    <h3 class="govuk-notification-banner__heading">
+      What you can do next
+      </h3>
+      <p class="govuk-body">You can:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>continue to add your organisation</li>
+        <li>invite additional people within your organisation to be an approved person, from
+          the eligible roles</li>
+      </ul>
+      </form>
+      <br>
+
+      
+      <form action="check-your-answers" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+       <input type="hidden" name="waste-data-reprocesser" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+            Continue
+        </button>
+      </form>
+    <a class="govuk-link" href="team-role">Invite another approved person</a>
+    
+  </div>
+</div>
+{% endblock %}

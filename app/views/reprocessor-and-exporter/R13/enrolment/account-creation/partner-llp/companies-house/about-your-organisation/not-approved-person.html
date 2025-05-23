@@ -1,0 +1,115 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR: Reprocessor and exporters service",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          
+            <h1 class="govuk-heading-l">Add an approved person</h1>           
+
+<p>You should invite an 'approved person' who needs to be invited to take on tasks on behalf of the organisation.</p>
+
+  <p>You can continue to add the organisation without inviting someone to be an approved person. One must be appointed before you can:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>apply for accreditation application</li>
+      <li>submit and verify data returns</li>
+    </ul>
+  </p>
+
+  <div class="govuk-inset-text">
+    An approved person may delegate their function to another person (a delegate) at a later stage - subject to regulator approval.
+  </div>
+
+  <p>More than one person can be invited - you will need to confirm their role, enter their name and contact details.</p>
+  <br>
+  <h1 class="govuk-heading-m">Roles eligible to be an approved person</h1>
+  <p>Any member within a limited liability partnership can be an approved person.</p>
+<br>
+<h1 class="govuk-heading-m">Invite users in your team</h1>
+<p>Select an option to proceed.</p>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset"> 
+    <div class="govuk-radios" data-module="govuk-radios">
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          I will invite an eligible person to be an approved person 
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+          I will invite an approved person later
+        </label>
+      </div>
+      
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+
+       
+
+        <div class="govuk-button-group">
+          <a href="member-partnership" class="govuk-button" type="submit">Confirm</a>   
+        </div>
+
+          </div>
+
+        </div>
+      
+
+</div>
+
+{% endblock %}

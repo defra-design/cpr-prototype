@@ -1,0 +1,77 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="success">
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">
+          What is your telephone number?
+        </h1>
+        <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your account.</p>
+
+        <label class="govuk-label" for="personal-work-email">
+          Telephone number
+        </label>
+        
+        <input class="govuk-input govuk-input--width-20" id="personal-telephone-number" name="personal-telephone-number" aria-describedby="telephone-hint" type="tel" autocomplete="tel" value="{{data['personal-telephone-number']}}">
+      </div>
+
+      
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

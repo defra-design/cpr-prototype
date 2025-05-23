@@ -1,0 +1,96 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">What are the names of all partners in your limited partnership?</h1>
+    
+    <div id="waste-hint" class="govuk-hint">
+      This means any company entity partners and individual partners, which are listed as partners within your limited partnership, as registered on Companies House.  
+    </div>
+
+    <div data-module="moj-add-another">
+      <form method="post">
+    
+        <fieldset class="govuk-fieldset moj-add-another__item">
+          <hr>
+          <br>
+          <p></p>
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+              Company partner name
+            </label>
+            <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
+            
+            <br><p></p><br>
+            <p><STRONG>Or</STRONG></p>
+            <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+              Individual partner’s full name
+            </label>
+    
+            <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
+          </div>
+    
+        </fieldset>
+        <hr>
+        <br>
+    
+        <div class="moj-button-action">
+    
+          <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+            Add another partner 
+          </button>
+    
+        </div>
+    
+        <div class="moj-button-action">
+    
+          <div class="govuk-button-group">
+            <a href="check-partner-companies-both" class="govuk-button" type="submit">Continue</a>   
+          </div>
+    
+        </div>
+    
+      </form>
+    
+    </div>
+    
+
+  </div>
+</div>
+
+{% endblock %}

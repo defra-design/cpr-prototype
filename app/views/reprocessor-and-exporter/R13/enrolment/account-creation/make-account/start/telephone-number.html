@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account" %}
+
+{% set title = "Create an account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./full-name">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="success">
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">
+          What is your telephone number?
+        </h1>
+        <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your account.</p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="phone-number">
+          Phone number
+        </label>
+        <div id="phone-number-hint" class="govuk-hint">
+          For international numbers include the country code
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="phone-number" name="phoneNumber" type="tel" aria-describedby="phone-number-hint" autocomplete="tel">
+      </div>
+      <br><br>
+
+      
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
