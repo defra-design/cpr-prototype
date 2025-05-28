@@ -1,0 +1,67 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Payment for exporter registration application
+        </label>
+      </h1>
+    </div>
+
+    <p class="govuk-body">
+      <h2 class="govuk-heading-m">Environment Agency</h2>
+      <p class="govuk-body"> <strong>Amount due:</strong>
+       £2, 921 </p>
+       <p class="govuk-body"> <strong>Description:</strong>
+        Charge for exporter registration application for steel  </p>
+        <p class="govuk-body"> <strong> Date application submitted: </strong>
+         7 May 2025 </p>
+          <p class="govuk-body"> <strong>Payable to:</strong>
+             Environment Agency </p>
+      </p>
+
+      <p class="govuk-body">
+        <h2 class="govuk-heading-m">
+          How to pay by bank transfer</h2>
+          <p class="govuk-body"> <strong>Use your application reference:</strong>
+             000568587647654  </p>
+        </p>
+
+
+        <p class="govuk-body">
+          <p class="govuk-body"> Bank transfer details: </p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>company name: Environment Agency</li>
+  <li>bank: RBS/Natwest, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate, London EC2M 4RB</li>
+  <li>sort code: 60-70-80</li>
+  <li>account number: 10014411</li>
+  <li>account name: EA RECEIPTS</li>
+</ul>
+          </p>
+
+    <button class="govuk-button" formaction="">Download</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}

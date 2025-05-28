@@ -1,0 +1,45 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form" action="" method="POST">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              You are applying for 2026 accreditation
+            </h1>
+          </legend>
+          <p class="govuk-body">
+            Apply for 2025 accreditation on the <a href="#" class="govuk-link"> National Packaging Waste Database (NPWD)</a>.
+          </p>
+     </fieldset>
+      </div>
+  
+    <input type="hidden" name="sub-type">
+    <button class="govuk-button" formaction="./accreditation-prn">Continue</button>
+     
+</div>
+
+
+</form>
+
+
+{% endblock %}

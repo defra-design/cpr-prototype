@@ -1,0 +1,86 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<style media="screen">
+  .autocomplete__input {
+    width: 30%;
+  }
+
+
+
+.autocomplete__menu{
+    width: 30%
+}
+
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="waste-details" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Recording for: paper/board</span>
+      <h1 class="govuk-fieldset__heading">When was it exported?</h1>
+
+    </legend>
+    <div id="event-name-hint" class="govuk-hint">
+      You can only record waste for the current month and for those months within an open quarterly return period.
+    </div>
+
+
+
+
+<div class="govuk-from-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+<div class="govuk-radios govuk-radios" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name" name="month-received" type="radio" value= "October" >
+    <label class="govuk-label govuk-radios__label" for="changed-name">
+    October
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name-2" name="month-received" type="radio" value="November">
+    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+      November
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="changed-name-2" name="month-received" type="radio" value="December">
+    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+    December
+    </label>
+  </div>
+
+
+</div>
+  </fieldset>
+</div>
+<br>
+
+  <input type="hidden" name="sold" value="true">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+</div>
+
+
+{% endblock %}

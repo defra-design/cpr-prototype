@@ -1,0 +1,659 @@
+{% set serviceName = "Manage registration and accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+  <title>GOV.UK Style Blue Background</title>
+  <style>
+    body {
+      margin: 0;
+    
+    }
+    .govuk-blue-background {
+      background-color: #1d70b8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+ 
+  .white-checkbox {
+    accent-color: white;
+  }
+
+  .white-hover-label {
+    color: #ccc; /* default label color */
+    transition: color 0.2s ease;
+  }
+
+  .white-hover-label:hover {
+    color: white;
+  }
+
+
+  .icon {
+    background-image: url('images/search_icon.png');
+
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}
+
+  
+  </style>
+
+
+  <div class="govuk-grid-row">
+    
+        <h1 class="govuk-heading-l" style="margin-left: 15px;">
+          Manage registration and accreditation submissions
+       
+<form id="filter-form">
+        <p>This list shows the latest submissions and the action taken on them.  To view older submissions   <a href="#" aria-describedby="#" class="#"> sign in to Power-BI.</a></p>
+
+   
+        
+      </h1></div>
+
+      </div>
+      
+      
+
+  <div class="govuk-blue-background margin-bottom:100px">
+    <h1 class="govuk-heading-l" style="color: #FFFFFF; margin-right: 695px;" >Search and filter</h1>
+ <p class="govuk-body govuk-grid-column-two-thirds" style="color: #FFFFFF; padding-left: 255px; text-align: left;">Search by Companies House number, organisation name, reference number, registration or accreditation number or the site address</p>
+ <p><br><br></p>
+
+
+
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-2">
+    <div class="govuk-form-group" style="margin-left:255px; display: flex; align-items: center;">
+      
+      <!-- Text Input -->
+      <input class="govuk-input" 
+             id="organisation-name" 
+             name="organisation-name" 
+             type="text" 
+             style="width: 900px; border: 2px solid white;">
+      
+      <!-- Inline SVG icon (next to input) -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 243 242">
+        <image xlink:href="data:image/png;base64,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" x="0" y="0" width="243" height="242"/>
+      </svg>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--
+ 
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+ <div class="govuk-form-group" style="margin-left:255px;">
+  <label class="govuk-label" style="border-style: #FFFFFF;" for="organisation-name"></label>
+  <input class="govuk-input" id="organisation-name" name="organisation-name" type="text" style="width: 900px;">    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 174 171">
+    <image xlink:href="data:image/png;base64,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" x="0" y="0" width="174" height="171"/>
+  </svg>
+</div> -->
+
+<!-- Organisation type -->
+<div class="govuk-form-group" style="margin-left:255px;">
+  
+    <h3 class=" govuk-heading-s" style="margin-right: 1500px;  color: #FFFFFF">Filter</h3>
+    <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+      <div class="govuk-checkboxes__item" style="width: 120px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-reprocessors" name="orgtype"
+        type="checkbox" value="Reprocessor">
+ <label class="govuk-label govuk-checkboxes__label white-hover-label" for="orgtype-reprocessors" style="color: white;">
+   Reprocessor
+ </label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 100px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-exporter" name="orgtype" type="checkbox"
+          value="Exporter">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-exporter" style="color: white;">Exporter</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 120px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-registration" name="orgtype" type="checkbox"
+          value="Registration">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-registration"  style="color: white;" >Registration</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 130px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-accreditation" name="orgtype" type="checkbox"
+          value="Accreditation">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-accreditation" style="color: white;">Accreditation</label>
+      </div>
+      <div class="govuk-checkboxes__item" style="width: 150px !important;">
+        <input class="govuk-checkboxes__input white-checkbox" id="orgtype-assigntome" name="orgtype" type="checkbox"
+          value="Assigned">
+        <label class="govuk-label govuk-checkboxes__label" for="orgtype-assigntome" style="color: white; width:130px;">Assigned to me</label>
+      </div>
+     
+    </div>
+
+
+<!--org end-->
+
+
+<!-- Submission status -->
+
+  
+<div class="govuk-form-group" style="margin-bottom:0px;">
+  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+    <div class="govuk-checkboxes__item" style="width: 120px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-new" name="status"
+      type="checkbox" value="New">
+<label class="govuk-label govuk-checkboxes__label white-hover-label" for="status-new" style="color: white;">
+ Submitted
+</label>
+    </div>
+    <div class="govuk-checkboxes__item" style="width: 120px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-dulymade" name="status" type="checkbox"
+        value="Assigned">
+      <label class="govuk-label govuk-checkboxes__label" for="status-dulymade" style="color: white; width:100px;">Duly made</label>
+    </div>
+   <!-- <div class="govuk-checkboxes__item" style="width: 150px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-pending" name="status" type="checkbox"
+        value="Pending">
+      <label class="govuk-label govuk-checkboxes__label" for="status-pending" style="color: white;">Pending</label>
+    </div> -->
+    <div class="govuk-checkboxes__item" style="width: 100px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-queried" name="status" type="checkbox"
+        value="Queried">
+      <label class="govuk-label govuk-checkboxes__label" for="status-queried" style="color: white;">Queried</label>
+    </div>
+    <div class="govuk-checkboxes__item" style="width: 100px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-queried" name="status" type="checkbox"
+        value="Queried">
+      <label class="govuk-label govuk-checkboxes__label" for="status-queried" style="color: white;">Granted</label>
+    </div>
+    <div class="govuk-checkboxes__item" style="width: 100px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-rejected" name="status" type="checkbox"
+        value="Queried">
+      <label class="govuk-label govuk-checkboxes__label" for="status-rejected" style="color: white;">Rejected</label>
+    </div>
+  
+  </div>
+</div>
+
+<!--status end-->
+
+
+<!-- year  -->
+
+  
+<div class="govuk-form-group" style="margin-bottom:20px; padding-left: 0px;">
+  <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex;">
+    <div class="govuk-checkboxes__item" style="width: 120px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-year" name="status"
+      type="checkbox" value="New">
+<label class="govuk-label govuk-checkboxes__label white-hover-label" for="status-year" style="color: white;">
+ Year: 2024
+</label>
+    </div>
+    
+    <div class="govuk-checkboxes__item" style="width: 150px !important;">
+      <input class="govuk-checkboxes__input white-checkbox" id="status-year25" name="status" type="checkbox"
+        value="Queried">
+      <label class="govuk-label govuk-checkboxes__label" for="status-year25" style="color: white;">Year: 2025</label>
+    </div>
+   
+   
+  </div>
+</div></div></div>
+
+<!--year filter end-->
+
+</div>
+ </div>
+ 
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-top-2">
+<div class="govuk-body" style="padding-left: 250px;">
+  
+  <div style="align-items: center; display: flex; margin-left: 15px; margin-top: 20px;">
+    <button class="govuk-button" type="button" id="apply-filters"
+      style="margin-right: 30px; margin-bottom: 0px;">Apply filters</button>
+    <p class="govuk-body" style="margin-bottom: 0px;"><a href="#"
+        class="govuk-link govuk-link--no-visited-state" id="clear-filters">Clear filters</a></p>
+ 
+  <div class="govuk-form-group" style="float:right; margin-left: 420px;">
+    <label class="govuk-body" style="font-weight: bold;" for="select-status ">Sort by</label>
+    <select class="govuk-select" id="select-status" name="sort">
+        <option  selected>Organisation name</option>
+        <option value="published">Determination date</option>
+        
+
+    </select>
+</div>
+ </div>
+</div>
+</form>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"
+    style="margin: 0; width: 133vw; position: relative; left: 50%; transform: translateX(-50%);
+           border: none; height: 4px; background-color: #F3F2F1;">
+
+
+
+<h1 class="govuk-heading-l" style="margin-left: 265px; padding-top: 30px;">
+Green Ltd
+</h1>
+<!-- figma design<div style="display: flex; gap: 150px; margin-left: 270px;" class="govuk-body-m">
+  <div>
+    <strong>Organisation ID:</strong> 654321
+  </div>
+  <div>
+    <strong>Companies House number:</strong> CH00123456
+  </div>
+</div>-->
+
+<div style="margin-left: 265px;" class="govuk-body-m">
+  <div>
+    <strong>Organisation ID:</strong> 654321
+  </div>
+  <div>
+    <strong>Companies House number:</strong> CH00123456
+  </div>
+</div>
+
+<br>
+<h1 class="govuk-body-m" style="margin-left: 265px;">
+  <strong>Reprocessor: 23 Ruby Street, London, E12 4AB</strong>
+  </h1>
+   
+</div></div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"
+    style="margin: 0; width: 65vw; position: relative; left: 50%; transform: translateX(-50%);
+           border: none; height: 4px; background-color: #D9D9D9;">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2" style="margin-left: 265px;">
+
+    <h1 class="govuk-body-l" style="margin-left: 0px; padding-top: 30px;">
+<strong>Registration     </strong> </h1>
+
+ <!-- TABLE -->
+ <table class="govuk-table" id="submission-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Material</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Year
+      </th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Application number</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Payment
+        reference</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission
+        date</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third">Determination date</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Assigned 
+        to</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body submission-table-body">
+
+    <!-- Org Acme with links start -->
+    <tr>
+      <td class="govuk-table__cell">Plastic<br><span class="orgNameFilter Material"></span></td>
+      <td class="govuk-table__cell">2025
+      </td>
+      <td class="govuk-table__cell">R25ER6543213937PL	</td>
+
+      <td class="govuk-table__cell">098673052</td>
+      <td class="govuk-table__cell">10 June
+        2023</td>
+      <td class="govuk-table__cell">10 August
+        2023</td>
+      <td class="govuk-table__cell">Jane Smith</strong>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+          id="status-granted">Submitted</strong>
+      </td>
+      </td>
+    </tr>
+    <tr>
+      <td class="govuk-table__cell">Steel<br><span class="orgNameFilter Material"></span></td>
+      <td class="govuk-table__cell">2025
+      </td>
+      <td class="govuk-table__cell">R25ER6543214561ST	</td>
+
+      <td class="govuk-table__cell">098673943</td>
+      <td class="govuk-table__cell">10 June
+        2023</td>
+      <td class="govuk-table__cell">10 August
+        2023</td>
+      <td class="govuk-table__cell">Jane Smith</strong>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+          id="status-granted">Submitted</strong>
+      </td>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<a href="\packing-recovery-notes\v6-1\regulator\manage-reprocessors-applications\registrations-v3\new-registration.html" class="govuk-link" style="font-size:large;">View applications</a>
+
+<h1 class="govuk-body-l" style="margin-left: 0px; padding-top: 30px;">
+  <strong>Accreditation    </strong> </h1>
+  
+   <!-- TABLE -->
+   <table class="govuk-table" id="submission-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Material</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Year
+        </th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Application number</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Payment
+          reference</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission
+          date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Determination date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Assigned 
+          to</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body submission-table-body">
+
+      <!-- Org Acme with links start -->
+      <tr>
+        <td class="govuk-table__cell">Plastic<br><span class="orgNameFilter Material"></span></td>
+        <td class="govuk-table__cell">2025
+        </td>
+        <td class="govuk-table__cell">A954897447365974	</td>
+  
+        <td class="govuk-table__cell">098673943</td>
+        <td class="govuk-table__cell">10 June
+          2023</td>
+        <td class="govuk-table__cell">10 August
+          2023</td>
+        <td class="govuk-table__cell">Jane Smith</strong>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+            id="status-granted">Submitted</strong>
+        </td>
+        </td>
+      </tr>
+      <tr>
+        <td class="govuk-table__cell">Steel<br><span class="orgNameFilter Material"></span></td>
+        <td class="govuk-table__cell">2025
+        </td>
+        <td class="govuk-table__cell">A954839587643464	</td>
+  
+        <td class="govuk-table__cell">098673943</td>
+        <td class="govuk-table__cell">10 June
+          2023</td>
+        <td class="govuk-table__cell">10 August
+          2023</td>
+        <td class="govuk-table__cell">Jane Smith</strong>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey"
+            id="status-new">Submitted</strong>
+        </td>
+        </td>
+      </tr>
+  
+
+    </tbody>
+  </table>
+  <a href="\packing-recovery-notes\v6-1\regulator-accreditation\reprocessor\new-accreditation.html" class="govuk-link" style="font-size:large;">View applications</a>
+
+
+  <h1 class="govuk-body-m" style="margin-left: 0px; padding-top: 50px;">
+    <strong>Exporter: 846 House Block, Oxford, OX12 4AB</strong>
+    </h1>
+     
+  </div></div>
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"
+      style="margin: 0; width: 65vw; position: relative; left: 50%; transform: translateX(-50%);
+             border: none; height: 4px; background-color: #D9D9D9;">
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2" style="margin-left: 265px;">
+  
+      <h1 class="govuk-body-l" style="margin-left: 0px; padding-top: 30px;">
+  <strong>Registration     </strong> </h1>
+  
+   <!-- TABLE -->
+   <table class="govuk-table" id="submission-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Material</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Year
+        </th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Application number</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Payment
+          reference</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Submission
+          date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Determination date</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Assigned 
+          to</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body submission-table-body">
+
+      <!-- Org Acme with links start -->
+      <tr>
+        <td class="govuk-table__cell">Plastic<br><span class="orgNameFilter Material"></span></td>
+        <td class="govuk-table__cell">2025
+        </td>
+        <td class="govuk-table__cell">R26EP393464	</td>
+  
+        <td class="govuk-table__cell">098673943</td>
+        <td class="govuk-table__cell">10 June
+          2023</td>
+        <td class="govuk-table__cell">10 August
+          2023</td>
+        <td class="govuk-table__cell">Jane Smith</strong>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue"
+            id="status-resubmission-pending">Pending</strong>
+        </td>
+        </td>
+      </tr>
+      <tr>
+        <td class="govuk-table__cell">Plastic<br><span class="orgNameFilter Material"></span></td>
+        <td class="govuk-table__cell">2025
+        </td>
+        <td class="govuk-table__cell">R26EP393464	</td>
+  
+        <td class="govuk-table__cell">098673943</td>
+        <td class="govuk-table__cell">10 June
+          2023</td>
+        <td class="govuk-table__cell">10 August
+          2023</td>
+        <td class="govuk-table__cell">Jane Smith</strong>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue"
+            id="status-resubmission-pending">Pending</strong>
+        </td>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <a href="#" class="govuk-link" style="font-size:large;">View applications</a>
+
+</div></div></div>
+
+
+<div id="page" style="margin-left: 265px; padding-top: 80px;">
+<nav class="govuk-pagination" aria-label="Pagination">
+  <div class="govuk-pagination__prev">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+      <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+      </svg>
+      <span class="govuk-pagination__link-title">
+        Previous<span class="govuk-visually-hidden"> page</span>
+      </span>
+    </a>
+  </div>
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav></div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    // Get filter values
+  
+    
+
+    // Get selected checkboxes
+    let orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
+    let statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Separate resubmission filters
+    let resubmissionFilters = statusFilters.filter(status =>
+      ["new"].includes(status)
+    );
+
+    // Filter out resubmission-related statuses from standard status filters
+    let standardStatusFilters = statusFilters.filter(status =>
+      !["new"].includes(status)
+    );
+
+    // Define statuses that disable resubmission filtering
+    let statusesDisablingResubmission = ["new", "granted", "refused", "queried", "cancelled"];
+    let otherStatusSelected = standardStatusFilters.some(status => statusesDisablingResubmission.includes(status));
+
+    // Get year filters
+    let yearFilters = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value.trim().toLowerCase());
+
+    // Check if no filters are selected
+    const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 &&
+      statusFilters.length === 0 && yearFilters.length === 0;
+    if (noFiltersSelected) {
+      window.location.href = '../manage-data-submissions-no-results';
+      return;
+    }
+
+    console.log('Filters Applied:', { orgNameFilter, orgIdFilter, orgTypeFilters, standardStatusFilters, resubmissionFilters, yearFilters, otherStatusSelected });
+
+    // Get table rows
+    const rows = document.querySelectorAll('.submission-table-body tr');
+
+    let anyRowVisible = false; // Track if any row is visible after filtering
+
+    rows.forEach(row => {
+      // Extract cell values
+      const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase();
+      const orgId = row.cells[1].textContent.trim().toLowerCase();
+      const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase();
+      const submissionYear = row.cells[3].textContent.trim().toLowerCase();
+
+      // Get Submission Status (Column 5)
+      const submissionStatusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Get Resubmission Status (Column 6)
+      const resubmissionStatusTags = Array.from(row.cells[5].querySelectorAll('strong[id^="status-resubmission"]')).map(tag => tag.textContent.trim().toLowerCase());
+
+      // Handle resubmission filtering
+      if (resubmissionFilters.length > 0 && !otherStatusSelected) {
+        let resubmissionMatch = resubmissionStatusTags.some(tag => resubmissionFilters.includes(`resubmission-${tag}`)); // Match specific resubmission status
+        let grantedMatch = submissionStatusTags.includes("granted");
+
+        // Only show rows where "Granted" exists AND resubmission status matches the filters
+        if (grantedMatch && resubmissionMatch) {
+          row.style.display = ''; // Show row
+          anyRowVisible = true;
+        } else {
+          row.style.display = 'none'; // Hide row
+        }
+        return; // Skip other filters when Resubmission is active
+      }
+
+      // Match Submission Status (Normal filtering)
+      const submissionStatusMatch = standardStatusFilters.length === 0 ||
+        standardStatusFilters.some(filter => submissionStatusTags.includes(filter));
+
+      // Apply all other filter conditions
+      const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
+      const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
+      const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
+      const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
+
+      // Final row visibility check
+      if (orgNameMatch && orgIdMatch && orgTypeMatch && submissionStatusMatch && yearMatch) {
+        row.style.display = ''; // Show row
+        anyRowVisible = true;
+      } else {
+        row.style.display = 'none'; // Hide row
+      }
+    });
+
+    if (!anyRowVisible) {
+      window.location.href = '../manage-data-submissions-no-results';
+    }
+  });
+
+  // Clear filters
+  document.getElementById('clear-filters').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('filter-form').reset();
+    document.querySelectorAll('#submission-table-body tr').forEach(row => {
+      row.style.display = ''; // Show all rows
+    });
+  });
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,187 @@
+{% set serviceName = "Manage PRNs/PERNs" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../home-5"
+    }
+      ,
+      {
+      text: "Raise a PRN",
+      href: ""
+      }
+
+  ]
+
+}) }}
+</div>
+<div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<style media="screen">
+  .card {
+  background-color: #f3f2f1;
+  padding: 30px 30px 10px 30px;
+
+}
+</style>
+
+<style type="text/css">
+    .card-container {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 50px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container2 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+<style type="text/css">
+    .card-container3 {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 0px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container4 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+
+<section>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            You’ve issued more than 400 tonnes of PRNs. 
+          <p class="govuk-body-m">You are now classed as a large reprocessor. You must pay a charge of £2,111.</p>
+          </p>
+        </div>
+      </div>
+      <h1 class="govuk-heading-xl">Raise a PRN</h1>
+
+     
+
+
+<br>
+      <div class="govuk-form-group" style="float:right">
+          <label class="govuk-visually-hidden" for="select-status ">Select a filter</label>
+          <select class="govuk-select" id="select-status" name="sort">
+              <option  selected>Filter by </option>
+              <option value="published">Reprocessor</option>
+              <option value="updated">Exporter</option>
+
+          </select>
+      </div>
+
+      <h1 class="govuk-heading-l"> Reprocessing</h1>
+        <h2 class="govuk-heading-s"> Materials for: 23 Ruby Street, London, SE15 1LR</h2>
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Material</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Current balance </th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Balance of PRNs awaiting authorisation</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left">Available balance to raise PRNs</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="text-align: left"></th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+           
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="font-weight: bold">Paper/board</th>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">500.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">200 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left">300.04 tonnes</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="text-align: left"><a href="../create-prn-400/tonnage">Raise PRN for paper/board</a> </td>
+            </tr>
+
+           
+
+            </tbody>
+        </table>
+
+     
+
+
+</div>
+</div>
+
+    <section>
+{% endblock %}

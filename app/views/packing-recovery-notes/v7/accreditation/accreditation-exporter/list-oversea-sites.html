@@ -1,0 +1,330 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../landing-page"
+    },
+    {
+      text: "",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">Select the overseas sites you want to accredit</h1>
+
+<p> These are the sites you added to your registration application. Select the ones you want to accredit
+</p>
+<p> There is a charge per site. You must pay this after you've submitted your  application.
+</p>
+
+   
+
+<div class="govuk-form-group-container" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+  <!-- Select All Checkbox -->
+  <div class="govuk-form-group">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
+      <label class="govuk-label govuk-checkboxes__label" for="select-all">Select all</label>
+    </div>
+  </div>
+
+  <!-- Country Dropdown Filter -->
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="country-filter">
+      Filter by country
+    </label>
+    <select class="govuk-select" id="country-filter" name="country" aria-describedby="country-hint">
+      <option value="all" selected>All countries</option>
+      <option value="Germany">Germany</option>
+      <option value="France">France</option>
+      <option value="Italy">Italy</option>
+      <option value="Malta">Malta</option>
+      <option value="Romania">Romania</option>
+      <option value="Japan">Japan</option>
+      <option value="India">India</option>
+      <option value="Brazil">Brazil</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+      <option value="South Africa">South Africa</option>
+      <option value="Mexico">Mexico</option>
+      <option value="China">China</option>
+    </select>
+  </div>
+</div>
+
+</div>
+
+
+<div class="govuk-grid-column-two-thirds">
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation name</th>
+      <th scope="col" class="govuk-table__header">Country</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-1" name="waste" type="checkbox" value="ABC Exporters Ltd, Thomas-Dehler-Str. 53b, 7 OG, 94127, Sladekland, Baden-Württemberg, Germany"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+      ABC Exporters Ltd, Thomas-Dehler-Str. 53b, 7 OG, 94127, Sladekland, Baden-Württemberg
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Germany</td>
+    
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-5" name="waste" type="checkbox" value="GHI Exporters Ltd, Schwalbenweg 216, 6 OG, 08548, Neu Emiliodorf, Thüringen, Germany"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-5">
+      ABC Exporters Ltd, Schwalbenweg 216, 6 OG, 08548, Neu Emiliodorf, Thüringen
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Germany</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-7" name="waste" type="checkbox" value="MNO Exporters Ltd, Widdauener Str. 02a, Apt. 456, 42952, Beggerowscheid, Thüringen, Italy"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-7">
+      ABC Exporters Ltd, Widdauener Str. 02a, Apt. 456, 42952, Beggerowscheid, Thüringen
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Italy</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-8" name="waste" type="checkbox" value="PQR Exporters Ltd, Bulevardul Poiana Codrului, Bloc 51, Ap. 90, Ap. 262, 078038, Flămânzi, Calarasi, Romania"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-8">
+      PQR Exporters Ltd, Bulevardul Poiana Codrului, Bloc 51, Ap. 90, Ap. 262, 078038, Flămânzi, Calarasi
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Romania</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-9" name="waste" type="checkbox" value="STU Exporters Ltd, , Bulevardul Piatra Morii, Bloc 59, Ap. 96, Ap. 393, 951367, Ardud, Hunedoara, Romania"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-9">
+      STU Exporters Ltd, Bulevardul Piatra Morii, Bloc 59, Ap. 96, Ap. 393, 951367, Ardud, Hunedoara
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Romania</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-10" name="waste" type="checkbox" value="VWX Exporters Ltd, , Jagodziński 3329, Apt. 989, 14-904, Bytom Odrzański, Wielkopolskie, Poland"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-10">
+      VWX Exporters Ltd, Jagodziński 3329, Apt. 989, 14-904, Bytom Odrzański, Wielkopolskie
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Poland</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-11" name="waste" type="checkbox" value="YZA Exporters Ltd, Jagodziński 3329, Apt. 989, 14-904, Bytom Odrzański, Wielkopolskie, Poland"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-11">YZA Exporters Ltd, Jagodziński 3329, Apt. 989, 14-904, Bytom Odrzański, Wielkopolskie
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Poland</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-12" name="waste" type="checkbox" value="BCD Exporters Ltd, 68899 Ðông Quân Port, Suite 800, 90045, Vĩnh Phúc, Michigan, Vietnam"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-12">
+      BCD Exporters Ltd, 68899 Ðông Quân Port, Suite 800, 90045, Vĩnh Phúc, Michigan
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Vietnam</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-13" name="waste" type="checkbox" value="EFG Exporters Ltd, 281 Dạ Yến Stravenue, Suite 912, 76627, Hà Nội, Idaho, Vietnam"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-13">
+      EFG Exporters Ltd, 281 Dạ Yến Stravenue, Suite 912, 76627, Hà Nội, Idaho
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Vietnam</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-14" name="waste" type="checkbox" value="EFG Exporters Ltd, 20815 Khải Hà Summit, Suite 022, 25159, Hòa Bình, Hawaii, Vietnam"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-14">
+      EFG Exporters Ltd, 20815 Khải Hà Summit, Suite 022, 25159, Hòa Bình, Hawaii
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">Vietnam</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-15" name="waste" type="checkbox" value="KLM Exporters Ltd, 45729 Pollock Hill, Suite 058, 4828, Cape Town, Gauteng, South Africa"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-15">
+      KLM Exporters Ltd, 45729 Pollock Hill, Suite 058, 4828, Cape Town, Gauteng
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">South Africa</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-16" name="waste" type="checkbox" value="NOP Exporters Ltd, 60004 Rosemarie Crossing, Suite 377, 45549, Tshwane, Gauteng, South Africa"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-16">
+      NOP Exporters Ltd, 60004 Rosemarie Crossing, Suite 377, 45549, Tshwane, Gauteng
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">South Africa</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+      <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-18" name="waste" type="checkbox" value="TUV Exporters Ltd, 60004 Rosemarie Crossing, Suite 377, 45549, Tshwane, Gauteng, South Africa"  onclick="storeSelectedSites()">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-18">
+      TUV Exporters Ltd, 60004 Rosemarie Crossing, Suite 377, 45549, Tshwane, Gauteng
+      </label>
+      </div>
+      </td>
+      <td class="govuk-table__cell">South Africa</td>
+    </tr>
+   
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+</div>
+<!-- Pagination -->
+ <!--
+<nav class="govuk-pagination" role="navigation" aria-label="Pagination">
+    <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous<span class="govuk-visually-hidden"> page</span></span></a>
+    </div>
+    <ul class="govuk-pagination__list">
+
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-current="Page 1">
+                1
+            </a>
+        </li>
+        <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-label="page">
+                2
+            </a>
+        </li>
+        <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                3
+            </a>
+        </li>
+    </ul>
+    <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+        </svg></a>
+    </div>
+</nav>
+
+-->
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--xl">
+
+    </div>
+
+    <div style="display: flex; gap: 20px;">
+      <a href="confirm-site">
+        <input class="govuk-button" type="submit" value="Save and continue" />
+      </a>
+      <a href="">
+        <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+      </a>
+    </div>
+
+    
+<script>
+  function storeSelectedSites() {
+    const selected = [];
+    document.querySelectorAll('input[name="waste"]:checked').forEach(cb => {
+      selected.push(cb.value);
+    });
+    localStorage.setItem('selectedSites', JSON.stringify(selected));
+  }
+
+  // Optional: Pre-check boxes if values are already stored
+  document.addEventListener("DOMContentLoaded", () => {
+    const stored = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    document.querySelectorAll('input[name="waste"]').forEach(cb => {
+      if (stored.includes(cb.value)) {
+        cb.checked = true;
+      }
+    });
+  });
+
+  // Update stored values when "Select all" is used
+  document.getElementById('select-all')?.addEventListener('change', function () {
+    document.querySelectorAll('input[name="waste"]').forEach(cb => {
+      cb.checked = this.checked;
+    });
+    storeSelectedSites();
+  });
+
+  // Also re-store selection on country filter change
+  document.getElementById('country-filter')?.addEventListener('change', function () {
+    const selected = this.value;
+    const rows = document.querySelectorAll('tbody.govuk-table__body > tr');
+    rows.forEach(row => {
+      const country = row.querySelector('td:last-child')?.textContent.trim();
+      row.style.display = (selected === 'all' || country === selected) ? '' : 'none';
+    });
+    storeSelectedSites();
+  });
+</script>
+
+
+
+
+{% endblock %}
+
+
+
+

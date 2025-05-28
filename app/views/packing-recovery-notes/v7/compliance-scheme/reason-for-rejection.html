@@ -1,0 +1,56 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="rejected-prn" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              Why do you want to cancel this PRN?
+            </label>
+          </h1>
+         <!-- <p class="govuk-body-m">Provide a list of UK businesses you source packaging waste from, including a brief description of what each business does, such as 'Trading Co, a supermarket chain'.</p>-->
+
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="notesource" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 200 characters
+        </div>
+      </div>
+
+
+
+</fieldset>
+</div>
+ 
+    <input class="govuk-button" type="submit" value="Continue" style="margin-right: 20px;"  />  
+</form>
+  
+</div>
+
+{% endblock %}

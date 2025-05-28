@@ -1,0 +1,106 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Show/hide textareas based on stored percentages
+    const stored = localStorage.getItem('pernPercentages');
+    if (stored) {
+      const values = JSON.parse(stored);
+      values.forEach((val, index) => {
+        const section = document.getElementById(`section${index + 1}`);
+        if (section) {
+          section.style.display = parseFloat(val) > 0 ? 'block' : 'none';
+        }
+      });
+    }
+
+    //  Attach submit listener safely
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', () => {
+        const textareas = document.querySelectorAll('textarea[name^="suppliers"]');
+        const values = {};
+
+        textareas.forEach((textarea, index) => {
+          const name = `suppliers${index + 1}`;
+          values[name] = textarea.value || '';
+        });
+
+        localStorage.setItem("pernTextareas", JSON.stringify(values));
+      });
+    }
+  });
+</script>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="./check-answers2" method="POST">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              More detail about how you’ll spend PERN income
+            </h1>
+          </legend>
+          <div id="changedName-hint" class="govuk-hint">
+            It’s optional, but it can help the regulator to better understand your plans.
+          </div>
+
+          <br>
+
+          {% for i in range(1, 8) %}
+          <div class="govuk-form-group" id="section{{ i }}">
+            <h3 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="textarea{{ i }}">
+                {{ [
+                  "New reprocessing infrastructure and maintaining existing infrastructure",
+                  "Price support for buying packaging waste or selling recycled packaging waste",
+                  "Support for business collections",
+                  "Communications, including information campaigns",
+                  "Developing new markets for products made from recycled packaging waste",
+                  "Developing new uses for recycled packaging waste",
+                  "Activities or investment not covered by other categories"
+                ][i-1] }}{% if i != 7 %} (optional){% endif %}
+              </label>
+            </h3>
+            <textarea class="govuk-textarea" id="textarea{{ i }}" name="suppliers{{ i }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You can enter up to 500 characters
+            </div>
+          </div>
+
+          
+          <br>
+          {% endfor %}
+
+        </fieldset>
+      </div>
+
+      <br>
+
+      <button class="govuk-button" formaction="./check-answers2">Save and continue</button>
+      <button class="govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

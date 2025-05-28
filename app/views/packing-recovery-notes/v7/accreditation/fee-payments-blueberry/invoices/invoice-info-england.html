@@ -1,0 +1,43 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="#" method="POST">
+      <h1 class="govuk-heading-l">Pay the accreditation fee to issue PRNs</h1>
+
+      <p class="govuk-body">Sample text: You are required to pay the accreditation fee to issue PRNs according to the
+        law lorem ipsum lorem <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Guidance text
+          (opens in new tab)</a></p>
+
+      <div class="govuk-inset-text">
+        All charges will increase annually on 1st September in each year starting on 1st September 2026, in line with
+        any increase in the Consumer Prices Index published by the Office for National Statistics as at 31st March of
+        the same year.
+      </div>
+
+      <p class="govuk-body">Sample text: we accept online payments, by bank transfer or by calling to your local Lorem
+        ipsum lorem ipusm. Payments need to be done by an authorised person. See
+        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank"> Guidance text (opens in new tab)</a>.
+        If you have all the right conditions please continue.
+      </p>
+
+      <a href="../invoices/invoice-england.html" role="button" class="govuk-button">Continue</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

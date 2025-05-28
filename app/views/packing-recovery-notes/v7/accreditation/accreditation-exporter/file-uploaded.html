@@ -1,0 +1,87 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<form action="accreditation-prn4" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+              Upload accreditation sampling and inspection plan for steel
+            </h1>
+
+
+            <div class="govuk-body-m">
+              <p>Each file must be:</p>
+              <li>no more than 20MB</li>
+               <li>one of these file types: PDF, DOC, DOCX, XLS, CSV, PNG, TIF, JPG or MSG</li> 
+</div>
+
+<br>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="file-upload-1">
+    Upload a file
+  </label>
+  <div
+    class="govuk-drop-zone"
+    data-module="govuk-file-upload">
+    <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+  </div>
+</div>
+<br>
+
+<table class="govuk-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Uploaded files</th>
+        <th scope="col" class="govuk-table__header">Date uploaded</th>
+          <th scope="col" class="govuk-table__header">Uploaded by</th>
+        <th scope="col" class="govuk-table__header"></th>
+      
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+<a href="#">SamplingndInspectionXYZreprocessingSteel.pdf </a>
+                </label>
+              </div>
+              </div></td>
+        <td class="govuk-table__cell">01/02/24</td>
+        <td class="govuk-table__cell"> Jane Winston</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#">Remove</a> </td>
+          
+      </tr>
+
+    </tbody>
+</table>
+        
+
+        </fieldset>
+    </div>
+
+
+    <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+</form>
+</div>
+</div>
+
+{% endblock %}
