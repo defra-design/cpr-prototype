@@ -1,0 +1,54 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Have the previous application(s) for that site been submitted?
+    </h1>
+    <p class="govuk-body">
+      This page is part of a prototype to test different logic for reprocessors in the escape loop.
+      It is not part of the live service. </p>
+
+    <form class="form" action="" method="POST" id="escape-form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes" name="next-page" type="radio" value="tasklist2">
+              <label class="govuk-label govuk-radios__label" for="yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="next-page" type="radio" value="tasklist1">
+              <label class="govuk-label govuk-radios__label" for="no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" type="submit">Continue</button>
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
