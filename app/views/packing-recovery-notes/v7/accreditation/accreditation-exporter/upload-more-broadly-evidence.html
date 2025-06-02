@@ -57,7 +57,7 @@
 
 </form>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const continueBtn = document.getElementById('continueBtn');
@@ -75,7 +75,39 @@
       }
     });
   });
+</script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const continueBtn = document.getElementById('continueBtn');
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+
+    // 🔁 Restore saved selection
+    const savedValue = sessionStorage.getItem('xyzUploadMoreEvidence');
+    if (savedValue === 'yes') {
+      yesRadio.checked = true;
+    } else if (savedValue === 'no') {
+      noRadio.checked = true;
+    }
+
+    // ✅ Save and route based on selection
+    continueBtn.addEventListener('click', function (e) {
+      if (yesRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'yes');
+        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+      } else if (noRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'no');
+        continueBtn.setAttribute('formaction', 'check-answers4');
+      } else {
+        e.preventDefault(); // Stop form submission
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
 </script>
+
 
 
 

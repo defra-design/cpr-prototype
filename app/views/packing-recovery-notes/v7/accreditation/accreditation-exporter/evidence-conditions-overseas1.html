@@ -40,7 +40,7 @@
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
-              Does XYZ Exporters Ltd Ltd fulfil all these conditions?
+              Does XYZ Exporters Ltd fulfil all these conditions?
             </h1>
                
             <div class="govuk-inset-text">
@@ -84,18 +84,31 @@
 
 
 </form>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const yesRadio = document.getElementById('whereDoYouLive');
     const noRadio = document.getElementById('whereDoYouLive-2');
     const continueBtn = document.querySelector('button.govuk-button:not(.govuk-button--secondary)');
 
+    // Restore selection if available
+    const savedValue = sessionStorage.getItem('xyzConditionsSelection');
+    if (savedValue === 'yes') {
+      yesRadio.checked = true;
+    } else if (savedValue === 'no') {
+      noRadio.checked = true;
+    }
+
+    // On Continue, store selection and navigate
     continueBtn.addEventListener('click', function (e) {
       e.preventDefault(); // Stop form from submitting normally
 
       if (yesRadio.checked) {
+        sessionStorage.setItem('xyzConditionsSelection', 'yes');
         window.location.href = 'broadly-equivalent-steel1';
       } else if (noRadio.checked) {
+        sessionStorage.setItem('xyzConditionsSelection', 'no');
         window.location.href = 'upload-broadly-equivalent-evidence';
       } else {
         alert('Please select Yes or No before continuing.');
@@ -103,8 +116,5 @@
     });
   });
 </script>
-
-
-
 
 {% endblock %}
