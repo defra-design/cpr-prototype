@@ -30,7 +30,16 @@
 
 <form class="form" method="post">
     <!-- Entry 1 -->
-   <div id="evidence-summary-list-container"></div>
+   <div id="evidence-summary-list-container">
+    <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Does ABC Exporters Ltd fulfil all these conditions?</dt>
+            <dd class="govuk-summary-list__value">Yes, they fulfil above conditions</dd>
+            <dd class="govuk-summary-list__actions"><a onclick="exportsltdfunc()" href="/packing-recovery-notes/v7/accreditation/accreditation-exporter/evidence-conditions-overseas">Change</a></dd>
+          </div>
+          
+        </dl>
+   </div>
 
  <p>&nbsp;</p>
     
@@ -42,7 +51,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('evidence-summary-list-container');
     const evidenceList = JSON.parse(sessionStorage.getItem('evidenceList')) || [];
@@ -76,7 +85,7 @@
       container.insertAdjacentHTML('beforeend', html);
     });
   });
-</script>
+</script> -->
 
 
 {% endblock %}
