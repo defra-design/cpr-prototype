@@ -4,7 +4,7 @@
 Report packaging data
 {% endset%}
 
-{% set serviceName = "Reprocessor and exporters account" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
  Report packaging data
@@ -16,23 +16,10 @@ Report packaging data
   
   {{ govukHeader({
     homepageUrl: "../../../index.html",
-    serviceName: "Reprocessor and exporters account",
+    serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
-    {
-    href: "#",
-    text: "Home",
-    active: true
-    },
-    {
-    href: "manage-account.html",
-    text: "Manage account" 
-    },
     
-    {
-    href: "#",
-    text: "Sign out"
-    }
     ]
     }) }}
 
@@ -47,76 +34,129 @@ Report packaging data
 {% endblock %}
 
 {% block content %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-body account-info">
-      <div>
-          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
-      </div>
-    </div>
-
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
-
+    <span class="govuk-caption-xl">Jamie Roberts</span>
+      <h1 class="govuk-heading-l" style="margin-bottom: 3%;">ACORN LIMITED</h1>
+      <h3 class="govuk-heading-s">Organisation ID <br> 
+        <p>100762</p> 
+      </h3>
     
-  </div>
-</div>
 
-<!--<div class="govuk-inset-text">
-  <p class="govuk-body govuk-!-margin-bottom-1"> <strong> Account ID: 123 456</strong></p>
-  <p class="govuk-body govuk-!-margin-bottom-1"> Your reprocessor and exporters account</p>
-</div>-->
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
+   
+<div>  
+  <!--tab component-->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
 
+    <ul class="govuk-tabs__list">
 
-<div class="govuk-grid-row govuk-!-margin-bottom-7">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab1">Registration</a>
+      </li>
 
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-">Organisations</h2>
-      
-      <a class="account-link" href="registered-as-a-charity" id="signout-link">Enrol an organisation</a>
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab2">Accreditation</a>
+      </li>
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab5">Team members</a>
+      </li>
+
+    </ul>
+
+    <!--first tab-->   
+    <div class="govuk-tabs__panel" id="tab1">
+    
+      <p class="govuk-body">You have not registered any materials yet.</p>
+      <p><a href="#" class="govuk-link">Apply for registration</a>
+      </p>
+    
+    </div> 
+    
+    <!--Second tab-->   
+    <div class="govuk-tabs__panel" id="tab2">
+    
+      <p class="govuk-body">You need to <a href="#" class="govuk-link"> apply for registration </a> in order to get material accreditations.
+      </p>
+    
     </div>
-  </div>
 
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">Registration and accreditation</h2>
+    <!--fifth tab-->   
+    <div class="govuk-tabs__panel" id="tab5">
       
-      <a class="account-link" href="#" id="signout-link">Apply for a new accreditation</a>
-      <p></p>
-      <a class="account-link" href="#" id="signout-link">View accreditation applications</a>
-      <p></p>
-      <a class="account-link" href="#" id="signout-link">Add overseas reprocessing sites</a>
+      <!-- TABLE -->
+      <div style="float: right;">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" > add a team member</button>
+      </div>
+
+      <div>
+
+        <h3 class="govuk-heading-s">Invitations sent</h3>
+ 
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Email address</th>
+                <th scope="col" class="govuk-table__header">Permissions</th>
+                <th scope="col" class="govuk-table__header">Expiry date</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">sonia.webb@bestfoods.com</th>
+                <td class="govuk-table__cell">Manage team and upload data</td>
+                <td class="govuk-table__cell">24 February 2024</td>
+                <td class="govuk-table__cell"><a href="confirm-cancellation" class="govuk-link" style="color: #d4351c">Cancel invitation</a></td>
+              </tr>
+            </tbody>
+        </table>
+        
+        <br>
       
-    </div>
-  </div>
-</div>
-
-<div class="govuk-grid-row govuk-!-margin-bottom-7">
-
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">Manage PRN text</h2>
-      <p class="govuk-body">You are not accredited </p>
-    </div>
-  </div>
+        <h3 class="govuk-heading-s">Team members</h3>
   
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m" class="govuk-link--no-visited-state">Account</h2>
-      <p class="govuk-body">Create and manage users</p>
-      <a class="account-link" href="#" id="signout-link">Accept an invitation from [Business name]</a>
-      <p></p>
-      <a class="account-link" href="#" id="signout-link">Manage users</a>
-      <p></p>
-      <a class="account-link" href="#" id="signout-link">View my account details</a>
-      <p></p>
-      <a class="account-link" href="#" id="signout-link">Enrol a new business</a>
-    </div>
-  </div>
-  </div>
   
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Permissions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Sarah Rogers</a><br>Approved person</th>
+              <td class="govuk-table__cell">Submit data, manage the team</td>
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Joanne Wilson</a></th>
+              <td class="govuk-table__cell">Manage team and upload data</td>
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Robert Smith</a></th>
+              <td class="govuk-table__cell">Upload data only</td>
+            </tr>
+          </tbody>
+        </table>
+   
+      </div>
+
+    </div> <!-- end first tab-->
+
+  </div><!--end tab component-->
+</div>
 
 
 {% endblock %}
