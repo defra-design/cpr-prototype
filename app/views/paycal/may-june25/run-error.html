@@ -1,0 +1,83 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Steve Jones</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <span class="govuk-caption-l">Calculation run 99</span>
+        <h2 class="govuk-heading-l">
+          The calculator could not complete the run.
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <p>The calculation was unsuccessful</p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-m">What you can do</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <p class="govuk-body"><strong>Re-check your data:</strong> Make sure you have uploaded all required data,
+          including <a href="default-settings-no.html" class="govuk-link">default parameters</a> and <a
+            href="la-settings-no.html" class="govuk-link">local authority disposal costs</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><strong>Try running the calculation again:</strong> If your data is correct, you may be
+          able to <a href="output-3.html" class="govuk-link">re-run the calculation</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><strong>Contact support:</strong> If the issue persists, contact the Defra helpdesk:
+          <br>0000 000 0000
+          <br><a href="#" class="govuk-link">email@address.com</a>
+        </p>
+      </li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">If you no longer need this run</h2>
+
+    <p class="govuk-body">You can delete this run if you have completed another successful calculation.</p>
+
+    <form action="" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+      <div class="govuk-button-group">
+        <a href="delete-run" class="govuk-button govuk-button--warning" type="submit">Delete run</a>
+        <a class="govuk-link" href="./scenarios/scenario1/calculate-packaging-payments.html">Return to dashboard</a>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

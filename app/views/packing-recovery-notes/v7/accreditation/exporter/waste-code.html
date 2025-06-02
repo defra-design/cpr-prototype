@@ -1,0 +1,61 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="POST">
+
+
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               
+      <h1 class="govuk-heading-l">
+        Waste description code
+      </h1>
+     
+<p class="govuk-body">
+  Waste codes describe types of waste. You’ll find them on the<a href="#" class="govuk-link">consolidated waste list (opens in new tab).</a>.
+</p>
+    </legend>
+
+    <h1 class="govuk-heading-m">
+      Waste description code for the packaging waste you are exporting
+        </h1>
+  
+  
+       <div class="govuk-form-group">
+  <label class="govuk-label" for="width-5">
+    Enter one code
+  </label>
+  <input class="govuk-input govuk-input--width-5" id="width-10" name="width5" type="text">
+</div>
+
+</fieldset>
+</div>
+<p class="govuk-body">
+  <a href="#">Add another waste description code</a></p>
+  <br>
+<div id="codemain">
+ 
+<button class="govuk-button" formaction="review-material">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+</div>
+</form>
+</div>
+
+{% endblock %}

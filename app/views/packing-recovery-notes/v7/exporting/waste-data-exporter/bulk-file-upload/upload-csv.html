@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+
+  {{ govukHeader({
+    homepageUrl: "../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "../../../landing-page/v2/cs-submit-behalf-lp-england.html",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "../../delegate-someone/account-management",
+        text: "Manage account"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+        <form action="uploading-csv" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                              <span class="govuk-caption-l">Record your waste</span>
+                        Upload packaging data to your account
+                    </h1>
+
+                    <p class="govuk-body">Upload your members' packaging data in a CSV file.</p>
+
+                    <p class="govuk-body">Once we’ve validated the data, we store the file on your account. If there’s a problem, we reject the upload and tell you how to fix the file. </p>
+
+
+
+                    <h2 class="govuk-heading-m">Upload file</h2>
+
+                    <div class="govuk-form-group">
+                            <p>The file may take a few minutes to upload.  </p>
+                            <p> Do not close the window while the file is uploading. </p>
+                        <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                      </div>
+
+
+                </fieldset>
+            </div>
+
+
+            {{
+ govukButton({
+        text: "Upload file"
+      })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

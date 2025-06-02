@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR: Regulators' Service" %}
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="pom-data-details-organisation-small-producer-Granted.html">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-form-group">
+  <span class="govuk-caption-xl">Calculation run 99</span>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to accept all selected billing instructions?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="radio-yes" name="approve-data" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="radio-yes">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="radio-no" name="approve-data" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="radio-no">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-button-group">
+  <button id="continue-button" class="govuk-button">Continue</button>
+</div>
+
+<script>
+  document.getElementById('continue-button').addEventListener('click', function () {
+    // Get the selected radio button value
+    const selectedValue = document.querySelector('input[name="approve-data"]:checked')?.value;
+
+    // Redirect based on the selected value
+    if (selectedValue === 'yes') {
+      window.location.href = "./overview.html";
+    } else if (selectedValue === 'no') {
+      window.location.href = "../confirm-billing-instructions.html"; // Update with the correct 'No' redirect URL
+    } else {
+      alert("Please select an option before continuing.");
+    }
+  });
+</script>
+{% endblock %}

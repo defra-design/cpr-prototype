@@ -1,0 +1,87 @@
+{% set serviceName = "Manage registration application" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+     <span class="govuk-caption-l">Green Ltd: 23 Ruby St, London, E12 3SE</span>
+     Assign officer
+      </h1>
+
+
+
+<form class="form" action="" method="POST">
+
+     
+  <div class="govuk-form-group">
+   
+
+  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+   
+   
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="officer-check-answers" data-aria-controls="conditional-contact">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+       Assign the same officer to all applications
+
+      </label>
+    </div>
+
+    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="contact-by-email">
+         Enter officer's name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+      </div>
+    </div>
+
+
+
+    
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="multiple-assign">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        Assign an officer to each application
+
+      </label>
+    </div>
+
+
+
+  
+
+  </div>
+ 
+  </div>
+     
+
+
+<input class="govuk-button" type="submit" value="Continue"  />
+ 
+</div>
+
+
+</form>
+
+
+
+
+{% endblock %}

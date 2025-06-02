@@ -1,0 +1,57 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              What are the outputs from reprocessing?
+            </label>
+          </h1>
+          <!--<p class="govuk-body-m">Provide a list of UK businesses you source packaging waste from, including a brief description of what each business does, such as 'Trading Co, a supermarket chain'.-->
+
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="notesource" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 500 characters
+        </div>
+      </div>
+
+
+
+</fieldset>
+</div>
+ 
+    
+    <button class="govuk-button" formaction="plans-for-rejected-returned">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+</form>
+  
+</div>
+
+{% endblock %}

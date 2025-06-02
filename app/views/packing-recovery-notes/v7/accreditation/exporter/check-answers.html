@@ -1,0 +1,168 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
+            <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                 
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Waste carrier, broker or dealer registration number
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data['number1']}} <br>
+                        
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="address">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Waste management licence  or environmental permit number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['number2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  PPC ‘Part A’ or non-waste EPR ‘Part A1’ activity reference number                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['number3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="other">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+             
+
+        
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  PPC ‘Part B or C’ or non-waste EPR ‘Part A2 or B’ activity reference number                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['number4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="enter-tonnes">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Discharge consent  number
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['number5']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="">
+                          <span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Exemption reference
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['number6']}} <br>
+                          {{data['number7']}} <br>
+                          {{data['number8']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="select-month">
+                              Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                      </dd>
+                  </div>
+
+
+                <!--  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Tonnes of PRNs you plan to issue 
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{data['price']}}  {{data['price2']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div> 
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      People who have authority to issue PRNs 
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['chk']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="add-note">
+                            Change<span class="govuk-visually-hidden"> previous application number</span>
+                        </a>
+                    </dd>
+                </div> -->
+            </dl>
+
+
+            <form action="./tasklist-2" method="post" novalidate>
+
+              <input type="hidden" name="answers-checked" value="true">
+            
+              <div class="govuk-button-group">
+                {{ govukButton({
+                  text: "Confirm and continue"
+                }) }}
+              
+                {{ govukButton({
+                  text: "Save and continue later",
+                  classes: "govuk-button--secondary"
+                }) }}
+              </div>
+            
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

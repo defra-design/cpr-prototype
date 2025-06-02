@@ -1,0 +1,294 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-accreditations"
+    },
+    {
+      text: "Paper/board",
+      href: "../manage-pern"
+    },
+    {
+      text: "Record your waste",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Record your waste</span>
+    <h1 class="govuk-heading-xl">Paper/board</h1>
+
+
+
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full govuk-inset-text">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+        Paper/board waste balance
+        </h2>
+
+        <!-- DESCRIPTION -->
+        <p class="govuk-body govuk-!-margin-bottom-3">
+      Current waste balance for this accreditation is <strong>{% if data['answers-checked'] == 'true' %}9.38 tonnes{% else %}8.00 tonnes{% endif %}</strong>.
+        </p>
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+<div class="govuk-grid-row govuk-card__flex-container">
+<div class="govuk-grid-column-one-third govuk-card__flex-item">
+    <div class="govuk-grid-column-full  govuk-card govuk-card--contained"">
+
+
+                  <a href="manage" class="govuk-heading-m">  <h3 >Record waste exported</h3></a>
+                  <p class="govuk-body">Create a record for waste you have exported. </p>
+
+
+
+              </div>
+
+
+            </div>
+
+
+
+  <div class="govuk-grid-column-one-third govuk-card__flex-item">
+      <div class="govuk-grid-column-full  govuk-card govuk-card--contained"">
+
+
+                    <a href="" class="govuk-heading-m">  <h3 >Record waste supplied on</h3></a>
+                    <p class="govuk-body">Create a record for waste you supplied on.  </p>
+
+
+
+                </div>
+
+
+              </div>
+
+
+
+</div>
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <hr>
+            <h2 class="govuk-heading-l">Your waste records</h2>
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+
+            <th scope="col" class="govuk-table__header">Reference</th>
+            <th scope="col" class="govuk-table__header">Date created</th>
+           <th scope="col" class="govuk-table__header">Month</th>
+            <th scope="col" class="govuk-table__header">Record type</th>
+
+            <th scope="col" class="govuk-table__header govuk-table__cell--numeric""><strong>Gross waste</strong></th>
+            <th scope="col" class="govuk-table__header govuk-table__cell--numeric""><strong>Net waste</strong></th>
+            <th scope="col" class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% if data['waste-data-exporter'] == 'true' %}
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+            WR00013
+                </td>
+            <td class="govuk-table__cell">19 June 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Received </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">1.38</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          {% endif %}
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0001
+                </td>
+            <td class="govuk-table__cell">19 June 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Supplied on </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">-4.39</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0002
+
+                </td>
+            <td class="govuk-table__cell">25 June 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">7.59</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              WR0003
+              </td>
+            <td class="govuk-table__cell">01 June 2023</td>
+            <td class="govuk-table__cell">June</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric""> 5.59</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0004
+                </td>
+            <td class="govuk-table__cell">27 May 2023</td>
+            <td class="govuk-table__cell">May</td>
+            <td class="govuk-table__cell">Supplied on</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">-5.59</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0005
+
+                </td>
+            <td class="govuk-table__cell">20 May 2023</td>
+              <td class="govuk-table__cell">May</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric""> 2.39</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              WR0006
+              </td>
+            <td class="govuk-table__cell">18 May 2023</td>
+            <td class="govuk-table__cell">May</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">7.30</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric""> 2.59</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0007
+                </td>
+              <td class="govuk-table__cell">19 May 2023</td>
+            <td class="govuk-table__cell">May</td>
+            <td class="govuk-table__cell">Supplied on</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">-5.29</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR0008
+
+                </td>
+            <td class="govuk-table__cell">10 April 2023</td>
+            <td class="govuk-table__cell">April</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">6.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric""> 3.20</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              WR0009
+              </td>
+            <td class="govuk-table__cell">04 April 2023</td>
+            <td class="govuk-table__cell">April</td>
+            <td class="govuk-table__cell">Received</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">4.40</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric""> 2.19</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+
+              WR00010
+                </td>
+            <td class="govuk-table__cell">01 April 2023</td>
+            <td class="govuk-table__cell">April </td>
+            <td class="govuk-table__cell">Supplied on </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"">-6.59</td>
+            <td class="govuk-table__cell"><a href="change-check-answers">View</a></td>
+          </tr>
+
+          </tbody>
+          </table>
+
+          <nav class="govuk-pagination" role="navigation" aria-label="results">
+
+          <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+            1
+          </a>
+          </li>
+          <li class="govuk-pagination__item ">
+          <a class="govuk-link govuk-pagination__link" href="" aria-label="Page 2" aria-current="page">
+            2
+          </a>
+          </li>
+
+          </ul>
+          <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+          </div>
+          </nav>
+          </div>
+
+
+          </div>
+
+
+
+{% endblock %}

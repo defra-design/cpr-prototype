@@ -1,0 +1,99 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          <!-- <span class="govuk-caption-l">Recording for: paper/board</span> -->
+            <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+            <h2 class="govuk-heading-m">Wood</h2>
+
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Material
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data['materials']}}<br>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="choose-material">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who can the regulator contact about your application for steel?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                         Samuel Craig
+                        
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="contact-select">
+                              Change<span class="govuk-visually-hidden"> previous application number</span>
+                          </a>
+                      </dd>
+                  </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  List the type of suppliers you get steel packaging waste from
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['notesource']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="waste-details">
+                    Change<span class="govuk-visually-hidden"> previous application number</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name the UK ports you use for exporting steel packaging waste
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['director1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> previous application number</span>
+                    </a>
+                </dd>
+            </div>
+            </dl>
+
+
+          <div style="display: flex; gap: 20px;">
+            <a href="review-material3">
+              <input class="govuk-button" type="submit" value="Confirm and continue" />
+            </a>
+            <a href="#">
+              <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+            </a>
+          </div>
+
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}

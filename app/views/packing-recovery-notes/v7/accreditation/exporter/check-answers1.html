@@ -1,0 +1,66 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+ 
+
+
+    <div class="govuk-width-container">
+      <a href="#" class="govuk-back-link">Back</a>
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+            <h1 class="govuk-heading-l">Check your answer before continuing</h1>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address for service of notices
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  23 Ruby Street<br>
+               London, UK<br>
+               EE12 345
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./address">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+            </dl>
+          
+          </div>
+        </div>
+      </main>
+    </div>
+
+                <form action="./tasklist2" method="post" novalidate>
+
+                  <input type="hidden" name="answers-checked" value="true">
+                
+                  <div class="govuk-button-group">
+                    {{ govukButton({
+                      text: "Confirm and continue"
+                    }) }}
+                  
+                    {{ govukButton({
+                      text: "Save and continue later",
+                      classes: "govuk-button--secondary"
+                    }) }}
+                  </div>
+                
+                </form>
+              </div>
+    
+            </div>
+          </main>
+        </div>
+    
+    </div>
+
+{% endblock %}

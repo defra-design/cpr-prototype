@@ -1,0 +1,76 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="select-month" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Recording for: paper/board</span>
+
+    </legend>
+
+{{ xGovukAutocomplete({
+      id: "country",
+      name: "which-producer",
+      allowEmpty: false,
+      label: {
+        classes: "govuk-label--l",
+        showAllValues: true,
+        isPageHeading: true,
+
+        text: "Which reprocessor did you export to?"
+      },
+      items: [
+        { text: "Clean energy, 123 St, France, 39485" },
+        { text: "Cloud Inc, 656 Lane, Beijing, China, 94822" },
+        { text: "Clutter free Ltd, 14 New Road, New York, USA, 10213" },
+        { text: "Fresh T Recycles, 12 Hobury, Spain, 00000" }
+      ]
+    }) }}
+
+
+
+</fieldset>
+</div>
+
+    <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      The producer or compliance scheme is not in this list
+    </span>
+        </summary>
+        <div class="govuk-details__text">
+            <a href="#">Contact your environment agency</a>  for help.
+        </div>
+    </details>
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

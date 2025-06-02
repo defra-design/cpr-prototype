@@ -1,0 +1,147 @@
+{% set serviceName = "EPR for packaging data: manage your recycling obligations" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+<form class="form" action="#" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+
+
+    <div class="govuk-form-group">
+
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="with-hint">
+              Accept selected PRNs and PERNs?
+            </label>
+          </h1>
+          <br><div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Accepting them will credit the tonnage towards your obligation
+            </strong>
+          </div>
+<br>
+        </div>
+      </div>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">You selected 3 paper and board PRNs and PERNs</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date issued</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half">Issued by</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Tonnage</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">ER454545540M</th>
+            <td class="govuk-table__cell">20 Nov 2025</td>
+            <td class="govuk-table__cell">XYZ Reprocessing</td>
+            <td class="govuk-table__cell">65</td>
+            <td class="govuk-table__cell">
+              <label class="govuk-label govuk-checkboxes__label" >
+                <a href="accept-bulk-2" style="color: red;">Remove</a>
+            </label>
+               </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">EX454545540M</th>
+            <td class="govuk-table__cell">10 Nov 2025</td>
+            <td class="govuk-table__cell">Exporting International</td>
+            <td class="govuk-table__cell">151</td>
+            <td> <label class="govuk-label govuk-checkboxes__label" >
+              <a href="#" style="color: red;">Remove</a>
+          </label></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">ER454545540M</th>
+            <td class="govuk-table__cell">01 Nov 2025</td>
+            <td class="govuk-table__cell">Paperlink International Ltd</td>
+            <td class="govuk-table__cell">100</td>
+            <td> <label class="govuk-label govuk-checkboxes__label">
+              <a href="#" style="color: red;">Remove</a>
+          </label></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total</th>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><b>316</b></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">You selected 1 wood PRN</caption>
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">PRN and PERN number</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half">Date issued</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half">Issued by</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Tonnage</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">ER454545540M</th>
+            <td class="govuk-table__cell">10 Nov 2025</td>
+            <td class="govuk-table__cell" >Paperlink International Ltd</td>
+            <td class="govuk-table__cell">65</td>
+            <td> <label class="govuk-label govuk-checkboxes__label" >
+              <a href="#" style="color: red;">Remove</a>
+          </label></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total</th>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><b>65</b></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+
+
+</fieldset>
+</div>
+ 
+  <button class="govuk-button" formaction="confirmation">Yes, accept</button> <button class=" govuk-button govuk-button--secondary" formaction="view-awaiting-acceptance-alt" style="margin-left: 20px;">No, go back</button>
+
+</form>
+  
+</div>
+
+{% endblock %}

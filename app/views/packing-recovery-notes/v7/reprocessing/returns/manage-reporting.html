@@ -1,0 +1,131 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../../manage-accreditations"
+    },
+    {
+      text: "Paper/board - Ruby St, London SE15 1LR",
+      href: "../manage-prn"
+    },
+    {
+      text: "Submit your returns",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl"> GREEN LTD – Ruby St, London SE15 1LR</span>
+    <h1 class="govuk-heading-xl">Submit your paper or board returns</h1>
+
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full gem-c-related-navigation">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Accreditation details
+        </h2>
+          <p class="govuk-body-s ">
+            Total accreditation limit: <strong style="float: right;">400 tonnes</strong>
+          </p>
+        <p class="govuk-body-s">
+          Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+        </p>
+        <p class="govuk-body-s">
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+        </p>
+        {% if data['accreditation-limit']%}
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}3 tonnes{% else %}3 tonnes{% endif %}</strong>
+        </p>
+        {% endif %}
+
+
+      </div>
+  </div>
+</div>
+
+<h2 class="govuk-heading-l">
+Submit your quarterly return
+</h2>
+<p class="govuk-body">Your next quarterly return is due by <strong>30 September 2023</strong>.</p>
+<a href="view-return" class="govuk-button">Start now</a>
+
+
+
+                <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"">
+                </div>
+              </div>
+
+<h2 class="govuk-heading-l">
+Previous returns
+</h2>
+<h3 class="govuk-heading-m">2023</h3>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 April 2023 to 30 June 2023</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 January 2023 to 31 March 2023</a></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 class="govuk-heading-m">2022</h3>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 October 2022 to 31 December 2022</a></td>
+
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 July 2022 to 30 September 2022</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 April 2022 to 30 June 2022</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="view-only-return">1 January 2022 to 31 March 2022</a></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<a href="previous-returns" class="govuk-body">View all previous returns</a>
+
+
+
+
+{% endblock %}

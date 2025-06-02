@@ -1,0 +1,97 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      At which address should the regulator serve notices?
+</h1>
+<p class="govuk-body">These are notices setting out the conditions of your registration or registrations. They could also be enforcement or compliance notices.</p>
+
+</div>
+</div>
+
+<form class="form" action="" method="POST">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form class="form" action="" method="POST">
+
+     
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+  
+      <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+       
+       
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name-6" name="next-page" type="radio" value="check-answers1" data-aria-controls="conditional-contact">
+          <label class="govuk-label govuk-radios__label" for="changed-name-6">
+            The registered address
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div id="govuk-body" class="govuk-body-m">
+              23 Ruby Street<br>
+               London, UK<br>
+               EE12 345
+              </div>
+       
+        </div>
+        <!--<div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+  
+            It’s the same as the registered office address
+    
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="#">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+
+            It’s the same as the contact address
+          </label>
+        </div>-->
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="search">
+          <label class="govuk-label govuk-radios__label" for="changed-name">
+  
+            A different address
+          </label>
+        </div>
+      
+  
+      </div>
+     </fieldset>
+      </div>
+              <p></p>
+  
+    <input type="hidden" name="sub-type">
+    <input class="govuk-button" type="submit" value="Continue"  />
+     
+</div>
+
+
+</form>
+
+
+{% endblock %}

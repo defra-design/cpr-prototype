@@ -1,0 +1,146 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<main id="content" role="main">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+  {% if data['languagePreference'] != "en" %}
+  
+  <h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Address for service of notices</span>
+  <span style="text-transform: uppercase;">{{ data['house-number'] }}, RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</span>
+  </h1>
+  
+
+  <!--<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--m" for="account-number">
+        National grid reference (optional)
+      </label>
+    </h1>
+    <div id="account-number-hint" class="govuk-hint">
+      Enter grid reference if the postcode does not identify site location
+    </div>
+    <p class="govuk-body">
+      <a href="https://britishnationalgrid.uk/" class="govuk-link" rel="noreferrer noopener" target="_blank">Find national grid reference (opens in a new tab)</a></p>
+    <input class="govuk-input govuk-input--width-10" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+  </div>-->
+  
+  <br>
+  
+  <form class="form" method="post" action="./check-answers1">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Use this address
+  </button>
+  </form>
+  
+    <p class="govuk-body">
+    <a href="./search.html">Use a different address</a></p>
+  
+    <p class="govuk-body">
+      <a href="./manual-address.html">Enter address manually</a></p>
+  
+  {% else %}
+  
+  <h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Confirm address for</span>
+  <span style="text-transform: uppercase;">{{ data['house-number'] }}, RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</span>
+  </h1>
+  
+  <!--<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Local Authority
+  </dt>
+  <dd class="govuk-summary-list__value">
+  <a href="#">SEPA</a>
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Regulator's reference number
+  </dt>
+  <dd class="govuk-summary-list__value">
+  010006579087
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Council Tax band
+  </dt>
+  <dd class="govuk-summary-list__value">
+  {{ data['band'] }}
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Improvement indicator
+  </dt>
+  <dd class="govuk-summary-list__value">
+  No
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  With effect from
+  </dt>
+  <dd class="govuk-summary-list__value">
+  22 September 2012
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Mixed-use property
+  </dt>
+  <dd class="govuk-summary-list__value">
+  No
+  </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+  Court code
+  </dt>
+  <dd class="govuk-summary-list__value">
+  None
+  </dd>
+  </div>
+  </dl>-->
+  
+  
+  
+  <form class="form" method="post" action="./check-answers1" >
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Use this address
+  </button>
+  </form>
+
+  <p class="govuk-body">
+  <a href="#">Use a different address</a></p>
+
+  <p class="govuk-body">
+    <a href="#">Enter address manually</a></p>
+  
+  {% endif %}
+  
+  </div>
+  
+  </div>
+  </main>
+  
+  {% endblock %}
