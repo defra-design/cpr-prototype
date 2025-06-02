@@ -1,0 +1,141 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters account" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Reprocessor and exporters account",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "account",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    {
+    href: "my-profile.html",
+    text: "My profile" 
+    },
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+  
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          
+            <h1 class="govuk-heading-l">Manage your account </h1>
+
+              </div></div>
+              
+
+
+
+<p>You are eligible to become an Approved Person. Approved Persons are...</p>
+<br>
+<h1 class="govuk-heading-m">Manage users in your team</h1>
+<p>Confirm you are happy to be nominated as an approved person.</p>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+   
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          I confirm I am happy to be nominated as an Approved Person.
+        </label>
+      </div>
+      
+      
+    </div>
+  </fieldset>
+</div>
+
+
+<p><a class="govuk-link govuk-link--no-visited-state" href="./team-email">Add another person as an Approved Person.</a></p>
+
+       <!-- <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row"> <h1 class="govuk-heading-m">
+              <th scope="col" class="govuk-table__header">Team members</th>
+              <th scope="col" class="govuk-table__header">Permissions</th>
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header">Access</th>
+              </h1>
+            </tr>
+          </thead>
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                Adele Smith<br>
+                adele.smith@acornltd.com</td>
+                  <td class="govuk-table__cell">Upload data, submit data, manage the team</td>
+                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href="">
+                  <span class="govuk-visually-hidden"> address</span>
+                  </a></td>
+              
+              </tr>
+
+          </tbody>
+        </table>
+
+
+           <form action="tasklist-1" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+             <input type="hidden" name="waste-data-reprocesser" value="true">
+              <button class="govuk-button" data-module="govuk-button">
+                  Confirm and continue
+              </button>
+            </form> -->
+          </div>
+
+        </div>
+      
+
+</div>
+
+{% endblock %}

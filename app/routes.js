@@ -106,6 +106,7 @@ router.use('/packing-recovery-notes/v6-4', require('./views/packing-recovery-not
 router.use('/packing-recovery-notes/v6-5', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/v6-6-rexp', require('./views/packing-recovery-notes/v6/_routes'));
 router.use('/packing-recovery-notes/account-creation', require('./views/packing-recovery-notes/account-creation/build/_routes'));
+router.use('/packing-recovery-notes/v7', require('./views/packing-recovery-notes/v7/_routes'));
 
 
 //PayCal
@@ -137,3 +138,6 @@ router.get('/clear', (req, res) => {
 
 router.use('/public-register' , require ('./views/public-register/_routes'));
 module.exports = router
+
+//re-ex
+router.use('/reprocessor-and-exporter/R13/enrolment/account-creation', require('./views/reprocessor-and-exporter/R13/enrolment/account-creation/build/_routes'));

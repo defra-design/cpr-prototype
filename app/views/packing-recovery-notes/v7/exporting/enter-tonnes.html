@@ -1,0 +1,52 @@
+{% set serviceName = "Record waste" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="bailing-allowance" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">Recording for: paper/board</span>
+      <h1 class="govuk-fieldset__heading">
+          How many tonnes did you export?
+      </h1>
+    </legend>
+    <div class="govuk-form-group">
+
+      <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-10" id="weight" name="enter-waste-tonnes"  type="text" spellcheck="false">
+        <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+      </div>
+    </div>
+
+
+
+</fieldset>
+</div>
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+<form action="file-uploaded" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+                Upload sampling and inspection plan, part 2
+            </h1>
+
+
+            <div class="govuk-body-m">
+            <p>Use the template called’ Packaging Exporter Sampling and Inspection Plan – Part 2: Accreditation</p>
+              </div>
+
+<br>
+
+<div class="govuk-form-group">
+    <label class="govuk-label" for="file-upload-1">
+      Upload a file
+    </label>
+    <div
+      class="govuk-drop-zone"
+      data-module="govuk-file-upload">
+      <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+    </div>
+  </div>
+
+<br><br>
+        
+          
+
+        </fieldset>
+    </div>
+
+
+
+        <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+</form>
+</div>
+</div>
+
+{% endblock %}

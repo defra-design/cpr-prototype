@@ -4,47 +4,49 @@
 Report packaging data
 {% endset%}
 
-{% set serviceName = "Report packaging data" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-Report packaging data
+ Report packaging data
 {% endblock %}
 
 {% block header %}
 
-{# Set serviceName in config.js. #}
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
 
-{{ govukHeader({
-homepageUrl: "../../../index.html",
-serviceName: "Report packaging data",
-serviceUrl: "#",
-navigation: [
-{
-href: "landing-page.html",
-text: "Home"
-},
-{
-href: "#",
-text: "Manage account" 
-},
-{
-href: "#",
-text: "Sign out"
-}
-]
-}) }}
-
-{{ govukPhaseBanner({
-tag: {
-text: "prototype"
-},
-html: 'This is not a live service.',
-classes: 'govuk-width-container'
-}) }}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
 
-{% block beforeContent %}
+{% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -53,10 +55,10 @@ classes: 'govuk-width-container'
             text: "Back",
             href: "javascript:history.back()"
         }) }}
-        <form method="post" action="./enrolment/account-creation/separate-ap/non-companies-house/authorised-details/check-your-answers">
+        <form method="post" action="#">
             <h1 class="govuk-heading-l">
                 <span class="govuk-caption-l">Jamie Roberts</span>
-                Add Your Organisation Details    
+                Add your organisation details   
               </h1>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -64,34 +66,42 @@ classes: 'govuk-width-container'
                     <div class="govuk-grid-column-two-thirds">
                         
                       </div>
-                    
-                    
-                        
-                    
+            
 
                 </fieldset>
             
-            <p class="govuk-body">To get started, we need a few details about your organisation and the people who are authorised to manage it on your behalf.</p>
-            
-            <p class="govuk-body">Before you begin, please have the following ready:</p>
+            <p class="govuk-body">You need to provide some details about your organisation.</p>
+           <h2 class="govuk-heading-m">If you’re registered with Companies House</h2>
+
+           <p class="govuk-body">You'll need:</p>
 
             <ul class="govuk-list govuk-list--bullet">
-              <li>Companies House details – such as your registration number and official organisation name.</li>
-              <li>Partnership information – if your organisation is a partnership, please provide details for all partners involved.</li>
-              <li>Approved person(s) – you’ll need to identify at least one approved person who will be responsible for managing the organisation’s account. You can add more than one if needed.</li>
+              <li>your organisation's Companies House registration number and official name</li>
+              <li>individual and corporate names for all partners, if you’re a limited partnership</li>
+            </ul>
+            <br> 
+
+            <h2 class="govuk-heading-m">If you’re not registered with Companies House</h2>
+            <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's name and address</li>
+              <li>individual and corporate names for all partners if you’re a partnership</li>
             </ul> 
         
-            <p class="govuk-body">This process helps ensure that only verified individuals have access to manage your organisation’s profile.</p>
+            <p class="govuk-body">You’ll also need to add at least one approved person to manage the account.</p>
         
         </div>
+        <p class="govuk-body govuk-!-margin-top-4"><a href="#">Read more about approved persons</a></p>
+        <br>
             
 
             <div class="govuk-button-group">
                 <button class="govuk-button" data-module="govuk-button" href=".">
-          Start now
+                    Add an organisation
                 </button>
                 
-              </div>
+            </div>
         </form>
         
     </div>

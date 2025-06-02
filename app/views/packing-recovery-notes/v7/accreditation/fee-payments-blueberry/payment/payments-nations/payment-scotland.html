@@ -1,0 +1,83 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-top-0">
+      <h1 class="govuk-heading-l">Pay by bank transfer</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+      <p class="govuk-body">Pay the registration fee of <strong>£1,216.00</strong> by bank transfer.</p>
+
+      <h2 class="govuk-heading-m">Payment details</h2>
+
+      <div style="border-left: 1px solid #b1b4b6;padding-left: 15px;margin-bottom: 30px;margin-top: 30px;">
+        <ul class="govuk-list govuk-list">
+          <li>Use the application payment reference: <strong>222019EFGF</strong></li>
+          <li>Account name: Scottish Environment Protection Agency</li>
+          <li>Account number: 00137187</li>
+          <li>Sort code: 83-34-00</li>
+          <li>Bank name: Royal Bank of Scotland, 30 Nicholson Street, Edinburgh, EH8 9DL</li>
+        </ul>
+      </div>
+
+      <p class="govuk-body">You can also <a href="https://beta.sepa.scot/about-sepa/online-payments/"
+          class="govuk-link">pay SEPA direct</a></p>
+
+      <h3 class="govuk-heading-m">After payment is made</h3>
+      <ul class="govuk-list">
+        <li>Submit your application from the registration dashboard.</li>
+      </ul>
+
+      <p class="govuk-body">
+        You can
+        <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+          print or save this page as a PDF
+        </a>
+      </p>
+      <a href="https://defra-cpr-prototype.herokuapp.com/packing-recovery-notes/v6-1/home" role="button"
+        class="govuk-button govuk-button--secondary">
+        Return to home page
+      </a>
+    </div>
+
+
+    <script>
+      function handlePrintOrSave() {
+        window.print(); // This opens the print dialog where users can choose to print or save as PDF
+      }
+    </script>
+    {% endblock %}

@@ -1,0 +1,77 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="note" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Record your waste</span>
+      <h1 class="govuk-fieldset__heading">Enter the address of the paper/board source</h1>
+    </legend>
+
+
+  <div class="govuk-form-group">
+      <label class="govuk-label" for="address-line-1">
+        Address line 1
+      </label>
+      <input class="govuk-input" id="address-line-1" name="source-address-line-1" type="text" autocomplete="address-line1">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-line-2">
+        Address line 2 (optional)
+      </label>
+      <input class="govuk-input" id="address-line-2" name="source-address-line-2" type="text" autocomplete="address-line2">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-town">
+        Town or city
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="source-address-town" name="address-town" type="text" autocomplete="address-level2">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-county">
+        County (optional)
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="source-address-county" name="address-county" type="text">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-postcode">
+        Postcode
+      </label>
+      <input class="govuk-input govuk-input--width-10" id="source-address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+    </div>
+
+</div>
+
+
+  <div class="govuk-button-group">
+
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+
+  </fieldset>
+      <a href="note" class="govuk-link">Skip question</a></div>
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,270 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<main id="content" role="main">
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+               {% if data['languagePreference'] != "cy" %}
+    <h1 class="govuk-heading-l">
+        Select an address for service of notices
+    </h1>
+    <p class="govuk-body">
+   10 addresses found for EH10 4YY. <a href="#postcode" class="govuk-link">Search again</a>
+    </p>
+
+    <table class="govuk-table">
+    <caption class="govuk-visually-hidden">Search result for {{ data['postcode'] }}</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Address</th>
+   
+    </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=1&band=B">1 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=2&band=A">2 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=3&band=Deleted">3 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=4&band=B">4 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=5&band=A">5 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=6&band=A">6 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=7&band=B">7 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=8&band=Deleted">8 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+  
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=9&band=B">9 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=10&band=A">10 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    </tbody>
+    </table>
+    <!--<details class="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+                               Ni allaf ddod o hyd i fy eiddo
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+    <p>Gwiriwch fod y manylion rydych chi wedi'u nodi yn gywir, neu chwiliwch am eiddo gan ddefnyddio'r <a href="#/">opsiynau chwilio eraill</a>.</p>
+    <p><a href="#/">Cysylltwch â'ch cyngor lleol</a> os na allwch ddod o hyd i'ch eiddo o hyd. Byddant yn rhoi'r wybodaeth sydd ei hangen ar Asiantaeth y Swyddfa Brisio i bennu band Treth Gyngor.</p>
+    </div>
+    </details>
+    <p class="govuk-body">Ni chaniateir defnyddio'r data hwn at ddefnydd masnachol</p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+                       Chwilio eto
+    </h2>
+    <div class="govuk-form-group">
+    <label class="govuk-label" for="postcodee">
+                           Nodwch y cod post
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" value="{{ data['postcode'] }}">
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+                       Chwilio
+    </button>
+    <p class="govuk-body">
+    <a href="#/" class="govuk-link">Opsiynau chwilio eraill</a>
+    </p>
+
+    <details class="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+                                   I cannot find my address
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <p>Check the details you have entered are correct or search for a site using the <a href="#/">other search options</a>.</p>
+        </div>
+        </details>
+        <p class="govuk-body">This data is not to be used for commercial use</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h2 class="govuk-heading-m">
+                           Search again
+        </h2>
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="postcode">
+                               Enter a postcode
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" value="{{ data['postcode'] }}">
+        </div>
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+                           Search
+        </button>=-->
+        <p class="govuk-body">
+        <a href="./manual-address.html" class="govuk-link">Enter address manually</a>
+        </p>
+               {% else %}
+    
+    <h1 class="govuk-heading-l">
+        Select an address for service of notices
+    </h1>
+    <p class="govuk-body">
+    <a href="#postcode" class="govuk-link">Search again</a>
+    </p>
+    <div class="govuk-body govuk-!-margin-bottom-0">
+        10 addresses founds
+    </div>
+    <table class="govuk-table">
+    <caption class="govuk-visually-hidden">Search results for {{ data['postcode'] }}</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Address</th>
+    </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=1&band=B">1 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=2&band=A">2 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=3&band=Deleted">3 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=4&band=B">4 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=5&band=A">5 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+   
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=6&band=A">6 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=7&band=B">7 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=8&band=Deleted">8 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=9&band=B">9 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <a href="property?house-number=10&band=A">10 RHYL COAST ROAD, Rhyl, Denbighshire, {{ data['postcode'] }}</a>
+    </td>
+    
+    </tr>
+    </tbody>
+    </table>
+    <!--<details class="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+                               I cannot find my address
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+    <p>Check the details you have entered are correct or search for a property using the <a href="#/">other search options</a>.</p>
+    <p><a href="#/">Contact your local council</a> if you still cannot find your property. They will provide {Agency name} with the information they need to allocate a Council Tax band.</p>
+    </div>
+    </details>
+    <p class="govuk-body">This data is not to be used for commercial use</p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+                       Search again
+    </h2>
+    <div class="govuk-form-group">
+    <label class="govuk-label" for="postcode">
+                           Enter a postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" value="{{ data['postcode'] }}">
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+                       Search
+    </button>-->
+    <p class="govuk-body">
+    <a href="#/" class="govuk-link">Enter address manually</a>
+    </p>
+               {% endif %}
+    </div>
+    </div>
+    </main>
+    {% endblock %}
+    
+    

@@ -1,0 +1,209 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style>
+  .tile-group .tile {
+    margin-bottom: 0;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-body account-info">
+      <div>
+        <span class="your-name" id="bannerUserName">Steve Jones</span><a class="account-link" href="details"
+          id="signout-link">Sign out</a>
+      </div>
+    </div><br>
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Calculate packaging payments
+      </h1>
+    </legend>
+    <div class="govuk-hint" style="margin-bottom: 30px">Set up and run packaging payment calculations, and view past
+      runs by financial year.</div>
+
+    <div class="govuk-grid-row tile-group">
+      <div class="govuk-grid-column-one-third tile">
+        <a class="min-height" href="default-settings-no">
+          <span class="govuk-heading-m heading">Manage default parameters</span>
+          <span class="govuk-heading govuk-!-font-size-16">View or update the parameters</span>
+        </a>
+      </div>
+
+
+
+      <div class="govuk-grid-column-one-third tile">
+        <a class="min-height" href="la-settings-no">
+          <span class="govuk-heading-m heading">Manage local authority disposal costs</span>
+          <span class="govuk-heading govuk-!-font-size-16">View or update disposal costs</span>
+        </a>
+      </div>
+
+      <div class="govuk-grid-column-one-third tile">
+        <a class="min-height" href="name-no-file">
+          <span class="govuk-heading-m heading">Run the calculator</span>
+          <p></p>
+          <span class="govuk-heading govuk-!-font-size-16">Use the default parameters to run the calculator</span>
+        </a>
+      </div>
+    </div><br><br>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-l" style='margin-top: 37px; margin-bottom: 0px;'>Calculation runs</h3>
+        <p class="govuk-body-s">View and select a calculation run. You can also filter by financial year to find
+          previous runs.</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group" style="float: right;">
+          <label class="govuk-label" for="sort" style="margin-top:17px">
+            Select a financial year
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="published" selected>2024-25</option>
+            <option value="updated">2023-24</option>
+            <option value="updated">2022-23</option>
+            <option value="updated">2021-22</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-body-l"></th>
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header gov govuk-body-l"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <!--Test Run start-->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              First Run
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240006<br />
+              Run date and time: 1 April 2024 at 11.02<br />
+              Run by: Jamie Roberts
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--grey" style="margin-top: 50px; float: right; text-align: right">
+              Deleted</strong>
+          </td>
+        </tr>
+        <!--Test Run end-->
+
+        <!-- Deleted run start -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              Data check 1
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240009<br />
+              Run date and time: 21 June 2024 at 15:03<br />
+              Run by: Jamie Roberts
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--grey" style="margin-top: 50px; float: right; text-align: right">
+              Deleted</strong>
+          </td>
+        </tr>
+        <!-- Deleted run end -->
+
+
+        <!-- Very first initial run start -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              <a href="./classify/scenario1-veryfirst-calculation-run-240008.html"
+                class="govuk-link govuk-link--no-visited-state">
+                Calculation run 99</a>
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240008<br />
+              Run date and time: 21 June 2024 at 12:09<br />
+              Run by: Steve Jones
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue" style="
+                margin-top: 50px;
+                float: right;
+                text-align: right;
+                width: 140px;
+              ">
+              Ready for classification</strong>
+          </td>
+        </tr>
+        <!-- Very first initial run end -->
+
+        <!-- Very first dashboard running start-->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              Test data check 2
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240010<br />
+              Run date and time: 28 June 2024 at 10:01<br />
+              Run by: Jamie Roberts
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green" style="margin-top: 50px; float: right">
+              Running</strong>
+          </td>
+        </tr>
+        <!-- Very first dashboard running end-->
+
+        <!-- Fee adjustement check start -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-body-s">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+              <a href="../../run-error-calculation-240007.html" class="govuk-link govuk-link--no-visited-state">
+                Fee adjustment check</a>
+            </h3>
+            <p class="govuk-body-s">
+              Calculation ID: 240007<br />
+              Run date and time: 15 April 2024 at 10:45<br />
+              Run by: Steve Jones
+            </p>
+          </th>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--red" style="margin-top: 50px; float: right; text-align: right">
+              Error</strong>
+          </td>
+        </tr>
+        <!-- Fee adjustement check end -->
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+{% endblock %}

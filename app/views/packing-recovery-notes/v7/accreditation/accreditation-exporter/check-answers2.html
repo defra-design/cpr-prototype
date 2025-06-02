@@ -1,0 +1,93 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+        <h2 class="govuk-heading-m">Business plan: how you’ll allocate PERN income</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9" id="summary-list">
+          <!-- Injected by JS -->
+        </dl>
+
+        <div style="display: flex; gap: 20px;">
+          <a href="accreditation-prn3">
+            <input class="govuk-button" type="submit" value="Confirm and continue" />
+          </a>
+          <a href="application-saved">
+            <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const categories = [
+    "New reprocessing infrastructure and maintaining existing infrastructure",
+    "Price support for buying packaging waste or selling recycled packaging waste",
+    "Support for business collections",
+    "Communications, including information campaigns",
+    "Developing new markets for products made from recycled packaging waste",
+    "Developing new uses for recycled packaging waste",
+    "Activities or investment not covered by the other categories"
+  ];
+
+  const moreDetailsLabels = [
+    "More detail: infrastructure",
+    "More detail: price support",
+    "More detail: support for business collections",
+    "More detail: communications",
+    "More detail: developing new markets",
+    "More detail: developing new uses",
+    "More detail: activities or investment not covered by the other categories"
+  ];
+
+  const percents = JSON.parse(localStorage.getItem('pernPercentages') || '[]');
+  const details = JSON.parse(localStorage.getItem('pernTextareas') || '{}');
+
+  const list = document.getElementById('summary-list');
+
+  categories.forEach((label, i) => {
+    const per = percents[i];
+    const detail = details[`suppliers${i + 1}`];
+
+    if ((per && parseFloat(per) > 0) || (detail && detail.trim().length > 0)) {
+      list.innerHTML += `
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">${label}</dt>
+          <dd class="govuk-summary-list__value">${per || 0}%</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="tonnage">Change<span class="govuk-visually-hidden"> ${label}</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">${moreDetailsLabels[i]}</dt>
+          <dd class="govuk-summary-list__value">${detail || '—'}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="authority-issue">Change<span class="govuk-visually-hidden"> details for ${label}</span></a>
+          </dd>
+        </div>
+      `;
+    }
+  });
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,84 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "Home",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "Manage account" 
+    },
+    
+    {
+    href: "#",
+    text: "Sign out"
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="./check-your-answers.html">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form action="success" method="post">
+      <h1 class="govuk-heading-l">Declaration</h1>
+
+      <p class="govuk-body">By confirming your details, you agree
+        that the organisational enrolment information you’ve
+        given is complete and correct.</p>
+      
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          If any of the information you provide is inaccurate then this may prevent or delay any subsequent submissions made on this service.
+        </strong>
+      </div>
+
+      {{ govukButton({
+        text: "Confirm and add organisation"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

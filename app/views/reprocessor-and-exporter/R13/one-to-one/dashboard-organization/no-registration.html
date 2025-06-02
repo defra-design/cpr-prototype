@@ -1,41 +1,57 @@
-{% extends "layout.html" %}
+{% extends "layout-private-beta-research.html" %}
 
-{% set serviceName = " pEPR Regulators' Service" %}
+{% set serviceName %}
+Report packaging data
+{% endset%}
 
-{% set title = "pEPR: Regulators' Service" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
-{{title}} - GOV.UK
+ Report packaging data
 {% endblock %}
 
-{% block beforeContent %}
+{% block header %}
 
-<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
 
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
 
 {% endblock %}
-
 
 {% block content %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">Manage organisation</span>
+
+    <span class="govuk-caption-xl">Alex Jackson</span>
     <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
 </div>
+</div>
 
-<p class="govuk-body">You can <a href="../add-organization/add-organization.html">add multiple organisations to your account</a></p>
 
-<div class="govuk-!-padding-bottom-5"></div> <!--space-->
+      
 
-<h3 class="govuk-heading-s">Organisation ID <br> 
-  <p>100762</p> 
-</h3>
+      
 
-<div class="govuk-!-padding-bottom-3"></div><!--space-->
-    
-<div class="govuk-!-padding-bottom-5"></div><!--space-->
+        
+            
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
    
 <div>  
   <!--tab component-->
@@ -61,8 +77,8 @@
     <!--first tab-->   
     <div class="govuk-tabs__panel" id="tab1">
     
-      <p class="govuk-body">You are not registered for any materials yet. 
-      <a href="#" class="govuk-link">Apply for registration</a>.
+      <p class="govuk-body">You have not registered any materials yet.</p>
+      <p><a href="#" class="govuk-link">Apply for registration</a>
       </p>
     
     </div> 
@@ -147,6 +163,6 @@
 
   </div><!--end tab component-->
 </div>
-
+</div>
 
 {% endblock %}

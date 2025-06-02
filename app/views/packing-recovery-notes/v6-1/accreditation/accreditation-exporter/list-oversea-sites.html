@@ -1,4 +1,4 @@
-{% set serviceName = "Registration" %}
+{% set serviceName = "Accreditation" %}
 
 {% extends "layout.html" %}
 
@@ -38,50 +38,39 @@
 
  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-<div class="govuk-form-group-container" style="display: flex; gap: 1rem; justify-content: flex-start;"></div>
-  <div class="govuk-form-group" style="flex: 1;">
-    <label class="govuk-label" for="country">
-      Country
-    </label>
-    <select class="govuk-select" id="country" name="country" aria-describedby="country-hint">
-      <option value="choose" selected>Select a country</option>
-      <option value="united-kingdom">United Kingdom</option>
-      <option value="france">France</option>
-      <option value="italy">Italy</option>
-      <option value="malta">Malta</option>
-      <option value="romania">Romania</option>
-      <option value="japan">Japan</option>
-      <option value="india">India</option>
-      <option value="brazil">Brazil</option>
-      <option value="canada">Canada</option>
-      <option value="australia">Australia</option>
-      <option value="south-africa">South Africa</option>
-      <option value="mexico">Mexico</option>
-      <option value="china">China</option>
-    </select>
+<div class="govuk-form-group-container" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+  <!-- Select All Checkbox -->
+  <div class="govuk-form-group">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
+      <label class="govuk-label govuk-checkboxes__label" for="select-all">Select all</label>
+    </div>
   </div>
 
-  <div class="govuk-form-group" style="flex: 1;">
-    <label class="govuk-label" for="region">
-      Region
+  <!-- Country Dropdown Filter -->
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="country-filter">
+      Filter by country
     </label>
-    <select class="govuk-select" id="region" name="region" aria-describedby="region-hint">
-      <option value="choose" selected>Select a region</option>
-      <option value="london">London</option>
-      <option value="paris">Paris</option>
-      <option value="rome">Rome</option>
-      <option value="valletta">Valletta</option>
-      <option value="bucharest">Bucharest</option>
-      <option value="tokyo">Tokyo</option>
-      <option value="new-delhi">New Delhi</option>
-      <option value="brasilia">Brasília</option>
-      <option value="ottawa">Ottawa</option>
-      <option value="canberra">Canberra</option>
-      <option value="pretoria">Pretoria</option>
-      <option value="mexico-city">Mexico City</option>
-      <option value="beijing">Beijing</option>
+    <select class="govuk-select" id="country-filter" name="country" aria-describedby="country-hint">
+      <option value="all" selected>All countries</option>
+      <option value="Germany">Germany</option>
+      <option value="France">France</option>
+      <option value="Italy">Italy</option>
+      <option value="Malta">Malta</option>
+      <option value="Romania">Romania</option>
+      <option value="Japan">Japan</option>
+      <option value="India">India</option>
+      <option value="Brazil">Brazil</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+      <option value="South Africa">South Africa</option>
+      <option value="Mexico">Mexico</option>
+      <option value="China">China</option>
     </select>
   </div>
+</div>
+
 </div>
 
 
@@ -91,7 +80,6 @@
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Site name</th>
       <th scope="col" class="govuk-table__header">Country</th>
-      <th scope="col" class="govuk-table__header">Region</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -99,158 +87,145 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-1" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-1" name="waste" type="checkbox" value="ABC Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-1">
-      <a href="#">ABC Exporters Ltd</a>
+      ABC Exporters Ltd
       </label>
       </div>
       </td>
-      <td class="govuk-table__cell">United Kingdom</td>
-      <td class="govuk-table__cell">London</td>
+      <td class="govuk-table__cell">Germany</td>
     
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-5" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-5" name="waste" type="checkbox" value="GHI Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-5">
-      <a href="#">GHI Exporters Ltd</a>
+      GHI Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">France</td>
-      <td class="govuk-table__cell">Paris</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-7" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-7" name="waste" type="checkbox" value="MNO Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-7">
-      <a href="#">MNO Exporters Ltd</a>
+      MNO Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Italy</td>
-      <td class="govuk-table__cell">Rome</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-8" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-8" name="waste" type="checkbox" value="PQR Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-8">
-      <a href="#">PQR Exporters Ltd</a>
+      PQR Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Malta</td>
-      <td class="govuk-table__cell">Valletta</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-9" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-9" name="waste" type="checkbox" value="STU Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-9">
-      <a href="#">STU Exporters Ltd</a>
+      STU Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Romania</td>
-      <td class="govuk-table__cell">Bucharest</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-10" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-10" name="waste" type="checkbox" value="VWX Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-10">
-      <a href="#">VWX Exporters Ltd</a>
+      VWX Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Japan</td>
-      <td class="govuk-table__cell">Tokyo</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-11" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-11" name="waste" type="checkbox" value="YZA Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-11"></label>
-      <a href="#">YZA Exporters Ltd</a>
+      YZA Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">India</td>
-      <td class="govuk-table__cell">New Delhi</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-12" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-12" name="waste" type="checkbox" value="BCD Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-12">
-      <a href="#">BCD Exporters Ltd</a>
+      BCD Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Brazil</td>
-      <td class="govuk-table__cell">Brasília</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-13" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-13" name="waste" type="checkbox" value="EFG Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-13">
-      <a href="#">EFG Exporters Ltd</a>
+      EFG Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Canada</td>
-      <td class="govuk-table__cell">Ottawa</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-14" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-14" name="waste" type="checkbox" value="HIJ Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-14">
-      <a href="#">HIJ Exporters Ltd</a>
+      HIJ Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Australia</td>
-      <td class="govuk-table__cell">Canberra</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-15" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-15" name="waste" type="checkbox" value="KLM Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-15">
-      <a href="#">KLM Exporters Ltd</a>
+      KLM Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">South Africa</td>
-      <td class="govuk-table__cell">Pretoria</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-16" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-16" name="waste" type="checkbox" value="NOP Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-16">
-      <a href="#">NOP Exporters Ltd</a>
+      NOP Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">Mexico</td>
-      <td class="govuk-table__cell">Mexico City</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
       <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-18" name="waste" type="checkbox" value="farm">
+      <input class="govuk-checkboxes__input govuk-checkboxes__input--s" id="waste-18" name="waste" type="checkbox" value="TUV Exporters Ltd"  onclick="storeSelectedSites()">
       <label class="govuk-label govuk-checkboxes__label" for="waste-18">
-      <a href="#">TUV Exporters Ltd</a>
+      TUV Exporters Ltd
       </label>
       </div>
       </td>
       <td class="govuk-table__cell">China</td>
-      <td class="govuk-table__cell">Beijing</td>
     </tr>
    
     <!-- Add more rows as needed -->
@@ -304,4 +279,51 @@
       </a>
     </div>
 
+    
+<script>
+  function storeSelectedSites() {
+    const selected = [];
+    document.querySelectorAll('input[name="waste"]:checked').forEach(cb => {
+      selected.push(cb.value);
+    });
+    localStorage.setItem('selectedSites', JSON.stringify(selected));
+  }
+
+  // Optional: Pre-check boxes if values are already stored
+  document.addEventListener("DOMContentLoaded", () => {
+    const stored = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    document.querySelectorAll('input[name="waste"]').forEach(cb => {
+      if (stored.includes(cb.value)) {
+        cb.checked = true;
+      }
+    });
+  });
+
+  // Update stored values when "Select all" is used
+  document.getElementById('select-all')?.addEventListener('change', function () {
+    document.querySelectorAll('input[name="waste"]').forEach(cb => {
+      cb.checked = this.checked;
+    });
+    storeSelectedSites();
+  });
+
+  // Also re-store selection on country filter change
+  document.getElementById('country-filter')?.addEventListener('change', function () {
+    const selected = this.value;
+    const rows = document.querySelectorAll('tbody.govuk-table__body > tr');
+    rows.forEach(row => {
+      const country = row.querySelector('td:last-child')?.textContent.trim();
+      row.style.display = (selected === 'all' || country === selected) ? '' : 'none';
+    });
+    storeSelectedSites();
+  });
+</script>
+
+
+
+
 {% endblock %}
+
+
+
+

@@ -1,0 +1,109 @@
+{% set serviceName = "" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../manage-accreditations"
+    },
+    {
+      text: "GREEN LTD",
+      href: ""
+    }
+
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Company number 1234567</span>
+        <h1 class="govuk-heading-xl">GREEN LTD</h1>
+
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item moj-side-navigation__item--active">
+              <a href="organisation-details" aria-current="location">Organisation details</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+              <a href="users-details">User details</a>
+            </li>
+            <li class="moj-side-navigation__item moj-side-navigation__item">
+              <a href="registered-sites">Registered sites </a>
+            </li>
+
+          </ul>
+        </nav>
+
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-l">Organisation details</h2>
+                <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Organisation details</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+          Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+          GREEN LTD
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Companies House number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            123455678
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+          Business address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            309 Brighton Road<br>
+            Bensham<br>
+            Gateshead<br>
+            NE8 9ED
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            England
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

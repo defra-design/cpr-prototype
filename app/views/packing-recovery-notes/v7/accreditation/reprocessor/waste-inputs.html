@@ -1,0 +1,203 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+
+<style media="screen">
+  .card {
+  background-color: #f3f2f1;
+  padding: 30px 30px 10px 30px;
+
+}
+</style>
+
+<style type="text/css">
+    .card-container {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 50px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container2 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+<style type="text/css">
+    .card-container3 {
+
+        background-color: #f8f8f8;
+        border: 1px solid #dee0e2;
+        border-bottom: 5px solid #1d70b8;
+        padding-bottom: 5px;
+        width: 450px;
+        margin-right: 0px;
+
+
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+
+<style type="text/css">
+    .card-container4 {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #ffffff;
+        width: 425px;
+
+
+    }
+</style>
+
+
+
+<section>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Inputs for last calendar year (2024)</h1>
+          <div id="more-detail-hint" class="govuk-hint">
+            Regulators need to know the mix of waste types and raw materials used in your recycling process.       </div>
+     
+    
+              <form class="form" action="waste-outputs" method="POST">
+
+                  <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+
+                        <div class="govuk-form-group">
+                            <h1 class="govuk-label-wrapper">
+                              <label class="govuk-label govuk-label--m" for="cost-per-item">
+                                UK steel packaging waste
+                              </label>
+                            </h1>
+                            <div class="govuk-input__wrapper">
+                              <input class="govuk-input govuk-input--width-5" id="cost-per-item" name="costPerItem" type="text" spellcheck="false">
+                              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                            </div>
+                          </div>
+                          
+                          <div class="govuk-form-group">
+                            <h1 class="govuk-label-wrapper">
+                              <label class="govuk-label govuk-label--m" for="cost-per-item">
+                                Non-UK steel packaging waste
+                              </label>
+                            </h1>
+                            <div class="govuk-input__wrapper">
+                              <input class="govuk-input govuk-input--width-5" id="cost-per-item" name="costPerItem" type="text" spellcheck="false">
+                              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                            </div>
+                          </div>
+
+                          <div class="govuk-form-group">
+                            <h1 class="govuk-label-wrapper">
+                              <label class="govuk-label govuk-label--m" for="cost-per-item">
+                                Steel that’s not packaging waste
+                              </label>
+                            </h1>
+                            <div id="more-detail-hint" class="govuk-hint">
+                                An input to the recycling process, but it’s not packaging waste.       </div>
+                            <div class="govuk-input__wrapper">
+                              <input class="govuk-input govuk-input--width-5" id="cost-per-item" name="costPerItem" type="text" spellcheck="false">
+                              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                            </div>
+                          </div>
+                      </fieldset>
+                  </div>
+
+                  <div class="govuk-form-group">
+                    <h1 class="govuk-label-wrapper">
+                      <label class="govuk-label govuk-label--m" for="cost-per-item">
+                        Raw materials
+                      </label>
+                    </h1>
+                    <div id="more-detail-hint" class="govuk-hint">
+                      Enter the names and tonnages of all the raw materials used in your recycling process. For example, water, starch.       </div>
+                     
+                        <div class="govuk-form-group">
+
+                            <div class="govuk-input__wrapper"> <input class="govuk-input govuk-input--width-10" id="weight" name="material"  type="text" spellcheck="false" style="margin-right: 20px;">
+                              <input class="govuk-input govuk-input--width-5" id="weight" name="materialamt1"  type="text" spellcheck="false">
+                                <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                            </div>
+                        </div>
+
+                        <div class="govuk-form-group">
+
+                          <div class="govuk-input__wrapper"> <input class="govuk-input govuk-input--width-10" id="weight" name="material"  type="text" spellcheck="false" style="margin-right: 20px;">
+                            <input class="govuk-input govuk-input--width-5" id="weight" name="materialamt2"  type="text" spellcheck="false">
+                              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <p><a href="waste-inputs-2-add">Add another raw material</a></p>
+
+<br>
+
+
+
+                    <br>
+                    <br>
+                  <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
+
+
+
+              </form>
+
+          </div>
+
+
+
+
+
+
+      </div>
+</div>
+
+    <section>
+{% endblock %}

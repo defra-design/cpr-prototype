@@ -1,0 +1,289 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../../manage-accreditations"
+    },
+    {
+      text: "Paper/board - Ruby St, London SE15 1LR",
+      href: "../manage-prn"
+    },
+    {
+      text: "Record your waste",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">GREEN LTD – Ruby St, London SE15 1LR</span>
+    <h1 class="govuk-heading-xl">Record your paper or board waste</h1>
+
+
+
+</div>
+<div class="govuk-grid-column-one-third" style="  float: right;">
+  <div class="govuk-grid-column-full gem-c-related-navigation">
+
+
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Accreditation details
+        </h2>
+          <p class="govuk-body-s ">
+            Total accreditation limit: <strong style="float: right;">340 tonnes</strong>
+          </p>
+        <p class="govuk-body-s">
+          Remaining accreditation<br>limit: <strong style="float:right;">{% if data['answers-checked'] == 'true' %}17 tonnes{% else %}260 tonnes{% endif %}</strong>
+        </p>
+        <p class="govuk-body-s">
+      Usable waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}8 tonnes{% else %}8 tonnes{% endif %}</strong>
+        </p>
+        {% if data['accreditation-limit']%}
+        <p class="govuk-body-s">
+    Excess waste balance: <strong style="float: right;">{% if data['answers-checked'] == 'true' %}0 tonnes{% else %}0 tonnes{% endif %}</strong>
+        </p>
+        {% endif %}
+
+
+      </div>
+  </div>
+</div>
+    <a href="receivedoron" class="govuk-button">Record waste</a>
+
+
+
+
+
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <h2 class="govuk-heading-l">Your waste records</h2>
+            <p class="govuk-body">View or change your waste records.</p>
+            <a class="govuk-button govuk-button--secondary" href="delete"  data-module="govuk-button">
+              Delete
+            </a>
+            <div class="govuk-form-group" style="float:right">
+
+          <select class="govuk-select" id="sort" name="sort">
+            <option  selected>View all </option>
+            <option value="published">January </option>
+            <option value="published">February </option>
+            <option value="published">March </option>
+            <option value="published">April </option>
+            <option value="published">May </option>
+            <option value="published">June </option>
+            <option value="published">July </option>
+            <option value="published">August</option>
+            <option value="published">September</option>
+            <option value="published">October</option>
+            <option value="published">November</option>
+            <option value="published">December</option>
+            <option value="published">1 January 2023 to 31 March 2023</option>
+                    <option value="published">1 April 2023 to 30 June 2023</option>
+                            <option value="published">1 July 2023 to 30 September 2023</option>
+                                    <option value="published">1 October 2023 to 31 December 2023</option>
+          </select>
+        </div>
+            <table class="govuk-table">
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+
+                  <th scope="col" class="govuk-table__header">Reference</th>
+                  <th scope="col" class="govuk-table__header">Date created</th>
+                    <th scope="col" class="govuk-table__header">Date changed</th>
+                 <th scope="col" class="govuk-table__header">Month</th>
+                  <th scope="col" class="govuk-table__header">Record type</th>
+
+                  <th scope="col" class="govuk-table__header govuk-table__cell--numeric""><strong>Gross waste</strong></th>
+                  <th scope="col" class="govuk-table__header govuk-table__cell--numeric""><strong>Net waste</strong></th>
+
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                {% if data['waste-date-sent-on'] == 'true' %}
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+
+                      <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                              <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        <a href="change/change-check-answers">  WR00001</a>
+                            </label>
+                          </div>
+                          </div>
+                        </td>
+
+                  <td class="govuk-table__cell">4 July 2023</td>
+                        <td class="govuk-table__cell">29 August 2023</td>
+                  <td class="govuk-table__cell">June</td>
+                  <td class="govuk-table__cell">Supplied on</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">-4.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"">-1.38</td>
+
+                </tr>
+
+                  {% endif %}
+
+                {% if data['waste-data-reprocesser'] == 'true' %}
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00002</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">4 July 2023</td>
+                            <td class="govuk-table__cell">29 August 2023</td>
+                  <td class="govuk-table__cell">June</td>
+                  <td class="govuk-table__cell">Received </td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"">1.38</td>
+
+                </tr>
+                {% endif %}
+
+
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00001</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">19 June 2023</td>
+                            <td class="govuk-table__cell">29 July 2023</td>
+                  <td class="govuk-table__cell">June</td>
+                  <td class="govuk-table__cell">Supplied on </td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">-4.39</td>
+
+                </tr>
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00002</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">25 June 2023</td>
+                            <td class="govuk-table__cell"> </td>
+                  <td class="govuk-table__cell">June</td>
+                  <td class="govuk-table__cell">Received</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"">7.59</td>
+
+                </tr>
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00003</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">01 June 2023</td>
+                            <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell">June</td>
+                  <td class="govuk-table__cell">Received</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">8.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric""> 5.59</td>
+
+                </tr>
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00004</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">27 May 2023</td>
+                    <td class="govuk-table__cell">19 June 2023  </td>
+                  <td class="govuk-table__cell">May</td>
+                  <td class="govuk-table__cell">Supplied on</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">-8.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"">-5.59</td>
+
+                </tr>
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="chk" type="checkbox" value="Tesco Ltd.">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                      <a href="change/change-check-answers">  WR00005</a>
+                          </label>
+                        </div>
+                        </div>
+                      </td>
+                  <td class="govuk-table__cell">20 May 2023</td>
+                                <td class="govuk-table__cell">19 June 2023  </td>
+                    <td class="govuk-table__cell">May</td>
+                  <td class="govuk-table__cell">Received</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"">4.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric""> 2.39</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+            <a href="view-all-waste-records" class="govuk-body">View all waste records</a>
+
+            </div>
+
+
+</div>
+
+
+
+{% endblock %}

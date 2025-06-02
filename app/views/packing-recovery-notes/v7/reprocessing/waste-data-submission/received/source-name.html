@@ -1,0 +1,47 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form class="form" action="source-address" method="POST">
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Record your waste</span>
+      <h1 class="govuk-fieldset__heading">Enter the name of the paper/board source</h1>
+    </legend>
+    <input class="govuk-input" id="event-name" name="source-name" type="text">
+
+
+  </fieldset>
+</div>
+
+  <input hidden  name="source" value="true"  />
+  <div class="govuk-button-group">
+  <input class="govuk-button" type="submit" value="Continue"  />
+
+ <a href="source-address" class="govuk-link">Skip question</a>
+</div>
+
+</form>
+</div>
+
+
+{% endblock %}

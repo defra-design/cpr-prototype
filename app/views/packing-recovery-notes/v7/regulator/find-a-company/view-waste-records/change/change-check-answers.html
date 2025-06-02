@@ -1,0 +1,221 @@
+{% set serviceName = "Raise a PRN" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+          <span class="govuk-caption-l">Record your waste</span>
+            <h1 class="govuk-heading-l">WR0005</h1>
+            <h2 class="govuk-heading-m">Site details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Where was the waste received?
+                </dt>
+                <dd class="govuk-summary-list__value">
+              156 Hamilton Rd, Norwood, London SE37 9SE
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+            </dl>
+            <h2 class="govuk-heading-m">Waste details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What is the paper/board sub type?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                Grade 1.04.01
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+          Enter the total tonnes of paper/board received
+                </dt>
+                <dd class="govuk-summary-list__value">
+            {{data['enter-waste-tonnes']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              Was the paper/board baled with wire?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              During which month was the paper/board received?
+                </dt>
+                <dd class="govuk-summary-list__value">
+              June
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+              <strong>Net waste</strong>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 5.59 tonnes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+
+
+            </dl>
+
+            <h2 class="govuk-heading-m">Additional information</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+              {% if data['source'] == 'true'%}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+              Enter the name and address of the glass source?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Yes
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+            Enter the name of the paper/board source
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                    {{data['source-name']}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Enter the address of the glass source
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      {{data ['source-address-line-1']}}<br>
+                      {{data ['source-address-line-2']}}<br>
+                      {{data ['source-address-town']}}<br>
+                      {{data ['source-address-county']}}<br>
+                      {{data ['source-address-postcode']}}<br>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+                {% else %}
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+          Enter the name and address of the glass source?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Yes
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+
+                  </dd>
+                </div>
+                {% endif %}
+              {% if data['add-note'] == 'true'%}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+            Add note?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      Yes
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Enter your note
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 {{data['note']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              {% else %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Add note?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              {% endif %}
+
+            </dl>
+            <a href="" class="govuk-button govuk-button--secondary">Download</a>
+              <a href="" class="govuk-button govuk-button--secondary">Delete</a>
+
+
+            <div class="dwp-timeline">
+            <h2 class="govuk-heading-m">Waste record history</h2>
+            <ol class="dwp-timeline__events">
+
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Tonnes changed from 8.00 tonnes to 5.59 tonnes</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by Josh Tilman</p>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">Tonne was entered wrong</p>
+                <p class="govuk-caption-m">31 July 2023</p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Waste record created</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">by Elizabeth Grant</p>
+                <p class="govuk-caption-m">19 July 2023</p>
+            </li>
+            </ol>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+</div>
+
+{% endblock %}
