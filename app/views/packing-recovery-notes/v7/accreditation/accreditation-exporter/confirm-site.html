@@ -86,9 +86,8 @@
   });
 
   function removeSite(siteName) {
-    const confirmed = confirm(`Are you sure you want to remove "${siteName}"?`);
-    if (!confirmed) return;
-
+    
+ 
     let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
     storedSites = storedSites.filter(name => name !== siteName);
     localStorage.setItem('selectedSites', JSON.stringify(storedSites));
