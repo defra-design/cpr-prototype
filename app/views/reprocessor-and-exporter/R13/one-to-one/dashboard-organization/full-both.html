@@ -8,6 +8,40 @@
 {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "EPR for packaging: reprocessors and exporters",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
 {% block beforeContent %}
 
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
@@ -22,12 +56,12 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">Manage organisation</span>
+    <span class="govuk-caption-xl">Alex Jackson</span>
     <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd.</h1>
-  </div>
+  
 
-  <p class="govuk-body">You can <a href="../add-organization/add-organization.html">add multiple organisations to your account</a></p>
-
+  <!--<p class="govuk-body">You can <a href="../add-organization/add-organization.html">add multiple organisations to your account</a></p>
+-->
   <div class="govuk-!-padding-bottom-5"></div><!--space-->
 
   <h3 class="govuk-heading-s">Organisation ID <br> <p>100762</p> </h3>
@@ -53,7 +87,7 @@
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#tab2"> Accreditation</a>
           </li>
-
+<!--
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#tab3"> Record waste</a>
           </li>
@@ -61,7 +95,7 @@
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#tab4"> PRN</a>
           </li>
-
+-->
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#tab5"> Team members </a>
           </li>
@@ -445,6 +479,6 @@
       <!-- end second tab-->
 
     <div>
-
+</div>
 </div>
 {% endblock %}
