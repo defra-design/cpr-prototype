@@ -41,7 +41,7 @@
     </table>
 
     <div style="display: flex; gap: 20px;">
-      <a href="accreditation-prn8">
+      <a href="confirm-site1">
         <input class="govuk-button" type="submit" value="Confirm and continue" />
       </a>
       <a href="">
@@ -53,49 +53,62 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    const selectedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    const addedSites = JSON.parse(localStorage.getItem('addedSites') || '[]');
     const tbody = document.getElementById('site-list');
 
-    if (storedSites.length === 0) {
-      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
+    if (!selectedSites.length || !addedSites.length) {
+      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No newly added sites selected.</td></tr>`;
       return;
     }
 
-    storedSites.forEach(site => {
+    const matchedSites = addedSites.filter(site => {
+      const fullAddress = `${site.orgName}, ${site.addressLine1}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`;
+      return selectedSites.includes(fullAddress);
+    });
+
+    if (!matchedSites.length) {
+      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No newly added sites selected.</td></tr>`;
+      return;
+    }
+
+    matchedSites.forEach(site => {
+      const fullAddress = `${site.orgName}, ${site.addressLine1}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`;
       const row = document.createElement('tr');
       row.className = 'govuk-table__row';
       row.innerHTML = `
-        <td class="govuk-table__cell">${site}</td>
         <td class="govuk-table__cell">
-          <a class="govuk-link" href="#" onclick="removeSite('${site}')">Remove</a>
+          <strong>${site.orgName}</strong><br>
+          ${site.addressLine1}${site.addressLine2 ? ', ' + site.addressLine2 : ''}<br>
+          ${site.addressTown}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}<br><br>
+         
+        </td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link" href="#" onclick="removeSite('${fullAddress}')">Remove</a>
         </td>`;
       tbody.appendChild(row);
     });
   });
 
+  function removeSite(siteName) {
+    let selectedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    selectedSites = selectedSites.filter(name => name !== siteName);
+    localStorage.setItem('selectedSites', JSON.stringify(selectedSites));
+    localStorage.setItem('recentlyRemovedSite', siteName);
+    location.reload();
+  }
+
+  // Show success banner after removal
   document.addEventListener('DOMContentLoaded', () => {
     const removedSite = localStorage.getItem('recentlyRemovedSite');
     if (removedSite) {
       document.getElementById('success-text').textContent =
         `You’ve removed ${removedSite} from your application`;
       document.getElementById('success-banner').hidden = false;
-
-      // Clear it so it only shows once
       localStorage.removeItem('recentlyRemovedSite');
     }
   });
-
-  function removeSite(siteName) {
-    
- 
-    let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
-    storedSites = storedSites.filter(name => name !== siteName);
-    localStorage.setItem('selectedSites', JSON.stringify(storedSites));
-
-    // Store the recently removed site
-    localStorage.setItem('recentlyRemovedSite', siteName);
-
-    location.reload(); // Refresh to show updated list and banner
-  }
 </script>
+
+
 {% endblock %}
