@@ -40,23 +40,37 @@
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
-              Does {name of reprocessing site} fulfil all these conditions?
+              Does ABC Exporters Ltd fulfil all these conditions?
             </h1>
-                <p class="govuk-body">You must keep documents to show they fulfil these conditions.</p>
+               
+            <div class="govuk-inset-text">
+  ABC Exporters Ltd<BR>148 Avenue Pastourelle, <BR>5 étage, 45523, Toulon,<BR> Bourgogne, France
+</div>
+            
 
           </legend>
-       
+
+<div id="changedName-hint" class="govuk-hint">
+      You must keep documents to show they fulfil these conditions.
+    </div>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="broadly-equivalent-steel1">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Yes, they fulfil above conditions
+              </label>
+            </div>
+            <!--
+                        <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
                 Yes
               </label>
-            </div>
+            </div> -->
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers3">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                No
+                No and upload the evidence
               </label>
             </div>
           </div>
@@ -70,7 +84,7 @@
 
 
 </form>
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     const yesRadio = document.getElementById('whereDoYouLive');
     const noRadio = document.getElementById('whereDoYouLive-2');
@@ -80,15 +94,45 @@
       e.preventDefault(); // Stop form from submitting normally
 
       if (yesRadio.checked) {
-        window.location.href = 'evidence-conditions-overseas-optional';
+        window.location.href = 'check-answers5';
       } else if (noRadio.checked) {
-        window.location.href = 'upload-broadly-equivalent-evidence';
+       // window.location.href = 'upload-broadly-equivalent-evidence';
+      } else {
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
+</script> -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+    const continueBtn = document.querySelector('button.govuk-button:not(.govuk-button--secondary)');
+
+    // Restore selection from sessionStorage
+    const savedValue = sessionStorage.getItem('evidenceConditionSelection');
+    if (savedValue === 'yes') {
+      yesRadio.checked = true;
+    } else if (savedValue === 'no') {
+      noRadio.checked = true;
+    }
+
+    continueBtn.addEventListener('click', function (e) {
+      e.preventDefault(); // Stop form from submitting
+
+      if (yesRadio.checked) {
+        sessionStorage.setItem('evidenceConditionSelection', 'yes');
+        window.location.href = 'check-answers5';
+      } else if (noRadio.checked) {
+        sessionStorage.setItem('evidenceConditionSelection', 'no');
+        //// window.location.href = 'upload-broadly-equivalent-evidence'; // update if you uncomment
       } else {
         alert('Please select Yes or No before continuing.');
       }
     });
   });
 </script>
+
 
 
 

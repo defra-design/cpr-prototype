@@ -24,12 +24,13 @@
         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Do you want to upload more evidence for {name of reprocessing site}?
+              Do you want to upload more evidence for XYZ Exporters Ltd?
             </h1>
+            <div class="govuk-inset-text">
+  XYZ Exporters Ltd<BR>2 Rue Charlemagne,<BR>0 étage, 15635, Saint-Denis,<BR>Auvergne, France
+</div>
           </legend>
        
-          <br>
-
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence">
@@ -56,7 +57,7 @@
 
 </form>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const continueBtn = document.getElementById('continueBtn');
@@ -74,7 +75,39 @@
       }
     });
   });
+</script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const continueBtn = document.getElementById('continueBtn');
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+
+    // 🔁 Restore saved selection
+    const savedValue = sessionStorage.getItem('xyzUploadMoreEvidence');
+    if (savedValue === 'yes') {
+      yesRadio.checked = true;
+    } else if (savedValue === 'no') {
+      noRadio.checked = true;
+    }
+
+    // ✅ Save and route based on selection
+    continueBtn.addEventListener('click', function (e) {
+      if (yesRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'yes');
+        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+      } else if (noRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'no');
+        continueBtn.setAttribute('formaction', 'check-answers4');
+      } else {
+        e.preventDefault(); // Stop form submission
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
 </script>
+
 
 
 

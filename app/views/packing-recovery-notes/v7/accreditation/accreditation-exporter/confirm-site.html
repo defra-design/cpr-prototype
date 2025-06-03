@@ -42,7 +42,7 @@
 
     <div style="display: flex; gap: 20px;">
       <a href="accreditation-prn8">
-        <input class="govuk-button" type="submit" value="Save and continue" />
+        <input class="govuk-button" type="submit" value="Confirm and continue" />
       </a>
       <a href="">
         <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later" />
@@ -86,9 +86,8 @@
   });
 
   function removeSite(siteName) {
-    const confirmed = confirm(`Are you sure you want to remove "${siteName}"?`);
-    if (!confirmed) return;
-
+    
+ 
     let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
     storedSites = storedSites.filter(name => name !== siteName);
     localStorage.setItem('selectedSites', JSON.stringify(storedSites));
