@@ -146,9 +146,7 @@ This must be a person holding a senior position in the Organisation
     const editIndex = getQueryParam("editIndex");
     const sites = JSON.parse(localStorage.getItem("interimSites") || "[]");
 
-    if (sites[editIndex].orgName && sites[editIndex].orgName.trim() !== "") {
-    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
-  }
+    
 
     // If editing, pre-fill the form
     if (editIndex !== null && sites[editIndex]) {
@@ -197,6 +195,10 @@ localStorage.setItem("latestInterimOrgName", newSite.orgName);
       // Redirect to review page
       window.location.href = "review-approved1";
     });
+
+    if (sites[editIndex]?.orgName && sites[editIndex]?.orgName.trim() !== "") {
+    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
+  }
   });
 </script>
 
