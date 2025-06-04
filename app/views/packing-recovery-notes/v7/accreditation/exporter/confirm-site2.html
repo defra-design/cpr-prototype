@@ -41,7 +41,7 @@
     </table>
 
     <div style="display: flex; gap: 20px;">
-      <a href="accreditation-prn8">
+      <a href="tasklist7.html">
         <input class="govuk-button" type="submit" value="Confirm and continue" />
       </a>
       <a href="">
@@ -67,7 +67,7 @@
       row.innerHTML = `
         <td class="govuk-table__cell">${site}</td>
         <td class="govuk-table__cell">
-          <a class="govuk-link" href="interim-site-details" onclick="removeSite('${site}')">Add interim sites</a>
+          <a class="govuk-link" href="review-approved1" >View interim sites</a>
         </td>`;
       tbody.appendChild(row);
     });
@@ -88,14 +88,14 @@
   function removeSite(siteName) {
     
  
-    // let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
-    // storedSites = storedSites.filter(name => name !== siteName);
-    // localStorage.setItem('selectedSites', JSON.stringify(storedSites));
+    let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+    storedSites = storedSites.filter(name => name !== siteName);
+    localStorage.setItem('selectedSites', JSON.stringify(storedSites));
 
-    // // Store the recently removed site
-    // localStorage.setItem('recentlyRemovedSite', siteName);
+    // Store the recently removed site
+    localStorage.setItem('recentlyRemovedSite', siteName);
 
-    // location.reload(); // Refresh to show updated list and banner
+    location.reload(); // Refresh to show updated list and banner
   }
 </script>
 {% endblock %}

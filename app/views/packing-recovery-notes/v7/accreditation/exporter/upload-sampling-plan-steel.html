@@ -39,11 +39,47 @@
 
     
      <input class="govuk-file-upload" width="10px" id="file-upload-1" name="waste-file-upload" type="file"> </a>
+     
     
     <br><br>
+     <div id="spinner" style="display: none; margin-top: 15px; text-align: left; padding-left: 50px;">
+  <!-- <div style="
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0b0c0c;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  "></div> -->
+   <img src="/public/images/spinner.gif" width="50px" alt="spinning wheel to show the file is loading">
+</div>
         </tbody>
     </table>
         
+<!-- Hidden table to show after 5 seconds -->
+<table id="uploadedTable" class="govuk-table" style="display: none; margin-top: 20px;">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Uploaded files</th>
+      <th scope="col" class="govuk-table__header">Date uploaded</th>
+      <th scope="col" class="govuk-table__header">Uploaded by</th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="#">SamplingndInspectionXYZreprocessingSteel.pdf</a>
+      </td>
+      <td class="govuk-table__cell">01/02/24</td>
+      <td class="govuk-table__cell">Jane Winston</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric">
+        <a href="#">Remove</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
         
         <br><br>
            
@@ -53,10 +89,32 @@
                 </fieldset>
             </div>
         <br><br>
-            <button class="govuk-button" formaction="./upload-sampling-plan-steel2">Upload file</button> 
+            <button class="govuk-button" formaction="./tasklist6">Save and continue</button> 
+
+           
 
 </form>
 </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fileInput = document.getElementById('file-upload-1');
+    const spinner = document.getElementById('spinner');
+    const uploadedTable = document.getElementById('uploadedTable');
+
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files.length > 0) {
+        spinner.style.display = 'block';           // Show spinner
+        uploadedTable.style.display = 'none';      // Hide table just in case
+
+        setTimeout(() => {
+          spinner.style.display = 'none';          // Hide spinner after 5s
+          uploadedTable.style.display = 'table';   // Show the table
+        }, 5000);
+      }
+    });
+  });
+</script>
 
 {% endblock %}

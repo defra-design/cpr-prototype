@@ -42,15 +42,15 @@
         </label>
         <select class="govuk-select" id="location" name="location" aria-describedby="location-hint">
           <option value="choose" selected>Choose a country</option>
-          <option value="eastmidlands">Afghanistan</option>
-          <option value="eastofengland">Albania</option>
-          <option value="london">Algeria</option>
-          <option value="northeast">Denmark</option>
-          <option value="northwest">France</option>
-          <option value="southeast">Germany</option>
-          <option value="southwest">Italy</option>
-          <option value="westmidlands">Malta</option>
-          <option value="yorkshire">Romania</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Denmark">Denmark</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Italy">Italy</option>
+          <option value="Malta">Malta</option>
+          <option value="Romania">Romania</option>
         </select>
       </div>
 
@@ -145,5 +145,49 @@ This must be a person holding a senior position in the Organisation
 </form>
 
 </div>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    // Only store data when "Save and continue" is clicked
+    if (e.submitter && e.submitter.getAttribute("formaction") === "list-oversea-sites1") {
+      const data = {
+        location: document.getElementById("location").value,
+        orgName: document.getElementsByName("orgName")[0].value,
+        addressLine1: document.getElementsByName("addressLine1")[0].value,
+        addressLine2: document.getElementsByName("addressLine2")[0].value,
+        addressTown: document.getElementsByName("addressTown")[0].value,
+        addressCounty: document.getElementsByName("addressCounty")[0].value,
+        addressPostcode: document.getElementsByName("addressPostcode")[0].value,
+        coordinates: document.getElementsByName("coordinates")?.[0]?.value || "",
+        contactName: document.getElementsByName("contactName")?.[0]?.value || "",
+        email: document.getElementsByName("email")?.[0]?.value || "",
+        phone: document.getElementsByName("phone")?.[0]?.value || ""
+      };
+
+      // Save to localStorage
+      localStorage.setItem("overseasReprocessorDetails", JSON.stringify(data));
+
+      const data1 = {
+  location: document.getElementById("location").value,
+  orgName: document.getElementsByName("orgName")[0].value,
+  addressLine1: document.getElementsByName("addressLine1")[0].value,
+  addressLine2: document.getElementsByName("addressLine2")[0].value,
+  addressTown: document.getElementsByName("addressTown")[0].value,
+  addressCounty: document.getElementsByName("addressCounty")[0].value,
+  addressPostcode: document.getElementsByName("addressPostcode")[0].value,
+  coordinates: document.getElementsByName("coordinates")?.[0]?.value || "",
+  contactName: document.getElementsByName("contactName")?.[0]?.value || "",
+  email: document.getElementsByName("email")?.[0]?.value || "",
+  phone: document.getElementsByName("phone")?.[0]?.value || ""
+};
+
+let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+sites.push(data1);
+localStorage.setItem("addedSites", JSON.stringify(sites));
+
+    }
+  });
+</script>
+
 
 {% endblock %}
