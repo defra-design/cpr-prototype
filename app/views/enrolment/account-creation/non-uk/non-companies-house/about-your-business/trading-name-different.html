@@ -19,7 +19,20 @@ Report packaging data
     serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
     
+    {
+    href: "#",
+    text: ""
+    }
     ]
     }) }}
 
@@ -37,21 +50,19 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="trading-name">
+    <form method="POST" action="trading-name-what">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Does the organisation have a main
-address in the UK?</h1>
-          </legend>
-          <p>This means a head office or a principal place of business in the UK.</p>
-          <div class="govuk-radios" data-module="govuk-radios">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="trading-name">
+            Is the trading name different to its organisation name?
+          </label>
+        </h1>
+        <div class="govuk-radios" data-module="govuk-radios">
             
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
               <label class="govuk-label govuk-radios__label" for="partnership">
-                Yes
+               Yes
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -64,7 +75,9 @@ address in the UK?</h1>
             
             
           </div>
-        </fieldset>
+
+
+        
       </div>
       {{ govukButton({
         text: "Continue"
