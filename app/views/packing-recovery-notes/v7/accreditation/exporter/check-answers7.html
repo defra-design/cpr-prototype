@@ -2,7 +2,12 @@
 
 {% extends "layout.html" %}
 
-
+{% block beforeContent %}
+{{ govukBackLink ({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
 
 {% block pageTitle %}
     {{serviceName}} prototype
@@ -12,100 +17,26 @@
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper " id="main-content" role="main">
 
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
+       <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
 
             <!-- Overseas Reprocessor Details -->
             <h2 class="govuk-heading-m">Overseas reprocessor details</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Organisation name</dt>
-                <dd class="govuk-summary-list__value">{{data['orgName'] | default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Country</dt>
-                <dd class="govuk-summary-list__value">{{data['country'] | default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Address</dt>
-                <dd class="govuk-summary-list__value">{{data['address']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="overseas-reprocessor-details">Change</a>
-                </dd>
-              </div>
-              <!-- Add other fields as necessary -->
-            </dl>
+            
+  <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <!-- <th scope="col" class="govuk-table__header">Organisation name</th>
+      <th scope="col" class="govuk-table__header"></th> -->
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body" id="site-table-body">
+    <!-- Dynamic rows will be inserted here -->
+  </tbody>
+</table>
 
-            <!-- Regulator Contact -->
-            <h2 class="govuk-heading-m">Person the regulator can contact</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Full name</dt>
-                <dd class="govuk-summary-list__value">{{data['Full name']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="contact-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Email address</dt>
-                <dd class="govuk-summary-list__value">{{data['Email address']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="contact-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Telephone</dt>
-                <dd class="govuk-summary-list__value">{{data['Telephone']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="contact-details">Change</a>
-                </dd>
-              </div>
-            </dl>
-
-            <!-- Packaging Waste Export -->
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Basel Convention and OECD codes
-</dt>
-                <dd class="govuk-summary-list__value">{{data['Packaging waste']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details">Change</a>
-                </dd>
-              </div>
-            </dl>
-
-            <!-- Interim Site Details -->
-             <!--
-            <h2 class="govuk-heading-m">Interim site details</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Organisation name</dt>
-                <dd class="govuk-summary-list__value">{{data['Organisation name']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="interim-site-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Country</dt>
-                <dd class="govuk-summary-list__value">{{data['Country']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="interim-site-details">Change</a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Person the regulator can contact</dt>
-                <dd class="govuk-summary-list__value">{{data['Address']| default('Not provided')}}</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="interim-site-details">Change</a> -->
-              <!-- Add other fields as necessary -->
-            </dl>
+           
 
             <!-- Action Buttons -->
             <div style="display: flex; gap: 20px;">
@@ -122,5 +53,102 @@
     </div>
 
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.getElementById("site-table-body");
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+    addedSites.forEach((site, index) => {
+      const orgAddress = site.orgName
+        ? `${site.orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
+        : 'Not provided';
+
+      const contactDetails = site.contactName
+        ? `${site.contactName}, ${site.email || ''}, ${site.phone || ''}`
+        : 'Not provided';
+
+      const wasteCode = site.wasteCode || 'Not provided';
+
+      // Heading: Organisation name
+      const orgHeadingRow = document.createElement("tr");
+      orgHeadingRow.className = "govuk-table__row";
+      orgHeadingRow.innerHTML = `
+        <td class="govuk-table__cell govuk-!-font-weight-bold" colspan="2">
+          <div>
+            Organisation name
+          </div>
+        </td>
+      `;
+      tableBody.appendChild(orgHeadingRow);
+
+      // Row: Organisation address
+      const orgRow = document.createElement("tr");
+      orgRow.className = "govuk-table__row";
+      orgRow.innerHTML = `
+        <td class="govuk-table__cell">${orgAddress}</td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="overseas-reprocessor-details?index=${index}">Change</a></td>
+      `;
+      tableBody.appendChild(orgRow);
+
+      // Heading: Contact person
+      const contactHeadingRow = document.createElement("tr");
+      contactHeadingRow.className = "govuk-table__row";
+      contactHeadingRow.innerHTML = `
+        <td class="govuk-table__cell govuk-!-font-weight-bold" colspan="2">
+          <div>
+            Person the regulator can contact
+          </div>
+        </td>
+      `;
+      tableBody.appendChild(contactHeadingRow);
+
+      // Row: Contact details
+      const contactRow = document.createElement("tr");
+      contactRow.className = "govuk-table__row";
+      contactRow.innerHTML = `
+        <td class="govuk-table__cell" colspan="2">${contactDetails}</td>
+      `;
+      tableBody.appendChild(contactRow);
+
+      // Heading: Basel Codes
+      const codeHeadingRow = document.createElement("tr");
+      codeHeadingRow.className = "govuk-table__row";
+      codeHeadingRow.innerHTML = `
+        <td class="govuk-table__cell govuk-!-font-weight-bold" colspan="2">
+          <div>
+            Basel Convention and OECD codes
+          </div>
+        </td>
+      `;
+      tableBody.appendChild(codeHeadingRow);
+
+      // Row: Basel code
+      const codeRow = document.createElement("tr");
+      codeRow.className = "govuk-table__row";
+      codeRow.innerHTML = `
+        <td>${wasteCode}</td>
+        <td>
+    <a class="govuk-link" href="basel-convention-oecd-code?index=${index}">Change</a>
+  </td>
+      `;
+      tableBody.appendChild(codeRow);
+
+       // Spacer row for bottom space
+      const spacerRow = document.createElement("tr");
+      spacerRow.className = "govuk-table__row";
+      spacerRow.innerHTML = `
+        <td class="" colspan="2" style="padding-bottom: 44px;"></td>
+      `;
+      tableBody.appendChild(spacerRow);
+    });
+  });
+  
+</script>
+
+
+
+
 
 {% endblock %}
