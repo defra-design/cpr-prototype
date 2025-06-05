@@ -40,14 +40,19 @@
 
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--m" for="event-name">
-      Codes for the packaging waste you are exporting to <organisation name>
-    </label>
+   <label class="govuk-label govuk-label--m" id="org-label" for="wasteCode">
+  Codes for the packaging waste you are exporting to 
+  <span id="orgNameDisplay">...</span>
+</label>
+
   </h1>
   <div id="event-name-hint" class="govuk-hint">
     Enter one code
   </div>
-                 <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-30" id="weight" name="director1"  type="text" spellcheck="false">
+                 <div class="govuk-input__wrapper">
+                  <input class="govuk-input govuk-input--width-30" id="wasteCode" name="wasteCode" type="text">
+
+
 </div>
              </div>
          
@@ -63,9 +68,85 @@
 </div>
  
   
-    <button class="govuk-button" formaction="reprocessor-site-question">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+   <button id="saveContinueBtn" class="govuk-button" formaction="reprocessor-site-question">Save and continue</button>
+
+     <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 </form>
   
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const index = params.get("index");
+    const redirectTo = params.get("redirect"); // ✅ Get redirect path
+
+    if (index !== null) {
+      const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+      const site = sites[index];
+      if (site?.wasteCode) {
+        document.getElementById("wasteCode").value = site.wasteCode;
+      }
+
+      // Store edit index in hidden input
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "editIndex";
+      hidden.value = index;
+      document.querySelector("form").appendChild(hidden);
+    }
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+      const code = document.getElementById("wasteCode").value.trim();
+      const editIndex = document.getElementsByName("editIndex")[0]?.value;
+
+      let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+      if (editIndex !== undefined && sites[editIndex]) {
+        sites[editIndex].wasteCode = code;
+        localStorage.setItem("addedSites", JSON.stringify(sites));
+      }
+
+      // ✅ Redirect after update
+      if (redirectTo) {
+        e.preventDefault();
+        window.location.href = redirectTo;
+      }
+    });
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const index = params.get("index");
+
+    if (index !== null) {
+      const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+      const site = sites[index];
+
+      if (site?.orgName) {
+        document.getElementById("orgNameDisplay").textContent = site.orgName;
+      } else {
+        document.getElementById("orgNameDisplay").textContent = "this organisation";
+      }
+
+      // Pre-fill Basel code
+      if (site?.wasteCode) {
+        document.getElementById("wasteCode").value = site.wasteCode;
+      }
+
+      // Store index in hidden field
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "editIndex";
+      hidden.value = index;
+      document.querySelector("form").appendChild(hidden);
+    }
+  });
+</script>
+
+
 
 {% endblock %}
