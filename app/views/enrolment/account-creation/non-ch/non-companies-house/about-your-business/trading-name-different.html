@@ -21,17 +21,17 @@ Report packaging data
     navigation: [
     {
     href: "#",
-    text: "Home",
+    text: "",
     active: true
     },
     {
     href: "manage-account.html",
-    text: "Manage account" 
+    text: "" 
     },
     
     {
     href: "#",
-    text: "Sign out"
+    text: ""
     }
     ]
     }) }}
@@ -50,17 +50,34 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="type-of-organisation">
+    <form method="POST" action="trading-name">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="trading-name">
-            What is your organisation’s trading name?
+            Is the trading name different to its organisation name?
           </label>
         </h1>
-        <div id="trading-name-hint" class="govuk-hint">
-          You may trade under your own name, or a name you have given to your business.
-        </div>
-        <input class="govuk-input" id="trading-name" name="trading-name" type="text" spellcheck="false" autocomplete="off" value="{{data['trading-name']}}">
+        <div class="govuk-radios" data-module="govuk-radios">
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
+               Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sole-trader" name="form-organisation-type" type="radio" value="Sole trader" {{ checked("form-organisation-type", "Sole trader") }}>
+              <label class="govuk-label govuk-radios__label" for="sole-trader">
+                No
+              </label>
+            </div>
+            
+            
+            
+          </div>
+
+
+        
       </div>
       {{ govukButton({
         text: "Continue"

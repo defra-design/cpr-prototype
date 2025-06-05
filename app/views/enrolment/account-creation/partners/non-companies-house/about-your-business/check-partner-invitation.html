@@ -19,20 +19,7 @@ Report packaging data
     serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
-    {
-    href: "#",
-    text: "Home",
-    active: true
-    },
-    {
-    href: "manage-account.html",
-    text: "Manage account" 
-    },
     
-    {
-    href: "#",
-    text: "Sign out"
-    }
     ]
     }) }}
 
@@ -46,13 +33,14 @@ Report packaging data
 
 {% endblock %}
 
-{% block beforeContent %} 
+{% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <br>
           
             <h1 class="govuk-heading-l">Check invitation details</h1>
+            <p>Any invites created for one or more approved persons will be sent once the organisation is added.</p>
 
               <table class="govuk-table">
                 
@@ -67,42 +55,32 @@ Report packaging data
                   
                   <tr class="govuk-table__row">
                     <td class="govuk-table__cell govuk-table__cell">Role</th>
-                    <td class="govuk-table__cell govuk-table__cell">Partner</td>
+                    <td class="govuk-table__cell govuk-table__cell">Individual partner</td>
                     <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
+                      Change<span class="govuk-visually-hidden"> </span></a></td>
                   </tr>
                   <tr class="govuk-table__row">
-                    <td class="govuk-table__cell govuk-table__cell">Name</th>
-                    <td class="govuk-table__cell govuk-table__cell">Frankie Bridger</td>
+                    <td class="govuk-table__cell govuk-table__cell">First name<br>Last name<br>Email<br>Telephone</th>
+                    <td class="govuk-table__cell govuk-table__cell">Frankie<br>Bridger<br>frankie.bridger@acornltd.com<br>07890030028</td>
                     <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell govuk-table__cell">Email</th>
-                    <td class="govuk-table__cell govuk-table__cell">frankie.bridger@acornltd.com</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell govuk-table__cell">Telephone</th>
-                    <td class="govuk-table__cell govuk-table__cell">07890030028</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> UK nation</span></a></td>
-                  </tr>
-                  
-                  
+                      Change<span class="govuk-visually-hidden"> </span></a></td>
+                  </tr>  
                 </tbody>
               </table>
 
                 <p></p>
 
-           <form action="success-invite" method="post" novalidate>
-              <input type="hidden" name="answers-checked" value="true">
-             <input type="hidden" name="waste-data-reprocesser" value="true">
-              <button class="govuk-button" data-module="govuk-button">
-                  Continue
-              </button>
-            </form>
+                <div class="govuk-button-group">
+                  
+                  <a href="manage-account-person-2" class="govuk-button govuk-button--secondary">Remove</a>    
+                </div>
+
+                <div class="govuk-button-group">
+                  <a href="check-your-answers" class="govuk-button" type="submit">Continue</a> 
+                  <a href="team-role" class="govuk-button govuk-button--secondary">Invite another person</a>    
+                  
+                </div>
+
           </div>
 
         </div>
@@ -110,5 +88,6 @@ Report packaging data
   </div>
 
 </div>
+
 
 {% endblock %}

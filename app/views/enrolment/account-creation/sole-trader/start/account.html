@@ -4,7 +4,7 @@
 Report packaging data
 {% endset%}
 
-{% set serviceName = "EPR for packaging: reprocessors and exporters" %}
+{% set serviceName = "Reprocessor and exporters service" %}
 
 {% block pageTitle %}
  Report packaging data
@@ -48,66 +48,57 @@ Report packaging data
 
 {% block content %}
 
-
-
-
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        <form method="post" action="registered-as-a-charity">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Jamie Roberts</span>
+                Add your organisation details   
+              </h1>
+            <div class="govuk-form-group">
+                
+               
+            
+            <p class="govuk-body">You need to provide details about your organisation.</p>
+           <h2 class="govuk-heading-m">If you’re registered with Companies House</h2>
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
-      Account: Jamie Roberts
-    </h1>
-  </div>
+           <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's Companies House registration number and official name</li>
+              <li>individual and corporate names for all partners, if you’re a limited partnership</li>
+            </ul>
+            <br> 
+
+            <h2 class="govuk-heading-m">If you’re not registered with Companies House</h2>
+            <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's name and address</li>
+              <li>individual and corporate names for all partners if you’re a partnership</li>
+            </ul> 
+        
+            <p class="govuk-body">You’ll also need to add at least one approved person to manage the account.</p>
+        
+        </div>
+        <p class="govuk-body govuk-!-margin-top-4"><a href="#">Read more about approved persons</a></p>
+        <br>
+            
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" href="registered-as-a-charity">
+                    Add an organisation
+                </button>
+                
+            </div>
+        </form>
+        
+    </div>
 </div>
-
-
-<div class="govuk-grid-row govuk-!-margin-bottom-7">
-
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-">Add organisations</h2>
-      <p>Add an organisation ahead of registering to be either a reprocessor or an exporter or both.</p>
-      
-      <p><a class="account-link" href="registered-as-a-charity" id="signout-link">Add an organisation</a></p>
-    </div>
-  </div>
-
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">Apply for registration</h2> 
-      <p class="govuk-body">After adding an organisation you must apply to register each:</p>
-      <ul class="govuk-list govuk-list--bullet">
-      <li>packaging waste material to be reprocessed at each UK reprocessing site</li>
-      <li>UK-derived packaging waste material to be exported </li>
-  
-      </ul>
-      
-    </div>
-  </div>
-</div>
-
-<!--<div class="govuk-grid-row govuk-!-margin-bottom-7">
-
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m govuk-link-" class="govuk-link--no-visited-state">Manage PRN text</h2>
-      <p class="govuk-body">You are not accredited </p>
-    </div>
-  </div>
-  
-  <div class="govuk-grid-column-one-half">
-    <div class="card" style="background-color: #F3F2F1; border-bottom: 5px solid #1D70B8;">
-      <h2 class="govuk-heading-m" class="govuk-link--no-visited-state">Account</h2>
-      <p class="govuk-body">Create and manage users</p>
-      <a class="account-link" href="#" id="signout-link"></a>
-      <p>Accept an invitation from [Business name</p>
-      <a class="account-link" href="#" id="signout-link"></a>
-      <p>Manage users</p>
-      <a class="account-link" href="#" id="signout-link"></a>
-      <p>View my account details</p>
-    </div>-->
-  </div>
-  </div>
 
 {% endblock %}
