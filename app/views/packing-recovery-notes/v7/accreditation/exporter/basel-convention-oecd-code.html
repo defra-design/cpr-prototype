@@ -40,9 +40,11 @@
 
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--m" for="event-name">
-      Codes for the packaging waste you are exporting to <organisation name>
-    </label>
+   <label class="govuk-label govuk-label--m" id="org-label" for="wasteCode">
+  Codes for the packaging waste you are exporting to 
+  <span id="orgNameDisplay">...</span>
+</label>
+
   </h1>
   <div id="event-name-hint" class="govuk-hint">
     Enter one code
@@ -76,6 +78,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const index = params.get("index");
+    const redirectTo = params.get("redirect"); // ✅ Get redirect path
 
     if (index !== null) {
       const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
@@ -84,7 +87,7 @@
         document.getElementById("wasteCode").value = site.wasteCode;
       }
 
-      // Store editIndex in hidden field
+      // Store edit index in hidden input
       const hidden = document.createElement("input");
       hidden.type = "hidden";
       hidden.name = "editIndex";
@@ -103,14 +106,46 @@
         localStorage.setItem("addedSites", JSON.stringify(sites));
       }
 
-      // Optional: redirect to check page
-      // e.preventDefault();
-      // window.location.href = "check-your-answers";
+      // ✅ Redirect after update
+      if (redirectTo) {
+        e.preventDefault();
+        window.location.href = redirectTo;
+      }
     });
   });
 </script>
 
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const index = params.get("index");
+
+    if (index !== null) {
+      const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+      const site = sites[index];
+
+      if (site?.orgName) {
+        document.getElementById("orgNameDisplay").textContent = site.orgName;
+      } else {
+        document.getElementById("orgNameDisplay").textContent = "this organisation";
+      }
+
+      // Pre-fill Basel code
+      if (site?.wasteCode) {
+        document.getElementById("wasteCode").value = site.wasteCode;
+      }
+
+      // Store index in hidden field
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "editIndex";
+      hidden.value = index;
+      document.querySelector("form").appendChild(hidden);
+    }
+  });
+</script>
 
 
 

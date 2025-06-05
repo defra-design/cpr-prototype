@@ -22,7 +22,12 @@ href: "javascript:history.back()"
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
 
             <!-- Overseas Reprocessor Details -->
-            <h2 class="govuk-heading-m">Overseas reprocessor details</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+  <h2 class="govuk-heading-m" style="margin-bottom: 0;">Overseas reprocessor details</h2>
+  <a href="overseas-reprocessor-details" class="govuk-button" style="margin-bottom: 0;">
+    Add
+  </a>
+</div>
             
   <table class="govuk-table">
   <thead class="govuk-table__head">
@@ -88,7 +93,8 @@ href: "javascript:history.back()"
       orgRow.className = "govuk-table__row";
       orgRow.innerHTML = `
         <td class="govuk-table__cell">${orgAddress}</td>
-        <td class="govuk-table__cell"><a class="govuk-link" href="overseas-reprocessor-details?index=${index}">Change</a></td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="overseas-reprocessor-details?index=${index}&redirect=check-answers7">Change</a>
+</td>
       `;
       tableBody.appendChild(orgRow);
 
@@ -130,7 +136,8 @@ href: "javascript:history.back()"
       codeRow.innerHTML = `
         <td>${wasteCode}</td>
         <td>
-    <a class="govuk-link" href="basel-convention-oecd-code?index=${index}">Change</a>
+    <a class="govuk-link" href="basel-convention-oecd-code?index=${index}&redirect=check-answers7">Change</a>
+
   </td>
       `;
       tableBody.appendChild(codeRow);

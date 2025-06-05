@@ -154,8 +154,8 @@ This must be a person holding a senior position in the Organisation
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const editIndex = params.get("index");
+    const redirectTo = params.get("redirect"); // ✅ Get redirect target (optional)
 
-    // Pre-fill data if editing
     if (editIndex !== null) {
       const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
       const site = sites[editIndex];
@@ -175,6 +175,8 @@ This must be a person holding a senior position in the Organisation
     }
 
     document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
       const data = {
         location: document.getElementsByName("location")[0].value,
         orgName: document.getElementsByName("orgName")[0].value,
@@ -190,22 +192,23 @@ This must be a person holding a senior position in the Organisation
       };
 
       let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
-
       if (editIndex !== null && sites[editIndex]) {
-        sites[editIndex] = { ...sites[editIndex], ...data }; // update existing
+        sites[editIndex] = { ...sites[editIndex], ...data };
       } else {
-        sites.push(data); // new entry
+        sites.push(data);
       }
-
       localStorage.setItem("addedSites", JSON.stringify(sites));
 
-      // Redirect to Basel code page with index
-      const newIndex = editIndex !== null ? editIndex : sites.length - 1;
-      e.preventDefault(); // Prevent default form post
-      window.location.href = `basel-convention-oecd-code?index=${newIndex}`;
+      // ✅ Redirect to target page if specified, else fallback
+      if (redirectTo) {
+        window.location.href = redirectTo;
+      } else {
+        window.location.href = "basel-convention-oecd-code?index=" + (editIndex || sites.length - 1);
+      }
     });
   });
 </script>
+
 
 
 
