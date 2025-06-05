@@ -50,38 +50,34 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="business-address-manual">
+    <form method="POST" action="type-of-business">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">What type of business are you adding?
-            </h1>
-          </legend>
-          <br>
-          <div class="govuk-radios" data-module="govuk-radios">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="trading-name">
+            Is the trading name different to its organisation name?
+          </label>
+        </h1>
+        <div class="govuk-radios" data-module="govuk-radios">
             
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
               <label class="govuk-label govuk-radios__label" for="partnership">
-                An individual (for example, a sole trader)
+               Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sole-trader" name="form-organisation-type" type="radio" value="Sole trader" {{ checked("form-organisation-type", "Sole trader") }}>
+              <label class="govuk-label govuk-radios__label" for="sole-trader">
+                No
               </label>
             </div>
             
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="unincorporated-body" name="form-organisation-type" type="radio" value="Unincorporated body" {{ checked("form-organisation-type", "Unincorporated body") }}>
-              <label class="govuk-label govuk-radios__label" for="unincorporated-body">
-                Unincorporated association
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="unincorporated-body" name="form-organisation-type" type="radio" value="Unincorporated body" {{ checked("form-organisation-type", "Unincorporated body") }}>
-              <label class="govuk-label govuk-radios__label" for="unincorporated-body">
-                A partnership under the Partnership Act
-                1890
-  <br>
-      
-           
-        </fieldset>
+            
+            
+          </div>
+
+
+        
       </div>
       {{ govukButton({
         text: "Continue"
