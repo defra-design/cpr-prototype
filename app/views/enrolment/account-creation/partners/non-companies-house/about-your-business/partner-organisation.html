@@ -19,20 +19,7 @@ Report packaging data
     serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
-    {
-    href: "#",
-    text: "",
-    active: true
-    },
-    {
-    href: "manage-account.html",
-    text: "" 
-    },
     
-    {
-    href: "#",
-    text: ""
-    }
     ]
     }) }}
 
@@ -48,34 +35,31 @@ Report packaging data
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form method="POST" action="trading-name-1">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds ">
+    <form method="POST" action="partner-type">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Does your organisation have a main address in the UK?
+              Is your organisation a partnership?
             </h1>
           </legend>
-          <p>This means a head office or a principal place of business in the UK.</p>
-          <div class="govuk-radios" data-module="govuk-radios">
-            
+    
+        <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
-              <label class="govuk-label govuk-radios__label" for="partnership">
+              <input class="govuk-radios__input" id="registered-charity-yes" name="registered-charity" type="radio">
+              <label class="govuk-label govuk-radios__label" for="registered-charity-yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sole-trader" name="form-organisation-type" type="radio" value="Sole trader" {{ checked("form-organisation-type", "Sole trader") }}>
-              <label class="govuk-label govuk-radios__label" for="sole-trader">
+              <input class="govuk-radios__input" id="registered-charity-no" name="registered-charity" type="radio" value="No" {{ checked("registered-charity", "No") }}>
+              <label class="govuk-label govuk-radios__label" for="registered-charity-no">
                 No
               </label>
             </div>
-            
-            
-            
           </div>
         </fieldset>
       </div>
