@@ -37,25 +37,32 @@
 </div>
 
 <script>
+  function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
 function renderInterimSites() {
   const list = document.getElementById("interim-site-list");
   list.innerHTML = "";
-  const sites = JSON.parse(localStorage.getItem("interimSites") || "[]");
+
+   const orgKey1 = getQueryParam("org");
+  const orgKey = orgKey1 ? orgKey1:localStorage.getItem("latestInterimOrgName");
+  const sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
+  const sites = sitesByOrg[orgKey] || [];
 
   if (!sites.length) {
-    list.innerHTML = `<p class="govuk-body">No interim sites added yet.</p>`;
+    list.innerHTML = `<p class="govuk-body">No interim sites added yet for ${orgKey}.</p>`;
     return;
   }
 
   sites.forEach((site, index) => {
-    const orgName = site.orgName || '-';
+    const orgName = site.orgName || orgKey;
     const countryName = site.country || '-';
     const address = [
       site.addressLine1,
       site.addressLine2,
       site.addressTown,
-      site.addressPostcode,
-      site.coordinates
+      site.addressPostcode
     ].filter(Boolean).join('<br>');
 
     const contactDetails = [
@@ -77,8 +84,7 @@ function renderInterimSites() {
           </div>
           <div class="govuk-grid-column-one-third govuk-!-text-align-right">
             <a href="javascript:void(0)" class="govuk-link" onclick="removeInterimSite(${index})">Remove</a> |
-            <a href="interim-site-details?editIndex=${index}&redirect=review-approved1" class="govuk-link">Change</a>
-
+            <a href="interim-site-details?editIndex=${index}&redirect=review-approved1&org=${getQueryParam("org") || localStorage.getItem("latestInterimOrgName")}" class="govuk-link">Change</a>
           </div>
         </div>
 
@@ -110,12 +116,14 @@ function renderInterimSites() {
 }
 
 function removeInterimSite(index) {
-  let sites = JSON.parse(localStorage.getItem("interimSites") || "[]");
-  if (sites.length > index) {
-    sites.splice(index, 1);
-    localStorage.setItem("interimSites", JSON.stringify(sites));
-    renderInterimSites();
-  }
+   const orgKey2 = getQueryParam("org");
+  const orgKey = orgKey2 ? orgKey2:localStorage.getItem("latestInterimOrgName");
+  const sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
+  if (!sitesByOrg[orgKey]) return;
+
+  sitesByOrg[orgKey].splice(index, 1);
+  localStorage.setItem("interimSitesByOrg", JSON.stringify(sitesByOrg));
+  renderInterimSites();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -123,5 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("org-heading").textContent = `Interim sites used when exporting to ${orgName}`;
   renderInterimSites();
 });
+
+if (getQueryParam("org")) {
+  localStorage.setItem("latestInterimOrgName", getQueryParam("org"))
+}
 </script>
 {% endblock %}

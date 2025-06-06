@@ -52,26 +52,9 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  //   const storedSites = JSON.parse(localStorage.getItem('addedSites') || '[]');
-  //   const tbody = document.getElementById('site-list');
-
-  //   if (storedSites.length === 0) {
-  //     tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
-  //     return;
-  //   }
-
-  //   storedSites.forEach(site => {
-  //     const row = document.createElement('tr');
-  //     row.className = 'govuk-table__row';
-  //     row.innerHTML = `
-  //       <td class="govuk-table__cell">${site}</td>
-  //       <td class="govuk-table__cell">
-  //         <a class="govuk-link" href="review-approved1" >View interim sites</a>
-  //       </td>`;
-  //     tbody.appendChild(row);
-  //   });
+document.addEventListener('DOMContentLoaded', () => {
   const storedSites = JSON.parse(localStorage.getItem('addedSites') || '[]');
+  const interimSitesByOrg = JSON.parse(localStorage.getItem('interimSitesByOrg') || '{}');
   const tbody = document.getElementById('site-list');
 
   if (storedSites.length === 0) {
@@ -80,9 +63,16 @@
   }
 
   storedSites.forEach(site => {
-    const orgInfo = site.orgName
-      ? `${site.orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
+    const orgName = site.orgName?.trim();
+    const hasInterim = orgName && interimSitesByOrg[orgName] && interimSitesByOrg[orgName].length > 0;
+
+    const orgInfo = orgName
+      ? `${orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
       : 'Not provided';
+
+    const link = hasInterim
+      ? `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">View interim sites</a>`
+      : `<a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(orgName)}">Add interim sites</a>`;
 
     const row = document.createElement('tr');
     row.className = 'govuk-table__row';
@@ -90,37 +80,19 @@
       <td class="govuk-table__cell">
         <div style="max-width: 300px; word-wrap: break-word;">${orgInfo}</div>
       </td>
-      <td class="govuk-table__cell">
-        <a class="govuk-link" href="review-approved1" >View interim sites</a>
-      </td>`;
+      <td class="govuk-table__cell">${link}</td>
+    `;
     tbody.appendChild(row);
   });
-   });
-  
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const removedSite = localStorage.getItem('recentlyRemovedSite');
-    if (removedSite) {
-      document.getElementById('success-text').textContent =
-        `You’ve removed ${removedSite} from your application`;
-      document.getElementById('success-banner').hidden = false;
-
-      // Clear it so it only shows once
-      localStorage.removeItem('recentlyRemovedSite');
-    }
-  });
-
-  function removeSite(siteName) {
-    
- 
-    let storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
-    storedSites = storedSites.filter(name => name !== siteName);
-    localStorage.setItem('selectedSites', JSON.stringify(storedSites));
-
-    // Store the recently removed site
-    localStorage.setItem('recentlyRemovedSite', siteName);
-
-    location.reload(); // Refresh to show updated list and banner
+  const removedSite = localStorage.getItem('recentlyRemovedSite');
+  if (removedSite) {
+    document.getElementById('success-text').textContent =
+      `You’ve removed ${removedSite} from your application`;
+    document.getElementById('success-banner').hidden = false;
+    localStorage.removeItem('recentlyRemovedSite');
   }
+});
 </script>
+
 {% endblock %}
