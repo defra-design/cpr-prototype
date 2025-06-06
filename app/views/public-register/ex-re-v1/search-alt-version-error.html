@@ -458,72 +458,33 @@ href: "./guidance"
 
     <!-- HEADING -->
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
-        <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-8">
 
-            Search for a reprocessor or exporter
-        </h1>
-
-    </div>
-
-
-
-
-
-
-    <div class="govuk-grid-column-full">
-
-
-        <form class="form" action="./search-results" method="POST">
-
-
-            <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-
-
-                    </legend>
-
-{{ govukInput({
-  label: {
-    text: "Search by company name, number or other details",
-    classes: "govuk-label--m",
-    isPageHeading: true
-  },
-  classes: "govuk-input",
-  hint: {
-    text: "For example, registration number, material type, accreditation agency or accreditation number"
-  },
-  id: "account-number",
-  name: "accountNumber",
-  inputmode: "numeric",
-  spellcheck: false
+        
+            {{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Enter a company name or other details",
+      href: "#company-search"
+    }
+  ]
 }) }}
 
-
-
-                </fieldset>
-
-           
-                    <div class="govuk-button-group">
-                        <button type="submit" class="govuk-button" data-module="govuk-button">
-                            Search
-                        </button>
-            
-
-
-                <a class="govuk-link" href="#">Clear and reset</a>
+        <div class="govuk-form-group govuk-form-group--error">
+            <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="company-search">
+                    Search for a reprocessor or exporter by company name, number or other details
+                </label>
+            </h1>
+            <div id="company-search-hint" class="govuk-hint">
+                For example, registration number, material type, accreditation agency or accreditation number
             </div>
+               <p id="company-search-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span>Enter a company name or other details
+    </p>
+            <input class="govuk-input" id="company-search" name="eventName" type="text" aria-describedby="event-name-hint">
+        </div>
 
-    </div>
-
-    </form>
-
-
-        <p class="govuk-body">For anything before reporting year 2024, use the
-            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
-                Producers on the National Packaging Waste Database (opens in new tab)</a>
-            .
-        </p>
 </div>
 
 
@@ -532,10 +493,48 @@ href: "./guidance"
 
 
 
+        <div class="govuk-grid-column-full">
+
+
+            <form class="form" action="#" method="POST">
+
+                </fieldset>
+
+                <div class="govuk-button-group">
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Search
+                    </button>
+
+                <!--   <a class="govuk-link" href="#">Clear and reset</a> --> 
+                </div>
+
+            </form>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+            <p class="govuk-body">For anything before reporting year 2024, use the
+                <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
+                    Producers on the National Packaging Waste Database (opens in new tab)</a>.
+            </p>
+        </div>
+
+
+    </div>
 
 
 
 
 
 
-{% endblock %}
+
+
+
+
+
+
+
+    {% endblock %}

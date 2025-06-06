@@ -15,7 +15,7 @@ GOV.UK
 {% block beforeContent %}
 {{ govukBackLink ({
 text: "Back to public register for the ‘report packaging data’ service",
-href: "javascript:history.back()"
+href: "./guidance"
 }) }}
 {% endblock %}
 
@@ -458,59 +458,36 @@ href: "javascript:history.back()"
 
     <!-- HEADING -->
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
-        <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-8">
 
-            Search for a reprocessor or exporter
-        </h1>
 
-  
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="event-name">
+                    Search for a reprocessor or exporter by company name, number or other details
+                </label>
+            </h1>
+            <div id="event-name-hint" class="govuk-hint">
+                For example, registration number, material type, accreditation agency or accreditation number
+            </div>
+            <input class="govuk-input" id="event-name" name="eventName" type="text" value="URM UK Ltd t/a Berryman"
+                aria-describedby="event-name-hint">
+        </div>
+
     </div>
-
-
-
-
 
     <div class="govuk-grid-column-full">
 
 
         <form class="form" action="#" method="POST">
 
+            </fieldset>
 
-            <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                    Search
+                </button>
 
-
-                    </legend>
-
-                    {{ govukInput({
-                    label: {
-                    text: "Search by company name, number or other details",
-                    classes: "govuk-label--m",
-                    isPageHeading: true
-                    },
-                    classes: "govuk-input",
-                    hint: {
-                    text: "For example, registration number, material type, accreditation agency or accreditation
-                    number"
-                    },
-                    id: "account-number",
-                    name: "accountNumber",
-                    inputmode: "numeric",
-                    spellcheck: false,
-                    value: "Wood"
-                    }) }}
-
-
-                </fieldset>
-                <div class="govuk-button-group">
-                    <button type="submit" class="govuk-button" data-module="govuk-button">
-                        Search
-                    </button>
-
-                    <a class="govuk-link" href="./search.html">Clear and reset</a>
-                </div>
-
+                <a class="govuk-link" href="search-alt-version.html">Clear and reset</a>
             </div>
 
         </form>
@@ -528,7 +505,7 @@ href: "javascript:history.back()"
                     <div class="govuk-checkboxes govuk-checkboxes--small" style="display: flex; flex-wrap: wrap;">
                         <div class="govuk-checkboxes__item" style="width: 150px !important;">
                             <input class="govuk-checkboxes__input" id="orgtype-reprocessor" name="orgtype"
-                                type="checkbox" value="Reprocessor" checked="true">
+                                type="checkbox" value="Reprocessor">
                             <label class="govuk-label govuk-checkboxes__label"
                                 for="orgtype-reprocessor">Reprocessor</label>
                         </div>
@@ -544,7 +521,7 @@ href: "javascript:history.back()"
                         </div>
                         <div class="govuk-checkboxes__item" style="width: 250px !important;">
                             <input class="govuk-checkboxes__input" id="orgtype-reg-acc" name="orgtype" type="checkbox"
-                                value="Registered_Accredited" checked="true">
+                                value="Registered_Accredited">
                             <label class="govuk-label govuk-checkboxes__label" for="orgtype-reg-acc">Registered and
                                 Accredited</label>
                         </div>
@@ -687,11 +664,9 @@ href: "javascript:history.back()"
 
             </div>
         </div>
-
-
-
-
     </div>
+
+
 
     <div class="govuk-grid-column-full govuk-!-margin-top-3">
 
@@ -701,46 +676,59 @@ href: "javascript:history.back()"
 
             <table class="govuk-table responsive-table">
 
-                <caption class="govuk-table__caption govuk-table__caption--m" id="search">
+                <caption class="govuk-table__caption govuk-table__caption--m">
                     Search results
-                    <span class="govuk-form-group" style="float: right;"><button type="submit"
-                            class="govuk-button govuk-button--secondary" style="margin: 0px;"
+
+                    <span class="govuk-button-group" style="float: right;">
+
+                        <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;"
                             data-module="govuk-button">
-                            Download search results
-                        </button></span>
+                            Download search results</button> <!--   <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;" data-module="govuk-button">
+ Download full register</button> -->
+
+                    </span>
                 </caption>
 
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">Organisation
                             name,<br>Company number</th>
+
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="19%">
                             Organisation type,<br>Material/Process </th>
+
+
+
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="23%">
                             Registration number,<br>Accrediting agency</th>
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="23%">
                             Accreditation number,<br>Accrediting agency</th>
+
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
+
+
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">A & A Recycling
-                                Services Ltd</a><br><span class="govuk-body-s">04269422</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="./company-accreditation-report.html"
+                                class="govuk-link">URM UK Ltd t/a Berryman</a><br><span
+                                class="govuk-body-s">4084246</span>
+                        </td>
 
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Other</td>
 
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252019128<br><span class="">Environment Agency</span></td>
+                            ER252013146<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252019128<br><span class="">Environment Agency</span></td>
+                            ER252013146<br><span class="">Environment Agency</span></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status"> <strong
-                                class="govuk-tag govuk-tag--grey">
-                                Cancelled
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status"><strong
+                                class="govuk-tag govuk-tag--green">
+                                Active
                             </strong></td>
 
 
@@ -748,19 +736,16 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">Giffords
-                                Recycling Ltd</a><br><span class="govuk-body-s">07066018</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                                Berryman</a> <br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Other</td>
 
-
-
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252024120<br><span class="">Environment Agency</span></td>
-
+                            ER252017128<br><span class="">Environment Agency</span></td>
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252024120<br><span class="">Environment Agency</span></td>
+                            ER252017128<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
                             <strong class="govuk-tag govuk-tag--green">
@@ -772,20 +757,20 @@ href: "javascript:history.back()"
                     </tr>
 
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">Mendip
-                                Woodshavings Ltd</a><br><span class="govuk-body-s">4158389</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM (UK) Ltd t/a
+                                Berrymans</a><br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
 
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER251998262<br><span class="">Environment Agency</span></td>
-
+                            ER252016162<br><span class="">Environment Agency</span></td>
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER251998262<br><span class="">Environment Agency</span></td>
+                            ER252016162<br><span class="">Environment Agency</span></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Statusr">
                             <strong class="govuk-tag govuk-tag--green">
                                 Active
                             </strong>
@@ -795,17 +780,18 @@ href: "javascript:history.back()"
                     </tr>
 
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">PH PALLET
-                                SERVICES</a><br><span class="govuk-body-s">OC368703</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                                Berryman</a><br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
 
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252019163<br><span class="">Environment Agency</span></td>
+                            ER252015124<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252019163<br><span class="">Environment Agency</span></td>
+                            ER252015124<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
                             <strong class="govuk-tag govuk-tag--green">
@@ -815,16 +801,18 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">R. Plevin & Sons
-                                Ltd</a><br><span class="govuk-body-s">01168723</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                                Berryman</a><br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252023113<br><span class="">Environment Agency</span></td>
+                            ER252017127<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252023113<br><span class="">Environment Agency</span></td>
+                            ER252017127<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
                             <strong class="govuk-tag govuk-tag--green">
@@ -833,19 +821,20 @@ href: "javascript:history.back()"
                         </td>
 
                     </tr>
-
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">R.Plevin & Sons
-                                Ltd</a><br><span class="govuk-body-s">01168723</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd T/A
+                                Berrymans</a><br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252023130<br><span class="">Environment Agency</span></td>
+                            ER252016161<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252023130<br><span class="">Environment Agency</span></td>
+                            ER252016161<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
                             <strong class="govuk-tag govuk-tag--green">
@@ -854,19 +843,20 @@ href: "javascript:history.back()"
                         </td>
 
                     </tr>
-
-
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">RJT & AR
-                                Ainsworth</a><br><span class="govuk-body-s">-</span></td>
+                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                                Berryman</a><br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
+
+                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+
+                        <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
+
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252023162<br><span class="">Environment Agency</span></td>
+                            EX252013147<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252023162<br><span class="">Environment Agency</span></td>
+                            EX252013147<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
                             <strong class="govuk-tag govuk-tag--green">
@@ -875,214 +865,30 @@ href: "javascript:history.back()"
                         </td>
 
                     </tr>
-
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">Ronald Hull Jnr
-                                Ltd</a><br><span class="govuk-body-s">01278500</span></td>
-
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252019123<br><span class="">Environment Agency</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252019123<br><span class="">Environment Agency</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
-                            <strong class="govuk-tag govuk-tag--green">
-                                Active
-                            </strong>
-                        </td>
-
-                    </tr>
-
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">South West Wood
-                                Products Ltd
-                                (Winkleigh)</a><br><span class="govuk-body-s">6880439</span></td>
-
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            ER252020116<br><span class="">Environment Agency</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            ER252020116<br><span class="">Environment Agency</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
-                            <strong class="govuk-tag govuk-tag--green">
-                                Active
-                            </strong>
-                        </td>
-
-                    </tr>
-
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">Kronospan
-                                Ltd</a><br><span class="govuk-body-s">00981905</span></td>
-
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> <span
-                                data-label="Material">Wood</span> </td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            WR251998255<br><span class="">Natural Resources Wales</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            WR251998255<br><span class="">Natural Resources Wales</span></td>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
-                            <strong class="govuk-tag govuk-tag--green">
-                                Active
-                            </strong>
-                        </td>
-
-                    </tr>
-
-
-
-
-
 
                 </tbody>
             </table>
         </div>
-<nav class="govuk-pagination" aria-label="Pagination">
-  <ul class="govuk-pagination__list">
-    <li class="govuk-pagination__item govuk-pagination__item--current">
-      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
-        1
-      </a>
-    </li>
-    <li class="govuk-pagination__item">
-      <a class="govuk-link govuk-pagination__link" href="./search-results-material-2.html#search" aria-label="Page 2">
-        2
-      </a>
-    </li>
+
+
+
+
+            <p class="govuk-body">For anything before reporting year 2024, use the
+                <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
+                    Producers on the National Packaging Waste Database (opens in new tab)</a>.
+            </p>
  
-  </ul>
-  <div class="govuk-pagination__next">
-    <a class="govuk-link govuk-pagination__link" href="./search-results-material-2.html#search" rel="next">
-      <span class="govuk-pagination__link-title">
-        Next<span class="govuk-visually-hidden"> page</span>
-      </span>
-      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-      </svg>
-    </a>
-  </div>
-</nav>
-
-   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-          <p class="govuk-body">For anything before reporting year 2024, use the
-            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
-                Producers on the National Packaging Waste Database (opens in new tab)</a>
-            .
-        </p>
-
-
-
 
 
     </div>
 
 
-    <script>
-
-        document.getElementById('apply-filters').addEventListener('click', function () {
-            // Get filter values
-            const orgNameFilter = document.getElementById('organisation-name').value.trim().toLowerCase();
-            const orgIdFilter = document.getElementById('organisation-id').value.trim().toLowerCase();
-
-            // Get all checkboxes for filtering
-            const orgTypeFilters = Array.from(document.querySelectorAll('input[name="orgtype"]:checked')).map(cb => cb.value.trim().toLowerCase());
-            const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value.trim().toLowerCase());
-            const yearFilters = Array.from(document.querySelectorAll('input[name="material"]:checked')).map(cb => cb.value.trim().toLowerCase());
-
-            // Add logic to handle "Resubmission" as a group of statuses (case-insensitive)
-            if (statusFilters.includes("resubmission")) {
-                // Replace "resubmission" with all related statuses
-                statusFilters.splice(
-                    statusFilters.indexOf("resubmission"),
-                    1,
-                    "resubmission",
-                    "resubmission approved",
-                    "resubmission rejected"
-                );
-            }
-
-            // Check if any filters are selected
-            const noFiltersSelected = !orgNameFilter && !orgIdFilter && orgTypeFilters.length === 0 && statusFilters.length === 0 && yearFilters.length === 0;
-
-            // If no filters are selected, redirect to 'manage-data-submissions-no-results'
-            if (noFiltersSelected) {
-                window.location.href = '../manage-data-submissions-no-results';
-                return; // Stop further processing
-            }
-
-            console.log('Filters Applied:', {
-                orgNameFilter,
-                orgIdFilter,
-                orgTypeFilters,
-                statusFilters,
-                yearFilters
-            });
-
-            // Get table rows
-            const rows = document.querySelectorAll('#submission-table-body tr');
-
-            // Filter rows
-            let anyRowVisible = false; // Track if any row is visible after filtering
-            rows.forEach(row => {
-                // Get data from cells
-                const orgName = row.cells[0].querySelector('a').textContent.trim().toLowerCase(); // Organisation Name
-                const orgId = row.cells[1].textContent.trim().toLowerCase(); // Organisation ID
-                const orgType = row.cells[0].querySelector('span').textContent.trim().toLowerCase(); // Organisation Type
-                const submissionYear = row.cells[3].textContent.trim().toLowerCase(); // Submission Year
-
-                // Get all <strong> tags within the status cell
-                const statusTags = Array.from(row.cells[4].querySelectorAll('strong')).map(tag => tag.textContent.trim().toLowerCase());
-
-                // Match status filters, considering all capitalization variations
-                const statusMatch = statusFilters.length === 0 || statusFilters.some(filter => statusTags.some(tag => tag === filter));
-
-                // Filter logic
-                const orgNameMatch = !orgNameFilter || orgName.includes(orgNameFilter);
-                const orgIdMatch = !orgIdFilter || orgId.includes(orgIdFilter);
-                const orgTypeMatch = orgTypeFilters.length === 0 || orgTypeFilters.includes(orgType);
-                const yearMatch = yearFilters.length === 0 || yearFilters.includes(submissionYear);
-
-                // Show/hide row based on matches
-                if (orgNameMatch && orgIdMatch && orgTypeMatch && statusMatch && yearMatch) {
-                    row.style.display = ''; // Show row
-                    anyRowVisible = true; // At least one row matches the filters
-                } else {
-                    row.style.display = 'none'; // Hide row
-                }
-            });
-
-            // If no rows are visible after filtering, redirect to 'manage-data-submissions-no-results'
-            if (!anyRowVisible) {
-                window.location.href = '../manage-data-submissions-no-results';
-            }
-        });
-
-        document.getElementById('clear-filters').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent page reload on clear filters link
-            document.getElementById('filter-form').reset(); // Reset form inputs
-            const rows = document.querySelectorAll('#submission-table-body tr');
-            rows.forEach(row => {
-                row.style.display = ''; // Show all rows
-            });
-        });
-
-
-    </script>
 
 
 
+
+
+</div>
 
 
 
