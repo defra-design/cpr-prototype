@@ -100,7 +100,10 @@ href: "javascript:history.back()"
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!--<span class="govuk-caption-l">For: paper/board</span>---> 
-      <h1 class="govuk-heading-l">Will you use interim sites when exporting packaging waste to this reproccesor?</h1>
+      <h1 class="govuk-heading-l" id="interim-question-heading">
+  Will you use interim sites when exporting packaging waste to this reprocessor?
+</h1>
+
 
               <form class="form" action="#" method="POST">
 
@@ -153,4 +156,15 @@ href: "javascript:history.back()"
 </div>
 
     <section>
+
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const orgName = localStorage.getItem("latestInterimOrgName");
+    if (orgName) {
+      const heading = document.getElementById("interim-question-heading");
+      heading.innerHTML = `Will you use interim sites when exporting packaging waste to this reproccesor?  ${orgName}`;
+    }
+  });
+</script>
+
 {% endblock %}

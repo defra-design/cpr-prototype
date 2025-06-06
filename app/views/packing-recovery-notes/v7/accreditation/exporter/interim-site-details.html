@@ -17,8 +17,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-
-
 <form class="form" action="" method="POST">
 
     <div class="govuk-form-group">
@@ -30,8 +28,6 @@
 </h1>
 
     </legend>
-
-
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="location">
@@ -51,21 +47,21 @@
         </select>
       </div>
 
-            <div class="govuk-form-group">
-        <label class="govuk-label" for="address-line-1">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="org-name">
           Organisation name
         </label>
         <input class="govuk-input" id="org-name" name="orgName" type="text">
       </div>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="address-line-1">
+        <label class="govuk-label" for="address-line1">
           Address line 1
         </label>
         <input class="govuk-input" id="address-line1" name="addressLine1" type="text">
       </div>
       <div class="govuk-form-group">
-        <label class="govuk-label" for="address-line-2">
+        <label class="govuk-label" for="address-line2">
           Address line 2 (optional)
         </label>
         <input class="govuk-input" id="address-line2" name="addressLine2" type="text">
@@ -80,127 +76,117 @@
         <label class="govuk-label" for="address-county">
           State, province or region (optional)
         </label>
-        <div id="event-name-hint" class="govuk-hint">
-          Leave blank if the address does not have a state, province or region
-        </div>
-        
         <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="address-postcode">
           Postcode or similar
-                </label>
-                <div id="event-name-hint" class="govuk-hint">
-                  Some countries use only numbers, others use a mix of letters and numbers. Leave blank if the country does not have postcodes.
-                </div>
-        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text">
       </div>
-     
-  <div class="govuk-form-group">
+
+      <div class="govuk-form-group">
         <label class="govuk-label" for="contact-name">
           Full name of person the regulator can contact
         </label>
-        <div id="event-name-hint" class="govuk-hint">
-This must be a person holding a senior position in the Organisation
-<input class="govuk-input govuk-input--width-10" id="contact-name" name="contact-name" type="text" autocomplete="postal-code">
-      </div>
+        <input class="govuk-input govuk-input--width-10" id="contact-name" name="contact-name" type="text">
       </div>
      <div class="govuk-form-group">
         <label class="govuk-label" for="email">
           Email
         </label>
-        <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text" autocomplete="address-level2">
+        <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text">
       </div>
 
        <div class="govuk-form-group">
         <label class="govuk-label" for="phone">
           Phone number
         </label>
-        <input class="govuk-input govuk-!-width-two-thirds" id="phone" name="phone" type="text" autocomplete="address-level2">
+        <input class="govuk-input govuk-!-width-two-thirds" id="phone" name="phone" type="text">
       </div>
-         
-    
-    
-
-
-
 </fieldset>
 </div>
 <br>
-         
-          <button class="govuk-button" formaction="interim-site-question">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
-
-
+  <button class="govuk-button" formaction="interim-site-question">Save and continue</button>
+  <button class="govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 </form>
-
 </div>
 
 <script>
-  function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editIndex = getQueryParam("editIndex");
+  const orgKey = getQueryParam("org") || localStorage.getItem("latestInterimOrgName");
+localStorage.setItem("latestInterimOrgName", orgKey);
+
+
+  let sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
+  let sites = sitesByOrg[orgKey] || [];
+
+  //document.getElementById("org-name").value = orgKey;
+
+  if (editIndex !== null && sites[editIndex]) {
+    const site = sites[editIndex];
+    document.getElementById("org-name").value = site.orgName;
+    document.getElementById("location").value = site.country;
+    document.getElementById("address-line1").value = site.addressLine1;
+    document.getElementById("address-line2").value = site.addressLine2;
+    document.getElementById("address-town").value = site.addressTown;
+    document.getElementById("address-county").value = site.addressCounty;
+    document.getElementById("address-postcode").value = site.addressPostcode;
+    document.getElementById("contact-name").value = site.contactName;
+    document.getElementById("email").value = site.email;
+    document.getElementById("phone").value = site.phone;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const editIndex = getQueryParam("editIndex");
-    const sites = JSON.parse(localStorage.getItem("interimSites") || "[]");
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    
+    const newSite = {
+      country: document.getElementById("location").value,
+      orgName: document.getElementById("org-name").value,
+      addressLine1: document.getElementById("address-line1").value,
+      addressLine2: document.getElementById("address-line2").value,
+      addressTown: document.getElementById("address-town").value,
+      addressCounty: document.getElementById("address-county").value,
+      addressPostcode: document.getElementById("address-postcode").value,
+      contactName: document.getElementById("contact-name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value
+    };
 
-    // If editing, pre-fill the form
-    if (editIndex !== null && sites[editIndex]) {
-      const site = sites[editIndex];
-      document.getElementById("location").value = site.country;
-      document.getElementById("org-name").value = site.orgName;
-      document.getElementById("address-line1").value = site.addressLine1;
-      document.getElementById("address-line2").value = site.addressLine2;
-      document.getElementById("address-town").value = site.addressTown;
-      document.getElementById("address-county").value = site.addressCounty;
-      document.getElementById("address-postcode").value = site.addressPostcode;
-      document.getElementById("contact-name").value = site.contactName;
-      document.getElementById("email").value = site.email;
-      document.getElementById("phone").value = site.phone;
+    if (!sitesByOrg[orgKey]) {
+      sitesByOrg[orgKey] = [];
     }
 
-    // Intercept form submission
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    if (editIndex !== null && sites[editIndex]) {
+      sitesByOrg[orgKey][editIndex] = newSite;
+    } else {
+      sitesByOrg[orgKey].push(newSite);
+    }
 
-      const newSite = {
-        country: document.getElementById("location").value,
-        orgName: document.getElementById("org-name").value,
-        addressLine1: document.getElementById("address-line1").value,
-        addressLine2: document.getElementById("address-line2").value,
-        addressTown: document.getElementById("address-town").value,
-        addressCounty: document.getElementById("address-county").value,
-        addressPostcode: document.getElementById("address-postcode").value,
-        contactName: document.getElementById("contact-name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value
-      };
+    localStorage.setItem("interimSitesByOrg", JSON.stringify(sitesByOrg));
 
-      if (editIndex !== null && sites[editIndex]) {
-        sites[editIndex] = newSite;
-      } else {
-        sites.push(newSite);
-      }
-
-      localStorage.setItem("interimSites", JSON.stringify(sites));
-      // Store latest org name separately
-localStorage.setItem("latestInterimOrgName", newSite.orgName);
-
-
-      // Redirect to review page
-      window.location.href = "interim-site-question";
-    });
-
-    if (sites[editIndex]?.orgName && sites[editIndex]?.orgName.trim() !== "") {
-    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
-  }
+    const redirectTo = getQueryParam("redirect") || "interim-site-question";
+    window.location.href = `${redirectTo}.html`;
   });
+
+   function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+  if (sites[editIndex]?.orgName?.trim()) {
+    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
+  } else {
+    document.getElementById("org-heading").textContent = `Add site details for ${getQueryParam('org')}`;
+  }
+});
 </script>
-
-
 {% endblock %}
