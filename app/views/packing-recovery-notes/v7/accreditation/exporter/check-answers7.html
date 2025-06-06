@@ -56,7 +56,7 @@ href: "javascript:history.back()"
 
             <!-- Action Buttons -->
             <div style="display: flex; gap: 20px;">
-              <a href="tasklist7">
+              <a href="tasklist8">
                 <input class="govuk-button" type="submit" value="Confirm and continue" />
               </a>
               <a href="#">
@@ -71,7 +71,7 @@ href: "javascript:history.back()"
 </div>
 
 
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("site-table-body");
     const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
@@ -163,7 +163,98 @@ href: "javascript:history.back()"
     });
   });
   
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.getElementById("site-table-body");
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+    addedSites.forEach((site, index) => {
+      const orgName = site.orgName || 'Not provided';
+      const address = [site.addressLine1, site.addressLine2, site.addressTown, site.addressPostcode, site.coordinates]
+        .filter(Boolean)
+        .map(line => `<div>${line}</div>`)
+        .join('');
+
+      const contactDetails = [site.contactName, site.email, site.phone]
+        .filter(Boolean)
+        .map(line => `<div>${line}</div>`)
+        .join('');
+
+      const wasteCode = site.wasteCode || 'Not provided';
+
+      const html = `
+        <!-- Organisation header -->
+        <tr>
+          <td class="govuk-!-font-weight-bold">Organisation details ${index + 1}</td>
+          <td>
+  <div style="max-width: 200px; word-wrap: break-word;">${orgName}</div>
+</td>
+          <td style="text-align: right; white-space: nowrap;">
+  <a href="#" class="govuk-link remove-site" data-index="${index}">Remove</a> |
+  <a href="overseas-reprocessor-details?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
+</td>
+        </tr>
+
+        <!-- Address -->
+        <tr>
+          <td></td>
+          <td>${address}</td>
+          <td></td>
+        </tr>
+
+        <!-- Contact details -->
+        <tr>
+          <td class="govuk-!-font-weight-bold">Contact details</td>
+          <td>${contactDetails}</td>
+          <td></td>
+        </tr>
+
+        <!-- Basel Code -->
+        <tr>
+          <td class="govuk-!-font-weight-bold">Basel Convention and OECD codes</td>
+          <td>${wasteCode}</td>
+          <td>
+            <a href="basel-convention-oecd-code?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
+          </td>
+        </tr>
+
+        <!-- Spacer with border after full block -->
+        <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
+      `;
+
+      tableBody.insertAdjacentHTML("beforeend", html);
+    });
+  });
 </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Existing table row creation code...
+
+    // Attach click event to dynamically created remove links
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.classList.contains("remove-site")) {
+        e.preventDefault();
+        const index = parseInt(e.target.getAttribute("data-index"), 10);
+        let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+        if (!isNaN(index)) {
+          sites.splice(index, 1); // Remove item at index
+          localStorage.setItem("addedSites", JSON.stringify(sites));
+          location.reload(); // Refresh page to reflect change
+        }
+      }
+    });
+  });
+</script>
+
 
 
 

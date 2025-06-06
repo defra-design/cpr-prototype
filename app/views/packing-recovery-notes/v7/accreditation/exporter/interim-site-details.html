@@ -199,6 +199,20 @@ localStorage.setItem("latestInterimOrgName", newSite.orgName);
     if (sites[editIndex]?.orgName && sites[editIndex]?.orgName.trim() !== "") {
     document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
   }
+
+
+
+  const params = new URLSearchParams(window.location.search);
+const redirectTo = params.get("redirect") || "interim-site-question";
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // save to localStorage...
+
+  window.location.href = redirectTo + ".html"; // ← go back to source page
+});
+
   });
 </script>
 
