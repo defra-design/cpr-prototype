@@ -26,12 +26,13 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Add interim sites you use when exporting packaging waste to the reproccesor?</h1>
+    <h1 class="govuk-heading-l">Interim sites you use when exporting packaging waste to overseas reproccesors</h1>
+    <p>You must add details of interim sites you use when exporting waste to a reprocessor.</p>
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Organisation name</th>
+          <th scope="col" class="govuk-table__header">Overseas reprocessing site</th>
           <th scope="col" class="govuk-table__header"></th>
         </tr>
       </thead>
@@ -52,26 +53,33 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
-    const tbody = document.getElementById('site-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const storedSites = JSON.parse(localStorage.getItem('addedSites') || '[]');
+  const tbody = document.getElementById('site-list');
 
-    if (storedSites.length === 0) {
-      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
-      return;
-    }
+  if (storedSites.length === 0) {
+    tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
+    return;
+  }
 
-    storedSites.forEach(site => {
-      const row = document.createElement('tr');
-      row.className = 'govuk-table__row';
-      row.innerHTML = `
-        <td class="govuk-table__cell">${site}</td>
-        <td class="govuk-table__cell">
-          <a class="govuk-link" href="interim-site-details" onclick="removeSite('${site}')">Add interim sites</a>
-        </td>`;
-      tbody.appendChild(row);
-    });
+  storedSites.forEach(site => {
+    const orgInfo = site.orgName
+      ? `${site.orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
+      : 'Not provided';
+
+    const row = document.createElement('tr');
+    row.className = 'govuk-table__row';
+    row.innerHTML = `
+      <td class="govuk-table__cell">
+        <div style="max-width: 300px; word-wrap: break-word;">${orgInfo}</div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(site.orgName)}">Add interim sites</a>
+
+      </td>`;
+    tbody.appendChild(row);
   });
+});
 
   document.addEventListener('DOMContentLoaded', () => {
     const removedSite = localStorage.getItem('recentlyRemovedSite');

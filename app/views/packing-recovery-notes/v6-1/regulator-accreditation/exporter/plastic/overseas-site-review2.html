@@ -2,22 +2,26 @@
 
 {% extends "layout.html" %}
 
-
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
 
 {% block pageTitle %}
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
 
-    <div class="govuk-width-container">
-      <main class="govuk-main-wrapper " id="main-content" role="main">
+
 
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
-            <h1 class="govuk-heading-l">Clean World Site 2</h1>
+            <h1 class="govuk-heading-l">  <span class="govuk-caption-l">Plastic</span>Clean World Site 2</h1>
 
             <!-- Overseas Reprocessor Details -->
-           <h2 class="govuk-heading-m">Location details</h2>
+           <h2 class="govuk-heading-m">Organisation details</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Organisation name</dt>
@@ -56,15 +60,14 @@
                 </dd>
               </div>
               <!-- Evidence -->
-            </dl>
+            
 
                
 
             <!-- Regulator Contact -->
-            <h2 class="govuk-heading-m">Person to contact</h2>
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Full name</dt>
+                <dt class="govuk-summary-list__key">Person to contact</dt>
                 <dd class="govuk-summary-list__value">John Roberts</dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href=""></a>
@@ -88,11 +91,11 @@
             </dl>
 
             <!-- Packaging Waste Export -->
-            <h2 class="govuk-heading-m">Waste description codes</h2>
+            <h2 class="govuk-heading-m">Basel convention and OECD codes</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Basel/OCED code</dt>
-                <dd class="govuk-summary-list__value">B1450/ABE123</dd>
+                <dt class="govuk-summary-list__key">Basel or OCED code</dt>
+                <dd class="govuk-summary-list__value">B1450 <br>AB123</dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="waste-details"></a>
                 </dd>
@@ -147,7 +150,7 @@
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Person the regulator can contact</dt>
+                <dt class="govuk-summary-list__key">Person to contact</dt>
                 <dd class="govuk-summary-list__value">Jane Thomas</dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href=""></a></dd></div>
@@ -207,7 +210,7 @@
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Person the regulator can contact</dt>
+                <dt class="govuk-summary-list__key">Person to contact</dt>
                 <dd class="govuk-summary-list__value">Jane Thomas</dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href=""></a></dd></div>
@@ -223,78 +226,55 @@
 
 
 
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"
-    style="margin: 0; width: 63vw; position: relative; left: 50%; transform: translateX(-50%);
-           border: none; height: 2px; background-color: #D9D9D9;">
-
-           <br><br>
+ 
 
  <h2 class="govuk-heading-m">Evidence of broadly equivalent standards</h2>
 
 
 
-              
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                 <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Uploaded file</dt>
-                <dd class="govuk-summary-list__value"> <a href="#" class="govuk-link">cleanworldBES.pdf</a></dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Start date</dt>
-                <dd class="govuk-summary-list__value">12 March 2019</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
-               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">End date</dt>
-                <dd class="govuk-summary-list__value">12 March 2025</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
+                <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class"> Valid from </th>
+            <th scope="col" class="govuk-table__header app-custom-class"> Valid to </th>
+            <th scope="col" class="govuk-table__header app-custom-class"> Uploaded files </th>
             
-            </dl> 
-
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                   <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Uploaded file</dt>
-                <dd class="govuk-summary-list__value"> <a href="#" class="govuk-link">cleanworldcertBES.pdf</a></dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Start date</dt>
-                <dd class="govuk-summary-list__value">25 June 2021</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
-               <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">End date</dt>
-                <dd class="govuk-summary-list__value">No end date</dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="waste-details"></a>
-                </dd>
-              </div>
-            
-            </dl> 
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+             <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"> 22 March 2024 </td>
+            <td class="govuk-table__cell"> 22 March 2027</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">evidencefile.pdf</a></td>
+          </tr>
+               <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"> 22 March 2024 </td>
+            <td class="govuk-table__cell"> No end date</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">evidencefile2.pdf</a></td>
+          </tr>
+        </tbody>
+      </table>
 
 
 
             <!-- Action Buttons -->
-            <div style="display: flex; gap: 20px;">
-              <a href="\packing-recovery-notes\v6-1\regulator-accreditation\exporter\plastic\overseas-reprocessing-sitesreviewed2.html">
-                <input class="govuk-button" type="submit" value="Mark as reviewed" />
-              </a>
-              <a href="#">
-                <input class="govuk-button govuk-button--secondary" type="submit" value="Query" />
-              </a>
-            </div>
+                 <div class="govuk-button-group !-margin-top-6" style="display: flex; gap: 15px; align-items: center;">
+<a href="\packing-recovery-notes\v6-1\regulator-accreditation\exporter\plastic\overseas-reprocessing-sitesreviewed2.html">
+<button type="submit" class="govuk-button" data-module="govuk-button">
+      Mark as reviewed
+</button>
+</a>
+ 
+  <a href="#">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Query site
+</button>
+</a>
+ 
+  <a href="\packing-recovery-notes\v6-1\regulator-accreditation\exporter\status-plasticoverseasinreview.html" class="govuk-link" style="text-align: center;">
+    Back to application
+</a>
+</div>
           </div>
         </div>
       </main>

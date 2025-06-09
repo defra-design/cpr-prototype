@@ -26,10 +26,10 @@
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                
       <h1 class="govuk-heading-l">
-        Overseas reprocessor details
+        Enter details for first overseas reprocessor site
       </h1>
       <p class="govuk-body">
-        The facility where the reprocessing of the exported packaging waste takes place.  
+        You will be able to add more sites after you've added this one.  
             </p>
     </legend>
 
@@ -42,10 +42,10 @@
         </label>
         <select class="govuk-select" id="location" name="location" aria-describedby="location-hint">
           <option value="choose" selected>Choose a country</option>
-          <option value="Afghanistan">Afghanistan</option>
+          <option value="Australia">Australia</option>
           <option value="Albania">Albania</option>
-          <option value="Algeria">Algeria</option>
-          <option value="Denmark">Denmark</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Chile">Chile</option>
           <option value="France">France</option>
           <option value="Germany">Germany</option>
           <option value="Italy">Italy</option>
@@ -105,7 +105,8 @@
         </label>
         <div id="event-name-hint" class="govuk-hint">
 Enter the map coordinates of the site main entrance. For example, 51.49567591079484, -0.12634732734828216        </div>
-        <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+        <input class="govuk-input govuk-input--width-10" id="coordinates" name="coordinates" type="text">
+
       </div>
      
              <div class="govuk-form-group">
@@ -113,22 +114,25 @@ Enter the map coordinates of the site main entrance. For example, 51.49567591079
           Full name of person the regulator can contact
         </label>
         <div id="event-name-hint" class="govuk-hint">
-This must be a person holding a senior position in the Organisation
-<input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+This must be a person holding a senior position in the organisation
+<input class="govuk-input govuk-input--width-10" id="contact-name" name="contactName" type="text">
+
       </div>
       </div>
      <div class="govuk-form-group">
         <label class="govuk-label" for="address-town">
           Email
         </label>
-        <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+        <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="email">
+
       </div>
 
        <div class="govuk-form-group">
         <label class="govuk-label" for="address-town">
           Phone number
         </label>
-        <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+        <input class="govuk-input govuk-!-width-two-thirds" id="phone" name="phone" type="tel">
+
       </div>
     
 
@@ -138,7 +142,7 @@ This must be a person holding a senior position in the Organisation
 </div>
 <br>
          
-          <button class="govuk-button" formaction="list-oversea-sites1">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+          <button class="govuk-button" formaction="basel-convention-oecd-code">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
 
 
 
@@ -147,47 +151,66 @@ This must be a person holding a senior position in the Organisation
 </div>
 
 <script>
-  document.querySelector("form").addEventListener("submit", function (e) {
-    // Only store data when "Save and continue" is clicked
-    if (e.submitter && e.submitter.getAttribute("formaction") === "list-oversea-sites1") {
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const editIndex = params.get("index");
+    const redirectTo = params.get("redirect"); // ✅ Get redirect target (optional)
+
+    if (editIndex !== null) {
+      const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+      const site = sites[editIndex];
+      if (site) {
+        document.getElementsByName("location")[0].value = site.location || '';
+        document.getElementsByName("orgName")[0].value = site.orgName || '';
+        document.getElementsByName("addressLine1")[0].value = site.addressLine1 || '';
+        document.getElementsByName("addressLine2")[0].value = site.addressLine2 || '';
+        document.getElementsByName("addressTown")[0].value = site.addressTown || '';
+        document.getElementsByName("addressCounty")[0].value = site.addressCounty || '';
+        document.getElementsByName("addressPostcode")[0].value = site.addressPostcode || '';
+        document.getElementsByName("coordinates")[0].value = site.coordinates || '';
+        document.getElementsByName("contactName")[0].value = site.contactName || '';
+        document.getElementsByName("email")[0].value = site.email || '';
+        document.getElementsByName("phone")[0].value = site.phone || '';
+      }
+    }
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
       const data = {
-        location: document.getElementById("location").value,
+        location: document.getElementsByName("location")[0].value,
         orgName: document.getElementsByName("orgName")[0].value,
         addressLine1: document.getElementsByName("addressLine1")[0].value,
         addressLine2: document.getElementsByName("addressLine2")[0].value,
         addressTown: document.getElementsByName("addressTown")[0].value,
         addressCounty: document.getElementsByName("addressCounty")[0].value,
         addressPostcode: document.getElementsByName("addressPostcode")[0].value,
-        coordinates: document.getElementsByName("coordinates")?.[0]?.value || "",
-        contactName: document.getElementsByName("contactName")?.[0]?.value || "",
-        email: document.getElementsByName("email")?.[0]?.value || "",
-        phone: document.getElementsByName("phone")?.[0]?.value || ""
+        coordinates: document.getElementsByName("coordinates")[0].value,
+        contactName: document.getElementsByName("contactName")[0].value,
+        email: document.getElementsByName("email")[0].value,
+        phone: document.getElementsByName("phone")[0].value
       };
 
-      // Save to localStorage
-      localStorage.setItem("overseasReprocessorDetails", JSON.stringify(data));
+      let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+      if (editIndex !== null && sites[editIndex]) {
+        sites[editIndex] = { ...sites[editIndex], ...data };
+      } else {
+        sites.push(data);
+      }
+      localStorage.setItem("addedSites", JSON.stringify(sites));
 
-      const data1 = {
-  location: document.getElementById("location").value,
-  orgName: document.getElementsByName("orgName")[0].value,
-  addressLine1: document.getElementsByName("addressLine1")[0].value,
-  addressLine2: document.getElementsByName("addressLine2")[0].value,
-  addressTown: document.getElementsByName("addressTown")[0].value,
-  addressCounty: document.getElementsByName("addressCounty")[0].value,
-  addressPostcode: document.getElementsByName("addressPostcode")[0].value,
-  coordinates: document.getElementsByName("coordinates")?.[0]?.value || "",
-  contactName: document.getElementsByName("contactName")?.[0]?.value || "",
-  email: document.getElementsByName("email")?.[0]?.value || "",
-  phone: document.getElementsByName("phone")?.[0]?.value || ""
-};
-
-let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
-sites.push(data1);
-localStorage.setItem("addedSites", JSON.stringify(sites));
-
-    }
+      // ✅ Redirect to target page if specified, else fallback
+      if (redirectTo) {
+        window.location.href = redirectTo;
+      } else {
+        window.location.href = "basel-convention-oecd-code?index=" + (editIndex || sites.length - 1);
+      }
+    });
   });
 </script>
+
+
+
 
 
 {% endblock %}
