@@ -67,7 +67,7 @@
           <br>
 
           {% for i in range(1, 8) %}
-          <div class="govuk-form-group" id="section{{ i }}">
+          <div class="govuk-form-group" class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="500" id="section{{ i }}">
             <h3 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--s" for="textarea{{ i }}">
                 {{ [
@@ -82,8 +82,8 @@
               </label>
             </h3>
 
-            <textarea class="govuk-textarea govuk-js-character-count" id="textarea{{ i }}" name="suppliers{{ i }}" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-  <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+             <textarea class="govuk-textarea govuk-js-character-count" id="textarea{{ i }}" name="suppliers{{ i }}" rows="5" aria-describedby="textarea{{ i }}-info"></textarea>
+  <div id="textarea{{ i }}-info" class="govuk-hint govuk-character-count__message">
     You can enter up to 500 characters
   </div>
 
