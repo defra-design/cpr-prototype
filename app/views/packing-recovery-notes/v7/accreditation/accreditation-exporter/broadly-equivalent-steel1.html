@@ -15,63 +15,143 @@
 {% endblock %}
 {% block content %}
 
+<style>
+  .govuk-link {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, .0625rem);
+    text-underline-offset: .1578em;
+  }
+
+  .govuk-task-list__link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+ 
+
+  .govuk-tag {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    /* font-size: 1rem;
+    line-height: 1.25; */
+    display: inline-block;
+    max-width: 160px;
+    margin-top: -2px;
+    margin-bottom: -3px;
+    padding: 2px 8px 3px;
+    color: #0c2d4a;
+    
+    text-decoration: none;
+   
+    text-transform: none;
+  }
+
+  .govuk-task-list {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .govuk-task-list__status--cannot-start-yet {
+    color: #505a5f;
+  }
+
+  .govuk-task-list__status {
+    display: table-cell;
+    padding-left: 10px;
+    
+    vertical-align: top;
+
+  }
+
+  .govuk-task-list {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+
+  .govuk-tag {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+</style>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Evidence and conditions for overseas sites
+    <h1 class="govuk-heading-l">Check if you need to upload evidence for these reprocessing sites
 </h1>
-    <p class="govuk-body">As these site are in the EU or OECD it is optional to upload evidence at the time of application.</p>
-    <p class="govuk-body"> If you choose not to upload evidence you still need to obtain this evidence from the sites. The regulator may request the evidence.</p>
-  </p>
+    <p class="govuk-body">You do not need to upload evidence if theses sites fulfil certain conditions. Check each site fulfils these conditions.</p>
+   
     <table class="govuk-table">
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Organisation name and site address</th>
-      <th scope="col" class="govuk-table__header">Evidence status</th>
+      <th scope="col" class="govuk-table__header"></th>
       <th scope="col" class="govuk-table__header"></th>
       </tr>
       </thead>
       <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">ABC Exporters Ltd, 148 Avenue Pastourelle, 5 étage, 45523, Toulon, Bourgogne, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--blue">
-      Completed
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="check-answers5.html">View evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-1-status">
+              Checked
+            </div></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="check-answers5.html">Conditions added</a></td>
       </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">XYZ Exporters Ltd, 2 Rue Charlemagne, 0 étage, 15635, Saint-Denis, Auvergne, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
-      Not uploaded
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas1">Upload evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not checked
+              </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas1">Upload conditions</a></td>
       </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">LMN Exporters Ltd, 9921 Rue Bonaparte, 8 étage, 78352, Bordeaux, Auvergne, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
-      Not uploaded
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas2">Upload evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not checked
+              </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas2">Upload conditions</a></td>
       </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">OPQ Exporters Ltd, 37 Quai de la Bûcherie, 1 étage, 92817, Saint-Étienne, Limousin, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
-      Not uploaded
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas3">Upload evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not checked
+              </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas3">Upload conditions</a></td>
       </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">RST Exporters Ltd, 4 Place Montorgueil, Apt. 902, 71029, Toulon, Bourgogne, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
-      Not uploaded
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas4">Upload evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not checked
+              </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas4">Upload conditions</a></td>
       </tr>
       <tr class="govuk-table__row">
       <td class="govuk-table__cell">UVW Exporters Ltd, 773 Passage du Havre, Apt. 444, 85499, Ajaccio, Franche-Comté, France</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag--grey">
-      Not uploaded
-      </strong></td>
-      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas5">Upload evidence</a></td>
+      <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not checked
+              </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="evidence-conditions-overseas5">Upload conditions</a></td>
       </tr>
       </tbody>
     </table>
