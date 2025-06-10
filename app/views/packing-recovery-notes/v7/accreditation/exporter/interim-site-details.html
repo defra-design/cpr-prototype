@@ -24,9 +24,11 @@
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                
       <h1 id="org-heading" class="govuk-heading-l">
-  Add Interim site details
+  Add interim site details
 </h1>
-
+ <p class="govuk-body">
+        You will be able to add more sites after you've added this one.  
+            </p>
     </legend>
 
       <div class="govuk-form-group">
@@ -185,7 +187,7 @@ localStorage.setItem("latestInterimOrgName", orgKey);
   if (sites[editIndex]?.orgName?.trim()) {
     document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
   } else {
-    document.getElementById("org-heading").textContent = `Add site details for ${getQueryParam('org')}`;
+    document.getElementById("org-heading").textContent = `Add interim site details for ${getQueryParam('org')}`;
   }
 });
 </script>

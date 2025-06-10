@@ -97,6 +97,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     const yesRadio = document.getElementById('whereDoYouLive');
     const noRadio = document.getElementById('whereDoYouLive-2');
+    const noRadio3 = document.getElementById('whereDoYouLive-3');
+    console.info('noradio.......', noRadio3)
     const continueBtn = document.querySelector('button.govuk-button:not(.govuk-button--secondary)');
 
     // Restore selection if available
@@ -118,7 +120,8 @@
         sessionStorage.setItem('xyzConditionsSelection', 'no');
         window.location.href = 'upload-broadly-equivalent-evidence';
       } else {
-        alert('Please select Yes or No before continuing.');
+        //alert('Please select Yes or No before continuing.');
+        window.location.href = 'upload-broadly-equivalent-evidence';
       }
     });
   });
