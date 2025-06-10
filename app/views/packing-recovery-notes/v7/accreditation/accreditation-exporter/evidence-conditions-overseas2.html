@@ -23,10 +23,9 @@
 
       <div class="govuk-form-group">
 
-<h1 class="govuk-heading-l"> Evidence and conditions for overseas sites</h1>
+<h1 class="govuk-heading-l">Check the site fulfils these conditions</h1>
 
 
-    <p class="govuk-body">You do not need specific evidence if the site fulfils all these conditions:</p>
 <ul class="govuk-list govuk-list--bullet">
   <li>The packaging waste is separated at source, or processed, to ensure it is exported for reprocessing within a shipment of similar material – for example, if the shipment contains steel drink cans and steel scrap and is not a general mix of different materials (such as paper and plastic), or a mixture of different grades of the same material (for example, different plastic polymers)</li>
   <li>There is a well-established international technical specification for the exported packaging waste material that your consignments meet</li>
@@ -57,20 +56,21 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="broadly-equivalent-steel1">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                Yes, they fulfil above conditions
+               Yes, the fulfill all the conditions. I do not want to upload evidence of broadly equivalent standards              </label>
+              <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          You do not need to upload evidence. However, you must have documents to show they fulfill these conditions
+        </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-3" name="next-page" type="radio" value="">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                Yes, the fufill all these conditions and I want to upload evidence
               </label>
             </div>
-            <!--
-                        <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence">
-              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                Yes
-              </label>
-            </div> -->
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers3">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                No and upload the evidence
+                No, the do not fulfill all these conditions
               </label>
             </div>
           </div>
@@ -107,6 +107,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     const yesRadio = document.getElementById('whereDoYouLive');
     const noRadio = document.getElementById('whereDoYouLive-2');
+    const noRadio3 = document.getElementById('whereDoYouLive-3');
+    console.info('noradio.......', noRadio3)
     const continueBtn = document.querySelector('button.govuk-button:not(.govuk-button--secondary)');
 
     // Restore selection from sessionStorage
@@ -127,7 +129,7 @@
         sessionStorage.setItem('evidenceConditionSelection', 'no');
         //// window.location.href = 'upload-broadly-equivalent-evidence'; // update if you uncomment
       } else {
-        alert('Please select Yes or No before continuing.');
+        window.location.href = 'upload-broadly-equivalent-evidence';
       }
     });
   });
