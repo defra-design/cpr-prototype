@@ -182,12 +182,20 @@ localStorage.setItem("latestInterimOrgName", orgKey);
    function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
+  
 }
 
+const orgKeys = getQueryParam("org") || localStorage.getItem("latestInterimOrgName") || "the selected organisation";
+const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+    // Find the first site matching the selected org name
+    const matchingSite = addedSites.find(site => site.orgName === orgKeys);
+
+    const addressLine1 = matchingSite?.addressLine1 || "";
+
   if (sites[editIndex]?.orgName?.trim()) {
-    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName}`;
+    document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName} ${addressLine1 ? ', ' + addressLine1 : ''}`;
   } else {
-    document.getElementById("org-heading").textContent = `Add interim site details for ${getQueryParam('org')}`;
+    document.getElementById("org-heading").textContent = `Add interim site details for ${getQueryParam('org')} ${addressLine1 ? ', ' + addressLine1 : ''}`;
   }
 });
 </script>
