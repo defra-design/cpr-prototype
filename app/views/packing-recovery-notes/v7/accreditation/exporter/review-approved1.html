@@ -16,8 +16,10 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-
-    <h1 id="org-heading" class="govuk-heading-l">Interim sites used when exporting to ...</h1>
+   <h1 class="govuk-heading-l">
+  <span id="org-heading" style="display: inline;"></span>
+  <span id="org-address" style="display: inline;"></span>
+</h1>
 <!--
     <div class="govuk-inset-text">
       There is a charge per site. You must pay this after you've submitted your application.
@@ -83,8 +85,9 @@ function renderInterimSites() {
             ${orgName}<br>${address} <br>${countryName}
           </div>
           <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-            <a href="javascript:void(0)" class="govuk-link" onclick="removeInterimSite(${index})">Delete</a> |
-            <a href="interim-site-details?editIndex=${index}&redirect=review-approved1&org=${getQueryParam("org") || localStorage.getItem("latestInterimOrgName")}" class="govuk-link">Change</a>
+            
+            <a href="interim-site-details?editIndex=${index}&redirect=review-approved1&org=${getQueryParam("org") || localStorage.getItem("latestInterimOrgName")}" class="govuk-link">Change</a><br/>
+            <a href="javascript:void(0)" class="govuk-link" onclick="removeInterimSite(${index})">Delete this site</a>
           </div>
         </div>
 
@@ -113,6 +116,32 @@ function renderInterimSites() {
 
     list.insertAdjacentHTML('beforeend', block);
   });
+
+   const staticRow = `
+
+   <div class="govuk-!-margin-bottom-6">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <span id="interim-question-heading">Do you use another interim site when exporting to this organisation?</span>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            No
+          </div>
+          <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+           
+            <a href="./interim-site-question" class="govuk-link">Change</a>
+          </div>
+        </div>
+  
+`;
+
+list.insertAdjacentHTML("beforeend", staticRow);
+
+const heading = document.getElementById("interim-question-heading");
+if (heading && orgKey) {
+  heading.innerHTML = `Do you use another interim site when exporting to ${orgKey}?`;
+}
+
 }
 
 function removeInterimSite(index) {
@@ -128,12 +157,50 @@ function removeInterimSite(index) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const orgName = localStorage.getItem("latestInterimOrgName") || "the selected organisation";
-  document.getElementById("org-heading").textContent = `Interim sites used when exporting to ${orgName}`;
+  document.getElementById("org-heading").textContent = `Interim sites used when exporting to ${orgName}, `;
   renderInterimSites();
 });
 
 if (getQueryParam("org")) {
   localStorage.setItem("latestInterimOrgName", getQueryParam("org"))
 }
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const orgName = localStorage.getItem("latestInterimOrgName");
+    if (orgName) {
+      const heading = document.getElementById("interim-question-heading");
+      console.info('heading......', heading)
+      heading.innerHTML = `Do you use another interim site when exporting to this ${orgName}? `;
+    }
+  });
+
+  
+  // function getQueryParam(param) {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   return urlParams.get(param);
+  // }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const orgKey = getQueryParam("org") || localStorage.getItem("latestInterimOrgName") || "the selected organisation";
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+    // Find the first site matching the selected org name
+    const matchingSite = addedSites.find(site => site.orgName === orgKey);
+
+    const addressLine1 = matchingSite?.addressLine1 || "";
+
+    console.info('addressLine1.....', addressLine1)
+
+    // Set heading
+    document.getElementById("org-heading").textContent = `Interim sites used when exporting to ${orgKey}`;
+    
+    // Set addressLine1 if available
+    if (addressLine1) {
+      document.getElementById("org-address").textContent = ` ${addressLine1 ? ', ' + addressLine1 : ''}`;
+    }
+  });
+
+
+
+
 </script>
 {% endblock %}
