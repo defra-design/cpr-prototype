@@ -13,6 +13,81 @@
     {{serviceName}} prototype
 {% endblock %}
 {% block content %}
+<style>
+  .govuk-link {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, .0625rem);
+    text-underline-offset: .1578em;
+  }
+
+  .govuk-task-list__link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+ 
+
+  .govuk-tag {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    /* font-size: 1rem;
+    line-height: 1.25; */
+    display: inline-block;
+    max-width: 160px;
+    margin-top: -2px;
+    margin-bottom: -3px;
+    padding: 2px 8px 3px;
+    color: #0c2d4a;
+    
+    text-decoration: none;
+   
+    text-transform: none;
+  }
+
+  .govuk-task-list {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .govuk-task-list__status--cannot-start-yet {
+    color: #505a5f;
+  }
+
+  .govuk-task-list__status {
+    display: table-cell;
+    padding-left: 10px;
+    
+    vertical-align: top;
+
+  }
+
+  .govuk-task-list {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+
+  .govuk-tag {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+</style>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -72,11 +147,11 @@
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--blue">
-         Completed
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+       <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -87,11 +162,11 @@
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--blue">
-         Completed
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+       <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -102,42 +177,42 @@
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--blue">
-         Completed
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+       <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
     </tr>
     
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-<a href="./upload-sampling-plan-steel"> Sampling and inspection plan per material</a>
+<a href="./upload-sampling-plan-steel"> Sampling and inspection plan</a>
               </label>
             </div>
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--blue">
-          Completed
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+        <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
 <a href="./overseas-reprocessor-details"> Overseas reprocessing sites</a>
               </label>
-                            <p>You must enter the details for all sites you’ll export to</p>
-
             </div>
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--grey">
-          Not started
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+       <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not started
+              </strong>
+            </div>
+          </td>
     </tr>
 
 
@@ -149,11 +224,12 @@
             </div></td>
    
         <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell"> <div class="govuk-task-list__status" id="company-details-2-status">
-        <strong class="govuk-tag govuk-tag--grey">
-          Cannot start yet
-        </strong>
-      </div></td>
+      <td class="govuk-table__cell">
+       <div class="govuk-task-list__status" id="company-details-2-status">
+        <div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+      Cannot start yet
+    </div>
+  </td>
     </tr>
 
 

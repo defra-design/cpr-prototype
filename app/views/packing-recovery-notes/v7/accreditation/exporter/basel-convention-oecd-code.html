@@ -39,8 +39,8 @@
   Use them to describe the packaging waste you're exporting to this reprocessing site. 
 </p><br>
 
-<div class="govuk-inset-text">
-${address}
+<div class="govuk-inset-text" id="org-address-display">
+  <!-- Will be filled by JS -->
 </div>
 
 <div class="govuk-form-group">
@@ -123,33 +123,38 @@ ${address}
 
 
 <script>
+  
   document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    const index = params.get("index");
+  const params = new URLSearchParams(window.location.search);
+  const index = params.get("index");
 
-    if (index !== null) {
-      const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
-      const site = sites[index];
+  if (index !== null) {
+    const sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+    const site = sites[index];
 
-      if (site?.orgName) {
-        document.getElementById("orgNameDisplay").textContent = site.orgName;
-      } else {
-        document.getElementById("orgNameDisplay").textContent = "this organisation";
-      }
+    if (site) {
+      const orgName = site.orgName || "Organisation not set";
+      const addressLine1 = site.addressLine1 || "Address line 1 not set";
 
-      // Pre-fill Basel code
-      if (site?.wasteCode) {
+      document.getElementById("org-address-display").innerHTML = `
+        <strong>${orgName}</strong><br>${addressLine1}
+      `;
+
+      // Also fill waste code if available
+      if (site.wasteCode) {
         document.getElementById("wasteCode").value = site.wasteCode;
       }
 
-      // Store index in hidden field
+      // Hidden input
       const hidden = document.createElement("input");
       hidden.type = "hidden";
       hidden.name = "editIndex";
       hidden.value = index;
       document.querySelector("form").appendChild(hidden);
     }
-  });
+  }
+});
+
 </script>
 
 
