@@ -213,6 +213,11 @@ href: "javascript:history.back()"
           <td>${contactDetails}</td>
           <td></td>
         </tr>
+         <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
 
         <!-- Basel Code -->
         <tr>
@@ -233,6 +238,22 @@ href: "javascript:history.back()"
 
       tableBody.insertAdjacentHTML("beforeend", html);
     });
+    const staticRow = `
+      <tr>
+        <td class="govuk-!-font-weight-bold">Add another overseas reprocessing site?</td>
+        <td>No</td>
+         <td style="text-align: right; white-space: nowrap;">
+            <a href="./reprocessor-site-question" class="govuk-link">Change</a>
+          </td>
+      </tr>
+       <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
+    `;
+
+    tableBody.insertAdjacentHTML("beforeend", staticRow);
   });
 </script>
 

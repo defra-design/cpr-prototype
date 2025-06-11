@@ -1,0 +1,162 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style>
+  .govuk-link {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, .0625rem);
+    text-underline-offset: .1578em;
+  }
+
+  .govuk-task-list__link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+ 
+
+  .govuk-tag {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    /* font-size: 1rem;
+    line-height: 1.25; */
+    display: inline-block;
+    max-width: 160px;
+    margin-top: -2px;
+    margin-bottom: -3px;
+    padding: 2px 8px 3px;
+    color: #0c2d4a;
+    
+    text-decoration: none;
+   
+    text-transform: none;
+  }
+
+  .govuk-task-list {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .govuk-task-list__status--cannot-start-yet {
+    color: #505a5f;
+  }
+
+  .govuk-task-list__status {
+    display: table-cell;
+    padding-left: 10px;
+    
+    vertical-align: top;
+
+  }
+
+  .govuk-task-list {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+
+  .govuk-tag {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"> Upload evidence of broadly equivalent standards</h1>
+
+    <p class="govuk-body">You must provide evidence for sites outside the EU and OECD.</p>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Organisation name and site address</th>
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+        <td class="govuk-table__cell">ABC Exporters Ltd, 85359 Xuân Vũ Keys, Suite 400, 43795, Cà Mau, Delaware, Vietnam</td>
+        <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              Uploaded</td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="check-answers10">Evidence added</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">XYZ Exporters Ltd, 209 Nguyên Bảo Gateway, Suite 268, 14821, Hà Tĩnh, Arizona, Vietnam</td>
+          <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+             Uploaded</td>
+          <td class="govuk-table__cell"><a class="govuk-link" href="check-answers11">Evidence added</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+        <td class="govuk-table__cell">LMN Exporters Ltd, 620 Phi Phi Haven, Suite 653, 09928, Cà Mau, West Virginia, Vietnam</td>
+        <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              Uploaded</td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="check-answers12">Evidence added</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">OPQ Exporters Ltd, 704 Lê Walks, Apt. 524, 00668, Cà Mau, Mississippi, Vietnam</td>
+          <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not uploaded
+              </strong></td>
+          <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence4">Upload evidence</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+        <td class="govuk-table__cell">RST Exporters Ltd, 081 Mai Hà Plains, Apt. 846, 69149, Yên Bái, Illinois, Vietnam</td>
+        <td class="govuk-table__cell"><div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not uploaded
+              </strong></td>
+        <td class="govuk-table__cell"><a class="govuk-link" href="upload-broadly-equivalent-evidence5">Upload evidence</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <form method="post" novalidate action=""> -->
+      <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <!-- <a href="confirm-site"> -->
+          <!--
+          <a href="upload-broadly-equivalent-evidence">
+          <input class="govuk-button" type="submit" value="Confirm and continue" />
+        </a>
+        <a href="">
+          <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
+        </a>
+      </div> -->
+    <!-- </form> -->
+  </div>
+</div>
+
+{% endblock %}

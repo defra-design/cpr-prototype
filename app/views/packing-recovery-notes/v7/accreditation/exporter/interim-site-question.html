@@ -166,6 +166,26 @@ href: "javascript:history.back()"
       heading.innerHTML = `Do you use another interim site when exporting to this ${orgName}? `;
     }
   });
+
+  
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const orgName = localStorage.getItem("latestInterimOrgName") || "the selected organisation";
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+    // Find the first site matching the selected org name
+    const matchingSite = addedSites.find(site => site.orgName === orgName);
+
+    const addressLine1 = matchingSite?.addressLine1 || "";
+
+    const heading = document.getElementById("interim-question-heading");
+    if (heading) {
+      heading.innerHTML = `Do you use another interim site when exporting to ${orgName}${addressLine1 ? ', ' + addressLine1 : ''}?`;
+    }
+  });
+</script>
+
 
 {% endblock %}
