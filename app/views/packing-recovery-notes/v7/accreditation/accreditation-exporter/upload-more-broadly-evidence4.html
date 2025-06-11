@@ -1,0 +1,114 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form class="form"  method="POST">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Do you want to upload more evidence for OPQ Exporters Ltd?
+            </h1>
+            <div class="govuk-inset-text">
+  OPQ Exporters Ltd<BR>704 Lê Walks, Apt. 524,<BR>00668, Cà Mau<BR>Mississippi, Vietnam
+</div>
+          </legend>
+       
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="next-page" type="radio" value="upload-broadly-equivalent-evidence4">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="next-page" type="radio" value="check-answers13">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                No
+              </label>
+            </div>
+          </div>
+     </fieldset>
+      </div>
+  
+      <button id="continueBtn" class="govuk-button" type="submit">Save and continue</button>
+ <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+
+     
+</div>
+
+
+</form>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const continueBtn = document.getElementById('continueBtn');
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+
+    continueBtn.addEventListener('click', function (e) {
+      if (yesRadio.checked) {
+        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+      } else if (noRadio.checked) {
+        continueBtn.setAttribute('formaction', 'check-answer4');
+      } else {
+        e.preventDefault(); // stop the form submit
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const continueBtn = document.getElementById('continueBtn');
+    const yesRadio = document.getElementById('whereDoYouLive');
+    const noRadio = document.getElementById('whereDoYouLive-2');
+
+    // 🔁 Restore saved selection
+    const savedValue = sessionStorage.getItem('xyzUploadMoreEvidence');
+    if (savedValue === 'yes') {
+      yesRadio.checked = true;
+    } else if (savedValue === 'no') {
+      noRadio.checked = true;
+    }
+
+    // ✅ Save and route based on selection
+    continueBtn.addEventListener('click', function (e) {
+      if (yesRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'yes');
+        continueBtn.setAttribute('formaction', 'upload-broadly-equivalent-evidence');
+      } else if (noRadio.checked) {
+        sessionStorage.setItem('xyzUploadMoreEvidence', 'no');
+        continueBtn.setAttribute('formaction', 'check-answers4');
+      } else {
+        e.preventDefault(); // Stop form submission
+        alert('Please select Yes or No before continuing.');
+      }
+    });
+  });
+</script>
+
+
+
+
+{% endblock %}
