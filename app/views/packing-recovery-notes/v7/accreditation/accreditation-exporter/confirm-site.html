@@ -76,8 +76,9 @@
   document.addEventListener('DOMContentLoaded', () => {
     const removedSite = localStorage.getItem('recentlyRemovedSite');
     if (removedSite) {
+      const sitess = removedSite.split(',')
       document.getElementById('success-text').textContent =
-        `You’ve removed ${removedSite} from your application`;
+        `You’ve removed ${sitess[0]}, ${sitess[1]} from your application`;
       document.getElementById('success-banner').hidden = false;
 
       // Clear it so it only shows once
