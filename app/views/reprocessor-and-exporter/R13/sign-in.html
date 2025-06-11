@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Create an account" %}
+
+
+{% block pageTitle %}
+  Sign in
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Sign in</h1>
+
+    <form action="./one-to-many/dashboard-organization/full-both.html" method="post" >
+
+      <div class="govuk-form-group govuk-!-margin-top-5">
+        <label class="govuk-label govuk-lab el--" for="email">
+          Email address
+        </label>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{data['email']}}" >
+      </div>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+        <label class="govuk-label govuk-label--" for="password">
+          Password
+        </label>
+
+        <input class="govuk-input" id="password" name="password" type="password" spellcheck="false" autocomplete="password" value="{{data['password']}}">
+
+        <p class="govuk-body govuk-!-margin-top-4"><a href="./reset-password.html">I've forgotten my password</a></p>
+      </div>
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </form>
+
+
+    <h2 class="govuk-heading-m">Create a new account</h2>
+    <p class="govuk-body">If you don't already have one <a href="create-account">create an account</a></p>
+
+  </div>
+</div>
+
+{% endblock %}
