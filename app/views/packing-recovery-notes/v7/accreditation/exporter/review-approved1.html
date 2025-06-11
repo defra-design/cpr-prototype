@@ -47,6 +47,31 @@ function renderInterimSites() {
   const list = document.getElementById("interim-site-list");
   list.innerHTML = "";
 
+
+
+   const staticRow = `
+
+   <div class="govuk-!-margin-bottom-6">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <span id="interim-question-heading">Do you use another interim site when exporting to this organisation?</span>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            No
+          </div>
+          <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+           
+            <a href="./interim-site-question" class="govuk-link">Change</a>
+          </div>
+           
+        </div>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        </div>
+  
+`;
+
+list.insertAdjacentHTML("beforeend", staticRow);
+
    const orgKey1 = getQueryParam("org");
   const orgKey = orgKey1 ? orgKey1:localStorage.getItem("latestInterimOrgName");
   const sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
@@ -90,13 +115,19 @@ function renderInterimSites() {
             <a href="javascript:void(0)" class="govuk-link" onclick="removeInterimSite(${index})">Delete this site</a>
           </div>
         </div>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-        <div class="govuk-grid-row govuk-!-margin-top-2">
+        <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
             <strong class="govuk-body">Contact details</strong>
           </div>
-          <div class="govuk-grid-column-two-thirds">
-            ${contactDetails}
+          <div class="govuk-grid-column-one-third">
+            ${contactDetails ? contactDetails:"Not Provided"}
+          </div>
+           <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+            
+            <a href="interim-site-details?editIndex=${index}&redirect=review-approved1&org=${getQueryParam("org") || localStorage.getItem("latestInterimOrgName")}" class="govuk-link">Change</a>
+           
           </div>
         </div>
 
@@ -117,25 +148,7 @@ function renderInterimSites() {
     list.insertAdjacentHTML('beforeend', block);
   });
 
-   const staticRow = `
-
-   <div class="govuk-!-margin-bottom-6">
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-one-third">
-            <span id="interim-question-heading">Do you use another interim site when exporting to this organisation?</span>
-          </div>
-          <div class="govuk-grid-column-one-third">
-            No
-          </div>
-          <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-           
-            <a href="./interim-site-question" class="govuk-link">Change</a>
-          </div>
-        </div>
   
-`;
-
-list.insertAdjacentHTML("beforeend", staticRow);
 
 const heading = document.getElementById("interim-question-heading");
 if (heading && orgKey) {
