@@ -15,7 +15,7 @@ GOV.UK
 {% block beforeContent %}
 {{ govukBackLink ({
 text: "Back to public register for the ‘report packaging data’ service",
-href: "./guidance"
+href: "javascript:history.back()"
 }) }}
 {% endblock %}
 
@@ -458,36 +458,58 @@ href: "./guidance"
 
     <!-- HEADING -->
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-3">
+        <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-8">
 
-
-        <div class="govuk-form-group">
-            <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--l" for="event-name">
-                    Search for a reprocessor or exporter by company name, number or other details
-                </label>
-            </h1>
-            <div id="event-name-hint" class="govuk-hint">
-                For example, postcode, registration number, material type, accreditation agency or accreditation number
-            </div>
-            <input class="govuk-input" id="event-name" name="eventName" type="text" value="URM UK Ltd t/a Berryman"
-                aria-describedby="event-name-hint">
-        </div>
+            Search for a reprocessor or exporter
+        </h1>
 
     </div>
+
+
+
+
+
 
     <div class="govuk-grid-column-full">
 
 
         <form class="form" action="#" method="POST">
 
-            </fieldset>
 
-            <div class="govuk-button-group">
-                <button type="submit" class="govuk-button" data-module="govuk-button">
-                    Search
-                </button>
+            <div class="govuk-grid-column-full card govuk-!-margin-bottom-5">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
-                <a class="govuk-link" href="search-alt-version.html">Clear and reset</a>
+
+                    </legend>
+                    {{ govukInput({
+                    label: {
+                    text: "Search by company name, number or other details",
+                    classes: "govuk-label--m",
+                    isPageHeading: true
+                    },
+                    classes: "govuk-input",
+                    hint: {
+                    text: "For example, postcode, registration number, material type, accreditation agency or accreditation
+                    number"
+                    },
+                    id: "account-number",
+                    name: "accountNumber",
+                    inputmode: "numeric",
+                    spellcheck: false,
+                    value: "4084246"
+                    }) }}
+
+
+                </fieldset>
+                <div class="govuk-button-group">
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Search
+                    </button>
+
+                    <a class="govuk-link" href="./search.html">Clear and reset</a>
+                </div>
+
             </div>
 
         </form>
@@ -664,9 +686,9 @@ href: "./guidance"
 
             </div>
         </div>
+
+
     </div>
-
-
 
     <div class="govuk-grid-column-full govuk-!-margin-top-3">
 
@@ -691,22 +713,24 @@ href: "./guidance"
 
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                           <th scope="col" class="govuk-table__header govuk-table__header--numeric">Company name,<br> Postcode, Number</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Company name,<br> Postcode, Number</th>
 
-                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="">
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="19%">
                             Company type,<br>Material/Process </th>
 
 
 
-                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="">
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="23%">
                             Registration number,<br>Accrediting agency</th>
-                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="">
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric" width="23%">
                             Accreditation number,<br>Accrediting agency</th>
+
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
 
 
                     </tr>
                 </thead>
-        <tbody class="govuk-table__body">
+                <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
 
                         <td class="govuk-table__cell" data-label="Name"><a href="./company-accreditation-report.html"
@@ -717,20 +741,17 @@ href: "./guidance"
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            R25ER7012251234GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            R25ER7012251234GL<br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
                             A25ER7012254321GL
                             
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
+                            <br><span class="">Environment Agency</span></td>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status"><strong
+                                class="govuk-tag govuk-tag--green">
                                 Active
                             </strong></td>
-
-                      
 
 
 
@@ -745,16 +766,15 @@ href: "./guidance"
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
                             R25ER0171281200GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            A25ER0171286544GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            A25ER0171286544GL<br><span class="">Environment Agency</span></td>
 
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
 
                     </tr>
@@ -769,17 +789,15 @@ href: "./guidance"
 
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
-                            R25ER0161629998GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            R25ER0161629998GL<br><span class="">Environment Agency</span></td>
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            A25ER0161627878GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            A25ER0161627878GL<br><span class="">Environment Agency</span></td>
 
-            
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Statusr">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
 
                     </tr>
@@ -794,17 +812,16 @@ href: "./guidance"
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
                             R25ER0151244433GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            A25ER0151240000GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            A25ER0151240000GL<br><span class="">Environment Agency</span></td>
 
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
                     </tr>
                     <tr class="govuk-table__row">
@@ -817,18 +834,17 @@ href: "./guidance"
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
                             R25ER0017121212GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
                             A25ER0017121233GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
 
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
                     </tr>
                     <tr class="govuk-table__row">
@@ -842,17 +858,16 @@ href: "./guidance"
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
                             R25ER0161616677GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            A25ER0161616666GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--green" data-label="Status">
-                                Active
-                            </strong></td>
+                            A25ER0161616666GL<br><span class="">Environment Agency</span></td>
 
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
                     </tr>
                     <tr class="govuk-table__row">
@@ -866,18 +881,16 @@ href: "./guidance"
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
                             R25EX0131470000GL
-                            <br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--yellow" data-label="Status">
-                                Suspended
-                            </strong></td>
+                            <br><span class="">Environment Agency</span></td>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
-                            A25EX0131470099GL<br><span class="">Environment Agency</span><br><strong
-                                class="govuk-tag govuk-tag--grey" data-label="Status">
-                                Cancelled
-                            </strong></td>
+                            A25EX0131470099GL<br><span class="">Environment Agency</span></td>
 
-               
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Status">
+                            <strong class="govuk-tag govuk-tag--green">
+                                Active
+                            </strong>
+                        </td>
 
                     </tr>
 
@@ -885,28 +898,12 @@ href: "./guidance"
             </table>
         </div>
 
-
-
-
-            <p class="govuk-body">For anything before reporting year 2024, use the
-                <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
-                    Producers on the National Packaging Waste Database (opens in new tab)</a>.
-            </p>
- 
-
-
+        
+        <p class="govuk-body">For anything before reporting year 2024, use the
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Public Register of Registered
+                Producers on the National Packaging Waste Database (opens in new tab)</a>
+            .
+        </p>
     </div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
 
     {% endblock %}
