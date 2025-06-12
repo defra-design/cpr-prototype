@@ -171,6 +171,23 @@ href: "javascript:history.back()"
     const tableBody = document.getElementById("site-table-body");
     const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
 
+    const staticRow = `
+      <tr>
+        <td class="govuk-!-font-weight-bold">Add another overseas reprocessing site?</td>
+        <td>No</td>
+         <td style="text-align: right; white-space: nowrap;">
+            <a href="./reprocessor-site-question" class="govuk-link">Change</a>
+          </td>
+      </tr>
+       <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
+    `;
+
+    tableBody.insertAdjacentHTML("beforeend", staticRow);
+
     addedSites.forEach((site, index) => {
       const orgName = site.orgName || 'Not provided';
       const address = [site.addressLine1, site.addressLine2, site.addressTown, site.addressPostcode, site.coordinates]
@@ -184,6 +201,7 @@ href: "javascript:history.back()"
         .join('');
 
       const wasteCode = site.wasteCode || 'Not provided';
+       
 
       const html = `
         <!-- Organisation header -->
@@ -206,12 +224,21 @@ href: "javascript:history.back()"
           <td>${address}</td>
           <td></td>
         </tr>
+        <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
 
         <!-- Contact details -->
         <tr>
           <td class="govuk-!-font-weight-bold">Contact details</td>
-          <td>${contactDetails}</td>
-          <td></td>
+          <td>${contactDetails ? contactDetails:"Not Provided"}</td>
+           <td style="text-align: right; white-space: nowrap;">
+  
+  <a href="overseas-reprocessor-details1?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
+  
+</td>
         </tr>
          <tr>
           <td colspan="3">
@@ -238,22 +265,7 @@ href: "javascript:history.back()"
 
       tableBody.insertAdjacentHTML("beforeend", html);
     });
-    const staticRow = `
-      <tr>
-        <td class="govuk-!-font-weight-bold">Add another overseas reprocessing site?</td>
-        <td>No</td>
-         <td style="text-align: right; white-space: nowrap;">
-            <a href="./reprocessor-site-question" class="govuk-link">Change</a>
-          </td>
-      </tr>
-       <tr>
-          <td colspan="3">
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
-          </td>
-        </tr>
-    `;
-
-    tableBody.insertAdjacentHTML("beforeend", staticRow);
+   
   });
 </script>
 

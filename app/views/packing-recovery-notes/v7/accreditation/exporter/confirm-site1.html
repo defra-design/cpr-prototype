@@ -34,6 +34,7 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Final reprocessing site</th>
           <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header"></th>
         </tr>
       </thead>
       <tbody class="govuk-table__body" id="site-list">
@@ -73,8 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
       <td class="govuk-table__cell">
         <div style="max-width: 300px; word-wrap: break-word;">${orgInfo}</div>
       </td>
+
       <td class="govuk-table__cell">
-        <a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(site.orgName)}">No interim sites added</a>
+        <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                No interim sites added
+              </strong>
+            </div>
+          </td>
+                <td class="govuk-table__cell">
+        <a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(site.orgName)}">Add interim sites</a>
 
       </td>`;
     tbody.appendChild(row);
