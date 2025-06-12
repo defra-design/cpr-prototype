@@ -76,12 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">Check your answers</a>`
       : `<a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(orgName)}">Add interim sites</a>`;
 
+    const label = hasInterim
+      ? `Interim sites added`
+      : `No interim sites added`;
+
     const row = document.createElement('tr');
     row.className = 'govuk-table__row';
     row.innerHTML = `
       <td class="govuk-table__cell">
         <div style="max-width: 300px; word-wrap: break-word;">${orgInfo}</div>
       </td>
+      <td class="govuk-table__cell">
+        <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                ${label}
+              </strong>
+            </div>
+          </td>
       <td class="govuk-table__cell">${link}</td>
     `;
     tbody.appendChild(row);
