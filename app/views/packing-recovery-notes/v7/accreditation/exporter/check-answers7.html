@@ -17,6 +17,22 @@ href: "javascript:history.back()"
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper " id="main-content" role="main">
 
+
+        <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<div id="success-banner" class="govuk-notification-banner govuk-notification-banner--success" role="alert" hidden>
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title">Success</h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading" id="success-text">
+      <!-- dynamically filled -->
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
        <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
@@ -225,7 +241,8 @@ href: "javascript:history.back()"
           <td></td>
         </tr>
         <tr>
-          <td colspan="3">
+          <td></td>
+          <td colspan="2">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
           </td>
         </tr>
@@ -241,6 +258,7 @@ href: "javascript:history.back()"
 </td>
         </tr>
          <tr>
+          <td></td>
           <td colspan="3">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
           </td>
@@ -275,6 +293,11 @@ href: "javascript:history.back()"
     // Existing table row creation code...
 
     // Attach click event to dynamically created remove links
+
+
+    
+
+
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.contains("remove-site")) {
         e.preventDefault();
@@ -282,6 +305,12 @@ href: "javascript:history.back()"
         let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
 
         if (!isNaN(index)) {
+          
+          const removed = sites[index];
+          const orgName = removed?.orgName || "Organisation";
+      const addressLine1 = removed?.addressLine1 || "Address";
+
+      localStorage.setItem("removedSiteInfo", JSON.stringify({ orgName, addressLine1 }));
           sites.splice(index, 1); // Remove item at index
           localStorage.setItem("addedSites", JSON.stringify(sites));
           location.reload(); // Refresh page to reflect change
@@ -289,6 +318,23 @@ href: "javascript:history.back()"
       }
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const removedSiteInfo = JSON.parse(localStorage.getItem("removedSiteInfo") || "null");
+
+  if (removedSiteInfo) {
+    const { orgName, addressLine1 } = removedSiteInfo;
+    const banner = document.getElementById("success-banner");
+    const text = document.getElementById("success-text");
+
+    text.textContent = `You’ve removed ${orgName}, ${addressLine1}`;
+    banner.hidden = false;
+
+    // Clear after showing once
+    localStorage.removeItem("removedSiteInfo");
+  }
+});
+
 </script>
 
 

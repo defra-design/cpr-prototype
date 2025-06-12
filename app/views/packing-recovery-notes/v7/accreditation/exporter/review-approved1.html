@@ -14,6 +14,26 @@
 {% endblock %}
 
 {% block content %}
+<style>
+  .cdetails{
+    margin: 20px 0;
+    display: flex;
+  }
+</style>
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<div id="success-banner" class="govuk-notification-banner govuk-notification-banner--success" role="alert" hidden>
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title">Success</h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading" id="success-text">
+      <!-- dynamically filled -->
+    </p>
+  </div>
+</div>
+</div>
+</div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
    <h1 class="govuk-heading-l">
@@ -115,12 +135,14 @@ list.insertAdjacentHTML("beforeend", staticRow);
             <a href="javascript:void(0)" class="govuk-link" onclick="removeInterimSite(${index})">Delete this site</a>
           </div>
         </div>
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+       
 
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
-            <strong class="govuk-body">Contact details</strong>
+            
+            <strong class="govuk-body cdetails" >Contact details</strong>
           </div>
+           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <div class="govuk-grid-column-one-third">
             ${contactDetails ? contactDetails:"Not Provided"}
           </div>
@@ -156,17 +178,37 @@ if (heading && orgKey) {
 }
 
 }
-
 function removeInterimSite(index) {
-   const orgKey2 = getQueryParam("org");
-  const orgKey = orgKey2 ? orgKey2:localStorage.getItem("latestInterimOrgName");
+  const orgKey2 = getQueryParam("org");
+  const orgKey = orgKey2 ? orgKey2 : localStorage.getItem("latestInterimOrgName");
   const sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
+
   if (!sitesByOrg[orgKey]) return;
+
+  const removed = sitesByOrg[orgKey][index];
+  if (removed) {
+    const bannerMessage = {
+      orgName: removed.orgName || orgKey,
+      addressLine1: removed.addressLine1 || ''
+    };
+    localStorage.setItem("removedInterimSiteInfo", JSON.stringify(bannerMessage));
+  }
 
   sitesByOrg[orgKey].splice(index, 1);
   localStorage.setItem("interimSitesByOrg", JSON.stringify(sitesByOrg));
-  renderInterimSites();
+  location.reload(); // reload to show the banner
 }
+
+// function removeInterimSite(index) {
+//    const orgKey2 = getQueryParam("org");
+//   const orgKey = orgKey2 ? orgKey2:localStorage.getItem("latestInterimOrgName");
+//   const sitesByOrg = JSON.parse(localStorage.getItem("interimSitesByOrg") || "{}");
+//   if (!sitesByOrg[orgKey]) return;
+
+//   sitesByOrg[orgKey].splice(index, 1);
+//   localStorage.setItem("interimSitesByOrg", JSON.stringify(sitesByOrg));
+//   renderInterimSites();
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
   const orgName = localStorage.getItem("latestInterimOrgName") || "the selected organisation";
@@ -212,6 +254,19 @@ if (getQueryParam("org")) {
     }
   });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const removedInfo = JSON.parse(localStorage.getItem("removedInterimSiteInfo") || "null");
+  if (removedInfo && removedInfo.orgName) {
+    const banner = document.getElementById("success-banner");
+    const bannerText = document.getElementById("success-text");
+
+    bannerText.textContent = `You’ve removed ${removedInfo.orgName}, ${removedInfo.addressLine1}`;
+    banner.hidden = false;
+
+    // clear once shown
+    localStorage.removeItem("removedInterimSiteInfo");
+  }
+});
 
 
 
