@@ -56,8 +56,20 @@
     const storedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
     const tbody = document.getElementById('site-list');
 
+
+    const confirmBtn = document.querySelector('a[href="accreditation-prn8"]');
+    confirmBtn.addEventListener('click', function (e) { console.info('HI.........')
+      e.preventDefault();
+       const selectedSites = JSON.parse(localStorage.getItem('selectedSites') || '[]');
+      if (selectedSites.length === 0) {
+        window.location.href = "accreditation-empty-prn8.html";
+      } else {
+        window.location.href = "accreditation-prn8.html";
+      }
+    });
+
     if (storedSites.length === 0) {
-      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">No sites selected.</td></tr>`;
+      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="2">You need to <a href="./list-oversea-sites1">select overseas sites</a> you want to add to your accreditation application</td></tr>`;
       return;
     }
 
