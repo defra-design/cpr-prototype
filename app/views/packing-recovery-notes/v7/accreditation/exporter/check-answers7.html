@@ -73,9 +73,8 @@ href: "javascript:history.back()"
 
             <!-- Action Buttons -->
             <div style="display: flex; gap: 20px;">
-              <a href="tasklist8">
-                <input class="govuk-button" type="submit" value="Confirm and continue" />
-              </a>
+              <button class="govuk-button" id="confirm-continue-btn" type="button">Confirm and continue</button>
+
               <a href="#">
                 <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
               </a>
@@ -183,6 +182,8 @@ href: "javascript:history.back()"
 </script> -->
 
 <script>
+
+  
   document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("site-table-body");
     const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
@@ -283,7 +284,14 @@ href: "javascript:history.back()"
 
       tableBody.insertAdjacentHTML("beforeend", html);
     });
-   
+   document.getElementById("confirm-continue-btn").addEventListener("click", function () {
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+    if (addedSites.length === 0) {
+      window.location.href = "tasklist-empty-8";
+    } else {
+      window.location.href = "tasklist8";
+    }
+  });
   });
 </script>
 
