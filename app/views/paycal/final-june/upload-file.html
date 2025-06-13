@@ -1,0 +1,62 @@
+
+
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="#">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div>
+          <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+   </div>
+<br><br>
+
+     <h1 class="govuk-heading-l">Upload new local authority costs</h1>
+
+
+<br>
+      
+      <form method="POST" action="confirmation">
+    
+          <!-- FILE UPLOAD -->
+          <div class="govuk-form-group">
+            <h2 class="govuk-heading-m">
+              <label class="govuk-label govuk-label--m" for="org-details" aria-describedby="organisation-file-hint">
+                Upload a file
+              </label>
+            </h2>
+
+            <p class="govuk-body">The file must be:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>smaller than 50KB</li>
+                  <li>in CSV format</li>
+              </ul>
+            <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file is uploading.</p>
+
+            <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+        {{ govukButton({
+          text: "Upload file"
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

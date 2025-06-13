@@ -1,0 +1,450 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Run the fees and payments calculator" %}
+{% set title = "Run the fees and payments calculator" %}
+
+{% block pageTitle %}
+{{ title }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:void(0)">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You have rejected 1000 results.
+      </h3>
+      <h3 class="govuk-notification-banner__heading">
+        You still have <a href="#" class="govuk-link">6000 results to issue a bill</a>.
+      </h3>
+      <p class="govuk-body">Lorem ipsum lorem ipsum lorem ipsum. You still have to ipsum lorem ipsum lorem ipsum.</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+
+    <!-- Filtered results start -->
+    <div style="padding: 0px 20px; clear: both;">
+      <div>
+        <span class="govuk-caption-xl">Calculation run 99</span>
+        <h1 class="govuk-heading-xl">Rejected results summary</h1>
+
+        <p class="govuk-body-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip
+          ex ea commodo consequat.</p>
+
+
+        <!-- Results table start -->
+        <table class="govuk-table" id="submission-table">
+          <thead class="govuk-table__head">
+            <tr>
+              <td class="govuk-table__cell"
+                style="width: 420px; text-align:left; padding: 40px 20px 10px 0px; border-bottom:0px;">0 records
+                selected
+              </td>
+              <td class="govuk-table__cell"
+                style="width: 60px; text-align: left; padding: 40px 0px 10px 20px; vertical-align: middle; border-bottom:0px;">
+                <strong>10-20 of 7000</strong>
+              </td>
+            </tr>
+          </thead>
+        </table>
+        <!-- Results table end -->
+      </div>
+      <h2 class="govuk-heading-m">Rejected billing instructions</h2>
+      <!-- TABLE -->
+      <table class="govuk-table" class="govuk-table" style="table-layout: fixed; width: 100%;">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="width: 60px;"></th>
+            <th scope="col" class="govuk-table__header" style="width: 170px;">Organisation name</th>
+            <th scope="col" class="govuk-table__header" style="width: 160px;">Organisation ID</th>
+            <th scope="col" class="govuk-table__header" style="width: 160px;">Billing instruction</th>
+            <th scope="col" class="govuk-table__header" style="width: 140px;">Invoice amount</th>
+            <th scope="col" class="govuk-table__header" style="width: 140px;">Status</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body" id="submission-table-body">
+          <!-- Content start -->
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Initial</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Delta</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Rebill</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Cancel bill</strong>
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Initial</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Delta</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Rebill</strong></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="govuk-table__cell" style="width: 60px; text-align:left; padding: 10px 20px 10px 0px;">
+              <input type="checkbox" id="row-checkbox-1" name="select-row" value="1"
+                style="width:34px; height:34px; cursor: pointer; border: 1px solid #000;">
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><a href="#"
+                class="govuk-link">Acme org Ltd.</a></td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+                class="govuk-tag govuk-tag--blue">Cancel bill</strong>
+            </td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+            <td class="govuk-table__cell"
+              style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+              <strong class="govuk-tag govuk-tag--red">Rejected</strong>
+            </td>
+          </tr>
+
+
+
+          <!-- Content end-->
+        </tbody>
+      </table>
+
+
+
+
+      <!-- Pagination block -->
+
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+        <!-- Left side: pagination numbers + next -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <ul class="govuk-pagination__list">
+            <li class="govuk-pagination__item govuk-pagination__item--current">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 1"
+                aria-current="page">
+                1
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+                2
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+                3
+              </a>
+            </li>
+            <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 42">
+                700
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-pagination__next" style="margin-left: 20px;">
+            <a class="govuk-link govuk-pagination__link link govuk-link--no-visited-state" href="#" rel="next">
+              <span class="govuk-pagination__link-title">Next</span>
+              <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
+                height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path
+                  d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right side: items per page -->
+        <div>
+          <ul class="govuk-pagination__list">
+            <li class="govuk-pagination__item">
+              Items per page 10
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 6">
+                50
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link govuk-link--no-visited-state" href="#" aria-label="Page 7">
+                100
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Clear float if needed -->
+      <div style="clear: both;"></div>
+
+      <!-- Reject selected  start -->
+      <div style="margin-top: 60px;">
+        <a href="../confirm-billing-instructions-phase2-B-option.html" role="button" class="govuk-button"
+          data-module="govuk-button">
+          Continue
+        </a>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <!-- Producer comments start-->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+            <h2 class="govuk-summary-card__title">Producer comments</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-width-container" style="padding: 30px;">
+            <!-- alternative div A-->
+            <div style="padding-bottom: 0px; margin: 0px;">
+              <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+                amet, consectetur adipiscing
+                elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent eget nunc eget magna auctor aliquet. </p>
+            </div>
+          </div>
+        </div>
+        <!-- Producer comments end-->
+        <!-- Regulator comments start-->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+            <h2 class="govuk-summary-card__title">Regulator comments</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-width-container" style="padding: 30px;">
+            <!-- alternative div A-->
+            <div style="padding-bottom: 0px; margin: 0px;">
+              <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+                amet, consectetur adipiscing
+                elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent eget nunc eget magna auctor aliquet. </p>
+            </div>
+          </div>
+        </div>
+        <!-- Regulator comments end-->
+
+        <hr style="margin: 60px 0px; color: #eee;">
+
+        <!-- Producer comments start-->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+            <h2 class="govuk-summary-card__title">Producer comments</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-width-container" style="padding: 30px;">
+            <!-- alternative div A-->
+            <div style="padding-bottom: 0px; margin: 0px;">
+              <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+                amet, consectetur adipiscing
+                elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent eget nunc eget magna auctor aliquet. </p>
+            </div>
+          </div>
+        </div>
+        <!-- Producer comments end-->
+        <!-- Regulator comments start-->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
+            <h2 class="govuk-summary-card__title">Regulator comments</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-width-container" style="padding: 30px;">
+            <!-- alternative div A-->
+            <div style="padding-bottom: 0px; margin: 0px;">
+              <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
+                amet, consectetur adipiscing
+                elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent eget nunc eget magna auctor aliquet. </p>
+            </div>
+          </div>
+        </div>
+        <!-- Regulator comments end-->
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+{% endblock %}
