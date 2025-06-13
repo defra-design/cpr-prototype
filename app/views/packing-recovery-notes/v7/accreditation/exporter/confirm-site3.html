@@ -129,7 +129,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
   function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
@@ -146,26 +146,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const orgKey11 = getQueryParam("org");
   storedSites.forEach(site => {
     const orgName = site.orgName?.trim();
-    let hasInterim;
-    let label;
-    if(orgKey11) {
-      hasInterim = orgName && interimSitesByOrg[orgName].length === 0;
-       label = hasInterim
-      ? ` <div class="govuk-task-list__status" id="before-you-start-1-status">
-               <strong class="govuk-tag govuk-tag--blue">
-                No interim sites added
-              </strong>
-                
-              
-            </div>`
-      : `<div class="govuk-task-list__status" id="before-you-start-1-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                No interim sites added
-              </strong>
-            </div>`;
-    } else {
-      hasInterim = orgName && interimSitesByOrg[orgName] && interimSitesByOrg[orgName].length > 0;
-       label = hasInterim
+    const hasInterim = orgName && interimSitesByOrg[orgName] && interimSitesByOrg[orgName].length > 0;
+
+    const orgInfo = orgName
+      ? `${orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
+      : 'Not provided';
+
+      
+    const link = hasInterim
+      ? `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">Check your answers</a>`
+      : `<a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(orgName)}">Add interim sites</a>`;
+
+      
+
+    const label = hasInterim
       ? ` <div class="govuk-task-list__status" id="before-you-start-1-status">
               
                 Interim sites added
@@ -176,22 +170,6 @@ const orgKey11 = getQueryParam("org");
                 No interim sites added
               </strong>
             </div>`;
-    }
-    
-
-    const orgInfo = orgName
-      ? `${orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
-      : 'Not provided';
-
-
-      console.info('hasInterim.........', hasInterim)
-    const link = hasInterim
-      ? `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">Check your answers</a>`
-      : `<a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(orgName)}">Add interim sites</a>`;
-
-      
-
-    
 
     const row = document.createElement('tr');
     row.className = 'govuk-table__row';
@@ -215,6 +193,68 @@ const orgKey11 = getQueryParam("org");
     localStorage.removeItem('recentlyRemovedSite');
   }
 });
+</script> -->
+<script>
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const storedSites = JSON.parse(localStorage.getItem('addedSites') || '[]');
+    const interimSitesByOrg = JSON.parse(localStorage.getItem('interimSitesByOrg') || '{}');
+    const tbody = document.getElementById('site-list');
+    const removedOrg = getQueryParam("org"); // org recently removed
+
+    if (storedSites.length === 0) {
+      tbody.innerHTML = `<tr class="govuk-table__row"><td class="govuk-table__cell" colspan="3">No sites selected.</td></tr>`;
+      return;
+    }
+
+    storedSites.forEach(site => {
+      const orgName = site.orgName?.trim();
+      const interimSites = interimSitesByOrg[orgName] || [];
+      const isEmptyNow = interimSites.length === 0;
+
+      const orgInfo = orgName
+        ? `${orgName}, ${site.addressLine1 || ''}${site.addressLine2 ? ', ' + site.addressLine2 : ''}, ${site.addressTown || ''}${site.addressCounty ? ', ' + site.addressCounty : ''}${site.addressPostcode ? ', ' + site.addressPostcode : ''}`
+        : 'Not provided';
+
+      // Determine label
+      const label = isEmptyNow
+        ? `<div class="govuk-task-list__status"><strong class="govuk-tag govuk-tag--blue">No interim sites added</strong></div>`
+        : `<div class="govuk-task-list__status">Interim sites added</div>`;
+
+      // Determine link: only if it's the org that was just emptied
+      let link;
+      if (removedOrg === orgName && isEmptyNow) {
+        link = `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">Check your answers</a>`;
+      } else {
+        link = isEmptyNow
+          ? `<a class="govuk-link" href="interim-site-details?org=${encodeURIComponent(orgName)}">Add interim sites</a>`
+          : `<a class="govuk-link" href="review-approved1?org=${encodeURIComponent(orgName)}">Check your answers</a>`;
+      }
+
+      // Build the row
+      const row = document.createElement('tr');
+      row.className = 'govuk-table__row';
+      row.innerHTML = `
+        <td class="govuk-table__cell"><div style="max-width: 300px; word-wrap: break-word;">${orgInfo}</div></td>
+        <td class="govuk-table__cell">${label}</td>
+        <td class="govuk-table__cell">${link}</td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    // Show success banner if needed
+    const removedSite = localStorage.getItem('recentlyRemovedSite');
+    if (removedSite) {
+      document.getElementById('success-text').textContent =
+        `You’ve removed ${removedSite} from your application`;
+      document.getElementById('success-banner').hidden = false;
+      localStorage.removeItem('recentlyRemovedSite');
+    }
+  });
 </script>
 
 {% endblock %}
