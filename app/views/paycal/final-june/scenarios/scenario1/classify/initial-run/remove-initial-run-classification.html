@@ -84,6 +84,14 @@
 
       {% from "govuk/components/details/macro.njk" import govukDetails %}
 
+      <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning </span>
+    You cannot remove a run’s classification after the billing file has been issued. Once classified, any previous unclassified runs can no longer be classified.
+  </strong>
+</div>
+
       <div class="govuk-button-group">
         <button type="button" id="continueButton" class="govuk-button" data-module="govuk-button">
           Continue
@@ -92,9 +100,8 @@
           onclick="window.location.href='calculate-packaging-payments'">
           Cancel
         </button>
+        <a class="govuk-link" href="../../calculate-packaging-payments.html">Return to dashboard</a>
       </div>
-
-      &nbsp; &nbsp; <a class="govuk-link" href="../../calculate-packaging-payments.html">Return to dashboard</a>
     </form>
   </div>
 </div>
