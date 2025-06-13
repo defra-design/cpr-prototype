@@ -1,0 +1,282 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style>
+  .govuk-link {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, .0625rem);
+    text-underline-offset: .1578em;
+  }
+
+  .govuk-task-list__link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+ 
+
+  .govuk-tag {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    /* font-size: 1rem;
+    line-height: 1.25; */
+    display: inline-block;
+    max-width: 160px;
+    margin-top: -2px;
+    margin-bottom: -3px;
+    padding: 2px 8px 3px;
+    color: #0c2d4a;
+    
+    text-decoration: none;
+   
+    text-transform: none;
+  }
+
+  .govuk-task-list {
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .govuk-task-list__status--cannot-start-yet {
+    color: #505a5f;
+  }
+
+  .govuk-task-list__status {
+    display: table-cell;
+    padding-left: 10px;
+    
+    vertical-align: top;
+
+  }
+
+  .govuk-task-list {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+
+  .govuk-tag {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+</style>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+
+<form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Accredit to issue PERNs: UK steel packaging waste
+      </h1>
+<br>
+      <h3 class="govuk-heading-s">For: 2026</h3>
+      <h2 class="govuk-body-s">Complete each section then submit your application to the regulator. You can save your progress and come back to it at any time.</h2>
+</legend>
+
+
+<table class="govuk-table">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+<a href="check-answers">  PERNs tonnage and authority to issue PERNs</a>
+              </label>
+            </div>
+            </div></td>
+   
+        <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">
+         <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+<a href="check-answers2">  Business plan</a>
+              </label>
+            </div>
+            </div></td>
+   
+        <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">
+         <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
+    </tr>
+
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+<a href="file-uploaded">Sampling and inspection plan, part 2</a>
+              </label>
+            </div>
+            </div></td>
+   
+        <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">
+         <div class="govuk-task-list__status" id="before-you-start-1-status">
+              Completed
+            </div>
+          </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+<a href="confirm-site">  Overseas reprocessing sites</a>
+              </label>
+            </div>
+            </div></td>
+   
+        <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">
+         <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                In Progress
+              </strong>
+            </div>
+          </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <!-- <a href="javascript:void(0);" onclick="resetScenarioSelection()"> -->
+          Evidence of broadly equivalent standards
+        <!-- </a> -->
+              </label>
+            </div>
+            </div></td>
+   
+        <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">
+        <div class="govuk-task-list__status" id="before-you-start-2-status">
+              Cannot start yet
+            </div></td>
+    </tr>
+ 
+    </table>
+<div id="broadly-equivalent-form" style="display: none; margin-top: 20px;">
+  <fieldset class="govuk-fieldset" aria-describedby="scenario-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">Select a scenario</h2>
+    </legend>
+
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-1"
+               name="scenario"
+               type="radio"
+               value="1"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-1">
+          Scenario 1
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-2"
+               name="scenario"
+               type="radio"
+               value="2"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-2">
+          Scenario 2
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="scenario-3"
+               name="scenario"
+               type="radio"
+               value="3"
+               onchange="handleScenarioRedirect(this)">
+        <label class="govuk-label govuk-radios__label" for="scenario-3">
+          Scenario 3
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+    
+    </div>
+
+</fieldset>
+</div>
+
+<script>
+  function resetScenarioSelection() {
+    // Uncheck all radio buttons
+    const radios = document.querySelectorAll('input[name="scenario"]');
+    radios.forEach(radio => radio.checked = false);
+
+    // Show the radio form
+    document.getElementById('broadly-equivalent-form').style.display = 'block';
+  }
+
+  function handleScenarioRedirect(radio) {
+    switch (radio.value) {
+      case "1":
+        window.location.href = "broadly-equivalent";
+        break;
+      case "2":
+        window.location.href = "broadly-equivalent-steel";
+        break;
+      case "3":
+        window.location.href = "broadly-equivalent-option";
+        break;
+    }
+  }
+</script>
+
+
+
+  <!-- <input class="govuk-button" type="submit" value="Find address"  /> -->
+
+
+
+</form>
+
+</div>
+
+{% endblock %}

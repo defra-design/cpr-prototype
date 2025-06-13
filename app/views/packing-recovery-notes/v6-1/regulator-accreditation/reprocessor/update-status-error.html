@@ -1,0 +1,101 @@
+{% set serviceName = "Manage accreditation application" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">Resolve all queries before granting application</a>
+            </li>
+         
+          </ul>
+        </div>
+      </div>
+    </div>
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Plastic</span>
+      Update accreditation status
+      </h1>
+
+
+      <div class="govuk-form-group govuk-form-group--error">
+<form class="form" action="" method="POST">
+
+     
+  <div class="govuk-form-group">
+   
+
+  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+    <p id="passport-issued-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Resolve all queries before granting application
+    </p>
+   
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="notes-to-query">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+       Query accreditation
+
+      </label>
+    </div>
+  
+  
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input govuk-input--error" id="changed-name" name="next-page" type="radio" value="notes-to-grant">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+       Grant accreditation
+
+      </label>
+    </div>
+
+
+
+   
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="next-page" type="radio" value="notes-to-refuse">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+     Refuse accreditation
+
+      </label>
+    </div>
+
+
+
+  </div>
+
+  </div>
+ 
+  </div>
+     
+
+
+<input class="govuk-button" type="submit" value="Continue"  />
+ 
+</div>
+
+
+</form>
+
+{% endblock %}

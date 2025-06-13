@@ -17,6 +17,22 @@ href: "javascript:history.back()"
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper " id="main-content" role="main">
 
+
+        <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<div id="success-banner" class="govuk-notification-banner govuk-notification-banner--success" role="alert" hidden>
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title">Success</h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading" id="success-text">
+      <!-- dynamically filled -->
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
        <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Check your answers before continuing</h1>
@@ -57,9 +73,8 @@ href: "javascript:history.back()"
 
             <!-- Action Buttons -->
             <div style="display: flex; gap: 20px;">
-              <a href="tasklist8">
-                <input class="govuk-button" type="submit" value="Confirm and continue" />
-              </a>
+              <button class="govuk-button" id="confirm-continue-btn" type="button">Confirm and continue</button>
+
               <a href="#">
                 <input class="govuk-button govuk-button--secondary" type="submit" value="Save and continue later" />
               </a>
@@ -167,9 +182,28 @@ href: "javascript:history.back()"
 </script> -->
 
 <script>
+
+  
   document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("site-table-body");
     const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+
+    const staticRow = `
+      <tr>
+        <td class="govuk-!-font-weight-bold">Add another overseas reprocessing site?</td>
+        <td>No</td>
+         <td style="text-align: right; white-space: nowrap;">
+            <a href="./reprocessor-site-question" class="govuk-link">Change</a>
+          </td>
+      </tr>
+       <tr>
+          <td colspan="3">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
+    `;
+
+    tableBody.insertAdjacentHTML("beforeend", staticRow);
 
     addedSites.forEach((site, index) => {
       const orgName = site.orgName || 'Not provided';
@@ -184,6 +218,7 @@ href: "javascript:history.back()"
         .join('');
 
       const wasteCode = site.wasteCode || 'Not provided';
+       
 
       const html = `
         <!-- Organisation header -->
@@ -206,14 +241,25 @@ href: "javascript:history.back()"
           <td>${address}</td>
           <td></td>
         </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+          </td>
+        </tr>
 
         <!-- Contact details -->
         <tr>
           <td class="govuk-!-font-weight-bold">Contact details</td>
-          <td>${contactDetails}</td>
-          <td></td>
+          <td>${contactDetails ? contactDetails:"Not Provided"}</td>
+           <td style="text-align: right; white-space: nowrap;">
+  
+  <a href="overseas-reprocessor-details1?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
+  
+</td>
         </tr>
          <tr>
+          <td></td>
           <td colspan="3">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
           </td>
@@ -238,22 +284,14 @@ href: "javascript:history.back()"
 
       tableBody.insertAdjacentHTML("beforeend", html);
     });
-    const staticRow = `
-      <tr>
-        <td class="govuk-!-font-weight-bold">Add another overseas reprocessing site?</td>
-        <td>No</td>
-         <td style="text-align: right; white-space: nowrap;">
-            <a href="./reprocessor-site-question" class="govuk-link">Change</a>
-          </td>
-      </tr>
-       <tr>
-          <td colspan="3">
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
-          </td>
-        </tr>
-    `;
-
-    tableBody.insertAdjacentHTML("beforeend", staticRow);
+   document.getElementById("confirm-continue-btn").addEventListener("click", function () {
+    const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
+    if (addedSites.length === 0) {
+      window.location.href = "tasklist-empty-8";
+    } else {
+      window.location.href = "tasklist8";
+    }
+  });
   });
 </script>
 
@@ -263,6 +301,11 @@ href: "javascript:history.back()"
     // Existing table row creation code...
 
     // Attach click event to dynamically created remove links
+
+
+    
+
+
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.contains("remove-site")) {
         e.preventDefault();
@@ -270,6 +313,12 @@ href: "javascript:history.back()"
         let sites = JSON.parse(localStorage.getItem("addedSites") || "[]");
 
         if (!isNaN(index)) {
+          
+          const removed = sites[index];
+          const orgName = removed?.orgName || "Organisation";
+      const addressLine1 = removed?.addressLine1 || "Address";
+
+      localStorage.setItem("removedSiteInfo", JSON.stringify({ orgName, addressLine1 }));
           sites.splice(index, 1); // Remove item at index
           localStorage.setItem("addedSites", JSON.stringify(sites));
           location.reload(); // Refresh page to reflect change
@@ -277,6 +326,23 @@ href: "javascript:history.back()"
       }
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const removedSiteInfo = JSON.parse(localStorage.getItem("removedSiteInfo") || "null");
+
+  if (removedSiteInfo) {
+    const { orgName, addressLine1 } = removedSiteInfo;
+    const banner = document.getElementById("success-banner");
+    const text = document.getElementById("success-text");
+
+    text.textContent = `You’ve removed ${orgName}, ${addressLine1}`;
+    banner.hidden = false;
+
+    // Clear after showing once
+    localStorage.removeItem("removedSiteInfo");
+  }
+});
+
 </script>
 
 
