@@ -33,7 +33,7 @@
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="location">
-          Country the site is in
+          Country the interim site is in
         </label>
         <select class="govuk-select" id="location" name="location" aria-describedby="location-hint">
           <option value="choose" selected>Choose a country</option>
@@ -78,12 +78,18 @@
         <label class="govuk-label" for="address-county">
           State, province or region (optional)
         </label>
+        <div id="event-name-hint" class="govuk-hint">
+          Leave blank if the address does not have a state, province or region
+        </div>
         <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="address-postcode">
           Postcode or similar
         </label>
+         <div id="event-name-hint" class="govuk-hint">
+          Some countries use only numbers, others use a mix of letters and numbers. Leave blank if the country does not have postcodes.
+        </div>
         <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text">
       </div>
 
@@ -91,6 +97,8 @@
         <label class="govuk-label" for="contact-name">
           Full name of person the regulator can contact
         </label>
+         <div id="event-name-hint" class="govuk-hint">
+This must be a person holding a senior position in the organisation       </div>
         <input class="govuk-input govuk-input--width-10" id="contact-name" name="contact-name" type="text">
       </div>
      <div class="govuk-form-group">
@@ -195,7 +203,7 @@ const addedSites = JSON.parse(localStorage.getItem("addedSites") || "[]");
   if (sites[editIndex]?.orgName?.trim()) {
     document.getElementById("org-heading").textContent = `Edit site details for ${sites[editIndex].orgName} ${addressLine1 ? ', ' + addressLine1 : ''}`;
   } else {
-    document.getElementById("org-heading").textContent = `Add interim site details for ${getQueryParam('org')} ${addressLine1 ? ', ' + addressLine1 : ''}`;
+    document.getElementById("org-heading").textContent = `Add interim site details for waste exported to: ${getQueryParam('org')} ${addressLine1 ? ', ' + addressLine1 : ''}`;
   }
 });
 </script>
