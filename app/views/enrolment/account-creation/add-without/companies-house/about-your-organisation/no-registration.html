@@ -1,0 +1,103 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p><a href="#" class="govuk-link">Add another organisation</a></p>
+    <span class="govuk-caption-xl">Jamie Roberts</span>
+      <h1 class="govuk-heading-l" style="margin-bottom: 3%;">ACORN LIMITED</h1>
+      <h3 class="govuk-heading-s">Organisation ID <br> 
+        <p>100762</p> 
+      </h3>
+    
+
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
+   
+<div>  
+  <!--tab component-->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+
+    <ul class="govuk-tabs__list">
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab1">Members</a>
+      </li>
+
+      
+
+      
+
+    </ul>
+
+    <!--first tab-->   
+    <div class="govuk-tabs__panel" id="tab1">
+    
+      
+     <p class="govuk-body">Only an approved person can submit applications for materials registrations.</p>
+      
+      <p>You are currently a standard user.</p>
+ <p class="govuk-body">You can either:  
+    <ul class="govuk-list govuk-list--bullet">
+      <li>confirm you'd like to be an approved person</li>
+      <li>invite someone else to be an approved person</li>
+    </ul>
+  </p>
+  
+  <p><a href="#" class="govuk-link">More about approved persons</a></p>
+  <br>
+        
+        <div class="govuk-button-group">
+          <a href="team-role" class="govuk-button" type="submit">Add an approved person</a>   
+        </div>
+   
+      </div>
+    
+    
+    
+
+   
+      </div>
+
+    </div> <!-- end first tab-->
+
+  </div><!--end tab component-->
+</div>
+
+
+{% endblock %}

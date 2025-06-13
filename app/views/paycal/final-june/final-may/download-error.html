@@ -1,0 +1,73 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% block pageTitle %}
+Run the fees and payments calculator
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "home.html",
+text: "Home"
+},
+{
+href: "",
+text: "Manage account" 
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="run-name">
+        <div class="govuk-form-group ">
+
+        <h1 class="govuk-heading-l">There was a problem downloading this file</h1>
+
+       <h1 class="govuk-body-m">This file has not been downloaded. </h1>
+
+        {{ govukButton({
+        text: "Try again",
+        preventDoubleClick: true,
+        classes: 'govuk-!-margin-top-4'
+        }) }}
+
+        <p class="govuk-body"><a href="calculate-packaging-payments">Return to the dashboard</a></p>
+    </form>
+    </div>
+</div>
+
+{% endblock %}

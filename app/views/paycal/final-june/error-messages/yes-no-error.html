@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR: Regulators' Service" %}
+{% set title = "Report packaging data" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="calculate-packaging-payments">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+</div>
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<div class="govuk-error-summary" data-module="govuk-error-summary" style="margin-bottom: 40px;">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <p id="passport-issued-error" class="govuk-error-message" style="margin-bottom: 0;">
+      <span class="govuk-visually-hidden">Error:</span>Please select an option before continuing.</p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<div class="govuk-form-group">
+  <span class="govuk-caption-xl">Calculation run 99</span>
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to reject all selected billing instructions?
+      </h1>
+    </legend>
+
+
+
+              <div class="govuk-radios" data-module="govuk-radios" style="padding-left: 15px; border-left: 5px solid #d4351c;">
+            <p class="govuk-body" style="font-weight: 700; color: #d4351c;">Select an option before continuing.</p>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialTest">
+              <label class="govuk-label govuk-radios__label" for="classifyRun">
+                <strong>Yes</strong><br>
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputDelete">
+              <label class="govuk-label govuk-radios__label" for="deleteRun">
+                <strong>No</strong><br>
+              </label>
+            </div>
+          </div>
+
+
+
+
+
+
+  </fieldset>
+</div>
+<div class="govuk-button-group">
+  <button id="continue-button" class="govuk-button">Continue</button>
+</div>
+
+<script>
+  document.getElementById('continue-button').addEventListener('click', function () {
+    // Get the selected radio button value
+    const selectedValue = document.querySelector('input[name="approve-data"]:checked')?.value;
+
+    // Redirect based on the selected value
+    if (selectedValue === 'yes') {
+      window.location.href = "./overview.html";
+    } else if (selectedValue === 'no') {
+      window.location.href = "../confirm-billing-instructions.html"; // Update with the correct 'No' redirect URL
+    } else {
+      alert("Please select an option before continuing.");
+    }
+  });
+</script>
+{% endblock %}

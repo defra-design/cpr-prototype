@@ -1,0 +1,132 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p><a href="#" class="govuk-link">Add another organisation</a></p>
+    <span class="govuk-caption-xl">Jamie Roberts</span>
+      <h1 class="govuk-heading-l" style="margin-bottom: 3%;">ACORN LIMITED</h1>
+      <h3 class="govuk-heading-s">Organisation ID <br> 
+        <p>100762</p> 
+      </h3>
+    
+
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
+   
+<div>  
+  <!--tab component-->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+
+    <ul class="govuk-tabs__list">
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab1">Members</a>
+      </li>
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab2">Registration</a>
+      </li>
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab5">Accreditation</a>
+      </li>
+
+    </ul>
+
+    <!--first tab-->   
+    <div class="govuk-tabs__panel" id="tab1">
+    
+      <div class="govuk-button-group">
+          <a href="team-role" class="govuk-button" type="submit">Add an approved person</a>   
+        </div>
+   
+
+        <h3 class="govuk-heading-s">Invitations sent</h3>
+ 
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Email address</th>
+                <th scope="col" class="govuk-table__header">Permissions</th>
+                <th scope="col" class="govuk-table__header">Expiry date</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">frankie.roberts@acornlts.com</th>
+                <td class="govuk-table__cell">Approved person</td>
+                <td class="govuk-table__cell">18 August 2025</td>
+                <td class="govuk-table__cell"><a href="confirm-cancellation" class="govuk-link" style="color: #d4351c">Cancel invitation</a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div> 
+    
+    <!--Second tab-->   
+    <div class="govuk-tabs__panel" id="tab2">
+    
+      <p class="govuk-body">You need to <a href="#" class="govuk-link"> apply for registration </a> in order to get material accreditations.
+      </p>
+    
+    </div>
+
+    <!--fifth tab-->   
+    <div class="govuk-tabs__panel" id="tab5">
+      
+      <!-- TABLE -->
+      
+        
+        
+      
+        
+  
+  
+        
+   
+      </div>
+
+    </div> <!-- end first tab-->
+
+  </div><!--end tab component-->
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+Small producer - Manage registration submissions
+{% endblock %}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Calculation run 99</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Give a reason for rejecting billing instructions</h1>
+    <p class="govuk-body">Provide a reason that applies to all the billing instructions you selected for rejection.</p>
+
+    <div class="govuk-grid-column-two-thirds" style="padding:0px;">
+
+      <div class="govuk-form-group">
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+          aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="govuk-button-group">
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+text: "Continue",
+href: "./2-confirmation-2nd-phase",
+classes: "govuk-button--secondary",
+attributes: {
+style: ""
+}
+}) }}
+  <a href="../confirm-billing-instructions.html" class="govuk-link govuk-link--no-visited-state">Go back to all submissions</a>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

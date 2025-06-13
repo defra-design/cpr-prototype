@@ -1,0 +1,396 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Errors and validation</h1>
+    <p class="govuk-body-l">Minimise the number of errors on a page.</p>
+    <h2 class="govuk-heading-m">Contents:</h2>
+    <ul class="govuk-heading-m govuk-list govuk-list--bullet">
+      <li><a href="#one-question-per-page">Ask one question per page</a></li>
+      <li><a href="#summarise-errors">Summarise errors</a></li>
+      <li><a href="#highlight-errors">Highlight errors in forms</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
+    <h3 class="govuk-heading-m" id="one-question-per-page">Ask one question per page</h3>
+    <p class="govuk-body-l">Recovering from errors can be hard for users, especially if a page contains multiple errors.
+    </p>
+    <p class="govuk-body-l">Simplify forms by rewriting and where possible, splitting long forms across multiple pages -
+      with each page asking a single question.</p>
+
+    <h3 class="govuk-heading-m" id="summarise-errors">
+      Summarise errors at the top of the page
+    </h3>
+
+    </p>
+    <h2 class="govuk-heading-m">You must:</h2>
+    <ul class="govuk-heading-m govuk-list govuk-list--bullet">
+      <li>show an error summary at the top of the page</li>
+      <li>include a heading to alert the user to the error</li>
+      <li>link to each of the problematic questions</li>
+    </ul>
+
+
+    <p class="govuk-body-l">Additionally, you should reflect that there's been an error in the title by prefixing the
+      existing title with "Error: ". That will make sure screen readers are alerted to there being an error as soon as
+      possible.</p>
+
+
+    <h4 class="govuk-heading-s">Error message and summary box</h4>
+
+    <div style="position: relative;overflow: hidden;border: 1px solid #bfc1c3;margin-top: 15px;margin-bottom: 15px;padding-top: 45px;
+    padding-right: 30px;padding-bottom: 30px;padding-left: 30px;">
+      <div style="position: absolute;top: 0;left: 0;padding: 0.21053em 0.78947em 0.21053em 0.78947em;font-weight: 400;text-transform: none;
+        font-family:Arial, sans-serif; font-size: 18px;line-height: 1.25;background: #bfc1c3;color: white;">Example
+      </div>
+
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            Message to alert the user to a problem goes here
+          </h2>
+
+          <p class="govuk-body-m">Optional description of the errors and how to correct them</p>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#">Descriptive link to the question with an error</a>
+              </li>
+              <li>
+                <a href="#">Descriptive link to the question with an error</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#full-name-input">Enter your full name</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h1 class="govuk-heading-l">Your details</h1>
+      <div class="govuk-form-group govuk-form-group--error">
+        <label class="govuk-label" for="full-name-input">
+          Full name
+        </label>
+        <p id="full-name-input-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter your full name
+        </p>
+        <input class="govuk-input govuk-input--error" id="full-name-input" name="name" type="text"
+          aria-describedby="full-name-input-error" autocomplete="name">
+      </div>
+
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#passport-issued-year">Passport issue date must include a year</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When was your passport issued?
+            </h1>
+          </legend>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Passport issue date must include a year
+          </p>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
+                  name="passport-issued-day" type="text" value="5" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month"
+                  name="passport-issued-month" type="text" value="12" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                  id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#nationality">Select if you are British, Irish or a citizen of a different country</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your nationality?
+            </h1>
+          </legend>
+          <div id="nationality-hint" class="govuk-hint">
+            If you have dual nationality, select all options that are relevant to you
+          </div>
+          <p id="nationality-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select if you are British, Irish or a citizen of a
+            different country
+          </p>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british"
+                aria-describedby="nationality-item-hint">
+              <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                British
+              </label>
+              <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                including English, Scottish, Welsh and Northern Irish
+              </div>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox"
+                value="irish">
+              <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+                Irish
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox"
+                value="other">
+              <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+                Citizen of another country
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <div class="govuk-width-container">
+        <a href="#" class="govuk-back-link">Back</a>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <form action="/form-handler" method="post" novalidate>
+                <div class="govuk-error-summary" data-module="govuk-error-summary">
+                  <div role="alert">
+                    <h2 class="govuk-error-summary__title">
+                      There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                      <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                          <a href="#passport-issued-year">Passport issue date must include a year</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-form-group govuk-form-group--error">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-error">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                      <h1 class="govuk-fieldset__heading">
+                        When was your passport issued?
+                      </h1>
+                    </legend>
+                    <p id="passport-issued-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Passport issue date must include a year
+                    </p>
+                    <div class="govuk-date-input" id="passport-issued">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                            id="passport-issued-day" name="passport-issued-day" type="text" value="5"
+                            inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                            id="passport-issued-month" name="passport-issued-month" type="text" value="12"
+                            inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                            id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When was your passport issued?
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 27 3 2007
+          </div>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The date your passport was issued must be in the past
+          </p>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-day" name="passport-issued-day" type="text" value="6" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-month" name="passport-issued-month" type="text" value="3" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                  id="passport-issued-year" name="passport-issued-year" type="text" value="2076" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When was your passport issued?
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 27 3 2007
+          </div>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The date your passport was issued must be in the past
+          </p>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-day" name="passport-issued-day" type="text" value="6" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-month" name="passport-issued-month" type="text" value="3" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                  id="passport-issued-year" name="passport-issued-year" type="text" value="2076" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+      <div class="govuk-inset-text">
+        The error summary must appear at the top of the page, so it is visible when the page is refreshed and is
+        immediately read out by assistive technology.
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

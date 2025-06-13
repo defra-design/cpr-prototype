@@ -1,0 +1,126 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% set serviceName = "Run the fees and payments calculator" %}
+ 
+{% extends "layout.html" %}
+ 
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="run-name">Back</a>
+    </div>
+
+    <div class="govuk-body account-info govuk-grid-column-one-half">
+      <div class="alignname" style="margin-right: 15px;">
+          <span class="your-name"  id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details" id="signout-link">Sign out</a>
+      </div>
+    </div>
+</div>
+<br>
+
+   
+   <!--<h1 class="govuk-heading-xl">You have successfully deleted this file</h1>-->
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST" action="S3-run-details-2">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+                    <span class="govuk-caption-l">Calculation run 99</span>
+    <h1 class="govuk-heading-l">Classify calculation run</h1>
+    
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Financial year</th>
+          <td class="govuk-table__cell">2024-25</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Calculation ID</th>
+          <td class="govuk-table__cell">240008</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Run date and time</th>
+          <td class="govuk-table__cell">31 March 2025 at 12:09</td>
+        </tr>
+      </tbody>
+    </table>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+                
+                <div class="govuk-radios" data-module="govuk-radios">
+  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialRun">
+                    <label class="govuk-label govuk-radios__label" for="initialRun">
+                      <strong>Interim recalculation run</strong><br>
+                      <p class="govuk-body-s" style="margin-bottom: 0;">An official, optional run that can happen any time after the initial run, including after final runs. It can be run multiple times and generate a billing file. It can be used to process late or updated producer data.</p>
+                    </label>
+                </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio" value="outputTestRun">
+              <label class="govuk-label govuk-radios__label" for="testRun">
+                <strong>Test run</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">An unofficial run to view the calculation results without generating a billing file for invoicing.</p>
+              </label>
+          </div>
+
+            </div>
+          </fieldset>
+<br>
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body-s">
+      <strong>Initial run</strong><br>
+      Already classified for financial year 2024-25 on 1 May 2024
+    </p>
+    <p class="govuk-body-s">
+      <strong>Final recalculation run</strong><br>
+      Not available after final run.
+    </p>
+    <p class="govuk-body-s">
+      <strong>Final run</strong><br>
+      Already classified for financial year 2024-25 on 31 March 2025
+    </p>
+  </div>
+</div>
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You cannot remove a run’s classification after the billing file has been issued. Once classified, any previous unclassified runs can no longer be classified.
+            </strong>
+          </div>
+  
+        </div>
+  
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        
+  
+          <div class="govuk-button-group">
+            {{
+              govukButton({
+                      text: "Confirm classification"
+                  })
+          }}
+            <a class="govuk-link" href="S3-dashboard.html">Return to dashboard</a>
+          </div>
+  
+    </form>
+  
+</div>
+ 
+{% endblock %}
