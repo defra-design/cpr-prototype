@@ -1,0 +1,126 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style>
+  .govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="scenario1-run-details-2">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+<div class="govuk-error-summary" data-module="govuk-error-summary" style="margin-bottom: 20px;">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <p id="passport-issued-error" class="govuk-error-message" style="margin-bottom: 0;">
+      <span class="govuk-visually-hidden">Error:</span>Please confirm before continuing.</p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br>
+    <form method="POST" action="classification">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <div class="govuk-form-group">
+
+              <span class="govuk-caption-l">Calculation run 99</span>
+              <h1 class="govuk-heading-l">Send the billing file</h1>
+
+              <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+              <h3 class="govuk-body-m">You've confirmed all billing instructions. To review the billing file before sending it to the FSS, go back to the previous step. You won’t be able to make changes after sending.</h3>
+
+
+
+
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Confirm you’re ready to send
+      </h1>
+    </legend>
+    <p id="nationality-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> You must confirm that you’ve checked the billing file before sending it.
+    </p>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+          I’ve checked the billing file and I’m ready to send it to the FSS.
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+              <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning </span>
+    You must confirm that you’ve checked the billing file<br> before sending it.
+  </strong>
+</div>
+
+
+          </div>
+
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
+          <div class="govuk-button-group">
+            <!--
+          {{ govukButton({
+            text: "Save and come back later",
+            classes: "govuk-button--secondary"
+          }) }}
+          -->
+          </div>
+
+          <div class="govuk-button-group"><a href="./billing-file-sent-confirmation.html"
+              class="govuk-button show-continue" style="display: inline;">
+              Send billing file
+            </a>
+            <a class="govuk-link" href="./scenario1-dashboard-initial-run.html">Return to dashboard</a>
+          </div>
+
+
+    </form>
+  </div>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
