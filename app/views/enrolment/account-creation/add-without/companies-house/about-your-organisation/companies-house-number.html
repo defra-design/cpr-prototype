@@ -1,0 +1,65 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="./confirm-company-details">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="companies-house-number">
+            What is your Companies House number?
+          </label>
+        </h1>
+        <div id="companies-house-number-hint" class="govuk-hint">
+          This is also known as your company registration number. It should be 8 characters, for example: 01234567 or AC012345.
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="companies-house-number" name="companies-house-number" type="number" aria-describedby="companies-house-number-hint" autocomplete="off" value="{{data['companies-house-number']}}">
+      </div>
+
+      <p class="govuk-body govuk-!-margin-bottom-6"><a href="https://find-and-update.company-information.service.gov.uk/" target="_blank">Find your number on Companies House (opens in a new tab)</a></p>
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
