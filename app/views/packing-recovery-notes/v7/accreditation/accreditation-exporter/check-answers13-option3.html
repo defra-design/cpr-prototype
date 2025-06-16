@@ -1,0 +1,102 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+    
+
+    <h2 class="govuk-heading-m">
+      Evidence of broadly equivalent standards for: 
+      <strong>OPQ Exporters Ltd</strong>
+    </h2>
+    <div class="govuk-inset-text">
+  OPQ Exporters Ltd<BR>704 Lê Walks, Apt. 524,<BR>00668, Cà Mau<BR>Mississippi, Vietnam
+</div>
+
+<form class="form" method="post">
+    <!-- Entry 1 -->
+     <dl class="govuk-summary-list">
+      <!--
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Fulfil all these conditions</dt>
+            <dd class="govuk-summary-list__value">No, the do not fulfill all these conditions</dd>
+            <dd class="govuk-summary-list__actions"><a href="/packing-recovery-notes/v7/accreditation/accreditation-exporter/upload-broadly-equivalent-evidence4">Change</a></dd>
+          </div>
+          -->
+        </dl>
+   <div id="evidence-summary-list-container"></div>
+   <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+Do you want to upload more evidence?</dt>
+            <dd class="govuk-summary-list__value">No</dd>
+            <dd class="govuk-summary-list__actions"><a href="/packing-recovery-notes/v7/accreditation/accreditation-exporter/upload-more-broadly-evidence4-option3">Change</a></dd>
+          </div>
+          
+        </dl>
+
+ <p>&nbsp;</p>
+    
+      <button type="submit" formaction="broadly-equivalent4-option3" class="govuk-button">Confirm and continue</button>
+<button type="submit" style="margin-left: 20px;" class="govuk-button govuk-button--secondary" formaction="save-draft">Save and continue later</button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('evidence-summary-list-container');
+    const evidenceList = JSON.parse(sessionStorage.getItem('evidenceListOption3')) || [];
+
+    if (evidenceList.length === 0) {
+      container.innerHTML = "<p>No evidence uploaded yet.</p>";
+      return;
+    }
+
+    evidenceList.forEach((evidence, index) => {
+      const html = `
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">File uploaded</dt>
+            <dd class="govuk-summary-list__value">${evidence.file}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Start date of evidence</dt>
+            <dd class="govuk-summary-list__value">${evidence.startDate}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Expiry date of evidence</dt>
+            <dd class="govuk-summary-list__value">${evidence.expiryDate}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+        </dl>
+        
+      `;
+      container.insertAdjacentHTML('beforeend', html);
+    });
+  });
+</script>
+
+
+
+
+{% endblock %}
