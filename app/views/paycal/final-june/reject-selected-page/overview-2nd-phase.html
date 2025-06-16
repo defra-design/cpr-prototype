@@ -528,25 +528,68 @@
     <!-- Clear float if needed -->
     <div style="clear: both;"></div>
 
-    <!-- Next step section -->
-    <div style="margin-top: 40px;">
-      <h2 class="govuk-heading-m">Next step</h2>
-      <p class="govuk-body-m">Submit the billing instructions to generate a draft billing file.</p>
+        <!-- Update billing section -->
+    <div style="margin-top: 60px;">
+      <h2 class="govuk-heading-m">Update billing instructions</h2>
+
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
       {{ govukButton({
-      text: "Submit instructions",
-      href: "../run-name-4.html",
+      text: "Accept selected",
+      href: "./3-confirmation.html",
+      attributes: {
+      style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;
+      margin-left: 0px; box-shadow: 0 2px 0 rgb(0, 112, 60);"
+      }
+      }) }}
+
+
+
+      {{ govukButton({
+      text: "Reject selected",
+      href: "../reject-selected-page/1-reason-2nd-phase.html",
+      attributes: {
+      style: "background-color: #ffffff; border: 1px solid #d4351c; color: #d4351c; margin-left: 10px;
+      margin-left: 30px; box-shadow: 0 2px 0 rgb(212, 53, 28);"
+      }
+      }) }}
+
+
+      {{ govukButton({
+      text: "Clear selection",
+      href: "",
+      classes: "govuk-button--secondary",
+      attributes: {
+      style: "margin-left: 30px;",
+      id: "clear-selection-btn"
+      }
+      }) }}
+
+
+    </div>
+
+    <!-- Next step section -->
+<h2 class="govuk-heading-m">Next step</h2>
+      <p class="govuk-body-m">If you’re happy with all billing instructions, you’ll be able to generate a draft billing file.
+You can return to this screen to make changes before the billing file is sent to the FSS.</p>
+
+    <div class="govuk-button-group">
+        {{ govukButton({
+      text: " Generate draft billing file",
+      href: "/paycal/final-june/scenarios/scenario1/classify/initial-run/scenario1-run-details-3",
       attributes: {
       style: ""
       }
       }) }}
-    </div>
+        <a href="/paycal/final-june/scenarios/scenario1/classify/initial-run/scenario1-dashboard-initial-run" class="govuk-link">Return to the dashboard</a>
+      </div>
 
 
 
 
-    <p class="govuk-body" style="margin-top: 30px;">
-      <a href="../calculate-packaging-payments" class="govuk-link">Return to the dashboard</a>
-    </p>
 
   </div>
 </div>
