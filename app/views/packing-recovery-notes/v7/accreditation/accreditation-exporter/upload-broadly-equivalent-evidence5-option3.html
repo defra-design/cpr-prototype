@@ -1,0 +1,173 @@
+{% set serviceName = "Accreditation" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+<form action="" method="post">
+
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+              Upload evidence of broadly equivalent standards for: RST Exporters Ltd
+            </h1>
+            <div class="govuk-inset-text">
+  RST Exporters Ltd<BR>081 Mai Hà Plains, Apt<BR>846, 69149, Yên Bái,<BR>Illinois, Vietnam
+</div>
+
+            <p> You can upload one piece of evidence now. If you have more evidence you can upload this next.<p>
+
+
+<h1 class="govuk-heading-m">Check if the document has dates on it</h1>
+<p>These are dates to show when the document is valid from and when it expires.</p>
+
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                    <h1 class="govuk-heading-s">
+                      Enter date the document is valid from
+                    </h1>
+                  <div id="passport-issued-hint" class="govuk-hint">
+                    Leave blank if there's no valid from date
+                  </div>
+                  <div class="govuk-date-input" id="passport-issued">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <br>
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                    <h1 class="govuk-heading-s">
+                      Enter expiry date of document
+                    </h1>
+                  <div id="passport-issued-hint" class="govuk-hint">
+                    Leave blank if there’s no expiry date
+                  </div>
+                  <div class="govuk-date-input" id="passport-issued">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+
+              <br>
+
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+             
+              <h3 class="govuk-heading-m">Now upload the document</h3>
+              </p>
+              <br>
+
+              <div class="govuk-form-group">
+               
+                <div
+                  class="govuk-drop-zone"
+                  data-module="govuk-file-upload">
+                  <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+                </div>
+              </div>
+
+
+<br>
+<br>
+    
+    <button class="govuk-button" formaction="upload-more-broadly-evidence5-option3">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+</form>
+</div>
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', function () {
+    const inputs = document.querySelectorAll('[name="passport-issued-day"]');
+    const startDay = inputs[0].value;
+    const startMonth = document.querySelectorAll('[name="passport-issued-month"]')[0].value;
+    const startYear = document.querySelectorAll('[name="passport-issued-year"]')[0].value;
+
+    const expiryDay = inputs[1].value;
+    const expiryMonth = document.querySelectorAll('[name="passport-issued-month"]')[1].value;
+    const expiryYear = document.querySelectorAll('[name="passport-issued-year"]')[1].value;
+
+    const fileInput = document.getElementById('file-upload-1');
+    const fileName = fileInput.files.length ? fileInput.files[0].name : 'No file chosen';
+
+    const newEntry = {
+      file: fileName,
+      startDate: `${startDay} ${startMonth} ${startYear}`,
+      expiryDate: `${expiryDay} ${expiryMonth} ${expiryYear}`
+    };
+
+    // Get existing entries
+    let evidenceList = JSON.parse(sessionStorage.getItem('evidenceListOption3')) || [];
+
+    // Add the new entry
+    evidenceList.push(newEntry);
+
+    // Save back to sessionStorage
+    sessionStorage.setItem('evidenceListOption3', JSON.stringify(evidenceList));
+  });
+</script>
+
+
+
+{% endblock %}
