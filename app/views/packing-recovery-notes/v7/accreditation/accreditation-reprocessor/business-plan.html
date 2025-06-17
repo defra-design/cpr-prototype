@@ -14,26 +14,36 @@
 {% endblock %}
 {% block content %}
 
-  <script>
-    function updateTotal() {
-      const inputs = document.querySelectorAll('input[name="per"]');
-      let total = 0;
-      inputs.forEach(input => {
-        total += parseFloat(input.value) || 0;
-      });
-      document.getElementById('total').textContent = total + '%';
-      if (total === 100) {
-        document.getElementById('total').style.color = 'green';
-      } else {
-        document.getElementById('total').style.color = 'red';
-      }
+<script>
+
+  function storeValues() {
+    const inputs = document.querySelectorAll('input[name="per"]');
+    const values = [];
+    inputs.forEach(input => {
+      values.push(input.value);
+    });
+    localStorage.setItem('pernPercentages', JSON.stringify(values));
+  }
+
+  function updateTotal() {
+    const inputs = document.querySelectorAll('input[name="per"]');
+    let total = 0;
+    inputs.forEach(input => {
+      total += parseFloat(input.value) || 0;
+    });
+    document.getElementById('total').textContent = total + '%';
+    if (total === 100) {
+      document.getElementById('total').style.color = 'green';
+    } else {
+      document.getElementById('total').style.color = 'red';
     }
-  </script>
+  }
+</script>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-<form class="form" action="./spend-prn-income" method="POST">
+    <form class="form" action="./spend-prn-income" method="POST">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -43,12 +53,13 @@
             </h1>
           </legend>
           <div id="changedName-hint" class="govuk-hint">
-            Enter the percentage of steel PRN income you’ll spend on each item.
+            Enter the percentage of steel PERN income you’ll spend on each item.
           </div>
           <div id="changedName-hint" class="govuk-hint">
-            The regulator will expect you to follow this plan. If you later need to change how you spend the income you must explain this in your annual report.
+            The regulator will expect you to follow this plan. If you later need to change how you spend the income you
+            must explain this in your annual report.
           </div>
-<br>
+          <br>
           <div class="govuk-form-group">
             <div class="govuk-form-group">
               <h3 class="govuk-label-wrapper">
@@ -58,7 +69,8 @@
                 <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               </h3>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight1" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight1" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
@@ -71,7 +83,8 @@
                 <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               </h3>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight2" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight2" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
@@ -84,7 +97,8 @@
                 <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               </h3>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight3" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight3" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
@@ -97,7 +111,8 @@
                 <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               </h3>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight4" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight4" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
@@ -110,7 +125,8 @@
               </h3>
               <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight5" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight5" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
@@ -123,11 +139,30 @@
               </h3>
               <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
               <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="weight6" name="per" type="number" spellcheck="false" oninput="updateTotal()">
+                <input class="govuk-input govuk-input--width-5" id="weight6" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
                 <div class="govuk-input__suffix" aria-hidden="true">%</div>
               </div>
             </div>
+
+
+            <div class="govuk-form-group">
+              <h3 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="weight7">
+                  Activities or investment not covered by the other categories
+                </label>
+              </h3>
+              <div id="changedName-hint" class="govuk-hint">Enter a whole percentage</div>
+              <div class="govuk-input__wrapper">
+                <input class="govuk-input govuk-input--width-5" id="weight7" name="per" type="number" spellcheck="false"
+                  oninput="updateTotal()">
+                <div class="govuk-input__suffix" aria-hidden="true">%</div>
+              </div>
+            </div>
+
+
             <br>
+            <!--
             <div class="govuk-warning-text">
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
@@ -135,6 +170,10 @@
                Total must equal 100%
               </strong>
             </div>
+-->
+            <p class="govuk-body">Total must equal 100%</p>
+
+
             <div class="govuk-form-group">
               <h3 class="govuk-label-wrapper">
                 <label class="govuk-label govuk-label--s" for="total">
@@ -144,16 +183,19 @@
               <div class="govuk-input__wrapper">
                 <span id="total" class="govuk-input govuk-input--width-5">0%</span>
               </div>
-            </div>         
-     </fieldset>
+            </div>
+        </fieldset>
       </div>
-  <br>
-      <button class="govuk-button" formaction="./spend-prn-income">Save and continue</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and come back later</button>
+      <br>
+      <button class="govuk-button" formaction="./spend-prn-income" 
+  onclick="storeValues()">Save and continue</button> <button
+        class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Save and
+        come back later</button>
 
-</div>
+  </div>
 
 
-</form>
+  </form>
 
 
 {% endblock %}
