@@ -1,0 +1,75 @@
+{% set serviceName = "Registration" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <form class="form" action="" method="POST">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="more-detail">
+          Payment for reprocessor accreditation application
+        </label>
+      </h1>
+    </div>
+
+    <div class="govuk-inset-text">
+      <h2 class="govuk-heading-m">Amount due: £2,000</h2>
+</div>
+    <p class="govuk-body">
+
+       <p class="govuk-body"> <strong>Description:</strong><br>
+        Charge for reprocessor accreditation application for steel .</p>
+        <p class="govuk-body"> <strong>Tonnage band applied for:</strong>
+        Up to 5,000 tonnes</p>
+        <p class="govuk-body"> <strong> Date application submitted: </strong>
+         7 May 2025 </p>
+          <p class="govuk-body"> <strong>Payable to:</strong>
+             Environment Agency </p>
+      </p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">
+          Pay by credit or debit card</h2>
+          <p class="govuk-body">Use your application reference:  <strong>PR/PK/REP-R000001</strong> </p>
+<button class="govuk-button" formaction="#">Pay online</button>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">
+          Pay by bank transfer</h2>
+          <p class="govuk-body">Use the application payment reference: <strong>PR/PK/REP-R000001</strong>
+            <br><strong>Account name:</strong> EA RECEIPTS
+  <br><b>Account number:</b> 10014411
+  <br><b>Sort code:</b> 60-70-80
+  <br><b>Bank name:</b> RBS/Natwest, London Corporate Service Centre, CPB Services, 2nd floor, 280 Bishopsgate, London EC2M 4RB
+</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">
+          Enquiries about payments</h2>
+<p class="govuk-body">
+Contact the Environment Agency.</p>
+
+ <button class="govuk-button" formaction="confirmation">Download payment details as PDF</button> <button class=" govuk-button govuk-button--secondary" formaction="application-saved" style="margin-left: 20px;">Home</button>
+
+
+    </form>
+</div>
+</div>
+
+{% endblock %}
