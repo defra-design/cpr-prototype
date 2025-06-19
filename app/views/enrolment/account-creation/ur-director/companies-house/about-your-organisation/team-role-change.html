@@ -19,20 +19,7 @@ Report packaging data
     serviceName: "EPR for packaging: reprocessors and exporters",
     serviceUrl: "#",
     navigation: [
-    {
-    href: "#",
-    text: "",
-    active: true
-    },
-    {
-    href: "manage-account.html",
-    text: "" 
-    },
     
-    {
-    href: "#",
-    text: ""
-    }
     ]
     }) }}
 
@@ -50,7 +37,9 @@ Report packaging data
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
+    <form method="POST" action="check-your-answers">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
               What is their role as shown on Companies House?
@@ -60,13 +49,13 @@ Report packaging data
           <p>These roles are eligible to be invited as an approved person. You can still enrol an organisation without inviting someone if you do not have a name and contact details yet.</p>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              
+              <input class="govuk-radios__input" id="director" name="form-role-in-organisation" type="radio" value="Director" {{ checked("form-role-in-organisation", "Director") }}>
               <label class="govuk-label govuk-radios__label" for="director">
                 Company director
               </label>
             </div>
             <div class="govuk-radios__item">
-             
+              <input class="govuk-radios__input" id="secretary" name="form-role-in-organisation" type="radio" value="Company secretary" {{ checked("form-role-in-organisation", "Company secretary") }}>
               <label class="govuk-label govuk-radios__label" for="secretary">
                 Company secretary
               </label>
@@ -74,14 +63,18 @@ Report packaging data
             
           </div>
 
-        
+        </fieldset>
         <p></p><br>
+
         <div class="govuk-button-group">
-                  <a href="team-invite" class="govuk-button" type="submit">Continue with invitation</a> 
-                  <a href="check-your-answers" class="govuk-button govuk-button--secondary">Continue without invitation</a>     
-                </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+          
+        </div>
+      </div>
       
-    
+    </form>
   </div>
 </div>
 
