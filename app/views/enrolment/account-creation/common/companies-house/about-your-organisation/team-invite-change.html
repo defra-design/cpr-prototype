@@ -1,0 +1,85 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="check-your-answers">
+      <h1 class="govuk-heading-l">What are their details?</h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="full-name">
+          First name
+        </label>
+        <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="full-name">
+          Last name
+        </label>
+        <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="email">
+          Email
+        </label>
+        <div id="email-hint" class="govuk-hint">
+          We ask for this so we can invite them to join your team.
+        </div>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+      </div>
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="phone-number">
+          Telephone
+        </label>
+        <div id="event-name-hint" class="govuk-hint">We ask for this in case your regulator needs to call them directly with any queries.</div>
+        <input class="govuk-input govuk-input--width-20" id="phone-number" name="phoneNumber" type="tel" autocomplete="tel">
+      </div>
+      </div>
+      </div>
+      
+
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
