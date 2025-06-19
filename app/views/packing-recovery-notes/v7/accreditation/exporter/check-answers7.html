@@ -222,18 +222,20 @@ href: "javascript:history.back()"
 
       const html = `
         <!-- Organisation header -->
-        <tr>
-          <td class="govuk-!-font-weight-bold">Overseas reprocessing site details ${index + 1}</td>
-          <td>
-  <div style="max-width: 200px; word-wrap: break-word;">${orgName}</div>
-</td>
-          <td style="text-align: right; white-space: nowrap;">
-  
-  <a href="overseas-reprocessor-details1?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
-  <br>
-  <a href="#" class="govuk-link remove-site" data-index="${index}">Delete this site</a>
-</td>
-        </tr>
+      <tr>
+  <td class="govuk-!-font-weight-bold">
+    Overseas reprocessing site details ${index + 1}
+    <br>
+    <a href="#" class="govuk-link remove-site" data-index="${index}" style="font-weight: normal;">Delete this site</a>
+  </td>
+  <td>
+    <div style="max-width: 200px; word-wrap: break-word;">${orgName}</div>
+  </td>
+  <td style="text-align: right; white-space: nowrap;">
+    <a href="overseas-reprocessor-details1?index=${index}&redirect=check-answers7" class="govuk-link">Change</a>
+  </td>
+</tr>
+
 
         <!-- Address -->
         <tr>
@@ -335,7 +337,7 @@ href: "javascript:history.back()"
     const banner = document.getElementById("success-banner");
     const text = document.getElementById("success-text");
 
-    text.textContent = `You’ve deleted ${orgName}, ${addressLine1}`;
+    text.textContent = `You’ve removed ${orgName}, ${addressLine1}`;
     banner.hidden = false;
 
     // Clear after showing once
