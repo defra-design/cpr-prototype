@@ -35,12 +35,12 @@ href: "javascript:history.back()"
         <h1 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-8">
             <span class="govuk-caption-xl">Accreditation record</span>
             URM UK Ltd t/a Berryman
-             <span class="govuk-form-group" style="float: right;"><button type="submit" class="govuk-button" data-module="govuk-button">
-  Print a copy
-</button></span>
+             <span class="govuk-form-group" style="float: right;">
+                  <button class="govuk-button print-page-button" type="button">Print or download this page</button>
+</span>
         </h1>
         <p class="govuk-body-l">
-            As at 21/05/2025<br>
+            As at 23/06/2025<br>
             <span class="govuk-body">See accreditation history below for details of any amendments.
         </p>
               <p class="govuk-body">The data in this register is from 1 January 2025 onwards. For data from 2024 or earlier – for example, accreditation history and previous suspensions – use the
@@ -347,9 +347,7 @@ N/A
 
 </div>
         <div class="govuk-button-group">
-  {{ govukButton({
-    text: "Download a copy"
-  }) }}
+<button class="govuk-button print-page-button" type="button">Print or download this page</button>
 
   <a class="govuk-link" href="./search-results.html">Back to search results</a>
 </div>
@@ -362,4 +360,18 @@ N/A
 
 
 
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var printButtons = document.querySelectorAll('.print-page-button')
+      printButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          window.print()
+        })
+      })
+    })
+  </script>
 {% endblock %}
