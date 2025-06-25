@@ -1,4 +1,4 @@
-{% extends "layout-blank.html" %}
+{% extends "layout-gov.html" %}
 
 {% set serviceName %}
 Collection and packaging reforms
@@ -7,7 +7,7 @@ Collection and packaging reforms
 {% set serviceName = "" %}
 
 {% block pageTitle %}
-GOV.UK
+GOV.UK - Search for a reprocessor or exporter
 {% endblock %}
 
 
@@ -474,13 +474,13 @@ href: "javascript:history.back()"
                     </legend>
                     {{ govukInput({
                     label: {
-                    text: "Search by company name, number or other details",
+                    text: "Search by company name, company number or other details",
                     classes: "govuk-label--m",
                     isPageHeading: true
                     },
                     classes: "govuk-input",
                     hint: {
-                    text: "For example, postcode, registration number, material type, accreditation agency or accreditation
+                    text: "For example, postcode, EPR registration number, material type, accreditation agency or accreditation
                     number"
                     },
                     id: "account-number",
@@ -681,7 +681,11 @@ href: "javascript:history.back()"
 
     <div class="govuk-grid-column-full govuk-!-margin-top-3">
 
-        <div class="govuk-table-container">
+        <p class="govuk-body">
+  To view the full accreditation record, select the company name in the results table.
+</p>
+
+        <div class="govuk-table-container govuk-!-margin-top-6">
 
             <table class="govuk-table responsive-table">
 
@@ -692,7 +696,7 @@ href: "javascript:history.back()"
 
                         <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;"
                             data-module="govuk-button">
-                            Download search results</button> <!--   <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;" data-module="govuk-button">
+                            Download CSV file of generated search results</button> <!--   <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;" data-module="govuk-button">
  Download full register</button> -->
 
                     </span>
@@ -700,7 +704,7 @@ href: "javascript:history.back()"
 
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Company name,<br> Postcode, Number</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Company name,<br> Postcode, Company number</th>
 
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">
                             Company type,<br>Material/Process </th>
@@ -718,20 +722,21 @@ href: "javascript:history.back()"
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
 
-                        <td class="govuk-table__cell" data-label="Name"><a href="./company-accreditation-report-v2.html"
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="./company-accreditation-report-v2.html"
                                 class="govuk-link">URM UK Ltd t/a Berryman</a><br>WF9 3NR<br><span
                                 class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Other</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Other</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER7012251234GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER7012254321GL
                             
                             <br><span class="">Environment Agency</span><br><strong
@@ -746,19 +751,20 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM UK Ltd t/a
                                 Berryman</a><br>RM18 7EH<br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Other</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Other</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Other</td> -->
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER0171281200GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER0171286544GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
@@ -769,20 +775,21 @@ href: "javascript:history.back()"
                     </tr>
 
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM (UK) Ltd t/a
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM (UK) Ltd t/a
                                 Berrymans</a><br>DN2 4RH<br><span class="govuk-body-s">4084246</span></td>
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Re-melt</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
 
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER0161629998GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER0161627878GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
@@ -794,21 +801,22 @@ href: "javascript:history.back()"
                     </tr>
 
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM UK Ltd t/a
                                 Berryman</a><br>WF9 3NR<br><span class="govuk-body-s">4084246</span></td>
 
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Re-melt</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER0151244433GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER0151240000GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
@@ -817,21 +825,22 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM UK Ltd t/a
                                 Berryman</a><br>WF9 3NR<br><span class="govuk-body-s">4084246</span></td>
 
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Re-melt</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER0017121212GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER0017121233GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
@@ -841,22 +850,23 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd T/A
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM UK Ltd T/A
                                 Berrymans</a><br>RM18 7EH<br><span class="govuk-body-s">4084246</span></td>
 
 
-                        <td class="govuk-table__cell" data-label="Type">Reprocessor <br> Glass Re-melt</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Reprocessor <br> Glass Re-melt</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25ER0161616677GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--green" data-label="Status">
                                 Active
                             </strong></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25ER0161616666GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--yellow" data-label="Status">
                                 Suspended
@@ -865,22 +875,23 @@ href: "javascript:history.back()"
 
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" data-label="Name"><a href="#" class="govuk-link">URM UK Ltd t/a
+                        <td class="govuk-table__cell" data-label="Company name, Postcode, Company number"><a href="#" class="govuk-link">URM UK Ltd t/a
                                 Berryman</a><br>WF9 3NR<br><span class="govuk-body-s">4084246</span></td>
 
 
-                        <td class="govuk-table__cell" data-label="Type">Exporter <br> Glass Re-melt</td>
+                        <td class="govuk-table__cell" data-label="Company type, Material/Process">Exporter <br> Glass Re-melt</td>
 
                         <!--  <td class="govuk-table__cell" data-label="Material">Glass Re-melt</td> -->
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Registration number, Accrediting agency, Status">
                             R25EX0131470000GL
                             <br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--grey" data-label="Status">
                                 Cancelled
                             </strong></td>
 
-                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation No.">
+                        <td class="govuk-table__cell govuk-table__cell--numeric" data-label="Accreditation number,
+Accrediting agency, Status">
                             A25EX0131470099GL<br><span class="">Environment Agency</span><br><strong
                                 class="govuk-tag govuk-tag--grey" data-label="Status">
                                 Cancelled
