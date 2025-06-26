@@ -34,13 +34,14 @@
       <!--
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Fulfil all these conditions</dt>
-            <dd class="govuk-summary-list__value">No, the do not fulfill all these conditions</dd>
+            <dd class="govuk-summary-list__value">No, the do not fulfil all these conditions</dd>
             <dd class="govuk-summary-list__actions"><a href="/packing-recovery-notes/v7/accreditation/accreditation-exporter/upload-broadly-equivalent-evidence1">Change</a></dd>
           </div>
           -->
         </dl>
    <div id="evidence-summary-list-container"></div>
-   <dl class="govuk-summary-list">
+   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+   <dl class="govuk-summary-list ">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
 Do you want to upload more evidence?</dt>
@@ -53,14 +54,14 @@ Do you want to upload more evidence?</dt>
  <p>&nbsp;</p>
     
       <button type="submit" formaction="broadly-equivalent1" class="govuk-button">Confirm and continue</button>
-<button type="submit" style="margin-left: 20px;" class="govuk-button govuk-button--secondary" formaction="save-draft">Save and continue later</button>
+<button type="submit" style="margin-left: 20px;" class="govuk-button govuk-button--secondary" formaction="save-draft">Save and come back later</button>
 
     </form>
 
   </div>
 </div>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('evidence-summary-list-container');
     const evidenceList = JSON.parse(sessionStorage.getItem('evidenceList')) || [];
@@ -79,7 +80,7 @@ Do you want to upload more evidence?</dt>
             <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Start date of evidence</dt>
+            <dt class="govuk-summary-list__key">Evidence valid from</dt>
             <dd class="govuk-summary-list__value">${evidence.startDate}</dd>
             <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
           </div>
@@ -94,8 +95,53 @@ Do you want to upload more evidence?</dt>
       container.insertAdjacentHTML('beforeend', html);
     });
   });
-</script>
+</script> -->
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('evidence-summary-list-container');
+    const evidenceList = JSON.parse(sessionStorage.getItem('evidenceList')) || [];
+
+    if (evidenceList.length === 0) {
+      container.innerHTML = "<p>No evidence uploaded yet.</p>";
+      return;
+    }
+
+    evidenceList.forEach((evidence, index) => {
+      let html = "";
+
+      // Insert horizontal line ONLY from second item onward
+      if (index > 0) {
+        html += `<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">`;
+      }
+
+       // Use inline style only for the first evidence item
+      const rowStyle = 'style="border-bottom: none;"';
+      // Apply 'no-borders' class only to first evidence block
+      html += `
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row" ${rowStyle}>
+            <dt class="govuk-summary-list__key">File uploaded</dt>
+            <dd class="govuk-summary-list__value govuk-summary-list__row">${evidence.file}</dd>
+            <dd class="govuk-summary-list__actions govuk-summary-list__row"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row" ${rowStyle}>
+            <dt class="govuk-summary-list__key ">Evidence valid from</dt>
+            <dd class="govuk-summary-list__value govuk-summary-list__row">${evidence.startDate}</dd>
+            <dd class="govuk-summary-list__actions govuk-summary-list__row"><a href="#">Change</a></dd>
+          </div>
+          <div class="govuk-summary-list__row" ${rowStyle}>
+            <dt class="govuk-summary-list__key">Expiry date of evidence</dt>
+            <dd class="govuk-summary-list__value ">${evidence.expiryDate}</dd>
+            <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+          </div>
+        </dl>
+      `;
+
+      container.insertAdjacentHTML('beforeend', html);
+    });
+  });
+</script>
 
 
 
