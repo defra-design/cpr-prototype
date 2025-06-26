@@ -27,17 +27,27 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading" style="max-width: fit-content;">
+        The draft billing file is out of date because the billing instructions have changed. You must first generate a new draft billing file before it is sent to the FSS.
+      </h3>
+    </div>
   </div>
 </div>
 
-
-<div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
-    &nbsp; &nbsp; <br>
     <form method="POST" action="#">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
@@ -64,7 +74,7 @@
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Run date and time</th>
-                    <td class="govuk-table__cell">21 June 2024 at 12:09</td>
+                    <td class="govuk-table__cell">1 May 2024 at 12:09</td>
                   </tr>
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Run by</th>
@@ -74,7 +84,7 @@
               </table>
               <!-- Download UI start -->
               <h2 class="govuk-heading-m">Downloads</h2>
-            <p class="govuk-body">Download files related to this calculation run.</p>
+            <p class="govuk-body">Download files related to this calculation run. The billing file sent to the FSS must reflect the latest confirmed billing instructions.</p>
 
             <div class="govuk-button-group">
               <a id="download-results" href="#" class="govuk-button govuk-button--secondary" role="button">
@@ -83,9 +93,15 @@
               <p id="status-results" class="govuk-body" style="display: none; margin-bottom: 40px;">
                 <strong>Downloading...</strong> Please wait while we prepare your file.
               </p>
-              <a id="download-draft" href="#" class="govuk-button govuk-button--secondary" role="button">
+              <a id="download-draft" href="#" class="govuk-button govuk-button--secondary" role="button" disabled aria-disabled="true">
                 Draft billing file
               </a>
+              </div>
+              <div class="govuk-button-group">
+              <a id="download-draft" href="#" class="govuk-button govuk-button--secondary" role="button">
+                Generate new draft billing file
+              </a>
+              <p class="govuk-body">This file will reflect the latest confirmed billing instructions.</p>
               <p id="status-draft" class="govuk-body" style="display: none; margin-bottom: 40px;">
                 <strong>Downloading...</strong> Please wait while we prepare your file.
               </p>
@@ -104,11 +120,10 @@
               
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
               <h2 class="govuk-heading-m">Amend billing instructions</h2>
-              <p class="govuk-body">Review or change the billing instructions before sending the billing file.</p>
+              <p class="govuk-body">Review or change the billing instructions. You will need to generate a new draft billing file if you change any instructions.</p>
 
               <div class="govuk-button-group">
-                <a href="/paycal/final-june/accept-selected-page/overview-2nd-phase" class="govuk-button govuk-button--secondary"
-                  style="display: inline;">Amend billing instructions</a>
+                <a href="/paycal/final-june/accept-selected-page/overview-2nd-phase" class="govuk-button govuk-button--secondary" style="display: inline;">Amend billing instructions</a>
               </div>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
               <h2 class="govuk-heading-m">Next step</h2>
@@ -122,10 +137,10 @@
                 </strong>
               </div>
 
-              <div class="govuk-button-group"><a href="/paycal/final-june/scenarios/scenario1/classify/initial-run/send-billing-file" class="govuk-button show-continue"
-                  style="display: inline;">
-                  Continue
-                </a>
+
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button" disabled aria-disabled="true">Continue</button>
+
 
                 <a class="govuk-link" href="./scenario1-dashboard-initial-run.html">Return to dashboard</a>
               </div>
