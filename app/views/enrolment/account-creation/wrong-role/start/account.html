@@ -1,43 +1,57 @@
-{% extends "layout-private-beta-research.html" %}
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
+{% extends "layout.html" %}
 
-{% set serviceName = "Reprocessor and exporters service" %}
+{% set serviceName = "Report takeaway cups recycling data" %}
+
+{% set title = "Report takeaway cups recycling data" %}
 
 {% block pageTitle %}
- Report packaging data
+    {{title}} - GOV.UK
 {% endblock %}
 
 {% block header %}
+{% include "../cups-header.html" %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "",
-    serviceUrl: "#",
-    navigation: [
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
     {
-    href: "#",
-    text: "",
-    active: true
+      text: 'Home',
+      href: './landing-page-home'
     },
     {
-    href: "",
-    text: "" 
+      text: 'Registration details',
+      href: './landing-page-registration',
+      active: true
     },
-    
     {
-    href: "#",
-    text: ""
+      text: 'Report cups data',
+      href: './landing-page-report'
+    },
+    {
+      text: 'Useful information',
+      href: './landing-page-info'
+    },
+    {
+      text: 'Manage your account',
+      href: '#2'
+    },
+    {
+      text: 'Contact us',
+      href: '#3'
     }
-    ]
-    }) }}
+  ]
+}) }}
 
-  
-
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
 {% endblock %}
 
 {% block content %}
