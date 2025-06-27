@@ -1,4 +1,3 @@
-
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -7,10 +6,8 @@
 
 {% extends "layout.html" %}
 
-
-
 {% block pageTitle %}
-    {{serviceName}} prototype
+  {{ serviceName }} prototype
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,13 +19,13 @@
 
 {% block content %}
 
-
-
-   <div class="govuk-width-container">
-  <main class="govuk-main-wrapper " id="main-content" role="main">
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
         <h1 class="govuk-heading-l">Check your answers before continuing</h1>
+
+        <!-- Your original sections here remain unchanged -->
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -42,7 +39,7 @@
             </dd>
           </div>
         </dl>
-        
+
         <h2 class="govuk-heading-m">Permit for accepting and reprocessing steel</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -101,6 +98,7 @@
             </dd>
           </div>
         </dl>
+
         <h2 class="govuk-heading-m">Permit for accepting and reprocessing wood</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -119,7 +117,7 @@
               The maximum weight the licence authorises the site to accept and recycle
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['weighter']}}
+              {{data['weighty']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
@@ -166,83 +164,36 @@
             <dt class="govuk-summary-list__key">
               Waste carrier, broker or dealer registration number
             </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['regnum']}}
+            <dd class="govuk-summary-list__value" id="waste-regnum-display">
+              <!-- will be filled from localStorage -->
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+              <a class="govuk-link" href="waste-licences-permits">
+                Change<span class="govuk-visually-hidden"> previous application number</span>
+              </a>
             </dd>
           </div>
         </dl>
-<!--
-        <h2 class="govuk-heading-m">About the materials you will reprocess</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Materials you will reprocess in 2026
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['materials']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Reason you are not reprocessing wood in 2026
-            </dt>
-            <dd class="govuk-summary-list__value">
-              For personal use
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Contact for wood application
-            </dt>
-            <dd class="govuk-summary-list__value">
-              John Smith
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> home address</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Contact for steel application
-            </dt>
-            <dd class="govuk-summary-list__value">
-              John Smith
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
-            </dd>
-          </div>
-        </dl>
--->
-        <form action="./tasklist3" method="post" novalidate>
 
+        <form action="./tasklist3" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
-    
           <div class="govuk-button-group">
-            {{ govukButton({
-              text: "Confirm and continue"
-            }) }}
-          
-            {{ govukButton({
-              text: "Save and continue later",
-              classes: "govuk-button--secondary"
-            }) }}
+            {{ govukButton({ text: "Confirm and continue" }) }}
+            {{ govukButton({ text: "Save and continue later", classes: "govuk-button--secondary" }) }}
           </div>
-    
         </form>
+
       </div>
     </div>
   </main>
 </div>
-  </div>
-</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const regNum = localStorage.getItem('wasteRegistrationNumber');
+    const target = document.getElementById('waste-regnum-display');
+    target.textContent = regNum ? regNum : 'Not provided';
+  });
+</script>
+
 {% endblock %}
