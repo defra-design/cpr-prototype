@@ -1,49 +1,51 @@
-{% extends "layout-private-beta-research.html" %}
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
 
-{% set serviceName %}
-Report packaging data
-{% endset%}
+{% extends "layout.html" %}
 
-{% set serviceName = "Reprocessor and exporters service" %}
+{% set serviceName = "#" %}
+
+{% set title = "" %}
 
 {% block pageTitle %}
- Report packaging data
+    {{title}} - GOV.UK
 {% endblock %}
 
 {% block header %}
+{% include "../cups-header.html" %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "EPR for packaging: reprocessors and exporters",
-    serviceUrl: "#",
-    navigation: [
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
     {
-    href: "#",
-    text: "",
-    active: true
+      text: 'EPR for packaging: reprocessors and exporters',
+      href: '#'
     },
     {
-    href: "manage-account.html",
-    text: "" 
+      text: 'Home',
+      href: 'account',
+      active: true
     },
     
+    
     {
-    href: "#",
-    text: ""
-    }
-    ]
-    }) }}
-
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
+      text: 'Manage your account',
+      href: '#2'
     },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+    {
+      text: 'Sign out',
+      href: '#3'
+    }
+  ]
+}) }}
 
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
 {% endblock %}
 
 {% block content %}
