@@ -11,32 +11,47 @@
 {% endblock %}
 
 {% block header %}
-{% include "../cups-header.html" %}
 
-{{ mojPrimaryNavigation({
-  label: 'Primary navigation',
-  items: [
-    {
-      text: 'EPR for packaging: reprocessors and exporters',
-      href: '#'
-    },
-    {
-      text: 'Home',
-      href: 'account',
-      active: true
-    },
-    
-    
-    {
-      text: 'Manage your account',
-      href: '#2'
-    },
-    {
-      text: 'Sign out',
-      href: '#3'
-    }
-  ]
-}) }}
+  {{ govukHeader({
+    homepageUrl: "../../../index.html"
+    }) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+
+        <ul class="moj-primary-navigation__list">
+
+
+   <li class="moj-primary-navigation__item">
+        <p><strong>EPR for packaging: reprocessors and exporters
+</strong></p>
+</li>
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="#1">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#2">Manage your account</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#3">Sign out</a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
 
 {{ govukPhaseBanner({
   tag: {
@@ -49,6 +64,19 @@
 {% endblock %}
 
 {% block content %}
+
+<style>
+
+  /* ==========================================================================
+   #PRIMARY NAVIGATION Overriding the bold 
+   Known issue workaround hack is not responsive atm
+   ========================================================================== */
+
+.moj-primary-navigation__link {
+  font-weight: normal;
+}
+
+</style>
 
 
     <div class="govuk-grid-row">
