@@ -3,72 +3,66 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  {{ govukBackLink ({
-      text: "Back",
-      href: "javascript:history.back()"
-	}) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
 {% endblock %}
 
 {% block pageTitle %}
-    {{serviceName}} prototype
+  {{ serviceName }} prototype
 {% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-
-
-
-
     <div class="govuk-form-group">
-<fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-               
-      <h1 class="govuk-heading-l">
-        Waste carrier, broker or dealer registration for: {company limited}
-      </h1>
-     
-    </legend>
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-heading-l">
+            Waste carrier, broker or dealer registration for: {company limited}
+          </h1>
+        </legend>
 
-    <h1 class="govuk-heading-m">
-      Enter registration number
-    </h1>
-    <div class="govuk-form-group">
+        <h1 class="govuk-heading-m">Enter registration number</h1>
 
-        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-20" id="weight" name="regnum"  type="alphanumeric" spellcheck="false">
-
+        <div class="govuk-form-group">
+          <div class="govuk-input__wrapper">
+            <input class="govuk-input govuk-input--width-20" id="regnum" name="regnum" type="text" spellcheck="false">
+          </div>
         </div>
+
+      </fieldset>
     </div>
 
+    <form class="form" action="check-answers2" method="POST">
+      <div class="govuk-button-group">
+        <button class="govuk-button" type="submit">Save and continue</button>
+        <a class="govuk-button govuk-button--secondary" href="application-saved" role="button">
+          Save and come back later
+        </a>
+      </div>
+    </form>
 
-
-    <!--<h1 class="govuk-heading-m">
-      Discharge consent number
-    </h1>
-    <div class="govuk-form-group">
-
-        <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-20" id="weight" name="number5"  type="number" spellcheck="false">
-
-        </div>
-    </div>-->
-
-
-
-
-</fieldset>
-</div>
-<div id="codemain">
-<div id="code" style="float: left;">
-<form class="form" action="check-answers2" method="POST">
-          <input class="govuk-button" type="submit" value="Save and continue"  />
-</form>
+  </div>
 </div>
 
+<script>
+  // Store regnum value in localStorage on form submit
+  document.querySelector('form').addEventListener('submit', function () {
+    const regnumValue = document.getElementById('regnum').value;
+    localStorage.setItem('wasteRegistrationNumber', regnumValue);
+  });
 
- 
-  <a href="application-saved" style="float: right;"> <input class="govuk-button govuk-button--secondary"  type="submit" value="Save and come back later"  /></a>
-</div>
-</div>
+  // Pre-fill regnum if previously stored
+  window.addEventListener('DOMContentLoaded', function () {
+    const saved = localStorage.getItem('wasteRegistrationNumber');
+    if (saved) {
+      document.getElementById('regnum').value = saved;
+    }
+  });
+</script>
 
 {% endblock %}
