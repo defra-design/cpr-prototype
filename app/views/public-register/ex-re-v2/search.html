@@ -11,12 +11,50 @@ GOV.UK - Search for a reprocessor or exporter
 {% endblock %}
 
 
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink ({
-text: "Back to public register for the ‘report packaging data’ service",
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+   {{ govukBackLink ({
+text: "Back to public register",
 href: "./guidance"
 }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
 {% endblock %}
 
 
@@ -479,7 +517,7 @@ href: "./guidance"
 
 {{ govukInput({
   label: {
-    text: "Search by company name, company house number or other details",
+    text: "Search by company name, Companies House number or other details",
     classes: "govuk-label--m",
     isPageHeading: true
   },
