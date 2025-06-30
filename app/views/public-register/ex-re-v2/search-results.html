@@ -11,16 +11,55 @@ GOV.UK - Search for a reprocessor or exporter
 {% endblock %}
 
 
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink ({
-text: "Back to public register for the ‘report packaging data’ service",
-href: "javascript:history.back()"
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+   {{ govukBackLink ({
+text: "Back to public register",
+href: "./guidance"
 }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
 {% endblock %}
 
 
 {% block content %}
+
 
 <style>
     .card {
@@ -474,7 +513,7 @@ href: "javascript:history.back()"
                     </legend>
                     {{ govukInput({
                     label: {
-                    text: "Search by company name, company house number or other details",
+                    text: "Search by company name, Companies House number or other details",
                     classes: "govuk-label--m",
                     isPageHeading: true
                     },
@@ -488,7 +527,7 @@ href: "javascript:history.back()"
                     name: "accountNumber",
                     inputmode: "numeric",
                     spellcheck: false,
-                    value: "4084246"
+                    value: "URM UK Ltd"
                     }) }}
 
 
@@ -710,7 +749,7 @@ href: "javascript:history.back()"
 
                         <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;"
                             data-module="govuk-button">
-                            Download CSV file of generated search results</button> <!--   <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;" data-module="govuk-button">
+                            Download CSV file of results</button> <!--   <button type="submit" class="govuk-button govuk-button--secondary" style="margin-right: 15px;" data-module="govuk-button">
  Download full register</button> -->
 
                     </span>
@@ -719,7 +758,7 @@ href: "javascript:history.back()"
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">Company name,
-                            Postcode,<br> Company House number</th>
+                            Postcode<br> and Companies House number</th>
 
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">
                             Company type,<br>Material/Process </th>
