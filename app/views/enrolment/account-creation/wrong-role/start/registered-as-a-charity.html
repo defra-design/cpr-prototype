@@ -16,33 +16,60 @@ Report packaging data
   
   {{ govukHeader({
     homepageUrl: "../../../index.html",
-    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceName: "",
     serviceUrl: "#",
     navigation: [
     {
     href: "#",
-    text: "Home",
+    text: "",
     active: true
     },
     {
-    href: "manage-account.html",
-    text: "Manage account" 
+    href: "",
+    text: "" 
     },
     
     {
     href: "#",
-    text: "Sign out"
+    text: ""
     }
     ]
     }) }}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+  <section aria-label="Service information" class="govuk-service-navigation"
+  data-module="govuk-service-navigation">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <span class="govuk-service-navigation__service-name">
+        <a href="#" class="govuk-service-navigation__link">
+          EPR for packaging: reprocessors and exporters
+        </a>
+      </span>
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="navigation">
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              Home
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+            <a class="govuk-service-navigation__link" href="#" aria-current="true">
+              <strong class="govuk-service-navigation__active-fallback">My profile</strong>
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
 

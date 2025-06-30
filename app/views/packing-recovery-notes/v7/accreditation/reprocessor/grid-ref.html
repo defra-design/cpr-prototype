@@ -6,38 +6,52 @@
   {{ govukBackLink ({
       text: "Back",
       href: "javascript:history.back()"
-	}) }}
+  }) }}
 {% endblock %}
 
 {% block pageTitle %}
-    {{serviceName}} prototype
+  {{serviceName}} prototype
 {% endblock %}
-{% block content %}
 
+{% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="./send-legal-document" method="post">
+    <form action="./send-legal-document" method="post" id="gridRefForm">
 
-  <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="account-number">
-        Enter the reprocessing site’s grid reference
-      </label>
-    </h1>
-    <div id="account-number-hint" class="govuk-hint">
-      You’ll find the site grid reference on permits and exemptions
-    </div>
-    <input class="govuk-input govuk-input--width-10" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="account-number">
+            Enter the reprocessing site’s grid reference
+          </label>
+        </h1>
+        <div id="account-number-hint" class="govuk-hint">
+          You’ll find the site grid reference on permits and exemptions
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+      </div>
+
+      <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;" />
+      <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later" />
+
+    </form>
   </div>
-  
-  <input class="govuk-button" type="submit" value="Save and continue" style="margin-right: 20px;"  />  <input class="govuk-button govuk-button--secondary" type="submit" value="Save and come back later"  />
-     
-  </form>
-</div>
 </div>
 
+<script>
+  // Save to localStorage on submit
+  document.getElementById('gridRefForm').addEventListener('submit', function () {
+    const inputValue = document.getElementById('account-number').value;
+    localStorage.setItem('gridReference', inputValue);
+  });
 
-
+  // Pre-fill input if value exists in localStorage
+  window.addEventListener('DOMContentLoaded', function () {
+    const savedRef = localStorage.getItem('gridReference');
+    if (savedRef) {
+      document.getElementById('account-number').value = savedRef;
+    }
+  });
+</script>
 
 {% endblock %}
