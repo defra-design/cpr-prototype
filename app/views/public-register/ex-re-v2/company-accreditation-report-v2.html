@@ -7,21 +7,59 @@ Collection and packaging reforms
 {% set serviceName = "" %}
 
 {% block pageTitle %}
-GOV.UK - Accreditation record - URM UK Ltd t/a Berryman
+GOV.UK - Search for a reprocessor or exporter
 {% endblock %}
 
 
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#"
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
 
 {% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
 {{ govukBackLink ({
 text: "Back to search results ",
 href: "javascript:history.back()"
 }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
 {% endblock %}
 
 
 
 {% block content %}
+
+
 
 
 
