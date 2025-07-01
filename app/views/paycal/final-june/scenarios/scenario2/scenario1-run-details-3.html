@@ -1,0 +1,160 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+
+<style>
+  .govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="/paycal/final-june/scenarios/scenario2/final-recalculation-run/scenario2-dashboard-final-recalculation-run">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br>
+    <form method="POST" action="#">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+              <span class="govuk-caption-l">Dec Run 24</span>
+              <h1 class="govuk-heading-l">Calculation run details</h1>
+
+              <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+
+              <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Financial year</th>
+                    <td class="govuk-table__cell">2024-25</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Classification</th>
+                    <td class="govuk-table__cell">Final recalculation run</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Calculation ID</th>
+                    <td class="govuk-table__cell">240011</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Run date and time</th>
+                    <td class="govuk-table__cell">15 December 2024 at 09:25</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Run by</th>
+                    <td class="govuk-table__cell">Steve Jones</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Download UI start -->
+              <h2 class="govuk-heading-m">Downloads</h2>
+            <p class="govuk-body">Download files related to this calculation run.</p>
+
+            <div class="govuk-button-group">
+              <a id="download-results" href="#" class="govuk-button govuk-button--secondary" role="button">
+                Results file
+              </a>
+              <p id="status-results" class="govuk-body" style="display: none; margin-bottom: 40px;">
+                <strong>Downloading...</strong> Please wait while we prepare your file.
+              </p>
+              <a id="download-draft" href="#" class="govuk-button govuk-button--secondary" role="button">
+                Draft billing file
+              </a>
+              <p id="status-draft" class="govuk-body" style="display: none; margin-bottom: 40px;">
+                <strong>Downloading...</strong> Please wait while we prepare your file.
+              </p>
+            </div>
+
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+              <!-- Download UI end -->
+              <h2 class="govuk-heading-m">Remove this run's classification</h2>
+              <p class="govuk-body">Mark this run as a test or delete it to remove its classification.</p>
+
+              <div class="govuk-button-group">
+                <a href="/paycal/final-june/scenarios/scenario2/remove-run-classification" class="govuk-button govuk-button--secondary"
+                  style="display: inline;">Remove classification</a>
+              </div>
+              
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <h2 class="govuk-heading-m">Amend billing instructions</h2>
+              <p class="govuk-body">Review or change the billing instructions before sending the billing file.</p>
+
+              <div class="govuk-button-group">
+                <a href="/paycal/final-june/accept-selected-page/overview-2nd-phase-frr" class="govuk-button govuk-button--secondary"
+                  style="display: inline;">Amend billing instructions</a>
+              </div>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              <h2 class="govuk-heading-m">Next step</h2>
+
+              <p class="govuk-body">Confirm that you want to send the billing file to the FSS.</p>
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  Once sent, you will not be able to amend the billing file.
+                </strong>
+              </div>
+
+              <div class="govuk-button-group"><a href="/paycal/final-june/scenarios/scenario2/final-recalculation-run/send-billing-file" class="govuk-button show-continue"
+                  style="display: inline;">
+                  Continue
+                </a>
+
+                <a class="govuk-link" href="/paycal/final-june/scenarios/scenario2/final-recalculation-run/scenario2-dashboard-final-recalculation-run">Return to dashboard</a>
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+    </form>
+  </div>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Handle download simulation
+  document.getElementById('download-button').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const statusText = document.getElementById('download-status');
+    statusText.style.display = 'block';
+
+    setTimeout(() => {
+      statusText.innerHTML = '<strong>✔ Download complete.</strong> Your file has been saved.';
+    }, 2000);
+  });
+</script>
+{% endblock %}
