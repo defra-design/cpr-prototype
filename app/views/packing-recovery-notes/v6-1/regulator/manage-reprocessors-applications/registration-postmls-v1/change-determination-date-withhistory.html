@@ -1,0 +1,117 @@
+{% set serviceName = "Manage registration application" %}
+
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink ({
+      text: "Back",
+      href: "javascript:history.back()"
+	}) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+  <!-- OVERVIEW AND CONTACTS -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-2">
+        
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                <!--<span class="govuk-caption-l">Plastic</span>-->
+                Enter a new determination date
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            Enter the reason for date change
+          </label>
+          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+        </div>
+      
+        
+                
+<br>
+<br>
+<h2 class="govuk-heading-m">Change history</h2>
+
+<p><strong>Date changed by: </strong> Jane Fonda on 27 March 2024 at 13.56pm <br/>
+
+<strong>Reason:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu semper arcu. Phasellus ornare ac ipsum vitae fermentum. </p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <p><strong>Date changed by: </strong> Jane Fonda on 27 March 2024 at 13.56pm <br/>
+
+<strong>Reason:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu semper arcu. Phasellus ornare ac ipsum vitae fermentum. </p>
+        <div class="govuk-button-group">
+          <a href="javascript:history.back()" class="govuk-link">   
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+         Change determination date
+       </button>    </a> 
+        <div class="govuk-button-group">
+          <a href="javascript:history.back()" class="govuk-link">   
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+       Cancel
+       </button>    </a> 
+
+
+
+     
+     
+        </div>
+            
+    </div>
+
+
+  </div><!--End of Contenet area-->
+
+  <!--START-->
+
+
+  
+
+                 </div>
+  </div>
+
+
+
+{% endblock %}
