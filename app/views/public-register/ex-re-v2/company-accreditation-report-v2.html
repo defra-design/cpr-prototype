@@ -13,21 +13,21 @@ GOV.UK - Search for a reprocessor or exporter
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#"
-    }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#"
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
 
@@ -35,21 +35,22 @@ GOV.UK - Search for a reprocessor or exporter
 
 
 <nav class="defra-language-select" aria-label="Language switcher">
-{{ govukBackLink ({
-text: "Back to search results ",
-href: "javascript:history.back()"
-}) }}
-  <ul class="defra-language-select__list">
-    <li class="defra-language-select__list-item">
-      <span aria-current="true">English</span>
-    </li>
-    <li class="defra-language-select__list-item">
-      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link" data-journey-click="link - click:lang-select:Cymraeg">
-        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
-        <span aria-hidden="true">Cymraeg</span>
-      </a>
-    </li>
-  </ul>
+    {{ govukBackLink ({
+    text: "Back to search results ",
+    href: "javascript:history.back()"
+    }) }}
+    <ul class="defra-language-select__list">
+        <li class="defra-language-select__list-item">
+            <span aria-current="true">English</span>
+        </li>
+        <li class="defra-language-select__list-item">
+            <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+                data-journey-click="link - click:lang-select:Cymraeg">
+                <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+                <span aria-hidden="true">Cymraeg</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 
 
@@ -77,304 +78,321 @@ href: "javascript:history.back()"
                 <button class="govuk-button print-page-button" type="button">Print or download this page</button>
             </span>
         </h1>
+
         <p class="govuk-body-l">
-            As at 26 June 2025<br>
-            <span class="govuk-body">See accreditation history below for details of any amendments.
+            As at DD Month YYYY<br>
+            <span class="govuk-body">See accreditation history below for details of any amendments.</span>
+        </p>
 
+        <h2 class="govuk-heading-m">Details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
 
-                <h2 class="govuk-heading-m">Details</h2>
-                <dl class="govuk-summary-list govuk-!-margin-bottom-6">
-
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Reprocessor /exporter
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Reprocessor
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Business name
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            URM UK Ltd t/a Berryman
-                        </dd>
-                    </div>
-                    <!--
-                 <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    
-The Name of business of Re-processor and Exporter accredited to issue PRNs or PERNs
+                    pEPR Org ID
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    100256
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Business Name
                 </dt>
                 <dd class="govuk-summary-list__value">
                     URM UK Ltd t/a Berryman
                 </dd>
             </div>
--->
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Registered office/head office/main lace of business in UK
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Lidgate Crescent<br>Langthwaite Business Park<br>
-                            SOUTH KIRKBY<br> West Yorkshire<br> WF9 3NR
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Telephone ( Main Business)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            01977 608020
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-
-                            Agency
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Environment Agency
-                        </dd>
-                    </div>
-                    <!--
-                        <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    
-Agency of an accredited RE/EX
+                    Trading Name<br><span class="govuk-body-s">(If applicable)</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Environment Agency
                 </dd>
             </div>
- -->
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Company House number
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            4084246
-                        </dd>
 
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Registration number
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            R25ER7012251234GL
-                        </dd>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Company House number<br><span class="govuk-body-s">(If applicable)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    4084246
+                </dd>
+            </div>
 
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Registered Address<br><span class="govuk-body-s">(Main place of Business)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Lidgate Crescent<br>Langthwaite Business Park<br>
+                    SOUTH KIRKBY<br> West Yorkshire<br> WF9 3NR
+                </dd>
+            </div>
 
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Telephone Number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    01977 608020
+                </dd>
+            </div>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
 
-                            Trading name ( if diff to registered address)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
+                    pEPR Registration Number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    R25ER7012251234GL
+                </dd>
+            </div>
 
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Type<br><span class="govuk-body-s">(Reprocessor / Exporter)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Reprocessor
+                </dd>
+            </div>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Registered Reprocessing site (UK)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Lidgate Crescent<br>SOUTH KIRKBY<br>West Yorkshire<br>WF9 3NR
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Packaging Waste Category ( i.e. Material)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            Glass
-                        </dd>
-                    </div>
+                    Appropriate Agency
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Environment Agency<br>
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Annex II Process
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Overseas Reprocessing site (s)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Accreditation status ( name, active, suspended, cancelled)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <strong class="govuk-tag govuk-tag--green">
-                                Active
-                            </strong>
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Accreditation No
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            A25ER7012254321GL
-                        </dd>
-
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-
-                            Tonnage Band
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                            Large
-
-                            Accredited to issue more than 400 tonnes of PRNs
-                        </dd>
-                    </div>
+                </dd>
+            </div>
 
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Active Date
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                            05/05/2022
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Date last changed
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                            01/03/2024
-                        </dd>
-                    </div>
 
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Compliance with monthly reporting obligations (Y/N per month)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Reprocessing Site Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Lidgate Crescent<br>SOUTH KIRKBY<br>West Yorkshire<br>WF9 3NR
+                </dd>
+            </div>
 
-                            Y
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Material
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Glass
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Annex II Process
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Overseas Reprocessing Sites<br><span class="govuk-body-s"> (Registration)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Registration Start Date
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    05/05/2022
+                </dd>
+            </div>
 
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Compliance with annual reporting obligations (Y/N per year)
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                            Y
-                        </dd>
-                    </div>
-
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Notice to suspend or cancel
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-
-                            N/A
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Registration status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <strong class="govuk-tag govuk-tag--green">
+                        Granted
+                    </strong>
+                </dd>
+            </div>
 
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Civil Sanctions
-                        </dt>
-                        <dd class="govuk-summary-list__value">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date Last Change<br><span class="govuk-body-s"> (Registration)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    2025
+                </dd>
+            </div>
 
-                            N/A
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Accreditation No
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    A25ER7012254321GL
+                    <br>
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+                </dd>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Quarterly returns
-                        </dt>
-                        <dd class="govuk-summary-list__value">
+            </div>
 
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Independent Auditors Reports
-                        </dt>
-                        <dd class="govuk-summary-list__value">
 
-                        </dd>
-                    </div>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Revenue Reports
-                        </dt>
-                        <dd class="govuk-summary-list__value">
 
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Accreditation Year
+                </dt>
+                <dd class="govuk-summary-list__value">
 
-                </dl>
+                    2025
+                </dd>
+            </div>
 
-                <h2 class="govuk-heading-m">Accreditation History</h2>
-                <dl class="govuk-summary-list govuk-!-margin-bottom-4">
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Status
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <strong class="govuk-tag govuk-tag--green">
-                                Active
-                            </strong>
-                        </dd>
 
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Effective from
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            3/02/2025
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Date last changed
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            3/02/2025
-                        </dd>
-                    </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Tonnage Band
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    10,0000+
+                    <br>
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+                </dd>
+            </div>
 
-                </dl>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Overseas Reprocessing Site<br><span class="govuk-body-s">(Accreditation)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Accreditation Start Date
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    6/5/2025
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Accreditation status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <strong class="govuk-tag govuk-tag--green">
+                        Granted
+                    </strong>
+                </dd>
+            </div>
+
+                       <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date Last Change<br><span class="govuk-body-s"> (Accreditation)</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  
+                      <strong class="govuk-tag govuk-tag--red">
+                        missing this data
+                    </strong>
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Monthly Returns
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                      <strong class="govuk-tag govuk-tag--pink">
+                     equal experts
+                    </strong>
+                   
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Annual Returns
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                        <strong class="govuk-tag govuk-tag--pink">
+                     equal experts
+                    </strong>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Notice to suspend or cancel
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                          <strong class="govuk-tag govuk-tag--pink">
+                     equal experts
+                    </strong>
+                </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Accreditation History
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                          <strong class="govuk-tag govuk-tag--pink">
+                     equal experts
+                    </strong>
+                </dd>
+         </div>
+
+        </dl>
+
 
     </div>
 
@@ -393,10 +411,6 @@ Agency of an accredited RE/EX
 
     <a class="govuk-link" href="./search-results.html">Back to search results</a>
 </div>
-
-
-
-
 
 
 {% endblock %}
