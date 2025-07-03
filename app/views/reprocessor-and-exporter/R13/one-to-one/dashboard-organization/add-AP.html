@@ -1,0 +1,113 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <span class="govuk-caption-xl">Manage organisation</span>
+          <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Manchester green Ltd.</h1>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"> <a href="../add-organization/add-organization.html">add multiple organisations to your account</a></p>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+      
+
+      
+
+        
+            
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
+   
+<div>  
+  <!--tab component-->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+
+    <ul class="govuk-tabs__list">
+
+      
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab5">Team members</a>
+      </li>
+
+    </ul>
+
+
+    <!--fifth tab-->   
+    <div class="govuk-tabs__panel" id="tab5">
+      
+      <!-- TABLE -->
+      
+
+      <div>
+
+       <p class="govuk-body">Only approved persons can submit applications for material registrations. You’re currently a basic user.
+        </p>
+
+      <p class="govuk-body">You can either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>confirm you’d like to be an approved person</li>
+          <li>delegate someone else to be an approved person</li>
+        </ul>
+        
+        <div class="govuk-inset-text">
+        An approved person can delegate their function to another person (a delegate) at a later stage - subject to regulator approval.
+</div>
+       
+          <button type="submit" class="govuk-button govuk-button--primary" data-module="govuk-button" > add a team member</button>
+        
+   
+      </div>
+
+    </div> <!-- end first tab-->
+
+  </div><!--end tab component-->
+</div>
+</div>
+
+{% endblock %}
