@@ -1,0 +1,81 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="non-approve-person-invite">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Do you manage or control the organisation?
+            </h1>
+          </legend>
+          <p>This means control or management of a business which does not have a registered 
+            office, head office or principal place of business in the UK.</p>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="non-uk-org" name="form-organisation-type" type="radio" value="Non-UK organisation" {{ checked("form-organisation-type", "manage-account-person-2 organisation") }}>
+              <label class="govuk-label govuk-radios__label" for="non-uk-org">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "manage-account-person-2") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
+                No
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "manage-account-person-2") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
+                Not sure
+              </label>
+            </div>
+            
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
