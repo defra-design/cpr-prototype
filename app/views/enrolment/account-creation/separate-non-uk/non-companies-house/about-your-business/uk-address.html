@@ -1,0 +1,120 @@
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "#" %}
+
+{% set title = "" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "../../../index.html"
+    }) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+
+        <ul class="moj-primary-navigation__list">
+
+
+   <li class="moj-primary-navigation__item">
+        <p><strong>EPR for packaging: reprocessors and exporters
+</strong></p>
+</li>
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="#1">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#2">Manage account</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#3">Sign out</a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+  /* ==========================================================================
+   #PRIMARY NAVIGATION Overriding the bold 
+   Known issue workaround hack is not responsive atm
+   ========================================================================== */
+
+.moj-primary-navigation__link {
+  font-weight: normal;
+}
+
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="trading-name">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Does the organisation have a main
+address in the UK?</h1>
+          </legend>
+          <p>This means a head office or a principal place of business in the UK.</p>
+          <div class="govuk-radios" data-module="govuk-radios">
+            
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="partnership" name="form-organisation-type" type="radio" value="Partnership" {{ checked("form-organisation-type", "Partnership") }}>
+              <label class="govuk-label govuk-radios__label" for="partnership">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sole-trader" name="form-organisation-type" type="radio" value="Sole trader" {{ checked("form-organisation-type", "Sole trader") }}>
+              <label class="govuk-label govuk-radios__label" for="sole-trader">
+                No
+              </label>
+            </div>
+            
+            
+            
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

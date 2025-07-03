@@ -1,0 +1,132 @@
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "#" %}
+
+{% set title = "" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "../../../index.html"
+    }) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+
+        <ul class="moj-primary-navigation__list">
+
+
+   <li class="moj-primary-navigation__item">
+        <p><strong>EPR for packaging: reprocessors and exporters
+</strong></p>
+</li>
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="#1">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#2">Manage account</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#3">Sign out</a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+  /* ==========================================================================
+   #PRIMARY NAVIGATION Overriding the bold 
+   Known issue workaround hack is not responsive atm
+   ========================================================================== */
+
+.moj-primary-navigation__link {
+  font-weight: normal;
+}
+
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        <form method="post" action="registered-as-a-charity">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Jamie Roberts</span>
+                Add your organisation details   
+              </h1>
+            <div class="govuk-form-group">
+                
+               
+            
+            <p class="govuk-body">You need to provide details about your organisation.</p>
+           <h2 class="govuk-heading-m">If you’re registered with Companies House</h2>
+
+           <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's Companies House registration number and official name</li>
+              <li>the names of all partners if it's a partnership</li>
+            </ul>
+            <br> 
+
+            <h2 class="govuk-heading-m">If you’re not registered with Companies House</h2>
+            <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's name and address</li>
+              <li>the names of all partners if it's a partnership</li>
+            </ul> 
+        </div>
+
+         <h2 class="govuk-heading-m">Approved persons</h2>
+         <p class="govuk-body">You'll need to invite at least one eligible person to be an approved person to carry out certain tasks. This applies whether your organisation is registered with Companies House or not.</p>
+     
+        <p class="govuk-body govuk-!-margin-top-4"><a href="#">More about approved persons</a></p>
+        <br>
+            
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" href="registered-as-a-charity">
+                    Add an organisation
+                </button>
+                
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

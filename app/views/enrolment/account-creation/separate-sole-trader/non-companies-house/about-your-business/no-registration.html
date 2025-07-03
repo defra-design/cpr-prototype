@@ -1,0 +1,631 @@
+{% extends "layout-gov.html" %}
+
+{% set serviceName %}
+Collection and packaging reforms
+{% endset%}
+
+{% set serviceName = "" %}
+
+{% block pageTitle %}
+GOV.UK - Guidance - Packaging public registers
+{% endblock %}
+
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "",
+serviceUrl: "#",
+classes: "govuk-header--full-width-border"
+}) }}
+
+<section aria-label="Service information" class="govuk-service-navigation govuk-!-margin-bottom-0"
+    data-module="govuk-service-navigation">
+    <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+            <span class="govuk-service-navigation__service-name">
+                <a href="#" class="govuk-service-navigation__link">
+                    EPR for packaging: reprocessors and exporters
+
+
+                </a>
+            </span>
+            <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+                <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+                    aria-controls="navigation" hidden>
+                    Menu
+                </button>
+                <ul class="govuk-service-navigation__list" id="navigation">
+
+
+                    <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+                        <a class="govuk-service-navigation__link" href="#" aria-current="true">
+                            <strong class="govuk-service-navigation__active-fallback">Home</strong>
+                        </a>
+                    </li>
+
+                    <li class="govuk-service-navigation__item">
+                        <a class="govuk-service-navigation__link" href="#">
+                            Manage account
+                        </a>
+                    </li>
+
+                    <li class="govuk-service-navigation__item">
+                        <a class="govuk-service-navigation__link" href="#">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+    <ul class="defra-language-select__list">
+        <li class="defra-language-select__list-item">
+            <span aria-current="true">English</span>
+        </li>
+        <li class="defra-language-select__list-item">
+            <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+                data-journey-click="link - click:lang-select:Cymraeg">
+                <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+                <span aria-hidden="true">Cymraeg</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+    /* add blue border full width */
+
+    .govuk-header--full-width-border {
+        border-bottom-color: #1d70b8;
+    }
+
+    /* custom nav */
+    .govuk-service-navigation {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #b1b4b6;
+        background-color: #f3f2f1;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation {
+        border-bottom-color: rgb(142, 183.5, 219.5);
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation {
+        background-color: rgb(243.7, 247.85, 251.45);
+    }
+
+    .govuk-service-navigation__container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__container {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    .govuk-service-navigation__item,
+    .govuk-service-navigation__service-name {
+        position: relative;
+        margin: 10px 0;
+        border: 0 solid rgb(26.1, 100.8, 165.6);
+    }
+
+    @media (min-width: 40.0625em) {
+
+        .govuk-service-navigation__item,
+        .govuk-service-navigation__service-name {
+            display: inline-block;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 20px 0;
+        }
+
+        .govuk-template--rebranded .govuk-service-navigation__item,
+        .govuk-template--rebranded .govuk-service-navigation__service-name {
+            padding: 15px 0;
+            line-height: 1.5263157895;
+        }
+
+        .govuk-service-navigation__item:not(:last-child),
+        .govuk-service-navigation__service-name:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @media (min-width: 40.0625em) and (min-width: 40.0625em) {
+
+        .govuk-service-navigation__item:not(:last-child),
+        .govuk-service-navigation__service-name:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    .govuk-service-navigation__service-name+.govuk-service-navigation__wrapper .govuk-service-navigation__list:first-child .govuk-service-navigation__item:first-child,
+    .govuk-service-navigation__service-name+.govuk-service-navigation__wrapper .govuk-service-navigation__toggle[hidden]+.govuk-service-navigation__list .govuk-service-navigation__item:first-child {
+        margin-top: 0;
+    }
+
+    @media (max-width: 40.0525em) {
+        .govuk-service-navigation__item--active {
+            margin-left: -15px;
+            padding-left: 10px;
+            border-left-width: 5px;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__item--active {
+            padding-bottom: 15px;
+            border-bottom-width: 5px;
+        }
+
+        .govuk-template--rebranded .govuk-service-navigation__item--active {
+            padding-bottom: 10px;
+        }
+    }
+
+    .govuk-service-navigation__link {
+        font-family: "GDS Transport", arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-decoration: underline;
+        text-decoration-thickness: max(1px, .0625rem);
+        text-underline-offset: 0.1578em;
+    }
+
+    @media print {
+        .govuk-service-navigation__link {
+            font-family: sans-serif;
+        }
+    }
+
+    .govuk-service-navigation__link:hover {
+        text-decoration-thickness: max(3px, .1875rem, .12em);
+        text-decoration-skip-ink: none;
+        text-decoration-skip: none;
+    }
+
+    .govuk-service-navigation__link:focus {
+        outline: 3px solid transparent;
+        color: #0b0c0c;
+        background-color: #ffdd00;
+        box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+        text-decoration: none;
+    }
+
+    @supports not (text-wrap: balance) {
+        .govuk-service-navigation__link:focus {
+            box-decoration-break: clone;
+        }
+    }
+
+    .govuk-service-navigation__link:not(:hover):not(:active) {
+        text-decoration: none;
+    }
+
+    .govuk-service-navigation__link:link {
+        color: #1d70b8;
+    }
+
+    .govuk-service-navigation__link:visited {
+        color: #1d70b8;
+    }
+
+    .govuk-service-navigation__link:hover {
+        color: #003078;
+    }
+
+    .govuk-service-navigation__link:active {
+        color: #0b0c0c;
+    }
+
+    .govuk-service-navigation__link:focus {
+        color: #0b0c0c;
+    }
+
+    .govuk-service-navigation__link:not(:hover):not(:focus) {
+        color: rgb(26.1, 100.8, 165.6);
+    }
+
+    .govuk-service-navigation__service-name {
+        font-family: "GDS Transport", arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    @media print {
+        .govuk-service-navigation__service-name {
+            font-family: sans-serif;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__service-name {
+            font-size: 1.1875rem;
+            line-height: 1.3157894737;
+        }
+    }
+
+    @media print {
+        .govuk-service-navigation__service-name {
+            font-size: 14pt;
+            line-height: 1.15;
+        }
+    }
+
+    .govuk-service-navigation__service-name .govuk-service-navigation__link:link,
+    .govuk-service-navigation__service-name .govuk-service-navigation__link:visited {
+        color: #0b0c0c;
+    }
+
+    @media print {
+
+        .govuk-service-navigation__service-name .govuk-service-navigation__link:link,
+        .govuk-service-navigation__service-name .govuk-service-navigation__link:visited {
+            color: #000000;
+        }
+    }
+
+    .govuk-service-navigation__service-name .govuk-service-navigation__link:hover {
+        color: rgba(11, 12, 12, 0.99);
+    }
+
+    .govuk-service-navigation__service-name .govuk-service-navigation__link:active,
+    .govuk-service-navigation__service-name .govuk-service-navigation__link:focus {
+        color: #0b0c0c;
+    }
+
+    @media print {
+
+        .govuk-service-navigation__service-name .govuk-service-navigation__link:active,
+        .govuk-service-navigation__service-name .govuk-service-navigation__link:focus {
+            color: #000000;
+        }
+    }
+
+    .govuk-service-navigation__wrapper {
+        flex-grow: 1;
+    }
+
+    .govuk-service-navigation__toggle {
+        font-family: "GDS Transport", arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25;
+        display: inline-flex;
+        margin: 10px 0;
+        padding: 0;
+        border: 0;
+        color: rgb(26.1, 100.8, 165.6);
+        background: none;
+        word-break: break-all;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    @media print {
+        .govuk-service-navigation__toggle {
+            font-family: sans-serif;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__toggle {
+            font-size: 1.1875rem;
+            line-height: 1.3157894737;
+        }
+    }
+
+    @media print {
+        .govuk-service-navigation__toggle {
+            font-size: 14pt;
+            line-height: 1.15;
+        }
+    }
+
+    .govuk-service-navigation__toggle:focus {
+        outline: 3px solid transparent;
+        color: #0b0c0c;
+        background-color: #ffdd00;
+        box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+        text-decoration: none;
+    }
+
+    @supports not (text-wrap: balance) {
+        .govuk-service-navigation__toggle:focus {
+            box-decoration-break: clone;
+        }
+    }
+
+    .govuk-service-navigation__toggle::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+        border-width: 8.66px 5px 0 5px;
+        border-top-color: inherit;
+        content: "";
+        margin-left: 5px;
+    }
+
+    .govuk-service-navigation__toggle[aria-expanded=true]::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        border-width: 0 5px 8.66px;
+        border-bottom-color: inherit;
+    }
+
+    .govuk-service-navigation__toggle[hidden] {
+        display: none;
+    }
+
+    .govuk-service-navigation__service-name+.govuk-service-navigation__wrapper .govuk-service-navigation__toggle {
+        margin-top: 0;
+    }
+
+    .govuk-service-navigation__list {
+        font-family: "GDS Transport", arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.25;
+        margin: 0;
+        margin-bottom: 15px;
+        padding: 0;
+        list-style: none;
+    }
+
+    @media print {
+        .govuk-service-navigation__list {
+            font-family: sans-serif;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__list {
+            font-size: 1.1875rem;
+            line-height: 1.3157894737;
+        }
+    }
+
+    @media print {
+        .govuk-service-navigation__list {
+            font-size: 14pt;
+            line-height: 1.15;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .govuk-service-navigation__list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: 40.0625em) and (min-width: 0\0) {
+        .govuk-service-navigation__list {
+            display: block;
+        }
+    }
+
+    .govuk-service-navigation__active-fallback {
+        font-weight: inherit;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse {
+        border-bottom: none;
+        background-color: #1d70b8;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-width-container {
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: rgb(142, 183.5, 219.5);
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__container {
+        margin-top: -1px;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__item,
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__service-name {
+        border-color: #ffffff;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__link:link,
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__link:visited {
+        color: #ffffff;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__link:hover,
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__link:active {
+        color: rgba(255, 255, 255, 0.99);
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__link:focus {
+        color: #0b0c0c;
+    }
+
+    .govuk-template--rebranded .govuk-service-navigation--inverse .govuk-service-navigation__toggle:not(:focus) {
+        color: #ffffff;
+    }
+
+
+
+
+
+    /* ------------------------------------------------------------------------- */
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p><a href="#" class="govuk-link">Add another organisation</a></p>
+    <span class="govuk-caption-xl">Jamie Roberts</span>
+      <h1 class="govuk-heading-l" style="margin-bottom: 3%;">ACORN LIMITED</h1>
+      <h3 class="govuk-heading-s">Organisation ID <br> 
+        <p>100762</p> 
+      </h3>
+    
+
+        <div class="govuk-!-padding-bottom-5"></div><!--space-->
+   
+<div>  
+  <!--tab component-->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+
+    <ul class="govuk-tabs__list">
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab1">Registration</a>
+      </li>
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab2">Accreditation</a>
+      </li>
+
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#tab5">Team members</a>
+      </li>
+
+    </ul>
+
+    <!--first tab-->   
+    <div class="govuk-tabs__panel" id="tab1">
+    
+      <p class="govuk-body">You have not registered any materials yet.</p>
+      <p><a href="#" class="govuk-link">Apply for registration</a>
+      </p>
+    
+    </div> 
+    
+    <!--Second tab-->   
+    <div class="govuk-tabs__panel" id="tab2">
+    
+      <p class="govuk-body">You need to <a href="#" class="govuk-link"> apply for registration </a> in order to get material accreditations.
+      </p>
+    
+    </div>
+
+    <!--fifth tab-->   
+    <div class="govuk-tabs__panel" id="tab5">
+      
+      <!-- TABLE -->
+      <div style="float: right;">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" > add a team member</button>
+      </div>
+
+      <div>
+
+        <h3 class="govuk-heading-s">Invitations sent</h3>
+ 
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Email address</th>
+                <th scope="col" class="govuk-table__header">Permissions</th>
+                <th scope="col" class="govuk-table__header">Expiry date</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">sonia.webb@bestfoods.com</th>
+                <td class="govuk-table__cell">Manage team and upload data</td>
+                <td class="govuk-table__cell">24 February 2024</td>
+                <td class="govuk-table__cell"><a href="confirm-cancellation" class="govuk-link" style="color: #d4351c">Cancel invitation</a></td>
+              </tr>
+            </tbody>
+        </table>
+        
+        <br>
+      
+        <h3 class="govuk-heading-s">Team members</h3>
+  
+  
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Permissions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Sarah Rogers</a><br>Approved person</th>
+              <td class="govuk-table__cell">Submit data, manage the team</td>
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Joanne Wilson</a></th>
+              <td class="govuk-table__cell">Manage team and upload data</td>
+            </tr>
+    
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a href="#" class="govuk-link">Robert Smith</a></th>
+              <td class="govuk-table__cell">Upload data only</td>
+            </tr>
+          </tbody>
+        </table>
+   
+      </div>
+
+    </div> <!-- end first tab-->
+
+  </div><!--end tab component-->
+</div>
+
+
+{% endblock %}
