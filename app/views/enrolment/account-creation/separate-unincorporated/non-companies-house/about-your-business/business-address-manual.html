@@ -1,0 +1,115 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="role-in-organisation" method="post">
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            What is your organisation’s address?
+          </h1>
+        </legend>
+        <br>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="building-number-1">
+            Building number
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2" value="{{data['address-town']}}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="building-number-2">
+            Building name
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2" value="{{data['address-town']}}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="street">
+            Street
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2" value="{{data['address-town']}}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-county">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text" value="{{data['address-county']}}">
+        </div>
+        <div class="govuk-form-group">
+    <label class="govuk-label" for="address-county">
+      County (optional)
+    </label>
+    <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text">
+  </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code" value="{{data['address-postcode']}}">
+        </div>
+
+      </fieldset>
+
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
