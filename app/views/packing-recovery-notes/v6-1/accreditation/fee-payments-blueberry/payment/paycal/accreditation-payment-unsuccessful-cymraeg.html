@@ -1,0 +1,83 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full govuk-body" style="text-align: right;"><a href="#">English</a> | Cymraeg</div>
+      <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="#" method="POST">
+          <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="account-number">
+        	Y taliad yn aflwyddiannus
+      </label>
+    </h1>
+          </p>
+          <p class="govuk-body">Chafodd eich taliad mo'i gwblhau a does dim arian wedi'i gymryd o'ch cyfrif.</p>
+          <p class="govuk-body">Dim ond ar ôl i daliad gael ei wneud y bydd y rheoleiddiwr yn adolygu'r cais.</p>
+          <p class="govuk-body">Cyfeirnod eich cais yw <strong>PR/PK/EXP 000568587647654</strong>. </p>
+          <p class="govuk-body">Os byddwch yn dal i gael problemau wrth dalu, cysylltwch â desg gymorth EPR <a href="mailto:recipient@example.com">eprcustomerservice@defra.gov.uk</a> neu ffoniwch <strong>0300 060 0002</strong>.</p>
+          <br>
+        </form>
+
+        <div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Try online payment again
+  </button>
+  <a href="https://defra-cpr-prototype.herokuapp.com/reprocessor-and-exporter/R13/one-to-one/dashboard-organization/full-both" role="button" class="govuk-button govuk-button--secondary">
+          Go to home page
+        </a>
+</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
