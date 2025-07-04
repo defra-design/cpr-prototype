@@ -3,10 +3,20 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  {{ govukBackLink ({
-      text: "Back",
-      href: "javascript:history.back()"
-	}) }}
+  {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/packing-recovery-notes/v6-1/regulator/manage-reprocessors-applications/registration-mls/regulator-home"
+    },
+    {
+      text: "Manage registration and accreditation",
+      href: ""
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -594,7 +604,7 @@ Green Ltd
        
            </tbody>
          </table>
-         <a href="#" class="govuk-link" style="font-size:large;">View applications</a>
+         <a href="\packing-recovery-notes\v6-1\regulator-accreditation\exporter\new-accreditation.html" class="govuk-link" style="font-size:large;">View applications</a>
        
          <h1 class="govuk-body-l" style="margin-left: 0px; padding-top: 30px;">
          
