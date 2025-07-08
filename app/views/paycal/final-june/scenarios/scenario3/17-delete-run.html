@@ -1,0 +1,53 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="15-remove-run-classification">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span><a class="account-link" href="details"
+        id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<!--<h1 class="govuk-heading-xl">You have successfully deleted this file</h1>-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+    <span class="govuk-caption-l">Follow up run 2024</span>
+    <h1 class="govuk-heading-xl">Are you sure you want to delete this calculation run?</h1>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--invisible">
+    <h3 class="govuk-body">Only delete this calculation run if you no longer need it or have completed another
+      successful run.</h3>
+
+
+
+    <form action="/form-handler" method="post" novalidate>
+      <div class="govuk-button-group">
+        <a href="18-delete-success" class="govuk-button govuk-button--warning" type="submit">Delete run</a>
+        <a class="govuk-link" href="1-dashboard">Return to dashboard</a>
+      </div>
+    </form>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

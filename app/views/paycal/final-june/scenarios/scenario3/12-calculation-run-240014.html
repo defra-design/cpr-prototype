@@ -1,0 +1,117 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Steve Jones</span>
+      <a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+        <span class="govuk-caption-l">Follow up run 2024</span>
+        <h1 class="govuk-heading-l">Calculation run details</h1>
+
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+
+        <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Financial year</th>
+                    <td class="govuk-table__cell">2024-25</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Classification</th>
+                    <td class="govuk-table__cell">	Interim recalculation run</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Calculation ID</th>
+                    <td class="govuk-table__cell">240014</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Run date and time</th>
+                    <td class="govuk-table__cell">1st June 2025 15.30</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Billing file sent</th>
+                    <td class="govuk-table__cell">17th July 2024</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Run by</th>
+                    <td class="govuk-table__cell">Steve Jones</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Sent by</th>
+                    <td class="govuk-table__cell">Jamie Roberts</td>
+                  </tr>
+                </tbody>
+              </table>
+
+        <!-- Downloads -->
+        <h2 class="govuk-heading-m">Downloads</h2>
+        <p class="govuk-body">Download files related to this calculation run.</p>
+
+        <a id="download-button" href="#" class="govuk-button govuk-button--secondary" role="button">
+          Results file
+        </a>
+        <a id="download-button" href="#" class="govuk-button govuk-button--secondary" role="button">
+          Billing file
+        </a>&nbsp; &nbsp;
+        <p id="download-status" class="govuk-body" style="display: none; margin-top: 15px;">
+          <strong>Downloading...</strong> Please wait while we prepare your file.
+        </p>
+
+        <!-- Delete -->
+
+        <div class="govuk-button-group">
+
+          <a class="govuk-link" href="11-dashboard-final-recalculation-run">
+            Return to dashboard
+          </a>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<script>
+  document.getElementById('download-button').addEventListener('click', function (event) {
+    event.preventDefault();
+    const statusText = document.getElementById('download-status');
+    statusText.style.display = 'block';
+    statusText.innerHTML = `
+      <strong>✔ Download complete.</strong> Your file has been saved. <br><br>
+      <a href="/downloads/results-file.csv" target="_blank" style="margin-left: 10px;">View results-file.csv</a>
+    `;
+    // Uncomment below to trigger actual download
+    // window.location.href = '/downloads/results-file.csv';
+  });
+</script>
+
+{% endblock %}

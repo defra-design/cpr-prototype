@@ -1,0 +1,137 @@
+{% set serviceName = "Run the fees and payments calculator" %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{serviceName}} prototype
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-radios__label {
+    padding: 0px 15px 11px 10px;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="4-run-details">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span>
+      <a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    &nbsp; &nbsp; <br>
+    <form id="redirectForm">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="approval-code-hint">
+          <span class="govuk-caption-l">Follow up run 2024</span>
+          <h1 class="govuk-heading-l">Remove final recalculation run classification</h1>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--invisible">
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Financial year</th>
+                <td class="govuk-table__cell">2024-25</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Classification</th>
+                <td class="govuk-table__cell">Final recalculation run</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Calculation ID</th>
+                <td class="govuk-table__cell">240011</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Run date and time</th>
+                <td class="govuk-table__cell">15 December 2024 at 09:25</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="initialRun" name="calcRun" type="radio" value="outputInitialTest">
+              <label class="govuk-label govuk-radios__label" for="initialRun">
+                <strong>Test run</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">View the calculation results without generating a
+                  billing file for invoicing.</p>
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interimRecalculationRun" name="calcRun" type="radio"
+                value="outputDelete">
+              <label class="govuk-label govuk-radios__label" for="interimRecalculationRun">
+                <strong>Delete run</strong><br>
+                <p class="govuk-body-s" style="margin-bottom: 0;">Remove this calculation run if you no longer need it.
+                </p>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+      <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning </span>
+    You cannot remove a run's classification after the billing file has been issued. Once classified, any previous unclassified runs can no longer be classified.
+  </strong>
+</div>
+
+      <div class="govuk-button-group">
+        <button type="button" id="continueButton" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <button type="button" class="govuk-button govuk-button--secondary"
+          onclick="window.location.href='calculate-packaging-payments'">
+          Cancel
+        </button>
+        <a class="govuk-link" href="../../calculate-packaging-payments.html">Return to dashboard</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<script>
+  document.getElementById("continueButton").addEventListener("click", function () {
+    const selected = document.querySelector('input[name="calcRun"]:checked');
+    if (!selected) {
+      alert("Please select an option.");
+      return;
+    }
+
+
+    let redirectPage;
+    switch (selected.value) {
+      case "outputInitialTest":
+        redirectPage = "16-test-run";
+        break;
+      case "outputDelete":
+        redirectPage = "17-delete-run";
+        break;
+      default:
+        redirectPage = "#";
+    }
+
+    window.location.href = redirectPage;
+  });
+</script>
+
+{% endblock %}
