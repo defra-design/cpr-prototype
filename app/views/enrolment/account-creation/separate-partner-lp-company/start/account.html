@@ -1,0 +1,104 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Reprocessor and exporters service" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "EPR for packaging: reprocessors and exporters",
+    serviceUrl: "#",
+    navigation: [
+    {
+    href: "#",
+    text: "",
+    active: true
+    },
+    {
+    href: "manage-account.html",
+    text: "" 
+    },
+    
+    {
+    href: "#",
+    text: ""
+    }
+    ]
+    }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+        <form method="post" action="registered-as-a-charity">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Jamie Roberts</span>
+                Add your organisation details   
+              </h1>
+            <div class="govuk-form-group">
+                
+               
+            
+            <p class="govuk-body">You need to provide details about your organisation.</p>
+           <h2 class="govuk-heading-m">If you’re registered with Companies House</h2>
+
+           <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's Companies House registration number and official name</li>
+              <li>individual and corporate names for all partners, if you’re a limited partnership</li>
+            </ul>
+            <br> 
+
+            <h2 class="govuk-heading-m">If you’re not registered with Companies House</h2>
+            <p class="govuk-body">You'll need:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your organisation's name and address</li>
+              <li>individual and corporate names for all partners if you’re a partnership</li>
+            </ul> 
+        
+            <p class="govuk-body">You’ll also need to add at least one approved person to manage the account.</p>
+        
+        </div>
+        <p class="govuk-body govuk-!-margin-top-4"><a href="#">Read more about approved persons</a></p>
+        <br>
+            
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" href="registered-as-a-charity">
+                    Add an organisation
+                </button>
+                
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

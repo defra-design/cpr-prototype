@@ -1,0 +1,132 @@
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{% extends "layout.html" %}
+
+{% set serviceName = "#" %}
+
+{% set title = "" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "../../../index.html"
+    }) }}
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+
+        <ul class="moj-primary-navigation__list">
+
+
+   <li class="moj-primary-navigation__item">
+        <p><strong>EPR for packaging: reprocessors and exporters
+</strong></p>
+</li>
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="#1">Home</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#2">Manage account</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="#3">Sign out</a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is not a live service.',
+  classes: 'govuk-width-container'
+}) }}
+ 
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+  /* ==========================================================================
+   #PRIMARY NAVIGATION Overriding the bold 
+   Known issue workaround hack is not responsive atm
+   ========================================================================== */
+
+.moj-primary-navigation__link {
+  font-weight: normal;
+}
+</style>
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">What are the names of all individual partners in your limited partnership?</h1>
+    
+    <div id="waste-hint" class="govuk-hint">
+      This means individual partners, who are listed as partners within your limited partnership, as registered on Companies House.  
+    </div>
+
+    <div data-module="moj-add-another">
+      <form method="post">
+    
+        <fieldset class="govuk-fieldset moj-add-another__item">
+          <hr>
+          <br>
+          <p></p>
+          <div class="govuk-form-group">
+           
+            <label class="govuk-label govuk-!-font-weight-bold" for="person[0][first_name]">
+              Full name
+            </label>
+    
+            <input class="govuk-input" id="person[0][first_name]" name="person[0][first_name]" type="text" data-name="person[%index%][first_name]" data-id="person[%index%][first_name]">
+          </div>
+    
+        </fieldset>
+        <hr>
+        <br>
+    
+        <div class="moj-button-action">
+    
+          <button type="submit" class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4" data-module="govuk-button">
+            Add another partner 
+          </button>
+    
+        </div>
+    
+        <div class="moj-button-action">
+    
+          <div class="govuk-button-group">
+            <a href="check-partners" class="govuk-button" type="submit">Continue</a>   
+          </div>
+    
+        </div>
+    
+      </form>
+    
+    </div>
+    
+
+  </div>
+</div>
+
+{% endblock %}
