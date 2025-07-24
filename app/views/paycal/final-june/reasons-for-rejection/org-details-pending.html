@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% set serviceName = " pEPR Regulators' Service" %}
+
+{% set title = "pEPR: Regulators' Service" %}
+
+{% block pageTitle %}
+Small producer - Manage registration submissions
+{% endblock %}
+
+
+{% block beforeContent %}
+<style>
+  .govuk-tag {
+    text-transform: none;
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+    display: inline-block;
+    min-width: 120px;
+    max-width: 160px;
+    margin-top: -2px;
+    margin-bottom: -3px;
+    padding: 2px 8px 3px;
+    color: #0c2d4a;
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <a class="govuk-back-link" href="confirm-billing-instructions">Back</a>
+  </div>
+
+  <div class="govuk-body account-info govuk-grid-column-one-half">
+    <div class="alignname" style="margin-right: 15px;">
+      <span class="your-name" id="bannerUserName">Jamie Roberts</span>
+      <a class="account-link" href="details" id="signout-link">Sign out</a>
+    </div>
+  </div>
+</div>
+<br>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Calculation run 99</span>
+    <h1 class="govuk-heading-xl" style="margin-bottom: 3%;">Acme org Ltd</h1>
+
+    <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Org info</th>
+                    <td class="govuk-table__cell">One</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Org info</th>
+                    <td class="govuk-table__cell">Two</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Org info</th>
+                    <td class="govuk-table__cell">Three</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Org info</th>
+                    <td class="govuk-table__cell">Four</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <table class="govuk-table" class="govuk-table" style="table-layout: fixed; width: 100%;">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th scope="col" class="govuk-table__header" style="width: 170px;">Organisation name</th>
+          <th scope="col" class="govuk-table__header" style="width: 160px;">Organisation ID</th>
+          <th scope="col" class="govuk-table__header" style="width: 160px;">Billing instruction</th>
+          <th scope="col" class="govuk-table__header" style="width: 140px;">Invoice amount</th>
+          <th scope="col" class="govuk-table__header" style="width: 140px;">Status</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body" id="submission-table-body">
+        <!-- Content start -->
+        <tr>
+
+          <td class="govuk-table__cell"
+            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">Acme org Ltd.</td>
+          <td class="govuk-table__cell"
+            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">215148</td>
+          <td class="govuk-table__cell"
+            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;"><strong
+              class="govuk-tag govuk-tag--blue">Initial</strong></td>
+          <td class="govuk-table__cell"
+            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">£100,000</td>
+          <td class="govuk-table__cell"
+            style="width: 60px; text-align: left; padding: 10px 20px 10px 0px; vertical-align: middle;">
+            <strong class="govuk-tag govuk-tag--yellow">Pending</strong>
+          </td>
+        </tr>
+        </tbody>
+        </table>
+
+    
+    
+  </div>
+  <div class="govuk-grid-column-full">
+       <div style="margin-top: 30px;">
+      <h2 class="govuk-heading-m">Update billing instructions</h2>
+
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+      text: "Accept",
+      href: "accept-confirm.html",
+      attributes: {
+      style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;
+      margin-left: 0px; box-shadow: 0 2px 0 rgb(0, 112, 60);"
+      }
+      }) }}
+      
+    </div>
+    <p class="govuk-body">Provide a reason that applies to all the billing instructions you selected for rejection.</p>
+
+    <div class="govuk-grid-column-two-thirds" style="padding:0px;">
+
+      <div class="govuk-form-group">
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+          aria-describedby="more-detail-hint"></textarea>
+      </div>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+      text: "Reject",
+      href: "reject-confirm.html",
+      attributes: {
+      style: "background-color: #ffffff; border: 1px solid #d4351c; color: #d4351c; margin-left: 10px;
+      margin-left: 0px; box-shadow: 0 2px 0 rgb(212, 53, 28);"
+      }
+      }) }}
+
+      <a style="float: right; padding-right:370px; padding-top: 10px; font-size: 18px;" href="/paycal/final-june/scenarios/scenario1/classify/initial-run/scenario1-dashboard-initial-run" class="govuk-link">Return to dashboard</a>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}
