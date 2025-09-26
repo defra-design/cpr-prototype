@@ -213,10 +213,10 @@ Compliance scheme - Manage registration submissions
               <strong>Application fee</strong>
             </dd>
             <dd class="govuk-summary-list__value">
-              Previously paid
+              Paid previously – no further payment required 
             </dd>
             <dd class="govuk-summary-list__actions">
-              £0.00
+              
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -255,16 +255,7 @@ Compliance scheme - Manage registration submissions
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-              <strong>Previous payments</strong>
-            </dd>
-            <dd class="govuk-summary-list__value">
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <strong>£0.00</strong>
-            </dd>
-          </div>
+      
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
               <strong>Total outstanding</strong>
@@ -327,29 +318,40 @@ Compliance scheme - Manage registration submissions
     </div>
     <!-- Producer comments end-->
 
-    <!-- Regulator comments start-->
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper" style="align-items: center;">
-        <h2 class="govuk-summary-card__title">Regulator comments</h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-          </li>
-        </ul>
-      </div>
-      <div class="govuk-width-container" style="padding: 30px;">
-        <!-- alternative div A-->
-        <div style="padding-bottom: 0px; margin: 0px;">
-          <p class=" govuk-body" style="margin:0px;">Sample text of a producer comment here Lorem ipsum dolor sit
-            amet, consectetur adipiscing
-            elit. Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent eget nunc eget magna auctor aliquet. </p>
-        </div>
-      </div>
-    </div>
-    <!-- Regulator comments end-->
+    <!-- Producer comments end-->
 
 
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+    {{ govukButton({
+    text: "Grant registration",
+    href: "./granting-question",
+    attributes: {
+    style: "float: left; "
+    }
+    }) }}
+
+    {{ govukButton({
+    text: "Refuse registration",
+    href: "../actions/refusing/1-reason",
+    classes: "govuk-button--warning",
+    attributes: {
+    style: "float: left; margin-left: 30px;"
+    }
+    }) }}
+
+
+    {{ govukButton({
+    text: "Query registration",
+    href: "../actions/quering/reason.html",
+    attributes: {
+    style: "background-color: #ffffff; border: 1px solid #00703c; color: #00703c; margin-left: 10px;
+    margin-left: 30px;"
+    }
+    }) }}
+</div>
 
 
     <div class="govuk-width-container"><a href="main-r9-version.html" class="govuk-link govuk-link--no-visited-state">Go
