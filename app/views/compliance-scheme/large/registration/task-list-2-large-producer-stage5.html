@@ -1,0 +1,170 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "https://defra-cpr-prototype.herokuapp.com/small-producers/small-producers-index",
+serviceName: serviceName,
+serviceUrl: "#",
+navigation: [
+{ href: "landing-page.html", text: "Home" },
+{ href: "#", text: "Manage account" },
+{ href: "#", text: "Sign out" }
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: { text: "prototype" },
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="defra-language-select" aria-label="Language switcher">
+
+       {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="payment-large-producers-2">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+         <span class="govuk-caption-l">Large producer 2026 registration</span>
+        <h1 class="govuk-heading-l">Members' organisation details</h1>
+        <div class="govuk-inset-text" style="margin-bottom: 20px;">
+           <p class="govuk-body"><strong>Compliance scheme: COMPLIANCE LTD</strong><br />
+        <strong>Regulator: Environment Agency (England)</strong>.
+      </p>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Ensure your packaging data for 2025 has been reported before registering. Failure may result in
+            delays to your registration being assessed.
+          </strong>
+        </div>
+
+        <p class="govuk-body">You must be an approved or delegated person to submit your data and complete the
+          application.</p>
+
+        <!-- Content Start -->
+        <h2 class="app-task-list__section">Additional information</h2>
+        <p class="govuk-body">Use the comment box to enter additional information which may assist the regulator. For
+          example, an agreement over a part-payment.</p>
+
+        <form id="textareaForm" novalidate>
+          <fieldset id="textarea-fieldset" class="govuk-fieldset">
+            <!-- Error Message -->
+            <span id="error-message" class="govuk-error-message" style="display: none;">
+              Please provide additional information in the comment box.
+            </span>
+
+            <div class="govuk-form-group">
+              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"
+                aria-describedby="more-detail-hint" style="margin-bottom: 0px !important;"></textarea>
+            </div>
+          </fieldset>
+
+          <div style="margin-top: 20px;">
+
+            {{ govukButton({
+            text: "Submit registration application",
+            attributes: {
+            id: "submitButton",
+            onclick: "handleSubmit(event)"
+            }
+            }) }}
+          </div>
+        </form>
+
+        <style>
+          /* Error styling for the textarea field */
+          .govuk-fieldset--error {
+            padding-left: 15px;
+            border-left: 5px solid #d4351c;
+          }
+
+          .govuk-textarea--error {
+            border: 1px solid #d4351c;
+          }
+        </style>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const textarea = document.getElementById('more-detail');
+    const fieldset = document.getElementById('textarea-fieldset');
+    const errorMessage = document.getElementById('error-message');
+
+    // Check if textarea is empty
+    if (textarea.value.trim() === "") {
+      // Show error message and add error styling
+      errorMessage.style.display = 'block';
+      fieldset.classList.add('govuk-fieldset--error');
+      textarea.classList.add('govuk-textarea--error');
+    } else {
+      // Hide error message and remove error styling
+      errorMessage.style.display = 'none';
+      fieldset.classList.remove('govuk-fieldset--error');
+      textarea.classList.remove('govuk-textarea--error');
+
+      // Redirect to the specified page
+      window.location.href = "payment-large-producers-2";
+    }
+  }
+
+  // Add a click listener for when the user interacts with the page
+  document.addEventListener('click', (event) => {
+    const textarea = document.getElementById('more-detail');
+    const fieldset = document.getElementById('textarea-fieldset');
+    const errorMessage = document.getElementById('error-message');
+
+    // If clicking outside the form and textarea is empty, show error
+    if (!textarea.contains(event.target) && textarea.value.trim() === "") {
+      errorMessage.style.display = 'block';
+      fieldset.classList.add('govuk-fieldset--error');
+      textarea.classList.add('govuk-textarea--error');
+    }
+  });
+</script>
+{% endblock %}
+
+{% block bodyEnd %}{% endblock %}

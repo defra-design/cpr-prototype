@@ -1,0 +1,107 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
+    }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ <span class="govuk-caption-l">Large producer 2026 registration</span>
+     <h1 class="govuk-heading-l">Upload your brand details file</h1>
+      
+     <div id="event-name-hint" class="govuk-hint">
+      File must be a CSV.
+    </div>
+      
+      <form method="POST" action="uploading-brand">
+    
+          <!-- FILE UPLOAD -->
+          <div class="govuk-form-group">
+            
+             <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+          </div>
+        {{ govukButton({
+          text: "Upload file"
+        })}}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

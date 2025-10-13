@@ -1,0 +1,137 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+       {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-0">
+       <span class="govuk-caption-l">Large producer 2026 registration</span>
+      <h1 class="govuk-heading-l"> Pay by bank transfer</h1>
+
+      <!-- Content Start -->
+      <p class="govuk-body">Pay the registration fee of <strong>£17,174.00 </strong> by bank transfer.
+      </p>
+
+      <h2 class="govuk-heading-m">Payment details</h2>
+
+      <div style="border-left: 1px solid #b1b4b6;padding-left: 15px;margin-bottom: 30px;margin-top: 30px;">
+        <ul class="govuk-list govuk-list">
+          <li>Use the application payment reference: <strong>222019EFGF</strong></li>
+          <li>Account name: EA Receipts</li>
+          <li>Account number: 10014411</li>
+          <li>Sort code: 60-70-80</li>
+          <li>Bank name: Royal Bank of Scotland, London Corporate Service Centre, CPB Services, 2nd floor, 280
+            Bishopsgate, London EC2M 4RB</li>
+        </ul>
+      </div>
+
+
+      <h3 class="govuk-heading-m">After payment is made</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Submit your application from the registration dashboard.</li>
+        <li style="width: 500px !important;">Send BACS remittance to <br><a
+            href="mailto:packagingproducers@environment-agency.gov.uk"
+            class="govuk-link">packagingproducers@environment-agency.gov.uk</a></li>
+      </ol>
+
+      <div class="govuk-width-container">
+        <p class="govuk-body">
+          You can
+          <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+            print or save this page as a PDF
+          </a>
+        </p>
+        <div class="govuk-width-container" style="margin-top:60px;">
+          <p class="govuk-body">
+            <a href="../../sub-landing-pending-payment-bank-or-phone-transfer.html" class="govuk-link">Return to register your members</a>
+          </p>
+        </div>
+      </div>
+      <!-- Content End -->
+    </div>
+  </div>
+</div>
+
+<script>
+  function handlePrintOrSave() {
+    window.print(); // This opens the print dialog where users can choose to print or save as PDF
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+       {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ 
+
+        <form action="file-resubmitted" method="post">
+    <span class="govuk-caption-l  ">Large producer 2026 registration</span>  
+          <h1 class="govuk-heading-l ">
+            Check files and submit        
+      </h1>
+
+
+    <p>You have uploaded new organisation details. You can now submit them.</p>
+
+    
+    
+    <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Files uploaded</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> file </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                File name 
+              </dt> 
+              <dt class="govuk-summary-list__key">
+                Date uploaded
+              </dt>
+              <dt class="govuk-summary-list__key">
+                Uploaded by
+              </dt>
+                  <dt class="govuk-summary-list__key">
+             
+              </dt>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+               orgdetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+                10 October 2023, 2:00pm
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith
+               </dd>
+                <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="#">Download</a>
+               </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                branddetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+                10 October 2023, 2:00pm
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith 
+              </dd>
+               <dd class="govuk-summary-list__value">
+                <a class="govuk-link" href="#">Download</a>
+               </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                partnerdetails1.csv
+              </dd>
+              <dd class="govuk-summary-list__value">
+               10 October 2023, 2:00pm
+              </dd>
+              <dd class="govuk-summary-list__value">
+                John Smith 
+              </dd>
+               <dd class="govuk-summary-list__value">
+                    <a class="govuk-link" href="#">Download</a>
+               </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+            <h2 class="govuk-heading-m">Do you want to submit your members' organisation details? </h2>
+        
+      <form id="agreementForm">
+        {{ govukRadios({
+        name: "agreement",
+        value: data['agreement'],
+        items: [
+        {
+        value: "pay-bank-transfer",
+        text: "Yes, I'd like to submit "
+
+        },
+        {
+        value: "pay-online",
+        text: "No, I don't want to do this right now"
+        }
+        ]
+        }) }}
+        <br>
+                 <div class="govuk-warning-text">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                          <span class="govuk-warning-text__assistive">Warning</span>
+                          Your organisation may face enforcement action if the data is inaccurate
+                        </strong>
+                      </div>
+
+        {{ govukButton({
+          text: "Confirm",
+          preventDoubleClick: true,
+          href: 'file-resubmitted.html',
+          classes: ''
+          }) }}
+      </form>
+<!-- was previously goibg to declaration.html -->
+         
+       
+
+        </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

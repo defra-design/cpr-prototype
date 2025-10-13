@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+ Report packaging data
+{% endblock %}
+
+{% block header %}
+
+  {# Set serviceName in config.js. #}
+  
+  {{ govukHeader({
+    homepageUrl: "../../../index.html",
+    serviceName: "Report packaging data",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Manage account" 
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is not a live service.',
+    classes: 'govuk-width-container'
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="report-org-details-task-list.html">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <form method="POST" action="./confirmation?submitted=yes">
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+
+                    <h1 class="govuk-heading-l">Check files and submit to the environmental regulator</h1>
+
+<!--                    <h2 class="govuk-heading-m">Your files</h2>-->
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+                        <!-- ORGANISAITON DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Organisation details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >
+                                    {{data['organisation-details-file']}} 
+                                </a>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                                    Change<span class="govuk-visually-hidden"> organisation details file</span>
+                                </a>
+                            </dd>
+                        </div>
+
+                        <!-- BRAND OWNER DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Brand details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >01-acme-brand.csv
+                                </a>
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                                    Change<span class="govuk-visually-hidden"> brand owner details file</span>
+                                </a>
+                            </dd>
+                        </div>
+
+                        <!-- PARTNER DETAILS -->
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Partner details
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <a class="govuk-link--no-visited-state govuk-link" href="#" >01-acme-partner.csv
+                                </a> 
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                                    Change<span class="govuk-visually-hidden">partnership details file</span>
+                                </a>
+                            </dd>
+                        </div>
+
+
+                    </dl>    
+
+                    
+                    <!-- FOR COMPLIANCE SCHEMES ONLY-->
+                    
+
+                    <p class="govuk-body">Your organisation may face enforcement action if the data you submit is inaccurate.</p>
+
+                </div>
+            </div> 
+
+            {{ govukButton({
+            text: "Submit to regulator",
+            preventDoubleClick: true,
+            href: 'file-resubmitted.html'
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
