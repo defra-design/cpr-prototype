@@ -1,0 +1,153 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+       {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="payment-small-producers-next-basic">
+      <div class=" govuk-form-group govuk-!-margin-0">
+         <span class="govuk-caption-l">Small producer 2026 registration</span>
+        <h1 class="govuk-heading-l">Registration fee due</h1>
+
+        <!-- Content Start -->
+        <p class="govuk-body">A registration fee of <strong>£8,290.00</strong> is due.</p>
+        <p class="govuk-body">Registration fees are calculated from the information you have supplied.</p>
+        <p class="govuk-body"><a
+            href="https://www.gov.uk/guidance/packaging-producer-responsibilities#packaging-producer-charges"
+            class="govuk-link" rel="noreferrer noopener" target="_blank">More about Extended producer responsibility
+            (EPR) fees and charges</a>.</p>
+
+        <!-- Payment start -->
+        <div class="govuk-width-container govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+          <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-top-6">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Items</th>
+                <th scope="col" class="govuk-table__header govuk-!-padding-left-2">Description</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__header">Application fee
+                </td>
+                <td class="govuk-table__cell govuk-!-padding-left-2">	Compliance scheme, paid previously – no further payment required</td>
+                <td class="govuk-table__cell govuk-table__header--numeric"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  Scheme members
+                </th>
+                <td class="govuk-table__cell govuk-!-padding-left-2">15 Small producers</td>
+                <td class="govuk-table__cell govuk-table__header--numeric">£8,290.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Sub-total</th>
+                <td class="govuk-table__cell govuk-!-padding-left-2">
+                </td>
+                <td class="govuk-table__cell govuk-table__header--numeric">£8,290.000</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  Total outstanding</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__header govuk-table__header--numeric">£8,290.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Payment end -->
+
+        {{ govukButton({
+        text: "Continue",
+        attributes: {
+        id: "submitButton",
+        onclick: "handleSubmit(event)"
+        }
+        }) }}
+        <!-- Content end-->
+
+    </form>
+  </div>
+</div>
+{% endblock %}

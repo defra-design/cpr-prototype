@@ -1,0 +1,137 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+
+       {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.back()"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+{% endblock %}
+{% block content %}
+<!-- Page layout start 1 -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-!-margin-0">
+       <span class="govuk-caption-l">Small producer 2026 registration</span>
+      <h1 class="govuk-heading-l">Pay by phone</h1>
+      <!-- Page layout end 1 -->
+
+      <!-- Content Start -->
+      <p class="govuk-body">Pay the registration fee of <strong>£8,290.00</strong> by phone.</p>
+      </p>
+
+      <p class="govuk-body">Have your bank details ready to call.</p>
+
+      <h2 class="govuk-heading-m">Payment details</h2>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body">Enquires</p>
+        <ul class="govuk-list govuk-list">
+          <li>Use the application payment reference: <strong>222019EFGF</strong></li>
+          <li>Environment Agency</li>
+          <li>Telephone: 03708 506 506</li>
+          <li>Telephone from outside the UK: +44 (0) 114 282 5312</li>
+          <li>Monday to Friday, 8am to 6pm</li>
+          <br>
+          <li><a href="https://www.gov.uk/call-charges" class="govuk-link">Find out about call charges</a></li>
+        </ul>
+      </div>
+      <div class="govuk-width-container">
+        <p class="govuk-body">Submit your application from the registration dashboard when payment has been made.</p>
+        <p class="govuk-body">
+          You can
+          <a href="#" onclick="handlePrintOrSave()" class="govuk-link printButton pdfButton">
+            print or save this page as a PDF
+          </a>
+        </p>
+      </div>
+
+      <p class="govuk-body" style="margin-top: 60px;">
+        <a href="../../sub-landing-pending-payment-bank-or-phone-transfer.html" class="govuk-link">Return to register your members</a> 
+      </p>
+      <!-- Content Start -->
+
+      <!-- Page layout start 2  -->
+    </div>
+  </div>
+</div>
+
+<!-- Page layout end 2  -->
+
+<script>
+  function handlePrintOrSave() {
+    window.print(); // This opens the print dialog where users can choose to print or save as PDF
+  }
+</script>
+
+
+{% endblock %}

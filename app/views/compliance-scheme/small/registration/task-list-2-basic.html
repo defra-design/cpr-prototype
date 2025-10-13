@@ -1,0 +1,132 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Back",
+  href: "scheme-reg-details"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="POST" action="fees-task-list-2">
+      <div class="govuk-form-group govuk-!-margin-top-0">
+         <span class="govuk-caption-l">Small producer 2026 registration</span>
+        <h1 class="govuk-heading-l">COMPLIANCE LTD</h1>
+
+        <!-- Content Start -->
+        <ul class="app-task-list__items govuk-!-padding-left-0" style="margin-bottom: 30px;">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="before-you-start" aria-describedby="#" class="#">
+                Submit registration data
+              </a>
+            </span><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">not
+              started</strong><br>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              
+                View registration fee
+             
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">cannot
+              start yet</strong><br>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              Submit registration application
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="contact-information-status">Cannot start
+              yet</strong><br>
+          </li>
+        </ul>
+         <p>  <a href="../../sub-landing.html">Return to register your members</a></p>
+      
+        </a>
+        <!-- Content end-->
+
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block bodyEnd %}
+{% endblock %}

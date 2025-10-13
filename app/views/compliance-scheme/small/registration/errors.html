@@ -1,0 +1,139 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<style>
+  .card {
+    min-height: 180px;
+  }
+</style>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  {{ govukBackLink ({
+  text: "Back",
+  href: "before-you-start"
+  }) }}
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="POST" action="./loading-success">
+            <!-- RADIOS -->
+            <div class="govuk-form-group ">
+ <span class="govuk-caption-l">Small producer 2026 registration</span>
+                <h1 class="govuk-heading-l">
+                    Organisation details not uploaded – fix errors and try again
+                </h1>
+
+                <p class="govuk-body">There are 3 errors in your file. </p>
+                
+                <p class="govuk-body">This means the organisation details were not uploaded.</p>
+
+    
+
+                <h2 class="govuk-heading-m">
+                    Fix your errors
+                </h2>
+
+
+
+                <ol class="govuk-list govuk-list--number govuk-list--spaced">
+                    <li>
+                        <a href="../../../../../../public/files/error-report-01-acme-org-details.csv" class="govuk-link govuk-link--no-visited-state" type="text/csv" download>
+                            Download your error report (<abbr title="comma-separated values">CSV</abbr>, 0.3<abbr title="Kilobyte">KB</abbr>)</a>. 
+                        This will tell you where the errors are in your file. </li>
+
+                    <li>Use the report to fix the errors. You may also need the <a href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging/organisation-details-file-specification-for-extended-producer-responsibility" target="_blank" class="govuk-link govuk-link--no-visited-state">
+                        file specification guidance (opens in new window)</a>.</li>
+
+                    <li>Upload the file again.</li>
+
+                </ol>
+
+
+                <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
+                    Upload the file again
+                </label>
+                <!--
+<div id="organisation-file-hint" class="govuk-hint">
+You should upload as CSV file
+</div>
+-->
+                <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+
+            </div>
+            {{ govukButton({
+            text: "Upload file",
+            preventDoubleClick: true
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
