@@ -1,0 +1,328 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+        {{ govukBackLink({
+            text: "Back",
+            href: "lp-sub-landing-page-s3"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<!-- Responsive Table for Prototype added in to fix the issue where tables with more than 3 columns with long labels dont resize properly on mobile.
+Table for Mobile (max-width: 768px). 
+The thead is hidden since the table headers will now be shown before the cell content using the data-header attribute.
+Each row is displayed as a block, and individual cells are turned into flex containers.
+The header for each cell (using data-header) is displayed using the ::before pseudo-element, simulating a label before each cell's content.
+Checked and no issues with waze.
+-->
+
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
+
+
+<!--aug 24-->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds    ">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+     Certificate of Compliance for 2025
+    </h1>
+
+
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     <h2 class="govuk-heading-m">Your details</h2>
+               <p class="govuk-body"><strong>Compliance scheme: </strong>COMPLIANCE LTD (EA)</p>
+              <p class="govuk-body"><strong>Organisation ID: </strong>215148</p>
+       <p class="govuk-body"><strong>Regulator: </strong>Environment Agency (England)</p>
+
+         <p class="govuk-body"><strong>Date: </strong>14 January 2026</p>
+ <p class="govuk-body"><strong>Status:</strong> <strong class="govuk-tag govuk-tag--yellow">Not met</strong></p>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">
+    Your recycling obligations progress
+  </caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" width="15%">Material</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligations to meet</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+      <th scope="col" class="govuk-table__header" width="13%">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <!-- Aluminium -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        Aluminium
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">5,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">2,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">3,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">2,000</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--yellow">Not met</strong></td>
+    </tr>
+    <!-- Glass -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        Glass
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">15,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">6,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">19,000</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--yellow">Not met</strong></td>
+    </tr>
+    <!-- Paper, board or fibre-based composite material	Not available yet -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        Paper, board or fibre-based composite material
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">20,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">20,000</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--yellow">Not met</strong></td>
+    </tr>
+    <!-- Plastic -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        Plastic
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">5,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">10,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">15,000</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--yellow">Not met</strong></td>
+    </tr>
+    <!-- Steel -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+      Steel
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">30,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">30,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Wood -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        Wood
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Totals -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Totals">
+        Totals
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">105,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">22,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">49,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">56,000</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--yellow">Not met</strong></td>
+    </tr>
+
+  </tbody>
+</table>
+<details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">Why is this page read-only?</span>
+</summary>
+<div class="govuk-details__text">
+Evidence and obligation totals are calculated from your submitted packaging data and accepted PRNs/PERNs in EPR. To correct a figure, update your packaging data or evidence at source, then return to this page.
+</div>
+</details>
+
+       <h1 class="govuk-heading-l">
+                        Declaration              
+                    </h1>
+
+                    <p class="govuk-body">By entering your name and submitting this Certificate of Compliance to the regulator, you confirm that: </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>you are authorised to act on behalf of your organisation</li>
+                      <li>the information you are submitting is accurate</li>
+                    </ul>
+                    
+                    
+                    <div class="govuk-form-group">
+                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                       Enter your full name
+                     </legend>
+                      <input class="govuk-input" id="event-name" name="event-name" type="text">
+                    </div>
+                    
+                    
+              
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+   You are about to submit a Not Met obligation certificate.
+
+
+  </strong>
+</div>
+
+
+
+                      {{ govukButton({
+                        text: "Confirm and submit",
+                        preventDoubleClick: true,
+                        href: 'success.html',
+                        classes: 'govuk-!-margin-top-4'
+                        }) }}
+
+
+</form>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

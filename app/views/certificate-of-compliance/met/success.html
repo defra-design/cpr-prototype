@@ -1,0 +1,142 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+  
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Your 2025 Certificate of Compliance has been submitted
+            </h1>
+            <div class="govuk-panel__body">
+              Status: Met
+            </div>
+          </div>
+
+          <p class="govuk-body">We have sent an email confirmation to <a href="email@address.com"> email@address.com</a></p>
+
+          <h2 class="govuk-heading-m">Your details</h2>
+              <p class="govuk-body"><strong>Compliance scheme: </strong>COMPLIANCE LTD (EA)</p>
+              <p class="govuk-body"><strong>Organisation ID: </strong>215148</p>
+       <p class="govuk-body"><strong>Regulator: </strong>Environment Agency (England)</p>
+
+         <p class="govuk-body"><strong>Submission date
+and time: </strong>14 January 2026, 11:23</p>
+ <p class="govuk-body"><strong>Status:</strong> <strong class="govuk-tag govuk-tag--green">Met</strong></p>
+  
+      
+
+<h2 class="govuk-heading-m">What happens next</h2>
+<!-- <p class="govuk-body">
+Because your Certificate of Compliance was submitted with status ‘Not Met’, the regulator may contact you to discuss your submission or ask for more information.
+</p> -->
+
+<p class="govuk-body">If you need to resubmit or talk about your submission, contact your regulator.</p>
+
+
+<p class="govuk-body">
+We’ll use the information you provided to update the public register for your organisation.</p>
+
+
+    <button class="govuk-button print-page-button" type="button">Print or download this page</button>
+
+
+          <!-- Content end-->
+
+    
+<p class="govuk-body">
+        <a href="lp-sub-landing-page-s3-sent.html" class="govuk-link">Return to Manage your 2025 recycling obligations</a>
+      </p>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var printButtons = document.querySelectorAll('.print-page-button')
+        printButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                window.print()
+            })
+        })
+    })
+</script>
+{% endblock %}

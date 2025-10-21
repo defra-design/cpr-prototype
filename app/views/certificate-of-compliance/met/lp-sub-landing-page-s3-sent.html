@@ -1,0 +1,408 @@
+{% extends "layout-private-beta-research.html" %}
+
+{% set serviceName %}
+Report packaging data
+{% endset%}
+
+{% set serviceName = "Report packaging data" %}
+
+{% block pageTitle %}
+Report packaging data
+{% endblock %}
+
+{% block header %}
+
+{# Set serviceName in config.js. #}
+
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+        {{ govukBackLink({
+            text: "Home",
+            href: "#"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<!-- Responsive Table for Prototype added in to fix the issue where tables with more than 3 columns with long labels dont resize properly on mobile.
+Table for Mobile (max-width: 768px). 
+The thead is hidden since the table headers will now be shown before the cell content using the data-header attribute.
+Each row is displayed as a block, and individual cells are turned into flex containers.
+The header for each cell (using data-header) is displayed using the ::before pseudo-element, simulating a label before each cell's content.
+Checked and no issues with waze.
+-->
+
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!--Head-->
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Manage your 2025 recycling obligations
+    </h1>
+
+    <p> Producer: Best Foods Ltd</br>
+      Regulator: Environment Agency (England)</p>
+
+    <p>You have until <strong>31 January 2026</strong> to meet your recycling obligations for 2025.</p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        You may face enforcement action if you miss this deadline.
+      </strong>
+    </div>
+
+    <div class="govuk-inset-text">
+      <span class="govuk-caption-m">Number of PRNs and PERNs awaiting acceptance</span>
+      <br>
+      <h1 class="govuk-heading-xl">22
+        <br>
+        <span class="govuk-body"><a href="https://defra-cpr-prototype.herokuapp.com/packing-recovery-notes/v6-4/compliance-scheme/view-awaiting-acceptance-alt" class="govuk-link">Accept or reject PRNs and PERNs</a></span>
+    </div>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!--table 1-->
+<h2 class="govuk-heading-l">How to meet your recycling obligations</h2>
+<p class="govuk-body">Acquire and accept PRNs and PERNs until your recycling obligations are fully met. Select a material for information on how the data was calculated and view your progress towards meeting your 2025 recycling obligations.</p>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">
+    Your recycling obligations progress
+  </caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" width="15%">Material</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligations to meet</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+      <th scope="col" class="govuk-table__header" width="13%">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <!-- Aluminium -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/aluminium-calculation"
+          class="govuk-link">Aluminium</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">5,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">5,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+       <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Glass -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/glass-calculation-s5"
+          class="govuk-link">Glass</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+       <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Paper, board or fibre-based composite material	Not available yet -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/paper-calculation-s5"
+          class="govuk-link">Paper, board or fibre-based composite material</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">20,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">20,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Plastic -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/plastic-calculation"
+          class="govuk-link">Plastic</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+       <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Steel -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/steel-calculation"
+          class="govuk-link">Steel</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">30,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">30,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Wood -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/wood-calculation"
+          class="govuk-link">Wood</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Totals -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Totals">
+        Totals
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">105,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">105,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+<!--table 2-->
+<h3 class="govuk-heading-m">How to meet the glass recycling obligation</h3>
+<p class="govuk-body">A minimum of 75% of your glass recycling obligation must be made up of glass re-melt PRNs or
+  PERNs. This will make up a proportion of your overall glass recycling obligation. The remaining glass recycling
+  obligation can be met by either glass re-melt, glass other or a mix of both.</p>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Glass recycling obligation breakdown</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" width="15%">Material</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Recycling obligations to meet</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage awaiting acceptance</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage accepted</th>
+      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Tonnage outstanding</th>
+      <th scope="col" class="govuk-table__header" width="13%">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <!-- Aluminium -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/glass-calculation-s5"
+          class="govuk-link">Glass re-melt</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">18,751</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">18,751</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Glass -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Material">
+        <a href="https://defra-cpr-prototype.herokuapp.com/obligation/view-obligation-v2/glass-calculation-s5"
+          class="govuk-link">Remaining glass</a>
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">6,249</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">6,249</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+      <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+    <!-- Totals -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" data-header="Totals">
+        Totals
+      </th>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Recycling obligations to meet">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage awaiting acceptance">0</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage accepted">25,000</td>
+      <td class="govuk-table__cell govuk-table__cell--numeric" data-header="Tonnage outstanding">0</td>
+       <td class="govuk-table__cell" data-header="Status"><strong class="govuk-tag govuk-tag--green">Met</strong></td>
+    </tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full  govuk-!-margin-bottom-5">
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+    
+
+      <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+          <h2 class="govuk-heading-m">Review your PRNs and PERNs</h2><br>
+        <p class="govuk-body">View and accept any issued PRNs and PERNs to meet your recycling obligations.</p>
+      <p class="govuk-body"><a
+          href="https://defra-cpr-prototype.herokuapp.com/packing-recovery-notes/v6-4/compliance-scheme/view-awaiting-acceptance-alt"
+          class="govuk-link">Accept or reject PRNs and PERNs
+        </a></p>
+      <p class="govuk-body"><a
+          href="https://defra-cpr-prototype.herokuapp.com/packing-recovery-notes/v6-4/compliance-scheme/view-awaiting-acceptance"
+          class="govuk-link">Search PRNs and PERNs</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link">Download a list of all PRNs and PERNs (CSV)</a></p>
+        </div>
+      </div>
+
+      
+      <div class="govuk-grid-column-one-half">
+        <div class="card" style="background-color:#ffffff; border: 1px solid #b1b4b6">
+
+          <h2 class="govuk-heading-m ">Certificate of Compliance for 2025 </h2>
+
+          <p class="govuk-body"><strong>Status:</strong> <strong class="govuk-tag govuk-tag--green">Met</strong></p>
+          
+
+  <p class="govuk-body">Your Certificate of Compliance, with status ‘Met’, was submitted on 14 January 2026.</p><p class="govuk-body">If you need to resubmit or talk about your submission, contact your regulator.</p>
+ 
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

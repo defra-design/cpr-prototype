@@ -1,13 +1,13 @@
 {% extends "layout-private-beta-research.html" %}
 
 {% set serviceName %}
-EPR for packaging data
+Report packaging data
 {% endset%}
 
-{% set serviceName = "EPR for packaging data" %}
+{% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
-Manage your 2025 recycling obligations
+Report packaging data
 {% endblock %}
 
 {% block header %}
@@ -16,21 +16,16 @@ Manage your 2025 recycling obligations
 
 {{ govukHeader({
 homepageUrl: "../../../index.html",
-serviceName: "EPR for packaging data",
+serviceName: "Report packaging data",
 serviceUrl: "#",
 navigation: [
 {
-href: "#",
-text: "Home",
-active: true
+href: "landing-page.html",
+text: "Home"
 },
 {
 href: "#",
 text: "Manage account"
-},
-{
-href: "#",
-text: "My profile"
 },
 {
 href: "#",
@@ -46,13 +41,38 @@ text: "prototype"
 html: 'This is not a live service.',
 classes: 'govuk-width-container'
 }) }}
-{% endblock %}
 
+{% endblock %}
 
 {% block beforeContent %}
-<a href="lp-landing-page.html" class="govuk-back-link">Home<span class="govuk-visually-hidden">EPR for packaging data
-    homepage</span></a>
+
+
+<nav class="defra-language-select" aria-label="Language switcher">
+        {{ govukBackLink({
+            text: "Home",
+            href: "#"
+        }) }}
+
+  <ul class="defra-language-select__list">
+    <li class="defra-language-select__list-item">
+      <span aria-current="true">English</span>
+    </li>
+    <li class="defra-language-select__list-item">
+      <a href="?cy" hreflang="cy" lang="cy" rel="alternate" class="govuk-link"
+        data-journey-click="link - click:lang-select:Cymraeg">
+        <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
+        <span aria-hidden="true">Cymraeg</span>
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+ 
 {% endblock %}
+
+
 
 
 
@@ -360,18 +380,11 @@ Checked and no issues with waze.
 
           <h2 class="govuk-heading-m ">Certificate of Compliance for 2025 </h2>
 
-          <p class="govuk-body"><strong class="govuk-tag govuk-tag--yellow">Not yet submitted</strong></p>
+          <p class="govuk-body"><strong>Status:</strong> <strong class="govuk-tag govuk-tag--yellow">Not met</strong></p>
           
 
-  <p class="govuk-body">You must submit your Certificate of Compliance by 31 January 2026.</p>
-  <p class="govuk-body">It must be signed by an approved person.</p>
-
-
-       <p class="govuk-body"><a
-          href="coc-start.html"
-          class="govuk-link">Submit your Certificate of Compliance for 2025
-        </a></p>
-
+  <p class="govuk-body">Your Certificate of Compliance, with status ‘Not Met’, was submitted on 14 January 2026.</p><p class="govuk-body">If you need to resubmit or talk about your submission, contact your regulator.</p>
+ 
 
         </div>
       </div>
