@@ -7,54 +7,51 @@ Report packaging data
 {% set serviceName = "Report packaging data" %}
 
 {% block pageTitle %}
- Report packaging data
+Report packaging data
 {% endblock %}
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
-  
-  {{ govukHeader({
-    homepageUrl: "../../../index.html",
-    serviceName: "Report packaging data",
-    serviceUrl: "#",
-    navigation: [
-      {
-        href: "rejected/landing-page.html",
-        text: "Home"
-      },
-      {
-        href: "#",
-        text: "Manage account" 
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
+{# Set serviceName in config.js. #}
 
-  {{ govukPhaseBanner({
-    tag: {
-      text: "prototype"
-    },
-    html: 'This is not a live service.',
-    classes: 'govuk-width-container'
-  }) }}
+{{ govukHeader({
+homepageUrl: "../../../index.html",
+serviceName: "Report packaging data",
+serviceUrl: "#",
+navigation: [
+{
+href: "landing-page.html",
+text: "Home"
+},
+{
+href: "#",
+text: "Manage account"
+},
+{
+href: "#",
+text: "Sign out"
+}
+]
+}) }}
+
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service.',
+classes: 'govuk-width-container'
+}) }}
 
 {% endblock %}
-
 
 {% block beforeContent %}
 
 
 <nav class="defra-language-select" aria-label="Language switcher">
-
-       {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.back()"
-        }) }}
-
+  {{ govukBackLink({
+  text: "Back",
+  href: "lp-sub-landing-page-s3"
+  }) }}
 
   <ul class="defra-language-select__list">
     <li class="defra-language-select__list-item">
@@ -72,64 +69,205 @@ Report packaging data
 
 </nav>
 
- 
+
 {% endblock %}
+
+
 
 
 {% block content %}
 
+<!-- Responsive Table for Prototype added in to fix the issue where tables with more than 3 columns with long labels dont resize properly on mobile.
+Table for Mobile (max-width: 768px). 
+The thead is hidden since the table headers will now be shown before the cell content using the data-header attribute.
+Each row is displayed as a block, and individual cells are turned into flex containers.
+The header for each cell (using data-header) is displayed using the ::before pseudo-element, simulating a label before each cell's content.
+Checked and no issues with waze.
+-->
 
+<style>
+  .govuk-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+
+
+    text-align: left;
+  }
+
+  .govuk-table__header--numeric,
+  .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .govuk-table thead {
+      display: none;
+    }
+
+    .govuk-table__row {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .govuk-table__cell,
+    .govuk-table__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+    }
+
+    .govuk-table__cell::before {
+      content: attr(data-header);
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      width: 65%;
+      /* Adjust this to control the space for longer header tiles :) */
+    }
+
+    .govuk-table__cell--numeric {
+      text-align: left;
+    }
+
+    .govuk-table__cell {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
+
+
+<!--aug 24-->
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds    ">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">
+      Certificate of Compliance 2025
+    </h1>
 
 
-        <form action="file-resubmitted" method="post">
 
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                     <span class="govuk-caption-l  ">Large producer 2026 registration</span>  
-                    <h1 class="govuk-heading-l">
-                        Declaration              
-                    </h1>
-
-                    <p class="govuk-body">By entering your name and submitting the files to the environmental regulator, you are confirming that: </p>
-                    <ul class="govuk-list govuk-list--bullet">
-                      <li>you can act on behalf of your organisation</li>
-                      <li>the data you are submitting is accurate</li>
-                    </ul>
-                    
-                    
-                    <div class="govuk-form-group">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                       Enter your full name
-                     </legend>
-                      <input class="govuk-input" id="event-name" name="event-name" type="text">
-                    </div>
-                    
-                    
-                    
-                    <div class="govuk-warning-text">
-                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                        <strong class="govuk-warning-text__text">
-                          <span class="govuk-warning-text__assistive">Warning</span>
-                          Your organisation may face enforcement action if the data is inaccurate
-                        </strong>
-                      </div>
-
-                      {{ govukButton({
-                        text: "Confirm and submit",
-                        preventDoubleClick: true,
-                        href: 'file-resubmitted.html',
-                        classes: 'govuk-!-margin-top-4'
-                        }) }}
-                   
-
-                </fieldset>
-            </div>
-
-        </form>
-
-    </div>
+  </div>
 </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <h2 class="govuk-heading-m">Your details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Compliance scheme
+            </dt>
+            <dd class="govuk-summary-list__value">
+             COMPLIANCE LTD (EA)
+            </dd>
+          
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Organisation ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              215 148
+            </dd>
+          
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Regulator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Environment Agency (England)
+            </dd>
+          
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              14 January 2026
+            </dd>
+     
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Obligation status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--green">Met</strong>
+            </dd>
+         
+          </div>
+        </dl>
+
+    <h1 class="govuk-heading-l">
+      Declaration
+    </h1>
+
+
+
+    <p class="govuk-body">You are about to submit a Certificate of Compliance 2025 . </p>
+       <p class="govuk-body">By entering your name you confirm: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you are an approved person authorised to act on behalf of your organisation </li>
+      <li>the information you are submitting is, to the best of your knowledge, accurate </li>
+      <li>your organisation has met its obligations under The Producer Responsibility Obligations (Packaging and Packaging Waste) Regulations 2024 </li>
+    </ul>
+<!--
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        Certificates reporting not met obligations are reviewed by the regulator who may contact you. 
+
+
+      </strong>
+    </div>
+
+-->
+
+    <div class="govuk-form-group">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-top-6">
+        Enter your full name
+      </legend>
+      <input class="govuk-input" id="event-name" name="event-name" type="text">
+    </div>
+
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+      text: "Confirm and submit",
+      href: 'success.html'
+      }) }}
+
+      <a class="govuk-link" href="lp-sub-landing-page-s3">Cancel</a>
+    </div>
+
+
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
 
 {% endblock %}
