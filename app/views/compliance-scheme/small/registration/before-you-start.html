@@ -80,61 +80,69 @@ classes: 'govuk-width-container'
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+      <span class="govuk-caption-l">Small producer 2026 registration</span>
+      <h1 class="govuk-heading-l">
+        Report your members' organisation details
+      </h1>
+
+      <p class="govuk-body">Before you start, read the guidance on how to <a
+          class="govuk-link govuk-link--no-visited-state"
+          href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging"
+          target="_blank">report organisation details (opens in a new window)</a>.
+
+      <p class="govuk-body">You should:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have all your files ready to upload</li>
+        <li>ensure any file to be uploaded is in .csv format</li>
+        <li>include brand and partner information if required</li>
+        <li>use the available document templates</li>
+
+      </ul>
+      <p class="govuk-body">Your file will be rejected if you:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>include large producers' details</li>
+        <li>are reporting for subsidiaries and haven't used the subsidiary ID provided <a
+            class="govuk-link govuk-link--no-visited-state" href="#" target="_blank">Manage your subsidiaries</a></li>
+
+      </ul>
+
+    </div>
 
 
-            <div class="govuk-form-group">
-                <span class="govuk-caption-l">Small producer 2026 registration</span>
-                <h1 class="govuk-heading-l">
-                    Report your members' organisation details
-                </h1>
 
-                <h2 class="govuk-heading-m">Before you start</h2> 
-                
-                <p class="govuk-body">Read the guidance on <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/organisation-details-how-to-create-your-file-for-extended-producer-responsibility-epr-for-packaging" target="_blank">how to report organisation details (opens in a new window)</a>. <br>There are template documents you can use to build your files.</p>
+    <form method="POST" action="./loading-errors">
 
-                <h3 class="govuk-heading-m">Make sure you have all your files ready </h3>
-                <p class="govuk-body">Have all the files ready before you start, including the brand and partner information if you need them.</p>
+      <!-- FILE UPLOAD -->
+      <div class="govuk-form-group">
 
-                <h3 class="govuk-heading-m">If you’re reporting for subsidiaries</h3>
-                <p class="govuk-body">Your file will be rejected if you are reporting for subsidiaries and have not used the subsidiary ID we provided. <a class="govuk-link govuk-link--no-visited-state" href="#" target="_blank">Mange your subsidiaries</a>.
-                </p>
 
-            </div>
+        <p class="govuk-body">
+          Do not close the window while the file is uploading. This may take a few minutes.
+        </p>
 
 
 
-      <form method="POST" action="./loading-errors">
-
-          <!-- FILE UPLOAD -->
-          <div class="govuk-form-group">
-
-            <label class="govuk-label govuk-label--m govuk-!-margin-top-6" for="org-details" aria-describedby="organisation-file-hint">
-                Upload your organisation details file
-            </label>
-            <p class="govuk-body">The uploaded file must be in .csv format.</p>
-             <p class="govuk-body">Large and small producer details must be uploaded as separate files.</p>
-            <p class="govuk-body">It may take a few minutes for your file to upload - do not close the window while the file is uploading.</p>
-            
-<!--
+        <!--
             <div id="organisation-file-hint" class="govuk-hint">
               You should upload as CSV file
             </div>
 -->
-            <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
-          </div>
-        {{ govukButton({
-          text: "Upload file"
-        })}}
-      </form>
+        <input class="govuk-file-upload" id="org-details" name="organisation-details-file" type="file">
+      </div>
+      {{ govukButton({
+      text: "Upload file"
+      })}}
+    </form>
 
 
 
 
 
-    </div>
+  </div>
 </div>
-
 
 
 
